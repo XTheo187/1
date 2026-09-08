@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "standortcheck"
+version = "1.0.0"
+description = "Lead-Recherche, Website-Audit und Vertriebssteuerung für lokale Dienstleistung"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+license = { text = "MIT" }
+
+[project.scripts]
+standortcheck = "standortcheck.cli:main"
+
+[tool.setuptools]
+packages = ["standortcheck"]
