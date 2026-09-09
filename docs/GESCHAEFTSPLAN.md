@@ -67,6 +67,29 @@ Im mittleren Szenario: 35 Briefe pro Woche, davon rund 19 telefonisch erreicht,
 und der Grund, warum die ersten drei Monate über das Gespräch entschieden
 werden, nicht über die Briefmenge.
 
+## 4b. Der Weg zum ersten Umsatz — und warum nicht per Brief
+
+Der Brief skaliert gut, ist als *erster* Kanal aber der teuerste Weg. Der
+Vergleich (aus `standortcheck plan`):
+
+| Kanal | Quote je Kontakt | Kontakte bis 1. Auftrag | Kosten | Zeit |
+|---|---:|---:|---:|---:|
+| Netzwerk, Einstieg | 11,5 % | 9 | 0 € | 2,9 h |
+| Vor Ort, Einstieg | 6,1 % | 16 | 5 € | 6,8 h |
+| Vor Ort, Projekt | 2,4 % | 42 | 13 € | 21,2 h |
+| Brief + Anruf, Projekt | 0,38 % | 265 | 344 € | 70,5 h |
+
+**Die Zahl, die alles entscheidet:** 200 € Porto reichen für 153 Briefe. Die
+Wahrscheinlichkeit, damit *keinen einzigen* Auftrag zu bekommen, liegt bei
+**56 %**. Reine Briefakquise als Start ist ein Münzwurf mit dem halben Budget.
+
+Deshalb die Reihenfolge: **Netzwerk → Vor Ort mit kleinem Ticket → Paket beim
+Bestandskunden → Brief erst, wenn die eigenen Quoten belastbar sind.**
+
+Kosten bis zum ersten Geldeingang auf diesem Weg: rund **130 €**
+(Gewerbeanmeldung, Domain, Visitenkarten, Druck). Die Berufshaftpflicht wird
+erst mit dem ersten Auftrag fällig — vorher fasst niemand fremde Systeme an.
+
 ## 5. Die ersten zwölf Wochen
 
 **Woche 1–2 — Aufbau (kein Umsatz).**
@@ -75,8 +98,10 @@ zugleich. Rechtstexte auf der eigenen Seite mustergültig umsetzen — Sie
 verkaufen später genau das. Danach `suchen` und `pruefen` für den eigenen
 Landkreis laufen lassen, 150–300 Leads sammeln.
 
-**Woche 3–6 — Erste Welle (35 Briefe/Woche).**
-Briefe raus, drei Tage nach Zustellung anrufen. Jedes Gespräch eintragen.
+**Woche 3–6 — Erste Welle (15 Vor-Ort-Besuche/Woche).**
+Bericht ausgedruckt persönlich übergeben, eine Einzelmaßnahme zum Festpreis
+anbieten (`standortcheck einstieg`). Nicht angetroffen: Bericht dalassen,
+zwei Tage später anrufen. Briefe erst ab Woche 6. Jedes Gespräch eintragen.
 Ziel dieser Phase ist **nicht Umsatz, sondern Datenerhebung**: Nach 100 Briefen
 kennen Sie Ihre echten Quoten. Bis dahin: nicht am Preis drehen, nicht das
 Gewerk wechseln, nicht die Vorlage umschreiben. Sonst messen Sie nichts.

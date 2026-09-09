@@ -186,6 +186,91 @@ def startkapital_reichweite(a: Annahmen, budget_akquise: float = 200.0) -> dict[
 
 
 # --------------------------------------------------------------------------
+# Weg zum ersten Umsatz
+# --------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Kanal:
+    """Ein Akquiseweg mit seinen Quoten je Kontakt."""
+
+    name: str
+    kosten_je_kontakt: float
+    minuten_je_kontakt: float
+    erreicht: float       # Anteil, bei dem überhaupt jemand ansprechbar ist
+    gespraech: float      # davon echtes Gespräch statt Abwimmeln
+    abschluss: float      # davon Zusage
+    ticket: float         # was dabei typischerweise verkauft wird
+    hinweis: str
+    # Anteil der Gespräche, die überhaupt in eine Angebotsphase münden.
+    # Beim kleinen Ticket entfällt sie - die Zusage fällt im Gespräch.
+    # Beim Projekt ist sie real und kostet einen großen Teil des Trichters;
+    # sie wegzulassen war der Fehler, der den Briefkanal zu gut aussehen ließ.
+    angebot: float = 1.0
+
+    @property
+    def quote(self) -> float:
+        return self.erreicht * self.gespraech * self.angebot * self.abschluss
+
+
+# Bewusst vorsichtig angesetzt. Das Einstiegsticket schließt deutlich besser
+# als das Projekt, weil die Zusage im Gespräch fallen kann - keine
+# Bedenkzeit, keine zweite Person, keine Angebotsphase.
+KANAELE = [
+    Kanal(
+        "Netzwerk, Einstieg", 0.0, 20, 0.85, 0.45, 0.30, 200.0,
+        "Leute, die Sie kennen. Der mit Abstand günstigste erste Umsatz.",
+    ),
+    Kanal(
+        "Vor Ort, Einstieg", 0.30, 25, 0.50, 0.35, 0.35, 220.0,
+        "Bericht ausgedruckt persönlich übergeben, eine Maßnahme anbieten.",
+    ),
+    Kanal(
+        "Vor Ort, Projekt", 0.30, 30, 0.50, 0.35, 0.30, 1700.0,
+        "Gleicher Weg, aber gleich das Gesamtpaket - mit Angebotsphase.",
+        angebot=0.45,
+    ),
+    Kanal(
+        "Brief + Anruf, Projekt", 1.30, 16, 0.40, 0.15, 0.18, 1700.0,
+        "Skaliert gut - aber erst, wenn das Gespräch nachweislich sitzt.",
+        angebot=0.35,
+    ),
+]
+
+
+def kanalvergleich(stunden_pro_woche: float = 20.0) -> list[dict[str, Any]]:
+    """Rechnet je Kanal durch, was der erste Umsatz kostet und dauert."""
+    ergebnis = []
+    for k in KANAELE:
+        quote = k.quote
+        kontakte = 1 / quote if quote else 0
+        stunden = kontakte * k.minuten_je_kontakt / 60
+        ergebnis.append({
+            "name": k.name,
+            "quote": round(quote * 100, 2),
+            "kontakte_bis_erster": round(kontakte),
+            "kosten_bis_erster": round(kontakte * k.kosten_je_kontakt, 2),
+            "stunden_bis_erster": round(stunden, 1),
+            "wochen_bis_erster": round(stunden / stunden_pro_woche, 1)
+            if stunden_pro_woche else 0,
+            "ticket": k.ticket,
+            "eur_je_stunde": round(k.ticket / stunden) if stunden else 0,
+            "hinweis": k.hinweis,
+        })
+    return ergebnis
+
+
+def risiko_ohne_abschluss(kanal: Kanal, kontakte: int) -> float:
+    """Wahrscheinlichkeit, nach N Kontakten noch keine einzige Zusage zu haben.
+
+    Die Zahl, die in Planungen fast immer fehlt: Ein Erwartungswert von 0,6
+    Aufträgen klingt nach „fast einer“ - tatsächlich steht man in mehr als
+    der Hälfte der Fälle mit leeren Händen da.
+    """
+    return round((1 - kanal.quote) ** kontakte * 100, 1)
+
+
+# --------------------------------------------------------------------------
 # Ist-Kennzahlen aus der Datenbank
 # --------------------------------------------------------------------------
 

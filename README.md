@@ -12,6 +12,7 @@ standortcheck suchen      Betriebe aus OpenStreetMap holen        (kostenfrei)
 standortcheck pruefen     Websites auf 25+ Kriterien prüfen       (kostenfrei)
 standortcheck liste       Leads nach Priorität sortieren
 standortcheck bericht     Verkaufsfertige Analyse als HTML/PDF
+standortcheck einstieg    Einzelmaßnahme zum Festpreis je Lead (kleines Ticket)
 standortcheck ansprache   Gesprächsleitfaden, Brief, Nachfass-Mail
 standortcheck tagesplan   Was heute zu tun ist
 standortcheck kennzahlen  Umsatz, Stundenlohn, Trichter, Empfehlungen
@@ -32,6 +33,21 @@ einen Bericht, der die Mängel in Euro und Rechtsrisiko übersetzt.
 
 Der Unterschied zu kalter Akquise: Sie rufen nicht an, um etwas zu verkaufen,
 sondern um einen konkreten Befund mitzuteilen. Das ändert das Gespräch.
+
+### Zwei Stufen, nicht eine
+
+Ein Auftrag über 1.700 € braucht Bedenkzeit, oft eine zweite Person und eine
+Angebotsphase. Ein Auftrag über 149 € wird im Gespräch entschieden. Deshalb
+gibt es zwei Verkaufsstufen aus demselben Audit:
+
+| Stufe | Was | Preis | Schließt |
+|---|---|---:|---:|
+| **Einstieg** (`einstieg`) | eine Einzelmaßnahme, in einer Sitzung erledigt | 69–349 € | ~6 % je Vor-Ort-Kontakt |
+| **Paket** (`bericht`) | alle Befunde in einem Durchgang + Betreuung | 1.400–2.600 € | ~2 % je Vor-Ort-Kontakt |
+
+Der Einstieg ist nicht das Geschäft, sondern der Weg hinein: Nach einer
+gelieferten Maßnahme sind Sie keine Kaltansprache mehr. `standortcheck plan`
+rechnet beide Wege gegeneinander.
 
 ## Installation
 
@@ -55,7 +71,9 @@ standortcheck pruefen --alle                # Audit für alle neuen Leads
 standortcheck liste                         # Rangliste ansehen
 
 standortcheck bericht --limit 20            # 20 Analysen als HTML
-standortcheck ansprache --art alle --limit 20  # Briefe und Leitfäden dazu
+standortcheck einstieg                      # kleines Ticket je Lead ansehen
+standortcheck ansprache --art einstieg --limit 20   # Türgespräche dazu
+standortcheck ansprache --art alle --limit 20       # Briefe und Leitfäden
 ```
 
 Danach: Briefe drucken (Analyse als PDF beilegen), verschicken, drei Tage
@@ -103,7 +121,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 45 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 68 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau
@@ -112,6 +130,7 @@ python3 -m unittest discover -s tests -v     # 45 Tests, kein Netzzugriff nötig
 standortcheck/
   audit.py      Website-Prüfung (eigener HTML-Parser, nur Standardbibliothek)
   branchen.py   Katalog: OSM-Tags, Projektpreise, Kundenwerte
+  angebote.py   Festpreis-Bausteine für den Einstieg
   cli.py        Kommandozeile
   db.py         SQLite: Leads, Audits, Zeiten, Ausgaben
   discover.py   OpenStreetMap-Recherche über Overpass

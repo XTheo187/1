@@ -10,7 +10,8 @@ from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from standortcheck import audit, branchen, db, outreach, planner, report, scoring
+from standortcheck import (angebote, audit, branchen, db, outreach, planner,
+                           report, scoring)
 
 GUTE_SEITE = """<!DOCTYPE html><html lang="de"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -429,6 +430,137 @@ class TestAusgabe(unittest.TestCase):
         leer = {"schmerz_score": 0, "befunde": [], "aufwand_h": 0}
         for erzeuger in (outreach.telefonleitfaden, outreach.brief, outreach.nachfass_mail):
             self.assertTrue(erzeuger(self.lead, leer, self.absender))
+
+
+class TestEinstiegsangebote(unittest.TestCase):
+    def _audit_mit(self, *codes):
+        return {"schmerz_score": 50, "aufwand_h": 10.0,
+                "befunde": [{"code": c, "aufwand_h": 1.0} for c in codes]}
+
+    def test_katalog_ist_konsistent(self):
+        for b in angebote.KATALOG:
+            self.assertGreater(b.preis, 0)
+            self.assertGreater(b.stunden, 0)
+            self.assertTrue(0 <= b.zugkraft <= 100)
+            self.assertTrue(b.haken and b.ergebnis)
+            # Ein Baustein, der unter 60 EUR/h einbringt, lohnt die Fahrt nicht
+            self.assertGreaterEqual(b.stundensatz, 60, b.code)
+
+    def test_jeder_baustein_hat_einen_echten_befund(self):
+        """Ein Baustein ohne passenden Audit-Befund wird nie angeboten."""
+        with mock.patch.object(audit, "seite_laden",
+                               return_value=_antwort(SCHLECHTE_SEITE)):
+            bekannt = {b["code"] for b in
+                       audit.pruefen("https://x.de/", {"ort": "M"},
+                                     http_check=False)["befunde"]}
+        # Codes, die das Audit grundsätzlich erzeugen kann
+        alle_codes = bekannt | {
+            "kein_https", "keine_https_umleitung", "tracking_ohne_einwilligung",
+            "karte_ohne_einwilligung", "telefon_nicht_klickbar",
+            "keine_telefonnummer", "mixed_content", "zoom_gesperrt",
+            "keine_komprimierung", "formular_ohne_label", "kein_impressum",
+            "keine_datenschutzerklaerung",
+        }
+        for b in angebote.KATALOG:
+            self.assertIn(b.code, alle_codes, f"Baustein '{b.code}' ohne Befund")
+
+    def test_waehlt_den_zugkraeftigsten(self):
+        e = angebote.einstieg_waehlen(
+            self._audit_mit("kein_favicon", "kein_impressum", "keine_komprimierung"))
+        self.assertEqual(e["bausteine"][0]["code"], "kein_impressum")
+
+    def test_angebot_haelt_die_preisgrenze_ein(self):
+        codes = ("schriften_extern", "kein_impressum",
+                 "keine_datenschutzerklaerung", "kein_markup")
+        for grenze in (150, 200, 350, 500):
+            e = angebote.einstieg_waehlen(self._audit_mit(*codes), grenze=grenze)
+            self.assertLessEqual(e["preis"], grenze, f"Grenze {grenze}")
+            self.assertFalse(e["ueber_grenze"], f"Grenze {grenze}")
+
+    def test_zu_enge_grenze_wird_gemeldet_statt_verschwiegen(self):
+        e = angebote.einstieg_waehlen(
+            self._audit_mit("keine_datenschutzerklaerung"), grenze=50)
+        self.assertTrue(e["ueber_grenze"])
+        self.assertEqual(len(e["bausteine"]), 1)  # kein Buendel obendrauf
+
+    def test_bei_enger_grenze_gewinnt_der_guenstigste(self):
+        e = angebote.einstieg_waehlen(
+            self._audit_mit("keine_datenschutzerklaerung", "kein_favicon"),
+            grenze=100)
+        self.assertEqual(e["bausteine"][0]["code"], "kein_favicon")
+
+    def test_buendel_ist_guenstiger_als_einzeln(self):
+        e = angebote.einstieg_waehlen(
+            self._audit_mit("telefon_nicht_klickbar", "kein_favicon"))
+        if len(e["bausteine"]) > 1:
+            self.assertLess(e["preis"], e["einzelpreise"])
+
+    def test_ohne_passenden_befund_kein_angebot(self):
+        self.assertIsNone(angebote.einstieg_waehlen(self._audit_mit("frames")))
+        self.assertIsNone(angebote.einstieg_waehlen(None))
+
+    def test_gekaperte_domain_bekommt_kein_kleinticket(self):
+        """Eine gekaperte Domain repariert man nicht für 149 EUR."""
+        spam = ("<html><head><title>MONET11</title></head><body>situs gacor "
+                "slot online bonus harian maxwin togel judi cuan</body></html>")
+        with mock.patch.object(audit, "seite_laden", return_value=_antwort(spam)):
+            a = audit.pruefen("https://x.example/", {"name": "Y"}, http_check=False)
+        self.assertIsNone(angebote.einstieg_waehlen(a))
+
+    def test_offene_befunde_werden_gezaehlt(self):
+        a = self._audit_mit("kein_impressum", "kein_favicon", "kein_markup",
+                            "keine_beschreibung")
+        e = angebote.einstieg_waehlen(a)
+        self.assertEqual(e["weitere_offen"], 4 - len(e["bausteine"]))
+
+    def test_leitfaden_nennt_preis_und_naechsten_schritt(self):
+        a = self._audit_mit("kein_impressum", "kein_markup")
+        lead = {"id": 3, "name": "Muster", "ort": "Stadt", "plz": "1", "strasse": "W 1"}
+        absender = {"name": "T", "ort": "93047 Regensburg", "telefon": "1", "email": "a@b.de"}
+        text = outreach.einstiegsgespraech(lead, a, absender)
+        e = angebote.einstieg_waehlen(a)
+        self.assertIn(f"{e['preis']:.0f} EUR", text)
+        self.assertIn("stufe 3 gewonnen", text)
+        self.assertIn("Gesamtpaket", text)  # der Anschluss ans grosse Ticket
+        self.assertNotIn("{", text.replace("{}", ""))
+
+    def test_leitfaden_ohne_angebot_sagt_es_deutlich(self):
+        text = outreach.einstiegsgespraech(
+            {"name": "X"}, self._audit_mit("frames"),
+            {"name": "T", "ort": "R", "telefon": "1", "email": "a@b.de"})
+        self.assertIn("überspringen", text)
+
+
+class TestKanalvergleich(unittest.TestCase):
+    def test_kleines_ticket_schliesst_besser(self):
+        nach_name = {k.name: k for k in planner.KANAELE}
+        self.assertGreater(nach_name["Vor Ort, Einstieg"].quote,
+                           nach_name["Vor Ort, Projekt"].quote)
+
+    def test_vergleich_ist_nach_aufwand_geordnet(self):
+        v = planner.kanalvergleich()
+        kontakte = [e["kontakte_bis_erster"] for e in v]
+        self.assertEqual(kontakte, sorted(kontakte))
+
+    def test_briefkanal_ist_der_teuerste_einstieg(self):
+        v = planner.kanalvergleich()
+        teuerster = max(v, key=lambda e: e["kosten_bis_erster"])
+        self.assertTrue(teuerster["name"].startswith("Brief"))
+
+    def test_risiko_stimmt_mit_dem_szenariomodell_ueberein(self):
+        """Kanal- und Szenariomodell müssen dieselbe Briefquote ergeben."""
+        brief = next(k for k in planner.KANAELE if k.name.startswith("Brief"))
+        a = planner.Annahmen(**{**planner.Annahmen().__dict__,
+                                **planner.SZENARIEN["vorsichtig"]})
+        szenario_quote = (a.quote_erreicht * a.quote_gespraech
+                          * a.quote_angebot * a.quote_abschluss)
+        self.assertAlmostEqual(brief.quote, szenario_quote, places=3)
+
+    def test_risiko_faellt_mit_mehr_kontakten(self):
+        k = planner.KANAELE[0]
+        self.assertGreater(planner.risiko_ohne_abschluss(k, 5),
+                           planner.risiko_ohne_abschluss(k, 50))
+        self.assertLessEqual(planner.risiko_ohne_abschluss(k, 0), 100.0)
 
 
 class TestBranchen(unittest.TestCase):

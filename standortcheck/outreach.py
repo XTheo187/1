@@ -25,7 +25,7 @@ from __future__ import annotations
 from datetime import date, timedelta
 from typing import Any
 
-from . import branchen, scoring
+from . import angebote, branchen, scoring
 
 # Aufhänger je Befund: ein Satz, der am Telefon in drei Sekunden sitzt.
 AUFHAENGER = {
@@ -296,4 +296,84 @@ Viele Grüße
 {absender.get('name', '')}
 {absender.get('telefon', '')}
 {absender.get('email', '')}
+"""
+
+
+def einstiegsgespraech(
+    lead: dict[str, Any], audit: dict[str, Any], absender: dict[str, str]
+) -> str:
+    """Kurzleitfaden für die persönliche Übergabe an der Tür.
+
+    Ziel ist nicht das Projekt, sondern eine Zusage über wenige hundert Euro,
+    die im Stehen fallen kann. Deshalb ist der Text kurz: Wer an der Tür
+    ausholt, wird weggeschickt.
+    """
+    einstieg = angebote.einstieg_waehlen(audit)
+    if not einstieg:
+        return (
+            f"{lead.get('name', '')}: kein Einstiegsangebot ableitbar - "
+            "das Audit hat keinen Befund geliefert, der sich als "
+            "Einzelmaßnahme verkaufen lässt. Diesen Lead überspringen."
+        )
+
+    bausteine = einstieg["bausteine"]
+    liste = "\n".join(
+        f"   - {b['titel']} ({b['preis']:.0f} EUR, {angebote.stunden_text(b['stunden'])})"
+        for b in bausteine
+    )
+    ersparnis = einstieg["einzelpreise"] - einstieg["preis"]
+    buendel = ""
+    if len(bausteine) > 1 and ersparnis > 0:
+        buendel = (
+            f"\n   Zusammen {einstieg['preis']:.0f} EUR statt "
+            f"{einstieg['einzelpreise']:.0f} EUR."
+        )
+
+    return f"""EINSTIEGSGESPRÄCH (persönliche Übergabe)
+{'=' * 68}
+Betrieb : {lead.get('name', '')}
+Adresse : {lead.get('strasse', '')}, {lead.get('plz', '')} {lead.get('ort', '')}
+Telefon : {lead.get('telefon') or 'nicht bekannt'}
+
+ANGEBOT : {einstieg['preis']:.0f} EUR Festpreis, {angebote.stunden_text(einstieg['stunden'])} Aufwand
+          ({einstieg['stundensatz']:.0f} EUR je Stunde){buendel}
+{liste}
+
+Offen bleiben danach {einstieg['weitere_offen']} weitere Befunde - das ist
+der Anknüpfungspunkt für das nächste Gespräch, nicht für dieses.
+
+1) AN DER TÜR (30 Sekunden, nicht mehr)
+   "Guten Tag, {absender.get('name', '')}, ich bin aus {_ortsname(absender.get('ort', '')) or 'der Gegend'}.
+    Ich habe mir die Websites der Betriebe hier angeschaut und Ihnen das
+    hier ausgedruckt - kostet Sie nichts.
+    {_entkodieren(einstieg['haken'])}"
+
+   -> Ausdruck übergeben. Dann still sein.
+
+2) WENN INTERESSE DA IST
+   "Das mache ich Ihnen für {einstieg['preis']:.0f} Euro fest. Keine laufenden
+    Kosten, keine Vertragsbindung. Ich brauche einmal Ihren Zugang, dann
+    ist es {'heute noch' if einstieg['stunden'] <= 1.5 else 'in zwei Tagen'} erledigt."
+
+   -> Nicht über weitere Punkte reden. Ein Thema, ein Preis, eine Zusage.
+
+3) BEI ZUSAGE (sofort, im Stehen)
+   [ ] Rechnung noch heute schreiben, Zahlungsziel 7 Tage
+   [ ] Zugangsdaten notieren (Hoster, Redaktionssystem)
+   [ ] Termin für die Umsetzung nennen und halten
+   [ ] standortcheck stufe {lead.get('id', '?')} gewonnen --umsatz {einstieg['preis']:.0f}
+
+4) BEI "MUSS ICH ÜBERLEGEN"
+   "Klar. Ich bin Donnerstag wieder in der Gegend - soll ich kurz
+    reinschauen?" -> standortcheck stufe {lead.get('id', '?')} gespraech --faellig {(date.today() + timedelta(days=4)).isoformat()}
+
+5) BEI ABLEHNUNG
+   Ausdruck dalassen, bedanken, gehen. Der Bericht arbeitet weiter.
+   Kein Nachfassen bei klarem Nein.
+
+NACH DER UMSETZUNG - der eigentliche Zweck des Einstiegs
+   Wenn die Maßnahme sitzt und der Betrieb zufrieden ist:
+   "Die anderen {einstieg['weitere_offen']} Punkte aus der Analyse stehen ja noch offen.
+    Soll ich Ihnen das mal als Gesamtpaket rechnen?"
+   -> Jetzt sind Sie kein Fremder mehr. Hier entsteht der große Auftrag.
 """

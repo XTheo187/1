@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from . import audit as audit_modul
-from . import branchen, db, discover, konfig, outreach, planner, report, scoring
+from . import angebote, branchen, db, discover, konfig, outreach, planner, report, scoring
 
 BERICHTE_ORDNER = Path("berichte")
 ANSPRACHE_ORDNER = Path("ansprache")
@@ -292,6 +292,7 @@ def cmd_ansprache(args: argparse.Namespace) -> int:
                 continue
             basis = f"{lead['id']:04d}"
             erzeuger = {
+                "einstieg": (outreach.einstiegsgespraech, "einstieg.txt"),
                 "telefon": (outreach.telefonleitfaden, "leitfaden.txt"),
                 "brief": (outreach.brief, "brief.txt"),
                 "mail": (outreach.nachfass_mail, "nachfass-mail.txt"),
@@ -306,6 +307,60 @@ def cmd_ansprache(args: argparse.Namespace) -> int:
     if args.art in ("mail", "alle"):
         print("\n  ! Die Nachfass-E-Mail erst nach einem geführten Gespräch senden.")
         print("    Kalte Werbe-E-Mails sind nach § 7 Abs. 2 Nr. 2 UWG unzulässig.")
+    return 0
+
+
+def cmd_einstieg(args: argparse.Namespace) -> int:
+    """Zeigt je Lead die eine Maßnahme, die sich im Stehen verkaufen lässt."""
+    zeilen = []
+    with db.session(args.db) as con:
+        rows = db.leads_holen(con, ort=args.ort) if not args.lead else [
+            r for r in (db.lead_holen(con, i) for i in args.lead) if r
+        ]
+        for row in rows:
+            lead, a, p = _lead_mit_audit(con, row)
+            if not a or lead["stage"] in ("gewonnen", "verloren"):
+                continue
+            e = angebote.einstieg_waehlen(a, grenze=args.grenze)
+            if not e:
+                continue
+            zeilen.append({
+                "id": lead["id"], "name": lead["name"], "ort": lead.get("ort") or "",
+                "adresse": lead.get("strasse") or "", "telefon": lead.get("telefon") or "",
+                "titel": " + ".join(b["titel"] for b in e["bausteine"]),
+                "preis": e["preis"], "stunden": e["stunden"],
+                "ueber_grenze": e["ueber_grenze"],
+                "satz": e["stundensatz"], "offen": e["weitere_offen"],
+                "prioritaet": p["prioritaet"],
+            })
+
+    if not zeilen:
+        print("  Keine Einstiegsangebote ableitbar. Erst prüfen: standortcheck pruefen --alle")
+        return 0
+
+    # Nach Verkäuflichkeit sortieren: niedriger Preis bei hohem Stundensatz zuerst.
+    zeilen.sort(key=lambda z: (-z["satz"], z["preis"]))
+    zeilen = zeilen[: args.limit]
+
+    kopf(f"Einstiegsangebote bis {args.grenze:.0f} EUR ({len(zeilen)})")
+    tabelle(
+        ["ID", "Betrieb", "Ort", "Maßnahme", "Preis", "Std", "EUR/h", "Offen"],
+        [[z["id"], z["name"][:24], z["ort"][:14], z["titel"][:34],
+          f"{z['preis']:.0f}" + ("!" if z["ueber_grenze"] else ""),
+          angebote.stunden_text(z["stunden"]).replace(" h", ""),
+          f"{z['satz']:.0f}", z["offen"]] for z in zeilen],
+        rechts={4, 5, 6, 7},
+    )
+    if any(z["ueber_grenze"] for z in zeilen):
+        print("\n  ! Mit \"!\" markierte Angebote liegen über der gesetzten Grenze -")
+        print("    für diese Leads gibt es keine günstigere Einzelmaßnahme.")
+    summe_preis = sum(z["preis"] for z in zeilen)
+    summe_std = sum(z["stunden"] for z in zeilen)
+    print(f"\n  Wenn alle zusagen: {euro(summe_preis)} bei {summe_std:.1f} h Umsetzung")
+    print(f"  Realistisch bei rund einem Drittel Zusagen: {euro(summe_preis / 3)}")
+    ids = " ".join(str(z["id"]) for z in zeilen[:10])
+    print("\n  Leitfäden erzeugen:")
+    print(f"    standortcheck ansprache --art einstieg --lead {ids}")
     return 0
 
 
@@ -431,6 +486,28 @@ def cmd_plan(args: argparse.Namespace) -> int:
     kopf("Bewusst nicht gekauft")
     for posten, warum in planner.NICHT_KAUFEN:
         print(f"  ✗ {posten}\n      {warum}")
+
+    kopf("Weg zum ersten Umsatz")
+    vergleich = planner.kanalvergleich(stunden)
+    tabelle(
+        ["Kanal", "Quote", "Kontakte", "Kosten", "Zeit", "Wochen", "Ticket"],
+        [[v["name"], f"{v['quote']:.2f}%", v["kontakte_bis_erster"],
+          euro(v["kosten_bis_erster"]), f"{v['stunden_bis_erster']:.1f} h",
+          f"{v['wochen_bis_erster']:.1f}", euro(v["ticket"])]
+         for v in vergleich],
+        rechts={1, 2, 3, 4, 5, 6},
+    )
+    print()
+    for v in vergleich:
+        print(f"  {v['name']}: {v['hinweis']}")
+
+    brief = next(k for k in planner.KANAELE if k.name.startswith("Brief"))
+    moegliche_briefe = int(200 / brief.kosten_je_kontakt)
+    print(f"\n  Warnung: 200 EUR Porto reichen für {moegliche_briefe} Briefe.")
+    print(f"  Wahrscheinlichkeit, damit KEINEN Auftrag zu bekommen: "
+          f"{planner.risiko_ohne_abschluss(brief, moegliche_briefe):.0f} %.")
+    print("  Deshalb zuerst Netzwerk und Vor-Ort mit kleinem Ticket, Briefe")
+    print("  erst, wenn die eigenen Quoten aus 'kennzahlen' belastbar sind.")
 
     kopf(f"Wochenmodell bei {stunden:.0f} Stunden")
     optimal = planner.briefe_optimieren(a)
@@ -576,7 +653,8 @@ def parser_bauen() -> argparse.ArgumentParser:
   standortcheck pruefen --alle
   standortcheck liste
   standortcheck bericht --limit 20
-  standortcheck ansprache --art alle --limit 20
+  standortcheck einstieg                    # kleines Ticket zuerst
+  standortcheck ansprache --art einstieg --limit 20
   standortcheck tagesplan
   standortcheck stufe 12 gewonnen --umsatz 1900
   standortcheck kennzahlen
@@ -620,13 +698,23 @@ def parser_bauen() -> argparse.ArgumentParser:
     be.set_defaults(fn=cmd_bericht)
 
     an = u.add_parser("ansprache", help="Leitfaden, Brief und Nachfass-Mail erzeugen")
-    an.add_argument("--art", choices=["telefon", "brief", "mail", "alle"], default="alle")
+    an.add_argument("--art",
+                    choices=["einstieg", "telefon", "brief", "mail", "alle"],
+                    default="alle")
     an.add_argument("--lead", type=int, nargs="+")
     an.add_argument("--stufe", choices=db.STAGES)
     an.add_argument("--ort")
     an.add_argument("--limit", type=int, default=20)
     an.add_argument("--ordner")
     an.set_defaults(fn=cmd_ansprache)
+
+    ei = u.add_parser("einstieg", help="Einstiegsangebote je Lead (kleines Ticket)")
+    ei.add_argument("--lead", type=int, nargs="+")
+    ei.add_argument("--ort")
+    ei.add_argument("--limit", type=int, default=25)
+    ei.add_argument("--grenze", type=float, default=angebote.SOFORT_GRENZE,
+                    help="höchster Preis, der im Gespräch zugesagt wird")
+    ei.set_defaults(fn=cmd_einstieg)
 
     st = u.add_parser("stufe", help="Pipeline-Stufe eines Leads setzen")
     st.add_argument("lead", type=int)
