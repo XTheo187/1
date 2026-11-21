@@ -32,7 +32,7 @@ from typing import Callable
 ZIEL = 1_000_000.0
 START_ALTER = 19          # Sommer 2027, nach dem Abitur
 END_ALTER = 50
-JAHRE = END_ALTER - START_ALTER + 1
+JAHRE = END_ALTER - START_ALTER   # Jahr j endet mit Alter START_ALTER + j + 1
 
 
 # --------------------------------------------------------------------------
@@ -166,38 +166,70 @@ def jahr_abschliessen(depot: float, sparen: float, rendite: float) -> float:
 Strategie = Callable[[random.Random, Welt], list[float]]
 
 
-def _gehalt_pfad(rng: random.Random, start: float, wachstum_frueh: float,
-                 wachstum_spaet: float, knick: int, streu: float,
-                 sprung_p: float = 0.0, sprung_faktor: float = 1.0):
-    """Reales Gehaltswachstum: früh steil, später flach, mit Einzelstreuung.
+def _w(rng: random.Random, x) -> float:
+    """Zahl oder Spannweite (low, mid, high) -> eine Ziehung je Leben."""
+    return dreieck(rng, *x) if isinstance(x, tuple) else float(x)
 
-    ``sprung_p``: jährliche Chance auf einen Karrieresprung (Führung,
-    Wechsel in die Spitzengruppe), der das Gehalt dauerhaft anhebt.
+
+def _gehalt_pfad(rng: random.Random, start, wachstum_frueh, wachstum_spaet,
+                 knick: int, streu, sprung_p=0.0, sprung_faktor=1.0,
+                 schock: float = 0.08, sprung_ab: int = 0):
+    """Realer Gehaltspfad (in heutigen Euro), je Leben einmal gezogen.
+
+    - ``start``: Einstiegsgehalt; ``streu``: dauerhafte Einzelstreuung
+      (log-SD, Recherche: IT 0,22-0,40).
+    - Reales Wachstum früh (bis ``knick``) und spät. Darin steckt die
+      allgemeine Reallohndrift von ~0,5-1 %/Jahr.
+    - ``schock``: vorübergehende Jahresschwankung (Bonus, Provision,
+      Kurzarbeit), log-SD. Angestellte ~0,08, Vertrieb ~0,18.
+    - ``sprung_p``/``sprung_faktor``: Chance je Jahr ab ``sprung_ab`` auf einen
+      einmaligen Karrieresprung (z. B. SDR -> Account Executive).
     """
-    talent = math.exp(rng.gauss(0, streu))
-    g = start * talent
+    talent = math.exp(rng.gauss(0, _w(rng, streu)))
+    g = _w(rng, start) * talent
+    frueh, spaet = _w(rng, wachstum_frueh), _w(rng, wachstum_spaet)
+    p_sprung, f_sprung = _w(rng, sprung_p), _w(rng, sprung_faktor)
     jahr = 0
     while True:
-        yield g
-        w = wachstum_frueh if jahr < knick else wachstum_spaet
-        g *= 1 + w + rng.gauss(0, 0.02)
-        if sprung_p and rng.random() < sprung_p:
-            g *= sprung_faktor
-            sprung_p = 0.0   # einmaliger Sprung
+        yield g * math.exp(rng.gauss(0, schock) - schock * schock / 2)
+        g *= 1 + (frueh if jahr < knick else spaet) + rng.gauss(0, 0.015)
+        if p_sprung and jahr >= sprung_ab and rng.random() < p_sprung:
+            g *= f_sprung
+            p_sprung = 0.0
         jahr += 1
 
 
-def angestellt(studienjahre: int, start: float, frueh: float, spaet: float,
-               knick: int, streu: float, lam: float, grund: float,
-               sprung_p: float = 0.0, sprung_faktor: float = 1.0,
-               neben_netto: float = 6_000) -> Strategie:
-    """Studium/Ausbildung, danach angestellt, Überschuss ins ETF-Depot."""
+# Gehaltspfade aus der Recherche (Stepstone 2026, BA-Entgeltstatistik 2025,
+# levels.fyi; Details in docs/MILLIONENPLAN.md). Wachstum real, inkl. Drift.
+IT_UNI = dict(start=(45_000, 55_000, 68_000), wachstum_frueh=(0.025, 0.042, 0.075),
+              wachstum_spaet=(0.005, 0.015, 0.03), knick=10, streu=(0.22, 0.30, 0.40))
+IT_BACHELOR = dict(IT_UNI, start=(44_000, 50_000, 58_000))
+DUAL = dict(IT_UNI, start=(45_000, 52_000, 60_000))
+# IT-/SaaS-Vertrieb: Einstieg als SDR ohne Studium, Sprung zum Account
+# Executive (OTE 90-150 Tsd.) nach einigen Jahren - schwach belegt (RepVue,
+# JOIN), deshalb breite Spannen und eine echte Chance, dass er nie kommt.
+WEBDEV = dict(IT_UNI, start=(42_000, 48_500, 56_000))   # Stepstone: Webentwickler-Einstieg 48.500
+VERTRIEB = dict(start=(38_000, 45_000, 55_000), wachstum_frueh=(0.02, 0.05, 0.08),
+                wachstum_spaet=(0.0, 0.012, 0.03), knick=10, streu=(0.30, 0.40, 0.55),
+                sprung_p=(0.15, 0.30, 0.45), sprung_faktor=(1.5, 1.9, 2.4),
+                schock=0.18, sprung_ab=2)
+
+
+def angestellt(studienjahre: int, pfad_param: dict, lam: float, grund: float,
+               neben_netto: float = 6_000, p_einstieg: tuple | float = 1.0,
+               ersatz: dict | None = None) -> Strategie:
+    """Studium/Ausbildung, danach angestellt, Überschuss ins ETF-Depot.
+
+    ``p_einstieg``: Chance, den Zielberuf überhaupt zu bekommen; sonst gilt
+    der Ersatzpfad ``ersatz`` (z. B. normaler IT-Job statt Vertrieb).
+    """
 
     def leben(rng: random.Random, w: Welt) -> list[float]:
         konsum = Konsum(grund, lam)
         studium = Konsum(12_000, 0.6)
         depot = 1_000.0
-        pfad = _gehalt_pfad(rng, start, frueh, spaet, knick, streu, sprung_p, sprung_faktor)
+        param = pfad_param if (ersatz is None or rng.random() < _w(rng, p_einstieg)) else ersatz
+        pfad = _gehalt_pfad(rng, **param)
         werte = []
         for j in range(JAHRE):
             idx = w.index(j)
@@ -219,7 +251,6 @@ def angestellt(studienjahre: int, start: float, frueh: float, spaet: float,
 class AgenturParameter:
     """Spannweiten (low, mid, high) für das Agenturmodell."""
 
-    umsatz_2027: tuple = (0, 6_000, 20_000)          # Jahr 1 neben dem Abitur
     eur_je_stunde_solo: tuple = (35, 60, 90)          # Umsatz je Arbeitsstunde inkl. Akquise
     auslastung_start: tuple = (0.15, 0.35, 0.6)       # gefüllter Anteil der Kapazität im 1. Vollzeitjahr
     lernrate: tuple = (0.1, 0.25, 0.45)               # wie schnell sich die Lücke zur Vollauslastung schließt
@@ -238,7 +269,7 @@ class AgenturParameter:
 
 def agentur(studium_parallel: bool, lam: float, grund: float,
             p: AgenturParameter | None = None,
-            rueckfall_start: float = 48_000) -> Strategie:
+            rueckfall_start=(42_000, 48_500, 56_000)) -> Strategie:
     """Webagentur für lokale Betriebe - der Weg, den standortcheck vorbereitet.
 
     ``studium_parallel``: Informatikstudium mit 20 h/Woche Agentur, danach
@@ -263,7 +294,7 @@ def agentur(studium_parallel: bool, lam: float, grund: float,
         studium = Konsum(12_000, 0.6)
 
         depot, fte, aktiv, angestellt_seit = 1_000.0, 0.0, True, None
-        gehalt = _gehalt_pfad(rng, rueckfall_start, 0.04, 0.015, 10, 0.2)
+        gehalt = _gehalt_pfad(rng, **dict(WEBDEV, start=rueckfall_start))
         studienjahre = 5 if studium_parallel else 0
         werte = []
         for j in range(JAHRE):
@@ -271,14 +302,10 @@ def agentur(studium_parallel: bool, lam: float, grund: float,
             preis = (1 + trend) ** j
             firmenwert = 0.0
             if aktiv:
-                if j == 0:
-                    umsatz = d(p.umsatz_2027) * idx
-                    stunden = 0
-                else:
-                    stunden = 900 if j < studienjahre else 2_000
-                    erfahrung = 1 - (1 - aus) * (1 - lern) ** (j - 1)
-                    umsatz = stunden * eur_h * erfahrung * preis * idx
-                    umsatz *= math.exp(rng.gauss(0, 0.15))      # gutes/schlechtes Jahr
+                stunden = 900 if j < studienjahre else 2_000
+                erfahrung = 1 - (1 - aus) * (1 - lern) ** j
+                umsatz = stunden * eur_h * erfahrung * preis * idx
+                umsatz *= math.exp(rng.gauss(0, 0.15))      # gutes/schlechtes Jahr
                 gewinn = umsatz * (1 - kosten)
                 if fte > 0:
                     team = fte * (u_fte * preis * idx - k_fte * idx)
@@ -289,7 +316,7 @@ def agentur(studium_parallel: bool, lam: float, grund: float,
                 sparen = netto - (studium if studium_jahr else konsum).ausgaben(netto, idx)
 
                 # Wechsel ins Teammodell / Teamwachstum (nur in Vollzeit)
-                if not studium_jahr and j >= 1:
+                if not studium_jahr:
                     if fte == 0 and rng.random() < p_skal and gewinn > 50_000 * idx:
                         fte = 1.0
                     elif fte > 0:
@@ -298,10 +325,10 @@ def agentur(studium_parallel: bool, lam: float, grund: float,
                 hz = hz_team if fte >= 3 else hz_solo
                 if rng.random() < hz:
                     aktiv, fte, angestellt_seit = False, 0.0, j
-                # Nach dem Studium: Anstellung, wenn sie klar mehr bringt
-                if studium_parallel and j == studienjahre and fte == 0 and aktiv:
-                    angebot = rueckfall_start * 1.1 * idx
-                    if gewinn < angebot:
+                # Ende des Studiums: Anstellung, wenn sie klar mehr bringt
+                if studium_parallel and j == studienjahre - 1 and fte == 0 and aktiv:
+                    angebot = 55_000 * idx              # IT-Einstieg mit Master (Stepstone)
+                    if gewinn * 2_000 / 900 * 0.8 < angebot:
                         aktiv, angestellt_seit = False, j
                 if fte >= 3:
                     uebergewinn = gewinn - p.ersatz_gehalt_inhaber * idx
@@ -457,14 +484,14 @@ def schweiz(p_stelle: tuple = (0.3, 0.5, 0.7), start: tuple = (80_000, 95_000, 1
     Pensionskasse ~7 % (zählt zur Hälfte als Vermögen), Einkommensteuer je
     nach Kanton grob 8-20 %. Lebenshaltung deutlich höher (Miete Zürich).
     """
-    de = angestellt(5, 52_000, 0.045, 0.015, 10, 0.2, lam=lam, grund=16_000)
+    de = angestellt(5, IT_UNI, lam=lam, grund=16_000)
 
     def leben(rng: random.Random, w: Welt) -> list[float]:
         if rng.random() >= dreieck(rng, *p_stelle):
             return de(rng, w)
         konsum = Konsum(grund_ch, lam)
         studium = Konsum(12_000, 0.6)
-        pfad = _gehalt_pfad(rng, dreieck(rng, *start), 0.035, 0.012, 10, 0.18)
+        pfad = _gehalt_pfad(rng, start, (0.02, 0.035, 0.055), (0.005, 0.012, 0.025), 10, (0.2, 0.25, 0.32))
         depot, pk = 1_000.0, 0.0
         werte = []
         for j in range(JAHRE):
@@ -490,11 +517,14 @@ def schweiz(p_stelle: tuple = (0.3, 0.5, 0.7), start: tuple = (80_000, 95_000, 1
 class Weichen:
     """Die Entscheidungsregeln des Weichenplans."""
 
-    bachelor_jahre: int = 3
-    agentur_schwelle_real: float = 55_000   # Gewinn mit 22, ab dem Vollzeit-Agentur gewinnt
+    erste_phase: str = "studium"            # "studium": Bachelor + Agentur 20 h; "agentur": Vollzeit
+    pruefjahre: int = 3                     # nach so vielen Jahren wird die Weiche gestellt
+    agentur_schwelle_real: float = 55_000   # Vollzeit-Gewinn (heutige Euro), ab dem die Agentur gewinnt
+    rueckfall: tuple = ("ch", "de")         # Reihenfolge der Alternativen, falls die Agentur nicht trägt
     p_stelle_ch: tuple = (0.25, 0.40, 0.60) # Schweizer Stelle mit Bachelor + Praxis
     start_ch: tuple = (75_000, 88_000, 105_000)
     start_de: tuple = (44_000, 50_000, 58_000)
+    p_vertrieb: tuple = (0.55, 0.75, 0.90)  # Vertriebsstelle mit nachweisbarer Verkaufserfahrung
     nachfolge: bool = True
     freelance: bool = True
     freelance_nach_jahren: int = 3          # Berufserfahrung, die Projektvermittler verlangen
@@ -509,18 +539,18 @@ class Weichen:
 
 def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 np_: NachfolgeParameter | None = None) -> Strategie:
-    """Agentur neben dem Bachelor, dann die jeweils bessere Weiche.
+    """Agentur zuerst, dann die jeweils bessere Weiche.
 
-    Zustände: studium (Bachelor + Agentur 20 h) -> agentur (Vollzeit, ggf.
-    Team) | job_ch | job_de -> optional inhaber (Nachfolgekauf) -> ggf.
-    ausgefallen (zurück in Anstellung). Jede Weiche wird nur gestellt, wenn
-    die harte Zahl dafür spricht - nicht nach Gefühl.
+    Zustände: studium | agentur -> (agentur weiter, ggf. Team) oder der erste
+    machbare Rückfallweg (ch: Schweizer IT-Stelle, nur mit Abschluss; vertrieb:
+    IT-/SaaS-Vertrieb; de: IT-Stelle in Deutschland) -> optional freelance
+    (aus de) -> optional inhaber (Nachfolgekauf) -> ggf. ausgefallen.
+    Jede Weiche folgt einer harten Zahl, nicht dem Gefühl.
     """
     wp, ap, np_ = wp or Weichen(), ap or AgenturParameter(), np_ or NachfolgeParameter()
 
     def leben(rng: random.Random, w: Welt) -> list[float]:
         d = lambda t: dreieck(rng, *t)  # noqa: E731
-        # Persönliche Ziehungen
         eur_h, aus, lern = d(ap.eur_je_stunde_solo), d(ap.auslastung_start), d(ap.lernrate)
         kosten, hz_solo, hz_team = d(ap.kosten_anteil), d(ap.hazard_solo), d(ap.hazard_team)
         p_skal, u_fte, k_fte = d(ap.p_skalieren), d(ap.umsatz_je_fte), d(ap.kosten_je_fte)
@@ -529,35 +559,47 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
         nf_ab, nf_ek, nf_p = int(round(d(np_.ab_alter))), d(np_.eigenkapital_quote), d(np_.p_abschluss_je_jahr)
         nf_zins, nf_wachs, nf_hz, nf_buerg = d(np_.zins), d(np_.wachstum), d(np_.hazard), d(np_.buergschaft)
         nf_exit = d(np_.exit_multiple)
-        ch_ok = rng.random() < d(wp.p_stelle_ch)
-        fl_ok = wp.freelance and rng.random() < d(wp.p_freelance)
+        mit_abschluss = wp.erste_phase == "studium"
+        moeglich = {
+            "ch": mit_abschluss and rng.random() < d(wp.p_stelle_ch),
+            "vertrieb": rng.random() < d(wp.p_vertrieb),
+            "de": True,
+        }
+        fl_ok = wp.freelance and mit_abschluss and rng.random() < d(wp.p_freelance)
         fl_satz, fl_aus, fl_hz = d(wp.satz), d(wp.auslastung), d(wp.hazard_freelance)
-        berufsjahre = 0
-        gehalt_ch = _gehalt_pfad(rng, d(wp.start_ch), 0.035, 0.012, 10, 0.18)
-        gehalt_de = _gehalt_pfad(rng, d(wp.start_de), 0.045, 0.015, 10, 0.2)
+        pfade = {
+            "ch": _gehalt_pfad(rng, wp.start_ch, (0.02, 0.035, 0.055), (0.005, 0.012, 0.025),
+                               10, (0.2, 0.25, 0.32)),
+            # Mit Agenturerfahrung kommt der Sprung zum Account Executive früher.
+            "vertrieb": _gehalt_pfad(rng, **dict(VERTRIEB, sprung_ab=1)),
+            "de": _gehalt_pfad(rng, **(dict(IT_BACHELOR, start=wp.start_de) if mit_abschluss
+                                       else dict(WEBDEV, start=(36_000, 42_000, 50_000)))),
+        }
         konsum_de, konsum_ch = Konsum(wp.grund_de, wp.lam), Konsum(wp.grund_ch, wp.lam)
         studium = Konsum(12_000, 0.6)
 
-        zustand = "studium"
+        def rueckfall() -> str:
+            for option in wp.rueckfall + ("de",):
+                if moeglich.get(option):
+                    return option
+            return "de"
+
+        zustand = wp.erste_phase
         depot, pk, fte = 1_000.0, 0.0, 0.0
         schuld = ebitda = 0.0
-        agentur_jahre = 0
+        agentur_jahre = berufsjahre = 0
         werte: list[float] = []
         for j in range(JAHRE):
             idx = w.index(j)
             alter = START_ALTER + j
             preis = (1 + trend) ** j
-            zusatz = 0.0          # Firmenwert, Pensionskasse
-            konsum = konsum_ch if zustand == "job_ch" else konsum_de
+            zusatz = 0.0
 
             if zustand in ("studium", "agentur"):
-                if j == 0:
-                    umsatz = d(ap.umsatz_2027) * idx
-                else:
-                    stunden = 900 if zustand == "studium" else 2_000
-                    erfahrung = 1 - (1 - aus) * (1 - lern) ** agentur_jahre
-                    umsatz = stunden * eur_h * erfahrung * preis * idx * math.exp(rng.gauss(0, 0.15))
-                agentur_jahre += 1 if j > 0 else 0
+                stunden = 900 if zustand == "studium" else 2_000
+                erfahrung = 1 - (1 - aus) * (1 - lern) ** agentur_jahre
+                umsatz = stunden * eur_h * erfahrung * preis * idx * math.exp(rng.gauss(0, 0.15))
+                agentur_jahre += 1
                 gewinn = umsatz * (1 - kosten)
                 if fte > 0:
                     gewinn += fte * (u_fte * preis - k_fte) * idx * math.exp(rng.gauss(0, 0.2))
@@ -568,33 +610,32 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                         fte = 1.0
                     elif fte > 0:
                         fte = min(fte_max, fte + max(0.0, rng.gauss(fte_wachstum, 0.7)))
-                    if fte >= 3:
-                        zusatz += max(0.0, gewinn - ap.ersatz_gehalt_inhaber * idx) * mult * 0.7
-                # Weichen
+                if fte >= 3:
+                    zusatz += max(0.0, gewinn - ap.ersatz_gehalt_inhaber * idx) * mult * 0.7
                 if rng.random() < (hz_team if fte >= 3 else hz_solo):
-                    zustand, fte = ("job_ch" if ch_ok else "job_de"), 0.0
-                elif zustand == "studium" and j == wp.bachelor_jahre:
-                    hochgerechnet = gewinn / idx * 2_000 / 900 * 0.8   # Vollzeit, vorsichtig
-                    zustand = "agentur" if hochgerechnet >= wp.agentur_schwelle_real else (
-                        "job_ch" if ch_ok else "job_de")
+                    zustand, fte = rueckfall(), 0.0
+                elif j == wp.pruefjahre - 1 and fte < 1:
+                    vollzeit = gewinn / idx * (2_000 / 900 * 0.8 if zustand == "studium" else 1.0)
+                    zustand = "agentur" if vollzeit >= wp.agentur_schwelle_real else rueckfall()
             elif zustand == "freelance":
                 umsatz = 1_700 * fl_aus * fl_satz * idx * math.exp(rng.gauss(0, 0.12))
-                gewinn = umsatz * 0.90                   # Versicherung, Technik, Weiterbildung
-                netto = netto_selbststaendig(gewinn, idx)
+                netto = netto_selbststaendig(umsatz * 0.90, idx)
                 sparen = netto - konsum_de.ausgaben(netto, idx)
                 if rng.random() < fl_hz:
-                    zustand = "job_de"
-            elif zustand in ("job_ch", "job_de", "ausgefallen"):
+                    zustand = "de"
+            elif zustand in ("ch", "vertrieb", "de", "ausgefallen"):
                 berufsjahre += 1
-                if zustand == "job_ch":
-                    brutto = next(gehalt_ch) * idx
-                    st = min(0.30, max(0.06, 0.06 + 0.08 * math.log(max(brutto / idx, 60_000) / 60_000)))
+                art = "de" if zustand == "ausgefallen" else zustand
+                brutto = next(pfade[art]) * idx
+                if art == "ch":
+                    real = brutto / idx
+                    st = min(0.30, max(0.06, 0.06 + 0.08 * math.log(max(real, 60_000) / 60_000)))
                     netto = brutto * (1 - 0.064 - 0.07 - st)
                     pk = pk * 1.02 + brutto * 0.07
+                    sparen = netto - konsum_ch.ausgaben(netto, idx)
                 else:
-                    brutto = next(gehalt_de) * idx
                     netto = netto_angestellt(brutto, idx)
-                sparen = netto - konsum.ausgaben(netto, idx)
+                    sparen = netto - konsum_de.ausgaben(netto, idx)
             else:  # inhaber
                 ebitda *= (1 + nf_wachs + w.inflation) * math.exp(rng.gauss(0, np_.schock_sigma))
                 if rng.random() < nf_hz:
@@ -610,7 +651,8 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                     depot -= soll - frei
                     tilgung, ueber = soll, 0.0
                 else:
-                    tilgung, ueber = min(schuld, frei), frei - min(schuld, frei)
+                    tilgung = min(schuld, frei)
+                    ueber = frei - tilgung
                 schuld = max(0.0, schuld - tilgung)
                 netto = netto_angestellt(gehalt, idx)
                 sparen = netto - konsum_de.ausgaben(netto, idx) + ueber * 0.74
@@ -618,14 +660,11 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
 
             depot = jahr_abschliessen(depot, sparen, w.renditen[j])
 
-            # Freelance-Weiche: aus der deutschen Anstellung nach genug Praxis.
-            # (Aus der Schweiz heraus lohnt sie sich meist nicht.)
-            if zustand == "job_de" and fl_ok and berufsjahre >= wp.freelance_nach_jahren:
+            if zustand == "de" and fl_ok and berufsjahre >= wp.freelance_nach_jahren:
                 zustand, fl_ok = "freelance", False
 
-            # Nachfolge-Weiche: nur aus einer Anstellung oder Solo-Agentur heraus
-            if (wp.nachfolge and zustand in ("job_ch", "job_de", "agentur", "freelance") and fte < 3
-                    and alter >= nf_ab and rng.random() < nf_p):
+            if (wp.nachfolge and zustand in ("ch", "vertrieb", "de", "agentur", "freelance")
+                    and fte < 3 and alter >= nf_ab and rng.random() < nf_p):
                 e = d(np_.ebitda) * idx
                 kaufpreis = e * d(np_.kaufmultiple)
                 ek = max(kaufpreis * nf_ek, np_.min_eigenkapital * idx)
@@ -646,9 +685,9 @@ def _registrieren() -> None:
     s = STRATEGIEN
     # Angestellt, Informatik (Master, 5 Jahre), normales Sparverhalten
     s["it_normal"] = ("Informatik-Master, angestellt, spart normal",
-                      angestellt(5, 52_000, 0.045, 0.015, 10, 0.2, lam=0.75, grund=18_000))
+                      angestellt(5, IT_UNI, lam=0.75, grund=18_000))
     s["it_sparsam"] = ("Informatik-Master, angestellt, spart 50 %",
-                       angestellt(5, 52_000, 0.045, 0.015, 10, 0.2, lam=0.5, grund=16_000))
+                       angestellt(5, IT_UNI, lam=0.5, grund=16_000))
     s["agentur_voll"] = ("Webagentur Vollzeit ab Sommer 2027",
                          agentur(False, lam=0.5, grund=16_000))
     s["agentur_hybrid"] = ("Informatikstudium + Agentur 20 h/Woche",
@@ -656,24 +695,29 @@ def _registrieren() -> None:
     s["agentur_nachfolge"] = ("Agentur, dann Betrieb kaufen (Nachfolge)",
                               nachfolge(agentur(False, lam=0.5, grund=16_000), lam=0.5, grund=16_000))
     s["it_nachfolge"] = ("Informatik angestellt, dann Betrieb kaufen",
-                         nachfolge(angestellt(5, 52_000, 0.045, 0.015, 10, 0.2, lam=0.5, grund=16_000),
+                         nachfolge(angestellt(5, IT_UNI, lam=0.5, grund=16_000),
                                    lam=0.5, grund=16_000))
     s["agentur_wette"] = ("Agentur + Software-Wette nebenher",
                           mit_wette(agentur(False, lam=0.5, grund=16_000)))
     s["dual"] = ("Duales Studium Informatik, spart 50 %",
-                 angestellt(3, 48_000, 0.045, 0.015, 10, 0.18, lam=0.5, grund=16_000,
-                            neben_netto=13_000))
+                 angestellt(3, DUAL, lam=0.5, grund=16_000, neben_netto=13_000))
+    s["vertrieb"] = ("IT-Vertrieb ab 2027 ohne Studium, spart 50 %",
+                     angestellt(0, VERTRIEB, lam=0.5, grund=16_000, p_einstieg=(0.4, 0.6, 0.8),
+                                ersatz=dict(VERTRIEB, sprung_p=0.0)))
     s["schweiz"] = ("Informatik-Master, dann Stelle in der Schweiz",
                     schweiz())
-    s["weichen"] = ("WEICHENPLAN: Bachelor+Agentur, dann beste Weiche",
+    s["weichen"] = ("WEICHENPLAN A: Bachelor+Agentur, dann CH/DE",
                     weichenplan())
-    s["weichen_ohne_nf"] = ("Weichenplan ohne Nachfolgekauf",
-                            weichenplan(Weichen(nachfolge=False)))
-    s["weichen_ohne_fl"] = ("Weichenplan ohne Freelance-Weiche",
-                            weichenplan(Weichen(freelance=False)))
-    s["weichen_nur_job"] = ("Weichenplan nur Anstellung (ohne FL/NF)",
-                            weichenplan(Weichen(freelance=False, nachfolge=False)))
-
+    s["weichen_vertrieb"] = ("WEICHENPLAN B: Bachelor+Agentur, dann Vertrieb",
+                             weichenplan(Weichen(rueckfall=("vertrieb", "ch", "de"))))
+    s["weichen_agentur"] = ("WEICHENPLAN C: 2 J. Agentur, dann Vertrieb",
+                            weichenplan(Weichen(erste_phase="agentur", pruefjahre=2,
+                                                rueckfall=("vertrieb", "de"))))
+    s["weichen_c_ohne_nf"] = ("Weichenplan C ohne Nachfolgekauf",
+                              weichenplan(Weichen(erste_phase="agentur", pruefjahre=2,
+                                                  rueckfall=("vertrieb", "de"), nachfolge=False)))
+    s["weichen_a_ohne_nf"] = ("Weichenplan A ohne Nachfolgekauf",
+                              weichenplan(Weichen(nachfolge=False)))
 
 _registrieren()
 
@@ -689,12 +733,17 @@ def simulieren(strategie: Strategie, n: int, seed: int = 2027) -> list[list[floa
 
 
 def quote_bis_alter(leben: list[list[float]], alter: int) -> float:
-    j = alter - START_ALTER
+    """Anteil der Leben mit >= 1 Mio. am Ende des Lebensjahres ``alter``.
+
+    Jahr j läuft von Alter START_ALTER + j bis START_ALTER + j + 1 (Sep-Aug);
+    werte[j] ist der Stand an dessen Ende.
+    """
+    j = alter - START_ALTER - 1
     return sum(1 for w in leben if w[j] >= ZIEL) / len(leben)
 
 
 def fruehestes_alter(leben: list[list[float]], schwelle: float = 0.5) -> int | None:
-    for alter in range(START_ALTER, END_ALTER + 1):
+    for alter in range(START_ALTER + 1, END_ALTER + 1):
         if quote_bis_alter(leben, alter) >= schwelle:
             return alter
     return None
@@ -776,7 +825,7 @@ def sensitivitaet(n: int = 2_000) -> None:
     print()
 
 
-def sommer_meilensteine(n: int = 20_000, seed: int = 7) -> dict[str, float]:
+def sommer_meilensteine(n: int = 20_000, seed: int = 7, ausgabe: bool = True) -> dict[str, float]:
     """Was ist bis 31.08.2027 mit >= 50 % erreichbar - neben dem Abitur?
 
     Zeit: Dez-März ~5 h/Woche (17 Wochen), April bis Mitte Mai Prüfungen
@@ -834,6 +883,8 @@ def sommer_meilensteine(n: int = 20_000, seed: int = 7) -> dict[str, float]:
         "p_umsatz_5000": sum(1 for x in umsaetze if x >= 5_000) / n,
         "p_umsatz_10000": sum(1 for x in umsaetze if x >= 10_000) / n,
     }
+    if not ausgabe:
+        return ergebnis
     print("Bis 31.08.2027 neben dem Abitur (Webagentur, Vor-Ort-Ansprache):")
     print("-" * 64)
     print(f"  Umsatz: Median {ergebnis['umsatz_median']:,.0f} EUR "
