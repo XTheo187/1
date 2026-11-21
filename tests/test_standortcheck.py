@@ -116,6 +116,31 @@ class TestAudit(unittest.TestCase):
         self.assertEqual(audit.url_normalisieren("http://x.de"), "http://x.de")
         self.assertEqual(audit.url_normalisieren("  "), "")
 
+    def _viewport_codes(self, inhalt):
+        html = GUTE_SEITE.replace(
+            'content="width=device-width, initial-scale=1"', f'content="{inhalt}"')
+        return {b["code"] for b in self._pruefen(html, {"ort": "Musterstadt"})["befunde"]}
+
+    def test_initial_scale_ohne_breite_gilt_als_responsiv(self):
+        # Im Feldtest bei zwei echten, responsiven Seiten fälschlich gemeldet.
+        codes = self._viewport_codes(
+            "initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover")
+        self.assertNotIn("viewport_fest", codes)
+        self.assertNotIn("zoom_gesperrt", codes)
+
+    def test_feste_pixelbreite_wird_gemeldet(self):
+        self.assertIn("viewport_fest", self._viewport_codes("width=1024"))
+        self.assertIn("viewport_fest", self._viewport_codes("width=980, initial-scale=1"))
+        self.assertIn("viewport_fest", self._viewport_codes("minimum-scale=1"))
+
+    def test_zoomsperre_wird_exakt_erkannt(self):
+        self.assertIn("zoom_gesperrt", self._viewport_codes(
+            "width=device-width, maximum-scale=1.0"))
+        self.assertIn("zoom_gesperrt", self._viewport_codes(
+            "width=device-width; user-scalable=NO"))
+        self.assertNotIn("zoom_gesperrt", self._viewport_codes(
+            "width=device-width, maximum-scale=10"))
+
     def test_kaputtes_html_stuerzt_nicht_ab(self):
         e = self._pruefen("<html><head><title>Test<body><p>offen<div>")
         self.assertIsInstance(e["schmerz_score"], int)

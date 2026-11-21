@@ -319,6 +319,50 @@ ALTE_TECHNIK = [
 ]
 
 
+def _viewport_werte(inhalt: str) -> dict[str, str]:
+    """Zerlegt den Viewport-Inhalt in Schlüssel und Wert.
+
+    Browser akzeptieren Komma und Semikolon als Trenner und ignorieren
+    Groß-/Kleinschreibung. Ein Textvergleich auf Teilstrings reicht nicht:
+    „maximum-scale=10“ enthält „maximum-scale=1“.
+    """
+    werte: dict[str, str] = {}
+    for teil in re.split(r"[,;]", inhalt or ""):
+        schluessel, _, wert = teil.partition("=")
+        schluessel = schluessel.strip().lower()
+        if schluessel:
+            werte[schluessel] = wert.strip().lower()
+    return werte
+
+
+def _als_zahl(wert: str | None) -> float | None:
+    try:
+        return float(wert) if wert is not None else None
+    except ValueError:
+        return None
+
+
+def _viewport_responsiv(vp: dict[str, str]) -> bool:
+    """Passt sich das Layout der Gerätebreite an?
+
+    ``width=device-width`` ist der Normalfall. Fehlt die Breite, setzen die
+    gängigen Mobilbrowser die Layoutbreite bei ``initial-scale=1`` ebenfalls
+    auf die Gerätebreite. Nur eine feste Pixelbreite oder eine Angabe ohne
+    beides führt zur 980-Pixel-Desktopansicht.
+    """
+    breite = vp.get("width")
+    if breite is not None:
+        return breite == "device-width"
+    return _als_zahl(vp.get("initial-scale")) == 1.0
+
+
+def _zoom_gesperrt(vp: dict[str, str]) -> bool:
+    if vp.get("user-scalable") in ("no", "0"):
+        return True
+    maximum = _als_zahl(vp.get("maximum-scale"))
+    return maximum is not None and maximum <= 1.0
+
+
 def _absolut(basis: str, href: str) -> str:
     try:
         return urllib.parse.urljoin(basis, href)
@@ -567,6 +611,7 @@ def pruefen(
 
     # -- Mobil -------------------------------------------------------------
     viewport = parser.meta.get("viewport", "")
+    vp = _viewport_werte(viewport)
     if not viewport:
         befunde.append(
             Befund(
@@ -585,7 +630,7 @@ def pruefen(
                 aufwand_h=10,
             )
         )
-    elif "width=device-width" not in viewport.replace(" ", ""):
+    elif not _viewport_responsiv(vp):
         befunde.append(
             Befund(
                 "viewport_fest",
@@ -599,7 +644,7 @@ def pruefen(
                 aufwand_h=5,
             )
         )
-    if "user-scalable=no" in viewport.replace(" ", "").lower() or "maximum-scale=1" in viewport.replace(" ", "").lower():
+    if _zoom_gesperrt(vp):
         befunde.append(
             Befund(
                 "zoom_gesperrt",
