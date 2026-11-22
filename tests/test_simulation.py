@@ -73,7 +73,7 @@ class TestStrategien(unittest.TestCase):
         self.assertGreater(self._quote(sparsam), self._quote(normal))
 
     def test_gleicher_seed_gleiches_ergebnis(self):
-        s = sim.STRATEGIEN["weichen"][1]
+        s = sim.STRATEGIEN["plan"][1]
         a = sim.simulieren(s, 50, seed=5)
         b = sim.simulieren(s, 50, seed=5)
         self.assertEqual(a, b)

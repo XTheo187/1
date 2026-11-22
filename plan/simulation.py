@@ -288,8 +288,11 @@ def _gehalt_pfad(rng: random.Random, *args, **kwargs) -> GehaltPfad:
 
 # Gehaltspfade aus der Recherche (Stepstone 2026, BA-Entgeltstatistik 2025,
 # levels.fyi; Details in docs/MILLIONENPLAN.md). Wachstum real, inkl. Drift.
+# Abgleich Stack Overflow DE 2024+25 (Rohdaten, n=4.345 Angestellte): Median
+# 49 Tsd. (1-3 J.), 66 Tsd. (5-8 J.), 78 Tsd. (10-13 J.), 80 Tsd. (15-18 J.);
+# P(>=100 Tsd.) nach 10-13 Jahren 18 %.
 IT_UNI = dict(start=(45_000, 55_000, 68_000), wachstum_frueh=(0.025, 0.042, 0.075),
-              wachstum_spaet=(0.005, 0.015, 0.03), knick=10, streu=(0.22, 0.30, 0.40))
+              wachstum_spaet=(0.0, 0.008, 0.02), knick=10, streu=(0.22, 0.30, 0.40))
 IT_BACHELOR = dict(IT_UNI, start=(44_000, 50_000, 58_000))
 DUAL = dict(IT_UNI, start=(45_000, 52_000, 60_000))
 WEBDEV = dict(IT_UNI, start=(42_000, 48_500, 56_000))   # Stepstone: Webentwickler-Einstieg 48.500
@@ -699,8 +702,13 @@ def schweiz(p_stelle: tuple = (0.3, 0.5, 0.7), start: tuple = (80_000, 95_000, 1
 class Weichen:
     """Die Entscheidungsregeln des Weichenplans."""
 
-    erste_phase: str = "studium"            # "studium": Bachelor + Agentur 20 h; "agentur": Vollzeit;
-                                            # "vertrieb": sofort IT-Vertrieb, Agentur nur als Plan B
+    erste_phase: str = "studium"            # "studium": Studium + Agentur 20 h; "agentur": Vollzeit;
+                                            # "vertrieb": sofort IT-Vertrieb, Agentur nur als Plan B;
+                                            # "dual": duales Studium (bezahlt, ohne Agentur)
+    studienjahre: int = 3                   # 3 = Bachelor, 5 = Master
+    dual_brutto: tuple = (13_000, 15_000, 18_000)    # Vergütung im dualen Studium (BIBB ~1.209 EUR/Monat)
+    p_abbruch_dual: tuple = (0.07, 0.12, 0.20)       # Schätzung: deutlich seltener als an der Uni
+    p_dual_platz: tuple = (0.55, 0.70, 0.85)         # Schätzung: Platz in Informatik/Wirtschaftsinformatik
     pruefjahre: int = 3                     # nach so vielen Jahren wird die Weiche gestellt
     agentur_schwelle_real: float = 55_000   # Vollzeit-Gewinn (heutige Euro), ab dem die Agentur gewinnt
     rueckfall: tuple = ("ch", "de")         # Reihenfolge der Alternativen, falls die Agentur nicht trägt
@@ -723,10 +731,12 @@ class Weichen:
     p_studienabbruch: tuple = (0.30, 0.40, 0.45)      # DZHW: Bachelor MINT 39-43 %
     nachfolge: bool = True
     freelance: bool = True
-    freelance_nach_jahren: int = 3          # Berufserfahrung, die Projektvermittler verlangen
-    p_freelance: tuple = (0.4, 0.6, 0.8)    # traut sich und findet Projekte
-    satz: tuple = (70, 92, 115)             # EUR/h, Freelancer-Kompass 2025: IT im Schnitt ~105
-    auslastung: tuple = (0.55, 0.75, 0.90)  # Anteil von 1.700 möglichen Stunden
+    # IT-Freelancing (Freelancer-Kompass 2026: Software/Web 91 EUR/h, Median ~145
+    # fakturierte Tage, 25 % mit >= 100 Tsd. Gewinn, 80 % mit > 10 J. Praxis)
+    freelance_nach_jahren: int = 5          # vorher kaum Projekte (nur 5 % mit < 5 J. Praxis)
+    p_freelance: tuple = (0.3, 0.45, 0.6)   # traut sich und findet Projekte
+    satz: tuple = (65, 82, 105)             # EUR/h für junge Software-/Web-Freelancer
+    auslastung: tuple = (0.40, 0.62, 0.85)  # Anteil von 1.700 möglichen Stunden (~85-180 Tage)
     hazard_freelance: tuple = (0.03, 0.07, 0.12)  # zurück in Anstellung (Flaute, Statusrisiko)
     lam: float = 0.5
     grund_de: float = 16_000
@@ -734,7 +744,7 @@ class Weichen:
     betreuung_rest: tuple = (0.10, 0.20, 0.30)  # Anteil des Agenturgewinns, der als Betreuung weiterläuft
     # Krisen: Jahre, in denen Aktien stark fallen, treffen auch Job und Provision.
     krise_schwelle: float = -0.15
-    p_arbeitslos: tuple = (0.01, 0.02, 0.04)        # je Jahr, normale Jahre
+    p_arbeitslos: tuple = (0.02, 0.03, 0.05)        # je Jahr, normale Jahre (IAB: Akademiker 2-3,6 %)
     p_arbeitslos_krise: tuple = (0.05, 0.10, 0.18)  # je Jahr, Krisenjahre
     arbeitslos_verlust: tuple = (0.2, 0.35, 0.5)    # Anteil des Jahresnettos, der verloren geht
     krise_provision: tuple = (0.75, 0.85, 0.95)     # Vertriebseinkommen im Krisenjahr relativ
@@ -744,9 +754,14 @@ class Weichen:
     p_partner: tuple = (0.6, 0.75, 0.85)            # feste Partnerschaft mit gemeinsamer Wohnung
     alter_partner: tuple = (24, 28, 33)
     ersparnis_partner: tuple = (0.10, 0.15, 0.25)   # Grundbedarf sinkt durch geteilte Wohnung
-    p_kinder: tuple = (0.45, 0.60, 0.75)
-    alter_kind: tuple = (29, 33, 38)
-    kosten_kinder: tuple = (4_000, 6_500, 10_000)   # eigener Anteil je Jahr, 18 Jahre lang
+    p_kinder: tuple = (0.60, 0.72, 0.80)            # Destatis: ~20 % Kinderlose (Frauen 45-49)
+    alter_kind: tuple = (30, 33.3, 37)              # Destatis: Väter beim 1. Kind im Mittel 33,3
+    kosten_kinder: tuple = (2_500, 5_000, 8_000)    # eigener Anteil je Jahr, 18 Jahre (EVS: 763-1.212
+                                                    # EUR/Kind/Monat 2018, geteilt, abzgl. Kindergeld;
+                                                    # Paare mit Kind sparen bei gleichem Einkommen kaum weniger)
+    p_heirat: tuple = (0.45, 0.55, 0.65)
+    scheidung: tuple = (0.008, 0.013, 0.016)        # je Ehejahr (Destatis: 28 % der Ehen)
+    scheidung_verlust: tuple = (0.10, 0.25, 0.40)   # Anteil des in der Ehe aufgebauten Vermögens (Zugewinn)
     betreuung_abgang: float = 0.20              # jährliche Kündigungen der verbliebenen Verträge
 
 
@@ -808,9 +823,13 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             partner_faktor = 1 - d(wp.ersparnis_partner)
             kind_ab = d(wp.alter_kind) if rng.random() < d(wp.p_kinder) else 999
             kind_kosten = d(wp.kosten_kinder)
+            heirat_ab = partner_ab + d((1, 3, 6)) if rng.random() < d(wp.p_heirat) else 999
+            p_scheidung, scheidung_verlust = d(wp.scheidung), d(wp.scheidung_verlust)
         else:
-            partner_ab = kind_ab = 999
+            partner_ab = kind_ab = heirat_ab = 999
             partner_faktor, kind_kosten = 1.0, 0.0
+            p_scheidung = scheidung_verlust = 0.0
+        verheiratet, vermoegen_bei_heirat = False, 0.0
         nach_vertrieb = 0.0     # reales Gehalt nach dem Ausstieg aus dem Vertrieb
         letztes_brutto_real = 0.0
         pfade = {
@@ -818,6 +837,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                                10, (0.2, 0.25, 0.32)),
             "vertrieb": _gehalt_pfad(rng, **dict(VERTRIEB, sprung_ab=wp.vertrieb_sprung_ab)),
             "de": _gehalt_pfad(rng, **dict(IT_BACHELOR, start=wp.start_de)),
+            "de_bachelor": _gehalt_pfad(rng, **IT_BACHELOR),
             "de_ohne": _gehalt_pfad(rng, **dict(WEBDEV, start=(36_000, 42_000, 50_000))),
         }
         konsum_de, konsum_ch = Konsum(wp.grund_de, wp.lam), Konsum(wp.grund_ch, wp.lam)
@@ -829,13 +849,19 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                     return option
             return "de"
 
-        if wp.erste_phase == "vertrieb":
+        if wp.erste_phase == "dual":
+            # Plan B ohne dualen Platz: Bachelor + Agentur wie im Studienweg
+            zustand = "dual" if rng.random() < d(wp.p_dual_platz) else "studium"
+        elif wp.erste_phase == "vertrieb":
             # Plan B, falls 2027 keine Vertriebsstelle: Bachelor + Agentur,
             # danach Vertrieb (neuer Versuch mit Abschluss), Schweiz, Deutschland.
             zustand = "vertrieb" if moeglich("vertrieb") else "studium"
         else:
             zustand = wp.erste_phase
-        studium_ende = (3 if wp.erste_phase == "vertrieb" else wp.pruefjahre) if zustand == "studium" else None
+        studium_ende = (3 if wp.erste_phase in ("vertrieb", "dual") else wp.studienjahre) \
+            if zustand == "studium" else None
+        dual_brutto, bricht_dual_ab = d(wp.dual_brutto), rng.random() < d(wp.p_abbruch_dual)
+        dual_absolviert = False
         rueckfall_nach_studium = ("vertrieb", "ch", "de") if wp.erste_phase == "vertrieb" else wp.rueckfall
         rest_anteil = d(wp.betreuung_rest)
         agentur_tot = False
@@ -856,7 +882,17 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             konsum_ch.grundbedarf = wp.grund_ch * faktor
             kinder_jahr = kind_kosten * idx if kind_ab <= alter < kind_ab + 18 else 0.0
 
-            if zustand == "studium" and agentur_tot:
+            if zustand == "dual":
+                netto = netto_angestellt(dual_brutto * idx, idx, j)
+                sparen = netto - studium.ausgaben(netto, idx)
+                if j == 2:
+                    if bricht_dual_ab:
+                        abschluss["abgebrochen"] = True
+                    else:
+                        abschluss["wert"] = True
+                        dual_absolviert = True
+                    zustand = rueckfall()
+            elif zustand == "studium" and agentur_tot:
                 # Agentur aufgegeben: weiterstudieren mit Nebenjob.
                 gewinn = 0.0
                 netto = 6_000 * idx
@@ -899,7 +935,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 umsatz = 1_700 * fl_aus * fl_satz * idx * math.exp(rng.gauss(0, 0.12))
                 if krise:
                     umsatz *= kr_ag
-                netto = netto_selbststaendig(umsatz * 0.90, idx)
+                netto = netto_selbststaendig(umsatz * 0.86, idx)   # ~780 EUR/Monat Betriebsausgaben
                 sparen = netto - konsum_de.ausgaben(netto, idx)
                 if rng.random() < fl_hz:
                     zustand = "de"
@@ -912,6 +948,8 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 art = "de" if zustand == "ausgefallen" else zustand
                 if art == "de" and not abschluss["wert"]:
                     art = "de_ohne"
+                elif art == "de" and wp.erste_phase == "dual" and not dual_absolviert:
+                    art = "de_bachelor"     # Plan B: normaler Bachelor statt dual
                 if art == "nach_vertrieb":
                     nach_vertrieb *= 1 + rng.gauss(0.008, 0.015)
                     brutto = nach_vertrieb * idx
@@ -963,6 +1001,11 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 sparen += nebenher * idx * 0.55 * (1 - wp.lam)   # nach Grenzsteuer + KV, Sparregel
                 nebenher *= 1 - wp.betreuung_abgang
             depot.jahr(sparen, w.renditen[j])
+            if not verheiratet and alter >= heirat_ab:
+                verheiratet, vermoegen_bei_heirat = True, depot.netto
+            elif verheiratet and rng.random() < p_scheidung:
+                depot.entnehmen(scheidung_verlust * max(0.0, depot.netto - vermoegen_bei_heirat))
+                verheiratet, heirat_ab = False, 999
 
             if zustand == "de" and fl_ok and abschluss["wert"] and berufsjahre >= wp.freelance_nach_jahren:
                 zustand, fl_ok = "freelance", False
@@ -987,50 +1030,38 @@ STRATEGIEN: dict[str, tuple[str, Strategie]] = {}
 
 
 def _registrieren() -> None:
+    """Alle Kandidaten laufen durch dasselbe Modell (weichenplan) mit denselben
+    Risiken - Krisen, Arbeitslosigkeit, Studienabbruch, Partnerschaft, Kinder,
+    Scheidung - und derselben Sparregel. Nur so ist der Vergleich fair.
+    """
     from dataclasses import replace
     s = STRATEGIEN
-    # Angestellt, Informatik (Master, 5 Jahre), normales Sparverhalten
-    s["it_normal"] = ("Informatik-Master, angestellt, spart normal",
-                      angestellt(5, IT_UNI, lam=0.75, grund=18_000))
-    s["it_sparsam"] = ("Informatik-Master, angestellt, spart 50 %",
-                       angestellt(5, IT_UNI, lam=0.5, grund=16_000))
-    s["agentur_voll"] = ("Webagentur Vollzeit ab Sommer 2027",
-                         agentur(False, lam=0.5, grund=16_000))
-    s["agentur_hybrid"] = ("Informatikstudium + Agentur 20 h/Woche",
-                           agentur(True, lam=0.5, grund=16_000))
-    s["agentur_nachfolge"] = ("Agentur, dann Betrieb kaufen (Nachfolge)",
-                              nachfolge(agentur(False, lam=0.5, grund=16_000), lam=0.5, grund=16_000))
-    s["it_nachfolge"] = ("Informatik angestellt, dann Betrieb kaufen",
-                         nachfolge(angestellt(5, IT_UNI, lam=0.5, grund=16_000),
-                                   lam=0.5, grund=16_000))
-    s["agentur_wette"] = ("Agentur + Software-Wette nebenher",
-                          mit_wette(agentur(False, lam=0.5, grund=16_000)))
-    s["dual"] = ("Duales Studium Informatik, spart 50 %",
-                 angestellt(3, DUAL, lam=0.5, grund=16_000, neben_netto=13_000))
-    s["schweiz"] = ("Informatik-Master, dann Stelle in der Schweiz",
-                    schweiz())
-    s["weichen"] = ("WEICHENPLAN A: Bachelor+Agentur, dann CH/DE",
-                    weichenplan())
-    s["weichen_vertrieb"] = ("WEICHENPLAN B: Bachelor+Agentur, dann Vertrieb",
-                             weichenplan(Weichen(rueckfall=("vertrieb", "ch", "de"))))
-    s["weichen_agentur"] = ("WEICHENPLAN C: 2 J. Agentur, dann Vertrieb",
-                            weichenplan(Weichen(erste_phase="agentur", pruefjahre=2,
-                                                rueckfall=("vertrieb", "de"))))
-    s["weichen_c_ohne_nf"] = ("Weichenplan C ohne Nachfolgekauf",
-                              weichenplan(Weichen(erste_phase="agentur", pruefjahre=2,
-                                                  rueckfall=("vertrieb", "de"), nachfolge=False)))
-    s["weichen_a_ohne_nf"] = ("Weichenplan A ohne Nachfolgekauf",
-                              weichenplan(Weichen(nachfolge=False)))
-    s["d_normal_sparen"] = ("Plan D, aber nur 50 % Sparregel",
-                            weichenplan(replace(PLAN, lam=0.5)))
-    s["d_ohne_vorlauf"] = ("Plan D ohne Agentur-Erfahrung vorher",
-                           weichenplan(replace(PLAN, p_vertrieb=(0.4, 0.6, 0.8), vertrieb_sprung_ab=2)))
-    s["plan_nf"] = ("Plan D + Nachfolgekauf ab 28 als Option",
-                    weichenplan(replace(PLAN, nachfolge=True)))
-    s["plan"] = ("EMPFOHLEN: Plan D mit Sparregel 60 %",
-                 weichenplan(PLAN))
-
-
+    basis = Weichen(nachfolge=False, lam=0.4)
+    s["bachelor_ch"] = ("Bachelor Informatik + Agentur, dann CH/DE",
+                        weichenplan(replace(basis, rueckfall=("ch", "de"))))
+    s["master_ch"] = ("Master Informatik + Agentur, dann CH/DE",
+                      weichenplan(replace(basis, studienjahre=5, rueckfall=("ch", "de"),
+                                          start_de=IT_UNI["start"], start_ch=(80_000, 95_000, 115_000),
+                                          p_stelle_ch=(0.30, 0.50, 0.70))))
+    s["dual"] = ("Duales Studium (Platz sicher), dann CH/DE",
+                 weichenplan(replace(basis, erste_phase="dual", rueckfall=("ch", "de"),
+                                     start_de=DUAL["start"], p_dual_platz=(1, 1, 1))))
+    s["bachelor_de"] = ("Bachelor + Agentur, dann nur DE (keine Schweiz)",
+                        weichenplan(replace(basis, rueckfall=("de",))))
+    s["bachelor_vertrieb"] = ("Bachelor + Agentur, dann Vertrieb/CH/DE",
+                              weichenplan(replace(basis, rueckfall=("vertrieb", "ch", "de"))))
+    s["vertrieb_zuerst"] = ("Vertrieb ab 2027 (Plan B: Bachelor)",
+                            weichenplan(replace(basis, erste_phase="vertrieb", rueckfall=("de",))))
+    s["agentur_zuerst"] = ("2 J. Agentur Vollzeit, dann Vertrieb/DE",
+                           weichenplan(replace(basis, erste_phase="agentur", pruefjahre=2,
+                                               rueckfall=("vertrieb", "de"))))
+    s["bachelor_ch_nf"] = ("Bachelor + Agentur, CH/DE, + Nachfolgekauf",
+                           weichenplan(replace(basis, rueckfall=("ch", "de"), nachfolge=True)))
+    s["dual_de"] = ("Duales Studium, dann nur DE (keine Schweiz)",
+                    weichenplan(replace(PLAN, rueckfall=("de",))))
+    s["dual_spar50"] = ("Duales Studium, CH/DE, Sparregel nur 50 %",
+                        weichenplan(replace(PLAN, lam=0.5)))
+    s["plan"] = ("EMPFOHLEN: Dual, dann CH/DE, Sparregel 60 %", weichenplan(PLAN))
 
 # --------------------------------------------------------------------------
 # Auswertung
@@ -1100,10 +1131,13 @@ def sommer_2027(start: float = 5_000.0) -> None:
     print()
 
 
-# Der empfohlene Plan: Vertrieb ab Herbst 2027 (Agentur bis dahin als
-# Vertriebsschule, sonst Plan B Bachelor + Agentur), Sparregel: Grundbedarf
-# 16.000 EUR/Jahr in heutigen Euro, von jedem Euro darüber werden 60 % gespart.
-PLAN = Weichen(erste_phase="vertrieb", pruefjahre=2, rueckfall=("de",), nachfolge=False, lam=0.4)
+# Der empfohlene Plan (Ergebnis des fairen Vergleichs): duales Studium
+# Informatik ab Herbst 2027 (bis dahin Agentur neben dem Abitur), danach
+# Stelle in der Schweiz, sonst in Deutschland; ohne dualen Platz Bachelor +
+# Agentur. Sparregel: Grundbedarf 16.000 EUR/Jahr in heutigen Euro, von jedem
+# Euro darüber werden 60 % gespart. Kein Nachfolgekauf, kein Vertrieb.
+PLAN = Weichen(erste_phase="dual", rueckfall=("ch", "de"), start_de=DUAL["start"],
+               nachfolge=False, lam=0.4)
 
 
 def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
