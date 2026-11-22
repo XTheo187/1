@@ -16,9 +16,11 @@ Wahrscheinlichkeit Millionär?
   äußeren Annahmen daneben, wird die 50-%-Marke ein Jahr später erreicht
   (Sommer 2066, Alter ~58). Gibt es die Schweiz, PiBS und einen dualen Platz
   gar nicht, kommt der KI-Druck auf Einsteiger sicher und geht auch sonst
-  alles Äußere schief, hält die 50 % mit 60 nur noch, wenn du die Regeln des
-  Plans eisern einhältst (53 %; sonst 47 %). Gegen alles gleichzeitig ist
-  kein Plan robust – Tabelle in Abschnitt 7.
+  alles Äußere schief, hält die 50 % mit 60 nur, wenn du die Regeln des
+  Plans eisern einhältst (52 %; sonst 47 %) – **bis Sommer 2070 (Alter ~62)
+  aber auch ohne eiserne Regeltreue (52 %)**. Das ist der härteste getestete
+  Fall; Tabelle in Abschnitt 7.
+- **Früheste Marke** mit mindestens 50 %: Sommer 2062 (Alter ~54, 51,6 %).
 - **Nicht verhandelbar:** die Sparregel (Abschnitt 4) und Märkte, die nicht
   30 Jahre lang schwach bleiben.
 - Die Zahlen haben drei Runden Gegenprüfung durch zehn unabhängige Prüfer
@@ -94,17 +96,17 @@ Konsumträgheit – und dieselbe Sparregel, die nicht jeder perfekt einhält.
 
 | Weg | mit 40 | mit 45 | mit 50 | mit 55 | mit 60 | 50 % ab |
 |---|---:|---:|---:|---:|---:|---:|
-| **Plan: PiBS > dual > Bachelor, dann Schweiz/DE** | 10 % | 24 % | 40 % | 55 % | 68 % | **54** |
-| … mit eiserner Sparregel (60 %) | 15 % | 33 % | 51 % | 67 % | 78 % | 50 |
-| … mit typischem Elternerbe (nicht Teil des Plans) | 10 % | 24 % | 40 % | 58 % | 74 % | 53 |
-| Duales Studium, dann Schweiz/DE | 9 % | 24 % | 39 % | 55 % | 68 % | 54 |
-| Sicherer PiBS-Platz, dann Schweiz/DE | 10 % | 25 % | 41 % | 56 % | 68 % | 53–54 |
-| Bachelor + Agentur, dann Schweiz/DE | 8 % | 21 % | 36 % | 51 % | 64 % | 55 |
-| Plan, aber ohne Schweiz | 5 % | 16 % | 32 % | 49 % | 64 % | 55–56 |
-| Plan, aber spart wie typische Gutverdiener | 4 % | 13 % | 25 % | 38 % | 52 % | 59–60 |
-| Bachelor + Agentur, Schweiz/DE + Firmenkauf | 11 % | 21 % | 31 % | 40 % | 50 % | ≥ 60 |
-| Vertrieb (SaaS) ab 2027 | 3 % | 8 % | 17 % | 28 % | 42 % | > 60 |
-| 2 Jahre Agentur Vollzeit, dann Vertrieb | 3 % | 8 % | 17 % | 29 % | 44 % | > 60 |
+| **Plan: PiBS > dual > Bachelor, dann Schweiz/DE** | 9 % | 23 % | 39 % | 55 % | 68 % | **54** |
+| … mit eiserner Sparregel (60 %) | 15 % | 33 % | 51 % | 66 % | 78 % | 50 |
+| … mit typischem Elternerbe (nicht Teil des Plans) | 9 % | 23 % | 39 % | 58 % | 74 % | 53–54 |
+| Duales Studium, dann Schweiz/DE | 9 % | 23 % | 40 % | 55 % | 68 % | 53–54 |
+| Sicherer PiBS-Platz, dann Schweiz/DE | 11 % | 25 % | 41 % | 55 % | 68 % | 54 |
+| Bachelor + Agentur, dann Schweiz/DE | 9 % | 21 % | 36 % | 51 % | 65 % | 55 |
+| Plan, aber ohne Schweiz | 5 % | 16 % | 32 % | 49 % | 64 % | 56 |
+| Plan, aber spart wie typische Gutverdiener | 4 % | 13 % | 24 % | 38 % | 51 % | 60 |
+| Bachelor + Agentur, Schweiz/DE + Firmenkauf | 11 % | 22 % | 31 % | 41 % | 50 % | 60–61 |
+| Vertrieb (SaaS) ab 2027 | 3 % | 8 % | 16 % | 28 % | 42 % | 64 |
+| 2 Jahre Agentur Vollzeit, dann Vertrieb | 3 % | 8 % | 17 % | 29 % | 43 % | 63 |
 
 Verworfen und warum:
 
@@ -192,7 +194,7 @@ deshalb ist es Regel und Dauerauftrag, nicht Vorsatz. Die Hauptzahl dieses
 Plans (50 % mit 54) rechnet bewusst damit, dass die Regel nicht perfekt
 hält: im Mittel werden nur ~50 % gespart, und 15 % der Leben werden
 irgendwann halbherzig. Wer sie wirklich hält, kommt auf 50; wer nur so spart
-wie typische Gutverdiener, erst auf 59–60.
+wie typische Gutverdiener, erst auf 60.
 
 ### Weichen mit harten Zahlen
 
@@ -242,13 +244,13 @@ und musst nachsteuern; über dem rechten bist du gut vorn.
 
 | Alter | 25 % liegen darunter | Median | 25 % liegen darüber |
 |---:|---:|---:|---:|
-| 25 | 11 Tsd. € | 24 Tsd. € | 41 Tsd. € |
-| 30 | 60 Tsd. € | 106 Tsd. € | 173 Tsd. € |
-| 35 | 126 Tsd. € | 222 Tsd. € | 373 Tsd. € |
-| 40 | 194 Tsd. € | 353 Tsd. € | 621 Tsd. € |
-| 45 | 277 Tsd. € | 529 Tsd. € | 969 Tsd. € |
-| 50 | 385 Tsd. € | 773 Tsd. € | 1,44 Mio. € |
-| 55 | 551 Tsd. € | 1,12 Mio. € | 2,11 Mio. € |
+| 25 | 12 Tsd. € | 25 Tsd. € | 41 Tsd. € |
+| 30 | 60 Tsd. € | 107 Tsd. € | 175 Tsd. € |
+| 35 | 128 Tsd. € | 224 Tsd. € | 369 Tsd. € |
+| 40 | 191 Tsd. € | 352 Tsd. € | 615 Tsd. € |
+| 45 | 274 Tsd. € | 529 Tsd. € | 955 Tsd. € |
+| 50 | 384 Tsd. € | 773 Tsd. € | 1,42 Mio. € |
+| 55 | 560 Tsd. € | 1,12 Mio. € | 2,06 Mio. € |
 
 ## 7. Was den Plan kippt – und was nicht
 
@@ -257,13 +259,13 @@ gesetzt wird (Basis: 54).
 
 | Faktor | schlecht | gut |
 |---|---:|---:|
-| Sparverhalten (typisch / eiserne Regel) | 60 | 50 |
+| Sparverhalten (typisch / eiserne Regel) | 60 | 49 |
 | Aktienrendite (4 % / 8 % im Jahr) | 58 | 50 |
 | Grundbedarf (22 / 13 Tsd. € im Jahr) | 56 | 50 |
 | KI-Druck auf Einsteiger (sicher / nie) | 56 | 53 |
 | Schweizer Stelle (nie / sicher) | 55 | 52 |
 | Kinder (sicher und teuer / keine) | 55 | 52 |
-| Dualer Studienplatz (nie / sicher) | 55 | 54 |
+| Dualer Studienplatz (nie / sicher) | 55 | 53 |
 | Rückkehr aus der Schweiz (4 %/Jahr / nie) | 54 | 52 |
 
 **Was du selbst in der Hand hast, wirkt am stärksten:** Sparregel und
@@ -275,11 +277,11 @@ Stelle halbiert (auch im zweiten Anlauf), nach PiBS deutlich seltener,
 PiBS-Platz kaum, dualer Platz seltener, Rückkehr aus der Schweiz über dem
 SECO-Wert für alle EU-Zuwanderer.
 
-| Szenario | mit 54 | mit 55 | mit 56 | **mit 57** | mit 58 | mit 60 |
+| Szenario | mit 54 | mit 56 | **mit 57** | mit 60 | mit 62 | mit 65 |
 |---|---:|---:|---:|---:|---:|---:|
-| Plan (Basis) | 52 % | 55 % | 58 % | **60 %** | 63 % | 68 % |
-| Stress: alle Schätzungen pessimistisch | 47 % | 50 % | 53 % | **56 %** | 59 % | 64 % |
-| Stress + KI-Druck sicher | 41 % | 44 % | 48 % | **51 %**¹ | 54 % | 59 % |
+| Plan (Basis) | 52 % | 58 % | **60 %** | 68 % | 72 % | 77 % |
+| Stress: alle Schätzungen pessimistisch | 46 % | 53 % | **56 %** | 64 % | 69 % | 75 % |
+| Stress + KI-Druck sicher | 41 % | 48 % | **51 %**¹ | 59 % | 64 % | 71 % |
 
 ¹ Unabhängig nachgemessen über 16 Läufe à 10.000 Leben: 50,6 % ± 0,2 –
 knapp, aber über 50 %.
@@ -292,19 +294,20 @@ Es bleibt über 50 %, selbst wenn die unsicheren Annahmen alle danebenliegen.
 harte Lohnnarbe nach Arbeitslosigkeit, träger Konsum, keine weiterlaufenden
 Betreuungsverträge.
 
-| Szenario | mit 57 (2065) | mit 60 (2068) | 50 % ab |
-|---|---:|---:|---:|
-| Plan (Basis) | 60 % | 68 % | 54 |
-| äußere Kleinannahmen pessimistisch | 54 % | 61 % | 56 |
-| + die drei großen Annahmen ohne Quelle pessimistisch | 48 % | 56 % | 58 |
-| ganz ohne Schweiz und PiBS | 54 % | 63 % | 56 |
-| ohne Schweiz, PiBS, dualen Platz, KI-Druck sicher | 47 % | 56 % | 58–59 |
-| … + äußere Kleinannahmen pessimistisch | 39 % | 47 % | > 60 |
-| … und die Regeln des Plans eisern gehalten (kein Hauskauf, nie aufgeben) | 44 % | 53 % | 60 |
+| Szenario | mit 57 (2065) | mit 60 (2068) | mit 62 (2070) | 50 % ab |
+|---|---:|---:|---:|---:|
+| Plan (Basis) | 60 % | 68 % | 72 % | 54 |
+| äußere Kleinannahmen pessimistisch | 54 % | 61 % | 65 % | 56 |
+| + die drei großen Annahmen ohne Quelle pessimistisch | 48 % | 56 % | 61 % | 58 |
+| ganz ohne Schweiz und PiBS | 55 % | 63 % | 69 % | 56 |
+| ohne Schweiz, PiBS, dualen Platz, KI-Druck sicher | 48 % | 56 % | 62 % | 58 |
+| … + äußere Kleinannahmen pessimistisch | 39 % | 47 % | **52 %** | **62** |
+| … und die Regeln des Plans eisern gehalten (kein Hauskauf, nie aufgeben) | 43 % | 52 % | 57 % | 60 |
 
 Die Schweiz und die Studienform machen die Million **früher** erreichbar.
 Ohne sie trägt der Plan bis 2068 über 50 %, solange nicht zusätzlich alles
-Äußere schiefgeht – und selbst dann noch, wenn du die Regeln einhältst. Was
+Äußere schiefgeht – dann mit eiserner Regeltreue, und **bis Sommer 2070 auch
+ohne** (52 %): Das ist der härteste Fall, der hier getestet wurde. Was
 nicht verhandelbar bleibt: die Sparregel (bei Sparen wie typische
 Gutverdiener im härtesten Fall: 38 % mit 60) und Märkte, die nicht 30 Jahre
 lang nur 4 % liefern (dann: 43 %).
@@ -391,7 +394,8 @@ Verkaufsargument taugt es kaum.
    **Schlussverifikation** auf dem gepushten Stand (frischer Checkout, alle
    Tests grün): 8 von 8 unabhängigen Läufen (Seeds 2027/1/2/3 und
    101/202/303/404, je 10.000 Leben) liefern das 50-%-Alter 54;
-   P(54) = 51,9 % bzw. 52,1 %, untere Intervallgrenze jeweils über 51,4 %.
+   P(54) = 51,9 % bzw. 52,1 %, untere Intervallgrenze jeweils über 51,4 %
+   (seit dem Horizont bis 65, wegen anderer Zufallsfolge: 51,6 %).
    Ein vierter unabhängiger Prüfer hat Commit e6d0f7c geprüft: Zahlen und
    Kalenderjahre stimmig; seine Kritik, dass im härtesten Fall noch weitere
    geschätzte Eingaben wirken, ist in die Härtefall-Tabelle eingeflossen.

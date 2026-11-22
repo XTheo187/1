@@ -31,7 +31,7 @@ from typing import Callable
 
 ZIEL = 1_000_000.0
 START_ALTER = 19          # Sommer 2027, nach dem Abitur
-END_ALTER = 60
+END_ALTER = 65
 JAHRE = END_ALTER - START_ALTER   # Jahr j endet mit Alter START_ALTER + j + 1
 
 
@@ -1425,6 +1425,7 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
                          "rueckkehr_ch": (0.05, 0.065, 0.08)})
 ZIEL_ALTER = 57      # Sommer 2065: Basis ~60 %, Stress ~56 %, Stress + KI sicher ~50,6 %
 GARANTIE_ALTER = 60  # Sommer 2068: Vergleichsalter für die Härtefälle in --stress
+ROBUST_ALTER = 62    # Sommer 2070: auch der härteste getestete Fall über 50 %
 
 # Äußere Kleinannahmen ohne harte Quelle am pessimistischen Rand (nicht
 # steuerbar): kein Freelancing, harte Lohnnarbe, träger Konsum, keine
@@ -1614,9 +1615,9 @@ def main() -> None:
                                                            p_dual_platz=(0, 0, 0), p_haus=(0, 0, 0),
                                                            p_aufgeben=0.0, **AUSSEN_PESSIMISTISCH)))
         for titel, wp in faelle:
-            e = mehrfach(weichenplan(wp), n=a.n, alter=(54, 55, 56, ZIEL_ALTER, 58, GARANTIE_ALTER))
-            print(f"{titel:29s}" + "  ".join(f"{x}: {e[x][0]:5.1%}±{e[x][1]:.1%}"
-                                              for x in (54, 55, 56, ZIEL_ALTER, 58, GARANTIE_ALTER))
+            spalten = (54, 56, ZIEL_ALTER, GARANTIE_ALTER, ROBUST_ALTER, 65)
+            e = mehrfach(weichenplan(wp), n=a.n, alter=spalten)
+            print(f"{titel:29s}" + "  ".join(f"{x}: {e[x][0]:5.1%}±{e[x][1]:.1%}" for x in spalten)
                   + f"   50 % ab {e['ab']}")
         return
     sommer_2027()
@@ -1624,14 +1625,14 @@ def main() -> None:
         return
     print(f"Wahrscheinlichkeit, mit Alter X Millionär zu sein (n = {a.n} Leben je Strategie)")
     print("-" * 96)
-    alter_spalten = (30, 35, 40, 45, 50, 55, 60)
+    alter_spalten = (35, 40, 45, 50, 55, 60, 65)
     print(f"  {'Strategie':44s}" + "".join(f"{x:>7d}" for x in alter_spalten) + "   50 % ab")
     for name, (titel, strat) in STRATEGIEN.items():
         leben = simulieren(strat, a.n)
         quoten = [quote_bis_alter(leben, x) for x in alter_spalten]
         ab = fruehestes_alter(leben)
         print(f"  {titel[:44]:44s}" + "".join(f"{q:>7.0%}" for q in quoten)
-              + f"   {ab if ab else '> 60':>6}")
+              + f"   {ab if ab else '> 65':>6}")
     print()
 
 
