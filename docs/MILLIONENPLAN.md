@@ -35,20 +35,21 @@ Sparregel wirklich hält, kommt auf 65 %** – darum ist sie der Kern des Plans.
 - **Bis Sommer 2027 geht es nicht.** Mit Glücksspiel, Wetten oder Trading
   ohne Vorteil ist beweisbar höchstens 0,5 % drin; selbst die beste
   Hebelstrategie mit Aktien kommt theoretisch nur auf rund 1 % und ist in
-  der Praxis chancenlos; ein Geschäft bräuchte ~1,8 Mio. € Gewinn neben dem
+  der Praxis chancenlos; ein Geschäft bräuchte ~1,9 Mio. € Gewinn neben dem
   Abitur (Abschnitt 1).
 - **Nicht verhandelbar:** die Sparregel (Abschnitt 4) und Märkte, die nicht
   das ganze Berufsleben über schwach bleiben.
 - Alle Härtefälle stehen in Abschnitt 7 – das sind Einordnungen, keine
-  anderen Ziele. Im härtesten getesteten Fall trägt der Plan auch mit 65
-  nicht (49 %).
+  anderen Ziele. Im härtesten getesteten Fall, in dem Sparregel und Märkte
+  noch halten, trägt der Plan auch mit 65 nicht (48 %).
 - **Quellen:** Jede Quelle, auf der eine Zahl des Plans beruht, steht mit
   Link in Abschnitt 10; was nur geschätzt ist, steht dort und in Abschnitt 7
   als Schätzung. 42 Belege wurden einzeln gegen die Originalquelle geprüft,
   dazu 23 Angaben, die vorher nur im Code standen (10 bestätigt,
   11 korrigiert, 2 als Schätzung gekennzeichnet). Wo die Quelle etwas
   anderes sagt, sind Text und Modell korrigiert – unter anderem
-  Einstiegsgehalt in Deutschland und in der Schweiz (jetzt swissICT-Median),
+  Einstiegsgehalt in Deutschland und in der Schweiz (jetzt um den
+  swissICT-Median gelegt),
   Gehalt ohne Abschluss, Rückkehr aus der Schweiz (jetzt wie beim SECO),
   Berufsunfähigkeit (jetzt nach Alter), Sozialabgaben. Dadurch fiel die
   Hauptzahl von 60 % unter 50 % (48,8 %). Eine Änderung am Plan – Plan B
@@ -69,13 +70,15 @@ ist die Hälfte einer Schweizer Pensionskasse (sie lässt sich bei Rückkehr in
 die EU nur teilweise auszahlen). In heutiger Kaufkraft sind 1 Mio. € am
 31.08.2065 nur etwa **440 Tsd. €** (bei 2,1 % Inflation im Jahr). Wer
 1 Mio. € in heutiger Kaufkraft will: Diese Quote liegt am Zieldatum bei rund
-22 %, mit 60 bei 27 %.
+20 %, mit 60 bei 25 %.
 
 Alles lässt sich nachrechnen (je 4 × 10.000 Leben, wie im Dokument):
 `python3 plan/simulation.py` (Abschnitt 1 und 3, einige Minuten),
 `--sommer` (Abschnitt 1 und 5), `--stress` (Stress- und Härtefälle),
 `--sens` (Sensitivität), `--kontrolle` (Kontrollwerte), `--extra` (alle
-übrigen Einzelzahlen, auch die 16-Lauf-Werte); Tests:
+übrigen Einzelzahlen, auch die 16-Lauf-Werte; nur der Median mit eiserner
+Regel in Abschnitt 7 und der Agentur-Wert in Abschnitt 3 entstehen über
+`sim.simulieren` bzw. `sim.kalibrierung_agentur()`); Tests:
 `python3 -m unittest discover -s tests`. Alle Ergebnisse sind Modellwerte:
 Die ±-Angaben sind nur das Rechenrauschen der Simulation – wie unsicher
 die Annahmen sind, zeigt die Sensitivitätstabelle in Abschnitt 7.
@@ -104,7 +107,7 @@ Startkapital sind das **0,5 %**.
 
 In der Praxis verlieren 74–89 % der CFD-Konten von Privatkunden (ESMA 2018)
 und 74 % der Turbo-Anleger (BaFin, 2019–2023) Geld. Und ein Geschäft? 1 Mio. € netto in
-gut neun Monaten wären rund 1,8 Mio. € Gewinn – neben dem Abitur. Für
+gut neun Monaten wären rund 1,9 Mio. € Gewinn – neben dem Abitur. Für
 Spiele ohne Vorteil ist die Grenze ein Beweis; für Aktien mit Hebel und für
 ein Geschäft ist sie eine Rechnung, kein Beweis.
 
@@ -147,8 +150,8 @@ Eingaben stehen mit Quelle in Abschnitt 7 und 10.
 | Weg | mit 40 | mit 45 | mit 50 | mit 55 | **am Zieldatum (57)** | mit 60 | 50 % ab |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | **Plan: PiBS oder dual, sonst Bachelor; dann Schweiz/DE** | 7 % | 18 % | 31 % | 46 % | **51 %** | 59 % | **57** |
-| … mit eiserner Sparregel (60 %, nie aufgegeben) | 12 % | 28 % | 45 % | 60 % | **65 %** | 71 % | 52 |
-| … mit typischem Elternerbe (nicht Teil des Plans) | 7 % | 18 % | 32 % | 51 % | **59 %** | 68 % | 55 |
+| … mit eiserner Sparregel (60 %, nie aufgegeben) | 12 % | 28 % | 44 % | 60 % | **65 %** | 71 % | 52 |
+| … mit typischem Elternerbe (nicht Teil des Plans) | 6 % | 18 % | 32 % | 51 % | **59 %** | 68 % | 55 |
 | Duales Studium, dann Schweiz/DE | 6 % | 17 % | 31 % | 46 % | **52 %** | 59 % | 57 |
 | Sicherer PiBS-Platz, dann Schweiz/DE | 8 % | 20 % | 34 % | 48 % | **53 %** | 60 % | 56–57 |
 | Bachelor + Agentur, dann Schweiz/DE | 6 % | 17 % | 30 % | 44 % | **49 %** | 57 % | 58 |
@@ -188,9 +191,9 @@ die Plätze sind knapp (2022 erst 128 Eintritte schweizweit; laut Bund sind
 die Plätze in Unternehmen das Nadelöhr) und der Lohn deckt die Schweizer
 Lebenshaltung nicht. Darum steht es im Plan gleichberechtigt neben dem
 dualen Studium: Nimm, was zuerst sicher zusagt. Der Plan mit beiden
-Optionen liegt bei 51 % – innerhalb der Messgenauigkeit kaum darunter;
-der Unterschied entsteht, weil im Modell eine PiBS-Zusage immer vorgezogen
-wird, auch wenn die Finanzierung knapp ist.
+Optionen liegt bei 51 %, kaum unter dem dualen Weg. Der Abstand entsteht,
+weil das Modell annimmt, dass parallele PiBS-Bewerbungen die Chance auf
+einen dualen Platz um 15 % senken (Schätzung, Termine kollidieren).
 
 ## 4. Der Plan
 
@@ -210,6 +213,10 @@ wird, auch wenn die Finanzierung knapp ist.
    - **Plan B:** Bachelor Informatik an einer **FH/HAW**, nicht an einer Uni
      (Bewerbung bis Juli): Dort brechen deutlich weniger ab (DZHW: 30–37 %
      gegen 42–47 %), und Schweizer Arbeitgeber kennen den FH-Abschluss gut.
+     Gerechnet ist mit 6 Semestern – bevorzuge einen Studiengang mit 6
+     Semestern; viele bayerische HAWs haben 7 (mit Praxissemester). Ein
+     vierjähriger Bachelor kostet im Modell knapp einen Punkt, 7 Semester
+     also etwa einen halben.
 3. **Webgeschäft als Verkaufsschule** (`standortcheck`), ~5 h/Woche bis
    März, Pause in den Prüfungen, danach bis 25 h/Woche. Siehe Abschnitt 5.
 4. **Geld:** Depot eröffnen, ETF-Sparplan auf einen breiten Welt-ETF
@@ -238,10 +245,12 @@ wird, auch wenn die Finanzierung knapp ist.
   bis Februar parallel auf duale Plätze für den nächsten Herbst bewerben;
   bleibt es am Ende des ersten Jahres schlecht, sofort neu starten (dual,
   sonst ein anderes Informatik- oder Wirtschaftsinformatik-Studium) statt
-  zwei Jahre durchhalten. Im Modell ist die Regel eingerechnet, aber
-  vorsichtig: Nur die Hälfte derer, die im ersten Jahr abbrechen, startet
-  wirklich neu, und das höchstens einmal; die andere Hälfte geht ohne
-  Abschluss in den Beruf.
+  zwei Jahre durchhalten. Im Modell ist die Regel so eingerechnet: Die
+  Hälfte derer, die im ersten Jahr abbrechen, startet einmal neu, die andere
+  Hälfte geht ohne Abschluss in den Beruf. Der zweite Versuch hat dort
+  dasselbe Abbruchrisiko und dieselbe Chance auf einen dualen Platz wie ein
+  Erstversuch – das ist eher günstig gerechnet, und ohne diese Regel läge
+  der Plan bei 50,1 %.
 
 ### Phase 2 – ~2031 bis ~2040: Die Schweiz-Phase
 
@@ -269,6 +278,8 @@ wird, auch wenn die Finanzierung knapp ist.
 > Schweiz (inkl. Krankenkasse), jedes Jahr um die Inflation angehoben.
 > **Von jedem Euro darüber gehen 60 % per Dauerauftrag am Zahltag ins
 > ETF-Depot** – auch von jeder Gehaltserhöhung, jedem Bonus.
+> **Im Studium** (dual, PiBS, Bachelor): Grundbedarf ~1.000 €/Monat, 40 % von
+> allem darüber ins Depot.
 
 Das ist gut das 1,5-Fache dessen, was typische Gutverdiener von jedem
 zusätzlichen Euro sparen (~38 %). Genau
@@ -330,7 +341,9 @@ Vermögen nach Steuer, nominal (die Hälfte einer Schweizer Pensionskasse
 eingerechnet), Stichtag jeweils 31.08.; **nach Datum lesen, nicht nach
 Alter** (wer ein Jahr älter ist, nimmt trotzdem die Zeile seines Datums);
 für Jahre zwischen den Zeilen linear interpolieren. In der Ausbildung (bis
-~2030/31) wächst das Vermögen kaum – das ist eingeplant. Liegst du **unter dem linken Wert**, bist du hinter dem Plan
+~2030/31) wächst das Vermögen kaum – das ist eingeplant. Bei PiBS ist es bis
+~2031 sogar negativ (Studienkredit, bis etwa −9 Tsd. €); dort gilt die
+Weiche „unter dem 25-%-Wert“ erst ab dem ersten Vollzeitjahr. Liegst du **unter dem linken Wert**, bist du hinter dem Plan
 und musst nachsteuern; über dem rechten bist du gut vorn
 (`python3 plan/simulation.py --kontrolle`).
 
@@ -381,7 +394,7 @@ Schätzungen gleichzeitig am pessimistischen Rand – Chance auf eine Schweizer
 Stelle halbiert (auch im zweiten Anlauf), nach PiBS deutlich seltener,
 PiBS-Platz kaum, dualer Platz seltener, Rückkehr aus der Schweiz deutlich
 über dem SECO-Wert (dort 35 % nach 5 und 45 % nach 10 Jahren; im Modell
-sonst 34 % / 44 %, im Stress 50 % / 60 %).
+sonst ~35 % / ~45 %, je nach Zählweise 34–36 % / 44–45 %; im Stress 50 % / 60 %).
 
 | Szenario | mit 54 | mit 56 | **mit 57** | mit 60 | mit 62 | mit 65 |
 |---|---:|---:|---:|---:|---:|---:|
@@ -422,8 +435,9 @@ Arbeitslosigkeit, träger Konsum, keine weiterlaufenden Betreuungsverträge.
 Die Schweiz und die Studienform machen die Million **früher** erreichbar.
 Ohne sie und mit sicherem KI-Druck (Fall A) liegt der Plan ab 62
 (Sommer 2070) über 50 %. Kommen zusätzlich alle äußeren Kleinannahmen ungünstig,
-**reicht es bis 65 nicht** (48 % mit 65) – das ist der härteste getestete Fall,
-und dort trägt der Plan nicht. Nur wenn dabei weder ein Haus gekauft noch
+**reicht es bis 65 nicht** (48 % mit 65), und dort trägt der Plan nicht. Das ist der härteste getestete Fall, in dem
+Sparregel und Märkte noch halten; mit typischem Sparen oder 4 % Rendite liegt
+er noch tiefer (siehe unten). Nur wenn dabei weder ein Haus gekauft noch
 die Sparregel aufgegeben wird, liegt er ab 64 (Sommer 2072, 52 %) über 50 %.
 Was nicht verhandelbar bleibt:
 die Sparregel (bei Sparen wie typische Gutverdiener mit 60: Fall A
@@ -457,7 +471,9 @@ und bei PiBS, Vorsprung des dualen Studiums beim Einstieg (~1 Tsd. €),
 Schweizer Stelle (18–50 %, mit Partner ×0,7; zweiter Anlauf 20–30 %),
 PiBS- und dualer Platz, Einstieg nach PiBS (75–95 Tsd. CHF), Schweizer
 Lohnwachstum, Lohn nach Rückkehr (60–75 % des Schweizer Gehalts),
-Bindungsklausel nach dem dualen Studium (2/3), Kita-Kosten in der Schweiz
+Bindungsklausel nach dem dualen Studium (2/3), weniger Chance auf einen
+dualen Platz bei parallelen PiBS-Bewerbungen (×0,85), Dauer des
+FH-Bachelors (6 Semester), Kita-Kosten in der Schweiz
 (×1,7), Anteil früher Abbrüche (50 %), Schweizer Steuerkurve
 (6–30 % effektiv je nach Einkommen, +1,5 Punkte für Zürich/Basel/Bern –
 nicht gegen den ESTV-Rechner geprüft), Agentur während des Bachelors,
@@ -483,11 +499,11 @@ deshalb eher zu hoch.
 | 4 % | 1,11 Mio. € | 0,91 Mio. € |
 
 Für die Million reichen damit – eiserne Sparregel, ohne KI-Abschlag, mit
-60 – 3,4 % Rendite. Die Simulation liegt in Fall A mit 60 im Median bei
+60 – mit Abschluss 3,4 % Rendite, ohne Abschluss gut 4,4 %. Die Simulation liegt in Fall A mit 60 im Median bei
 0,92 Mio. € – niedriger als die Gegenrechnung, vor allem weil sie die
 Sparregel nicht perfekt hält (im Mittel ~51 % statt 60 %, 15 % geben auf)
 und in Fall A der KI-Abschlag sicher ist; mit eiserner Regel und ohne KI
-liegt ihr Median bei 1,61 Mio. €. Märkte, Arbeitslosigkeit, Abbrüche,
+liegt ihr Median bei 1,61 Mio. € (eigene Rechnung mit `sim.simulieren`). Märkte, Arbeitslosigkeit, Abbrüche,
 Berufsunfähigkeit und Hauskäufe machen nur einen kleineren Teil aus.
 
 ## 8. Feldtest: Gibt es die Kunden fürs Webgeschäft?
@@ -563,8 +579,8 @@ Verkaufsargument taugt es kaum.
    gekennzeichnet. Zwei weitere Prüfer haben alle Links abgerufen und die
    Zahlen erneut gegen die Originale gehalten. Im Modell geändert, weil die
    Quelle es verlangte: Einstiegsgehalt Bachelor 43–50 statt 44–58 Tsd. €
-   (get in IT), Schweizer Einstieg auf den swissICT-Median 81.850 CHF statt
-   88.000, Gehalt ohne Abschluss 34–45 Tsd. € Einstieg mit flacherem Verlauf
+   (get in IT), Schweizer Einstieg mit Modus 81.850 CHF (swissICT-Median;
+   Median im Modell ~83,5 Tsd.) statt 88.000, Gehalt ohne Abschluss 34–45 Tsd. € Einstieg mit flacherem Verlauf
    (Stepstone), Rückkehr aus der Schweiz auf den SECO-Wert (35 % nach 5,
    45 % nach 10 Jahren; vorher ~28 % nach 10), Berufsunfähigkeit nach Alter
    (DAV 2021 I) statt konstant 0,1–0,2 %, BU-Prämie als Anteil der

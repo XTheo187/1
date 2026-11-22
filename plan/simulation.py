@@ -1505,7 +1505,7 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
 ZIEL_ALTER = 57      # 31.08.2065, das Planziel (Werte: python3 plan/simulation.py --stress)
 GARANTIE_ALTER = 62  # Sommer 2070: auch Fall A (ohne Schweiz/PiBS/dual, KI-Druck sicher) knapp über 50 %
 ROBUST_ALTER = 64    # Sommer 2072: Fall A + äußere Kleinannahmen, aber ohne Hauskauf und Aufgeben,
-                     # knapp über 50 % (ohne diese Regeltreue bleibt der Fall bis 65 darunter, ~49 %)
+                     # knapp über 50 % (ohne diese Regeltreue bleibt der Fall bis 65 darunter, ~48 %)
 
 # Äußere Kleinannahmen ohne harte Quelle am pessimistischen Rand (nicht
 # steuerbar): kein Freelancing, harte Lohnnarbe, träger Konsum, keine
