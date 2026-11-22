@@ -1424,6 +1424,11 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
                          "p_dual_platz": (0.25, 0.40, 0.55),
                          "rueckkehr_ch": (0.05, 0.065, 0.08)})
 ZIEL_ALTER = 57      # Sommer 2065: Basis ~60 %, Stress ~56 %, Stress + KI sicher ~50,6 %
+GARANTIE_ALTER = 60  # Sommer 2068: in jedem getesteten Fall >= 56 %, auch ganz ohne Schweiz/PiBS/dual
+
+# Ganz ohne die Annahmen ohne harte Quelle: keine Schweiz, kein PiBS
+PLAN_OHNE_CH = Weichen(**{**PLAN.__dict__, "rueckfall": ("de",), "p_pibs_platz": (0, 0, 0),
+                          "p_stelle_ch": (0, 0, 0), "p_ch_zweiter_anlauf": (0, 0, 0)})
 
 
 def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
@@ -1590,11 +1595,15 @@ def main() -> None:
     a = ap.parse_args()
     if a.stress:
         from dataclasses import replace
-        for titel, wp in (("Plan", PLAN), ("Stress", PLAN_STRESS),
-                          ("Stress + KI sicher", replace(PLAN_STRESS, p_ki=(1, 1, 1)))):
-            e = mehrfach(weichenplan(wp), n=a.n, alter=(54, 55, 56, ZIEL_ALTER, 58, 60))
+        faelle = (("Plan", PLAN), ("Stress", PLAN_STRESS),
+                  ("Stress + KI sicher", replace(PLAN_STRESS, p_ki=(1, 1, 1))),
+                  ("ohne Schweiz/PiBS", PLAN_OHNE_CH),
+                  ("ohne CH/PiBS + KI", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1))),
+                  ("nur Bachelor + KI", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0))))
+        for titel, wp in faelle:
+            e = mehrfach(weichenplan(wp), n=a.n, alter=(54, 55, 56, ZIEL_ALTER, 58, GARANTIE_ALTER))
             print(f"{titel:20s}" + "  ".join(f"{x}: {e[x][0]:5.1%}±{e[x][1]:.1%}"
-                                              for x in (54, 55, 56, ZIEL_ALTER, 58, 60))
+                                              for x in (54, 55, 56, ZIEL_ALTER, 58, GARANTIE_ALTER))
                   + f"   50 % ab {e['ab']}")
         return
     sommer_2027()

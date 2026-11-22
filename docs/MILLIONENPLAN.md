@@ -10,8 +10,11 @@ Wahrscheinlichkeit Millionär?
    60 % Wahrscheinlichkeit** (60,5 % ± 0,5). Das Ziel hält die 50 % auch
    dann, wenn alle nicht hart belegten Annahmen gleichzeitig danebenliegen
    (55,8 %), und sogar knapp, wenn zusätzlich der KI-Druck auf Einsteiger
-   sicher eintritt (50,6 % ± 0,2 über 16 unabhängige Läufe). Früheste Marke mit mindestens 50 %: Sommer 2062
-   (Alter ~54, 51,9 %). Wer die Sparregel eisern hält, ist mit ~50 % schon
+   sicher eintritt (50,6 % ± 0,2 über 16 unabhängige Läufe).
+   **Garantiezone: Sommer 2068 (Alter ~60) – in jedem getesteten Fall
+   mindestens 56 %**, auch ganz ohne Schweiz, ohne PiBS, ohne dualen Platz
+   und mit sicherem KI-Druck. Die 50-%-Aussage hängt dort an keiner der
+   Annahmen ohne harte Quelle mehr. Wer die Sparregel eisern hält, ist mit ~50 % schon
    mit 50 dort.
 3. Das ist kein Versprechen, sondern das Ergebnis einer Rechnung mit
    realistischen, belegten Annahmen, die drei Runden unabhängiger
@@ -24,8 +27,14 @@ Kaufkraft sind 1 Mio. € im Jahr 2062 nur etwa **460 Tsd. €**. Wer 1 Mio. €
 heutiger Kaufkraft will: Diese Quote liegt mit 54 bei rund 21 %, mit 60 bei
 32 %.
 
-Alles lässt sich nachrechnen: `python3 plan/simulation.py` (Tests:
+Alles lässt sich nachrechnen: `python3 plan/simulation.py` und
+`python3 plan/simulation.py --stress` (Tests:
 `python3 -m unittest discover -s tests`).
+
+**Zur Person:** Gerechnet ist für dich als Schüler der 13. Klasse mit Abitur
+im Frühjahr 2027, also 19 Jahre alt im Sommer 2027. Bist du ein Jahr älter,
+gelten dieselben Kalenderdaten (2062, 2065, 2068), nur jeweils mit einem
+Lebensjahr mehr.
 
 ---
 
@@ -273,6 +282,20 @@ knapp, aber über 50 %.
 
 Deshalb ist das Planziel **Sommer 2065** und nicht die früheste Marke 2062:
 Es bleibt über 50 %, selbst wenn die unsicheren Annahmen alle danebenliegen.
+
+**Ganz ohne die unsicheren Annahmen** – keine Schweiz, kein PiBS, im
+härtesten Fall auch kein dualer Platz, KI-Druck sicher (Seeds 11/22/33/44,
+je 10.000 Leben):
+
+| Szenario | mit 57 (2065) | **mit 60 (2068)** |
+|---|---:|---:|
+| Ganz ohne Schweiz und PiBS | 54 % | **63 %** |
+| … plus KI-Druck sicher | 50 % | **59 %** |
+| … nur Bachelor, KI-Druck sicher | 47 % | **56 %** |
+
+Die Schweiz und die Studienform machen die Million **früher** erreichbar,
+sind aber keine Voraussetzung: Bis Sommer 2068 trägt allein die Sparregel
+mit einem normalen IT-Berufsweg in Deutschland über 50 %.
 
 ## 8. Feldtest: Gibt es die Kunden fürs Webgeschäft?
 

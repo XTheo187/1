@@ -135,6 +135,12 @@ class TestPlanmodell(unittest.TestCase):
                                      sim.ZIEL_ALTER)
         self.assertLess(stress, basis)
 
+    def test_garantiealter_haelt_auch_ohne_schweiz(self):
+        from dataclasses import replace
+        wp = replace(sim.PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0))
+        p = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 3000, seed=9), sim.GARANTIE_ALTER)
+        self.assertGreater(p, 0.5)
+
     def test_ohne_schweiz_ist_schlechter(self):
         from dataclasses import replace
         mit = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN), 800, seed=4), 55)
