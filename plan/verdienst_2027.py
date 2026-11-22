@@ -368,6 +368,7 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
 
     # 4. Sommer nach dem Zeugnis: Vollzeitjob, ggf. dazu Samstage
     augustlohn_netto = 0.0
+    sommer_lohn_monate = [0.0, 0.0, 0.0]     # Brutto des Sommerjobs im Juni, Juli, August
     if a.mit_kurzfristig and sommer_voll > 0:
         if sommer_kurz:
             nach_tagen = a.tage_kurzfristig - wt[2027]
@@ -399,6 +400,7 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
                 break
             b_monat, k_monat = betrag * teil / tage_job, kalendertage * teil / je_monat
             abrechnungen.append((2027, b_monat, k_monat, vorsorge))
+            sommer_lohn_monate[monat] += b_monat
             if monat == 2:
                 # Stundenlohn ist erst nach Monatsende fällig (§ 614 BGB, § 2 MiLoG): oft im September
                 sv_satz = 0.0 if sommer_kurz else a.sv_berufsmaessig
@@ -439,7 +441,7 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
                  "frei": art_summe[j]["frei"], "nachhilfe": nachhilfe[j], "nachhilfe_monate": nachhilfe_monate[j],
                  "arbeitstage": wt[j], "kalendertage": kt[j]} for j in jahre}
     return {"netto": netto, "kontostand": kontostand, "kontostand_ohne_augustlohn": kontostand - augustlohn_netto,
-            "einbehalten": einbehalten, "steuer": steuer_jahr,
+            "einbehalten": einbehalten, "steuer": steuer_jahr, "sommer_lohn_monate": sommer_lohn_monate,
             "sv": sv_summe, "lohn_sv": sum(lohn_sv.values()), "brutto": brutto_summe, "stunden": stunden_gesamt,
             "je_quelle": je_quelle, "stunden_je_quelle": stunden_je_quelle, "je_phase": je_phase, "dual": dual, "start": start, "industrie": industrie,
             "tage_kurzfristig": dict(wt), "kalendertage_kurzfristig": dict(kt), "pruef": pruef}

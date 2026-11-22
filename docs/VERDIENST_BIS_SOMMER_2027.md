@@ -194,7 +194,7 @@ Wer die Wahl hat, nimmt den 01.09. oder 01.10.
 
 | Regel | Wirkung |
 |---|---|
-| **Familienversicherung** (§ 10 SGB V): Gesamteinkommen höchstens 565 € (2026) bzw. 590 € (2027) im Monat. Gewinne aus Nachhilfe und Webgeschäft zählen als Jahresgewinn / 12. Wer daneben einen Minijob hat, darf insgesamt (Minijob + Gewinn / 12) bis 603 bzw. 633 € | <ul><li>2027 sind neben der Schule bis ~7.000 € Gewinn drin (12 × 590 €).</li><li>Das gilt, wenn danach kein weiteres regelmäßiges Einkommen folgt (etwa ein Werkstudentenjob ab Oktober) und 2026 vorher keins da war.</li><li>Vorher bei der Krankenkasse nachfragen.</li><li>Im Plan begrenzt das Stundenbudget, nicht diese Grenze.</li><li>Darüber käme eine eigene Krankenversicherung (~250–280 €/Monat).</li></ul> |
+| **Familienversicherung** (§ 10 SGB V): Gesamteinkommen höchstens 565 € (2026) bzw. 590 € (2027) im Monat. Gewinne aus Nachhilfe und Webgeschäft zählen als Jahresgewinn / 12. Wer daneben einen Minijob hat, darf insgesamt (Minijob + Gewinn / 12) bis 603 bzw. 633 € | <ul><li>2027 sind neben der Schule bis ~7.000 € Gewinn drin (12 × 590 €).</li><li>Das gilt, wenn danach kein weiteres regelmäßiges Einkommen folgt (etwa ein Werkstudentenjob ab Oktober) und 2026 vorher keins da war.</li><li>Vorher bei der Krankenkasse nachfragen.</li><li>Im Plan begrenzt das Stundenbudget, nicht diese Grenze.</li><li>Darüber käme eine eigene Krankenversicherung: mindestens ~282 €/Monat (2027), und dann auch auf den Lohn des Sommerjobs (~20,5 %). Details in [`HEBEL_BIS_SOMMER_2027.md`](HEBEL_BIS_SOMMER_2027.md), Abschnitt 5.</li></ul> |
 | **Übungsleiter-/Betreuerpauschale** (§ 3 Nr. 26 EStG): bis 3.300 € im Jahr steuer- und sozialversicherungsfrei, zählt nicht zum Gesamteinkommen. Gilt für Arbeit für einen Verein oder eine gemeinnützige oder öffentliche Stelle (Trainer, Betreuer, Ferienprogramm) | <ul><li>Kommt zusätzlich zur Grenze.</li><li>Hilft, sobald die Grenze drückt.</li><li>Im Plan nur ein Ersatz, weil es je Stunde weniger bringt (~10–18 €).</li></ul> |
 | **Rentenversicherung für Selbstständige** (§ 2 SGB VI): Selbstständige Nachhilfe ist ab regelmäßig mehr als 603 bzw. 633 € Gewinn im Monat rentenversicherungspflichtig (18,6 %, Meldung an die DRV binnen 3 Monaten). Das Webgeschäft als Gewerbe ist es nicht | Nachhilfe im Modell auf 603/633 € je Monat begrenzt |
 | **Kurzfristige Beschäftigung:** höchstens 3 Monate (mehrere Jobs: 90 Kalendertage) oder 70 Arbeitstage je Kalenderjahr, ohne Verdienstgrenze; zählt nicht zur Familienversicherung | <ul><li>Trägt Ferien- und Sommerjobs.</li><li>2027 zusammen höchstens 90 Kalendertage, davon braucht der Sommer 63.</li></ul> |
@@ -218,11 +218,16 @@ Wer die Wahl hat, nimmt den 01.09. oder 01.10.
     Plätze.
 - **Familienversicherung aufgeben**, um neben der Schule mehr regelmäßig
   zu verdienen:
-  - Beim Webgeschäft lohnt sich das erst ab ~850 € Gewinn im Monat:
-    590 € plus eigene Krankenversicherung von ~250–280 €.
-  - Bei Nachhilfe kommt über 633 € der Rentenbeitrag dazu (18,6 %). Dort
-    lohnt es sich erst ab ~1.050–1.100 €.
-  - Mit den Lernstunden ist beides kaum zu schaffen.
+  - Die eigene Versicherung kostet mindestens ~282 €/Monat (2027). Als
+    freiwilliges Mitglied zahlt man dann auch auf den Lohn des Sommerjobs
+    (~20,5 %, im Juli und August je ~650 € mehr).
+  - Im Studiums-Fall lohnt mehr Gewinn deshalb erst ab ~9.500–11.300 €
+    Gesamtgewinn 2027; dazwischen bringt mehr Gewinn weniger Geld.
+  - Bei Nachhilfe kommt über 633 € im Monat der Rentenbeitrag dazu
+    (18,6 %).
+  - Mit den Lernstunden ist das kaum zu schaffen. Was ein eigenes Geschäft
+    mit Hebel bringt, steht in
+    [`HEBEL_BIS_SOMMER_2027.md`](HEBEL_BIS_SOMMER_2027.md).
 - **60-Stunden-Wochen im Sommer:**
   - Rechtlich nur mit Ausgleich über 6 Monate bzw. 24 Wochen, und
     körperlich belastend.

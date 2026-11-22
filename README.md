@@ -62,6 +62,10 @@ Und warum 500.000 EUR bis Sommer 2027 mit keinem Plan wahrscheinlich sind
 Was bis dahin realistisch durch Arbeit drin ist – maximal rund 14.000 EUR
 netto (Median ~11.700 EUR), Obergrenze ~21.500 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)
 (Rechnung: `python3 plan/verdienst_2027.py`).
+Und ob ein Hebel mehr bringt – Mitarbeiter, Vermittlung, Vermietung, Handel,
+Produkte, Provision: bis 31.08.2027 schlägt keiner den Job-Weg im Median, sie
+verbreitern nur den oberen Rand. [`docs/HEBEL_BIS_SOMMER_2027.md`](docs/HEBEL_BIS_SOMMER_2027.md)
+(Rechnung: `python3 plan/hebel_2027.py`).
 Die Rechnung dahinter: `python3 plan/simulation.py` (Monte-Carlo, belegte
 Spannweiten; frühere Fassungen dreimal gegengeprüft, Quellen zweimal geprüft und verlinkt).
 
