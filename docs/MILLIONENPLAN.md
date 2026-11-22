@@ -135,8 +135,9 @@ kommt – das duale Studium ist praktisch gleichwertig.
 
 ### Phase 1 – Herbst 2027 bis ~2031: Ausbildung mit Einkommen
 
-- Rangfolge: **PiBS** (wenn Platz und Finanzierung der Lücke von ~6 Tsd. €
-  im Jahr stehen) > **duales Studium** > **Bachelor + Webgeschäft 20 h/Woche**.
+- Rangfolge: **PiBS** (wenn ein Platz kommt und die Finanzierung steht:
+  Lebenshaltung in der Schweiz ~25 Tsd. € im Jahr gegen ~17 Tsd. € Lohn
+  netto) > **duales Studium** > **Bachelor + Webgeschäft 20 h/Woche**.
 - Ab dem ersten eigenen Geld gilt die **Sparregel** (siehe unten).
 - Wer in Deutschland studiert: Praktikum oder Abschlussarbeit mit Bezug zur
   Schweiz, Englisch und Deutsch fließend, Lebenslauf auf Schweizer Stellen
@@ -157,7 +158,7 @@ kommt – das duale Studium ist praktisch gleichwertig.
 - Kein Eigenheim, bevor das Depot die Hälfte des Ziels erreicht hat
   (Kaufnebenkosten 5–9 % sind sofort weg).
 
-### Phase 3 – ~2040 bis ~2065: Durchhalten
+### Phase 3 – ~2040 bis ~2062: Durchhalten
 
 - Weiter sparen, nie verkaufen in Crashs, kein Market-Timing.
 - Jedes Jahr die Kontrollwerte (Abschnitt 6) prüfen und nachsteuern.
