@@ -709,6 +709,15 @@ class Weichen:
     dual_brutto: tuple = (13_000, 15_000, 18_000)    # Vergütung im dualen Studium (BIBB ~1.209 EUR/Monat)
     p_abbruch_dual: tuple = (0.07, 0.12, 0.20)       # Schätzung: deutlich seltener als an der Uni
     p_dual_platz: tuple = (0.55, 0.70, 0.85)         # Schätzung: Platz in Informatik/Wirtschaftsinformatik
+    # Praxisintegriertes Bachelorstudium (PiBS) in der Schweiz: 4 Jahre, 40 %
+    # Arbeit im Partnerbetrieb (ZHAW, FHNW, BFH, HSLU, FFHS). Lohn z. B. Post CH
+    # 800/1.350/1.700/1.700 CHF im Monat, Studiengebühr bezahlt die Firma.
+    p_pibs_platz: tuple = (0.25, 0.40, 0.55)         # Schätzung: kleines Programm (ZHAW ~150 Studierende)
+    pibs_brutto: tuple = (14_000, 17_000, 21_000)    # EUR/Jahr im Schnitt der 4 Jahre
+    grund_ch_studium: float = 22_000                 # Zimmer + Leben in der Schweiz als Student
+    p_abbruch_pibs: tuple = (0.15, 0.22, 0.30)       # Schätzung (FH-Abbruch, Doppelbelastung)
+    p_stelle_ch_nach_pibs: tuple = (0.75, 0.85, 0.95)  # schon im Schweizer Arbeitsmarkt
+    start_ch_pibs: tuple = (80_000, 90_000, 102_000)   # Junior mit 4 Jahren Praxis
     pruefjahre: int = 3                     # nach so vielen Jahren wird die Weiche gestellt
     agentur_schwelle_real: float = 55_000   # Vollzeit-Gewinn (heutige Euro), ab dem die Agentur gewinnt
     rueckfall: tuple = ("ch", "de")         # Reihenfolge der Alternativen, falls die Agentur nicht trägt
@@ -833,8 +842,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
         nach_vertrieb = 0.0     # reales Gehalt nach dem Ausstieg aus dem Vertrieb
         letztes_brutto_real = 0.0
         pfade = {
-            "ch": _gehalt_pfad(rng, wp.start_ch, (0.02, 0.035, 0.055), (0.005, 0.012, 0.025),
-                               10, (0.2, 0.25, 0.32)),
+            "ch": None,   # wird nach der Studienwahl angelegt (Start hängt am Weg)
             "vertrieb": _gehalt_pfad(rng, **dict(VERTRIEB, sprung_ab=wp.vertrieb_sprung_ab)),
             "de": _gehalt_pfad(rng, **dict(IT_BACHELOR, start=wp.start_de)),
             "de_bachelor": _gehalt_pfad(rng, **IT_BACHELOR),
@@ -849,8 +857,11 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                     return option
             return "de"
 
-        if wp.erste_phase == "dual":
-            # Plan B ohne dualen Platz: Bachelor + Agentur wie im Studienweg
+        pibs_platz = wp.erste_phase == "pibs" and rng.random() < d(wp.p_pibs_platz)
+        if pibs_platz:
+            zustand = "pibs"
+        elif wp.erste_phase in ("dual", "pibs"):
+            # Plan B ohne Platz: duales Studium, sonst Bachelor + Agentur
             zustand = "dual" if rng.random() < d(wp.p_dual_platz) else "studium"
         elif wp.erste_phase == "vertrieb":
             # Plan B, falls 2027 keine Vertriebsstelle: Bachelor + Agentur,
@@ -861,6 +872,13 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
         studium_ende = (3 if wp.erste_phase in ("vertrieb", "dual") else wp.studienjahre) \
             if zustand == "studium" else None
         dual_brutto, bricht_dual_ab = d(wp.dual_brutto), rng.random() < d(wp.p_abbruch_dual)
+        pibs_brutto, bricht_pibs_ab = d(wp.pibs_brutto), rng.random() < d(wp.p_abbruch_pibs)
+        if pibs_platz:
+            glueck["ch"] = rng.random() < d(wp.p_stelle_ch_nach_pibs)
+            pfade_ch_start = wp.start_ch_pibs
+        else:
+            pfade_ch_start = wp.start_ch
+        studium_ch = Konsum(wp.grund_ch_studium, 0.6)
         dual_absolviert = False
         rueckfall_nach_studium = ("vertrieb", "ch", "de") if wp.erste_phase == "vertrieb" else wp.rueckfall
         rest_anteil = d(wp.betreuung_rest)
@@ -882,7 +900,22 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             konsum_ch.grundbedarf = wp.grund_ch * faktor
             kinder_jahr = kind_kosten * idx if kind_ab <= alter < kind_ab + 18 else 0.0
 
-            if zustand == "dual":
+            if pfade["ch"] is None:
+                pfade["ch"] = _gehalt_pfad(rng, pfade_ch_start, (0.02, 0.035, 0.055),
+                                           (0.005, 0.012, 0.025), 10, (0.2, 0.25, 0.32))
+            if zustand == "pibs":
+                netto = pibs_brutto * idx * (1 - 0.064 - 0.05)   # AHV/ALV, kaum Steuer
+                # Die Lücke zur Schweizer Lebenshaltung zählt als Schuld (Studienkredit
+                # oder Geld der Eltern) - sonst wäre PiBS künstlich besser gerechnet.
+                sparen = netto - max(studium_ch.ausgaben(netto, idx), wp.grund_ch_studium * idx)
+                if j == 3:
+                    if bricht_pibs_ab:
+                        abschluss["abgebrochen"] = True
+                        zustand = "de"
+                    else:
+                        abschluss["wert"] = True
+                        zustand = "ch" if glueck["ch"] else "de"
+            elif zustand == "dual":
                 netto = netto_angestellt(dual_brutto * idx, idx, j)
                 sparen = netto - studium.ausgaben(netto, idx)
                 if j == 2:
@@ -1061,6 +1094,10 @@ def _registrieren() -> None:
                     weichenplan(replace(PLAN, rueckfall=("de",))))
     s["dual_spar50"] = ("Duales Studium, CH/DE, Sparregel nur 50 %",
                         weichenplan(replace(PLAN, lam=0.5)))
+    s["pibs"] = ("PiBS in der Schweiz (sonst dual/Bachelor)",
+                 weichenplan(replace(PLAN, erste_phase="pibs")))
+    s["pibs_sicher"] = ("PiBS in der Schweiz (Platz sicher)",
+                        weichenplan(replace(PLAN, erste_phase="pibs", p_pibs_platz=(1, 1, 1))))
     s["plan"] = ("EMPFOHLEN: Dual, dann CH/DE, Sparregel 60 %", weichenplan(PLAN))
 
 # --------------------------------------------------------------------------
@@ -1158,13 +1195,20 @@ def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
     print("-" * 84)
     faelle: list[tuple[str, Strategie, Strategie]] = []
     wp = basis
-    faelle.append(("Vertriebsstelle klappt (nie / sicher)",
-                   weichenplan(replace(wp, p_vertrieb=(0, 0, 0))),
-                   weichenplan(replace(wp, p_vertrieb=(1, 1, 1)))))
-    faelle.append(("Sparverhalten (Grenzkonsum 0,7 / 0,35)",
-                   weichenplan(replace(wp, lam=0.7)), weichenplan(replace(wp, lam=0.35))))
+    faelle.append(("Schweizer Stelle (nie / sicher)",
+                   weichenplan(replace(wp, p_stelle_ch=(0, 0, 0))),
+                   weichenplan(replace(wp, p_stelle_ch=(1, 1, 1)))))
+    faelle.append(("Dualer Studienplatz (nie / sicher)",
+                   weichenplan(replace(wp, p_dual_platz=(0, 0, 0))),
+                   weichenplan(replace(wp, p_dual_platz=(1, 1, 1)))))
+    faelle.append(("Sparregel (40 % / 70 % von jedem Euro über Grundbedarf)",
+                   weichenplan(replace(wp, lam=0.6)), weichenplan(replace(wp, lam=0.3))))
     faelle.append(("Grundbedarf (22 / 13 Tsd. EUR im Jahr)",
-                   weichenplan(replace(wp, grund_de=22_000)), weichenplan(replace(wp, grund_de=13_000))))
+                   weichenplan(replace(wp, grund_de=22_000, grund_ch=40_000)),
+                   weichenplan(replace(wp, grund_de=13_000, grund_ch=30_000))))
+    faelle.append(("Kinder (sicher, teuer / keine)",
+                   weichenplan(replace(wp, p_kinder=(1, 1, 1), kosten_kinder=(8_000, 8_000, 8_000))),
+                   weichenplan(replace(wp, p_kinder=(0, 0, 0)))))
     welt_alt = Welt.ziehen
 
     ergebnisse = []
