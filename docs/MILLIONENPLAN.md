@@ -8,7 +8,8 @@ Wahrscheinlichkeit Millionär?
 1. Bis Sommer 2027 geht es nicht: höchstens 0,5 %, und das ist beweisbar.
 2. Mit dem Plan unten erreichst du **1 Mio. € Nettovermögen mit mindestens
    50 % Wahrscheinlichkeit bis Sommer 2062 (Alter ~54)** – gemessen 51,9 %
-   ± 0,5. Wer die Sparregel eisern hält, ist mit ~50 % schon mit 50 dort.
+   ± 0,5. Mit Sicherheitsabstand: **55 % bis Sommer 2063 (55)**, 58 % bis
+   2064 (56). Wer die Sparregel eisern hält, ist mit ~50 % schon mit 50 dort.
 3. Das ist kein Versprechen, sondern das Ergebnis einer Rechnung mit
    realistischen, belegten Annahmen, die drei Runden unabhängiger
    Gegenprüfung überstanden hat – und dabei von „50 % mit 40“ auf „50 % mit
@@ -293,6 +294,14 @@ Verkaufsargument taugt es kaum.
      Lohnnarbe bei jeder Wechsellücke, ungleich behandelte
      Studienfinanzierung, ein Gehalt von null nach früher Rückkehr.
    Die Aussage wanderte von „50 % mit 40“ zu „50 % mit 54“.
+   **Schlussverifikation** auf dem gepushten Stand (frischer Checkout, alle
+   Tests grün): 8 von 8 unabhängigen Läufen (Seeds 2027/1/2/3 und
+   101/202/303/404, je 10.000 Leben) liefern das 50-%-Alter 54;
+   P(54) = 51,9 % bzw. 52,1 %, untere Intervallgrenze jeweils über 51,4 %.
+   Die Unsicherheit der geschätzten Spannen (Schweizer Stelle, PiBS-Platz,
+   Rückkehrrate) steckt bereits in diesen Zahlen, weil jedes Leben seine
+   Werte aus der ganzen Spanne zieht; im ungünstigsten Einzelfall (nie eine
+   Schweizer Stelle) verschiebt sich die Schwelle auf 55.
 4. **Grenzen:** Viele Spannen sind begründete Schätzungen (Chance auf
    Schweizer Stelle, PiBS-Platz, Rückkehrrate, KI-Szenario). Bewusst nicht in
    der Hauptzahl: Erbschaften (mit typischem Elternerbe ~1 Jahr früher), das
