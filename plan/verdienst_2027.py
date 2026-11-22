@@ -181,6 +181,28 @@ STUNDEN_TAG = (7.5, 8.0, 10.0)          # je Arbeitstag (ArbZG: bis 10 h, Ø 8 h
 SAMSTAGE = (0.0, 0.5, 1.0)              # Anteil der Samstage, die im Sommer zusätzlich gearbeitet werden
 
 
+@dataclass(frozen=True)
+class Zusatz:
+    """Ein eigenes Geschäft neben (oder statt) Teilen des Job-Wegs – für plan/hebel_2027.py.
+
+    Es nimmt dem Job-Weg Zeit weg und bringt eigenen Gewinn. Die Zufallszahlen
+    des Job-Wegs bleiben mit und ohne Zusatz dieselben, damit sich beide Läufe
+    eins zu eins vergleichen lassen.
+    """
+    stunden: tuple = ()             # (Phasen-Präfix, Stunden), die vom Stundenbudget der Phase abgehen
+    ferientage: tuple = ()          # (Phasen-Präfix, Tage), die dem Ferienjob der Phase fehlen
+    sommer_anteil: float = 1.0      # Anteil der Sommer-Arbeitstage (Mo–Fr), die der Sommerjob behält
+    sommer_teilzeit: bool = True    # True: weniger Tage je Woche; False: Job beginnt später (endet 31.08.)
+    sommer_samstage: float = 1.0    # Anteil der Sommer-Samstage, die das Geschäft für den Job frei lässt
+    gewinn: tuple = ()              # (Jahr, Gewinn aus selbstständiger Arbeit vor Steuer, auch negativ)
+    sommer_brutto: float | None = None  # anderer Sommerjob (z. B. mit Provision): Brutto für den ganzen Sommer
+
+
+def _summe(paare: tuple, schluessel) -> float:
+    return sum(x for k, x in paare if (isinstance(k, str) and isinstance(schluessel, str)
+                                       and schluessel.startswith(k)) or k == schluessel)
+
+
 @dataclass
 class Annahmen:
     grenze_regel: dict = field(default_factory=lambda: {2026: 565.0, 2027: 590.0})
@@ -208,7 +230,9 @@ class Annahmen:
     mit_regelmaessig: bool = True
 
 
-def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
+def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -> dict:
+    paarweise = zusatz is not None      # Vergleichslauf für plan/hebel_2027.py
+    z = zusatz or Zusatz()
     dual = rng.random() < a.p_dual
     start = "01.10."
     if dual:
@@ -226,8 +250,11 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
     satz_einsatz = _z(rng, a.satz_einsatz)
     h_tag = _z(rng, a.stunden_tag)
     samstage = _z(rng, a.samstage)
+    samstage = min(samstage, max(0.0, z.sommer_samstage))
     werktage_sommer = SOMMER_TAGE[start]
-    sommer_voll = werktage_sommer * (1 + samstage / 5)      # Arbeitstage inkl. Samstage
+    sommer_voll = werktage_sommer * z.sommer_anteil * (1 + samstage / 5)      # Arbeitstage inkl. Samstage
+    # Kalendertage des Sommervertrags: Teilzeit über den ganzen Sommer oder späterer Beginn
+    kal_sommer = SOMMER_KALENDERTAGE * (1.0 if z.sommer_teilzeit else z.sommer_anteil)
 
     quellen = []
     for r in a.regelmaessig:
@@ -250,17 +277,22 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
     kt = {j: 0.0 for j in jahre}             # Kalendertage kurzfristig
     abrechnungen = []                        # (jahr, lohn, kalendertage, vorsorge) für die Lohnsteuer
     je_quelle: dict[str, float] = {}
+    stunden_je_quelle: dict[str, float] = {}
+    je_phase: dict[str, dict[str, float]] = {}   # Phase -> Quelle -> Betrag (für Frühindikatoren)
+    phase_jetzt = "Sommer"
     stunden_gesamt = 0.0
 
     def buche(name, betrag, stunden):
         nonlocal stunden_gesamt
         je_quelle[name] = je_quelle.get(name, 0.0) + betrag
+        stunden_je_quelle[name] = stunden_je_quelle.get(name, 0.0) + stunden
+        je_phase.setdefault(phase_jetzt, {})[name] = je_phase.get(phase_jetzt, {}).get(name, 0.0) + betrag
         stunden_gesamt += stunden
 
     def frei_tage(jahr: int, kalender_je_tag: float) -> float:
         """Weitere kurzfristige Arbeitstage, ohne dass der Sommerjob über beide Grenzen rutscht."""
         res_w = sommer_voll if (jahr == 2027 and sommer_kurz and a.mit_kurzfristig) else 0.0
-        res_k = SOMMER_KALENDERTAGE if res_w else 0.0
+        res_k = kal_sommer if res_w else 0.0
         nach_tagen = a.tage_kurzfristig - wt[jahr] - res_w
         nach_kalender = (a.kalendertage_kurzfristig - kt[jahr] - res_k) / kalender_je_tag
         return max(0.0, nach_tagen, nach_kalender)
@@ -274,14 +306,16 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
         buche(name, betrag, tage * h_tag)
 
     for ph in a.phasen:
+        phase_jetzt = ph.name
         # 1. Freie Tage: befristeter Ferienjob (vor dem Zeugnis ein Schülerjob, SV-frei)
         if a.mit_kurzfristig and ph.ferien_tage[2] > 0 and rng.random() < a.p_ferienjob:
-            tage = min(_z(rng, ph.ferien_tage), frei_tage(ph.jahr, ph.kalender_je_tag))
+            tage = min(max(0.0, _z(rng, ph.ferien_tage) - _summe(z.ferientage, ph.name)),
+                       frei_tage(ph.jahr, ph.kalender_je_tag))
             if tage > 0:
                 kurzfristig("Ferienjobs vor dem Zeugnis (kurzfristig)", ph.jahr, tage, ph.kalender_je_tag,
                             satz_ferien)
-        # 2. Stundenbudget neben der Schule
-        budget = _z(rng, ph.stunden) * ph.wochen
+        # 2. Stundenbudget neben der Schule (abzüglich der Stunden, die ein Zusatzgeschäft braucht)
+        budget = max(0.0, _z(rng, ph.stunden) * ph.wochen - _summe(z.stunden, ph.name))
         if a.mit_regelmaessig and budget > 0 and ph.monate > 0:
             for q in quellen:
                 if not q["da"] or budget <= 0:
@@ -310,11 +344,15 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
                     nachhilfe_monate[j] += ph.monate
                 buche(r.name, gewinn, h)
         # 3. Einzelne kurzfristige Einsätze am Wochenende
-        if a.mit_kurzfristig and budget > 0 and ph.einsatz_tage[2] > 0:
-            tage = min(_z(rng, ph.einsatz_tage), budget / h_tag, frei_tage(ph.jahr, 1.0))
+        if a.mit_kurzfristig and ph.einsatz_tage[2] > 0 and (budget > 0 or paarweise):
+            # Mit Zusatz (auch leerem) immer ziehen: dann bleiben die Zufallszahlen mit und ohne
+            # Zusatzgeschäft dieselben, auch wenn das Zusatzgeschäft das Budget aufbraucht.
+            einsatz = _z(rng, ph.einsatz_tage)
+            tage = min(einsatz, budget / h_tag, frei_tage(ph.jahr, 1.0)) if budget > 0 else 0.0
             if tage > 0:
                 kurzfristig("Einsätze am Wochenende (kurzfristig)", ph.jahr, tage, 1.0, satz_einsatz)
 
+    phase_jetzt = "Jahresabschluss und Sommer"
     # Minijob neben selbstständigem Gewinn: Minijob im Monat + Jahresgewinn / 12 <= 603/633
     for j in jahre:
         mini = art_summe[j]["mini"]
@@ -330,29 +368,36 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
 
     # 4. Sommer nach dem Zeugnis: Vollzeitjob, ggf. dazu Samstage
     augustlohn_netto = 0.0
-    if a.mit_kurzfristig:
+    if a.mit_kurzfristig and sommer_voll > 0:
         if sommer_kurz:
             nach_tagen = a.tage_kurzfristig - wt[2027]
-            nach_kalender = sommer_voll * min(1.0, (a.kalendertage_kurzfristig - kt[2027]) / SOMMER_KALENDERTAGE)
+            nach_kalender = sommer_voll * min(1.0, (a.kalendertage_kurzfristig - kt[2027]) / kal_sommer)
             tage = max(0.0, min(sommer_voll, max(nach_tagen, nach_kalender)))
             wt[2027] += tage
-            kt[2027] += SOMMER_KALENDERTAGE * tage / sommer_voll
+            kt[2027] += kal_sommer * tage / sommer_voll
         else:
             tage = sommer_voll
         anteil = tage / sommer_voll
         stunden = min(tage * min(h_tag, 10.0), a.max_stunden_woche * werktage_sommer / 5 * anteil)
-        betrag = stunden * satz_ferien
+        betrag = stunden * satz_ferien if z.sommer_brutto is None else z.sommer_brutto * anteil
         lohn[2027] += betrag
         vorsorge = 0.0 if sommer_kurz else a.vorsorge_lohnsteuer
         if not sommer_kurz:
             lohn_sv[2027] += betrag
-        # Lohnzahlungszeiträume: Juni (3 Tage), Juli, August – gekürzt wird am Ende
-        rest = werktage_sommer * anteil
-        for monat, (arbeitstage, kalendertage) in enumerate(SOMMER_MONATE):
-            teil = min(rest, arbeitstage)
+        # Lohnzahlungszeiträume: Juni (3 Tage), Juli, August – gekürzt wird am Ende. Beginnt der Job
+        # später (Zusatzgeschäft zuerst), fehlen die ersten Tage: dann von August aus rückwärts füllen.
+        s = z.sommer_anteil
+        tage_job = werktage_sommer * s * anteil          # Mo–Fr-Arbeitstage des Jobs
+        rest = tage_job
+        monate = list(enumerate(SOMMER_MONATE))
+        if not z.sommer_teilzeit:
+            monate.reverse()
+        for monat, (arbeitstage, kalendertage) in monate:
+            je_monat = arbeitstage * (s if z.sommer_teilzeit else 1.0)
+            teil = min(rest, je_monat)
             if teil <= 0:
                 break
-            b_monat, k_monat = betrag * teil / (werktage_sommer * anteil), kalendertage * teil / arbeitstage
+            b_monat, k_monat = betrag * teil / tage_job, kalendertage * teil / je_monat
             abrechnungen.append((2027, b_monat, k_monat, vorsorge))
             if monat == 2:
                 # Stundenlohn ist erst nach Monatsende fällig (§ 614 BGB, § 2 MiLoG): oft im September
@@ -367,6 +412,11 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
         lohn_sv[2027] += azubi
         abrechnungen.append((2027, azubi, 30, a.vorsorge_lohnsteuer))
         buche("Ausbildungsvergütung August", azubi, 0.0)
+    # Zusatzgeschäft: Gewinn zählt zur Einkommensteuer und zur Familienversicherung (geprüft in
+    # plan/hebel_2027.py, dort auch die Kosten einer eigenen Krankenversicherung)
+    for j, g in z.gewinn:
+        art_summe[j]["selbst"] += g
+        buche("Zusatzgeschäft", g, 0.0)
 
     # Abgaben
     netto = kontostand = brutto_summe = sv_summe = 0.0
@@ -391,7 +441,7 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
     return {"netto": netto, "kontostand": kontostand, "kontostand_ohne_augustlohn": kontostand - augustlohn_netto,
             "einbehalten": einbehalten, "steuer": steuer_jahr,
             "sv": sv_summe, "lohn_sv": sum(lohn_sv.values()), "brutto": brutto_summe, "stunden": stunden_gesamt,
-            "je_quelle": je_quelle, "dual": dual, "start": start, "industrie": industrie,
+            "je_quelle": je_quelle, "stunden_je_quelle": stunden_je_quelle, "je_phase": je_phase, "dual": dual, "start": start, "industrie": industrie,
             "tage_kurzfristig": dict(wt), "kalendertage_kurzfristig": dict(kt), "pruef": pruef}
 
 
