@@ -5,26 +5,27 @@ Wahrscheinlichkeit Millionär?
 
 **Antwort:**
 
-> **Planziel: 1 Mio. € Nettovermögen bis Sommer 2065 (Alter ~57).
-> Erfolgswahrscheinlichkeit: 60 %.**
+> **Festgelegtes Ziel: 1 Mio. € Nettovermögen am 31. August 2065
+> (Alter ~57). Erfolgswahrscheinlichkeit mit diesem Plan: 60 %.**
+> Dieses Datum ist das Planziel und wird nicht mehr verschoben.
+
+Alle folgenden Zahlen gelten für **dasselbe Datum, 31.08.2065**:
+
+| Fall | Chance auf 1 Mio. € am 31.08.2065 |
+|---|---:|
+| Plan wie vorgesehen | **60 %** |
+| alle drei Annahmen ohne harte Quelle (Schweizer Stelle, Studienplatz, Rückkehrquote) gleichzeitig pessimistisch | 56 % |
+| dazu KI-Druck auf Einsteiger sicher | 51 % |
+| ganz ohne Schweiz und PiBS | 55 % |
 
 - **Bis Sommer 2027 geht es nicht** – höchstens 0,5 %, und das ist
   beweisbar (Abschnitt 1).
-- **Wie robust:** Liegen die drei wichtigsten Annahmen ohne harte Quelle
-  (Chance auf eine Schweizer Stelle, PiBS- und dualer Platz, Rückkehrquote)
-  gleichzeitig daneben, sind es 56 %. Liegen zusätzlich alle kleineren
-  äußeren Annahmen daneben, wird die 50-%-Marke ein Jahr später erreicht
-  (Sommer 2066, Alter ~58). Gibt es die Schweiz, PiBS und einen dualen Platz
-  gar nicht, kommt der KI-Druck auf Einsteiger sicher und geht auch sonst
-  alles Äußere schief, hält die 50 % mit 60 nur, wenn du die Regeln des
-  Plans eisern einhältst (52 %; sonst 47 %) – **bis Sommer 2070 (Alter ~62)
-  aber auch ohne eiserne Regeltreue (52 %)**. Das ist der härteste getestete
-  Fall; Tabelle in Abschnitt 7.
-- **Früheste Marke** mit mindestens 50 %: Sommer 2062 (Alter ~54, 51,6 %).
 - **Nicht verhandelbar:** die Sparregel (Abschnitt 4) und Märkte, die nicht
   30 Jahre lang schwach bleiben.
+- Was in noch härteren Fällen passiert und wann dort die 50 % erreicht
+  werden, steht in Abschnitt 7 – das sind Einordnungen, keine anderen Ziele.
 - Die Zahlen haben drei Runden Gegenprüfung durch zehn unabhängige Prüfer
-  und zwei unabhängige Nachrechnungen überstanden; dabei wurde die erste
+  und mehrere unabhängige Nachrechnungen überstanden; dabei wurde die erste
   Aussage „50 % mit 40“ auf diese Werte korrigiert.
 
 Gemessen wird 1 Mio. € **nominal**, nach der Steuer, die beim Verkauf der
@@ -286,8 +287,11 @@ SECO-Wert für alle EU-Zuwanderer.
 ¹ Unabhängig nachgemessen über 16 Läufe à 10.000 Leben: 50,6 % ± 0,2 –
 knapp, aber über 50 %.
 
-Deshalb ist das Planziel **Sommer 2065** und nicht die früheste Marke 2062:
-Es bleibt über 50 %, selbst wenn die unsicheren Annahmen alle danebenliegen.
+Deshalb ist das Planziel **der 31. August 2065** und nicht die früheste
+Marke mit mindestens 50 % (Sommer 2062, 51,6 %): Das Ziel bleibt über 50 %,
+selbst wenn die unsicheren Annahmen alle danebenliegen. Die Jahre 2068 und
+2070 in der folgenden Tabelle zeigen nur, ab wann auch noch härtere Fälle
+über 50 % liegen.
 
 **Härtefälle bis zum Äußersten** (`python3 plan/simulation.py --stress`,
 4 × 10.000 Leben). „Äußere Kleinannahmen pessimistisch“: kein Freelancing,
