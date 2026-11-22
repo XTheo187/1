@@ -163,12 +163,20 @@ class Konsum:
 
     grundbedarf: float      # EUR/Jahr in heutigen Euro
     lam: float
+    traegheit: float = 0.0  # realer Konsum sinkt höchstens um (1 - traegheit) je Jahr
+    _letzter: float = 0.0   # realer Konsum des Vorjahres
 
     def ausgaben(self, netto: float, index: float) -> float:
         g = self.grundbedarf * index
-        if netto <= g:
+        if netto <= g and not self.traegheit:
             return netto     # Lücke tragen Eltern/BAföG/Nebenjob - kein Kredit
-        return g + self.lam * (netto - g)
+        regel = min(netto, g) if netto <= g else g + self.lam * (netto - g)
+        if self.traegheit and netto > 0:
+            # Sinkt das Einkommen, bleiben Miete und Gewohnheiten zunächst;
+            # gekürzt wird zuerst das Sparen (Fehlbetrag kommt aus dem Depot).
+            regel = max(regel, self.traegheit * self._letzter * index)
+        self._letzter = regel / index
+        return regel
 
 
 class Depot:
@@ -748,8 +756,11 @@ class Weichen:
     auslastung: tuple = (0.40, 0.62, 0.85)  # Anteil von 1.700 möglichen Stunden (~85-180 Tage)
     hazard_freelance: tuple = (0.03, 0.07, 0.12)  # zurück in Anstellung (Flaute, Statusrisiko)
     lam: float = 0.5
-    grund_de: float = 16_000
-    grund_ch: float = 34_000
+    lam_streu: tuple | None = None          # Sparregel je Leben gezogen (Einhaltung ist nicht perfekt)
+    grund_de: tuple | float = (15_000, 18_000, 22_000)  # WG Berlin ~15, WG München ~17,5, Wohnung ~19,5 Tsd.
+    grund_ch: tuple | float = (30_000, 34_000, 40_000)
+    traegheit: float = 0.95                 # Konsum sinkt real höchstens 5 % je Jahr
+    lam_partner: float = 0.05               # gemeinsamer Lebensstandard steigt mit
     betreuung_rest: tuple = (0.10, 0.20, 0.30)  # Anteil des Agenturgewinns, der als Betreuung weiterläuft
     # Krisen: Jahre, in denen Aktien stark fallen, treffen auch Job und Provision.
     krise_schwelle: float = -0.15
@@ -762,12 +773,17 @@ class Weichen:
     lebensereignisse: bool = True
     p_partner: tuple = (0.6, 0.75, 0.85)            # feste Partnerschaft mit gemeinsamer Wohnung
     alter_partner: tuple = (24, 28, 33)
-    ersparnis_partner: tuple = (0.10, 0.15, 0.25)   # Grundbedarf sinkt durch geteilte Wohnung
+    ersparnis_partner: tuple = (0.0, 0.10, 0.20)    # geteilte Wohnung, aber oft größer
     p_kinder: tuple = (0.60, 0.72, 0.80)            # Destatis: ~20 % Kinderlose (Frauen 45-49)
     alter_kind: tuple = (30, 33.3, 37)              # Destatis: Väter beim 1. Kind im Mittel 33,3
-    kosten_kinder: tuple = (2_500, 5_000, 8_000)    # eigener Anteil je Jahr, 18 Jahre (EVS: 763-1.212
-                                                    # EUR/Kind/Monat 2018, geteilt, abzgl. Kindergeld;
-                                                    # Paare mit Kind sparen bei gleichem Einkommen kaum weniger)
+    kosten_kinder: tuple = (5_000, 8_000, 12_000)   # eigener Anteil je Jahr, 18 Jahre (EVS 2018, 10. Dezil:
+                                                    # 1.212 EUR bei 1 Kind, 2.024 bei 2; VPI x1,27,
+                                                    # abzgl. Kindergeld, hälftig geteilt)
+    # Immobilienkauf: Der Plan rät bis zum Ziel davon ab, trotzdem kaufen manche.
+    p_haus: tuple = (0.2, 0.3, 0.4)
+    haus_alter: tuple = (30, 34, 39)
+    haus_preis: tuple = (350_000, 480_000, 650_000)
+    haus_nk: tuple = (0.05, 0.07, 0.09)             # Grunderwerbsteuer, Notar, Makler: sofort weg
     p_heirat: tuple = (0.45, 0.55, 0.65)
     scheidung: tuple = (0.008, 0.013, 0.016)        # je Ehejahr (Destatis: 28 % der Ehen)
     scheidung_verlust: tuple = (0.10, 0.25, 0.40)   # Anteil des in der Ehe aufgebauten Vermögens (Zugewinn)
@@ -848,7 +864,12 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             "de_bachelor": _gehalt_pfad(rng, **IT_BACHELOR),
             "de_ohne": _gehalt_pfad(rng, **dict(WEBDEV, start=(36_000, 42_000, 50_000))),
         }
-        konsum_de, konsum_ch = Konsum(wp.grund_de, wp.lam), Konsum(wp.grund_ch, wp.lam)
+        lam_i = d(wp.lam_streu) if wp.lam_streu else wp.lam
+        g_de, g_ch = _w(rng, wp.grund_de), _w(rng, wp.grund_ch)
+        konsum_de = Konsum(g_de, lam_i, wp.traegheit)
+        konsum_ch = Konsum(g_ch, lam_i, wp.traegheit)
+        haus_ab = d(wp.haus_alter) if rng.random() < d(wp.p_haus) else 999
+        haus_preis, haus_nk = d(wp.haus_preis), d(wp.haus_nk)
         studium = Konsum(12_000, 0.6)
 
         def rueckfall() -> str:
@@ -896,8 +917,9 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             zustand_anfang = zustand
             # Lebensereignisse verschieben den Grundbedarf dieses Jahres
             faktor = partner_faktor if alter >= partner_ab else 1.0
-            konsum_de.grundbedarf = (grund_vt if zustand == "vertrieb" else wp.grund_de) * faktor
-            konsum_ch.grundbedarf = wp.grund_ch * faktor
+            konsum_de.grundbedarf = (max(grund_vt, g_de) if zustand == "vertrieb" else g_de) * faktor
+            konsum_ch.grundbedarf = g_ch * faktor
+            konsum_de.lam = konsum_ch.lam = lam_i + (wp.lam_partner if alter >= partner_ab else 0.0)
             kinder_jahr = kind_kosten * idx if kind_ab <= alter < kind_ab + 18 else 0.0
 
             if pfade["ch"] is None:
@@ -1034,6 +1056,9 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 sparen += nebenher * idx * 0.55 * (1 - wp.lam)   # nach Grenzsteuer + KV, Sparregel
                 nebenher *= 1 - wp.betreuung_abgang
             depot.jahr(sparen, w.renditen[j])
+            if alter >= haus_ab and depot.netto > 0.3 * haus_preis * idx:
+                depot.entnehmen(haus_nk * haus_preis * idx)
+                haus_ab = 999
             if not verheiratet and alter >= heirat_ab:
                 verheiratet, vermoegen_bei_heirat = True, depot.netto
             elif verheiratet and rng.random() < p_scheidung:
@@ -1069,7 +1094,7 @@ def _registrieren() -> None:
     """
     from dataclasses import replace
     s = STRATEGIEN
-    basis = Weichen(nachfolge=False, lam=0.4)
+    basis = Weichen(nachfolge=False, lam=0.4, lam_streu=PLAN.lam_streu)
     s["bachelor_ch"] = ("Bachelor Informatik + Agentur, dann CH/DE",
                         weichenplan(replace(basis, rueckfall=("ch", "de"))))
     s["master_ch"] = ("Master Informatik + Agentur, dann CH/DE",
@@ -1092,8 +1117,10 @@ def _registrieren() -> None:
                            weichenplan(replace(basis, rueckfall=("ch", "de"), nachfolge=True)))
     s["dual_de"] = ("Duales Studium, dann nur DE (keine Schweiz)",
                     weichenplan(replace(PLAN, rueckfall=("de",))))
-    s["dual_spar50"] = ("Duales Studium, CH/DE, Sparregel nur 50 %",
-                        weichenplan(replace(PLAN, lam=0.5)))
+    s["dual_typisch"] = ("Duales Studium, CH/DE, spart wie Gutverdiener",
+                         weichenplan(replace(PLAN, lam_streu=(0.50, 0.62, 0.75))))
+    s["dual_perfekt"] = ("Duales Studium, CH/DE, Sparregel perfekt",
+                         weichenplan(replace(PLAN, lam_streu=None, lam=0.4)))
     s["pibs"] = ("PiBS in der Schweiz (sonst dual/Bachelor)",
                  weichenplan(replace(PLAN, erste_phase="pibs")))
     s["pibs_sicher"] = ("PiBS in der Schweiz (Platz sicher)",
@@ -1174,7 +1201,7 @@ def sommer_2027(start: float = 5_000.0) -> None:
 # Agentur. Sparregel: Grundbedarf 16.000 EUR/Jahr in heutigen Euro, von jedem
 # Euro darüber werden 60 % gespart. Kein Nachfolgekauf, kein Vertrieb.
 PLAN = Weichen(erste_phase="dual", rueckfall=("ch", "de"), start_de=DUAL["start"],
-               nachfolge=False, lam=0.4)
+               nachfolge=False, lam=0.4, lam_streu=(0.35, 0.42, 0.55))
 
 
 def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
@@ -1201,8 +1228,9 @@ def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
     faelle.append(("Dualer Studienplatz (nie / sicher)",
                    weichenplan(replace(wp, p_dual_platz=(0, 0, 0))),
                    weichenplan(replace(wp, p_dual_platz=(1, 1, 1)))))
-    faelle.append(("Sparregel (40 % / 70 % von jedem Euro über Grundbedarf)",
-                   weichenplan(replace(wp, lam=0.6)), weichenplan(replace(wp, lam=0.3))))
+    faelle.append(("Sparen wie typische Gutverdiener / perfekt nach Regel",
+                   weichenplan(replace(wp, lam_streu=(0.50, 0.62, 0.75))),
+                   weichenplan(replace(wp, lam_streu=None, lam=0.35))))
     faelle.append(("Grundbedarf (22 / 13 Tsd. EUR im Jahr)",
                    weichenplan(replace(wp, grund_de=22_000, grund_ch=40_000)),
                    weichenplan(replace(wp, grund_de=13_000, grund_ch=30_000))))
