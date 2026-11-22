@@ -14,8 +14,9 @@ Wahrscheinlichkeit Millionär?
    **Garantiezone: Sommer 2068 (Alter ~60) – in jedem getesteten Fall
    mindestens 56 %**, auch ganz ohne Schweiz, ohne PiBS, ohne dualen Platz
    und mit sicherem KI-Druck. Die 50-%-Aussage hängt dort an keiner der
-   Annahmen ohne harte Quelle mehr. Wer die Sparregel eisern hält, ist mit ~50 % schon
-   mit 50 dort.
+   Annahmen ohne harte Quelle mehr. Früheste Marke mit mindestens 50 %:
+   Sommer 2062 (Alter ~54, 51,9 %). Wer die Sparregel eisern hält, ist mit
+   ~50 % schon mit 50 dort.
 3. Das ist kein Versprechen, sondern das Ergebnis einer Rechnung mit
    realistischen, belegten Annahmen, die drei Runden unabhängiger
    Gegenprüfung überstanden hat – und dabei von „50 % mit 40“ auf „50 % mit
