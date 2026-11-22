@@ -56,9 +56,12 @@ heraus mit mindestens 50 % Wahrscheinlichkeit 1 Mio. EUR Nettovermögen
 erreicht – und warum das nicht bis Sommer 2027, sondern bis Sommer 2065 mit
 ~51 % (knapp) geht, und wie robust das ist –, steht in
 [`docs/MILLIONENPLAN.md`](docs/MILLIONENPLAN.md).
-Und warum 500.000 EUR bis Sommer 2027 mit keinem Plan wahrscheinlich sind
-(höchstens rund 1 %) – und was man in den neun Monaten stattdessen tut:
-[`docs/500K_BIS_SOMMER_2027.md`](docs/500K_BIS_SOMMER_2027.md).
+Wer trotzdem 500.000 EUR bis 31.08.2027 will: der Weg der realen Fälle
+(KI-Abo-Apps, über Kurzvideos und Creator verkauft, aus dem Umsatz skaliert,
+Verkauf im Sommer), Woche für Woche mit Messpunkten und Abiturschutz – und
+die ehrliche Chance dazu, ~0,06 % (etwa 1 zu 1.700):
+[`docs/500K_BIS_SOMMER_2027.md`](docs/500K_BIS_SOMMER_2027.md)
+(Rechnung: `python3 plan/plan_500k.py`).
 Was bis dahin realistisch durch Arbeit drin ist – maximal rund 13.500 EUR
 netto (Median ~11.300 EUR), Obergrenze ~21.800 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)
 (Rechnung: `python3 plan/verdienst_2027.py`).
@@ -141,7 +144,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 131 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 138 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau

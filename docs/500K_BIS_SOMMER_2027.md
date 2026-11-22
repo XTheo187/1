@@ -1,223 +1,509 @@
 # 500.000 € bis Sommer 2027 – der Plan
 
-**Frage:** Wie komme ich – heute, am 22.11.2026, in der 13. Klasse, mit
-~5.000 € – bis zum **31. August 2027** auf 500.000 € Nettovermögen?
+**Frage:** Wie komme ich – heute, am 22.11.2026, in der 13. Klasse in
+Regensburg, mit ~5.000 € – bis zum **31. August 2027** auf 500.000 €
+Nettovermögen? „Andere haben es auch geschafft.“
 
-> **Kurzantwort:** Hier ist der Plan, der auf **500.000 € am 31.08.2027**
-> zielt (Abschnitt 3). Seine ehrliche Chance: **praktisch null ohne
-> Geldeinsatz** (~0,001–0,06 %) und **~0,1–0,5 %**, wenn du bewusst einmalig
-> bis zu 5.000 € in Index-Optionen setzt – dann ist das Geld in über 99 von
-> 100 Fällen (eher 995 von 1.000) weg. Kein Weg kommt über rund 1 %
-> (Abschnitt 1 und 2); Roulette brächte mit ~0,7 % etwas mehr, ist aber
-> bewusst nicht Teil des Plans. Darunter liegt ein Sicherheitsnetz:
-> Ausbildungsplatz, Notgroschen und Sparplan. Damit werden 500.000 € mit
-> etwa 50 % Wahrscheinlichkeit **mit 47–48 (Sommer 2055/56)** erreicht, mit
-> 73 % am 31.08.2065 (Abschnitt 4).
+> **Ja, andere haben es geschafft – und fast alle auf demselben Weg.**
+> Weltweit fanden sich seit 2012 rund 15–20 belegte Fälle von höchstens
+> 20-Jährigen mit ≥ 500.000 in ≤ 18 Monaten. Wer kein Publikum und keine
+> Berühmtheit mitbrachte, kam fast immer über **ein Consumer-Produkt mit
+> eingebautem Vertriebskanal**: eine KI-Abo-App, die über Kurzvideos und
+> Creator verkauft wird (Cal AI, Quittr), oder ein Roblox-Spiel. Das Geld
+> wurde aus dem laufenden Umsatz in Werbung gesteckt, und das Vermögen
+> entstand meist über einen **Verkauf**.
+>
+> **Der Plan unten kopiert dieses Muster** Woche für Woche, mit dem Abitur
+> als fester Grenze: UG gründen, ab Dezember schnell hintereinander kleine
+> KI-Abo-Apps bauen, jede mit Kurzvideos und Creatorn testen, den Treffer
+> aus dem Umsatz skalieren und ab Juni auf einen Verkauf hinarbeiten.
+> Jede Etappe hat einen festen Messpunkt.
+>
+> | Chance auf 500.000 € Nettovermögen am 31.08.2027 | |
+> |---|---:|
+> | mit diesem Plan (Modell, 300.000 Läufe) | **~0,06 % – etwa 1 zu 1.700** |
+> | plausible Spanne der Annahmen | 0,01–0,2 % |
+> | wenn bis 31.03. eine App 30.000 $ im Monat umsetzt | ~10 % |
+> | wenn bis 30.04. eine App 100.000 $ im Monat umsetzt | ~35 % |
+> | wenn am 28.02. keine App 5.000 $ im Monat umsetzt | ≈ 0 % |
+> | wahrscheinlichster Ausgang (Median) | ~3.600 € Verlust, dafür eine eigene App, Daten und Erfahrung |
+> | jeder zehnte Lauf / jeder hundertste | ≥ 7.600 € / ≥ 72.000 € Gewinn |
+>
+> **Das ist die ehrliche Zahl, keine Ausrede.** Der Weg ist echt, aber er
+> ist eine Jagd nach einem Treffer: Selbst die Gründer von Cal AI hatten
+> sechs Apps davor, sieben Jahre Programmierpraxis und einen erfahrenen
+> Mitgründer. Was den Plan trotzdem vernünftig macht:
+> - der Einsatz ist klein (~3.000 € plus Zeit);
+> - nach 14 Wochen weißt du am Messpunkt 28.02., ob du im Rennen bist;
+> - das Abitur bleibt geschützt;
+> - und im Normalfall bleiben eine App, gemessene Zahlen und Fähigkeiten,
+>   die im Studium Geld bringen.
 
-## 1. Die harte Grenze – beweisbar
+**Gilt für:** volljährig, über einen gesetzlich versicherten Elternteil
+familienversichert, kann programmieren (Python; React Native/TypeScript
+lernt sich in 2–3 Wochen dazu), ~5.000 € Startkapital, ein iPhone zum
+Testen. „Nettovermögen“ heißt hier: Eigenkapital der eigenen UG nach
+Steuerrückstellung plus privates Geld – kein reiner Papierwert.
 
-Für jedes Spiel und jede Wette ohne eigenen Vorteil (Erwartungswert null
-oder negativ) gilt für **jede** Strategie, solange man keinen Kredit
-aufnimmt: Die Chance, aus S Euro jemals Z Euro zu machen, ist höchstens
-**S / Z** (Ville-Ungleichung). Mit 5.000 € für 500.000 € sind das **1 %**.
+Gerechnet mit `python3 plan/plan_500k.py`. Die Belege stammen aus einer
+Recherche mit fünf Teilthemen (Fälle, App-Playbook, andere Wege, Recht und
+Steuer, Zeit und Abitur) und einer Gegenprüfung, die die Trefferquoten
+verschärft hat (Abschnitt 14).
 
-| Startkapital | Obergrenze (fair) | Roulette, kühnes Spiel, ohne Tischlimit (ohne / mit Teilung bei Zero) | Roulette mit Teilung und Tischlimit 20.000 € je Satz | beste Aktienstrategie mit Drift, theoretisch (Browne) |
-|---:|---:|---:|---:|---:|
-| 1.000 € | 0,2 % | 0,16–0,18 % | – | 0,5–0,6 % |
-| **5.000 €** | **1,0 %** | **0,8–0,9 %** | **0,65–0,7 %** | **2,0–2,6 %** |
-| 10.000 € | 2,0 % | 1,7–1,8 % | – | 3,8–4,8 % |
-| 20.000 € | 4,0 % | 3,5–3,7 % | – | 7,1–8,7 % |
+## 1. Wer es geschafft hat – und was alle gemeinsam haben
 
-„Kühnes Spiel“ heißt: jeweils genau den Betrag setzen, der bis zum Ziel
-fehlt, höchstens das ganze Kapital und das Tischlimit. Ohne Limit reichen
-dafür rund acht gewonnene Coups in Folge; mit einem Limit von 20.000 € sind
-es im Erfolgsfall meist 90–380 Coups mit bis zu 20.000 € je Satz – und die
-meisten Läufe sind nach zwei Coups vorbei, mit null Euro.
+| Wer | Alter | Was | Bis 500.000 | Wie belegt |
+|---|---|---|---|---|
+| **Cal AI** (Zach Yadegari, Henry Langmack, mit Blake Anderson, 24, und Jake Castillo, 30) | 17 | KI-Kalorienzähler: Foto vom Essen → Kalorien; Abo 29,99 $/Jahr | Umsatz nach ~3–4 Monaten (Monat 1: 28.000 $, Monat 2: 115.000 $); Gewinn wohl in ~12 Monaten; Verkauf an MyFitnessPal nach ~19 Monaten | gut: CNBC und Fortune sahen Unterlagen, Käufer bestätigt > 30 Mio. $ Jahresumsatz |
+| **Quittr** (Alex Slater, mit Connor McLaren, 25) | 19 | Abo-App gegen Pornokonsum (Streaks, Panic-Button) | Umsatz nach ~4–6 Monaten; ~3 Mio. $ Umsatz 2025 erwartet | mittel: Selbstangaben; Datenleck sensibler Nutzerdaten |
+| **Summly** (Nick D'Aloisio) | 15–17 | News-Zusammenfassung | Verkauf an Yahoo (~30 Mio. $) nach ~15–20 Monaten, mit Risikokapital | gut |
+| **Jailbreak** (Alex Balfanz mit Schulfreund) | 17–18 | Roblox-Spiel | „siebenstelliger“ Gewinn in gut 2 Jahren, geteilt | mittel |
+| **Grow a Garden** (anonym) | 16 | Roblox-Spiel, in Tagen gebaut; ein Studio stieg bei ~500 gleichzeitigen Spielern ein | Anteil des Gründers unbekannt; Spitze 21,6 Mio. gleichzeitige Spieler | Spiel belegt, Einkommen nicht |
+| **Blue Lock: Rivals** (anonym, mit Mitentwicklern) | 19 | Roblox-Spiel | Verkauf für > 3 Mio. $ wenige Monate nach dem Start | mittel; fremde Marke, Lizenz fraglich |
+| **Herzenskette** (Leon Michel, Deutschland) | 18–19 | personalisierter Schmuck, TikTok-Werbung bis 20.000 €/Tag | 1 Mio. € Umsatz im ersten Jahr | Selbstangabe (OMR) |
+| **Cruise Cup** (Michael Satterlee) | 18 | 3D-gedruckte Dosenhülle, Facebook-Werbung | ~570.000 $ Umsatz in 4 Monaten, danach Einbruch auf 25.000 $/Monat | Selbstangabe |
 
-Die Browne-Zahl ist ein **theoretisches** Maximum für Aktien mit positivem
-Trend: unbegrenzter Hebel, laufendes Umschichten, keine Kosten, keine
-Steuern. In der Praxis kommt man nicht daran heran (Abschnitt 2). Ein
-Welt-ETF mit 1-, 3- oder 10-fachem Hebel schafft es in den neun Monaten
-praktisch nie (0,0 %).
+Dazu Fälle, die man nicht planen kann: TikTok-Stars 2019/20 (Addison Rae,
+Charli D'Amelio), Lil Nas X, Fortnite-Weltmeister 2019 (3 Mio. $ bzw. je
+1,5 Mio. $ für „aqua“), NFT-Künstler in der Blase 2021.
 
-**Steuern machen es noch schwerer:**
-- **Geschäft:** Für 500.000 € netto braucht ein Einzelunternehmer rund
-  **0,9 Mio. € Gewinn** in neun Monaten (Einkommen-, Gewerbesteuer, Soli),
-  eine GmbH, die das Geld behält, rund 0,72 Mio. €.
-- **Börse:** Mit 26,375 % Abgeltungsteuer braucht man rund 677.000 €
-  brutto, also das **135-Fache** von 5.000 €; die Obergrenze sinkt auf
-  ~0,74 %.
-- **Lotterie, Roulette, Quizshow:** Gewinne sind steuerfrei – aber der
-  Erwartungswert ist negativ (Lotto zahlt 50 % aus, Roulette 97,3 %).
+**Was sich wiederholt:**
+1. **Ein Massenprodukt für Verbraucher**, kein B2B. Abo-App in einer
+   emotionalen Nische (Abnehmen, Sucht, Aussehen) oder Roblox-Spiel.
+   B2B-Software, Agenturen, Freelancing oder der Weg von `standortcheck`
+   kommen in **keinem** Fall vor.
+2. **Vertrieb vor Produkt.** Jeder Treffer hatte einen eingebauten Kanal:
+   Kurzvideos und bezahlte Creator, App-Store-Charts oder die
+   Roblox-Startseite. Werbung wurde aus dem ersten Umsatz bezahlt; der
+   erste Test bei Cal AI kostete ~2.000 $, bei Quittr begann es mit 3.000 $.
+3. **Viele Versuche vor dem Treffer.** Cal AI war die 7. App der Gründer
+   in rund einem Jahr, Halo AI kam nach 18 Monaten Fehlschlägen, das
+   Studio hinter Grow a Garden hatte 30–40 Spiele gebaut.
+4. **Jahre Vorübung und meist ein älterer Partner** mit fertigem Playbook
+   (Cal AI: Blake Anderson mit RizzGPT und Umax; Quittr: ein
+   Marketing-Mitgründer; Roblox: ein Studio).
+5. **Vermögen entsteht über einen Verkauf**, selten über angesammelten
+   Gewinn: Cal AI gab im Sommer 2025 ~770.000 $ im Monat für Werbung aus
+   und behielt ~274.000 $ Betriebsgewinn.
 
-## 2. Was die Recherche zeigt – alle Wege im Vergleich
+**Der Nenner:** Allein im Januar 2026 starteten ~14.700 neue Abo-Apps.
+17 % der neuen Apps erreichen in zwei Jahren 1.000 $ Monatsumsatz, 4,6 %
+erreichen 10.000 $ (RevenueCat 2026). Von den Nicht-Spiele-Apps mit Release
+2024 kamen weltweit nur ~90 im Startjahr auf ≥ 1 Mio. $ Umsatz, im Schnitt
+1,3 Mio. $ (Appfigures). Für 500.000 € netto braucht es aber 2–5 Mio. $
+Kundenumsatz bis August (Abschnitt 2): Das schaffen weltweit vielleicht
+1–13 neue Apps im Jahr. Die bekannten Fälle sind Ausnahmen, keine
+Stichprobe.
 
-Chance auf 500.000 € netto bis 31.08.2027, **mit 5.000 €** (Quellen in
-Abschnitt 8; „eigene Rechnung“ = aus den Quellen abgeleitet).
+## 2. Was 500.000 € bis 31.08.2027 konkret verlangen
 
-| Weg | Chance | Was man dafür riskiert | Warum nicht mehr |
-|---|---:|---|---|
-| Roulette, einfache Chancen, kühnes Spiel (deutsche Spielbank, Teilung bei Zero, Tischlimit 20.000 € je Satz) | ~0,65–0,7 % | 5.000 € in über 99 % der Fälle | Tischlimit, Hausvorteil 2,7 % je Coup |
-| Weit aus dem Geld liegende Index-Calls (S&P 500, Verfall 17.09.2027, also nach dem Stichtag – spätestens am 31.08.2027 zu verkaufen) | ~0,1–0,5 % | 5.000 € in ~99,5 % | Der S&P 500 müsste um ~51 % steigen; der Markt preist das mit 0,2–0,5 %; in den letzten zehn Jahren kam ein solcher Anstieg nur einmal vor (2020); solche Calls verlieren im Schnitt Geld |
-| Sportwette zur Quote ~100 | ~0,4 % (übertragen), praktisch ≈ 0 | 5.000 € | Außenseiterwetten brachten −61 % Rendite (US-Pferdewetten 1992–2001, Quote ≥ 100 – übertragen auf Sportwetten), dazu 5,3 % Wettsteuer; viele Anbieter deckeln Gewinne (Interwetten 10.000 € je Wette, 100.000 € je Woche; bwin 100.000 € je Woche), andere höher; online grundsätzlich höchstens 1.000 € Einzahlung im Monat |
-| KENO Typ 9, 10 € je Spiel (500.000 € fest, steuerfrei) | ~0,13–0,2 % | ~5.000 € | 1 : 387.197 je Spiel; Kürzung bei mehreren Gewinnern; online grundsätzlich höchstens 1.000 € im Monat |
-| Eurojackpot / Aktion Mensch / Lotto 6aus49 | 0,03–0,04 % | ~5.000 € | die Hälfte der Einsätze (Aktion Mensch: ~70 %) wird nicht ausgeschüttet |
-| Memecoins (pump.fun) | keine belastbare Chance | Einsatz | Nur ~0,002 % der Wallets (nicht Personen) machten Jan. 2024–Jan. 2025 mehr als 1 Mio. USD realisierten Gewinn – über ein ganzes Jahr und mit beliebigem Einsatz |
-| Eigenes Software-/App-Produkt | ≪ 0,1 % | Zeit | 442 Apps und Spiele mit Release 2024 kamen im Startjahr auf ≥ 1 Mio. USD **Umsatz** – bei geschätzt ~450.000 neuen Apps ≈ 0,1 %; nötig wären ~1 Mio. USD **Gewinn** |
-| Kickstarter, Shop, Creator | ≪ 0,1 % | Zeit, etwas Geld | ≥ 1 Mio. USD Pledges bei 0,14 % der Projekte (Umsatz, nicht Gewinn); ≥ 500.000 USD Jahreseinkommen bei Creatorn nicht einmal belegt |
-| Webagentur (`standortcheck`) | 0 % | Zeit | realistisch 3.000–8.000 € Umsatz bis August (Abschnitt 4) |
-| Startup-Accelerator (Y Combinator) | < 0,1 %, nur „auf dem Papier“ | Zeit, Vollzeit vor Ort | < 1 % Annahme; das Geld geht an die Firma, der Anteil ist nicht verkäuflich |
-| „Wer wird Millionär?“ | ~0,001–0,01 % | nichts | ~1,2–1,8 % der Kandidaten auf dem Stuhl gewinnen ≥ 500.000 € (je nach Zählung der Promi-Specials), ins Studio kommt fast niemand |
-| Poker, E-Sport, Bug-Bounty | ≈ 0 | – | kein Spielvorteil, hohe Varianz (WSOP Las Vegas ab 21, WSOP Europe ab 18); 2025 weltweit 6 E-Sportler mit ≥ 500.000 USD |
-| Preisgeld-Wettbewerbe (Kaggle, KI-Preise) | ≈ 0 bis August | Zeit | Fristen meist später, Gewinner sind Profi-Teams |
-| Stipendien, Preise (Thiel, Jugend forscht, KfW) | 0 % | – | Höchstens 250.000 USD über zwei Jahre bzw. wenige Tausend Euro |
-| Schenkung oder Erbe | nicht planbar | – | hängt nicht von dir ab; Freibetrag 400.000 € je Elternteil (§ 16 ErbStG) |
-
-**Ergebnis:** Der beste Weg mit Geldeinsatz liegt bei unter 1 %, der beste
-selbst steuerbare Weg ohne Glücksspiel (eigenes Produkt) weit darunter.
-Kredit würde die Grenze nur scheinbar heben: Dann verliert man in den
-übrigen 98–99 % der Fälle mehr, als man hat.
-
-## 3. Der Zielplan: 500.000 € bis 31.08.2027
-
-Ziel: am **31.08.2027 ein Nettovermögen von 500.000 €** (nach Steuer).
-Der Plan kombiniert die Bausteine, die ich für vertretbar halte, und legt
-darunter ein Sicherheitsnetz. Bewusst **nicht** dabei: Roulette (~0,65–0,7 %
-mit 5.000 € – etwas mehr als der ganze Zielplan), KENO (~0,13–0,2 %),
-Sportwetten und Krypto-Hebel – reines Glücksspiel mit vielen Einsätzen
-und der Gefahr, Verlusten hinterherzujagen.
-
-| Baustein | Beitrag zur Chance auf 500.000 € bis 31.08.2027 |
-|---|---:|
-| Stufe 2 (freiwillig): ein einmaliger Kauf weit aus dem Geld liegender Index-Optionen mit bis zu 5.000 € | ~0,1–0,5 % |
-| Stufe 3: Produktwette – aus `standortcheck` ein Abo-Produkt machen | ≈ 0 (höchstens ~0,05 %) |
-| Stufe 4: kostenlose Würfe (Quizshow-Bewerbungen) | ~0,001–0,01 % |
-| **Zielplan mit Stufe 2** | **~0,1–0,5 %** |
-| **Zielplan ohne Stufe 2 (empfohlen)** | **~0,001–0,06 %, praktisch null** |
-
-### Stufe 1 – sofort: das Sicherheitsnetz (Dezember 2026)
-
-Weil der Zielplan fast sicher scheitert, kommt zuerst das, was danach trägt:
-
-| Wann | Was |
+| Weg zum Nettovermögen | nötig bis 31.08.2027 |
 |---|---|
-| **bis 31.12.2026** | Bewerbungen auf PiBS-Plätze in der Schweiz (direkt bei den Partnerfirmen) und 20–40 Bewerbungen auf duale Studienplätze Informatik/Wirtschaftsinformatik |
-| **bis 31.12.2026** | Depot eröffnen, **Notgroschen von drei Monatsausgaben** auf ein Tagesgeldkonto, Welt-ETF-Sparplan einrichten. Ohne Stufe 2 geht das übrige Startkapital in den ETF |
-| Dezember – März | Abitur zuerst |
-| **Februar 2027** | Kein dualer Platz → Bachelor an einer FH vorbereiten (6 Semester bevorzugen) |
-| April – Mitte Mai | Abiturprüfungen, Geschäft ruht |
-| **Ende April 2027** | Auch kein PiBS-Vertrag → FH-Bewerbung abschicken |
-| **Herbst 2027** | Ausbildung beginnt – dual oder PiBS mit Einkommen, FH-Bachelor ohne –, egal, wie der Zielplan ausgeht |
+| Gewinn bleibt in der UG (Eigenkapital nach ~30,7 % Steuer) | **~720.000 € Gewinn** |
+| Gewinn wird privat ausgeschüttet | ~930.000–980.000 € Gewinn |
+| Verkauf der App aus der UG (Asset-Deal), Geld bleibt in der UG | ~720.000 € Kaufpreis |
+| Verkauf der UG-Anteile privat (§ 17 EStG, 60 % steuerpflichtig) | ~670.000 € Kaufpreis |
+| Verkauf über eine Holding-UG (§ 8b KStG, Geld bleibt in der Holding) | ~508.000 € Kaufpreis |
 
-### Stufe 2 – freiwillig: der Wurf mit Geld (einmalig)
+Steuerlast der UG in Regensburg: Körperschaftsteuer 15 % + Soli = 15,825 %,
+Gewerbesteuer 3,5 % × 425 % = 14,875 %, zusammen **30,7 %**.
 
-Der einzige Baustein mit rund 1–5 Promille. Er ist **nicht empfohlen** und
-nur ein bewusstes Opt-in: eine Woche Bedenkzeit, mit einer Person besprechen,
-der du vertraust. Warum Optionen und nicht Roulette, obwohl Roulette etwas
-mehr brächte: **ein einziger Kauf, der Verlust ist auf den Einsatz begrenzt,
-es gibt kein Nachsetzen** – beim Roulette mit Tischlimit müsste man im
-Erfolgsfall 90–380 Mal setzen, mit allen Gefahren des Glücksspiels.
+**Was das für die App heißt:**
+- Bei 25–55 % Marge (nach Apple-Gebühr, KI-Kosten und Werbung) sind für
+  720.000 € Gewinn **1,8–4,2 Mio. € Kundenumsatz** in rund sieben Monaten
+  nötig. Das ist eine Kurve wie bei Cal AI: 30.000 → 100.000 → 300.000 →
+  500.000 → 1 Mio. $ Monatsumsatz.
+- Für einen Verkauf über ~0,7 Mio. € zahlen Käufer junger Apps 1–3,5 ×
+  den Jahresgewinn. Gebraucht werden also ~200.000–350.000 €
+  annualisierter Gewinn: ~50.000–80.000 € Monatsumsatz, stabil über
+  mehrere Monate.
+- Daraus folgt die harte Zeitgrenze: **Der Treffer muss bis etwa
+  Februar/März da sein.** Kommt er im Juni, bleibt keine Zeit mehr für
+  Gewinn oder Verkauf.
 
-- **Vorbereitung bis 08.12.2026:** Depot mit Optionsfreigabe bei einem
-  Broker beantragen, der Optionen für Privatkunden anbietet. Im Fragebogen
-  zu Kenntnissen und Erfahrung **wahrheitsgemäß** antworten. Verweigert der
-  Broker die Freigabe oder warnt er ausdrücklich, **entfällt Stufe 2**.
-- **Was (Kauf bis 15.12.2026):** Kaufoptionen (Calls) auf einen breiten
-  Aktienindex mit Laufzeit bis nach dem 31.08.2027, Basispreis rund **40 %
-  über dem heutigen Indexstand**. Beispiel vom 20.11.2026: Calls auf den
-  S&P-500-ETF SPY, Basispreis 965 USD (+40 %), Verfall 17.09.2027, ~0,56 USD
-  je Aktie (56 USD je Kontrakt über 100 Aktien; 5.000 € ≈ 98 Kontrakte).
-  Optionen auf den Euro Stoxx 50 (Eurex, Barausgleich) vermeiden das
-  Wechselkursrisiko und die physische Lieferung; die Zahlen hier gelten
-  für das SPY-Beispiel.
-- **Wie viel:** nur Geld **über dem Notgroschen**, höchstens 5.000 €. Mit
-  weniger Geld sinkt die Chance etwa proportional – aber nur, wenn man dann
-  einen noch höheren Basispreis wählt (1.000 € → ~0,02–0,1 % bei ~+55–60 %);
-  mit demselben Basispreis wäre sie praktisch null.
-- **Wann es klappt:** Steigt der Index bis Ende August 2027 um **rund
-  50 %**, sind die Optionen etwa das 135-Fache wert (~677.000 € brutto,
-  nach 26,375 % Abgeltungsteuer ~500.000 €) – bei gleichem
-  Euro-Dollar-Kurs und ohne Kirchensteuer; Spanne, Gebühren je Kontrakt und
-  Währungstausch kosten zusätzlich. Der Markt preist einen solchen Anstieg
-  mit 0,2–0,5 %; in den letzten zehn Jahren kam er nur einmal vor (2020).
-- **Regeln:**
-  1. einmal kaufen, **nie nachkaufen, nie mit Kredit**, nicht rollen;
-  2. **sobald der Wert der Position ~677.000 € erreicht** (in Euro zum
-     aktuellen Kurs), **sofort alles verkaufen** – kurz vor dem Ziel
-     schwankt der Wert extrem;
-  3. **spätestens am 31.08.2027 alles verkaufen**, egal wie viel die
-     Optionen noch wert sind – nie bis zum Verfall halten (bei SPY würde
-     sonst ausgeübt und es müssten Aktien für Millionen geliefert werden).
-- **Was in über 99,5 % der Fälle passiert:** Das Ziel wird verfehlt; meist
-  sind die Optionen praktisch wertlos, gelegentlich bleibt ein kleiner
-  Restwert. Die 5.000 € fehlen dann im Depot – über 38 Jahre wären das bei
-  6 % im Jahr rund 46.000 € am Zieldatum des Millionenplans (nominal, vor
-  Steuer).
+## 3. Der Plan auf einer Seite
 
-**Mein Rat:** Lass Stufe 2 weg. Die Chance des Zielplans ist dann praktisch
-null, aber dein Startkapital arbeitet für dich.
+| Phase | Zeitraum | Ziel | Stunden je Woche | Messpunkt |
+|---|---|---|---:|---|
+| **A** Gründen, Ideen testen, App 1 bauen | 23.11.–20.12. | UG, Apple-Konto, 3 Ideen mit Kurzvideos getestet, App 1 im Bau | 8–15 | G0 13.12., Ideen-Tor 20.12. |
+| **B** Weihnachtsferien | 21.12.–10.01. | App 1 eingereicht, App 2 begonnen | 25–50 | G1 31.12. |
+| **C** Launch | 11.01.–07.02. | Funnel messen, erste Creator | 8–15 | G2 31.01. |
+| **D** Frühjahrsferien | 08.–14.02. | Paywall-Tests, Vorrat an Videos, Helfer auswählen | 35–45 | – |
+| **E** bis zur Prüfungszeit | 15.02.–21.03. | Treffer skalieren oder App 3 | 8–15 | **G3 28.02. (Haupttor)**, G4 31.03. |
+| **F** Abitur | 22.03.–13.06. | App läuft mit Helfern und festen Regeln | 0–5 | G5 30.04. |
+| **G** Übergang | 14.–27.06. | Android, Studienbewerbung als Rückfall | 20–40 | G6 15.06. |
+| **H** Vollzeit | 28.06.–31.08. | Skalieren, Verkauf vorbereiten und abschließen | 45–65 | G7 15.07., G8 31.08. |
 
-### Stufe 3 – die Produktwette (Dezember 2026 – August 2027)
+Insgesamt rund 800–1.000 Stunden, davon gut die Hälfte nach dem Zeugnis.
 
-Der einzige Weg ohne Wette mit Aufwärtspotenzial – aber nicht bis August:
-500.000 € netto bedeuten rund **0,9 Mio. € Gewinn**; selbst ein Produkt,
-das im Juli 30.000 € im Monat umsetzt und weiter wächst, käme bis 31.08.
-nur auf rund 0,1 Mio. € Umsatz. Ein Firmenverkauf in dieser Zeit ist
-unrealistisch. Stufe 3 trägt deshalb ≈ 0 zum Ziel bei und lohnt sich für
-später: Kunden, Umsatz, Erfahrung für jede Bewerbung.
+## 4. Woche für Woche
 
-| Wann | Ziel | sonst |
+### A – 23.11. bis 20.12.2026: gründen, Ideen testen, App 1 bauen
+
+**KW 48 (23.–29.11.):**
+- **UG (haftungsbeschränkt) gründen**: Online-Notartermin mit
+  Musterprotokoll, Stammkapital 1.000–2.500 €. Kosten ~255–400 €
+  (Notar ~125 € brutto plus Handelsregister).
+- Geschäftskonto eröffnen, Stammkapital einzahlen.
+- Domain, einfache Website und Firmen-E-Mail anlegen (Apple verlangt beides
+  für Organisationen), ~20–100 €.
+- Steuerberater für ein Erstgespräch auswählen (Buchhaltung kann bis zum
+  ersten Umsatz selbst laufen).
+- **Entscheidung Holding** (nur jetzt möglich, später gilt eine
+  Sperrfrist von 7 Jahren): Eine Holding-UG über der App-UG senkt den
+  nötigen Kaufpreis bei einem Anteilsverkauf von ~720.000 auf ~508.000 €,
+  kostet aber ~300–400 € Gründung und ~1.000–3.000 € im Jahr. Käufer
+  kleiner Apps kaufen meist die App (Asset-Deal), dann bringt die
+  Holding nichts. **Empfehlung: eine UG, keine Holding.**
+- Markenkonten auf TikTok, Instagram und YouTube Shorts anlegen, klar als
+  App-Marke erkennbar (Name und Logo der App).
+- **Ideensuche** nach den Regeln aus Abschnitt 6: 10 Kandidaten
+  sammeln, 3 auswählen.
+
+**KW 49 (30.11.–06.12.):**
+- Eintragung ins Handelsregister abwarten (1–3 Wochen); danach
+  Gewerbeanmeldung (~55 €), Fragebogen zur steuerlichen Erfassung über
+  ELSTER mit USt-IdNr. und **Verzicht auf die Kleinunternehmerregelung**
+  (sonst fallen auf Werbung bei Meta und TikTok 19 % Umsatzsteuer ohne
+  Vorsteuerabzug an), Transparenzregister.
+- **D-U-N-S-Nummer** beantragen (kostenlos, bis 5 Werktage plus 2 bei
+  Apple).
+- Je Idee 5–7 Kurzvideos im eigenen Markenkonto: das Problem, ein
+  „Magic Moment“, Kommentare lesen.
+- Expo/React-Native-Vorlage aufsetzen: Kamera oder Eingabe → KI-Aufruf →
+  Ergebnis → Paywall. Kernfunktion läuft auf dem Testgerät.
+
+**KW 50 (07.–13.12.):**
+- **Apple Developer Program als Organisation** (99 $/Jahr), Paid Apps
+  Agreement, Bank- und Steuerdaten (W-8BEN-E), DSA-Händlerangaben,
+  **Small Business Program sofort beantragen** (15 % statt 30 %, wirkt
+  erst 15 Tage nach Ende des Fiskalmonats der Zusage).
+- Google Play als Organisation (25 $ einmalig).
+- Stripe-Konto für den US-Web-Checkout.
+- Onboarding und Paywall (RevenueCat, Superwall) im Sandbox-Kauf
+  lauffähig.
+- **G0 (13.12.):** UG eingetragen oder im Verfahren, Apple-Konto
+  beantragt, 3 Ideen mit je 10–20 Videos getestet.
+
+**KW 51 (14.–20.12.):**
+- Schulaufgaben gehen vor: nur 5 Stunden.
+- **Ideen-Tor 20.12.:** Weiter mit der Idee, die mindestens ein Video über
+  100.000 Aufrufe (oder deutlich über dem eigenen Schnitt) und echte
+  Kaufabsicht in den Kommentaren hat. Ohne Signal 3 neue Ideen testen –
+  aber spätestens jetzt mit dem Bau der besten beginnen.
+
+### B – 21.12.2026 bis 10.01.2027: Weihnachtsferien
+
+- 24.–26.12. frei. Sonst 9–12 und 14–17 Uhr an der App, 1–1,5 h Schule.
+- **12 Stunden für das Sicherheitsnetz:** Bewerbungen auf duale
+  Studienplätze und PiBS (Unternehmen suchen ein Jahr vorher, Abschnitt 12).
+- App 1 fertig: Onboarding mit Fragen, **harte Paywall** direkt danach
+  (ohne Umschalter für die Testphase – Apple lehnt solche „Toggle-Paywalls“
+  seit Januar 2026 ab), Wochen- und Jahresabo, Web-Kauf für US-Nutzer,
+  Kontolöschung in der App, Datenschutzerklärung.
+- TestFlight mit 10–20 Testern; Einreichung bis Do 07.01.
+- **G1 (31.12.):** App 1 im Review oder live; App 2 begonnen (dieselbe
+  Vorlage, andere Nische).
+
+### C – 11.01. bis 07.02.: Launch
+
+- Täglich 1–3 Videos im Markenkonto, **ein Format**, viele Varianten.
+- Funnel messen: Aufrufe → Downloads → Onboarding → Paywall → Kauf; daraus
+  der **Umsatz je 1.000 Aufrufe (RPM)**.
+- KW 03: 10–20 Nano-Creator (unter 10.000 Follower) anschreiben; KW 04:
+  3–5 bezahlte, gekennzeichnete Posts zu 50–150 $.
+- KW 05 (Halbjahresende 13/1): nur 6 Stunden.
+- **G2 (31.01.):** Irgendeine App ≥ 1.000 $ Monatsumsatz? Messwerte je
+  Test (ab ~200.000 Aufrufen): RPM größer als die Creator-Kosten je 1.000
+  Aufrufe (~1–3 $), Download → Zahler ≥ 5 %, Testphase → Zahler ≥ 25 %,
+  Erstattungen < 5 %. Eine App, die nach 3 Wochen und 2–3
+  Paywall-Varianten darunter liegt, wird eingestellt; App 2 startet
+  spätestens 15.02.
+
+### D – 08. bis 14.02.: Frühjahrsferien
+
+- Version 1.1 mit Paywall-Test und Teilen-Funktion.
+- 40–60 Videos auf Vorrat.
+- Helfer per Probeaufgabe auswählen (5–10 Kandidaten je 1–2 Stunden, den
+  Besten behalten): Schnitt, Creator-Betreuung, Support.
+- Geschlossenen Test im Google Play starten (Android später).
+
+### E – 15.02. bis 21.03.: bis zur Prüfungszeit
+
+- **G3 (28.02.), das Haupttor:** ≥ 5.000 $ Monatsumsatz, Wachstum ≥ 50 %
+  im Monat, Werbung in ≤ 4 Wochen zurückverdient.
+  - **Verfehlt:** Die 500k-Jagd endet hier. Die App läuft als kleines
+    Projekt weiter, das Geld bleibt, das Abitur hat Vorrang.
+  - **Erreicht:** Web-Anteil auf ≥ 30 %, Creator nach dem Prinzip
+    „Fixpreis plus garantierte Aufrufe“, Werbung nur aus Umsatz.
+- KW 11 „Autopilot“ für das Abitur: Anleitung für den Helfer, Creator
+  vorab gebucht und bezahlt, Supabase Pro (pausiert nicht), Alarme bei
+  Ausfall und Ablehnung, festes Wochenbudget.
+- **G4 (31.03.):** ≥ 10.000 $ Monatsumsatz, besser ≥ 30.000 $. Darunter
+  endet die Jagd. Ab 30.000 $: Kohortendaten für Käufer ab jetzt sauber
+  sammeln.
+
+### F – 22.03. bis 13.06.: Abitur
+
+| Woche | App | Schule |
+|---|---:|---:|
+| Osterferien (KW 12–13) | 3 h: 2 × 20 min Zahlen, 1 h Gespräch mit dem Helfer | 35 h |
+| KW 14–15 | 2 h | 30 h |
+| schriftliches Abitur 21.04.–13.05. | 0–1 h, nur Notfälle | 35 h |
+| Pfingstferien 18.–28.05. | 5 h | 20 h |
+| Kolloquium bis 11.06. | 2 h | 15–20 h |
+
+- Regel für Ausgaben: je Woche höchstens den Umsatz der Vorwoche.
+- Keine Entscheidung darf von dir abhängen, kein Prüfungstermin wird für
+  die Firma geopfert.
+- **G5 (30.04.):** ≥ 50.000 $ Monatsumsatz (dann ~19 % Chance auf das
+  Ziel). Darunter: Ziel beenden.
+
+### G – 14. bis 27.06.: Übergang
+
+- Studienbewerbung als Rückfallweg (z. B. TUM Informatik bis 15.07.).
+- Android-Start, wenn der geschlossene Test bestanden ist.
+- **G6 (15.06.):** ≥ 150.000 $ Monatsumsatz. Dann **Verkauf
+  vorbereiten**: Kohorten D1–D90, Erstattungsquote, Kanalmix, Zeitaufwand
+  der Gründerin; Gespräche mit App-Portfolio-Käufern und Studios. Ziel ist
+  eine Absichtserklärung (LOI). Verfehlt: App auf Gewinn statt Wachstum
+  umstellen; das Ziel ist faktisch verfehlt.
+
+### H – 28.06. bis 31.08.: Vollzeit
+
+- Mo–Sa je ~9 Stunden, Sonntag frei.
+- Erfolgreiche Creator-Formate verdoppeln, jede Woche ein Paywall-Test,
+  Pauschalverträge mit den besten Creatorn, eigene Werbevideos der Creator
+  als Anzeigen (Spark Ads) – nur bei Rückverdienst in ≤ 4 Wochen.
+- **G7 (15.07.):** ≥ 300.000 $ Monatsumsatz **oder** unterschriebene
+  Absichtserklärung über ≥ 0,7 Mio. € mit Abschluss bis 25.08. **oder**
+  ≥ 300.000 € aufgelaufener Gewinn. Sonst ist das Ziel verfehlt: App
+  behalten, als Geschäft weiterführen, im Herbst den Ausbildungsweg
+  antreten.
+- **G8 (31.08.):** Eigenkapital nach Steuerrückstellung ≥ 500.000 €
+  (offene Forderungen gegen Apple zählen) oder ein abgeschlossener
+  Verkauf.
+
+## 5. Die Messpunkte und was sie für die Chance bedeuten
+
+Wie wahrscheinlich das Ziel ist, **wenn** ein Messpunkt erreicht bzw.
+verfehlt wird (Monatsumsatz der besten App in $, Modell „Der Plan“):
+
+| Messpunkt | so oft erreicht | Chance auf das Ziel, wenn erreicht | … wenn verfehlt |
+|---|---:|---:|---:|
+| ≥ 1.000 $ bis 31.01. | 6 % | 0,8 % | 0,005 % |
+| ≥ 5.000 $ bis 31.01. | 2 % | 2,3 % | 0,007 % |
+| **≥ 5.000 $ bis 28.02. (G3)** | 5 % | 1,2 % | **0,001 %** |
+| ≥ 10.000 $ bis 28.02. | 1,2 % | 4 % | 0,005 % |
+| **≥ 10.000 $ bis 31.03. (G4)** | 3 % | 1,9 % | **< 0,001 %** |
+| ≥ 30.000 $ bis 31.03. | 0,4 % | 10 % | 0,02 % |
+| **≥ 50.000 $ bis 30.04. (G5)** | 0,2 % | 19 % | 0,01 % |
+| ≥ 100.000 $ bis 30.04. | 0,03 % | ~35 % | 0,05 % |
+| ≥ 150.000 $ bis 15.06. (G6) | 0,04 % | ~40 % | 0,04 % |
+| ≥ 300.000 $ bis 15.07. | 0,02 % | ~37 % | 0,05 % |
+
+**So liest man das:**
+- Die Chance wird fast vollständig an den frühen Toren entschieden.
+  Wer am 28.02. keine 5.000 $ Monatsumsatz hat, hat das Ziel verfehlt –
+  das ist Mathematik, kein Mangel an Einsatz.
+- Selbst 100.000 $ Monatsumsatz Ende April bringen das Ziel nur mit rund
+  35 % (je nach Annahmen 28–52 %; nur wenige Dutzend Läufe kommen so weit): Es bleiben vier Monate, das Abitur bremst, Apple zahlt 5–9 Wochen
+  später aus, und Wachstum frisst die Marge.
+- Die drei stärksten Hebel: **100 % der Anteile behalten**,
+  **US-Web-Checkout** (schnelleres Geld, geringere Gebühr) und **Tempo der
+  Versuche**. Weniger wichtig: mehr Versuche nach dem Abitur. Im Modell
+  heben Web-Checkout, eine wiederverwendete App-Vorlage und volle
+  Ferienwochen die Chance von 0,01 % auf 0,055 % – fast auf das Fünffache.
+
+## 6. Die App: Idee, Produkt, Technik
+
+**Die Idee – fünf Prüfungen, bevor gebaut wird:**
+1. **Viele Creator in der Nische, wenige Markendeals.** Health & Fitness
+   hat die meisten Creator (Cal AI); Astrologie nur wenige hundert, meist
+   exklusiv gebunden.
+2. **Ein Moment, der sich in drei Sekunden filmen lässt** („Magic
+   Moment“): Essen scannen → Kalorien → Reaktion.
+3. **Ein Bedürfnis, für das Menschen schon Geld ausgeben** – Aussehen,
+   Abnehmen, Gewohnheiten, Lernen, Beziehungen.
+4. **Validierung mit Inhalten statt mit Code:** Markenkonto in der Nische,
+   5–20 Videos, Kommentare lesen („views can lie“, Kommentare nicht).
+5. **Rechtlich sauber:** kein Heilversprechen, kein Medizinprodukt (keine
+   Diagnose oder Behandlung von Krankheiten), keine fremden Marken,
+   möglichst keine Gesundheits- oder Sexualdaten speichern (Abschnitt 10).
+
+Kein Klon: Apple lehnt austauschbare Kopien und mehrere Bundle-IDs
+derselben App ab (Richtlinie 4.3). Jede App braucht eine eigene Funktion.
+**Markt:** zuerst Englisch und USA (größter Markt, Web-Checkout erlaubt),
+danach Deutsch.
+
+**Das Produkt:**
+- Langes, persönliches Fragen-Onboarding, danach die Paywall – im
+  Onboarding konvertiert sie fast viermal besser als später.
+- Harte Paywall: Download → Zahler im Median 10,7 % (Freemium 2,1 %),
+  Umsatz je Download nach 60 Tagen 3,09 $ statt 0,38 $ (RevenueCat 2026).
+- Preise testen: Median 5,99 $ je Woche, 34,80 $ je Jahr; Cal AI 29 $ je
+  Jahr mit 3 Tagen Test. Längere Testphasen wandeln besser, bei 3 Tagen
+  fallen 55 % der Kündigungen auf Tag 0.
+- Bindung: Streaks, Erinnerungen, Genauigkeit der Kernfunktion.
+- US-Web-Checkout per Stripe (in den USA erlaubt; Apple verlangt
+  während des laufenden Verfahrens keine Provision darauf).
+
+**Technik und Kosten (Dezember bis August):**
+
+| Werkzeug | Kosten |
+|---|---|
+| Apple Developer Program / Google Play | 99 $/Jahr / 25 $ einmalig |
+| Claude Pro mit Claude Code (im Sommer Max) | 20 $/Monat (100 $) |
+| Expo (Builds in der Cloud, kein Mac nötig) | 0–19 $/Monat |
+| Supabase Pro (pausiert nicht) | 25 $/Monat |
+| RevenueCat / Superwall | frei bis 2.500 $ bzw. 10.000 $ Monatsumsatz, dann 1 % |
+| KI-Modell für Bilder (z. B. Claude Haiku 5.5) | ~10–30 $ je 1.000 aktive Nutzer und Monat |
+| Schnitt (CapCut/Canva), Domain | ~12 $/Monat |
+| zusammen | **~850 €** |
+
+Teure Modelle (Sonnet-Klasse) sind für Bild-Scans zu teuer, Gratisstufen
+mit Datennutzung für Nutzerfotos ungeeignet (DSGVO).
+
+## 7. Vertrieb: Kurzvideos, Creator, Skalierung
+
+1. **Eigene Inhalte (Marge 50–80 %).** Ein Format, viele Posts
+   (Halo AI: ein Format, 1,2 Mrd. Aufrufe in 120 Tagen). Konten sind als
+   App-Marke erkennbar; keine Konten, die so tun, als wären es
+   unabhängige Nutzer.
+2. **Creator testen (Marge 25–70 %).** Nano-Creator 50–200 $ je Video,
+   Micro 200–800 $; bezahlte Aufrufe über Content-Rewards-Programme ~1 $
+   je 1.000 Aufrufe. **Regel von Cal AI: nie mehr je 1.000 Aufrufe zahlen,
+   als sie einbringen** (Kosten je 1.000 Aufrufe < RPM).
+3. **Skalieren über Creator.** Fixpreis plus garantierte Aufrufe oder
+   Videoanzahl (reine Provision lehnen die meisten ab), Wiederbuchung nach
+   Ergebnis, eigene Creator-Builds. Cal AI hatte in der Spitze 250
+   Creator unter Vertrag, 50–70 posteten am selben Tag.
+4. **Bezahlte Anzeigen (Marge 0–30 %)** erst ab ~100.000 $ Monatsumsatz,
+   mit Creator-Videos als Anzeigen.
+5. **Team:** ab ~20.000 € Monatsumsatz ein Creator-Manager gegen Honorar
+   oder Umsatzanteil je Kanal – **keine Firmenanteile über 25 %**: Gibt
+   die Gründerin 40 % ab, sinkt die Chance auf das Ziel unter die ohne
+   Partner, weil die Firma dann 1,2 statt 0,72 Mio. € verdienen müsste.
+
+Jeder bezahlte Beitrag wird als **„Werbung“** gekennzeichnet (§ 5a UWG),
+mit schriftlichem Vertrag über Nutzungsrechte (Anzeigen, Spark Ads,
+Dauer, Gebiet) und Freigabe vor Veröffentlichung.
+
+## 8. Geld: Budget, Cashflow, Finanzierung
+
+**Die 5.000 €:**
+
+| Posten | Betrag |
+|---|---:|
+| UG-Gründung, Gewerbe, Register | ~300–450 € |
+| Apple, Google, Domain, Website | ~150 € |
+| Werkzeuge Dezember–August | ~850 € |
+| Rechtstexte (Generator), Steuerberater-Erstgespräch | ~300–500 € |
+| Testgerät, falls nötig (gebrauchtes iPhone, Android-Gerät) | 0–350 € |
+| **Creator- und Videotests bis G3 (28.02.)** | **höchstens 1.500–2.000 €** |
+| Reserve, nie angetastet | 1.000 € |
+| Rest (~500–1.000 €) | nur nach bestandenem G3 |
+
+**Cashflow – das eigentliche Nadelöhr:** Apple zahlt 5–9 Wochen nach dem
+Kauf aus, Creator und Werbung sind sofort fällig. Aus eigener Kraft
+wächst eine App so höchstens um das 1,6- bis 2-Fache im Monat
+(Werbekosten 45 % vom Umsatz) bzw. 1,15-Fache (70 % mit bezahlten
+Anzeigen). Cal AI wuchs um das 2- bis 3-Fache. Ein solcher Treffer
+bräuchte auf dem Höhepunkt ~0,3–0,6 Mio. € Vorfinanzierung. Deshalb:
+- **Web-Checkout für US-Nutzer** (Geld nach Tagen statt Wochen);
+- Creator nach dem Posten bezahlen, Zahlungsziele von Werbekonten nutzen;
+- **je Woche höchstens den Umsatz der Vorwoche ausgeben**;
+- **keine privaten Kredite.**
+
+**Finanzierung, Stand November 2026:**
+- Umsatzbasierte Finanzierung für Apps: Pollen VC und Uncapped bieten sie
+  nicht mehr an; Lighter Capital und Founderpath sind für eine junge
+  deutsche UG nicht zugänglich; Silvr verlangt ≥ 10.000 € Monatsumsatz
+  über ≥ 6 Monate – frühestens im Juli.
+- Business Angel ab ~20.000 € Monatsumsatz: hilft im Modell kaum, weil
+  die Verwässerung den eigenen Anteil am Ziel senkt. Höchstens, wenn der
+  Anteil der Gründerin bei ≥ 85 % bleibt.
+
+## 9. Rechtsform, Steuer, Versicherung
+
+| Thema | Regel | Was du tust |
 |---|---|---|
-| Dez. – März (~5 h/Woche) | Webgeschäft starten: Vor-Ort-Besuche mit `standortcheck`-Bericht, erste Einzelmaßnahmen | – |
-| **31.03.2027** | ≥ 10 Kunden, die für eine laufende Prüfung ihrer Website monatlich zahlen würden (Vorbestellung) | Produktwette beenden, nur Webgeschäft |
-| April – Mitte Mai | Abiturprüfungen, Pause | – |
-| Mitte Mai – August (bis 25 h/Woche) | Abo-Produkt („Website-Check für Handwerksbetriebe“) bauen und verkaufen | – |
-| **31.07.2027** | wachsende Abo-Umsätze; Entscheidung, ob das Produkt neben der Ausbildung weiterläuft | als kleines Nebenprojekt weiterführen |
+| **Rechtsform** | UG (haftungsbeschränkt) mit 1 € bis 24.999 € Stammkapital; 25 % des Jahresüberschusses in die Rücklage (§ 5a GmbHG). GmbH braucht 25.000 €. Einzelunternehmen: unbeschränkte Haftung, Privatadresse öffentlich im EU-App-Store, und für 500.000 € privat ~915.000 € Gewinn | sofort UG mit Musterprotokoll |
+| **Steuer** | 30,7 % auf den Gewinn der UG; Ausschüttung zusätzlich 26,375 % (oder Teileinkünfteverfahren); Kirchensteuer 8 % bei Mitgliedschaft | Gewinn in der UG lassen, Steuer für 2027 zurücklegen |
+| **Umsatzsteuer** | Apple und Google verkaufen im eigenen Namen (Kommissionär, EuGH C-101/24); deine Leistung an sie ist in Deutschland nicht steuerbar. Eigener Web-Checkout an EU-Kunden: ab 10.000 € Auslandsumsatz OSS | auf die Kleinunternehmerregelung verzichten; Web-Checkout zuerst nur für US-Nutzer |
+| **Apple-Gebühr** | 15 % im Small Business Program bis 1 Mio. $ Erlös nach Provision; darüber für den Rest des Jahres 30 % (EU seit 01.10.2026: 15 % bzw. 26 % beim In-App-Kauf) | Programm sofort beantragen |
+| **Familienversicherung** | Einbehaltene Gewinne der UG zählen nicht zum Gesamteinkommen; Gehalt über 590 €/Monat und Ausschüttungen über ~8.080 € schon. Wer mehr als 20 h/Woche als Geschäftsführerin mitarbeitet, kann als hauptberuflich selbstständig gelten – dann endet sie unabhängig vom Einkommen | kein Gehalt, keine Ausschüttung 2027; bis Juni unter 20 h/Woche; vor dem Vollzeitsommer bei der Kasse schriftlich klären und ~280–290 €/Monat einplanen |
+| **Rentenversicherung** | Geschäftsführerin mit ≥ 50 % Anteil nicht abhängig beschäftigt; Ein-Personen-GmbH mit einem Auftraggeber kann rentenversicherungspflichtig sein (ob Apple als „ein Auftraggeber“ gilt, ist offen) | Steuerberater oder DRV fragen |
+| **Schule** | keine Genehmigung nötig; Unterrichtspflicht und Prüfungen gehen vor (Art. 56 BayEUG) | Termine nachmittags oder in den Ferien |
+| **Kindergeld** | während der Schulzeit unabhängig vom Einkommen | – |
 
-Realistisch bringt Stufe 3 bis August das, was das Webgeschäft bringt
-(Modell: 75 % für ≥ 3.000 € Umsatz, 14 % für ≥ 10.000 €). Gewinne nach der
-Sparregel ins Depot. Bleibt es beim Webgeschäft, den Gewinn 2027 unter
-~7.080 € halten (Familienversicherung).
+Laufende Kosten der UG: Buchführung, Jahresabschluss, Offenlegung,
+IHK-Beitrag (bis 100.000 € Ertrag 85 €), Steuerberater ~2.000–6.000 €
+im Jahr – erst bezahlen, wenn Umsatz da ist.
 
-### Stufe 4 – kostenlose Würfe (laufend)
+## 10. Recht beim Wachsen
 
-- Bei **„Wer wird Millionär?“** und anderen Quizshows bewerben (kostet nur
-  Zeit; ein Quizgewinn ist in der Regel nicht steuerpflichtig, außer bei
-  Antrittsgeld, Verhaltensvorgaben oder Formaten über mehrere Folgen –
-  dann sonstige Einkünfte nach § 22 Nr. 3 EStG).
-- **Accelerator wie Y Combinator: nicht jetzt.** YC erwartet Vollzeit am
-  Unternehmen, vor Ort – eine Zusage wäre eine Entscheidung gegen PiBS oder
-  das duale Studium und brächte bis August nur einen Papierwert, kein Geld.
-- **Jugend forscht** (Anmeldeschluss 30.11.2026) lohnt sich für Bewerbungen,
-  nicht fürs Geld.
+- **Werbung:** Kennzeichnung „Werbung“ oder „Anzeige“ am Anfang
+  (§ 5a Abs. 4 UWG, § 22 MStV); die UG haftet für ihre Creator
+  (§ 8 Abs. 2 UWG). Keine gekauften oder gefälschten Bewertungen
+  (UWG Anhang Nr. 23b/c, Apple 5.6.3), keine Kaufaufforderung an Kinder
+  (UWG Anhang Nr. 28), nur lizenzierte Musik.
+- **Abos:** Apple-Regeln 3.1.2 (laufender Nutzen, klare Preise, kein
+  Lockangebot). Bei eigenen Web-Abos: Kündigungsbutton (§ 312k BGB),
+  Widerrufsbutton (§ 356a BGB seit 19.06.2026), „zahlungspflichtig
+  bestellen“, Gesamtpreise; in den USA Auto-Renewal-Gesetze.
+- **Datenschutz:** Datenschutzerklärung in App und App Store Connect,
+  Kontolöschung in der App, Einwilligung für Tracking (§ 25 TDDDG),
+  Auftragsverarbeitungsverträge. Gewicht und Gesundheitsziele können
+  Gesundheitsdaten sein (Art. 9 DSGVO): ausdrückliche Einwilligung,
+  Folgenabschätzung, gute Sicherheit – Quittr legte die Daten von
+  Hunderttausenden offen.
+- **KI-Verordnung:** seit 02.08.2026 Hinweis auf KI im Chat,
+  Kennzeichnung realistischer KI-Bilder und -Videos auch in Anzeigen
+  (Art. 50).
+- **Gesundheitsaussagen:** Software mit medizinischer Zweckbestimmung ist
+  ein Medizinprodukt (MDR); beim Abnehmen sind Gerichte streng
+  (Heilmittelwerbegesetz). Keine Aussagen wie „heilt“ oder Vorher-nachher-
+  Versprechen.
+- **Jugendschutz:** Altersfreigabe korrekt, keine Anzeigen für unter
+  16-Jährige; bei minderjährigen Creatorn die Eltern einbeziehen.
 
-### Stufe 5 – Abrechnung am 31.08.2027
+## 11. Abitur-Schutz
 
-- **Ziel erreicht** (≥ 500.000 € nach Steuer): Bei einem deutschen Broker
-  ist die Abgeltungsteuer schon einbehalten; bei einem ausländischen Broker
-  Steuer zurücklegen und über die Anlage KAP erklären. Den Rest breit
-  gestreut anlegen – und trotzdem die Ausbildung beginnen.
-- **Ziel verfehlt** (der Normalfall): Optionen, falls vorhanden, spätestens
-  jetzt verkaufen; Ausbildung beginnt, Sparregel läuft, der Millionenplan
-  übernimmt (Abschnitt 4).
+- **Regel:** in Schulwochen 8 Stunden, höchstens 10–15; in Wochen mit
+  Schulaufgaben nur der Samstag (3 h); keine App-Arbeit nach 22 Uhr.
+  Bis etwa 10–12 h/Woche finden die meisten Studien keinen oder kaum
+  Schaden für die Schulleistung, darüber steigt das Risiko (Übersicht
+  über 48 Studien, IZA DP 11023).
+- **Die Note ist noch beweglich:** Am 22.11.2026 sind rund 600 von 900
+  Punkten offen; 18 Punkte entsprechen 0,1 Notenstufen. Sie zählt für
+  NC-Studiengänge, Eignungsverfahren (z. B. TUM Informatik) und duale
+  Plätze – dauerhaft.
+- **Die Kollision, ehrlich:** Die Monate, in denen ein Treffer am meisten
+  Arbeit braucht (Februar bis Juni), fallen genau auf 13/2 und die
+  Prüfungen. Entweder läuft die App dann mit Helfern, die sich aus dem
+  Umsatz tragen, oder sie pausiert 12 Wochen.
+- Im Modell kostet strenger Abiturschutz (6–10 statt 8–22 Stunden in
+  Schulwochen) rund ein Drittel der Chance: ~0,04 % statt ~0,06 %
+  (Abschnitt 14).
 
-### Nicht Teil des Plans: Casino, Sportwetten, Krypto-Hebel
+## 12. Sicherheitsnetz
 
-Roulette bringt mit ~0,65–0,7 % sogar etwas mehr als der Zielplan,
-Sportwetten und KENO weniger – alle verleiten zum Nachsetzen (Turbos: 74 %
-der Anleger verlieren, bei über 1.000 Trades 91 %). Wenn der Gedanke an den
-„einen großen Wurf“ nicht loslässt, ist das selbst ein Warnsignal. Hilfe und
-die Möglichkeit, sich sperren zu lassen (das bundesweite Sperrsystem OASIS
-gilt für Spielbanken, Spielhallen und erlaubte Online-Anbieter), gibt es
-kostenlos und anonym bei
-<https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>.
-
-## 4. Ab wann 500.000 € realistisch sind
+Weil der Plan fast sicher das Ziel verfehlt, läuft daneben, was danach
+trägt:
+- **Bewerbungen in den Weihnachtsferien** (12 h): duale Studienplätze
+  Informatik/Wirtschaftsinformatik und PiBS in der Schweiz; FH-Bachelor
+  als Rückfall (Bewerbung bis Mitte Juli).
+- **Sommer:** Ist G4 (31.03.) verfehlt, statt Vollzeit-App ein Sommerjob
+  (Zeitarbeit ist kurzfristig zu bekommen; ~6.000–7.000 € netto, siehe
+  [`VERDIENST_BIS_SOMMER_2027.md`](VERDIENST_BIS_SOMMER_2027.md)). Die App
+  läuft abends weiter.
+- **Geld:** Reserve 1.000 € bleibt, Gewinne nach der Sparregel des
+  [Millionenplans](MILLIONENPLAN.md) ins Depot.
 
 Mit dem Millionenplan (PiBS oder dual, sonst FH-Bachelor; Schweiz wenn
-möglich; Sparregel), Chance auf 500.000 € Nettovermögen am 31.08. des
-Jahres (`python3 plan/simulation.py --zeitplan --ziel 500000`, 4 × 10.000
-Leben):
+möglich; Sparregel) sind 500.000 € Nettovermögen so wahrscheinlich
+(`python3 plan/simulation.py --zeitplan --ziel 500000`):
 
 | Jahr (Alter) | Chance auf 500.000 € |
 |---|---:|
@@ -225,119 +511,174 @@ Leben):
 | 2038 (30) | 0,5 % |
 | 2043 (35) | 9 % |
 | 2048 (40) | 26 % |
-| 2053 (45) | 44 % |
 | **2055–2056 (47–48)** | **50–53 %** |
-| 2058 (50) | 58 % |
-| 2063 (55) | 70 % |
 | 2065 (57) | 73 % |
 
-Das Modell startet mit einem Depot von 1.000 €; wer die 5.000 € behält
-und anlegt, liegt etwas besser, wer sie in Stufe 2 verliert, etwas
-schlechter. Die neun Monate bis August entscheiden darüber kaum durch das
-Geld, das man bis dahin verdient – sondern durch den Ausbildungsplatz, die
-Sparregel und dass das Startkapital nicht verspielt wird.
+## 13. Andere Wege im Vergleich
 
-## 5. Was du nicht tun solltest
+| Weg | Chance auf 500.000 € bis 31.08.2027 | Was man riskiert |
+|---|---:|---|
+| **KI-Abo-Apps nach dem Muster (dieser Plan)** | ~0,06 % (0,01–0,2 %) | ~3.000 € und Zeit; im Normalfall ~3.600 € Verlust |
+| Roblox-Spiele in Sprints (8–12 Spiele, Studio als Partner oder Käufer) | ~0,06 % (0,02–0,17 %) | Zeit, ~500–1.500 € Werbetests |
+| App als Hauptweg + 2–4 Roblox-Sprints in den Ferien | ~0,04–0,05 % | teilt die Zeit, deshalb nicht mehr |
+| Steam-Indie-Spiel (ein Release bis Juli) | ~0,02 % | Zeit |
+| Fortnite-Inseln, Plattform-Töpfe, Bug-Bounties, TikTok-Shop-Marke | 0,001–0,05 % | Zeit bzw. Kapital |
+| B2B-Software aus `standortcheck`, Agentur, Kurse, Newsletter, Chrome-Erweiterungen | < 0,01 % | Zeit |
+| **Einmalige Wette mit Index-Optionen** (5.000 €, Basispreis ~40 % über dem Index) | ~0,1–0,5 % | die 5.000 € in > 99 % der Fälle |
+| Roulette, kühnes Spiel, mit Tischlimit | ~0,65–0,7 % | 5.000 € in > 99 % der Fälle |
+| Nur Papierwert (Anteil × Bewertung bei YC oder Angel) | 1–3 % | kein Geld: nicht verkäuflich, Vesting, Anwesenheit in San Francisco |
 
-- **Kein Casino- oder Wett-All-in** (die einzige Ausnahme, die der Plan
-  zulässt, ist der einmalige, begrenzte Kauf in Stufe 2, wenn du dich
-  bewusst dafür entscheidest), **kein Nachkaufen** und **keinen Kredit** für
-  Wetten oder Trading: Die Grenze S / Z steigt nur
-  scheinbar, der Verlust wird größer als das eigene Geld.
-- **Keine Anbieter ohne deutsche Erlaubnis** (Offshore- oder
-  Krypto-Casinos): Die Teilnahme an unerlaubtem Glücksspiel ist strafbar
-  (§ 285 StGB), und ob ausgezahlt wird, ist ungewiss.
-- **Kein Krypto-Hebelhandel** („Perpetuals“ mit 50- bis 100-fachem Hebel
-  bei Börsen außerhalb der EU) – die Hebelgrenzen der EU (2:1 für Krypto)
-  gibt es aus gutem Grund.
-- **Keine „Trading-Kurse“, Signalgruppen, Schneeballsysteme** – wer
-  wirklich einen Vorteil hätte, würde ihn nicht verkaufen.
-- **Kein Daytrading mit Turbos oder CFDs**: Je mehr Trades, desto mehr
-  Verlierer (BaFin: 70 % bei 1–10 Trades, 91 % bei über 1.000).
-- **Nicht das Abitur riskieren**: Die Note entscheidet über duale Plätze
-  und damit über den Weg, der wirklich trägt.
+**Warum der App-Weg trotz kleinerer Zahl als die Wetten der Plan ist:**
+Er ist der Weg, den die realen Fälle gegangen sind; er kostet ~3.000 €
+statt 5.000 €; er ist kein Glücksspiel; und im Normalfall bleibt etwas:
+eine App, gemessene Zahlen, Fähigkeiten, Referenzen. Beides gleichzeitig
+geht nicht – die Optionswette bräuchte genau das Geld, das die Tests
+brauchen.
 
-## 6. Grenzen dieser Rechnung
+**Die Grenze bei Wetten** (beweisbar, Ville-Ungleichung): Bei jedem Spiel
+ohne eigenen Vorteil ist die Chance, aus 5.000 € jemals 500.000 € zu
+machen, höchstens 5.000 / 500.000 = 1 %. Kredit hebt sie nur scheinbar:
+Dann verliert man in den übrigen 99 % mehr, als man hat. Die Optionswette
+(Calls auf den S&P 500 mit Verfall nach dem Stichtag, Basispreis ~40 % über
+dem Stand vom 20.11.2026; Ziel ~677.000 € brutto vor 26,375 %
+Abgeltungsteuer) braucht einen Indexanstieg von ~50 % in neun Monaten; der
+Markt preist das mit 0,2–0,5 %. Wer sie trotzdem will: einmal kaufen, nie
+nachkaufen, nie mit Kredit, bei ~677.000 € sofort verkaufen, spätestens
+am 31.08.2027 alles verkaufen. **Nicht empfohlen.**
 
-Die Lotteriezahlen sind exakte Wahrscheinlichkeiten, die Roulette-Zahlen
-simuliert (mit Tischlimit genauer gerechnet ≈ 0,68 %), die Optionszahlen
-Marktpreise (SPY 20.11.2026, VIX 28,4 am 19.11.2026), die Sportwetten-Zahl
-ist aus Pferdewetten übertragen; die Geschäftswege stützen sich auf
-Basisraten aus selbstselektierten Listen (TrustMRR, Appfigures,
-Kickstarter) und überschätzen die Chance eher, weil sie keine
-Teilzeit-Gründer neben dem Abitur zeigen. Der Zeitplan in Abschnitt 4 ist
-ein Modellwert mit allen Annahmen und Grenzen aus dem Millionenplan.
+## 14. Die Rechnung
 
-## 7. Nachrechnen
+`plan/plan_500k.py` rechnet 39 Wochen ab 30.11.2026, je Lauf 3–8 Apps
+nacheinander:
+- **Zeit:** Stunden je Woche nach Kalender (Schulwochen 8–22 h, Ferien
+  25–50 h, Abitur 0–15 h, ab 28.06. 40–70 h); Bau der ersten App 50–130 h,
+  jeder weiteren 25–70 h; App Review 0,3–3 Wochen; Test 30–80 h über
+  2–5 Wochen mit 200–1.200 € für Creator.
+- **Treffer:** je App eine latente Spitzen-MRR; Chance auf ≥ 1.000 $
+  10–30 %, ≥ 10.000 $ 2–8 %, davon ≥ 100.000 $ 5–22 %, davon ≥ 1 Mio. $
+  3–15 %, darüber Pareto. Lernkurve: die ersten drei Versuche mit 30 %,
+  60 % und 85 % der vollen Chance.
+- **Wachstum** eines Treffers mit dem 1,5- bis 3-Fachen im Monat bis zur
+  Spitze, Plateau 4–26 Wochen, danach −2 bis −15 % im Monat; 5–20 %
+  Risiko eines Einbruchs (Kopie, Ablehnung, Plattform).
+- **Kosten:** 30–65 % vom Umsatz beim Wachstum über Creator, 55–85 % mit
+  bezahlten Anzeigen, 35–60 % auf dem Plateau; Apple 15 %, über 870.000 €
+  30 %; Fixkosten 250–800 €/Monat.
+- **Cashflow:** Apple-Auszahlung nach 5–9 Wochen, 30–60 % Web-Checkout mit
+  einer Woche; Wachstum wird gedrosselt, wenn das Geld fehlt.
+- **Verkauf:** ab 16 Wochen App-Alter zum 1- bis 3,5-Fachen des
+  annualisierten Gewinns, Abschluss nach 4–14 Wochen mit 30–70 %
+  Wahrscheinlichkeit.
+
+| Szenario (300.000 Läufe) | Chance auf das Ziel | Gewinn im Median |
+|---|---:|---:|
+| Trefferquoten der Recherche | 0,13 % | −2.000 € |
+| strengere Quoten (Gegenprüfung) | 0,05 % | −3.400 € |
+| strengere Quoten + Lernkurve | 0,01 % | −4.200 € |
+| **Der Plan** (+ Web-Checkout, schneller Bau, volle Ferien) | **0,055 %** | −3.600 € |
+| der Plan mit strengem Abiturschutz (6–10 h in Schulwochen) | 0,04 % | −4.200 € |
+| der Plan, optimistischer Rand (Quoten × 1,5) | ~0,1 % | – |
+| Partner mit Vertrieb, Anteil der Gründerin 100 % / 75 % / 60 % | ~0,6 % / 0,2 % / 0,03 % | – |
+| Obergrenze: die erste App ist ein Cal-AI-Treffer | ~33 % | – |
+
+**Was die Zahlen sagen:**
+- Gewinn allein schafft das Ziel praktisch nie (die Wachstumsphase frisst
+  die Marge); fast alle Erfolge laufen über einen Verkauf im Sommer.
+- Selbst ein Treffer der Cal-AI-Klasse als erste App bringt das Ziel nur
+  mit rund einem Drittel: Zeit, Vorfinanzierung und Abitur bremsen.
+- Eine unabhängige Zerlegung nach Basisraten (statt Simulation) kommt im
+  Median auf ~0,014 % (P10 0,001 %, P90 0,07 %). Mit allen Hebeln zugleich
+  und ohne Abgabe von Anteilen lässt sich aus Basisraten höchstens rund
+  0,5 % begründen.
+
+**Grenzen:**
+- Fast alle Erfolgszahlen sind Selbstangaben (Podcasts, Interviews); sauber
+  belegt ist nur Cal AI. Die Trefferquoten je Versuch sind Schätzungen,
+  kalibriert an RevenueCat und Appfigures; 2027 dürfte die Konkurrenz
+  größer sein als 2024.
+- Die Wirkung eines erfahrenen Partners ist nicht messbar, nur geschätzt.
+- Umsatz aus Jahresabos wäre nach HGB abzugrenzen (der Modellgewinn ist
+  dafür nicht korrigiert); Monte-Carlo-Fehler bei 0,06 % rund ±10 %
+  relativ.
+
+## 15. Was du nicht tun solltest
+
+- **Keine Kredite** für Werbung oder Wetten, keine Bürgschaften.
+- **Keine Firmenanteile über 25 %** an Helfer oder Partner abgeben.
+- **Keine Täuschung:** keine Fake-Bewertungen, keine verdeckte Werbung,
+  keine Konten, die unabhängige Nutzer vortäuschen, keine geschönten
+  Kennzahlen gegenüber Käufern (Roy Lee gab überhöhte Umsatzzahlen zu).
+- **Keine Memecoins, kein Krypto-Hebel, keine Signalgruppen oder
+  „Trading-Kurse“**, keine Anbieter ohne deutsche Erlaubnis (§ 285 StGB).
+- **Keine fremden Marken** ohne Lizenz (Blue Lock), keine sensiblen Daten
+  ohne Sicherheit (Quittr).
+- **Nicht das Abitur riskieren** – kein Prüfungstermin für die Firma.
+- Wenn der Gedanke an den „einen großen Wurf“ nicht loslässt: Hilfe und
+  Sperre gibt es kostenlos bei <https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>.
+
+## 16. Nachrechnen
 
 ```
-python3 plan/simulation.py --sommer --ziel 500000              # Abschnitt 1, Meilensteine
-python3 plan/simulation.py --sommer --ziel 500000 --start 10000
-python3 plan/simulation.py --zeitplan --ziel 500000            # Abschnitt 4
+python3 plan/plan_500k.py                      # Szenarien und Messpunkte (60.000 Läufe)
+python3 plan/plan_500k.py --n 300000           # wie im Dokument
+python3 plan/plan_500k.py --nur "DER PLAN"     # nur der Plan
+python3 plan/simulation.py --zeitplan --ziel 500000   # Abschnitt 12
 python3 -m unittest discover -s tests
 ```
 
-Roulette mit Tischlimit: `sim.roulette_mit_limit(5000, 500000, 20000)`.
+## 17. Quellen
 
-## 8. Quellen
+**Fälle**
+- Cal AI: CNBC/Benzinga <https://www.benzinga.com/news/topics/25/10/48148366/lessons-well-learned-this-18-year-old-learned-to-code-at-age-7-now-his-ai-app-makes-1-4-million-per-m>;
+  Fortune <https://fortune.com/2025/09/27/gen-z-founder-treats-college-like-vacation-30-million-app-by-18/>;
+  Verkauf an MyFitnessPal <https://techcrunch.com/2026/03/02/myfitnesspal-has-acquired-cal-ai-the-viral-calorie-app-built-by-teens>;
+  Influencer-Playbook <https://www.netinfluencer.com/cal-ai-founder-zach-yadegari-breaks-down-the-influencer-playbook-behind-his-apps-growth/>;
+  Jake Castillo (RevenueCat Sub Club) <https://www.revenuecat.com/blog/growth/jake-castillo-cal-ai-sub-club-podcast-2026>
+- Blake Anderson (RizzGPT, Umax): <https://www.starterstory.com/stories/he-made-10m-with-3-iphone-apps>, <https://whop.com/blog/looksmaxxing-blake-anderson/>
+- Quittr: <https://theweek.com/health/the-app-tackling-porn-addiction>; Datenleck <https://404media.co/viral-quittr-porn-addiction-app-exposed-the-masturbation-habits-of-hundreds-of-thousands-of-users>
+- Halo AI (Superwall-Podcast): <https://www.buzzsprout.com/2522779/episodes/18958462-dillion-verma-0-to-300k-mo-in-45-days-with-my-ai-app-just-copy-me>
+- Summly: <https://www.nbcnews.com/business/business-news/yahoo-buys-startup-run-british-teen-millions-flna1C9075778>
+- Roblox: Jailbreak <https://www.cnbc.com/2019/09/23/college-student-video-game-creator-made-millions-from-jailbreak.html>;
+  Grow a Garden <https://fortune.com/2025/07/30/roblox-video-game-grow-a-garden-viral-summer-hit/>, <https://gamesbeat.com/janzen-madsen-interview/>;
+  Verkäufe von Spielen <https://www.thestar.com.my/tech/tech-news/2025/07/14/roblox-game-buying-frenzy-is-turning-teens-into-millionaires>;
+  Auszahlungen 2026 <https://about.roblox.com/newsroom/2026/09/global-impact-of-creation-on-roblox>, <https://www.dexerto.com/roblox/robloxs-top-creators-average-65-7-million-a-year-but-most-make-far-less-3408675/>;
+  DevEx <https://create.roblox.com/docs/production/monetization/developer-exchange>
+- Herzenskette (OMR): <https://omr.com/de/daily/herzenskette-tiktok-leon-michel>; Cruise Cup: <https://www.entrepreneur.com/business-news/this-teen-entrepreneur-viral-product-brings-in-300000-a-month>
+- Fortnite-Auszahlungen 2024: <https://www.tubefilter.com/2025/01/23/fortnite-epic-games-creator-payouts-2024/>
 
-Ville-Ungleichung, Dubins & Savage, Browne (1999): siehe Abschnitt 10 des
-[Millionenplans](MILLIONENPLAN.md#10-quellenverzeichnis).
+**Basisraten und Kennzahlen**
+- RevenueCat State of Subscription Apps 2026: <https://www.revenuecat.com/state-of-subscription-apps>, <https://9to5mac.com/2026/03/04/new-report-looks-into-the-sustainability-of-the-subscription-app-market-for-2026/>;
+  2025: <https://www.revenuecat.com/blog/company/the-state-of-subscription-apps-2025-launch>
+- Appfigures, neue Millionäre 2024: <https://appfigures.com/resources/insights/20250124>
+- Adapty 2026 (Paywalls, Erstattungen): <https://adapty.io/state-of-paywalls-2026/>, <https://adapty.io/blog/refund-rate-metrics-and-benchmarking/>
+- Toggle-Paywall: <https://www.revenuecat.com/blog/growth/rip-toggle-paywall>
+- Creator-Preise: <https://influencermarketinghub.com/influencer-rates/>, <https://billo.app/pricing/>, <https://whop.com/blog/content-rewards/>
+- Verkauf von Apps: <https://www.feinternational.com/blog/how-to-sell-a-mobile-app>, <https://flippa.com/lps/insights-report-h12026>
 
-**Steuern**
-- § 32a EStG (Tarif 2026): <https://www.buzer.de/32a_EStG.htm>;
-  § 11 GewStG: <https://dejure.org/gesetze/GewStG/11.html>;
-  § 35 EStG: <https://dejure.org/gesetze/EStG/35.html>;
-  § 23 KStG: <https://dejure.org/gesetze/KStG/23.html>;
-  § 32d EStG: <https://dejure.org/gesetze/EStG/32d.html>;
-  § 23 EStG (Krypto): <https://www.gesetze-im-internet.de/estg/__23.html>
-- Verlustverrechnung Termingeschäfte abgeschafft (JStG 2024):
-  <https://cms.law/de/deu/legal-updates/verlustverrechnungsbeschraenkung-bei-termingeschaeften-gesetzgeber-schafft-vorschrift-ab>
-- Lottogewinne steuerfrei: <https://www.lotto.de/ueber/faq>; Preisgelder
-  als sonstige Einkünfte: § 22 EStG <https://www.gesetze-im-internet.de/estg/__22.html>
-- Freibetrag Schenkung/Erbe: § 16 ErbStG <https://www.gesetze-im-internet.de/erbstg_1974/__16.html>;
-  unerlaubtes Glücksspiel: § 285 StGB <https://www.gesetze-im-internet.de/stgb/__285.html>
+**Apple, Google, Zahlungen**
+- Small Business Program: <https://developer.apple.com/app-store/small-business-program/>; Auszahlungen: <https://developer.apple.com/help/app-store-connect/getting-paid/overview-of-receiving-payments>
+- Review-Richtlinien (3.1.2, 4.3, 5.1.1, 5.6.3): <https://developer.apple.com/app-store/review/guidelines/>
+- DSA-Händlerangaben: <https://developer.apple.com/help/app-store-connect/manage-compliance-information/manage-european-union-digital-services-act-trader-requirements/>
+- US-Link-outs (Epic-Verfahren): <https://9to5mac.com/2026/05/04/apple-files-for-supreme-court-stay-in-epic-case-over-off-app-store-commission-dispute/>
+- Google Play Tests und Gebühren: <https://support.google.com/googleplay/android-developer/answer/14151465>, <https://support.google.com/googleplay/android-developer/answer/112622>
+- Silvr (Finanzierung, Bedingungen): <https://silvr.co/faq>; Uncapped ohne RBF: <https://weareuncapped.com/blog/uncapped-remove-rbf-offering>
 
-**Börse und Spekulation**
-- SPY-Optionskette, Verfall 09/2027 (Abruf 20.11.2026):
-  <https://api.nasdaq.com/api/quote/SPY/option-chain?assetclass=etf&limit=500&fromdate=2027-09-17&todate=2027-09-30&excode=oprac&callput=callput&money=all&type=all>
-- VIX (FRED): <https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS>;
-  S&P 500 (FRED): <https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500>
-- Renditen weit aus dem Geld liegender Calls (Ni 2008):
-  <https://www.cxoadvisory.com/equity-options/returns-for-call-options-on-individual-stocks/>;
-  Boyer & Vorkink (JF 2014): <https://ideas.repec.org/a/bla/jfinan/v69y2014i4p1485-1527.html>
-- Turbos (BaFin-Studie, Verlustquoten): <https://www.esma.europa.eu/sites/default/files/2025-11/ESMA35-243228190-7836_ESMA_opinion_on_BaFin_PI_measures_on_turbos.pdf>;
-  Wissenstest seit 16.06.2026: <https://www.cssf.lu/de/2026/01/bafin-produktintervention-in-bezug-auf-turbo-zertifikate/>
-- CFD-Hebelgrenzen: <https://www.esma.europa.eu/press-news/esma-news/esma-adopts-final-product-intervention-measures-cfds-and-binary-options>
-- Krypto-Kleinanleger (BIZ): <https://www.bis.org/publications/bulletin-69-crypto-shocks-and-retail-losses.pdf>;
-  Memecoins (pump.fun): <https://decrypt.co/300403/pump-fun-traders-millionaires>
+**Recht und Steuer**
+- UG: § 5a GmbHG <https://www.gesetze-im-internet.de/gmbhg/__5a.html>; Holding: § 8b KStG; Anteilsverkauf: § 17, § 3 Nr. 40 EStG; Sperrfrist § 22 UmwStG
+- Körperschaftsteuer ab 2028 sinkend: § 23 KStG (BGBl. I 2025 Nr. 161); Hebesatz Regensburg 425 % (Haushaltssatzung 2026)
+- Familienversicherung: § 10 SGB V <https://dejure.org/gesetze/SGB_V/10.html>; GKV-SV, Hauptberufliche Selbstständigkeit <https://files.viactiv.de/uploads/sites/11/200319-Hauptberuflich-Selbstständig.pdf>; Gesamteinkommen <https://www.vdek.com/content/vdeksite/vertragspartner/mitgliedschaftsrecht_beitragsrecht/familienversicherung/_jcr_content/par/download_1642322223/file.res/Grundsaetzliche-Hinweise-Gesamteinkommen-29092022.pdf>
+- Werbung: § 5a UWG <https://www.gesetze-im-internet.de/uwg_2004/__5a.html>; FTC Endorsement Guides <https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides>
+- Abos: § 312k BGB <https://www.gesetze-im-internet.de/bgb/__312k.html>
+- Umsatzsteuer bei App-Stores: EuGH 09.10.2025, C-101/24 (Xyrality)
 
-**Glücksspiel**
-- Lotto 6aus49: <https://www.lotto.de/lotto-6aus49/info/gewinnwahrscheinlichkeit>
-- Eurojackpot: <https://www.eurojackpot.de/statistiken/>
-- KENO (Bayern): <https://lotto-bayern.de/keno/quoten?chances=>
-- Roulette Spielbank Wiesbaden (Limits, Teilung bei Zero):
-  <https://www.spielbank-wiesbaden.de/fileadmin/user_upload/S-W_Homepage_Spielregeln_Roulette_2024.pdf>
-- Spielbanken Bayern (Limits, Zutritt ab 21): <https://www.spielbanken-bayern.de/storage/filemanager/files/shares/Spielregeln/Deutsch/Spielregeln_Roulette_2023_dt.pdf>
-- Außenseiterwetten (Snowberg/Wolfers): <https://www.nber.org/system/files/working_papers/w15923/w15923.pdf>;
-  Gewinnlimits der Wettanbieter (Sekundärquelle): <https://www.wettfreunde.net/sportwetten-gewinnlimit/>
-- Online-Einzahlungslimit GlüStV (grundsätzlich 1.000 €/Monat, Lotterien mit
-  höchstens zwei Ziehungen je Woche ausgenommen): <https://www.gesetze-bayern.de/Content/Document/StVGlueStV2021-6c>
-- Hilfe und Sperre (OASIS): <https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>
+**Zeit und Abitur**
+- Nebenarbeit und Schulleistung (48 Studien): <https://docs.iza.org/dp11023.pdf>
+- Gesamtqualifikation und Bestehen: <https://www.gesetze-bayern.de/Content/Document/BayGSO-53>, <https://www.gesetze-bayern.de/Content/Document/BayGSO-54>
+- Ferientermine Bayern: <https://www.km.bayern.de/ministerium/termine/ferientermine.html>
+- KI beim Programmieren (RCTs): <https://arxiv.org/abs/2302.06590>, <https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/>
 
-**Geschäft**
-- TrustMRR (Live-Liste, 22.11.2026): <https://trustmrr.com/>;
-  Auswertung des Datensatzes: <https://techstartups.com/2026/09/28/what-percentage-of-indie-hacker-products-make-100k-in-arr/>
-- Apps: RevenueCat 2026 <https://www.revenuecat.com/sosa-26-insights>;
-  Appfigures <https://appfigures.com/resources/insights/20250124/amp?f=1>
-- Kickstarter: <https://searchlogistics.com/learn/statistics/kickstarter-stats-facts>
-- Stripe (Zeit bis 1 Mio. USD): <https://stripe.com/en-gb/guides/indexing-the-ai-economy>
-- Y Combinator (Deal, FAQ): <https://www.ycombinator.com/deal>, <https://www.ycombinator.com/faq>;
-  Annahmequote: <https://techcrunch.com/2024/05/22/garry-tan-y-combinator-accelerator-insights>
-
-**Ungewöhnliche Wege**
-- Wer wird Millionär: <https://de.wikipedia.org/wiki/Wer_wird_Million%C3%A4r%3F>
-- WSOP 2025: <https://www.cardplayer.com/poker-tournaments/1062299-2025-world-series-of-poker/1160692/results>
-- E-Sport 2025: <https://www.esportsearnings.com/history/2025/top_players>
-- Thiel Fellowship: <https://www.thielfellowship.org/faq>
-- Jugend forscht 2026: <https://www.bundesregierung.de/breg-de/aktuelles/jugend-forscht-2026-2433272>
+**Wetten und Grenzen** (frühere Fassung dieses Dokuments): Ville-Ungleichung,
+Dubins & Savage, Browne (1999) – siehe Abschnitt 10 des
+[Millionenplans](MILLIONENPLAN.md#10-quellenverzeichnis); SPY-Optionskette
+(Abruf 20.11.2026) <https://api.nasdaq.com/api/quote/SPY/option-chain?assetclass=etf&limit=500&fromdate=2027-09-17&todate=2027-09-30&excode=oprac&callput=callput&money=all&type=all>;
+Turbos (BaFin) <https://www.esma.europa.eu/sites/default/files/2025-11/ESMA35-243228190-7836_ESMA_opinion_on_BaFin_PI_measures_on_turbos.pdf>.
