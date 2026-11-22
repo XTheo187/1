@@ -3,9 +3,12 @@ mindestens 50 % Wahrscheinlichkeit zum Millionär - und wann?
 
 Nur Standardbibliothek, wie der Rest des Projekts. Aufruf:
 
-    python3 plan/simulation.py            # alle Strategien, 4.000 Leben je Strategie
-    python3 plan/simulation.py --n 20000  # genauer, dauert länger
-    python3 plan/simulation.py --sommer   # nur die Rechnung für Sommer 2027
+    python3 plan/simulation.py              # Abschnitt 1 und 3 des Plans (4 x 10.000 Leben je Weg)
+    python3 plan/simulation.py --sommer     # Abschnitt 1 und 5 (Sommer 2027)
+    python3 plan/simulation.py --stress     # Abschnitt 7: Stress- und Härtefälle
+    python3 plan/simulation.py --sens       # Abschnitt 7: Sensitivität
+    python3 plan/simulation.py --kontrolle  # Abschnitt 6: Kontrollwerte
+    python3 plan/simulation.py --extra      # weitere Einzelzahlen aus dem Plan
 
 Was "Millionär" hier heißt: Nettovermögen zum Marktwert >= 1.000.000 EUR
 (nominal), gemessen am jeweiligen Stichtag - nicht "irgendwann einmal kurz
@@ -105,7 +108,9 @@ def netto_selbststaendig(gewinn: float, index: float, jahr: int = 0) -> float:
     if gewinn <= 0:
         return gewinn - 1_250 * 12 * 0.197 * index
     basis = min(max(gewinn, 1_250 * 12 * index), 69_750 * index * 1.01 ** jahr)
-    kvpv = basis * (0.197 + 0.0365 * min(1.0, jahr / 8) / 2)   # Anstieg wie bei Angestellten (IGES)
+    # KV ermäßigt 14,0 % + Zusatzbeitrag 2,9 % + PV kinderlos 4,2 % (2026); Selbstständige zahlen
+    # den vollen KV/PV-Anstieg (IGES 2026: GKV 17,5 -> 20,6 %, SPV ~+0,9 -> ~+4 Punkte bis 2035).
+    kvpv = basis * (0.211 + 0.04 * min(1.0, jahr / 8))
     return gewinn - kvpv - steuer(gewinn - kvpv, index)
 
 
@@ -324,8 +329,11 @@ IT_UNI = dict(start=(45_000, 55_000, 68_000), wachstum_frueh=(0.025, 0.042, 0.07
               wachstum_spaet=(0.0, 0.008, 0.02), knick=10, streu=(0.22, 0.30, 0.40))
 IT_BACHELOR = dict(IT_UNI, start=(43_000, 46_300, 50_000))
 DUAL = dict(IT_UNI, start=(43_500, 47_500, 52_000))      # geschätzt: kleiner Vorsprung durch 3 J. Praxis
-WEBDEV = dict(IT_UNI, start=(35_000, 40_000, 47_000))   # Stepstone 2026: Web-Entwickler Einstieg ~37.000,
-                                                        # Web Developer ~40.000, Median 41.800 EUR
+# Web-Entwicklung ohne Studienabschluss: Stepstone 2026, Web-Entwickler/in Einstieg ~37.000,
+# Median über alle Erfahrungsstufen 41.800 EUR (Web Developer: Einstieg ~40.000) -> flacher
+# Verlauf als bei IT-Absolventen.
+WEBDEV = dict(IT_UNI, start=(34_000, 39_000, 45_000), wachstum_frueh=(0.01, 0.025, 0.045),
+              wachstum_spaet=(0.0, 0.005, 0.015))
 # IT-/SaaS-Vertrieb, korrigiert nach der Gegenprüfung (Bridge Group 2025,
 # UNIFY ~180.000 SDRs, RepVue DE, JOIN, Skipcall, gehalt.de):
 # - Einstieg als SDR mit 19: 34-50 Tsd. tatsächlich gezahlt (fix 35-42 + Provision).
@@ -397,7 +405,7 @@ class AgenturParameter:
     marge_je_fte: tuple = (0.03, 0.15, 0.25)          # Promethean: Nettomarge 5-20 %, kleine Studios ~19 %
     neue_fte_je_jahr: tuple = (0.3, 1.0, 2.0)         # Wachstum des Teams pro Jahr
     max_fte: tuple = (2, 6, 30)                       # Obergrenze, die dieser Gründer erreicht
-    preistrend: tuple = (-0.06, -0.02, 0.01)          # real; Freelancer-Kompass 2026: Projektumsatz -17 %
+    preistrend: tuple = (-0.06, -0.02, 0.01)          # real; Schätzung (Baukasten/KI-Druck auf Kleinaufträge)
     multiple: tuple = (1.5, 2.5, 4.0)                 # x Übergewinn; FE/Empire Flippers: 1,6-3,5x SDE
     ersatz_gehalt_inhaber: float = 60_000             # Marktgehalt für die Rolle des Inhabers
 
@@ -469,7 +477,7 @@ class AgenturLauf:
 
 def agentur(studium_parallel: bool, lam: float, grund: float,
             p: AgenturParameter | None = None,
-            rueckfall_start=(35_000, 40_000, 47_000),
+            rueckfall_start=WEBDEV["start"],
             beobachter: Callable | None = None) -> Strategie:
     """Webagentur für lokale Betriebe - der Weg, den standortcheck vorbereitet.
 
@@ -730,8 +738,9 @@ def schweiz(p_stelle: tuple = (0.3, 0.5, 0.7), start: tuple = (80_000, 95_000, 1
 
 
 # DAV 2021 I, Männer, Inzidenz 2. Ordnung je Jahr (in %): Alter -> Rate
-_BU_TAFEL = ((20, 0.171), (25, 0.171), (30, 0.175), (35, 0.194), (40, 0.236), (50, 0.497),
-             (60, 1.298), (67, 1.298))
+_BU_TAFEL = ((20, 0.195), (25, 0.171), (30, 0.175), (35, 0.194), (40, 0.236), (45, 0.320),
+             (50, 0.497), (55, 0.770), (60, 1.298), (61, 1.456), (62, 1.640), (63, 1.853),
+             (64, 2.100), (65, 2.389))
 
 
 def bu_inzidenz(alter: float) -> float:
@@ -778,18 +787,22 @@ class Weichen:
     p_ch_mit_partner: float = 0.7           # Faktor, wenn schon eine Partnerschaft besteht
     p_ch_zweiter_anlauf: tuple = (0.20, 0.25, 0.30)  # einmalig nach 4 Berufsjahren in DE (Schätzung)
     # Rückkehr nach DE je Jahr, kalibriert auf SECO 2026 (EU/EFTA-Zuwanderer, Kohorten
-    # 2011-2015): 35 % nach 5, 45 % nach 10 Jahren wieder weg -> in den ersten 5 Jahren
-    # in der Schweiz häufiger, danach seltener (Kinder-Zuschlag eingerechnet).
-    rueckkehr_ch_frueh: tuple = (0.08, 0.10, 0.12)  # Jahr 1-5 in der Schweiz
-    rueckkehr_ch: tuple = (0.015, 0.02, 0.03)        # ab Jahr 6
+    # 2011-2015): 35 % nach 5, 45 % nach 10 Jahren wieder weg -> nach den ersten 5 Jahren
+    # in der Schweiz häufiger, danach seltener (Kinder-Zuschlag eingerechnet). Geprüft wird
+    # jeweils nach einem vollen Schweizer Arbeitsjahr.
+    rueckkehr_ch_frueh: tuple = (0.07, 0.085, 0.10)   # nach Jahr 1-5 in der Schweiz
+    rueckkehr_ch: tuple = (0.02, 0.028, 0.036)        # danach
     rueckkehr_ch_kind: float = 0.015                 # zusätzlich ab dem ersten Kind
     rueckkehr_lohn: tuple = (0.60, 0.68, 0.75)       # DE-Gehalt relativ zum letzten CH-Gehalt
     ch_steuer_zuschlag: float = 0.015                # Zürich-Stadt/Basel/Bern über der Kurve (ESTV/BAK)
-    ch_abgaben: float = 0.072                        # AHV/IV/EO 5,3 % + ALV 1,1 % (BSV 2026) + NBU/KTG
-                                                     # ~0,8 % (Annahme, je Versicherer)
+    ch_ahv: float = 0.053                            # AHV/IV/EO 5,3 % auf den ganzen Lohn (BSV 2026)
+    ch_alv_nbu: float = 0.021                        # ALV 1,1 % (BSV) + NBU/KTG ~1,0 % (Annahme),
+    ch_alv_grenze: float = 148_200                   # beides nur bis CHF 148.200
+    # Hinweis: Schweizer Beträge werden im Modell 1:1 als Euro gezählt (bei ~0,93 CHF/EUR
+    # eher vorsichtig); ein Wechselkursrisiko ist nicht modelliert.
     ch_pk_an: float = 0.058                          # Arbeitnehmerbeitrag Pensionskasse (BVG 23-45)
     ch_pk_gutschrift: float = 0.0625                 # zählt: halbe Altersgutschrift (Kapital gebunden)
-    ch_pk_zins: float = 0.02                         # BVG-Mindestzins: 1,25 % (2026), 2 % ab 2027 (Bundesrat)
+    ch_pk_zins: float = 0.0175                       # Annahme; BVG-Mindestzins 1,25 % (2026), 2 % (2027)
     ch_kinder_faktor: float = 1.7                    # Kita in der Schweiz fast zum Vollpreis (4 Jahre)
     ch_wachstum_spaet: tuple = (0.0, 0.006, 0.018)   # SwissICT: ICT-Löhne nominal kaum gestiegen
     start_ch: tuple = (75_000, 88_000, 105_000)    # CHF; swissICT 2025: FH-Bachelor 81.850, 2026: Junior ~80.000
@@ -805,7 +818,7 @@ class Weichen:
     hazard_ae: tuple = (0.02, 0.04, 0.07)   # raus als Account Executive
     vertrieb_rest: tuple = (0.55, 0.70, 0.85)     # Gehalt danach relativ zum letzten (Account Mgmt., Innendienst)
     vertrieb_boden: tuple = (36_000, 45_000, 55_000)  # Innendienst/Kaufmann mit Erfahrung
-    vertrieb_deckel: float = 90_000                   # CSM/Account Management (Jobrise 55-100 Tsd.)
+    vertrieb_deckel: float = 90_000                   # CSM/Account Management (Jobrise 2026: Mid 55-75, Senior 75-95)
     grund_vertrieb: tuple = (18_000, 19_500, 22_000)  # Großstadt: WG-Zimmer München 850, Berlin 650 EUR
     p_studienabbruch: tuple = (0.35, 0.42, 0.50)      # DZHW 2022: Uni-Bachelor Informatik 42-47 %, HAW 30-37 %
     nachfolge: bool = True
@@ -821,7 +834,7 @@ class Weichen:
     lam: float = 0.5
     lam_streu: tuple | None = None          # Sparregel je Leben gezogen (Einhaltung ist nicht perfekt)
     grund_de: tuple | float = (15_000, 18_000, 22_000)  # WG Berlin ~15, WG München ~17,5, Wohnung ~19,5 Tsd.
-    grund_ch: tuple | float = (34_000, 38_000, 45_000)  # inkl. Krankenkasse (~CHF 4,2-8,3 Tsd./Jahr)
+    grund_ch: tuple | float = (34_000, 38_000, 45_000)  # inkl. Krankenkasse (BAG 2026: Ø CHF 5,6 Tsd., ZH 5,4)
     traegheit: float = 0.95                 # Konsum sinkt real höchstens 5 % je Jahr
     lam_partner: float = 0.05               # gemeinsamer Lebensstandard steigt mit
     p_aufgeben: float = 0.15                # Sparregel wird irgendwann halbherzig (Sparanteil halbiert)
@@ -830,13 +843,15 @@ class Weichen:
     ki_chancen: float = 0.8                 # Plätze/Stellen x0,8
     ki_start: float = 0.92                  # Startgehälter x0,92
     ki_arbeitslos: float = 0.015            # +1,5 Pp. Arbeitslosigkeit in den ersten 5 Berufsjahren
-    lohnnarbe: tuple = (0.02, 0.05, 0.08)   # bleibende Lohneinbuße je Arbeitslosigkeit (Schmieder et al.:
-                                            # 10-15 % nach Massenentlassung; Wechsellücken kosten weniger)
+    lohnnarbe: tuple = (0.02, 0.05, 0.08)   # bleibende Lohneinbuße je Arbeitslosigkeit (Schmieder et al.
+                                            # 2023: Tageslohn langfristig ~6 %, Jahresverdienst ~15 %)
     # Berufsunfähigkeit je Jahr nach Alter: DAV-Tafel 2021 I (Männer, 2. Ordnung) mal einem
-    # Berufsfaktor (DAV: Informatiker/Rechnungskaufleute 58 % des Durchschnitts).
+    # Faktor (DAV: Gruppe Rechnungskaufleute/Informatiker 58 % der Tafelerwartung, Vertragsjahr
+    # 5+; laut DAV nur ein Anhaltspunkt).
     bu_faktor: tuple = (0.5, 0.58, 0.75)
     bu_rente: tuple = (0.45, 0.55, 0.65)    # Anteil des letzten Nettos (BU-Versicherung im Plan)
-    bu_kosten: float = 750                  # BU-Prämie je Jahr (Finanztip 2026: Fachinformatikerin ~756 EUR)
+    bu_kosten_anteil: float = 0.035         # BU-Prämie je Jahr in % der versicherten Jahresrente
+                                            # (Finanztip 2026: Fachinformatikerin 756 EUR für 21.600 EUR)
     # Erbschaft: standardmäßig AUS - der Plan soll nicht vom Erben abhängen.
     # DIW 5/2021: ~10 % erhalten binnen 15 Jahren eine Erbschaft/Schenkung,
     # Median ~32 Tsd., Mittel ~85 Tsd. EUR; Eltern einer Kohorte 2008 sterben
@@ -844,7 +859,7 @@ class Weichen:
     erbe: bool = False
     p_erbe: tuple = (0.5, 0.6, 0.7)
     erbe_alter: tuple = (48, 55, 62)
-    erbe_betrag: tuple = (30_000, 90_000, 250_000)   # heutige Euro
+    erbe_betrag: tuple = (40_000, 115_000, 330_000)  # heutige Euro (DIW-Werte in Preisen 2015 x ~1,34)
     betreuung_rest: tuple = (0.10, 0.20, 0.30)  # Anteil des Agenturgewinns, der als Betreuung weiterläuft
     # Krisen: Jahre, in denen Aktien stark fallen, treffen auch Job und Provision.
     krise_schwelle: float = -0.15
@@ -868,7 +883,7 @@ class Weichen:
     p_haus: tuple = (0.2, 0.3, 0.4)
     haus_alter: tuple = (30, 34, 39)
     haus_preis: tuple = (350_000, 480_000, 650_000)
-    haus_nk: tuple = (0.055, 0.09, 0.12)            # Grunderwerbsteuer 3,5-6,5 %, Notar/Grundbuch ~2 %,
+    haus_nk: tuple = (0.05, 0.09, 0.12)             # Grunderwerbsteuer 3,5-6,5 %, Notar/Grundbuch 1,5-2 %,
                                                     # Makler bis 3,57 % (baufi24): sofort weg
     p_heirat: tuple = (0.45, 0.55, 0.65)
     scheidung: tuple = (0.008, 0.013, 0.016)        # je Ehejahr (Destatis: 28 % der Ehen)
@@ -964,7 +979,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             "vertrieb": _gehalt_pfad(rng, **dict(VERTRIEB, sprung_ab=wp.vertrieb_sprung_ab)),
             "de": _gehalt_pfad(rng, **dict(IT_BACHELOR, start=wp.start_de)),
             "de_bachelor": _gehalt_pfad(rng, **IT_BACHELOR),
-            "de_ohne": _gehalt_pfad(rng, **dict(WEBDEV, start=(34_000, 39_000, 45_000))),
+            "de_ohne": _gehalt_pfad(rng, **WEBDEV),
         }
         if ki:
             for pf in pfade.values():
@@ -1105,10 +1120,21 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             elif zustand in ("studium", "agentur"):
                 im_studium = zustand == "studium"
                 if im_studium and bricht_ab and frueher_abbruch and j == studium_ende - 3:
-                    # Abbruch im ersten Jahr: ohne Abschluss in den Beruf (Agentur läuft weiter).
-                    # bricht_ab bleibt True, damit studium_beenden() keinen Abschluss vergibt.
-                    abschluss["abgebrochen"] = True
-                    studium_ende = j + 1
+                    if neustart and not lage.get("neustart"):
+                        # Abbruch-Regel des Plans: im ersten Jahr sofort neu starten -
+                        # dual, wenn ein Platz kommt, sonst ein neues Bachelorstudium.
+                        lage["neustart"] = True
+                        if rng.random() < p_dual / 0.85:
+                            zustand, programm_ende = "dual", j + 3
+                        else:
+                            studium_ende = j + 4
+                            bricht_ab = rng.random() < d(wp.p_studienabbruch)
+                            frueher_abbruch = rng.random() < wp.p_frueher_abbruch
+                    else:
+                        # Ohne Neustart: ohne Abschluss in den Beruf (Agentur läuft weiter).
+                        # bricht_ab bleibt True, damit studium_beenden() keinen Abschluss vergibt.
+                        abschluss["abgebrochen"] = True
+                        studium_ende = j + 1
                 gewinn = lauf.jahr(j, idx, 900 if im_studium else 2_000, wachsen=not im_studium)
                 if krise:
                     gewinn *= kr_ag
@@ -1158,12 +1184,14 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 # Rückkehr aus der Schweiz
                 if zustand == "ch":
                     lage["war_ch"] = True
-                    lage["ch_jahre"] = lage.get("ch_jahre", 0) + 1
-                    hz = rk_hz_frueh if lage["ch_jahre"] <= 5 else rk_hz
-                    if rng.random() < hz + (wp.rueckkehr_ch_kind if alter >= kind_ab else 0.0):
+                    erledigt = lage.get("ch_jahre", 0)          # volle Schweizer Arbeitsjahre
+                    hz = rk_hz_frueh if erledigt <= 5 else rk_hz
+                    if erledigt >= 1 and rng.random() < hz + (wp.rueckkehr_ch_kind if alter >= kind_ab else 0.0):
                         zustand = "nach_ch"
                         basis_lohn = letztes_brutto_real or pfade["ch"].g * lohnfaktor
                         nach_ch = basis_lohn / lohnfaktor * rk_lohn   # Narbe wirkt unten einmal
+                    else:
+                        lage["ch_jahre"] = erledigt + 1
                 # Bindungsklausel abgelaufen / zweiter Anlauf auf die Schweiz
                 if zustand == "de" and abschluss["wert"] and not lage["war_ch"] and "ch" in wp.rueckfall:
                     if bindung and berufsjahre == round(bindung) + 1 and moeglich("ch"):
@@ -1203,7 +1231,8 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                     real = brutto / idx
                     st = min(0.30, max(0.06, 0.06 + 0.08 * math.log(max(real, 60_000) / 60_000)))
                     st += wp.ch_steuer_zuschlag
-                    netto = brutto * (1 - wp.ch_abgaben - (wp.ch_pk_an if alter >= 25 else 0.01) - st)
+                    abgaben = wp.ch_ahv * brutto + wp.ch_alv_nbu * min(brutto, wp.ch_alv_grenze * idx)
+                    netto = brutto * (1 - (wp.ch_pk_an if alter >= 25 else 0.01) - st) - abgaben
                     gutschrift = brutto * wp.ch_pk_gutschrift if alter >= 25 else 0.0
                     if arbeitslos:
                         gutschrift *= 1 - al_verlust
@@ -1216,7 +1245,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                     if arbeitslos:
                         netto *= 1 - al_verlust
                     sparen = netto - konsum_de.ausgaben(netto, idx)
-                sparen -= wp.bu_kosten * idx
+                sparen -= wp.bu_kosten_anteil * bu_rente * max(netto, 0.0)
                 if rng.random() < bu_f * bu_inzidenz(alter):
                     bu_netto_real = bu_rente * netto / idx
             else:  # inhaber
@@ -1300,13 +1329,14 @@ def _registrieren() -> None:
     """
     from dataclasses import replace
     s = STRATEGIEN
-    basis = Weichen(nachfolge=False, lam=0.4, lam_streu=PLAN.lam_streu)
+    basis = Weichen(nachfolge=False, lam=0.4, lam_streu=PLAN.lam_streu, p_studienabbruch=PLAN.p_studienabbruch)
     s["bachelor_ch"] = ("Bachelor Informatik + Agentur, dann CH/DE",
                         weichenplan(replace(basis, rueckfall=("ch", "de"))))
     s["master_ch"] = ("Master Informatik + Agentur, dann CH/DE",
                       weichenplan(replace(basis, studienjahre=5, rueckfall=("ch", "de"),
                                           start_de=IT_UNI["start"], start_ch=(80_000, 95_000, 115_000),
-                                          p_stelle_ch=(0.30, 0.50, 0.70))))
+                                          p_stelle_ch=(0.30, 0.50, 0.70),
+                                          p_studienabbruch=Weichen().p_studienabbruch)))   # Uni
     s["dual"] = ("Duales Studium (sonst Bachelor), dann CH/DE",
                  weichenplan(replace(basis, erste_phase="dual", rueckfall=("ch", "de"),
                                      start_de=DUAL["start"])))
@@ -1326,7 +1356,7 @@ def _registrieren() -> None:
     s["plan_typisch"] = ("Plan, aber spart wie typische Gutverdiener",
                          weichenplan(replace(PLAN, lam_streu=(0.50, 0.62, 0.75))))
     s["plan_perfekt"] = ("Plan, Sparregel 60 % perfekt eingehalten",
-                         weichenplan(replace(PLAN, lam_streu=None, lam=0.4, p_aufgeben=0.0)))
+                         weichenplan(replace(PLAN, lam_streu=None, lam=0.4, p_aufgeben=0.0, lam_partner=0.0)))
     s["plan_erbe"] = ("Plan mit typischem Elternerbe",
                       weichenplan(replace(PLAN, erbe=True)))
     s["pibs_sicher"] = ("Plan mit sicherem PiBS-Platz",
@@ -1431,6 +1461,14 @@ def sommer_2027(start: float = 5_000.0) -> None:
                 k *= max(0.0, 1 + hebel * r)
             treffer += k >= ZIEL
         print(f"  Welt-ETF mit Hebel {hebel:>2}, 9 Monate:                      {treffer / n:.3%}")
+    # Browne (1999): beste Strategie für ein Ziel bis zu einer Frist bei einer Aktie mit
+    # konstanten Koeffizienten (unbegrenzter Hebel): P = Phi(Phi^-1(S/Z) + theta * sqrt(T)).
+    from statistics import NormalDist
+    nd, t_jahre = NormalDist(), 9 / 12
+    for zins in (0.02, 0.0):
+        theta = (0.072 - zins) / 0.16
+        p_b = nd.cdf(nd.inv_cdf(start / ZIEL) + theta * math.sqrt(t_jahre))
+        print(f"  Browne-Strategie (Zins {zins:.0%}), theoretische Obergrenze:     {p_b:.2%}")
     print()
 
 
@@ -1441,8 +1479,11 @@ def sommer_2027(start: float = 5_000.0) -> None:
 # Deutschland. Sparregel: Grundbedarf ~18.000 EUR/Jahr in Deutschland bzw.
 # ~38.000 EUR in der Schweiz (heutige Euro), von jedem Euro darüber werden je
 # Leben 38-62 % gespart (Regel: 60 %; realistisch im Mittel ~50 %, 15 % geben auf).
+# Plan B ist ein Bachelor an einer FH/HAW: DZHW 2022, Studienabbruch Informatik HAW 30-37 %
+# (Uni 42-47 %); mit Webgeschäft nebenher gerechnet 30-42 %.
 PLAN = Weichen(erste_phase="pibs", rueckfall=("ch", "de"), start_de=DUAL["start"],
-               nachfolge=False, lam=0.4, lam_streu=(0.38, 0.47, 0.62))
+               nachfolge=False, lam=0.4, lam_streu=(0.38, 0.47, 0.62),
+               p_studienabbruch=(0.30, 0.35, 0.42))
 
 # Stresstest: die drei großen Schätzungen gleichzeitig am pessimistischen
 # Rand - Schweizer Stelle (auch zweiter Anlauf) halbiert, nach PiBS deutlich
@@ -1457,7 +1498,7 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
                          "rueckkehr_ch_frueh": (0.11, 0.13, 0.15),
                          "rueckkehr_ch": (0.03, 0.04, 0.05)})
 ZIEL_ALTER = 57      # 31.08.2065, das Planziel: Basis ~53 %, Stress ~49 %
-GARANTIE_ALTER = 61  # Sommer 2069: auch ohne Schweiz/PiBS/dual und mit KI-Druck sicher über 50 % (Fall A)
+GARANTIE_ALTER = 61  # Sommer 2069: auch Fall A (ohne Schweiz/PiBS/dual, KI-Druck sicher) knapp über 50 %
 ROBUST_ALTER = 65    # Sommer 2073: auch der härteste getestete Fall über 50 % (Fall A + äußere)
 
 # Äußere Kleinannahmen ohne harte Quelle am pessimistischen Rand (nicht
@@ -1466,7 +1507,7 @@ ROBUST_ALTER = 65    # Sommer 2073: auch der härteste getestete Fall über 50 %
 AUSSEN_PESSIMISTISCH = dict(traegheit=0.98, p_freelance=(0, 0, 0),
                             lohnnarbe=(0.05, 0.10, 0.15), betreuung_rest=(0, 0, 0))
 
-# Ganz ohne die Annahmen ohne harte Quelle: keine Schweiz, kein PiBS
+# Ohne Schweiz und PiBS (alle übrigen Schätzungen bleiben)
 PLAN_OHNE_CH = Weichen(**{**PLAN.__dict__, "rueckfall": ("de",), "p_pibs_platz": (0, 0, 0),
                           "p_stelle_ch": (0, 0, 0), "p_ch_zweiter_anlauf": (0, 0, 0)})
 
@@ -1490,8 +1531,9 @@ def sensitivitaet(n: int = 10_000, basis: Weichen = PLAN, ausgabe: bool = True) 
 
     faelle = [
         ("Sparverhalten (typisch / eiserne Regel 60 %)",
-         replace(wp, lam_streu=(0.50, 0.62, 0.75)), replace(wp, lam_streu=None, lam=0.4, p_aufgeben=0.0)),
-        ("Grundbedarf (22 / 13 Tsd. EUR im Jahr)",
+         replace(wp, lam_streu=(0.50, 0.62, 0.75)),
+         replace(wp, lam_streu=None, lam=0.4, p_aufgeben=0.0, lam_partner=0.0)),
+        ("Grundbedarf (DE 22 / 13, CH 40 / 30 Tsd. EUR im Jahr)",
          replace(wp, grund_de=22_000, grund_ch=40_000), replace(wp, grund_de=13_000, grund_ch=30_000)),
         ("KI-Druck auf Einsteiger (sicher / nie)", replace(wp, p_ki=(1, 1, 1)), replace(wp, p_ki=(0, 0, 0))),
         ("Schweizer Stelle im 1. Anlauf (nie / immer angeboten)",
@@ -1531,7 +1573,7 @@ def sensitivitaet(n: int = 10_000, basis: Weichen = PLAN, ausgabe: bool = True) 
 
 
 def kontrollwerte(strategie: Strategie | None = None, n: int = 6_000,
-                  alter: tuple = (25, 30, 35, 40, 45, 50, 55)) -> dict[int, tuple[float, float, float]]:
+                  alter: tuple = (20, 22, 25, 30, 35, 40, 45, 50, 55)) -> dict[int, tuple[float, float, float]]:
     """Vermögen (nach Steuer, nominal) je Alter: 25-, 50- und 75-%-Quantil.
 
     Damit lässt sich der eigene Stand später einordnen: Wer unter dem
@@ -1628,45 +1670,117 @@ _registrieren()
 # --------------------------------------------------------------------------
 
 
+def _ab_text(ab: list) -> str:
+    """50-%-Alter je Seed als Spanne, z. B. [58, 59, 58, 58] -> '58-59'."""
+    ab = sorted(set(x for x in ab if x))
+    return ("-".join(map(str, ab[::max(1, len(ab) - 1)])) if ab else "> 65")
+
+
+def faelle_stress() -> tuple:
+    """Die Szenarien aus Abschnitt 7 des Plans, mit denselben Namen."""
+    from dataclasses import replace
+    fall_a = replace(PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0))
+    stress = (("Plan (Basis)", PLAN),
+              ("Stress: die drei großen Schätzungen pessimistisch", PLAN_STRESS),
+              ("Stress + KI-Druck sicher", replace(PLAN_STRESS, p_ki=(1, 1, 1))))
+    haerte = (("Plan (Basis)", PLAN),
+              ("äußere Kleinannahmen pessimistisch", replace(PLAN, **AUSSEN_PESSIMISTISCH)),
+              ("+ die drei großen Schätzungen pessimistisch", replace(PLAN_STRESS, **AUSSEN_PESSIMISTISCH)),
+              ("ganz ohne Schweiz und PiBS", PLAN_OHNE_CH),
+              ("Fall A", fall_a),
+              ("Fall A + äußere Kleinannahmen pessimistisch", replace(fall_a, **AUSSEN_PESSIMISTISCH)),
+              ("... dabei ohne Hauskauf und ohne Aufgeben",
+               replace(fall_a, p_haus=(0, 0, 0), p_aufgeben=0.0, **AUSSEN_PESSIMISTISCH)))
+    return stress, haerte, fall_a
+
+
+def extra(n: int = 10_000) -> dict:
+    """Einzelzahlen aus dem Plan, die in keiner Tabelle stehen."""
+    from dataclasses import replace
+    import statistics
+    _, _, fall_a = faelle_stress()
+    aussen = replace(fall_a, **AUSSEN_PESSIMISTISCH)
+    erg = {}
+    e = mehrfach(weichenplan(PLAN), n, alter=(ZIEL_ALTER, 60))
+    erg["Kaufkraft heute: P(1 Mio. real) am Zieldatum / mit 60"] = (e[ZIEL_ALTER][2], e[60][2])
+    typisch = dict(lam_streu=(0.50, 0.62, 0.75))
+    erg["mit 60, Sparen wie typische Gutverdiener: Fall A / Fall A + äußere"] = tuple(
+        mehrfach(weichenplan(replace(w, **typisch)), n, alter=(60,))[60][0] for w in (fall_a, aussen))
+    welt_alt = Welt.ziehen
+    try:
+        Welt.ziehen = classmethod(lambda cls, rng: welt_alt.__func__(cls, rng, geo=0.04))
+        erg["mit 60, Aktien nur 4 % im Jahr: Fall A / Fall A + äußere"] = tuple(
+            mehrfach(weichenplan(w), n, alter=(60,))[60][0] for w in (fall_a, aussen))
+    finally:
+        Welt.ziehen = welt_alt
+    erg["Pensionskasse voll statt halb: P am Zieldatum"] = (mehrfach(
+        weichenplan(replace(PLAN, ch_pk_gutschrift=2 * PLAN.ch_pk_gutschrift)), n, alter=(ZIEL_ALTER,))[ZIEL_ALTER][0],)
+    leben = simulieren(weichenplan(fall_a), 2 * n)
+    werte = sorted(x[60 - START_ALTER - 1] for x in leben)
+    erg["Fall A: Median-Vermögen mit 60 (Mio. EUR)"] = (werte[len(werte) // 2] / 1e6,)
+    for titel, w in (("Plan", PLAN), ("Fall A", fall_a)):
+        prot: list = []
+        s = weichenplan(w, protokoll=prot)
+        rng, ohne = random.Random(4), 0
+        for _ in range(n):
+            prot.clear()
+            s(rng, Welt.ziehen(rng))
+            ohne += not any(a["wert"] for _z, _d, _p, a in prot)
+        erg[f"{titel}: Anteil der Leben ohne Abschluss"] = (ohne / n,)
+    rng = random.Random(1)
+    for titel, pfad, f in (("IT-Bachelor", IT_BACHELOR, 1.0), ("IT-Bachelor mit KI-Abschlag", IT_BACHELOR,
+                                                                  Weichen().ki_start), ("ohne Abschluss", WEBDEV, 1.0)):
+        baender = {(1, 3): [], (5, 8): [], (10, 13): []}
+        for _ in range(n):
+            g = _gehalt_pfad(rng, **dict(pfad, start=tuple(x * f for x in pfad["start"])))
+            w_ = [next(g) for _ in range(14)]
+            for (lo, hi), liste in baender.items():
+                liste.append(w_[rng.randint(lo, hi)])
+        erg[f"Gehalt {titel}: Median nach 1-3 / 5-8 / 10-13 Jahren (Tsd. EUR)"] = tuple(
+            statistics.median(v) / 1000 for v in baender.values())
+    return erg
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--n", type=int, default=10_000, help="Leben je Seed (4 Seeds)")
-    ap.add_argument("--sommer", action="store_true")
-    ap.add_argument("--stress", action="store_true",
-                    help="Stress- und Härtefälle (Abschnitt 7 des Plans) über 4 Seeds")
+    ap.add_argument("--sommer", action="store_true", help="Sommer 2027 (Abschnitt 1 und 5)")
+    ap.add_argument("--stress", action="store_true", help="Stress- und Härtefälle (Abschnitt 7)")
     ap.add_argument("--sens", action="store_true", help="Sensitivitätstabelle (Abschnitt 7)")
     ap.add_argument("--kontrolle", action="store_true", help="Kontrollwerte (Abschnitt 6)")
+    ap.add_argument("--extra", action="store_true", help="weitere Einzelzahlen aus dem Plan")
     a = ap.parse_args()
     if a.sens:
         sensitivitaet(n=a.n)
         return
     if a.kontrolle:
-        print("Kontrollwerte: Vermögen nach Steuer, nominal (25 % / Median / 75 %), Stichtag 31.08.")
+        print(f"Kontrollwerte: Vermögen nach Steuer, nominal (25 % / Median / 75 %), Stichtag 31.08., "
+              f"{4 * a.n} Leben (Seed 2027)")
         for alter, (q1, med, q3) in kontrollwerte(n=4 * a.n).items():
-            print(f"  {alter}: {q1 / 1000:7.0f}  {med / 1000:7.0f}  {q3 / 1000:7.0f}  Tsd. EUR")
+            print(f"  Alter {alter} (31.08.{2027 + alter - START_ALTER}): {q1 / 1000:7.0f}  {med / 1000:7.0f}"
+                  f"  {q3 / 1000:7.0f}  Tsd. EUR")
+        return
+    if a.extra:
+        for titel, werte in extra(a.n).items():
+            print(f"  {titel}: " + " / ".join(f"{x:.1%}" if x < 1.0 and "Gehalt" not in titel
+                                              and "Median" not in titel else f"{x:.2f}" for x in werte))
         return
     if a.stress:
-        from dataclasses import replace
-        faelle = (("Plan", PLAN), ("Stress", PLAN_STRESS),
-                  ("Stress + KI sicher", replace(PLAN_STRESS, p_ki=(1, 1, 1))),
-                  ("ohne Schweiz/PiBS", PLAN_OHNE_CH),
-                  ("ohne CH/PiBS + KI", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1))),
-                  ("nur Bachelor + KI", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0))),
-                  ("Plan + außen pess.", replace(PLAN, **AUSSEN_PESSIMISTISCH)),
-                  ("Stress + außen pess.", replace(PLAN_STRESS, **AUSSEN_PESSIMISTISCH)),
-                  ("härtest + außen", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0),
-                                              **AUSSEN_PESSIMISTISCH)),
-                  ("härtest+außen, Plan gehalten", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1),
-                                                           p_dual_platz=(0, 0, 0), p_haus=(0, 0, 0),
-                                                           p_aufgeben=0.0, **AUSSEN_PESSIMISTISCH)))
-        for titel, wp in faelle:
-            spalten = (54, 56, ZIEL_ALTER, 60, GARANTIE_ALTER, 62, ROBUST_ALTER)
-            e = mehrfach(weichenplan(wp), n=a.n, alter=spalten)
-            print(f"{titel:29s}" + "  ".join(f"{x}: {e[x][0]:5.1%}±{e[x][1]:.1%}" for x in spalten)
-                  + f"   50 % ab {e['ab']}")
+        stress, haerte, _ = faelle_stress()
+        for kopf, faelle, spalten in (("Stresstest", stress, (54, 56, ZIEL_ALTER, 60, 62, 65)),
+                                      ("Härtefälle", haerte, (ZIEL_ALTER, 60, 62, 65))):
+            print(f"{kopf} (4 x {a.n} Leben; Jahre: " + ", ".join(
+                f"{x} = {2027 + x - START_ALTER}" for x in spalten) + ")")
+            print("-" * 110)
+            for titel, wp in faelle:
+                e = mehrfach(weichenplan(wp), n=a.n, alter=spalten)
+                print(f"  {titel:48s}" + "".join(f"  {x}: {e[x][0]:5.1%}" for x in spalten)
+                      + f"   50 % ab {_ab_text(e['ab'])}")
+            print()
         return
     sommer_2027()
     if a.sommer:
+        sommer_meilensteine()
         return
     print(f"Wahrscheinlichkeit, mit Alter X Millionär zu sein (4 x {a.n} Leben je Strategie;"
           f" {ZIEL_ALTER} = Zieldatum 31.08.2065)")
@@ -1675,9 +1789,8 @@ def main() -> None:
     print(f"  {'Strategie':48s}" + "".join(f"{x:>7d}" for x in alter_spalten) + "   50 % ab")
     for name, (titel, strat) in STRATEGIEN.items():
         e = mehrfach(strat, a.n, alter=alter_spalten)
-        ab = sorted(set(x for x in e["ab"] if x))
-        ab_text = ("-".join(map(str, ab[::max(1, len(ab) - 1)])) if ab else "> 65")
-        print(f"  {titel[:48]:48s}" + "".join(f"{e[x][0]:>7.0%}" for x in alter_spalten) + f"   {ab_text:>6}")
+        print(f"  {titel[:48]:48s}" + "".join(f"{e[x][0]:>7.0%}" for x in alter_spalten)
+              + f"   {_ab_text(e['ab']):>6}")
     print()
 
 

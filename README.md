@@ -57,7 +57,7 @@ erreicht – und warum das nicht bis Sommer 2027, sondern bis Sommer 2065 mit
 ~53 % geht, und wie robust das ist –, steht in
 [`docs/MILLIONENPLAN.md`](docs/MILLIONENPLAN.md).
 Die Rechnung dahinter: `python3 plan/simulation.py` (Monte-Carlo, belegte
-Spannweiten, drei Runden Gegenprüfung, alle Quellen mit Link).
+Spannweiten; frühere Fassungen dreimal gegengeprüft, Quellen zweimal geprüft und verlinkt).
 
 ## Installation
 

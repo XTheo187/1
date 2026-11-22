@@ -188,7 +188,9 @@ Optionen liegt mit 53 % innerhalb der Messgenauigkeit gleichauf.
      den Partnerfirmen von ZHAW, FHNW, BFH, HSLU, FFHS bewerben (die Firma
      stellt ein, die Hochschule lässt zu). Zulassung mit deutschem Abitur
      vorher bei der Hochschule klären.
-   - **Plan B:** Bachelor Informatik an Uni/FH (Bewerbung bis Juli).
+   - **Plan B:** Bachelor Informatik an einer **FH/HAW**, nicht an einer Uni
+     (Bewerbung bis Juli): Dort brechen deutlich weniger ab (DZHW: 30–37 %
+     gegen 42–47 %), und Schweizer Arbeitgeber kennen den FH-Abschluss gut.
 3. **Webgeschäft als Verkaufsschule** (`standortcheck`), ~5 h/Woche bis
    März, Pause in den Prüfungen, danach bis 25 h/Woche. Siehe Abschnitt 5.
 4. **Geld:** Depot eröffnen, ETF-Sparplan auf einen breiten Welt-ETF
@@ -200,34 +202,39 @@ Optionen liegt mit 53 % innerhalb der Messgenauigkeit gleichauf.
 - Rangfolge: **PiBS oder duales Studium** – gleichwertig, nimm, was zuerst
   sicher zusagt (PiBS nur, wenn die Finanzierung steht: Lebenshaltung in
   der Schweiz ~25 Tsd. € im Jahr gegen ~17 Tsd. € Lohn netto) >
-  **Bachelor + Webgeschäft 20 h/Woche**.
-- **Gerechnet ist mit ~500 €/Monat Unterstützung** (Eltern oder BAföG;
-  BAföG-Höchstsatz 2026: 992 €) während des Studiums, im deutschen Studium zusätzlich ~500 €/Monat aus
-  Nebenjob oder Webgeschäft. Fehlt die Unterstützung, entstehen bei PiBS
-  ~8 Tsd. € Schulden im Jahr – dann ist das duale Studium die bessere Wahl.
+  **Bachelor an einer FH + Webgeschäft 20 h/Woche**.
+- **Wie das Studium finanziert ist (so rechnet das Modell):** Im deutschen
+  Studium braucht man ~1.000 €/Monat; ~500 € kommen aus Nebenjob oder
+  Webgeschäft, die Lücke tragen Eltern oder BAföG (Höchstsatz 2026: 992 €).
+  Bei PiBS fehlen ~8 Tsd. € im Jahr; gerechnet ist mit ~500 €/Monat
+  Unterstützung, der Rest (~2 Tsd. € im Jahr) wird Studienkredit. Fehlt die
+  Unterstützung, ist das duale Studium die bessere Wahl. Im Modell wird
+  PiBS bei einer Zusage immer vorgezogen – das Ergebnis ist praktisch
+  dasselbe.
 - Ab dem ersten eigenen Geld gilt die **Sparregel** (siehe unten).
 - Wer in Deutschland studiert: Praktikum oder Abschlussarbeit mit Bezug zur
   Schweiz, Englisch und Deutsch fließend, Lebenslauf auf Schweizer Stellen
   ausrichten.
 - **Abbruch-Regel:** Läuft das Studium im ersten Jahr schief, sofort neu
-  starten (anderes Studium oder dual) statt zwei Jahre durchhalten. Im Modell
-  ist dieser Neustart nur nach PiBS oder dualem Studium eingerechnet; wer
-  den Bachelor abbricht, geht dort ohne Abschluss in den Beruf. Die
-  Hauptzahl ist an dieser Stelle also eher vorsichtig.
+  starten (dual, sonst ein anderes Studium) statt zwei Jahre durchhalten. Im
+  Modell ist die Regel eingerechnet, aber vorsichtig: Nur die Hälfte derer,
+  die im ersten Jahr abbrechen, startet wirklich neu; die andere Hälfte geht
+  ohne Abschluss in den Beruf.
 
 ### Phase 2 – ~2031 bis ~2040: Die Schweiz-Phase
 
 - Erste Wahl: **IT-Stelle in der Schweiz** (Zürich, Basel, Bern, Zug).
   Klappt es nicht sofort: IT-Stelle in Deutschland und **nach 4 Jahren
-  Berufserfahrung zweiter Anlauf** – mit Erfahrung steigen die Chancen (im
-  Modell genau ein zweiter Versuch).
+  Berufserfahrung zweiter Anlauf** – mit Erfahrung steigt das Gehaltsangebot
+  (im Modell +10 %); die Chance auf eine Stelle ist für diesen einen
+  zweiten Versuch vorsichtig mit 20–30 % angesetzt.
 - In der Schweiz: Wohnsitz in einer günstigen Steuergemeinde wählen,
   **Säule 3a** voll nutzen, WG oder kleine Wohnung statt großer Wohnung.
 - Lebensstil wächst **nicht** mit dem Gehalt – die Sparregel sorgt dafür.
 - Vor einer Heirat: Ehevertrag mit modifizierter Zugewinngemeinschaft
   überlegen (Scheidungsrisiko ~28 % der Ehen).
 - Kein Eigenheim, bevor das Depot die Hälfte des Ziels erreicht hat
-  (Kaufnebenkosten 5,5–12 % je nach Bundesland und Makler sind sofort weg).
+  (Kaufnebenkosten 5–12 % je nach Bundesland und Makler sind sofort weg).
 
 ### Phase 3 – ~2040 bis 31.08.2065: Durchhalten
 
@@ -246,8 +253,10 @@ zusätzlichen Euro sparen (~38 %). Genau
 deshalb ist es Regel und Dauerauftrag, nicht Vorsatz. Die Hauptzahl dieses
 Plans (53 % am 31.08.2065) rechnet bewusst damit, dass die Regel nicht
 perfekt hält: im Mittel werden nur ~50 % gespart, und 15 % der Leben werden
-irgendwann halbherzig. Wer sie wirklich hält, hat am Zieldatum **65 %**; wer
-nur so spart wie typische Gutverdiener, **38 %** – dann trägt der Plan nicht.
+irgendwann halbherzig. Wer sie wirklich hält – auch mit Partner –, hat am
+Zieldatum **65 %**; wer nur so spart wie typische Gutverdiener, **38 %** –
+dann trägt der Plan nicht. (Im Studium rechnet das Modell mit 1.000 €/Monat
+Grundbedarf und spart 40 % von allem darüber.)
 
 ### Weichen mit harten Zahlen
 
@@ -478,10 +487,10 @@ Verkaufsargument taugt es kaum.
    P(54) = 51,9 % bzw. 52,1 %, untere Intervallgrenze jeweils über 51,4 %
    (seit dem Horizont bis 65, wegen anderer Zufallsfolge: 51,6 %).
    Ein vierter unabhängiger Prüfer hat Commit e6d0f7c geprüft: Zahlen und
-   Kalenderjahre stimmig; seine Kritik, dass im härtesten Fall noch weitere
+   Kalenderjahre stimmig; seine Kritik, dass im damals härtesten Fall noch weitere
    geschätzte Eingaben wirken, ist in die Härtefall-Tabelle eingeflossen.
    Ein dritter unabhängiger Prüfer hat Commit 878be02 (Härtefälle) im
-   frischen Klon geprüft: 92 Tests grün, härtester Fall mit 60 bei
+   frischen Klon geprüft: 92 Tests grün, damals härtester Fall mit 60 bei
    56,0–56,3 % (12 Seeds), in diesem Fall kommen Schweiz, PiBS und dual
    nachweislich nie vor; dazu die Gegenrechnung ohne Simulation (Abschnitt 7).
    Ein zweiter, unabhängiger Prüfer hat Commit 065359f in einem frischen
@@ -523,7 +532,7 @@ Verkaufsargument taugt es kaum.
 ## 10. Quellenverzeichnis
 
 Die Belege unten wurden am 22.11.2026 einzeln gegen die verlinkte
-Originalquelle geprüft (acht Prüfer je Themengruppe, danach eine
+Originalquelle geprüft (acht Prüfer, je einer pro Themengruppe, danach eine
 unabhängige Gegenprobe von 8 der bestätigten Belege: alle 8 halten; ein
 weiterer Prüfer hat alle Links abgerufen – alle erreichbar – und rund 50
 Zahlen erneut gegen die Originale gehalten). Wo die Quelle etwas anderes
@@ -577,7 +586,7 @@ Vanguard) können sich seitdem geändert haben.
   Top-7 ~3,4 % (Baufi24):
   <https://www.baufi24.de/presse/pressemitteilungen/mietrendite-trend-082026/>
 - Kaufnebenkosten: Grunderwerbsteuer 3,5–6,5 %, Notar/Grundbuch 1,5–2 %,
-  Makler bis 3,57 %, zusammen 5,5–12 % (Baufi24). <https://www.baufi24.de/nebenkosten-hauskauf/>
+  Makler bis 3,57 %, zusammen 5–12 % (Baufi24). <https://www.baufi24.de/nebenkosten-hauskauf/>
 
 **Gründung, Agentur, Produkte**
 
@@ -706,7 +715,8 @@ Vanguard) können sich seitdem geändert haben.
 **Quellen, die vorher nur im Code standen** (zweite Prüfrunde, 22.11.2026)
 
 - SBFI-Wirkungsanalyse PiBS 2023 (im WBF-Bericht HFKG, S. 4–5): 50 % der
-  PiBS-Absolventen bleiben im Partnerunternehmen (117 Befragte). Link wie
+  befragten PiBS-Absolventen blieben im Partnerunternehmen (2019–2022
+  insgesamt 117 Absolvierende). Link wie
   oben (WBF-Bericht).
 - BFS, Hochschulabsolventenbefragung (Medienmitteilung 27.08.2026):
   FH-Bachelor Technik und IT, Jahrgang 2024, ein Jahr nach Abschluss 6,4 %
@@ -724,11 +734,13 @@ Vanguard) können sich seitdem geändert haben.
 - MLP Studentenwohnreport 2026 (IW Köln), S. 59–60: WG-Zimmer 20 m² warm
   München 849 €, Berlin 659 €.
   <https://www.iwkoeln.de/fileadmin/user_upload/Studien/Gutachten/PDF/2026/MLP_Studentenwohnreport_2026.pdf>
-- 22. Sozialerhebung (DZHW/DSW, Erhebung 2021): Studierende geben 842 € im
-  Monat aus; Erwerbseinkommen 516 € (Vollzeit, nicht bei den Eltern).
+- 22. Sozialerhebung (DZHW/DSW, Erhebung 2021): Studierende (Vollzeit,
+  nicht bei den Eltern) geben 850 € im Monat aus; 68 % jobben, im Mittel
+  516 € (Median 450 €).
   <https://www.bmbf.de/SharedDocs/Publikationen/de/bmbf/4/31790_22_Sozialerhebung_2021.pdf?__blob=publicationFile&v=4>
-- § 13 BAföG: Höchstsatz 2026 992 € im Monat.
-  <https://www.gesetze-im-internet.de/baf_g/__13.html>
+- §§ 13, 13a BAföG: Höchstsatz 2026 475 + 380 + 102 + 35 = 992 € im Monat.
+  <https://www.gesetze-im-internet.de/baf_g/__13.html>,
+  <https://www.gesetze-im-internet.de/baf_g/__13a.html>
 - BIBB: tarifliche Ausbildungsvergütung 2025 im Schnitt 1.209 € im Monat
   (Azubis; für das duale Studium gibt es keinen amtlichen Durchschnitt – die
   Vergütung im Modell ist eine Schätzung).
@@ -736,22 +748,25 @@ Vanguard) können sich seitdem geändert haben.
 - Kindergeld 2026: 259 € je Kind (BMBFSFJ).
   <https://www.bmbfsfj.bund.de/bmbfsfj/themen/familie/familienleistungen/kindergeld/kindergeld-73892>
   – Verbraucherpreise 2018 → Oktober 2026: ×1,29 (Destatis, 98,1 → 126,5);
-  das Modell rechnet die EVS-Kinderkosten mit ×1,27 hoch.
-  <https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/11/PD26_392_611.html>
+  das Modell rechnet die EVS-Kinderkosten mit ×1,27 hoch. Oktober 2026:
+  <https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/11/PD26_392_611.html>;
+  Jahreswert 2018: <https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/Publikationen/Downloads-Verbraucherpreise/statistischer-bericht-verbraucherpreisindex-lange-reihen-5611103.xlsx?__blob=publicationFile&v=29>
 - Destatis: Kinderlosenquote der Frauen mit 45–49 Jahren 20 %.
   <https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Geburten/kinderlosigkeit-und-mutterschaft.html>
 - DIW Wochenbericht 5/2021: ~10 % der Erwachsenen erbten oder bekamen in 15
-  Jahren eine Schenkung; Erbschaften Median 32 Tsd. €, Mittel 85 Tsd. €.
+  Jahren eine Schenkung; Erbschaften Median 32 Tsd. €, Mittel 85 Tsd. €
+  (Preise 2015; das Modell rechnet sie mit ×1,34 auf heute um).
   <https://www.diw.de/de/diw_01.c.809832.de/publikationen/wochenberichte/2021_05_1/haelfte_aller_erbschaften_und_schenkungen_geht_an_die_reichsten_zehn_prozent_aller_beguenstigten.html>
 - Stepstone 2026, Web-Entwickler/in: Einstieg ~37.000 €, Median 41.800 €
-  (Grundlage für das Gehalt ohne Abschluss).
-  <https://www.stepstone.de/gehalt/Web-Entwickler-in.html>
+  (Grundlage für das Gehalt ohne Abschluss, Einstieg und flacherer Verlauf).
+  <https://www.stepstone.de/gehalt/Web-Entwickler-in.html> – Web Developer:
+  Einstieg ~40.000 €. <https://www.stepstone.de/gehalt/Web-Developer.html>
 - Schmieder, von Wachter, Heining (AER 2023): nach Massenentlassung in der
   Rezession ~15 % weniger Jahresverdienst über 15 Jahre, Tageslohn
   langfristig ~6 % weniger (das Modell: 2–8 % bleibende Lohneinbuße je
   Arbeitslosigkeit). <https://www.nber.org/system/files/working_papers/w30162/w30162.pdf>
 - Freelancer-Kompass 2026: monatlicher Projektumsatz 8.022 → 6.653 €
-  (−17 %). <https://www.freelancermap.de/blog/freelancer-einkommen-projektumsatz/>
+  (−17 %; laut Quelle bei stabilen Stundensätzen, es fehlen Aufträge). <https://www.freelancermap.de/blog/freelancer-einkommen-projektumsatz/>
 - Bridge Group 2025 SDR Report (351 B2B-Firmen, Daten 2024): 13 % der SDRs
   gehen unfreiwillig.
   <https://www.bridgegroupinc.com/research/2025-sdr-models-metrics-report-the-bridge-group>
@@ -759,11 +774,14 @@ Vanguard) können sich seitdem geändert haben.
   42–55, Mid 55–75, Senior 75–95 Tsd. €.
   <https://jobrise.io/de/blog/customer-success-jobs-deutschland-2026/>
 - Finanztip 2026: BU-Versicherung für eine Fachinformatikerin ~63 € im
-  Monat (1.800 € Rente, Eintritt 30).
+  Monat (1.800 € Rente, Eintritt 30) – also ~3,5 % der versicherten
+  Jahresrente; so rechnet das Modell die Prämie.
   <https://www.finanztip.de/berufsunfaehigkeitsversicherung/bu-kosten/>
 - Deutsche Aktuarvereinigung, Tafel DAV 2021 I: BU-Inzidenz je Jahr (Männer)
-  0,17 % mit 25, 0,24 % mit 40, 0,50 % mit 50, 1,30 % mit 60; Informatiker
-  58 % des Durchschnitts. „Jeder Vierte wird berufsunfähig.“
+  0,17 % mit 25, 0,24 % mit 40, 0,50 % mit 50, 1,30 % mit 60; Gruppe
+  Rechnungskaufleute/Informatiker 58 % der Tafelerwartung (Vertragsjahr
+  5+, laut DAV nur ein Anhaltspunkt). Eigene Rechnung daraus: bis 65 werden
+  im Schnitt ~22 % berufsunfähig, mit dem Faktor 0,58 ~13 %.
   <https://aktuar.de/content/PDF/Fachwissen/2022-01-26_DAV-Hinweis-BU-RGen-2021.pdf>
 - Sellwerk (Agentur-Ratgeber): Website für KMU, Onepager 1.500–4.000 €,
   5–10 Seiten 3.500–8.000 € (Marktpreise zum Vergleich).

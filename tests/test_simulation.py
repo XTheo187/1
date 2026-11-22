@@ -119,7 +119,8 @@ class TestPlanmodell(unittest.TestCase):
     def test_frueher_abbruch_ist_kein_abschluss(self):
         from dataclasses import replace
         wp = replace(sim.PLAN, erste_phase="studium", p_studienabbruch=(1, 1, 1),
-                     p_frueher_abbruch=1.0, p_stelle_ch=(1, 1, 1), p_ch_zweiter_anlauf=(1, 1, 1))
+                     p_frueher_abbruch=1.0, p_neustart=0.0, p_stelle_ch=(1, 1, 1),
+                     p_ch_zweiter_anlauf=(1, 1, 1))
         protokoll = []
         s = sim.weichenplan(wp, protokoll=protokoll)
         rng = random.Random(5)
@@ -128,6 +129,21 @@ class TestPlanmodell(unittest.TestCase):
             s(rng, sim.Welt.ziehen(rng))
             self.assertFalse(any(a["wert"] for _z, _d, _p, a in protokoll))
             self.assertNotIn("ch", {z for z, _d, _p, _a in protokoll})
+
+    def test_abbruch_regel_neustart_fuehrt_teils_zum_abschluss(self):
+        from dataclasses import replace
+        # Erstes Studium bricht sicher früh ab; mit Neustart kommen einige doch zum Abschluss.
+        wp = replace(sim.PLAN, erste_phase="studium", p_studienabbruch=(1, 1, 1),
+                     p_frueher_abbruch=1.0, p_neustart=1.0, p_dual_platz=(1, 1, 1))
+        protokoll = []
+        s = sim.weichenplan(wp, protokoll=protokoll)
+        rng = random.Random(5)
+        mit_abschluss = 0
+        for _ in range(200):
+            protokoll.clear()
+            s(rng, sim.Welt.ziehen(rng))
+            mit_abschluss += any(a["wert"] for _z, _d, _p, a in protokoll)
+        self.assertGreater(mit_abschluss, 100)
 
     def test_stress_ist_schlechter_als_basis(self):
         basis = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN), 4000, seed=6), sim.ZIEL_ALTER)
@@ -178,7 +194,7 @@ class TestDokument(unittest.TestCase):
             (r"Erfolgswahrscheinlichkeit mit diesem Plan: (\d+) %", sim.PLAN),
             (r"\| Plan, Sparregel realistisch nicht perfekt gehalten \| \*\*(\d+) %\*\* \|", sim.PLAN),
             (r"\| Plan mit eiserner Sparregel \(60 %, nie aufgegeben\) \| (\d+) % \|",
-             replace(sim.PLAN, lam_streu=None, lam=0.4, p_aufgeben=0.0)),
+             replace(sim.PLAN, lam_streu=None, lam=0.4, p_aufgeben=0.0, lam_partner=0.0)),
             (r"gleichzeitig pessimistisch \| (\d+) % \|", sim.PLAN_STRESS),
             (r"\| dazu KI-Druck auf Einsteiger sicher \| (\d+) % \|", replace(sim.PLAN_STRESS, p_ki=(1, 1, 1))),
             (r"\| ganz ohne Schweiz und PiBS \| (\d+) % \|", sim.PLAN_OHNE_CH),
