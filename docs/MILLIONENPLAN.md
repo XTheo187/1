@@ -3,27 +3,24 @@
 **Frage:** Wie werde ich – heute in der 13. Klasse – mit mindestens 50 %
 Wahrscheinlichkeit Millionär?
 
-**Antwort in drei Sätzen:**
+**Antwort:**
 
-1. Bis Sommer 2027 geht es nicht: höchstens 0,5 %, und das ist beweisbar.
-2. **Planziel: 1 Mio. € Nettovermögen bis Sommer 2065 (Alter ~57) – mit
-   60 % Wahrscheinlichkeit** (60,5 % ± 0,5). Das Ziel hält die 50 % auch
-   dann, wenn alle nicht hart belegten Annahmen gleichzeitig danebenliegen
-   (55,8 %), und sogar knapp, wenn zusätzlich der KI-Druck auf Einsteiger
-   sicher eintritt (50,6 % ± 0,2 über 16 unabhängige Läufe).
-   **Garantiezone: Sommer 2068 (Alter ~60) – in jedem Stresstest-Szenario
-   über 50 %**, im härtesten (ganz ohne Schweiz, PiBS und dualen Platz,
-   KI-Druck sicher) noch rund 56 %. Dort hängt die Aussage an keiner Annahme
-   ohne harte Quelle mehr – wohl aber an zwei Dingen, die nicht verhandelbar
-   sind: **der Sparregel** und **Märkten, die nicht 30 Jahre lang schwach
-   bleiben**. Wer im härtesten Fall nur so spart wie typische Gutverdiener,
-   liegt mit 60 bei 38 %; bei dauerhaft nur 4 % Rendite bei 43 %. Früheste Marke mit mindestens 50 %:
-   Sommer 2062 (Alter ~54, 51,9 %). Wer die Sparregel eisern hält, ist mit
-   ~50 % schon mit 50 dort.
-3. Das ist kein Versprechen, sondern das Ergebnis einer Rechnung mit
-   realistischen, belegten Annahmen, die drei Runden unabhängiger
-   Gegenprüfung überstanden hat – und dabei von „50 % mit 40“ auf „50 % mit
-   54“ korrigiert wurde.
+> **Planziel: 1 Mio. € Nettovermögen bis Sommer 2065 (Alter ~57).
+> Erfolgswahrscheinlichkeit: 60 %.**
+
+- **Bis Sommer 2027 geht es nicht** – höchstens 0,5 %, und das ist
+  beweisbar (Abschnitt 1).
+- **Robust:** Liegen alle Annahmen ohne harte Quelle (Chance auf eine
+  Schweizer Stelle, PiBS-Platz, Rückkehrquote) gleichzeitig daneben, sind es
+  56 %. Selbst wenn es die Schweiz, PiBS und einen dualen Platz gar nicht
+  gibt und der KI-Druck auf Einsteiger sicher eintritt, ist die 50-%-Marke
+  spätestens im Sommer 2068 (Alter ~60) erreicht (56 %) – dann wirken nur
+  noch Eingaben mit Quelle (Tabelle in Abschnitt 7).
+- **Nicht verhandelbar:** die Sparregel (Abschnitt 4) und Märkte, die nicht
+  30 Jahre lang schwach bleiben.
+- Die Zahlen haben drei Runden Gegenprüfung durch zehn unabhängige Prüfer
+  und zwei unabhängige Nachrechnungen überstanden; dabei wurde die erste
+  Aussage „50 % mit 40“ auf diese Werte korrigiert.
 
 Gemessen wird 1 Mio. € **nominal**, nach der Steuer, die beim Verkauf der
 ETFs fällig würde, ohne Erbschaft, ohne Vermögen eines Partners. In heutiger
@@ -302,6 +299,25 @@ sind aber keine Voraussetzung: Bis Sommer 2068 tragen die Sparregel und ein
 normaler IT-Berufsweg in Deutschland über 50 % – vorausgesetzt, die Regel
 wird gehalten (bei Sparen wie typische Gutverdiener: 38 %) und die Märkte
 liefern nicht 30 Jahre lang nur 4 % (dann: 43 %).
+
+**Welche Eingaben im härtesten Fall noch wirken – und woher sie stammen:**
+
+| Eingabe | Wert im Modell | Quelle |
+|---|---|---|
+| Schweizer Stelle, PiBS-Platz, dualer Platz | **0** (abgeschaltet) | – |
+| Einstiegsgehalt IT mit Bachelor | 44–58 Tsd. €, ×0,92 KI-Abschlag | Stepstone 2026, get-in-IT |
+| Gehaltsverlauf IT | Median 49 / 66 / 78 Tsd. nach 1–3 / 5–8 / 10–13 J. | Stack Overflow DE 2024+25 (n = 4.345) |
+| Steuern, Sozialabgaben | Tarif 2026, BBG 2026, Abgaben +3 Pp. bis 2036 | § 32a EStG, Rechengrößen 2026, IGES |
+| Studienabbruch Uni-Informatik | 35–50 % | DZHW |
+| Arbeitslosigkeit, Krisen | 2–5 % je Jahr, in Krisen 5–18 % | IAB |
+| Kinder, Partnerschaft, Scheidung | Kosten 5–12 Tsd. €/Jahr, Väter mit 33,3, 28 % Scheidungen | EVS 2018, Destatis |
+| Sparverhalten | 38–62 % jedes Euros über dem Grundbedarf | EVS 2018 (Grenzsparquote 37–60 %), SOEP |
+| Aktienrendite | 3,5–8 % geometrisch, Vola 13–18 %, dicke Ränder | MSCI-Factsheet 10/2026, DAI, Vanguard |
+| Steuer beim Verkauf | 18,46 % auf ETF-Gewinne | § 20 InvStG, § 32d EStG |
+
+Einzige verbleibende Schätzungen in diesem Fall sind das KI-Szenario (hier
+auf „sicher“ gesetzt, also am härtesten Rand) und die Berufsunfähigkeit
+(0,1–0,2 % je Jahr, mit BU-Versicherung im Plan).
 
 **Gegenrechnung ohne Simulation** (unabhängiger Prüfer, typischer Lebensweg
 im härtesten Fall: Bachelor, IT-Stelle in Deutschland ab 46 Tsd. € real,
