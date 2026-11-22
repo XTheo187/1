@@ -1423,7 +1423,7 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
                          "p_pibs_platz": (0.03, 0.07, 0.12),
                          "p_dual_platz": (0.25, 0.40, 0.55),
                          "rueckkehr_ch": (0.05, 0.065, 0.08)})
-ZIEL_ALTER = 57      # Sommer 2065: Basis ~60 %, Stress ~56 %, Stress + KI sicher ~51 %
+ZIEL_ALTER = 57      # Sommer 2065: Basis ~60 %, Stress ~56 %, Stress + KI sicher ~50,6 %
 
 
 def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:

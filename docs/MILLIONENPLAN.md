@@ -9,8 +9,8 @@ Wahrscheinlichkeit Millionär?
 2. **Planziel: 1 Mio. € Nettovermögen bis Sommer 2065 (Alter ~57) – mit
    60 % Wahrscheinlichkeit** (60,5 % ± 0,5). Das Ziel hält die 50 % auch
    dann, wenn alle nicht hart belegten Annahmen gleichzeitig danebenliegen
-   (55,8 %), und sogar, wenn zusätzlich der KI-Druck auf Einsteiger sicher
-   eintritt (50,8 %). Früheste Marke mit mindestens 50 %: Sommer 2062
+   (55,8 %), und sogar knapp, wenn zusätzlich der KI-Druck auf Einsteiger
+   sicher eintritt (50,6 % ± 0,2 über 16 unabhängige Läufe). Früheste Marke mit mindestens 50 %: Sommer 2062
    (Alter ~54, 51,9 %). Wer die Sparregel eisern hält, ist mit ~50 % schon
    mit 50 dort.
 3. Das ist kein Versprechen, sondern das Ergebnis einer Rechnung mit
@@ -20,7 +20,7 @@ Wahrscheinlichkeit Millionär?
 
 Gemessen wird 1 Mio. € **nominal**, nach der Steuer, die beim Verkauf der
 ETFs fällig würde, ohne Erbschaft, ohne Vermögen eines Partners. In heutiger
-Kaufkraft sind 1 Mio. € im Jahr 2062 nur etwa **470 Tsd. €**. Wer 1 Mio. € in
+Kaufkraft sind 1 Mio. € im Jahr 2062 nur etwa **460 Tsd. €**. Wer 1 Mio. € in
 heutiger Kaufkraft will: Diese Quote liegt mit 54 bei rund 21 %, mit 60 bei
 32 %.
 
@@ -266,7 +266,10 @@ SECO-Wert für alle EU-Zuwanderer.
 |---|---:|---:|---:|---:|---:|---:|
 | Plan (Basis) | 52 % | 55 % | 58 % | **61 %** | 63 % | 68 % |
 | Stress: alle Schätzungen pessimistisch | 47 % | 50 % | 53 % | **56 %** | 59 % | 64 % |
-| Stress + KI-Druck sicher | 41 % | 44 % | 48 % | **51 %** | 54 % | 59 % |
+| Stress + KI-Druck sicher | 41 % | 44 % | 48 % | **51 %**¹ | 54 % | 59 % |
+
+¹ Unabhängig nachgemessen über 16 Läufe à 10.000 Leben: 50,6 % ± 0,2 –
+knapp, aber über 50 %.
 
 Deshalb ist das Planziel **Sommer 2065** und nicht die früheste Marke 2062:
 Es bleibt über 50 %, selbst wenn die unsicheren Annahmen alle danebenliegen.
@@ -316,6 +319,10 @@ Verkaufsargument taugt es kaum.
    Tests grün): 8 von 8 unabhängigen Läufen (Seeds 2027/1/2/3 und
    101/202/303/404, je 10.000 Leben) liefern das 50-%-Alter 54;
    P(54) = 51,9 % bzw. 52,1 %, untere Intervallgrenze jeweils über 51,4 %.
+   Ein zweiter, unabhängiger Prüfer hat Commit 065359f in einem frischen
+   Klon mit eigenen Seeds nachgerechnet: alle Dokumentzahlen innerhalb ±1
+   Prozentpunkt; Planziel 2065: Basis 60,3 %, Stress 55,5 %, Stress + KI
+   50,6 % (je 160.000 Leben).
    Die Unsicherheit der geschätzten Spannen (Schweizer Stelle, PiBS-Platz,
    Rückkehrrate) steckt bereits in diesen Zahlen, weil jedes Leben seine
    Werte aus der ganzen Spanne zieht; im ungünstigsten Einzelfall (nie eine
