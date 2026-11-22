@@ -23,6 +23,7 @@ Nettovermögen? „Andere haben es auch geschafft.“
 > |---|---:|
 > | mit diesem Plan (Modell, 300.000 Läufe) | **~0,06 % – etwa 1 zu 1.700** |
 > | plausible Spanne der Annahmen | 0,01–0,2 % |
+> | mit einem erfahrenen Vertriebspartner für höchstens 25 % der Anteile (Wirkung geschätzt) | **~0,17 % – etwa 1 zu 600** |
 > | wenn bis 31.03. eine App 30.000 $ im Monat umsetzt | ~10 % |
 > | wenn bis 30.04. eine App 100.000 $ im Monat umsetzt | ~35 % |
 > | wenn am 28.02. keine App 5.000 $ im Monat umsetzt | ≈ 0 % |
@@ -34,6 +35,8 @@ Nettovermögen? „Andere haben es auch geschafft.“
 > sechs Apps davor, sieben Jahre Programmierpraxis und einen erfahrenen
 > Mitgründer. Was den Plan trotzdem vernünftig macht:
 > - der Einsatz ist klein (~3.000 € plus Zeit);
+> - der größte Hebel ist bekannt und planbar: ein Partner, der schon eine
+>   App über Creator groß gemacht hat (Abschnitt 4, Partnersuche);
 > - nach 14 Wochen weißt du am Messpunkt 28.02., ob du im Rennen bist;
 > - das Abitur bleibt geschützt;
 > - und im Normalfall bleiben eine App, gemessene Zahlen und Fähigkeiten,
@@ -125,9 +128,9 @@ Gewerbesteuer 3,5 % × 425 % = 14,875 %, zusammen **30,7 %**.
 
 | Phase | Zeitraum | Ziel | Stunden je Woche | Messpunkt |
 |---|---|---|---:|---|
-| **A** Gründen, Ideen testen, App 1 bauen | 23.11.–20.12. | UG, Apple-Konto, 3 Ideen mit Kurzvideos getestet, App 1 im Bau | 8–15 | G0 13.12., Ideen-Tor 20.12. |
+| **A** Gründen, Ideen testen, App 1 bauen, Partner suchen | 23.11.–20.12. | UG, Apple-Konto, 3 Ideen mit Kurzvideos getestet, App 1 im Bau, 20 Partner-Kandidaten angeschrieben | 8–15 | G0 13.12., Ideen-Tor 20.12. |
 | **B** Weihnachtsferien | 21.12.–10.01. | App 1 eingereicht, App 2 begonnen | 25–50 | G1 31.12. |
-| **C** Launch | 11.01.–07.02. | Funnel messen, erste Creator | 8–15 | G2 31.01. |
+| **C** Launch | 11.01.–07.02. | Funnel messen, erste Creator, Partner-Entscheidung | 8–15 | G2 und Partner-Tor 31.01. |
 | **D** Frühjahrsferien | 08.–14.02. | Paywall-Tests, Vorrat an Videos, Helfer auswählen | 35–45 | – |
 | **E** bis zur Prüfungszeit | 15.02.–21.03. | Treffer skalieren oder App 3 | 8–15 | **G3 28.02. (Haupttor)**, G4 31.03. |
 | **F** Abitur | 22.03.–13.06. | App läuft mit Helfern und festen Regeln | 0–5 | G5 30.04. |
@@ -191,6 +194,27 @@ Insgesamt rund 800–1.000 Stunden, davon gut die Hälfte nach dem Zeugnis.
   100.000 Aufrufe (oder deutlich über dem eigenen Schnitt) und echte
   Kaufabsicht in den Kommentaren hat. Ohne Signal 3 neue Ideen testen –
   aber spätestens jetzt mit dem Bau der besten beginnen.
+
+**Partnersuche (KW 48 bis 31.01., 2–3 Stunden je Woche) – der größte
+Hebel des Plans:**
+- **Gesucht:** jemand, der schon eine Consumer-App über Kurzvideos und
+  Creator auf ≥ 10.000 $ Monatsumsatz gebracht hat – im Gespräch belegt mit
+  Zahlen aus App Store Connect oder RevenueCat, nicht nur behauptet. Er
+  oder sie bringt Creator-Kontakte, erprobte Formate und 20+ Stunden je
+  Woche mit. So sahen die Teams hinter Cal AI und Quittr aus.
+- **Wo:** Communities und Podcasts der Abo-App-Szene (RevenueCat Sub Club,
+  Superwall), Beiträge von App-Marketern auf X und LinkedIn, Gründerzentren
+  der Hochschulen in Regensburg. Je Woche 5 gezielte Nachrichten mit
+  eigenen Zahlen (Videos, Aufrufe, später Umsatz) – bis 20.12. also ~20.
+- **Angebot:** höchstens 25 % der UG, verdient über 4 Jahre mit 1 Jahr
+  Mindestzeit (Vesting über eine notarielle Gesellschaftervereinbarung mit
+  Rückkaufrecht; die Übertragung von UG-Anteilen braucht ohnehin den Notar,
+  § 15 GmbHG). Alternativ Umsatzbeteiligung ohne Anteile.
+- **Nicht:** Geld vorab, „Kurse“, Agenturen mit Grundgebühr, Partner ohne
+  eigene belegte App.
+- **Partner-Tor 31.01.:** Wer bis dahin zugesagt hat, wird Gesellschafter
+  nach dem Angebot oben. Ohne Zusage läuft der Plan allein weiter; die
+  Suche geht nebenbei bis zum G3 weiter.
 
 ### B – 21.12.2026 bis 10.01.2027: Weihnachtsferien
 
@@ -309,9 +333,10 @@ verfehlt wird (Monatsumsatz der besten App in $, Modell „Der Plan“):
 - Selbst 100.000 $ Monatsumsatz Ende April bringen das Ziel nur mit rund
   35 % (je nach Annahmen 28–52 %; nur wenige Dutzend Läufe kommen so weit): Es bleiben vier Monate, das Abitur bremst, Apple zahlt 5–9 Wochen
   später aus, und Wachstum frisst die Marge.
-- Die drei stärksten Hebel: **100 % der Anteile behalten**,
-  **US-Web-Checkout** (schnelleres Geld, geringere Gebühr) und **Tempo der
-  Versuche**. Weniger wichtig: mehr Versuche nach dem Abitur. Im Modell
+- Die stärksten Hebel: **ein erfahrener Vertriebspartner für höchstens
+  25 %** (0,055 % → ~0,17 %; bei 40 % Abgabe fällt die Chance auf 0,03 %,
+  also unter den Plan ohne Partner), **US-Web-Checkout** (schnelleres Geld,
+  geringere Gebühr) und **Tempo der Versuche**. Weniger wichtig: mehr Versuche nach dem Abitur. Im Modell
   heben Web-Checkout, eine wiederverwendete App-Vorlage und volle
   Ferienwochen die Chance von 0,01 % auf 0,055 % – fast auf das Fünffache.
 
@@ -380,10 +405,12 @@ mit Datennutzung für Nutzerfotos ungeeignet (DSGVO).
    Creator unter Vertrag, 50–70 posteten am selben Tag.
 4. **Bezahlte Anzeigen (Marge 0–30 %)** erst ab ~100.000 $ Monatsumsatz,
    mit Creator-Videos als Anzeigen.
-5. **Team:** ab ~20.000 € Monatsumsatz ein Creator-Manager gegen Honorar
-   oder Umsatzanteil je Kanal – **keine Firmenanteile über 25 %**: Gibt
-   die Gründerin 40 % ab, sinkt die Chance auf das Ziel unter die ohne
-   Partner, weil die Firma dann 1,2 statt 0,72 Mio. € verdienen müsste.
+5. **Team:** ein Vertriebspartner von Anfang an (Partnersuche in
+   Abschnitt 4), sonst ab ~20.000 € Monatsumsatz ein Creator-Manager gegen
+   Honorar oder Umsatzanteil je Kanal. **Keine Firmenanteile über 25 %**:
+   Gibt die Gründerin 40 % ab, sinkt die Chance auf das Ziel unter die ohne
+   Partner (0,03 % statt 0,055 %), weil die Firma dann 1,2 statt 0,72 Mio. €
+   verdienen müsste.
 
 Jeder bezahlte Beitrag wird als **„Werbung“** gekennzeichnet (§ 5a UWG),
 mit schriftlichem Vertrag über Nutzungsrechte (Anzeigen, Spark Ads,
@@ -577,9 +604,11 @@ nacheinander:
 | strengere Quoten + Lernkurve | 0,01 % | −4.200 € |
 | **Der Plan** (+ Web-Checkout, schneller Bau, volle Ferien) | **0,055 %** | −3.600 € |
 | der Plan mit strengem Abiturschutz (6–10 h in Schulwochen) | 0,04 % | −4.200 € |
-| der Plan, optimistischer Rand (Quoten × 1,5) | ~0,1 % | – |
-| Partner mit Vertrieb, Anteil der Gründerin 100 % / 75 % / 60 % | ~0,6 % / 0,2 % / 0,03 % | – |
-| Obergrenze: die erste App ist ein Cal-AI-Treffer | ~33 % | – |
+| der Plan, optimistischer Rand (Quoten × 1,5) | 0,10 % | −2.800 € |
+| Partner mit Vertrieb (geschätzt), Anteil der Gründerin 100 % | 0,70 % | −300 € |
+| … Anteil der Gründerin 75 % | **0,17 %** | −300 € |
+| … Anteil der Gründerin 60 % | 0,03 % | −200 € |
+| Obergrenze: die erste App ist ein Cal-AI-Treffer | 34 % | +211.000 € |
 
 **Was die Zahlen sagen:**
 - Gewinn allein schafft das Ziel praktisch nie (die Wachstumsphase frisst
@@ -596,7 +625,10 @@ nacheinander:
   belegt ist nur Cal AI. Die Trefferquoten je Versuch sind Schätzungen,
   kalibriert an RevenueCat und Appfigures; 2027 dürfte die Konkurrenz
   größer sein als 2024.
-- Die Wirkung eines erfahrenen Partners ist nicht messbar, nur geschätzt.
+- Die Wirkung eines erfahrenen Partners ist nicht messbar, nur geschätzt
+  (Modell: Trefferquoten zwischen Recherche-Basis und Gegenprüfung ohne
+  Lernkurve, höherer Startumsatz, günstigere Creator, 20–50 Partnerstunden
+  je Woche). Ob sich ein solcher Partner findet, ist offen.
 - Umsatz aus Jahresabos wäre nach HGB abzugrenzen (der Modellgewinn ist
   dafür nicht korrigiert); Monte-Carlo-Fehler bei 0,06 % rund ±10 %
   relativ.

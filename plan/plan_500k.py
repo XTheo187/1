@@ -534,7 +534,7 @@ def main() -> None:
         r = auswerten(P, args.n, seed=2027 + i)
         print(f"== {name}  ({args.n} Läufe)")
         print(f"   P(Ziel: Gewinn + Verkauf >= 720.000 EUR)  {_pz(r['p_ziel'])}  [{r['treffer']} Treffer]"
-              f"   nur Gewinn {_pz(r['p_gewinn'])}   über Verkauf {_pz(r['p_verkauf'])}"
+              f"   Gewinn allein >= 720.000 {_pz(r['p_gewinn'])}   Verkaufsanteil allein >= 700.000 {_pz(r['p_verkauf'])}"
               f"   mit Papierwert {_pz(r['p_papier'])}")
         print(f"   Gewinn: Median {r['gewinn_median']:,.0f}  P10 {r['gewinn_p10']:,.0f}  P90 {r['gewinn_p90']:,.0f}  "
               f"P99 {r['gewinn_p99']:,.0f}  Mittel {r['gewinn_mittel']:,.0f} EUR".replace(",", "."))
