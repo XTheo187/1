@@ -83,6 +83,47 @@ class TestStrategien(unittest.TestCase):
         self.assertEqual(self._quote(s, alter=sim.START_ALTER + 1), 0.0)
 
 
+class TestDepot(unittest.TestCase):
+    def test_latente_steuer_nur_auf_gewinne(self):
+        d = sim.Depot(100_000.0)
+        d.jahr(0.0, 0.5)                       # +50 % Kursgewinn
+        self.assertAlmostEqual(d.netto, 150_000 - sim.Depot.STEUER * 50_000)
+
+    def test_schuld_wird_verzinst_und_zuerst_getilgt(self):
+        d = sim.Depot(-10_000.0)
+        d.jahr(0.0, 0.30)                      # Aktienboom ändert die Schuld nicht
+        self.assertAlmostEqual(d.wert, -10_500.0)
+        d.jahr(12_000.0, 0.0)                  # erst Zins, dann Tilgung, Rest angelegt
+        self.assertAlmostEqual(d.wert, 12_000.0 - 11_025.0)
+        self.assertAlmostEqual(d.basis, 12_000.0 - 11_025.0)
+
+    def test_entnahme_ueber_vermoegen_wird_schuld(self):
+        d = sim.Depot(1_000.0)
+        d.entnehmen(1_500.0)
+        self.assertAlmostEqual(d.wert, -500.0)
+
+
+class TestPlanmodell(unittest.TestCase):
+    def test_rueckkehr_aus_der_schweiz_kommt_vor(self):
+        protokoll = []
+        s = sim.weichenplan(sim.PLAN, protokoll=protokoll)
+        rng = random.Random(8)
+        zustaende = set()
+        for _ in range(300):
+            protokoll.clear()
+            s(rng, sim.Welt.ziehen(rng))
+            zustaende.update(z for z, _d, _p in protokoll)
+        for z in ("ch", "nach_ch", "de", "pibs", "dual", "studium"):
+            self.assertIn(z, zustaende)
+
+    def test_ohne_schweiz_ist_schlechter(self):
+        from dataclasses import replace
+        mit = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN), 800, seed=4), 55)
+        ohne = sim.quote_bis_alter(sim.simulieren(
+            sim.weichenplan(replace(sim.PLAN, rueckfall=("de",))), 800, seed=4), 55)
+        self.assertGreater(mit, ohne)
+
+
 class TestSommer(unittest.TestCase):
     def test_obergrenze_kuehnes_spiel(self):
         # Kühnes Spiel bei Roulette bleibt unter der Ville-Schranke S/Z.
