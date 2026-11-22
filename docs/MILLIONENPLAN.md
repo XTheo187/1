@@ -6,10 +6,13 @@ Wahrscheinlichkeit Millionär?
 **Antwort in drei Sätzen:**
 
 1. Bis Sommer 2027 geht es nicht: höchstens 0,5 %, und das ist beweisbar.
-2. Mit dem Plan unten erreichst du **1 Mio. € Nettovermögen mit mindestens
-   50 % Wahrscheinlichkeit bis Sommer 2062 (Alter ~54)** – gemessen 51,9 %
-   ± 0,5. Mit Sicherheitsabstand: **55 % bis Sommer 2063 (55)**, 58 % bis
-   2064 (56). Wer die Sparregel eisern hält, ist mit ~50 % schon mit 50 dort.
+2. **Planziel: 1 Mio. € Nettovermögen bis Sommer 2065 (Alter ~57) – mit
+   60 % Wahrscheinlichkeit** (60,5 % ± 0,5). Das Ziel hält die 50 % auch
+   dann, wenn alle nicht hart belegten Annahmen gleichzeitig danebenliegen
+   (55,8 %), und sogar, wenn zusätzlich der KI-Druck auf Einsteiger sicher
+   eintritt (50,8 %). Früheste Marke mit mindestens 50 %: Sommer 2062
+   (Alter ~54, 51,9 %). Wer die Sparregel eisern hält, ist mit ~50 % schon
+   mit 50 dort.
 3. Das ist kein Versprechen, sondern das Ergebnis einer Rechnung mit
    realistischen, belegten Annahmen, die drei Runden unabhängiger
    Gegenprüfung überstanden hat – und dabei von „50 % mit 40“ auf „50 % mit
@@ -252,6 +255,21 @@ gesetzt wird (Basis: 54).
 
 **Was du selbst in der Hand hast, wirkt am stärksten:** Sparregel und
 Grundbedarf. Die Börse kannst du nicht steuern – nur aushalten.
+
+**Stresstest** (`python3 plan/simulation.py --stress`): Alle Annahmen ohne
+harte Quelle gleichzeitig am pessimistischen Rand – Chance auf eine Schweizer
+Stelle halbiert (auch im zweiten Anlauf), nach PiBS deutlich seltener,
+PiBS-Platz kaum, dualer Platz seltener, Rückkehr aus der Schweiz über dem
+SECO-Wert für alle EU-Zuwanderer.
+
+| Szenario | mit 54 | mit 55 | mit 56 | **mit 57** | mit 58 | mit 60 |
+|---|---:|---:|---:|---:|---:|---:|
+| Plan (Basis) | 52 % | 55 % | 58 % | **61 %** | 63 % | 68 % |
+| Stress: alle Schätzungen pessimistisch | 47 % | 50 % | 53 % | **56 %** | 59 % | 64 % |
+| Stress + KI-Druck sicher | 41 % | 44 % | 48 % | **51 %** | 54 % | 59 % |
+
+Deshalb ist das Planziel **Sommer 2065** und nicht die früheste Marke 2062:
+Es bleibt über 50 %, selbst wenn die unsicheren Annahmen alle danebenliegen.
 
 ## 8. Feldtest: Gibt es die Kunden fürs Webgeschäft?
 

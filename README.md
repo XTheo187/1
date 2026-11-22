@@ -53,8 +53,9 @@ rechnet beide Wege gegeneinander.
 
 Das Webgeschäft ist der Einstieg, nicht das Ziel. Wie man aus der 13. Klasse
 heraus mit mindestens 50 % Wahrscheinlichkeit 1 Mio. EUR Nettovermögen
-erreicht – und warum das nicht bis Sommer 2027, sondern realistisch bis etwa
-2062 geht –, steht in [`docs/MILLIONENPLAN.md`](docs/MILLIONENPLAN.md).
+erreicht – und warum das nicht bis Sommer 2027, sondern bis Sommer 2065 mit
+~60 % geht (selbst im Stresstest über 50 %) –, steht in
+[`docs/MILLIONENPLAN.md`](docs/MILLIONENPLAN.md).
 Die Rechnung dahinter: `python3 plan/simulation.py` (Monte-Carlo, belegte
 Spannweiten, drei Runden Gegenprüfung).
 

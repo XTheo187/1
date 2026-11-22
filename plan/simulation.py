@@ -1412,6 +1412,19 @@ def sommer_2027(start: float = 5_000.0) -> None:
 PLAN = Weichen(erste_phase="pibs", rueckfall=("ch", "de"), start_de=DUAL["start"],
                nachfolge=False, lam=0.4, lam_streu=(0.38, 0.47, 0.62))
 
+# Stresstest: alle Annahmen ohne harte Quelle gleichzeitig am pessimistischen
+# Rand - Schweizer Stelle (auch zweiter Anlauf) halbiert, nach PiBS deutlich
+# seltener, PiBS- und dualer Platz kaum bzw. seltener, Rückkehr aus der
+# Schweiz über dem SECO-Wert für alle EU-Zuwanderer (45 % in 10 Jahren).
+PLAN_STRESS = Weichen(**{**PLAN.__dict__,
+                         "p_stelle_ch": (0.08, 0.15, 0.25),
+                         "p_ch_zweiter_anlauf": (0.10, 0.12, 0.15),
+                         "p_stelle_ch_nach_pibs": (0.45, 0.55, 0.65),
+                         "p_pibs_platz": (0.03, 0.07, 0.12),
+                         "p_dual_platz": (0.25, 0.40, 0.55),
+                         "rueckkehr_ch": (0.05, 0.065, 0.08)})
+ZIEL_ALTER = 57      # Sommer 2065: Basis ~60 %, Stress ~56 %, Stress + KI sicher ~51 %
+
 
 def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
     """Welche Annahme verschiebt den empfohlenen Plan am stärksten?
@@ -1572,7 +1585,18 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--n", type=int, default=4_000)
     ap.add_argument("--sommer", action="store_true")
+    ap.add_argument("--stress", action="store_true",
+                    help="Plan im Stresstest (alle Schätzungen pessimistisch) über 4 Seeds")
     a = ap.parse_args()
+    if a.stress:
+        from dataclasses import replace
+        for titel, wp in (("Plan", PLAN), ("Stress", PLAN_STRESS),
+                          ("Stress + KI sicher", replace(PLAN_STRESS, p_ki=(1, 1, 1)))):
+            e = mehrfach(weichenplan(wp), n=a.n, alter=(54, 55, 56, ZIEL_ALTER, 58, 60))
+            print(f"{titel:20s}" + "  ".join(f"{x}: {e[x][0]:5.1%}±{e[x][1]:.1%}"
+                                              for x in (54, 55, 56, ZIEL_ALTER, 58, 60))
+                  + f"   50 % ab {e['ab']}")
+        return
     sommer_2027()
     if a.sommer:
         return

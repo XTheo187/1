@@ -129,6 +129,12 @@ class TestPlanmodell(unittest.TestCase):
             self.assertFalse(any(a["wert"] for _z, _d, _p, a in protokoll))
             self.assertNotIn("ch", {z for z, _d, _p, _a in protokoll})
 
+    def test_stress_ist_schlechter_als_basis(self):
+        basis = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN), 800, seed=6), sim.ZIEL_ALTER)
+        stress = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN_STRESS), 800, seed=6),
+                                     sim.ZIEL_ALTER)
+        self.assertLess(stress, basis)
+
     def test_ohne_schweiz_ist_schlechter(self):
         from dataclasses import replace
         mit = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN), 800, seed=4), 55)
