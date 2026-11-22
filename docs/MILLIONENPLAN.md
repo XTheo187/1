@@ -10,12 +10,15 @@ Wahrscheinlichkeit Millionär?
 
 - **Bis Sommer 2027 geht es nicht** – höchstens 0,5 %, und das ist
   beweisbar (Abschnitt 1).
-- **Robust:** Liegen alle Annahmen ohne harte Quelle (Chance auf eine
-  Schweizer Stelle, PiBS-Platz, Rückkehrquote) gleichzeitig daneben, sind es
-  56 %. Selbst wenn es die Schweiz, PiBS und einen dualen Platz gar nicht
-  gibt und der KI-Druck auf Einsteiger sicher eintritt, ist die 50-%-Marke
-  spätestens im Sommer 2068 (Alter ~60) erreicht (56 %) – dann wirken nur
-  noch Eingaben mit Quelle (Tabelle in Abschnitt 7).
+- **Wie robust:** Liegen die drei wichtigsten Annahmen ohne harte Quelle
+  (Chance auf eine Schweizer Stelle, PiBS- und dualer Platz, Rückkehrquote)
+  gleichzeitig daneben, sind es 56 %. Liegen zusätzlich alle kleineren
+  äußeren Annahmen daneben, wird die 50-%-Marke ein Jahr später erreicht
+  (Sommer 2066, Alter ~58). Gibt es die Schweiz, PiBS und einen dualen Platz
+  gar nicht, kommt der KI-Druck auf Einsteiger sicher und geht auch sonst
+  alles Äußere schief, hält die 50 % mit 60 nur noch, wenn du die Regeln des
+  Plans eisern einhältst (53 %; sonst 47 %). Gegen alles gleichzeitig ist
+  kein Plan robust – Tabelle in Abschnitt 7.
 - **Nicht verhandelbar:** die Sparregel (Abschnitt 4) und Märkte, die nicht
   30 Jahre lang schwach bleiben.
 - Die Zahlen haben drei Runden Gegenprüfung durch zehn unabhängige Prüfer
@@ -274,7 +277,7 @@ SECO-Wert für alle EU-Zuwanderer.
 
 | Szenario | mit 54 | mit 55 | mit 56 | **mit 57** | mit 58 | mit 60 |
 |---|---:|---:|---:|---:|---:|---:|
-| Plan (Basis) | 52 % | 55 % | 58 % | **61 %** | 63 % | 68 % |
+| Plan (Basis) | 52 % | 55 % | 58 % | **60 %** | 63 % | 68 % |
 | Stress: alle Schätzungen pessimistisch | 47 % | 50 % | 53 % | **56 %** | 59 % | 64 % |
 | Stress + KI-Druck sicher | 41 % | 44 % | 48 % | **51 %**¹ | 54 % | 59 % |
 
@@ -284,40 +287,51 @@ knapp, aber über 50 %.
 Deshalb ist das Planziel **Sommer 2065** und nicht die früheste Marke 2062:
 Es bleibt über 50 %, selbst wenn die unsicheren Annahmen alle danebenliegen.
 
-**Ganz ohne die unsicheren Annahmen** – keine Schweiz, kein PiBS, im
-härtesten Fall auch kein dualer Platz, KI-Druck sicher (Seeds 11/22/33/44,
-je 10.000 Leben):
+**Härtefälle bis zum Äußersten** (`python3 plan/simulation.py --stress`,
+4 × 10.000 Leben). „Äußere Kleinannahmen pessimistisch“: kein Freelancing,
+harte Lohnnarbe nach Arbeitslosigkeit, träger Konsum, keine weiterlaufenden
+Betreuungsverträge.
 
-| Szenario | mit 57 (2065) | **mit 60 (2068)** |
-|---|---:|---:|
-| Ganz ohne Schweiz und PiBS | 54 % | **63 %** |
-| … plus KI-Druck sicher | 50 % | **59 %** |
-| … nur Bachelor, KI-Druck sicher | 47 % | **56 %** |
+| Szenario | mit 57 (2065) | mit 60 (2068) | 50 % ab |
+|---|---:|---:|---:|
+| Plan (Basis) | 60 % | 68 % | 54 |
+| äußere Kleinannahmen pessimistisch | 54 % | 61 % | 56 |
+| + die drei großen Annahmen ohne Quelle pessimistisch | 48 % | 56 % | 58 |
+| ganz ohne Schweiz und PiBS | 54 % | 63 % | 56 |
+| ohne Schweiz, PiBS, dualen Platz, KI-Druck sicher | 47 % | 56 % | 58–59 |
+| … + äußere Kleinannahmen pessimistisch | 39 % | 47 % | > 60 |
+| … und die Regeln des Plans eisern gehalten (kein Hauskauf, nie aufgeben) | 44 % | 53 % | 60 |
 
-Die Schweiz und die Studienform machen die Million **früher** erreichbar,
-sind aber keine Voraussetzung: Bis Sommer 2068 tragen die Sparregel und ein
-normaler IT-Berufsweg in Deutschland über 50 % – vorausgesetzt, die Regel
-wird gehalten (bei Sparen wie typische Gutverdiener: 38 %) und die Märkte
-liefern nicht 30 Jahre lang nur 4 % (dann: 43 %).
+Die Schweiz und die Studienform machen die Million **früher** erreichbar.
+Ohne sie trägt der Plan bis 2068 über 50 %, solange nicht zusätzlich alles
+Äußere schiefgeht – und selbst dann noch, wenn du die Regeln einhältst. Was
+nicht verhandelbar bleibt: die Sparregel (bei Sparen wie typische
+Gutverdiener im härtesten Fall: 38 % mit 60) und Märkte, die nicht 30 Jahre
+lang nur 4 % liefern (dann: 43 %).
 
-**Welche Eingaben im härtesten Fall noch wirken – und woher sie stammen:**
+**Welche Eingaben im härtesten Fall noch wirken – und woher sie stammen**
+(der härteste Fall: ohne Schweiz, PiBS, dualen Platz, KI-Druck sicher):
 
 | Eingabe | Wert im Modell | Quelle |
 |---|---|---|
 | Schweizer Stelle, PiBS-Platz, dualer Platz | **0** (abgeschaltet) | – |
 | Einstiegsgehalt IT mit Bachelor | 44–58 Tsd. €, ×0,92 KI-Abschlag | Stepstone 2026, get-in-IT |
-| Gehaltsverlauf IT | Median 49 / 66 / 78 Tsd. nach 1–3 / 5–8 / 10–13 J. | Stack Overflow DE 2024+25 (n = 4.345) |
+| Gehaltsverlauf IT | real +2,5–7,5 % je Jahr (Mitte 4,2 %) bis Jahr 10, danach 0–2 %; ergibt mit KI-Abschlag Median ~51 / 64 / 75 Tsd. nach 1–3 / 5–8 / 10–13 J. | kalibriert auf Stack Overflow DE 2024+25 (Median 49 / 66 / 78 Tsd., n = 4.345) |
 | Steuern, Sozialabgaben | Tarif 2026, BBG 2026, Abgaben +3 Pp. bis 2036 | § 32a EStG, Rechengrößen 2026, IGES |
 | Studienabbruch Uni-Informatik | 35–50 % | DZHW |
 | Arbeitslosigkeit, Krisen | 2–5 % je Jahr, in Krisen 5–18 % | IAB |
 | Kinder, Partnerschaft, Scheidung | Kosten 5–12 Tsd. €/Jahr, Väter mit 33,3, 28 % Scheidungen | EVS 2018, Destatis |
 | Sparverhalten | 38–62 % jedes Euros über dem Grundbedarf | EVS 2018 (Grenzsparquote 37–60 %), SOEP |
-| Aktienrendite | 3,5–8 % geometrisch, Vola 13–18 %, dicke Ränder | MSCI-Factsheet 10/2026, DAI, Vanguard |
+| Aktienrendite | 3,5–8 % geometrisch, Vola 13–18 %, dicke Ränder | MSCI World Net seit 2000 (6,7 %), Vanguard/Morningstar-Prognosen ~5 % |
 | Steuer beim Verkauf | 18,46 % auf ETF-Gewinne | § 20 InvStG, § 32d EStG |
 
-Einzige verbleibende Schätzungen in diesem Fall sind das KI-Szenario (hier
-auf „sicher“ gesetzt, also am härtesten Rand) und die Berufsunfähigkeit
-(0,1–0,2 % je Jahr, mit BU-Versicherung im Plan).
+Ebenfalls wirksam, aber **geschätzt** (ohne harte Quelle): Grundbedarf
+15–22 Tsd. € (aus WG-Mieten abgeleitet), Inflation 1,5–3 %, Gehalt ohne
+Abschluss 36–50 Tsd. €, Agentur während des Bachelors, Freelancing (Chance
+30–60 %), Hauskauf trotz Rat (20–40 %), Aufgeben der Sparregel (15 %),
+Konsumträgheit, Lebensstil mit Partner, Lohnnarbe 2–8 %, Berufsunfähigkeit
+0,1–0,2 % je Jahr, KI-Szenario. Wie stark sie zusammen wirken, zeigt die
+Härtefall-Tabelle oben.
 
 **Gegenrechnung ohne Simulation** (unabhängiger Prüfer, typischer Lebensweg
 im härtesten Fall: Bachelor, IT-Stelle in Deutschland ab 46 Tsd. € real,
@@ -378,7 +392,10 @@ Verkaufsargument taugt es kaum.
    Tests grün): 8 von 8 unabhängigen Läufen (Seeds 2027/1/2/3 und
    101/202/303/404, je 10.000 Leben) liefern das 50-%-Alter 54;
    P(54) = 51,9 % bzw. 52,1 %, untere Intervallgrenze jeweils über 51,4 %.
-   Ein dritter unabhängiger Prüfer hat Commit 878be02 (Garantiezone) im
+   Ein vierter unabhängiger Prüfer hat Commit e6d0f7c geprüft: Zahlen und
+   Kalenderjahre stimmig; seine Kritik, dass im härtesten Fall noch weitere
+   geschätzte Eingaben wirken, ist in die Härtefall-Tabelle eingeflossen.
+   Ein dritter unabhängiger Prüfer hat Commit 878be02 (Härtefälle) im
    frischen Klon geprüft: 92 Tests grün, härtester Fall mit 60 bei
    56,0–56,3 % (12 Seeds), in diesem Fall kommen Schweiz, PiBS und dual
    nachweislich nie vor; dazu die Gegenrechnung ohne Simulation (Abschnitt 7).

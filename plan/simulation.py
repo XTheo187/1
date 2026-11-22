@@ -1424,7 +1424,13 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
                          "p_dual_platz": (0.25, 0.40, 0.55),
                          "rueckkehr_ch": (0.05, 0.065, 0.08)})
 ZIEL_ALTER = 57      # Sommer 2065: Basis ~60 %, Stress ~56 %, Stress + KI sicher ~50,6 %
-GARANTIE_ALTER = 60  # Sommer 2068: in jedem Stresstest-Szenario > 50 % (härtester Fall ~56 %)
+GARANTIE_ALTER = 60  # Sommer 2068: Vergleichsalter für die Härtefälle in --stress
+
+# Äußere Kleinannahmen ohne harte Quelle am pessimistischen Rand (nicht
+# steuerbar): kein Freelancing, harte Lohnnarbe, träger Konsum, keine
+# weiterlaufenden Betreuungsverträge.
+AUSSEN_PESSIMISTISCH = dict(traegheit=0.98, p_freelance=(0, 0, 0),
+                            lohnnarbe=(0.05, 0.10, 0.15), betreuung_rest=(0, 0, 0))
 
 # Ganz ohne die Annahmen ohne harte Quelle: keine Schweiz, kein PiBS
 PLAN_OHNE_CH = Weichen(**{**PLAN.__dict__, "rueckfall": ("de",), "p_pibs_platz": (0, 0, 0),
@@ -1599,10 +1605,17 @@ def main() -> None:
                   ("Stress + KI sicher", replace(PLAN_STRESS, p_ki=(1, 1, 1))),
                   ("ohne Schweiz/PiBS", PLAN_OHNE_CH),
                   ("ohne CH/PiBS + KI", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1))),
-                  ("nur Bachelor + KI", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0))))
+                  ("nur Bachelor + KI", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0))),
+                  ("Plan + außen pess.", replace(PLAN, **AUSSEN_PESSIMISTISCH)),
+                  ("Stress + außen pess.", replace(PLAN_STRESS, **AUSSEN_PESSIMISTISCH)),
+                  ("härtest + außen", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0),
+                                              **AUSSEN_PESSIMISTISCH)),
+                  ("härtest+außen, Plan gehalten", replace(PLAN_OHNE_CH, p_ki=(1, 1, 1),
+                                                           p_dual_platz=(0, 0, 0), p_haus=(0, 0, 0),
+                                                           p_aufgeben=0.0, **AUSSEN_PESSIMISTISCH)))
         for titel, wp in faelle:
             e = mehrfach(weichenplan(wp), n=a.n, alter=(54, 55, 56, ZIEL_ALTER, 58, GARANTIE_ALTER))
-            print(f"{titel:20s}" + "  ".join(f"{x}: {e[x][0]:5.1%}±{e[x][1]:.1%}"
+            print(f"{titel:29s}" + "  ".join(f"{x}: {e[x][0]:5.1%}±{e[x][1]:.1%}"
                                               for x in (54, 55, 56, ZIEL_ALTER, 58, GARANTIE_ALTER))
                   + f"   50 % ab {e['ab']}")
         return
