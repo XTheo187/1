@@ -59,6 +59,9 @@ erreicht – und warum das nicht bis Sommer 2027, sondern bis Sommer 2065 mit
 Und warum 500.000 EUR bis Sommer 2027 mit keinem Plan wahrscheinlich sind
 (höchstens rund 1 %) – und was man in den neun Monaten stattdessen tut:
 [`docs/500K_BIS_SOMMER_2027.md`](docs/500K_BIS_SOMMER_2027.md).
+Was bis dahin realistisch durch Arbeit drin ist – maximal rund 13.000 EUR
+netto, Obergrenze ~17.000 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)
+(Rechnung: `python3 plan/verdienst_2027.py`).
 Die Rechnung dahinter: `python3 plan/simulation.py` (Monte-Carlo, belegte
 Spannweiten; frühere Fassungen dreimal gegengeprüft, Quellen zweimal geprüft und verlinkt).
 
@@ -134,7 +137,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 99 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 104 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau
