@@ -482,24 +482,27 @@ def kalibrierung_agentur(n: int = 20_000, p: AgenturParameter | None = None) -> 
 class NachfolgeParameter:
     """Kauf eines bestehenden, profitablen Kleinbetriebs (Nachfolge).
 
-    Spannweiten (low, mid, high). Finanzierung typisch für Deutschland:
-    Eigenkapital + Verkäuferdarlehen + Bank/KfW (ERP-Gründerkredit).
+    Spannweiten (low, mid, high) nach der Recherche: KfW-Nachfolgemonitoring
+    (Median-Kaufpreiswunsch 375 Tsd. EUR, entspricht ~95 Tsd. EBITDA),
+    DUB-Multiples Micro-Cap 3,2-5,7x, Stanford/Yale/IESE Search-Fund-Studien
+    (26-31 % Verlust-Deals, außerhalb USA Median-IRR 9 %, ohne MBA 1 %),
+    Finanzierung über ERP-Förderkredit, Bürgschaftsbank, Verkäuferdarlehen.
     """
 
-    ab_alter: tuple = (25, 27, 30)
-    eigenkapital_quote: tuple = (0.10, 0.15, 0.25)
+    ab_alter: tuple = (25, 28, 32)                     # bankfähige Erfahrung; Suchende sonst im Median 32-34
+    eigenkapital_quote: tuple = (0.10, 0.15, 0.25)     # IHK: 15 % Untergrenze, 20-25 % üblich
     min_eigenkapital: float = 40_000
-    p_abschluss_je_jahr: tuple = (0.15, 0.30, 0.50)   # passendes Objekt finden UND finanzieren
-    ebitda: tuple = (120_000, 200_000, 350_000)        # Gewinn vor Zinsen/Abschreibung beim Kauf
-    kaufmultiple: tuple = (2.5, 3.5, 5.0)
-    zins: tuple = (0.045, 0.055, 0.07)
+    p_abschluss_je_jahr: tuple = (0.08, 0.18, 0.30)    # Objekt finden (30-75 % je Suche) UND Finanzierung (30-70 %)
+    ebitda: tuple = (80_000, 150_000, 350_000)         # Gewinn vor Zinsen/Abschreibung beim Kauf
+    kaufmultiple: tuple = (3.0, 4.3, 5.5)
+    zins: tuple = (0.04, 0.055, 0.075)
     tilgungsjahre: int = 8
     wachstum: tuple = (-0.04, 0.01, 0.05)              # reales EBITDA-Wachstum nach Kauf
     schock_sigma: float = 0.15
-    hazard: tuple = (0.02, 0.05, 0.09)                 # jährliche Wahrscheinlichkeit eines Totalausfalls
+    hazard: tuple = (0.02, 0.05, 0.09)                 # ~28 % Verlust-Deals über ~6 Jahre
     buergschaft: tuple = (0.0, 0.15, 0.35)             # Anteil Restschuld, für den man persönlich haftet
     gehalt_inhaber: float = 80_000
-    exit_multiple: tuple = (2.5, 3.5, 4.5)
+    exit_multiple: tuple = (3.0, 4.3, 5.5)             # Aufschlag nur bei Wachstum über ~5 Mio. Umsatz
 
 
 def nachfolge(basis: Strategie, lam: float, grund: float,
@@ -910,6 +913,8 @@ def _registrieren() -> None:
                             weichenplan(replace(PLAN, lam=0.5)))
     s["d_ohne_vorlauf"] = ("Plan D ohne Agentur-Erfahrung vorher",
                            weichenplan(replace(PLAN, p_vertrieb=(0.4, 0.6, 0.8), vertrieb_sprung_ab=2)))
+    s["plan_nf"] = ("Plan D + Nachfolgekauf ab 28 als Option",
+                    weichenplan(replace(PLAN, nachfolge=True)))
     s["plan"] = ("EMPFOHLEN: Plan D mit Sparregel 60 %",
                  weichenplan(PLAN))
 
