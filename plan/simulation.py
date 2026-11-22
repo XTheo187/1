@@ -680,6 +680,21 @@ class Weichen:
     grund_de: float = 16_000
     grund_ch: float = 34_000
     betreuung_rest: tuple = (0.10, 0.20, 0.30)  # Anteil des Agenturgewinns, der als Betreuung weiterläuft
+    # Krisen: Jahre, in denen Aktien stark fallen, treffen auch Job und Provision.
+    krise_schwelle: float = -0.15
+    p_arbeitslos: tuple = (0.01, 0.02, 0.04)        # je Jahr, normale Jahre
+    p_arbeitslos_krise: tuple = (0.05, 0.10, 0.18)  # je Jahr, Krisenjahre
+    arbeitslos_verlust: tuple = (0.2, 0.35, 0.5)    # Anteil des Jahresnettos, der verloren geht
+    krise_provision: tuple = (0.75, 0.85, 0.95)     # Vertriebseinkommen im Krisenjahr relativ
+    krise_agentur: tuple = (0.7, 0.8, 0.9)          # Agenturgewinn im Krisenjahr relativ
+    # Lebensereignisse (pro Person gerechnet, Kosten in heutigen Euro)
+    lebensereignisse: bool = True
+    p_partner: tuple = (0.6, 0.75, 0.85)            # feste Partnerschaft mit gemeinsamer Wohnung
+    alter_partner: tuple = (24, 28, 33)
+    ersparnis_partner: tuple = (0.10, 0.15, 0.25)   # Grundbedarf sinkt durch geteilte Wohnung
+    p_kinder: tuple = (0.45, 0.60, 0.75)
+    alter_kind: tuple = (29, 33, 38)
+    kosten_kinder: tuple = (4_000, 6_500, 10_000)   # eigener Anteil je Jahr, 18 Jahre lang
     betreuung_abgang: float = 0.20              # jährliche Kündigungen der verbliebenen Verträge
 
 
@@ -719,6 +734,16 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
         fl_ok = wp.freelance and rng.random() < d(wp.p_freelance)
         fl_satz, fl_aus, fl_hz = d(wp.satz), d(wp.auslastung), d(wp.hazard_freelance)
         vt_hz, vt_rest = d(wp.hazard_vertrieb), d(wp.vertrieb_rest)
+        p_al, p_al_krise, al_verlust = d(wp.p_arbeitslos), d(wp.p_arbeitslos_krise), d(wp.arbeitslos_verlust)
+        kr_prov, kr_ag = d(wp.krise_provision), d(wp.krise_agentur)
+        if wp.lebensereignisse:
+            partner_ab = d(wp.alter_partner) if rng.random() < d(wp.p_partner) else 999
+            partner_faktor = 1 - d(wp.ersparnis_partner)
+            kind_ab = d(wp.alter_kind) if rng.random() < d(wp.p_kinder) else 999
+            kind_kosten = d(wp.kosten_kinder)
+        else:
+            partner_ab = kind_ab = 999
+            partner_faktor, kind_kosten = 1.0, 0.0
         nach_vertrieb = 0.0     # reales Gehalt nach dem Ausstieg aus dem Vertrieb
         letztes_brutto_real = 0.0
         pfade = {
@@ -756,6 +781,12 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             idx = w.index(j)
             alter = START_ALTER + j
             zusatz = 0.0
+            krise = w.renditen[j] < wp.krise_schwelle
+            # Lebensereignisse verschieben den Grundbedarf dieses Jahres
+            faktor = partner_faktor if alter >= partner_ab else 1.0
+            konsum_de.grundbedarf = wp.grund_de * faktor
+            konsum_ch.grundbedarf = wp.grund_ch * faktor
+            kinder_jahr = kind_kosten * idx if kind_ab <= alter < kind_ab + 18 else 0.0
 
             if zustand == "studium" and agentur_tot:
                 # Agentur aufgegeben: weiterstudieren mit Nebenjob.
@@ -768,6 +799,8 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             elif zustand in ("studium", "agentur"):
                 im_studium = zustand == "studium"
                 gewinn = lauf.jahr(j, idx, 900 if im_studium else 2_000, wachsen=not im_studium)
+                if krise:
+                    gewinn *= kr_ag
                 netto = netto_selbststaendig(gewinn, idx)
                 sparen = netto - (studium if im_studium else konsum_de).ausgaben(netto, idx)
                 zusatz += lauf.firmenwert(idx)
@@ -796,6 +829,8 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                         zustand = rueckfall()
             elif zustand == "freelance":
                 umsatz = 1_700 * fl_aus * fl_satz * idx * math.exp(rng.gauss(0, 0.12))
+                if krise:
+                    umsatz *= kr_ag
                 netto = netto_selbststaendig(umsatz * 0.90, idx)
                 sparen = netto - konsum_de.ausgaben(netto, idx)
                 if rng.random() < fl_hz:
@@ -814,14 +849,21 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 else:
                     brutto = next(pfade[art]) * idx
                 letztes_brutto_real = brutto / idx
+                if krise and art == "vertrieb":
+                    brutto *= kr_prov
+                arbeitslos = rng.random() < (p_al_krise if krise else p_al)
                 if art == "ch":
                     real = brutto / idx
                     st = min(0.30, max(0.06, 0.06 + 0.08 * math.log(max(real, 60_000) / 60_000)))
                     netto = brutto * (1 - 0.064 - 0.07 - st)
                     pk = pk * 1.02 + brutto * 0.07
+                    if arbeitslos:
+                        netto *= 1 - al_verlust
                     sparen = netto - konsum_ch.ausgaben(netto, idx)
                 else:
                     netto = netto_angestellt(brutto, idx)
+                    if arbeitslos:
+                        netto *= 1 - al_verlust
                     sparen = netto - konsum_de.ausgaben(netto, idx)
             else:  # inhaber
                 ebitda *= (1 + nf_wachs + w.inflation) * math.exp(rng.gauss(0, np_.schock_sigma))
@@ -847,6 +889,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 sparen = netto - konsum_de.ausgaben(netto, idx) + ueber * 0.74
                 zusatz += max(0.0, ebitda * nf_exit - schuld) * 0.7
 
+            sparen -= kinder_jahr
             if nebenher > 0 and zustand not in ("studium", "agentur"):
                 sparen += nebenher * idx * 0.55       # Grenzsteuer + KV ~45 %, voll gespart
                 nebenher *= 1 - wp.betreuung_abgang
