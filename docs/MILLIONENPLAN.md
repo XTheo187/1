@@ -7,17 +7,18 @@ Wahrscheinlichkeit Millionär?
 
 1. Bis Sommer 2027 geht es nicht: höchstens 0,5 %, und das ist beweisbar.
 2. Mit dem Plan unten erreichst du **1 Mio. € Nettovermögen mit mindestens
-   50 % Wahrscheinlichkeit bis Sommer 2065 (Alter ~57)**; etwa 50 % sind es
-   schon mit 56, bei eiserner Sparregel mit 51–52.
+   50 % Wahrscheinlichkeit bis Sommer 2062 (Alter ~54)** – gemessen 51,9 %
+   ± 0,5. Wer die Sparregel eisern hält, ist mit ~50 % schon mit 50 dort.
 3. Das ist kein Versprechen, sondern das Ergebnis einer Rechnung mit
    realistischen, belegten Annahmen, die drei Runden unabhängiger
    Gegenprüfung überstanden hat – und dabei von „50 % mit 40“ auf „50 % mit
-   56“ korrigiert wurde.
+   54“ korrigiert wurde.
 
 Gemessen wird 1 Mio. € **nominal**, nach der Steuer, die beim Verkauf der
-ETFs fällig würde. In heutiger Kaufkraft sind 1 Mio. € im Jahr 2065 nur etwa
-**440 Tsd. €**. Wer 1 Mio. € in heutiger Kaufkraft will: Diese Quote liegt
-mit 57 bei rund 24 %.
+ETFs fällig würde, ohne Erbschaft, ohne Vermögen eines Partners. In heutiger
+Kaufkraft sind 1 Mio. € im Jahr 2062 nur etwa **470 Tsd. €**. Wer 1 Mio. € in
+heutiger Kaufkraft will: Diese Quote liegt mit 54 bei rund 21 %, mit 60 bei
+32 %.
 
 Alles lässt sich nachrechnen: `python3 plan/simulation.py` (Tests:
 `python3 -m unittest discover -s tests`).
@@ -76,15 +77,17 @@ Konsumträgheit – und dieselbe Sparregel, die nicht jeder perfekt einhält.
 
 | Weg | mit 40 | mit 45 | mit 50 | mit 55 | mit 60 | 50 % ab |
 |---|---:|---:|---:|---:|---:|---:|
-| **Plan: PiBS > dual > Bachelor, dann Schweiz/DE** | 10 % | 22 % | 35 % | 48 % | 59 % | **56–57** |
-| … mit eiserner Sparregel | 16 % | 32 % | 47 % | 61 % | 73 % | 51–52 |
-| Duales Studium, dann Schweiz/DE | 10 % | 23 % | 36 % | 49 % | 61 % | 56 |
-| Bachelor + Agentur, dann Schweiz/DE | 11 % | 22 % | 35 % | 48 % | 59 % | 56–57 |
-| Plan, aber ohne Schweiz | 4 % | 13 % | 26 % | 40 % | 54 % | 59 |
-| Plan, aber spart wie typische Gutverdiener | 4 % | 11 % | 20 % | 30 % | 41 % | > 60 |
-| Bachelor + Agentur, Schweiz/DE + Firmenkauf | 13 % | 23 % | 30 % | 37 % | 45 % | > 60 |
-| Vertrieb (SaaS) ab 2027 | 3 % | 8 % | 14 % | 22 % | 32 % | > 60 |
-| 2 Jahre Agentur Vollzeit, dann Vertrieb | 2 % | 6 % | 13 % | 22 % | 32 % | > 60 |
+| **Plan: PiBS > dual > Bachelor, dann Schweiz/DE** | 10 % | 24 % | 40 % | 55 % | 68 % | **54** |
+| … mit eiserner Sparregel (60 %) | 15 % | 33 % | 51 % | 67 % | 78 % | 50 |
+| … mit typischem Elternerbe (nicht Teil des Plans) | 10 % | 24 % | 40 % | 58 % | 74 % | 53 |
+| Duales Studium, dann Schweiz/DE | 9 % | 24 % | 39 % | 55 % | 68 % | 54 |
+| Sicherer PiBS-Platz, dann Schweiz/DE | 10 % | 25 % | 41 % | 56 % | 68 % | 53–54 |
+| Bachelor + Agentur, dann Schweiz/DE | 8 % | 21 % | 36 % | 51 % | 64 % | 55 |
+| Plan, aber ohne Schweiz | 5 % | 16 % | 32 % | 49 % | 64 % | 55–56 |
+| Plan, aber spart wie typische Gutverdiener | 4 % | 13 % | 25 % | 38 % | 52 % | 59–60 |
+| Bachelor + Agentur, Schweiz/DE + Firmenkauf | 11 % | 21 % | 31 % | 40 % | 50 % | ≥ 60 |
+| Vertrieb (SaaS) ab 2027 | 3 % | 8 % | 17 % | 28 % | 42 % | > 60 |
+| 2 Jahre Agentur Vollzeit, dann Vertrieb | 3 % | 8 % | 17 % | 29 % | 44 % | > 60 |
 
 Verworfen und warum:
 
@@ -95,8 +98,8 @@ Verworfen und warum:
   („50 % mit 40“). Die Gegenprüfung zeigte: Das Modell machte fast jeden zum
   Account Executive und zählte den Gehaltssprung doppelt. Mit Marktdaten fällt
   der Weg ans Ende.
-- **Firmenkauf (Nachfolge):** Mehr Chancen mit 40, aber deutlich weniger mit
-  55 – das Ausfallrisiko frisst den Vorteil.
+- **Firmenkauf (Nachfolge):** Etwas mehr Chancen mit 40, aber deutlich
+  weniger mit 55 – das Ausfallrisiko frisst den Vorteil.
 - **Software-Wette, Creator, E-Commerce:** Median-Indie-Produkt 169 USD
   Monatsumsatz; nur ~4 % der Creator > 100 Tsd. USD. Als Nebenoption ok.
 - **Immobilien mit Kredit:** Bauzins ~4,3 % > Bruttomietrendite ~3,3 %.
@@ -104,10 +107,10 @@ Verworfen und warum:
 
 Neu getestet: das **praxisintegrierte Bachelorstudium (PiBS) in der
 Schweiz** (4 Jahre FH, 40 % Arbeit im Schweizer Partnerbetrieb). Ergebnis:
-gleichwertig mit dem dualen Studium in Deutschland, nicht besser – die
-Plätze sind knapp (2022 nur 128 MINT-Eintritte schweizweit), der Lohn deckt
-die Schweizer Lebenshaltung nicht. Es bleibt eine gute Option, wenn ein
-Platz kommt.
+mit Platz leicht besser als das duale Studium, aber die Plätze sind knapp
+(2022 nur 128 MINT-Eintritte schweizweit) und der Lohn deckt die Schweizer
+Lebenshaltung nicht. Darum steht es im Plan als erste Wahl *wenn* ein Platz
+kommt – das duale Studium ist praktisch gleichwertig.
 
 ## 4. Der Plan
 
@@ -168,10 +171,10 @@ Platz kommt.
 
 Das ist etwa doppelt so viel, wie typische Gutverdiener sparen. Genau
 deshalb ist es Regel und Dauerauftrag, nicht Vorsatz. Die Hauptzahl dieses
-Plans (50 % mit 56–57) rechnet bewusst damit, dass die Regel nicht perfekt
+Plans (50 % mit 54) rechnet bewusst damit, dass die Regel nicht perfekt
 hält: im Mittel werden nur ~50 % gespart, und 15 % der Leben werden
-irgendwann halbherzig. Wer sie wirklich hält, kommt auf 51–52; wer nur so
-spart wie typische Gutverdiener, bis 60 nicht über 50 %.
+irgendwann halbherzig. Wer sie wirklich hält, kommt auf 50; wer nur so spart
+wie typische Gutverdiener, erst auf 59–60.
 
 ### Weichen mit harten Zahlen
 
@@ -182,6 +185,7 @@ spart wie typische Gutverdiener, bis 60 nicht über 50 %.
 | Studienende | Schweizer Stelle angeboten | annehmen |
 | 3–4 Jahre DE-Stelle | noch nicht in der Schweiz | zweiter Anlauf; parallel Gehalt verhandeln |
 | ab 5 Berufsjahren | Freelance-Gewinn > 1,2 × Gehalt erreichbar | IT-Freelancing prüfen |
+| bei Rückkehr nach DE | Schweiz-Phase endet (Partner, Kinder) | Sparregel weiterführen, Depot nie anfassen |
 | jedes Jahr | Vermögen unter dem 25-%-Kontrollwert | Grundbedarf senken, Sparquote erhöhen |
 
 ## 5. Bis Sommer 2027 – was mit mindestens 50 % geht
@@ -220,29 +224,29 @@ und musst nachsteuern; über dem rechten bist du gut vorn.
 
 | Alter | 25 % liegen darunter | Median | 25 % liegen darüber |
 |---:|---:|---:|---:|
-| 25 | 7 Tsd. € | 23 Tsd. € | 43 Tsd. € |
-| 30 | 57 Tsd. € | 108 Tsd. € | 187 Tsd. € |
-| 35 | 120 Tsd. € | 226 Tsd. € | 393 Tsd. € |
-| 40 | 158 Tsd. € | 330 Tsd. € | 622 Tsd. € |
-| 45 | 196 Tsd. € | 473 Tsd. € | 920 Tsd. € |
-| 50 | 243 Tsd. € | 652 Tsd. € | 1,34 Mio. € |
-| 55 | 349 Tsd. € | 941 Tsd. € | 1,96 Mio. € |
+| 25 | 11 Tsd. € | 24 Tsd. € | 41 Tsd. € |
+| 30 | 60 Tsd. € | 106 Tsd. € | 173 Tsd. € |
+| 35 | 126 Tsd. € | 222 Tsd. € | 373 Tsd. € |
+| 40 | 194 Tsd. € | 353 Tsd. € | 621 Tsd. € |
+| 45 | 277 Tsd. € | 529 Tsd. € | 969 Tsd. € |
+| 50 | 385 Tsd. € | 773 Tsd. € | 1,44 Mio. € |
+| 55 | 551 Tsd. € | 1,12 Mio. € | 2,11 Mio. € |
 
 ## 7. Was den Plan kippt – und was nicht
 
 50-%-Alter, wenn genau ein Faktor auf seinen schlechten bzw. guten Rand
-gesetzt wird (Basis: 56).
+gesetzt wird (Basis: 54).
 
 | Faktor | schlecht | gut |
 |---|---:|---:|
-| Sparverhalten (typisch / eiserne Regel) | > 60 | 51 |
-| Aktienrendite (4 % / 8 % im Jahr) | > 60 | 52 |
-| Grundbedarf (22 / 13 Tsd. € im Jahr) | 59 | 52 |
-| Kinder (sicher und teuer / keine) | 58 | 51 |
-| Schweizer Stelle (nie / sicher) | 58 | 54 |
-| KI-Druck auf Einsteiger (sicher / nie) | 58 | 55 |
-| Rückkehr aus der Schweiz (4 %/Jahr / nie) | 57 | 54 |
-| Dualer Studienplatz (nie / sicher) | 57 | 56 |
+| Sparverhalten (typisch / eiserne Regel) | 60 | 50 |
+| Aktienrendite (4 % / 8 % im Jahr) | 58 | 50 |
+| Grundbedarf (22 / 13 Tsd. € im Jahr) | 56 | 50 |
+| KI-Druck auf Einsteiger (sicher / nie) | 56 | 53 |
+| Schweizer Stelle (nie / sicher) | 55 | 52 |
+| Kinder (sicher und teuer / keine) | 55 | 52 |
+| Dualer Studienplatz (nie / sicher) | 55 | 54 |
+| Rückkehr aus der Schweiz (4 %/Jahr / nie) | 54 | 52 |
 
 **Was du selbst in der Hand hast, wirkt am stärksten:** Sparregel und
 Grundbedarf. Die Börse kannst du nicht steuern – nur aushalten.
@@ -278,14 +282,20 @@ Verkaufsargument taugt es kaum.
 2. **Kalibrierung:** Agenturmodell gegen Überlebensraten und
    Gewinnverteilungen, Gehälter gegen Stack-Overflow- und SwissICT-Daten,
    Sparverhalten gegen EVS/SOEP.
-3. **Drei Runden Gegenprüfung** durch unabhängige Prüfer mit dem Auftrag, die
-   Behauptung zu widerlegen. Sie fanden u. a.: einen doppelt gezählten
-   Gehaltssprung im Vertrieb, fehlende Rückwanderung aus der Schweiz, eine zu
-   optimistische Sparregel, einen um ein Jahr verschobenen Altersbezug,
-   fehlende Studienabbrüche, Steuer- und Abgabenfehler. Alles ist
-   eingearbeitet; die Aussage wanderte von „50 % mit 40“ zu „50 % mit 56“.
+3. **Drei Runden Gegenprüfung** (zehn unabhängige Prüfer) mit dem Auftrag,
+   die Behauptung zu widerlegen. Gefunden und eingearbeitet, u. a.:
+   - zu optimistisch: doppelt gezählter Gehaltssprung im Vertrieb, fehlende
+     Rückwanderung aus der Schweiz, zu perfekte Sparregel, ein um ein Jahr
+     verschobener Altersbezug, fehlende Studienabbrüche, ein früher Abbruch,
+     der als Abschluss zählte, Steuer- und Abgabenfehler;
+   - zu streng: Kinderkosten, die den eigenen Konsum nicht berührten, eine
+     Lohnnarbe bei jeder Wechsellücke, ungleich behandelte
+     Studienfinanzierung, ein Gehalt von null nach früher Rückkehr.
+   Die Aussage wanderte von „50 % mit 40“ zu „50 % mit 54“.
 4. **Grenzen:** Viele Spannen sind begründete Schätzungen (Chance auf
-   Schweizer Stelle, PiBS-Platz, Rückkehrrate, KI-Szenario). Nicht im Modell:
-   Erbschaften, das Einkommen eines Partners als gemeinsames Vermögen,
-   Kirchensteuer. Wer eigene Ist-Werte hat, trägt sie in
-   `plan/simulation.py` ein und rechnet neu.
+   Schweizer Stelle, PiBS-Platz, Rückkehrrate, KI-Szenario). Bewusst nicht in
+   der Hauptzahl: Erbschaften (mit typischem Elternerbe ~1 Jahr früher), das
+   Vermögen eines Partners (als Paar mit Zugewinngemeinschaft gezählt ~1–2
+   Jahre früher), die Pensionskasse voll statt halb (~1 Jahr früher),
+   Kirchensteuer (bei Mitgliedschaft etwas später). Wer eigene Ist-Werte hat,
+   trägt sie in `plan/simulation.py` ein und rechnet neu.

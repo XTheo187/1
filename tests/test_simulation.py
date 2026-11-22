@@ -112,9 +112,22 @@ class TestPlanmodell(unittest.TestCase):
         for _ in range(300):
             protokoll.clear()
             s(rng, sim.Welt.ziehen(rng))
-            zustaende.update(z for z, _d, _p in protokoll)
+            zustaende.update(z for z, _d, _p, _a in protokoll)
         for z in ("ch", "nach_ch", "de", "pibs", "dual", "studium"):
             self.assertIn(z, zustaende)
+
+    def test_frueher_abbruch_ist_kein_abschluss(self):
+        from dataclasses import replace
+        wp = replace(sim.PLAN, erste_phase="studium", p_studienabbruch=(1, 1, 1),
+                     p_frueher_abbruch=1.0, p_stelle_ch=(1, 1, 1), p_ch_zweiter_anlauf=(1, 1, 1))
+        protokoll = []
+        s = sim.weichenplan(wp, protokoll=protokoll)
+        rng = random.Random(5)
+        for _ in range(200):
+            protokoll.clear()
+            s(rng, sim.Welt.ziehen(rng))
+            self.assertFalse(any(a["wert"] for _z, _d, _p, a in protokoll))
+            self.assertNotIn("ch", {z for z, _d, _p, _a in protokoll})
 
     def test_ohne_schweiz_ist_schlechter(self):
         from dataclasses import replace

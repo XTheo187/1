@@ -755,7 +755,9 @@ class Weichen:
                                             # Einsteigermarkt enger: FH-IT-Erwerbslose 6,4 %)
     p_ch_mit_partner: float = 0.7           # Faktor, wenn schon eine Partnerschaft besteht
     p_ch_zweiter_anlauf: tuple = (0.20, 0.25, 0.30)  # einmalig nach 4 Berufsjahren in DE (Schätzung)
-    rueckkehr_ch: tuple = (0.02, 0.025, 0.035)       # je Jahr zurück nach DE (SECO: 45 % in 10 J.)
+    rueckkehr_ch: tuple = (0.025, 0.035, 0.05)       # je Jahr zurück nach DE. SECO: 45 % aller EU-
+                                                     # Zuwanderer gehen binnen 10 J.; wer mit Abschluss
+                                                     # und Plan bleibt, seltener -> ~30-35 % in 10 J.
     rueckkehr_ch_kind: float = 0.015                 # zusätzlich ab dem ersten Kind
     rueckkehr_lohn: tuple = (0.60, 0.68, 0.75)       # DE-Gehalt relativ zum letzten CH-Gehalt
     ch_steuer_zuschlag: float = 0.015                # Zürich-Stadt/Basel/Bern über der Kurve (ESTV/BAK)
@@ -763,7 +765,7 @@ class Weichen:
     ch_pk_an: float = 0.058                          # Arbeitnehmerbeitrag Pensionskasse (BVG 23-45)
     ch_pk_gutschrift: float = 0.0625                 # zählt: halbe Altersgutschrift (Kapital gebunden)
     ch_pk_zins: float = 0.014                        # BVG-Mindestzins 1,25 %
-    ch_kinder_faktor: float = 1.5                    # Kita in der Schweiz fast zum Vollpreis
+    ch_kinder_faktor: float = 1.7                    # Kita in der Schweiz fast zum Vollpreis (4 Jahre)
     ch_wachstum_spaet: tuple = (0.0, 0.006, 0.018)   # SwissICT: ICT-Löhne nominal kaum gestiegen
     start_ch: tuple = (75_000, 88_000, 105_000)    # SwissICT 2026: FH-Bachelor 81.850 CHF
     start_de: tuple = (44_000, 50_000, 58_000)
@@ -802,10 +804,19 @@ class Weichen:
     ki_chancen: float = 0.8                 # Plätze/Stellen x0,8
     ki_start: float = 0.92                  # Startgehälter x0,92
     ki_arbeitslos: float = 0.015            # +1,5 Pp. Arbeitslosigkeit in den ersten 5 Berufsjahren
-    lohnnarbe: tuple = (0.05, 0.10, 0.15)   # bleibende Lohneinbuße nach Arbeitslosigkeit
+    lohnnarbe: tuple = (0.02, 0.05, 0.08)   # bleibende Lohneinbuße je Arbeitslosigkeit (Schmieder et al.:
+                                            # 10-15 % nach Massenentlassung; Wechsellücken kosten weniger)
     p_bu: tuple = (0.001, 0.0015, 0.002)    # Berufsunfähigkeit je Jahr
     bu_rente: tuple = (0.45, 0.55, 0.65)    # Anteil des letzten Nettos (BU-Versicherung im Plan)
     bu_kosten: float = 900                  # BU-Prämie je Jahr (heutige Euro), ab dem ersten Job
+    # Erbschaft: standardmäßig AUS - der Plan soll nicht vom Erben abhängen.
+    # DIW 5/2021: ~10 % erhalten binnen 15 Jahren eine Erbschaft/Schenkung,
+    # Median ~32 Tsd., Mittel ~85 Tsd. EUR; Eltern einer Kohorte 2008 sterben
+    # meist, wenn das Kind 50-60 ist.
+    erbe: bool = False
+    p_erbe: tuple = (0.5, 0.6, 0.7)
+    erbe_alter: tuple = (48, 55, 62)
+    erbe_betrag: tuple = (30_000, 90_000, 250_000)   # heutige Euro
     betreuung_rest: tuple = (0.10, 0.20, 0.30)  # Anteil des Agenturgewinns, der als Betreuung weiterläuft
     # Krisen: Jahre, in denen Aktien stark fallen, treffen auch Job und Provision.
     krise_schwelle: float = -0.15
@@ -907,6 +918,8 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
         bu_netto_real = None
         nach_ch = 0.0           # reales DE-Gehalt nach der Rückkehr aus der Schweiz
         aufgeben_ab = d((25, 32, 40)) if rng.random() < wp.p_aufgeben else 999
+        erbe_ab = round(d(wp.erbe_alter)) if wp.erbe and rng.random() < d(wp.p_erbe) else 999
+        erbe_betrag = d(wp.erbe_betrag)
         bindung = d((1, 1.6, 3)) if rng.random() < wp.p_dual_bindung else 0
         fl_satz, fl_aus, fl_hz = d(wp.satz), d(wp.auslastung), d(wp.hazard_freelance)
         hz_sdr, hz_ae, vt_rest = d(wp.hazard_sdr), d(wp.hazard_ae), d(wp.vertrieb_rest)
@@ -964,7 +977,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
         dual_brutto, bricht_dual_ab = d(wp.dual_brutto), rng.random() < d(wp.p_abbruch_dual)
         pibs_brutto, bricht_pibs_ab = d(wp.pibs_brutto), rng.random() < d(wp.p_abbruch_pibs)
         if pibs_platz:
-            glueck["ch"] = rng.random() < d(wp.p_stelle_ch_nach_pibs)
+            glueck["ch"] = rng.random() < d(wp.p_stelle_ch_nach_pibs) * ki_f
             pfade_ch_start = wp.start_ch_pibs
         else:
             pfade_ch_start = wp.start_ch
@@ -989,13 +1002,11 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             faktor = partner_faktor if alter >= partner_ab else 1.0
             konsum_de.grundbedarf = (max(grund_vt, g_de) if zustand == "vertrieb" else g_de) * faktor
             konsum_ch.grundbedarf = g_ch * faktor
-            if zustand_anfang == "ch" and zustand != "ch":
-                konsum_de._letzter = 0.0     # neues Land, neue Kostenbasis
             lam_jahr = lam_i if alter < aufgeben_ab else (1 + lam_i) / 2
             konsum_de.lam = konsum_ch.lam = min(0.95, lam_jahr + (wp.lam_partner if alter >= partner_ab else 0.0))
             kinder_jahr = kind_kosten * idx if kind_ab <= alter < kind_ab + 18 else 0.0
-            if zustand == "ch":
-                kinder_jahr *= wp.ch_kinder_faktor
+            if zustand == "ch" and kinder_jahr:
+                kinder_jahr *= wp.ch_kinder_faktor if alter < kind_ab + 4 else 1.1
 
             lage["alter"] = alter
             if pfade["ch"] is None:
@@ -1005,11 +1016,18 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                     pfade["ch"].g *= wp.ki_start
             if zustand == "pibs":
                 netto = pibs_brutto * idx * (1 - 0.064 - 0.05)   # AHV/ALV, kaum Steuer
-                # Die Lücke zur Schweizer Lebenshaltung zählt als Schuld (Studienkredit
-                # oder Geld der Eltern) - sonst wäre PiBS künstlich besser gerechnet.
-                sparen = netto - max(studium_ch.ausgaben(netto, idx), wp.grund_ch_studium * idx)
+                # Gleiche Familienhilfe wie im deutschen Studium (dort trägt sie die Lücke
+                # zwischen 6.000 EUR Nebenjob und 12.000 EUR Bedarf); was darüber hinaus
+                # fehlt, wird Schuld (Studienkredit).
+                sparen = netto + 6_000 * idx - wp.grund_ch_studium * idx
                 if bricht_pibs_ab and frueher_abbruch and j == 0:
                     bricht_pibs_ab = False
+                    # PiBS-Vorteile entfallen: normale Chance auf die Schweiz, normaler Start
+                    glueck["ch"] = rng.random() < d(wp.p_stelle_ch) * ki_f
+                    pfade["ch"] = _gehalt_pfad(rng, wp.start_ch, (0.02, 0.035, 0.055),
+                                               wp.ch_wachstum_spaet, 10, (0.2, 0.25, 0.32))
+                    if ki:
+                        pfade["ch"].g *= wp.ki_start
                     if neustart:    # Neustart in DE: dual, sonst Bachelor (Studium ab Jahr 1)
                         if rng.random() < p_dual / 0.85:
                             zustand, programm_ende = "dual", j + 3
@@ -1057,8 +1075,8 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             elif zustand in ("studium", "agentur"):
                 im_studium = zustand == "studium"
                 if im_studium and bricht_ab and frueher_abbruch and j == studium_ende - 3:
-                    # Abbruch im ersten Jahr: ohne Abschluss in den Beruf (Agentur läuft weiter)
-                    bricht_ab = False
+                    # Abbruch im ersten Jahr: ohne Abschluss in den Beruf (Agentur läuft weiter).
+                    # bricht_ab bleibt True, damit studium_beenden() keinen Abschluss vergibt.
                     abschluss["abgebrochen"] = True
                     studium_ende = j + 1
                 gewinn = lauf.jahr(j, idx, 900 if im_studium else 2_000, wachsen=not im_studium)
@@ -1091,7 +1109,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                         nebenher = max(0.0, gewinn / idx) * rest_anteil
                         zustand = rueckfall()
             elif zustand == "freelance":
-                next(pfade["de"])                 # Anstellungspfad altert mit (Rückkehr)
+                next(pfade["de" if dual_absolviert else "de_bachelor"])   # Anstellungspfad altert mit
                 fl_satz *= 1.01                   # Erfahrung: real +1 %/Jahr
                 umsatz = 1_700 * fl_aus * fl_satz * idx * math.exp(rng.gauss(0, 0.12))
                 if krise:
@@ -1102,7 +1120,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                     zustand = "de"
             elif bu_netto_real is not None:
                 netto = bu_netto_real * idx
-                sparen = netto - konsum_de.ausgaben(netto, idx)
+                sparen = netto - (konsum_ch if zustand == "ch" else konsum_de).ausgaben(netto, idx)
             elif zustand in ("ch", "vertrieb", "de", "ausgefallen", "nach_vertrieb", "nach_ch"):
                 berufsjahre += 1
                 if erste_stelle_jahr is None:
@@ -1112,10 +1130,11 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                     lage["war_ch"] = True
                     if rng.random() < rk_hz + (wp.rueckkehr_ch_kind if alter >= kind_ab else 0.0):
                         zustand = "nach_ch"
-                        nach_ch = letztes_brutto_real * rk_lohn
+                        basis_lohn = letztes_brutto_real or pfade["ch"].g * lohnfaktor
+                        nach_ch = basis_lohn / lohnfaktor * rk_lohn   # Narbe wirkt unten einmal
                 # Bindungsklausel abgelaufen / zweiter Anlauf auf die Schweiz
                 if zustand == "de" and abschluss["wert"] and not lage["war_ch"] and "ch" in wp.rueckfall:
-                    if bindung and berufsjahre == int(bindung) + 1 and moeglich("ch"):
+                    if bindung and berufsjahre == round(bindung) + 1 and moeglich("ch"):
                         zustand = "ch"
                     elif berufsjahre == 5 and glueck["ch_zweiter"] and (glueck["ch_partner"] or alter < partner_ab):
                         zustand = "ch"
@@ -1123,7 +1142,8 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 hz_vt = hz_ae if pfade["vertrieb"].befoerdert else hz_sdr
                 if zustand == "vertrieb" and berufsjahre > 1 and rng.random() < hz_vt:
                     zustand = "nach_vertrieb"
-                    nach_vertrieb = min(max(letztes_brutto_real * vt_rest, vt_boden), wp.vertrieb_deckel)
+                    nach_vertrieb = min(max(letztes_brutto_real / lohnfaktor * vt_rest, vt_boden),
+                                        wp.vertrieb_deckel)
                 art = "de" if zustand == "ausgefallen" else zustand
                 if art == "de" and not abschluss["wert"]:
                     art = "de_ohne"
@@ -1175,6 +1195,8 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                         depot = Depot(0.0)
                     zustand, schuld = "ausgefallen", 0.0
                     werte.append(depot.netto + pk)
+                    if protokoll is not None:
+                        protokoll.append((zustand, depot.netto, pk, dict(abschluss)))
                     continue
                 gehalt = np_.gehalt_inhaber * idx
                 vor = ebitda - gehalt - schuld * nf_zins - 0.03 * ebitda
@@ -1191,10 +1213,17 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 sparen = netto - konsum_de.ausgaben(netto, idx) + ueber * 0.74
                 zusatz += max(0.0, ebitda * nf_exit - schuld) * 0.7
 
-            sparen -= kinder_jahr
+            # Kinderkosten verdrängen auch eigenen Konsum: Wie jeder andere Euro gehen sie
+            # nur zum Sparanteil (1 - lam) zulasten des Depots (Studium: voll).
+            if zustand_anfang in ("studium", "dual", "pibs"):
+                sparen -= kinder_jahr
+            else:
+                sparen -= kinder_jahr * (1 - konsum_de.lam)
             if nebenher > 0 and zustand_anfang not in ("studium", "agentur"):
                 sparen += nebenher * idx * 0.55 * (1 - konsum_de.lam)   # nach Grenzsteuer + KV, Sparregel
                 nebenher *= 1 - wp.betreuung_abgang
+            if alter == erbe_ab:
+                sparen += erbe_betrag * idx
             depot.jahr(sparen, w.renditen[j])
             if alter >= haus_ab and depot.netto > 0.3 * haus_preis * idx:
                 depot.entnehmen(haus_nk * haus_preis * idx)
@@ -1223,7 +1252,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                     zusatz = max(0.0, kaufpreis - schuld) * 0.7
             werte.append(depot.netto + pk + zusatz)
             if protokoll is not None:
-                protokoll.append((zustand, depot.netto, pk))
+                protokoll.append((zustand, depot.netto, pk, dict(abschluss)))
         return werte
 
     return leben
@@ -1264,8 +1293,10 @@ def _registrieren() -> None:
                          weichenplan(replace(PLAN, rueckfall=("de",))))
     s["plan_typisch"] = ("Plan, aber spart wie typische Gutverdiener",
                          weichenplan(replace(PLAN, lam_streu=(0.50, 0.62, 0.75))))
-    s["plan_perfekt"] = ("Plan, Sparregel perfekt eingehalten",
+    s["plan_perfekt"] = ("Plan, Sparregel 60 % perfekt eingehalten",
                          weichenplan(replace(PLAN, lam_streu=None, lam=0.4, p_aufgeben=0.0)))
+    s["plan_erbe"] = ("Plan mit typischem Elternerbe",
+                      weichenplan(replace(PLAN, erbe=True)))
     s["pibs_sicher"] = ("Plan mit sicherem PiBS-Platz",
                         weichenplan(replace(PLAN, p_pibs_platz=(1, 1, 1))))
     s["plan"] = ("EMPFOHLEN: PiBS > dual > Bachelor, dann CH/DE", weichenplan(PLAN))
@@ -1318,7 +1349,9 @@ def mehrfach(strategie: Strategie, n: int = 10_000, seeds: tuple = (2027, 1, 2, 
         for a in alter:
             j = a - START_ALTER - 1
             quoten[a].append(sum(1 for x in leben if x[j] >= ZIEL) / n)
-            real[a].append(sum(1 for x, w in zip(leben, welten) if x[j] / w.index(j) >= ZIEL) / n)
+            # Stichtag Ende August: Preisniveau ein halbes Jahr nach Jahresmitte
+            real[a].append(sum(1 for x, w in zip(leben, welten)
+                               if x[j] / (w.index(j) * (1 + w.inflation) ** 0.5) >= ZIEL) / n)
         ab.append(fruehestes_alter(leben))
     erg = {}
     for a in alter:
@@ -1375,7 +1408,7 @@ def sommer_2027(start: float = 5_000.0) -> None:
 # danach Stelle in der Schweiz (oder später im zweiten Anlauf), sonst in
 # Deutschland. Sparregel: Grundbedarf ~18.000 EUR/Jahr in Deutschland bzw.
 # ~38.000 EUR in der Schweiz (heutige Euro), von jedem Euro darüber werden je
-# Leben 38-62 % gespart (Ziel: 53 %; realistisch nicht immer eingehalten).
+# Leben 38-62 % gespart (Regel: 60 %; realistisch im Mittel ~50 %, 15 % geben auf).
 PLAN = Weichen(erste_phase="pibs", rueckfall=("ch", "de"), start_de=DUAL["start"],
                nachfolge=False, lam=0.4, lam_streu=(0.38, 0.47, 0.62))
 
