@@ -11,10 +11,13 @@ Wahrscheinlichkeit Millionär?
    dann, wenn alle nicht hart belegten Annahmen gleichzeitig danebenliegen
    (55,8 %), und sogar knapp, wenn zusätzlich der KI-Druck auf Einsteiger
    sicher eintritt (50,6 % ± 0,2 über 16 unabhängige Läufe).
-   **Garantiezone: Sommer 2068 (Alter ~60) – in jedem getesteten Fall
-   mindestens 56 %**, auch ganz ohne Schweiz, ohne PiBS, ohne dualen Platz
-   und mit sicherem KI-Druck. Die 50-%-Aussage hängt dort an keiner der
-   Annahmen ohne harte Quelle mehr. Früheste Marke mit mindestens 50 %:
+   **Garantiezone: Sommer 2068 (Alter ~60) – in jedem Stresstest-Szenario
+   über 50 %**, im härtesten (ganz ohne Schweiz, PiBS und dualen Platz,
+   KI-Druck sicher) noch rund 56 %. Dort hängt die Aussage an keiner Annahme
+   ohne harte Quelle mehr – wohl aber an zwei Dingen, die nicht verhandelbar
+   sind: **der Sparregel** und **Märkten, die nicht 30 Jahre lang schwach
+   bleiben**. Wer im härtesten Fall nur so spart wie typische Gutverdiener,
+   liegt mit 60 bei 38 %; bei dauerhaft nur 4 % Rendite bei 43 %. Früheste Marke mit mindestens 50 %:
    Sommer 2062 (Alter ~54, 51,9 %). Wer die Sparregel eisern hält, ist mit
    ~50 % schon mit 50 dort.
 3. Das ist kein Versprechen, sondern das Ergebnis einer Rechnung mit
@@ -295,8 +298,24 @@ je 10.000 Leben):
 | … nur Bachelor, KI-Druck sicher | 47 % | **56 %** |
 
 Die Schweiz und die Studienform machen die Million **früher** erreichbar,
-sind aber keine Voraussetzung: Bis Sommer 2068 trägt allein die Sparregel
-mit einem normalen IT-Berufsweg in Deutschland über 50 %.
+sind aber keine Voraussetzung: Bis Sommer 2068 tragen die Sparregel und ein
+normaler IT-Berufsweg in Deutschland über 50 % – vorausgesetzt, die Regel
+wird gehalten (bei Sparen wie typische Gutverdiener: 38 %) und die Märkte
+liefern nicht 30 Jahre lang nur 4 % (dann: 43 %).
+
+**Gegenrechnung ohne Simulation** (unabhängiger Prüfer, typischer Lebensweg
+im härtesten Fall: Bachelor, IT-Stelle in Deutschland ab 46 Tsd. € real,
+Sparregel, Kinder, BU-Prämie): Depot mit 60, nominal nach Steuer
+
+| Rendite im Jahr | mit Abschluss | ohne Abschluss (42 % der Leben) |
+|---|---:|---:|
+| 8,6 % (MSCI-World-Sparplan, Durchschnitt laut DAI) | 2,65 Mio. € | 2,26 Mio. € |
+| 6 % | 1,57 Mio. € | 1,31 Mio. € |
+| 4 % | 1,11 Mio. € | 0,91 Mio. € |
+
+Für die Million reichen mit Abschluss 3,4 % Rendite. Die Simulation liegt im
+Median bei 1,18 Mio. € – niedriger als die Gegenrechnung, weil sie
+schwankende Märkte, Arbeitslosigkeit und Abbrüche mitnimmt.
 
 ## 8. Feldtest: Gibt es die Kunden fürs Webgeschäft?
 
@@ -343,6 +362,10 @@ Verkaufsargument taugt es kaum.
    Tests grün): 8 von 8 unabhängigen Läufen (Seeds 2027/1/2/3 und
    101/202/303/404, je 10.000 Leben) liefern das 50-%-Alter 54;
    P(54) = 51,9 % bzw. 52,1 %, untere Intervallgrenze jeweils über 51,4 %.
+   Ein dritter unabhängiger Prüfer hat Commit 878be02 (Garantiezone) im
+   frischen Klon geprüft: 92 Tests grün, härtester Fall mit 60 bei
+   56,0–56,3 % (12 Seeds), in diesem Fall kommen Schweiz, PiBS und dual
+   nachweislich nie vor; dazu die Gegenrechnung ohne Simulation (Abschnitt 7).
    Ein zweiter, unabhängiger Prüfer hat Commit 065359f in einem frischen
    Klon mit eigenen Seeds nachgerechnet: alle Dokumentzahlen innerhalb ±1
    Prozentpunkt; Planziel 2065: Basis 60,3 %, Stress 55,5 %, Stress + KI

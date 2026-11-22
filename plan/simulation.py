@@ -1424,7 +1424,7 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
                          "p_dual_platz": (0.25, 0.40, 0.55),
                          "rueckkehr_ch": (0.05, 0.065, 0.08)})
 ZIEL_ALTER = 57      # Sommer 2065: Basis ~60 %, Stress ~56 %, Stress + KI sicher ~50,6 %
-GARANTIE_ALTER = 60  # Sommer 2068: in jedem getesteten Fall >= 56 %, auch ganz ohne Schweiz/PiBS/dual
+GARANTIE_ALTER = 60  # Sommer 2068: in jedem Stresstest-Szenario > 50 % (härtester Fall ~56 %)
 
 # Ganz ohne die Annahmen ohne harte Quelle: keine Schweiz, kein PiBS
 PLAN_OHNE_CH = Weichen(**{**PLAN.__dict__, "rueckfall": ("de",), "p_pibs_platz": (0, 0, 0),
