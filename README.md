@@ -56,6 +56,9 @@ heraus mit mindestens 50 % Wahrscheinlichkeit 1 Mio. EUR Nettovermögen
 erreicht – und warum das nicht bis Sommer 2027, sondern bis Sommer 2065 mit
 ~51 % (knapp) geht, und wie robust das ist –, steht in
 [`docs/MILLIONENPLAN.md`](docs/MILLIONENPLAN.md).
+Und warum 500.000 EUR bis Sommer 2027 mit keinem Plan wahrscheinlich sind
+(höchstens rund 1 %) – und was man in den neun Monaten stattdessen tut:
+[`docs/500K_BIS_SOMMER_2027.md`](docs/500K_BIS_SOMMER_2027.md).
 Die Rechnung dahinter: `python3 plan/simulation.py` (Monte-Carlo, belegte
 Spannweiten; frühere Fassungen dreimal gegengeprüft, Quellen zweimal geprüft und verlinkt).
 
@@ -131,7 +134,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 96 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 99 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau

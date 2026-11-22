@@ -230,6 +230,13 @@ class TestSommer(unittest.TestCase):
         self.assertLess(g["etf_hebel_3"], 0.001)
         self.assertLess(g["browne_zins_2%"], 0.03)                 # selbst theoretisch unter 3 %
         self.assertGreater(g["browne_zins_2%"], g["ville"])        # Drift hilft nur wenig
+        self.assertLess(g["roulette_wiesbaden"], g["ville"])        # Tischlimit drückt weiter
+
+    def test_tischlimit_senkt_die_chance(self):
+        ohne = sim.roulette_mit_limit(5_000, 500_000, 1e12, n=40_000)
+        mit = sim.roulette_mit_limit(5_000, 500_000, 20_000, n=40_000)
+        self.assertLess(mit, ohne)
+        self.assertLess(ohne, 0.01 + 0.002)
 
     def test_quote_mit_anderem_ziel(self):
         leben = [[600_000.0] * sim.JAHRE]

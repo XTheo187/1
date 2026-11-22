@@ -1440,6 +1440,30 @@ def konfidenz(p: float, n: int) -> float:
 # --------------------------------------------------------------------------
 
 
+def roulette_mit_limit(start: float, ziel: float, limit: float, n: int = 200_000, seed: int = 3,
+                       teilung: bool = True) -> float:
+    """Kühnes Spiel auf einfache Chancen mit Tischlimit (je Einsatz höchstens ``limit``).
+
+    ``teilung``: Bei Zero verliert der Einsatz auf einfache Chancen nur die Hälfte (deutsche
+    Spielbanken, z. B. Wiesbaden). Gesetzt wird jeweils min(Kapital, Fehlbetrag, Limit).
+    """
+    rng = random.Random(seed)
+    treffer = 0
+    for _ in range(n):
+        k = start
+        while 0 < k < ziel and k >= 1:
+            e = min(k, ziel - k, limit)
+            u = rng.random()
+            if u < 18 / 37:
+                k += e
+            elif u < 19 / 37 and teilung:
+                k -= e / 2
+            else:
+                k -= e
+        treffer += k >= ziel
+    return treffer / n
+
+
 def sommer_grenzen(start: float = 5_000.0, ziel: float = ZIEL, monate: int = 9, n: int = 200_000,
                    seed: int = 1) -> dict[str, float]:
     """Obergrenzen und beste Strategien, um aus ``start`` bis Ende August 2027 ``ziel`` zu machen.
@@ -1461,6 +1485,8 @@ def sommer_grenzen(start: float = 5_000.0, ziel: float = ZIEL, monate: int = 9, 
             k += e if rng.random() < p else -e
         treffer += k >= ziel
     erg["roulette_kuehn"] = treffer / n
+    # Mit Teilung bei Zero und Tischlimit 20.000 EUR je Satz (Spielbank Wiesbaden, ab 18)
+    erg["roulette_wiesbaden"] = roulette_mit_limit(start, ziel, 20_000, n=n, seed=seed + 2)
     rng = random.Random(seed + 1)
     mu, sig = 0.072, 0.16
     for hebel in (1, 3, 10):
@@ -1860,6 +1886,7 @@ def main() -> None:
             print("-" * 64)
             namen = {"ville": "Obergrenze für JEDE Strategie bei fairem Spiel (Ville)",
                      "roulette_kuehn": "Roulette, kühnes Spiel (beste Strategie), simuliert",
+                     "roulette_wiesbaden": "Roulette, Teilung bei Zero, Limit 20.000 EUR je Satz",
                      "etf_hebel_1": "Welt-ETF ohne Hebel, 9 Monate", "etf_hebel_3": "Welt-ETF 3-fach, 9 Monate",
                      "etf_hebel_10": "Welt-ETF 10-fach, 9 Monate",
                      "browne_zins_2%": "Browne-Strategie (Zins 2 %), theoretisch",
