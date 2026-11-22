@@ -9,6 +9,8 @@ Nur Standardbibliothek, wie der Rest des Projekts. Aufruf:
     python3 plan/simulation.py --sens       # Abschnitt 7: Sensitivität
     python3 plan/simulation.py --kontrolle  # Abschnitt 6: Kontrollwerte
     python3 plan/simulation.py --extra      # weitere Einzelzahlen aus dem Plan
+    python3 plan/simulation.py --sommer --ziel 500000   # Grenzen für 500.000 EUR bis Sommer 2027
+    python3 plan/simulation.py --zeitplan --ziel 500000 # ab wann der Plan 500.000 EUR schafft
 
 Was "Millionär" hier heißt: Nettovermögen zum Marktwert >= 1.000.000 EUR
 (nominal), gemessen am jeweiligen Stichtag - nicht "irgendwann einmal kurz
@@ -1378,19 +1380,19 @@ def simulieren(strategie: Strategie, n: int, seed: int = 2027) -> list[list[floa
     return [strategie(rng, Welt.ziehen(rng)) for _ in range(n)]
 
 
-def quote_bis_alter(leben: list[list[float]], alter: int) -> float:
-    """Anteil der Leben mit >= 1 Mio. am Ende des Lebensjahres ``alter``.
+def quote_bis_alter(leben: list[list[float]], alter: int, ziel: float = ZIEL) -> float:
+    """Anteil der Leben mit >= ``ziel`` (Standard 1 Mio.) am Ende des Lebensjahres ``alter``.
 
     Jahr j läuft von Alter START_ALTER + j bis START_ALTER + j + 1 (Sep-Aug);
     werte[j] ist der Stand an dessen Ende.
     """
     j = alter - START_ALTER - 1
-    return sum(1 for w in leben if w[j] >= ZIEL) / len(leben)
+    return sum(1 for w in leben if w[j] >= ziel) / len(leben)
 
 
-def fruehestes_alter(leben: list[list[float]], schwelle: float = 0.5) -> int | None:
+def fruehestes_alter(leben: list[list[float]], schwelle: float = 0.5, ziel: float = ZIEL) -> int | None:
     for alter in range(START_ALTER + 1, END_ALTER + 1):
-        if quote_bis_alter(leben, alter) >= schwelle:
+        if quote_bis_alter(leben, alter, ziel) >= schwelle:
             return alter
     return None
 
@@ -1436,6 +1438,44 @@ def konfidenz(p: float, n: int) -> float:
 # --------------------------------------------------------------------------
 # Sommer 2027: die Obergrenze
 # --------------------------------------------------------------------------
+
+
+def sommer_grenzen(start: float = 5_000.0, ziel: float = ZIEL, monate: int = 9, n: int = 200_000,
+                   seed: int = 1) -> dict[str, float]:
+    """Obergrenzen und beste Strategien, um aus ``start`` bis Ende August 2027 ``ziel`` zu machen.
+
+    - Ville: für jedes Spiel mit Erwartungswert <= 0 und ohne Kredit ist P <= start / ziel.
+    - Roulette, einfache Chance, kühnes Spiel (Dubins/Savage, ohne Tischlimit), simuliert.
+    - Welt-ETF mit 1/3/10-fachem Hebel über ``monate`` Monate, simuliert.
+    - Browne (1999): beste Strategie bei einer Aktie mit Drift (unbegrenzter Hebel,
+      digitale Option): P = Phi(Phi^-1(start/ziel) + theta * sqrt(T)), theta = (mu - r) / sigma.
+    """
+    from statistics import NormalDist
+    erg = {"ville": min(1.0, start / ziel)}
+    rng = random.Random(seed)
+    p, treffer = 18 / 37, 0
+    for _ in range(n):
+        k = start
+        while 0 < k < ziel:
+            e = min(k, ziel - k)
+            k += e if rng.random() < p else -e
+        treffer += k >= ziel
+    erg["roulette_kuehn"] = treffer / n
+    rng = random.Random(seed + 1)
+    mu, sig = 0.072, 0.16
+    for hebel in (1, 3, 10):
+        treffer = 0
+        for _ in range(n // 2):
+            k = start
+            for _m in range(monate):
+                k *= max(0.0, 1 + hebel * rng.gauss(mu / 12, sig / math.sqrt(12)))
+            treffer += k >= ziel
+        erg[f"etf_hebel_{hebel}"] = treffer / (n // 2)
+    nd = NormalDist()
+    for zins in (0.02, 0.0):
+        theta = (mu - zins) / sig
+        erg[f"browne_zins_{zins:.0%}"] = nd.cdf(nd.inv_cdf(min(start / ziel, 1 - 1e-12)) + theta * math.sqrt(monate / 12))
+    return erg
 
 
 def sommer_2027(start: float = 5_000.0) -> None:
@@ -1764,7 +1804,26 @@ def main() -> None:
     ap.add_argument("--sens", action="store_true", help="Sensitivitätstabelle (Abschnitt 7)")
     ap.add_argument("--kontrolle", action="store_true", help="Kontrollwerte (Abschnitt 6)")
     ap.add_argument("--extra", action="store_true", help="weitere Einzelzahlen aus dem Plan")
+    ap.add_argument("--ziel", type=float, default=ZIEL, help="Zielvermögen für --sommer und --zeitplan")
+    ap.add_argument("--start", type=float, default=5_000.0, help="Startkapital für --sommer")
+    ap.add_argument("--zeitplan", action="store_true",
+                    help="Chance des Plans auf --ziel je Alter (z. B. --ziel 500000)")
     a = ap.parse_args()
+    if a.zeitplan:
+        print(f"Plan: Chance auf {a.ziel:,.0f} EUR je Alter (31.08., 4 x {a.n} Leben)".replace(",", "."))
+        print("-" * 72)
+        quoten: dict[int, list[float]] = {}
+        ab = []
+        for sd in (2027, 1, 2, 3):
+            leben = simulieren(weichenplan(PLAN), a.n, seed=sd)
+            for alter in range(25, END_ALTER + 1):
+                quoten.setdefault(alter, []).append(quote_bis_alter(leben, alter, a.ziel))
+            ab.append(fruehestes_alter(leben, ziel=a.ziel))
+        for alter in (25, 30, 35, 40, 42, 44, 45, 46, 47, 48, 50, 55, 57, 60, 65):
+            q = quoten[alter]
+            print(f"  Alter {alter} (31.08.{2027 + alter - START_ALTER}): {sum(q) / len(q):6.1%}")
+        print(f"  50 % ab Alter {_ab_text(ab)}")
+        return
     if a.sens:
         sensitivitaet(n=a.n)
         return
@@ -1795,6 +1854,19 @@ def main() -> None:
         return
     sommer_2027()
     if a.sommer:
+        if a.ziel != ZIEL or a.start != 5_000.0:
+            g = sommer_grenzen(a.start, a.ziel)
+            print(f"Bis 31.08.2027 aus {a.start:,.0f} EUR {a.ziel:,.0f} EUR machen:".replace(",", "."))
+            print("-" * 64)
+            namen = {"ville": "Obergrenze für JEDE Strategie bei fairem Spiel (Ville)",
+                     "roulette_kuehn": "Roulette, kühnes Spiel (beste Strategie), simuliert",
+                     "etf_hebel_1": "Welt-ETF ohne Hebel, 9 Monate", "etf_hebel_3": "Welt-ETF 3-fach, 9 Monate",
+                     "etf_hebel_10": "Welt-ETF 10-fach, 9 Monate",
+                     "browne_zins_2%": "Browne-Strategie (Zins 2 %), theoretisch",
+                     "browne_zins_0%": "Browne-Strategie (Zins 0 %), theoretisch"}
+            for k, v in g.items():
+                print(f"  {namen[k]:58s} {v:.3%}")
+            print()
         sommer_meilensteine()
         return
     print(f"Wahrscheinlichkeit, mit Alter X Millionär zu sein (4 x {a.n} Leben je Strategie;"

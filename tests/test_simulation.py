@@ -223,6 +223,19 @@ class TestSommer(unittest.TestCase):
             treffer += k >= sim.ZIEL
         self.assertLess(treffer / n, start / sim.ZIEL + 0.002)
 
+    def test_grenzen_500k_bis_sommer(self):
+        g = sim.sommer_grenzen(5_000, 500_000, n=20_000)
+        self.assertAlmostEqual(g["ville"], 0.01)
+        self.assertLess(g["roulette_kuehn"], g["ville"] + 0.002)   # Ville gilt auch für Roulette
+        self.assertLess(g["etf_hebel_3"], 0.001)
+        self.assertLess(g["browne_zins_2%"], 0.03)                 # selbst theoretisch unter 3 %
+        self.assertGreater(g["browne_zins_2%"], g["ville"])        # Drift hilft nur wenig
+
+    def test_quote_mit_anderem_ziel(self):
+        leben = [[600_000.0] * sim.JAHRE]
+        self.assertEqual(sim.quote_bis_alter(leben, 40, 500_000), 1.0)
+        self.assertEqual(sim.quote_bis_alter(leben, 40), 0.0)
+
     def test_meilensteine_sind_plausibel(self):
         e = sim.sommer_meilensteine(n=2_000, seed=1, ausgabe=False)
         self.assertGreater(e["p_mind_5_kunden"], e["p_umsatz_10000"])
