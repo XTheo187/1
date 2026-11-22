@@ -12,11 +12,14 @@ Arbeit verdienen, ohne das Abitur zu gefährden?
 > | Median mit dem Plan unten | ~11.700 € |
 > | sicher – 9 von 10 Verläufen schaffen mindestens | ~9.100 € |
 > | absolute Obergrenze – jede Annahme am oberen Rand, ~930 Arbeitsstunden | ~21.500 € |
-> | … dazu 60-Stunden-Wochen im Sommer (nur mit Ausgleich nach Arbeitszeitgesetz) | ~23.200 € |
+> | … dazu 60-Stunden-Wochen im Sommer (nur mit Ausgleich nach Arbeitszeitgesetz) | ~23.300 € |
 >
-> **Am 31.08.2027 auf dem Konto ist es rund 1.500 € weniger** (Median
-> ~10.200 €). Diese Lohnsteuer behalten die Arbeitgeber vor allem im Sommer
-> ein. Sie kommt erst mit der Steuererklärung 2027, also 2028, zurück.
+> **Am 31.08.2027 auf dem Konto ist es weniger:**
+> - Rund 1.500 € Lohnsteuer behalten die Arbeitgeber vor allem im Sommer
+>   ein. Sie kommen erst mit der Steuererklärung 2027 zurück, also 2028.
+>   Kontostand im Median: ~10.300 €.
+> - Zahlt der Sommer-Arbeitgeber den Augustlohn erst im September, was bei
+>   Stundenlohn üblich ist, sind es am 31.08. nur ~8.000 €.
 >
 > Gut die Hälfte bringt ein **Vollzeit-Sommerjob nach dem Abiturzeugnis**
 > (28.06.–31.08.2027, 47 Arbeitstage). Je etwa ein Fünftel bringen
@@ -31,15 +34,18 @@ Arbeit verdienen, ohne das Abitur zu gefährden?
 
 **Gilt für:**
 - Du bist volljährig.
-- Mindestens ein Elternteil ist gesetzlich krankenversichert.
+- Du bist über einen gesetzlich versicherten Elternteil familienversichert.
 - Nach dem Abitur folgt ein Studium, ein duales Studium oder eine
   Ausbildung.
 
 Sonst ändern sich die Regeln:
 - **Unter 18** gilt das Jugendarbeitsschutzgesetz: höchstens 40 h/Woche,
   keine Nachtarbeit.
-- **Privat versicherte Eltern:** Es gibt keine Familienversicherung, also
-  andere Grenzen.
+- **Keine Familienversicherung** gibt es, wenn beide Eltern privat
+  versichert sind. Dasselbe gilt, wenn der andere, verheiratete Elternteil
+  privat versichert ist, über der Jahresarbeitsentgeltgrenze verdient und
+  mehr verdient als der gesetzlich versicherte (§ 10 Abs. 3 SGB V). Dann
+  gelten andere Grenzen.
 - **Vor FSJ, BFD oder freiwilligem Wehrdienst** ist der Sommerjob
   berufsmäßig, wie vor einer Ausbildung.
 
@@ -72,13 +78,13 @@ Gerechnet mit `python3 plan/verdienst_2027.py` (20.000 simulierte Verläufe):
 | ohne alle Ferienjobs vor dem Zeugnis | 6.700 € | 9.100 € | 11.000 € |
 
 Am 31.08. auf dem Konto (Median) ist es weniger, weil die Lohnsteuer erst
-2028 zurückkommt:
+2028 zurückkommt und der Augustlohn oft erst im September:
 
-| Szenario | Kontostand | Lohnsteuer einbehalten |
-|---|---:|---:|
-| FH-Studium | ~11.100 € | ~1.800 € |
-| dual, Start 01.09./01.10. | ~9.900 € | ~1.300 € |
-| dual, Start 01.08. | ~8.400 € | ~900 € |
+| Szenario | Kontostand | … ohne Augustlohn | Lohnsteuer einbehalten |
+|---|---:|---:|---:|
+| FH-Studium | ~11.100 € | ~8.100 € | ~1.800 € |
+| dual, Start 01.09./01.10. | ~9.900 € | ~7.500 € | ~1.300 € |
+| dual, Start 01.08. | ~8.400 € | ~8.400 € | ~900 € |
 
 Im dualen Fall ist weniger einbehalten, weil die Sozialabgaben die
 Lohnsteuer mindern.
@@ -112,14 +118,14 @@ liegt mit 6.160 € noch unter 12 × 590 € = 7.080 €.
 | Wann | Was | Stunden |
 |---|---|---|
 | **bis 23.12.2026** | <ul><li>2–4 Nachhilfeschüler suchen (Mittel-/Oberstufe, 20–30 €/h). Nachhilfe ist freiberuflich, braucht also kein Gewerbe.</li><li>Webgeschäft mit `standortcheck` starten: Gewerbe in Regensburg 45 €.</li><li>Innerhalb eines Monats nach dem Start den **Fragebogen zur steuerlichen Erfassung** über ELSTER abgeben und dort die Kleinunternehmerregelung wählen.</li></ul> | 3–10 h/Woche |
-| **Weihnachtsferien 24.12.–08.01.** | Befristeter Ferienjob an bis zu 9 Arbeitstagen: 5 Tage im Jahr 2026, 4 im Jahr 2027. Zum Beispiel Inventurhilfe, Lager, Paketsortierung (~18 €/h, z. B. über InStaff) – wenn das Lernen es zulässt. | Vollzeit |
+| **Weihnachtsferien 24.12.–08.01.** | <ul><li>Befristeter Ferienjob an bis zu 9 Arbeitstagen: 5 Tage im Jahr 2026, 4 im Jahr 2027. Zum Beispiel Inventurhilfe, Lager, Paketsortierung (~18 €/h, z. B. über InStaff) – wenn das Lernen es zulässt.</li><li>Am besten zwei Verträge: 24.–31.12. und ab 04.01. Ein durchgehender Vertrag zählt 2027 mit 8 statt 5 Kalendertagen.</li></ul> | Vollzeit |
 | **Januar – März 2027** | <ul><li>Nachhilfe und Webgeschäft weiterführen.</li><li>**Sommerjob jetzt sichern:** Ferienarbeit oder Produktion bei Industriebetrieben (BMW, Krones, Infineon, Continental) oder über Zeitarbeit (Randstad u. a.), Start 28.06.</li><li>Den Juni-Job (unten) gleich mit vereinbaren.</li></ul> | 3–10 h/Woche |
 | **Frühjahrsferien 08.–12.02.** | Ferienjob an 5 Arbeitstagen | Vollzeit |
 | **22.03. – 13.06.2027** | <ul><li>Lernen und Prüfungen: schriftliches Abitur 21.04.–13.05., Kolloquium 31.05.–11.06.</li><li>Höchstens ein paar Nachhilfestunden.</li><li>In den Pfingstferien (18.–28.05.) höchstens 1–4 einzelne Jobtage.</li></ul> | 0–6 h/Woche |
 | **14. – 24.06.2027** | <ul><li>Nach dem letzten eigenen Prüfungstermin befristeter Job an 5–9 Tagen. Mit der Schule klären; eigener Vertrag, der vor der Entlassung endet.</li><li>Als **Schülerjob** ist er sozialversicherungsfrei, auch vor einem dualen Studium.</li></ul> | Vollzeit |
 | **28.06. – 31.08.2027** | <ul><li>Vollzeit-Sommerjob, Mo–Fr und einzelne Samstage.</li><li>Gern mit Nacht- und Sonntagszuschlägen: Sie bringen vor allem mehr Lohn.</li><li>Steuerfrei nach § 3b EStG sind nur Zuschläge für Arbeit von 20 bis 6 Uhr und an Sonn- und Feiertagen, keine Schichtzulagen.</li></ul> | bis 48 h/Woche |
-| **bis 31.07.2027** | **Steuererklärung 2026**, mit Anlage EÜR. Pflicht, wenn du 2026 Arbeitslohn hattest (Weihnachtsjob) und Nachhilfe und Webgeschäft zusammen mehr als 410 € Gewinn brachten. Sonst freiwillig: Sie holt die Lohnsteuer vom Weihnachtsjob zurück. | – |
-| **2028** | **Steuererklärung 2027:** Die einbehaltene Lohnsteuer (~1.500 €) kommt zurück, soweit Lohn plus Gewinn unter ~13.830 € bleibt (Entwurf 2027, noch nicht beschlossen). Pflicht, sobald der Gewinn über 410 € liegt. | – |
+| **bis 31.07.2027** (ein Samstag, also bis 02.08.) | **Steuererklärung 2026**, mit Anlage EÜR. Pflicht, wenn du 2026 Arbeitslohn hattest (Weihnachtsjob) und Nachhilfe und Webgeschäft zusammen mehr als 410 € Gewinn brachten. Sonst freiwillig: Sie holt die Lohnsteuer vom Weihnachtsjob zurück. | – |
+| **2028** | **Steuererklärung 2027:** Die einbehaltene Lohnsteuer (~1.500 €) kommt zurück, soweit Lohn plus Gewinn unter ~14.030 € bleibt (Entwurf 2027, noch nicht beschlossen). Pflicht, sobald der Gewinn über 410 € liegt. | – |
 
 **Wo suchen:**
 - Bundesagentur für Arbeit (Jobbörse)
@@ -135,8 +141,9 @@ liegt mit 6.160 € noch unter 12 × 590 € = 7.080 €.
   - Feste, Dult
   - Erntehilfe
 
-**Werkstudentenjobs** gehen erst ab der Immatrikulation. Bis 31.08. sind
-sie für ein Studium ab Oktober also nicht zugänglich.
+**Werkstudentenjobs** gehen erst ab der Einschreibung. Wer sich schon im
+August einschreibt, kann ab dann als Werkstudent arbeiten. Für den Sommer
+ändert das wenig, weil der Sommerjob ohnehin sozialversicherungsfrei ist.
 
 **Damit der Sommerjob abgabenfrei bleibt (FH-/Uni-Fall):**
 - **Als kurzfristige Beschäftigung anmelden lassen**, von vornherein
@@ -159,18 +166,25 @@ sie für ein Studium ab Oktober also nicht zugänglich.
     spätestens zum Schulende beenden und sich danach nicht neu melden.
   - Das Studium muss zum nächstmöglichen Termin beginnen.
   - Studienabsicht oder Zulassung dem Arbeitgeber nachweisen.
+- **Lohn kommt erst nach dem Monat:** Stundenlohn wird oft erst im
+  Folgemonat gezahlt. Wer das Geld am 31.08. braucht, vereinbart eine
+  Abschlagszahlung oder wöchentliche Abrechnung.
 - **Vor einem dualen Studium, PiBS, einer Ausbildung, FSJ/BFD oder
   freiwilligem Wehrdienst** ist der Sommerjob berufsmäßig.
   - Er ist dann sozialversicherungspflichtig: ~21 % Abzug, eingerechnet.
   - Dafür gilt keine Tagesgrenze.
   - Die Jobs bis zum Zeugnis bleiben Schülerjobs und frei.
-- **Auf Abrechnung nach Steuer-ID und Klasse I bestehen**, nicht
-  pauschal mit 25 % (§ 40a EStG). Die Pauschalsteuer kommt über die
-  Steuererklärung nicht zurück.
+- **Kurze Ferienjobs und die 25-%-Pauschalsteuer (§ 40a EStG):** Möglich
+  ist sie nur bis 18 zusammenhängende Arbeitstage, höchstens 150 € je Tag
+  und 19 € je Stunde, also nicht für den Sommerjob.
+  - Will ein Arbeitgeber sie **auf dich abwälzen**, auf Abrechnung nach
+    Steuer-ID und Klasse I bestehen. Die Pauschalsteuer kommt nicht zurück.
+  - Trägt er sie selbst, ist sie für dich sogar günstig: Es wird nichts
+    einbehalten.
 
 **Der Starttermin der Ausbildung ist ein Hebel:**
-- Der 01.08. statt 01.09. kostet 22 Sommer-Arbeitstage (~3.000–3.600 €
-  brutto).
+- Der 01.08. statt 01.09. kostet 22 Sommer-Arbeitstage samt Samstagen
+  (~3.100–4.000 € brutto, im Mittel ~3.600 €).
 - Dafür kommt eine Monatsvergütung dazu (dual ~1.000–1.300 € brutto).
 - Unterm Strich: Median 9.300 statt 11.300 €.
 
@@ -186,7 +200,7 @@ Wer die Wahl hat, nimmt den 01.09. oder 01.10.
 | **Kurzfristige Beschäftigung:** höchstens 3 Monate (mehrere Jobs: 90 Kalendertage) oder 70 Arbeitstage je Kalenderjahr, ohne Verdienstgrenze; zählt nicht zur Familienversicherung | <ul><li>Trägt Ferien- und Sommerjobs.</li><li>2027 zusammen höchstens 90 Kalendertage, davon braucht der Sommer 63.</li></ul> |
 | **Sozialversicherung:** Jobs bis zum Zeugnis frei (Schülerjobs). Der Sommerjob ist frei, wenn danach ein Studium folgt. Vor einem dualen Studium oder einer Ausbildung ist er berufsmäßig (~21,15 % Arbeitnehmeranteil 2026). Beim Minijob die Befreiung von der Rentenversicherung beantragen, sonst 3,6 % | −1.100 bis −1.650 € (Median) im dualen Fall |
 | **Arbeitszeitgesetz:** 8 h/Tag, bis 10 h; im Schnitt 48 h/Woche (Mo–Sa); 11 h Ruhezeit | Sommer höchstens ~450 Stunden |
-| **Lohnsteuer:** Klasse I. Kurze Jobs werden nach der Tagestabelle aufs Jahr hochgerechnet und behalten deshalb viel ein; ein voller Sommermonat ~350–900 €. Zurück kommt sie über die Steuererklärung, soweit Lohn − 1.266 € + Gewinn unter dem Grundfreibetrag bleibt: 12.348 € (2026), im Entwurf 2027 12.564 €. Lohn plus Gewinn darf also bis ~13.830 € gehen | <ul><li>Am 31.08. fehlen ~900–1.800 € auf dem Konto.</li><li>Endgültig fällt im Plan kaum Steuer an.</li></ul> |
+| **Lohnsteuer:** Klasse I. Kurze Jobs werden nach der Tagestabelle aufs Jahr hochgerechnet und behalten deshalb viel ein; ein voller Sommermonat ~350–900 €. Zurück kommt sie über die Steuererklärung, soweit Lohn minus Pauschbeträge plus Gewinn unter dem Grundfreibetrag bleibt: 2026 Lohn − 1.266 € unter 12.348 €; im Entwurf 2027 Lohn − 1.466 € unter 12.564 € (Arbeitnehmer-Pauschbetrag 1.430 €). Lohn plus Gewinn darf 2027 also bis ~14.030 € gehen | <ul><li>Am 31.08. fehlen ~900–1.800 € auf dem Konto.</li><li>Endgültig fällt im Plan kaum Steuer an.</li></ul> |
 | **Mindestlohn:** 13,90 € (2026), 14,60 € (2027). Zeitarbeit mindestens 15,33 € bis 03/2027 und 15,87 € ab 04/2027 | Untergrenze jeder Stunde |
 | **Kalender:** 47 Arbeitstage nach dem Zeugnis (25, wenn die Ausbildung am 01.08. beginnt). Dazu bis zu 9 Arbeitstage zwischen letzter Prüfung und Zeugnis und einzelne Tage in den Pfingstferien | der größte Einzelposten |
 
@@ -212,7 +226,7 @@ Wer die Wahl hat, nimmt den 01.09. oder 01.10.
 - **60-Stunden-Wochen im Sommer:**
   - Rechtlich nur mit Ausgleich über 6 Monate bzw. 24 Wochen, und
     körperlich belastend.
-  - Brächte ~1.700 € mehr (Obergrenze 23.200 statt 21.500 €).
+  - Brächte ~1.700 € mehr (Obergrenze 23.300 statt 21.500 €).
 - **Glücksspiel, Trading:** kein Erwirtschaften und im Schnitt ein Verlust
   (siehe [`500K_BIS_SOMMER_2027.md`](500K_BIS_SOMMER_2027.md)).
 
@@ -248,12 +262,16 @@ Beispiel mit ~11.700 €:
   - Einkommen von Januar bis November 2026 ist nicht bekannt und nicht
     eingerechnet.
 - **Steuer:**
-  - Gerechnet mit dem Tarif 2026; für 2027 ist er um den höheren
-    Grundfreibetrag des Entwurfs verschoben.
+  - Gerechnet mit dem Tarif 2026. Für 2027 gelten die beiden Änderungen
+    des Entwurfs: Grundfreibetrag 12.564 €, Arbeitnehmer-Pauschbetrag
+    1.430 €.
   - Die einbehaltene Lohnsteuer ist grob geschätzt: ohne
     Vorsorgepauschale bei sozialversicherungsfreien Jobs und ohne
     Kirchensteuer (in Bayern 8 % der Lohnsteuer, kommt ebenfalls zurück).
   - Trinkgeld ist nicht eingerechnet.
+- **Kontostand am 31.08.:** Unterstellt ist, dass die Erstattung 2026 (im
+  Median ~100 €) bis dahin da ist. Der Augustlohn ist einmal mit und einmal
+  ohne gerechnet.
 - **Annahme über das Wissen vorab:** Die Quellen werden nach dem
   *erwarteten* Erlös je Stunde gewählt. Wer früh merkt, dass sein
   Webgeschäft wenig bringt, wechselt zu Einsätzen und verdient etwas mehr
@@ -262,7 +280,7 @@ Beispiel mit ~11.700 €:
 ## 8. Nachrechnen
 
 ```
-python3 plan/verdienst_2027.py            # Abschnitte 1, 2 und Obergrenze
+python3 plan/verdienst_2027.py            # Abschnitte 1, 2 und Obergrenze, Kontostand je Szenario
 python3 -m unittest discover -s tests     # u. a. tests/test_verdienst.py
 ```
 

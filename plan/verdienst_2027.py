@@ -22,8 +22,9 @@ höchsten erwarteten Nettoerlös je Stunde, begrenzt durch
   ~21,15 % Arbeitnehmeranteil, dafür keine Tagesgrenze),
 - das Arbeitszeitgesetz (höchstens 48 Stunden je Woche, 10 Stunden je Tag).
 
-Am Ende wird die Einkommensteuer für 2026 und 2027 abgezogen (Tarif 2026,
-für 2027 um den höheren Grundfreibetrag des Entwurfs verschoben). Zusätzlich
+Am Ende wird die Einkommensteuer für 2026 und 2027 abgezogen (Tarif 2026;
+für 2027 mit Grundfreibetrag 12.564 EUR und Arbeitnehmer-Pauschbetrag
+1.430 EUR aus dem Entwurf). Zusätzlich
 wird die Lohnsteuer geschätzt, die der Arbeitgeber 2027 einbehält und die erst
 mit der Steuererklärung 2027 (also 2028) zurückkommt: Sie fehlt am 31.08.2027
 auf dem Konto.
@@ -66,7 +67,8 @@ def _oben(t: tuple) -> tuple:
 # Steuer
 # --------------------------------------------------------------------------
 
-PAUSCHBETRAEGE = 1_230.0 + 36.0       # Arbeitnehmer- und Sonderausgaben-Pauschbetrag
+AN_PAUSCHBETRAG = {2026: 1_230.0, 2027: 1_430.0}      # Entwurf 2027: 1.430 EUR (hib)
+SA_PAUSCHBETRAG = 36.0                                  # Sonderausgaben-Pauschbetrag
 GRUNDFREIBETRAG_PLUS = {2026: 0.0, 2027: 12_564.0 - 12_348.0}   # Entwurf 2027 (hib)
 
 
@@ -86,7 +88,7 @@ def lohnsteuer(lohn: float, kalendertage: float, jahr: int, vorsorge: float = 0.
     if lohn <= 0 or kalendertage <= 0:
         return 0.0
     faktor = 360.0 / kalendertage
-    jahreslohn = lohn * (1 - vorsorge) * faktor - PAUSCHBETRAEGE
+    jahreslohn = lohn * (1 - vorsorge) * faktor - AN_PAUSCHBETRAG[jahr] - SA_PAUSCHBETRAG
     return einkommensteuer(jahreslohn, jahr) / faktor
 
 
@@ -327,6 +329,7 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
                 buche(q["r"].name, -zuviel, -zuviel / q["satz"])
 
     # 4. Sommer nach dem Zeugnis: Vollzeitjob, ggf. dazu Samstage
+    augustlohn_netto = 0.0
     if a.mit_kurzfristig:
         if sommer_kurz:
             nach_tagen = a.tage_kurzfristig - wt[2027]
@@ -345,12 +348,16 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
             lohn_sv[2027] += betrag
         # Lohnzahlungszeiträume: Juni (3 Tage), Juli, August – gekürzt wird am Ende
         rest = werktage_sommer * anteil
-        for arbeitstage, kalendertage in SOMMER_MONATE:
+        for monat, (arbeitstage, kalendertage) in enumerate(SOMMER_MONATE):
             teil = min(rest, arbeitstage)
             if teil <= 0:
                 break
-            abrechnungen.append((2027, betrag * teil / (werktage_sommer * anteil), kalendertage * teil / arbeitstage,
-                                 vorsorge))
+            b_monat, k_monat = betrag * teil / (werktage_sommer * anteil), kalendertage * teil / arbeitstage
+            abrechnungen.append((2027, b_monat, k_monat, vorsorge))
+            if monat == 2:
+                # Stundenlohn ist erst nach Monatsende fällig (§ 614 BGB, § 2 MiLoG): oft im September
+                sv_satz = 0.0 if sommer_kurz else a.sv_berufsmaessig
+                augustlohn_netto = b_monat * (1 - sv_satz) - lohnsteuer(b_monat, k_monat, 2027, vorsorge)
             rest -= teil
         buche("Sommerjob nach dem Zeugnis" + (" (kurzfristig)" if sommer_kurz else " (sozialversicherungspflichtig)"),
               betrag, stunden)
@@ -369,18 +376,20 @@ def ein_verlauf(rng: random.Random, a: Annahmen) -> dict:
         s = art_summe[j]
         sv = lohn_sv[j] * a.sv_berufsmaessig
         frei_ueber = max(0.0, s["frei"] - a.uebungsleiter_frei)
-        zve = max(0.0, lohn[j] - sv - min(1_230.0, lohn[j]) - 36.0) + s["selbst"] + frei_ueber
+        zve = max(0.0, lohn[j] - sv - min(AN_PAUSCHBETRAG[j], lohn[j]) - SA_PAUSCHBETRAG) + s["selbst"] + frei_ueber
         steuer_jahr[j] = einkommensteuer(zve, j)
         brutto_j = lohn[j] + s["mini"] + s["selbst"] + s["frei"]
         netto += brutto_j - sv - steuer_jahr[j]
         brutto_summe += brutto_j
         sv_summe += sv
-    # Am 31.08.2027: Steuer 2026 ist erklärt und erstattet, für 2027 fehlt die einbehaltene Lohnsteuer.
+    # Am 31.08.2027: Steuer 2026 ist erklärt und erstattet (Median ~100 EUR), für 2027 fehlt die
+    # einbehaltene Lohnsteuer; der Augustlohn des Sommerjobs ist hier schon gutgeschrieben.
     kontostand = netto + steuer_jahr[2027] - einbehalten
     pruef = {j: {"selbst": art_summe[j]["selbst"], "mini": art_summe[j]["mini"], "mini_monate": mini_monate[j],
                  "frei": art_summe[j]["frei"], "nachhilfe": nachhilfe[j], "nachhilfe_monate": nachhilfe_monate[j],
                  "arbeitstage": wt[j], "kalendertage": kt[j]} for j in jahre}
-    return {"netto": netto, "kontostand": kontostand, "einbehalten": einbehalten, "steuer": steuer_jahr,
+    return {"netto": netto, "kontostand": kontostand, "kontostand_ohne_augustlohn": kontostand - augustlohn_netto,
+            "einbehalten": einbehalten, "steuer": steuer_jahr,
             "sv": sv_summe, "lohn_sv": sum(lohn_sv.values()), "brutto": brutto_summe, "stunden": stunden_gesamt,
             "je_quelle": je_quelle, "dual": dual, "start": start, "industrie": industrie,
             "tage_kurzfristig": dict(wt), "kalendertage_kurzfristig": dict(kt), "pruef": pruef}
@@ -405,6 +414,7 @@ def auswerten(n: int = 20_000, seed: int = 2027, a: Annahmen | None = None) -> d
     return {"p10": qu(0.10), "p25": qu(0.25), "median": qu(0.50), "p75": qu(0.75), "p90": qu(0.90),
             "p99": qu(0.99), "mittel": sum(netto) / n,
             "stunden_median": median("stunden"), "kontostand_median": median("kontostand"),
+            "kontostand_ohne_augustlohn_median": median("kontostand_ohne_augustlohn"), "sv_median": median("sv"),
             "einbehalten_median": median("einbehalten"), "einbehalten_mittel": sum(v["einbehalten"] for v in verlaeufe) / n,
             "quellen_mittel": {k: sum(x) / n for k, x in quellen.items()}}
 
@@ -477,10 +487,14 @@ def main() -> None:
         r = auswerten(args.n, a=szenario(aend))
         print(f"  {titel:58s} sicher (90 %) {_eur(r['p10'])}  Median {_eur(r['median'])}"
               f"  gut (10 %) {_eur(r['p90'])}")
+        if titel.startswith(("FH", "dual")):
+            print(f"  {'':58s} Median: am 31.08. auf dem Konto {_eur(r['kontostand_median'])}, ohne Augustlohn "
+                  f"{_eur(r['kontostand_ohne_augustlohn_median'])}; Lohnsteuer einbehalten "
+                  f"{_eur(r['einbehalten_median'])}; Sozialabgaben {_eur(r['sv_median'])}")
     r = auswerten(args.n)
     print(f"\n  Beste Mischung: Stunden (Median) {r['stunden_median']:.0f}; Lohnsteuer 2027 einbehalten "
           f"(Median) {_eur(r['einbehalten_median'])} EUR, Kontostand am 31.08. (Median) "
-          f"{_eur(r['kontostand_median'])} EUR")
+          f"{_eur(r['kontostand_median'])} EUR, ohne Augustlohn {_eur(r['kontostand_ohne_augustlohn_median'])} EUR")
     print("  Mittlerer Beitrag je Quelle (brutto bzw. Gewinn):")
     for k, x in sorted(r["quellen_mittel"].items(), key=lambda kv: -kv[1]):
         print(f"    {k:58s} {_eur(x)} EUR")
