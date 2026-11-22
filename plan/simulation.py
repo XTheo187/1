@@ -99,14 +99,14 @@ def netto_angestellt(brutto: float, index: float, jahr: int = 0) -> float:
 def netto_selbststaendig(gewinn: float, index: float, jahr: int = 0) -> float:
     """Netto aus Gewinn eines Einzelunternehmens.
 
-    Freiwillige KV/PV rund 19,7 % vom Gewinn, mindestens auf ca. 1.250 EUR
+    Freiwillige KV/PV rund 21,1 % vom Gewinn (2026, steigend), mindestens auf ca. 1.250 EUR
     Monatseinkommen, höchstens bis BBG. Keine Pflicht-RV (Altersvorsorge
     läuft über das ETF-Depot und zählt dort mit). Gewerbesteuer wird bei
     Hebesatz um 400 % weitgehend auf die Einkommensteuer angerechnet und
     deshalb nicht gesondert angesetzt.
     """
     if gewinn <= 0:
-        return gewinn - 1_250 * 12 * 0.197 * index
+        return gewinn - 1_250 * 12 * (0.211 + 0.04 * min(1.0, jahr / 8)) * index
     basis = min(max(gewinn, 1_250 * 12 * index), 69_750 * index * 1.01 ** jahr)
     # KV ermäßigt 14,0 % + Zusatzbeitrag 2,9 % + PV kinderlos 4,2 % (2026); Selbstständige zahlen
     # den vollen KV/PV-Anstieg (IGES 2026: GKV 17,5 -> 20,6 %, SPV ~+0,9 -> ~+4 Punkte bis 2035).
@@ -805,7 +805,8 @@ class Weichen:
     ch_pk_zins: float = 0.0175                       # Annahme; BVG-Mindestzins 1,25 % (2026), 2 % (2027)
     ch_kinder_faktor: float = 1.7                    # Kita in der Schweiz fast zum Vollpreis (4 Jahre)
     ch_wachstum_spaet: tuple = (0.0, 0.006, 0.018)   # SwissICT: ICT-Löhne nominal kaum gestiegen
-    start_ch: tuple = (75_000, 88_000, 105_000)    # CHF; swissICT 2025: FH-Bachelor 81.850, 2026: Junior ~80.000
+    start_ch: tuple = (75_000, 81_850, 95_000)     # CHF; swissICT 2025: FH-Bachelor-Einstieg Median 81.850,
+                                                   # 2026: Junior-Neueinstellungen ~80.000
     start_de: tuple = (44_000, 50_000, 58_000)
     # Vertrieb (korrigiert nach der Gegenprüfung; Markt 2024-26 geschrumpft:
     # 36 % der B2B-Firmen haben SDR-Teams verkleinert, SDR-Anzeigen -21 %)
@@ -1000,7 +1001,7 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
             return "de"
 
         pibs_platz = wp.erste_phase == "pibs" and rng.random() < d(wp.p_pibs_platz) * ki_f
-        p_dual = d(wp.p_dual_platz) * ki_f
+        p_dual = p_dual_neu = d(wp.p_dual_platz) * ki_f   # p_dual_neu: Chance bei einem Neustart
         if wp.erste_phase == "pibs":
             p_dual *= 0.85      # gleiches Bewerberprofil, Termine kollidieren
         if pibs_platz:
@@ -1073,8 +1074,10 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                                                wp.ch_wachstum_spaet, 10, (0.2, 0.25, 0.32))
                     if ki:
                         pfade["ch"].g *= wp.ki_start
-                    if neustart:    # Neustart in DE: dual, sonst Bachelor (Studium ab Jahr 1)
-                        if rng.random() < p_dual / 0.85:
+                    if neustart and not lage.get("neustart"):   # Neustart in DE: dual, sonst Bachelor
+                        lage["neustart"] = True
+                        frueher_abbruch = rng.random() < wp.p_frueher_abbruch
+                        if rng.random() < p_dual_neu:
                             zustand, programm_ende = "dual", j + 3
                         else:
                             zustand, studium_ende = "studium", j + 4
@@ -1094,7 +1097,9 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                 sparen = netto - studium.ausgaben(netto, idx)
                 if bricht_dual_ab and frueher_abbruch and j == programm_ende - 2:
                     bricht_dual_ab = False
-                    if neustart:    # Neustart: Bachelor + Agentur
+                    if neustart and not lage.get("neustart"):   # Neustart: Bachelor + Agentur
+                        lage["neustart"] = True
+                        frueher_abbruch = rng.random() < wp.p_frueher_abbruch
                         zustand, studium_ende = "studium", j + 4
                         bricht_ab = rng.random() < d(wp.p_studienabbruch)
                     else:
@@ -1124,12 +1129,12 @@ def weichenplan(wp: Weichen | None = None, ap: AgenturParameter | None = None,
                         # Abbruch-Regel des Plans: im ersten Jahr sofort neu starten -
                         # dual, wenn ein Platz kommt, sonst ein neues Bachelorstudium.
                         lage["neustart"] = True
-                        if rng.random() < p_dual / 0.85:
+                        frueher_abbruch = rng.random() < wp.p_frueher_abbruch
+                        if rng.random() < p_dual_neu:
                             zustand, programm_ende = "dual", j + 3
                         else:
                             studium_ende = j + 4
                             bricht_ab = rng.random() < d(wp.p_studienabbruch)
-                            frueher_abbruch = rng.random() < wp.p_frueher_abbruch
                     else:
                         # Ohne Neustart: ohne Abschluss in den Beruf (Agentur läuft weiter).
                         # bricht_ab bleibt True, damit studium_beenden() keinen Abschluss vergibt.
@@ -1497,7 +1502,7 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
                          "p_dual_platz": (0.25, 0.40, 0.55),
                          "rueckkehr_ch_frueh": (0.11, 0.13, 0.15),
                          "rueckkehr_ch": (0.03, 0.04, 0.05)})
-ZIEL_ALTER = 57      # 31.08.2065, das Planziel: Basis ~53 %, Stress ~49 %
+ZIEL_ALTER = 57      # 31.08.2065, das Planziel (Werte: python3 plan/simulation.py --stress)
 GARANTIE_ALTER = 62  # Sommer 2070: auch Fall A (ohne Schweiz/PiBS/dual, KI-Druck sicher) knapp über 50 %
 ROBUST_ALTER = 64    # Sommer 2072: Fall A + äußere Kleinannahmen, aber ohne Hauskauf und Aufgeben,
                      # knapp über 50 % (ohne diese Regeltreue bleibt der Fall bis 65 darunter, ~49 %)
@@ -1702,6 +1707,14 @@ def extra(n: int = 10_000) -> dict:
     _, _, fall_a = faelle_stress()
     aussen = replace(fall_a, **AUSSEN_PESSIMISTISCH)
     erg = {}
+    seeds16 = (2027, 1, 2, 3, 101, 202, 303, 404, 5, 6, 7, 8, 9, 10, 11, 12)
+    erg["16 Läufe am Zieldatum: Plan / Stress"] = tuple(
+        mehrfach(weichenplan(w), n, seeds=seeds16, alter=(ZIEL_ALTER,))[ZIEL_ALTER][0] for w in (PLAN, PLAN_STRESS))
+    erg["Plan ohne FH-Plan-B und ohne Neustart nach Abbruch: P am Zieldatum"] = (mehrfach(weichenplan(replace(
+        PLAN, p_studienabbruch=Weichen().p_studienabbruch, p_neustart=0.0)), n, alter=(ZIEL_ALTER,))[ZIEL_ALTER][0],)
+    erg["Plan nur ohne FH-Plan-B / nur ohne Neustart: P am Zieldatum"] = tuple(
+        mehrfach(weichenplan(w), n, alter=(ZIEL_ALTER,))[ZIEL_ALTER][0]
+        for w in (replace(PLAN, p_studienabbruch=Weichen().p_studienabbruch), replace(PLAN, p_neustart=0.0)))
     e = mehrfach(weichenplan(PLAN), n, alter=(ZIEL_ALTER, 60))
     erg["Kaufkraft heute: P(1 Mio. real) am Zieldatum / mit 60"] = (e[ZIEL_ALTER][2], e[60][2])
     typisch = dict(lam_streu=(0.50, 0.62, 0.75))
@@ -1730,7 +1743,8 @@ def extra(n: int = 10_000) -> dict:
         erg[f"{titel}: Anteil der Leben ohne Abschluss"] = (ohne / n,)
     rng = random.Random(1)
     for titel, pfad, f in (("IT-Bachelor", IT_BACHELOR, 1.0), ("IT-Bachelor mit KI-Abschlag", IT_BACHELOR,
-                                                                  Weichen().ki_start), ("ohne Abschluss", WEBDEV, 1.0)):
+                                                                  Weichen().ki_start), ("ohne Abschluss", WEBDEV, 1.0),
+                           ("ohne Abschluss mit KI-Abschlag", WEBDEV, Weichen().ki_start)):
         baender = {(1, 3): [], (5, 8): [], (10, 13): []}
         for _ in range(n):
             g = _gehalt_pfad(rng, **dict(pfad, start=tuple(x * f for x in pfad["start"])))
@@ -1769,7 +1783,7 @@ def main() -> None:
     if a.stress:
         stress, haerte, _ = faelle_stress()
         for kopf, faelle, spalten in (("Stresstest", stress, (54, 56, ZIEL_ALTER, 60, 62, 65)),
-                                      ("Härtefälle", haerte, (ZIEL_ALTER, 60, 62, 65))):
+                                      ("Härtefälle", haerte, (ZIEL_ALTER, 60, 62, 64, 65))):
             print(f"{kopf} (4 x {a.n} Leben; Jahre: " + ", ".join(
                 f"{x} = {2027 + x - START_ALTER}" for x in spalten) + ")")
             print("-" * 110)

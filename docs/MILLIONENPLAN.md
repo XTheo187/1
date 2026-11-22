@@ -55,7 +55,7 @@ Wer die Sparregel wirklich hält, kommt auf 67 %.
   Prüfer überstanden; dabei wurde die erste Aussage „50 % mit 40“
   korrigiert. Die fünf Werte der Kopftabelle und die Hauptzahl prüft ein
   Test bei jedem Lauf gegen die Simulation (±2 Punkte, 10.000 Leben); alle
-  übrigen Tabellen erzeugen die Befehle unten (Abschnitt 9).
+  übrigen Zahlen erzeugen die Befehle direkt unter dieser Liste.
 
 Gemessen wird 1 Mio. € **nominal**, nach der Steuer, die beim Verkauf der
 ETFs fällig würde, ohne Erbschaft, ohne Vermögen eines Partners; eingerechnet
@@ -67,8 +67,12 @@ die EU nur teilweise auszahlen). In heutiger Kaufkraft sind 1 Mio. € am
 
 Alles lässt sich nachrechnen (je 4 × 10.000 Leben, wie im Dokument):
 `python3 plan/simulation.py` (Abschnitt 1 und 3, einige Minuten),
-`--stress` (Stress- und Härtefälle), `--sens` (Sensitivität),
-`--kontrolle` (Kontrollwerte); Tests: `python3 -m unittest discover -s tests`.
+`--sommer` (Abschnitt 1 und 5), `--stress` (Stress- und Härtefälle),
+`--sens` (Sensitivität), `--kontrolle` (Kontrollwerte), `--extra` (alle
+übrigen Einzelzahlen, auch die 16-Lauf-Werte); Tests:
+`python3 -m unittest discover -s tests`. Alle Ergebnisse sind Modellwerte:
+Die ±-Angaben sind nur das Rechenrauschen der Simulation – wie unsicher
+die Annahmen sind, zeigt die Sensitivitätstabelle in Abschnitt 7.
 
 **Zur Person:** Gerechnet ist für dich als Schüler der 13. Klasse mit Abitur
 im Frühjahr 2027, also 19 Jahre alt im Sommer 2027. Bist du ein Jahr älter,
@@ -222,11 +226,14 @@ Optionen liegt ebenfalls bei 53 %.
 - Wer in Deutschland studiert: Praktikum oder Abschlussarbeit mit Bezug zur
   Schweiz, Englisch und Deutsch fließend, Lebenslauf auf Schweizer Stellen
   ausrichten.
-- **Abbruch-Regel:** Läuft das Studium im ersten Jahr schief, sofort neu
-  starten (dual, sonst ein anderes Studium) statt zwei Jahre durchhalten. Im
-  Modell ist die Regel eingerechnet, aber vorsichtig: Nur die Hälfte derer,
-  die im ersten Jahr abbrechen, startet wirklich neu; die andere Hälfte geht
-  ohne Abschluss in den Beruf.
+- **Abbruch-Regel:** Läuft das Studium schon im ersten Semester schlecht,
+  bis Februar parallel auf duale Plätze für den nächsten Herbst bewerben;
+  bleibt es am Ende des ersten Jahres schlecht, sofort neu starten (dual,
+  sonst ein anderes Informatik- oder Wirtschaftsinformatik-Studium) statt
+  zwei Jahre durchhalten. Im Modell ist die Regel eingerechnet, aber
+  vorsichtig: Nur die Hälfte derer, die im ersten Jahr abbrechen, startet
+  wirklich neu, und das höchstens einmal; die andere Hälfte geht ohne
+  Abschluss in den Beruf.
 
 ### Phase 2 – ~2031 bis ~2040: Die Schweiz-Phase
 
@@ -271,7 +278,8 @@ Grundbedarf und spart 40 % von allem darüber.)
 |---|---|---|
 | Feb. 2027 | kein dualer Platz | Bachelor-Bewerbung vorbereiten, PiBS weiter verfolgen |
 | Ende April 2027 | auch kein PiBS-Vertrag | Bachelor-Bewerbung abschicken, Webgeschäft ausbauen |
-| Ende 1. Studienjahr | Prüfungen nicht bestanden / kein Interesse | sofort neu starten (dual oder anderes Fach) |
+| 1. Semester (bis Februar) | Studium läuft schlecht | parallel auf duale Plätze für den nächsten Herbst bewerben |
+| Ende 1. Studienjahr | Prüfungen nicht bestanden / kein Interesse | sofort neu starten: dual oder ein anderes Informatik-/Wirtschaftsinformatik-Studium (fachfremder Wechsel ist nicht eingerechnet) |
 | Studienende | Schweizer Stelle angeboten | annehmen |
 | nach 4 Jahren DE-Stelle | noch nicht in der Schweiz | zweiter Anlauf; parallel Gehalt verhandeln |
 | ab 5 Berufsjahren | Freelance-Gewinn > 1,2 × Gehalt erreichbar | IT-Freelancing prüfen |
@@ -500,7 +508,7 @@ Verkaufsargument taugt es kaum.
    Quellenprüfung (Punkt 4) zu den Zahlen im Kopf dieses Dokuments.
    *Die folgenden Prüfberichte beziehen sich auf frühere Commits, also auf
    die Zahlen vor der Quellenprüfung; ihre Werte sind überholt.*
-   **Schlussverifikation** auf dem gepushten Stand (frischer Checkout, alle
+   **Frühere Schlussverifikation** (vor der Quellenprüfung; frischer Checkout, alle
    Tests grün): 8 von 8 unabhängigen Läufen (Seeds 2027/1/2/3 und
    101/202/303/404, je 10.000 Leben) liefern das 50-%-Alter 54;
    P(54) = 51,9 % bzw. 52,1 %, untere Intervallgrenze jeweils über 51,4 %
@@ -558,8 +566,8 @@ Verkaufsargument taugt es kaum.
 
 Die Belege unten wurden am 22.11.2026 einzeln gegen die verlinkte
 Originalquelle geprüft (acht Prüfer, je einer pro Themengruppe, danach eine
-unabhängige Gegenprobe von 8 der bestätigten Belege: alle 8 halten; ein
-weiterer Prüfer hat alle Links abgerufen – alle erreichbar – und rund 50
+unabhängige Gegenprobe von 8 der bestätigten Belege: alle 8 halten; zwei
+weitere Prüfer haben alle Links abgerufen – alle erreichbar – und rund 50
 Zahlen erneut gegen die Originale gehalten). Wo die Quelle etwas anderes
 sagte als die frühere Fassung dieses Plans, steht hier der korrigierte Wert,
 und der Plan rechnet damit. Live-Seiten (Interhyp, Stepstone, get in IT,
