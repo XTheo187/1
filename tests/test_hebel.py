@@ -89,21 +89,58 @@ class TestZusatzImJobModell(unittest.TestCase):
         self.assertLess(m["netto"] - b["netto"], 8_000)
 
 
+class TestPruefbefunde(unittest.TestCase):
+    def test_ueberlauf_wird_berechnet(self):
+        a = v.Annahmen()
+        e = v.ein_verlauf(random.Random(3), a, v.Zusatz(stunden=((h.PH_JAN, 10_000.0),)))
+        self.assertGreater(e["ueberlauf"][h.PH_JAN], 9_000)
+        z, rest = h._ueberlauf_verteilen(v.Zusatz(), {h.PH_JAN: 100.0})
+        self.assertEqual(z.ferientage, ((h.PH_FRUEH, 5.0),))
+        self.assertAlmostEqual(rest, 60.0)
+
+    def test_web_sortierung_beim_erwartungswert(self):
+        o = h.WebSommer("abends")
+        a = v.Annahmen()
+        for i in range(30):
+            a_lauf, _ = o.vorbereiten(random.Random(i), a)
+            web = next(r for r in a_lauf.regelmaessig if r.name == h.WEB)
+            self.assertAlmostEqual(web.sortier_satz, v._mitte(next(r for r in a.regelmaessig if r.name == h.WEB).satz))
+
+    def test_teilzeit_behaelt_samstage(self):
+        a = replace(v.Annahmen(), p_dual=1.0, start_dual=(("01.09.", 1.0),), samstage=(1.0, 1.0, 1.0),
+                    stunden_tag=(7.5, 7.5, 7.5))
+        voll = v.ein_verlauf(random.Random(2), a, v.Zusatz())["sommer_lohn_monate"]
+        teil = v.ein_verlauf(random.Random(2), a, v.Zusatz(sommer_anteil=0.6))["sommer_lohn_monate"]
+        # 3 Tage + Samstag = 4 von 6 Tagen
+        self.assertAlmostEqual(sum(teil) / sum(voll), 4 / 6, places=6)
+
+    def test_sonderausgaben_senken_die_steuer(self):
+        a = replace(v.Annahmen(), p_dual=0.0)
+        z = v.Zusatz(gewinn=((2027, 9_000.0),))
+        ohne = v.ein_verlauf(random.Random(4), a, z)
+        mit = v.ein_verlauf(random.Random(4), a, replace(z, sonderausgaben=((2027, 2_000.0),)))
+        self.assertLess(mit["steuer"][2027], ohne["steuer"][2027])
+
+
 class TestRegeln(unittest.TestCase):
     def test_familienversicherung(self):
         a = v.Annahmen()
         grenze = 12 * a.grenze_regel[2027]
-        self.assertFalse(h.famv_verloren({"selbst": grenze, "mini": 0.0, "mini_monate": 0.0}, a))
-        self.assertTrue(h.famv_verloren({"selbst": grenze + 1, "mini": 0.0, "mini_monate": 0.0}, a))
+        self.assertIsNone(h.famv_verloren({"selbst": grenze, "mini": 0.0, "mini_monate": 0.0}, a))
+        self.assertEqual(h.famv_verloren({"selbst": grenze + 1, "mini": 0.0, "mini_monate": 0.0}, a), "grenze")
         # mit Minijob: Minijob/Monat + Gewinn/12 <= 633
-        self.assertFalse(h.famv_verloren({"selbst": 1_200.0, "mini": 500.0 * 5, "mini_monate": 5.0}, a))
-        self.assertTrue(h.famv_verloren({"selbst": 1_800.0, "mini": 500.0 * 5, "mini_monate": 5.0}, a))
+        self.assertIsNone(h.famv_verloren({"selbst": 1_200.0, "mini": 500.0 * 5, "mini_monate": 5.0}, a))
+        self.assertEqual(h.famv_verloren({"selbst": 1_800.0, "mini": 500.0 * 5, "mini_monate": 5.0}, a), "minijob")
 
     def test_kv_nur_bei_verlust_der_familienversicherung(self):
         kv = h.KV()
         fh = {"dual": False, "start": "01.10.", "sommer_lohn_monate": [400.0, 3_300.0, 3_300.0]}
-        self.assertEqual(h.kv_kosten(random.Random(1), kv, fh, 5_000.0, False, False), (0.0, 0.0))
-        bis, danach = h.kv_kosten(random.Random(1), kv, fh, 9_000.0, True, True)
+        self.assertEqual(h.kv_kosten(random.Random(1), kv, fh, 5_000.0, None, False), (0.0, 0.0))
+        # nur über die Minijob-Regel: Minijob endet vor dem Sommer, ehrliche Prognose -> keine Kosten
+        self.assertEqual(h.kv_kosten(random.Random(1), kv, fh, 5_000.0, "minijob", False), (0.0, 0.0))
+        # geplant: ab April, auch wenn der Gewinn am Ende unter der Grenze bleibt
+        self.assertGreater(h.kv_kosten(random.Random(1), kv, fh, 5_000.0, None, True)[0], 0.0)
+        bis, danach = h.kv_kosten(random.Random(1), kv, fh, 9_000.0, "grenze", True)
         mindest = 5 * 0.200 * kv.mindestbemessung
         # Studium: April bis August freiwillig, und im Juli/August ist auch der Sommerjob-Lohn beitragspflichtig
         self.assertGreater(bis, mindest + 0.2 * 6_000)
@@ -112,21 +149,25 @@ class TestRegeln(unittest.TestCase):
     def test_kv_dual_endet_mit_dem_berufsmaessigen_job(self):
         kv = h.KV()
         dual = {"dual": True, "start": "01.09.", "sommer_lohn_monate": [400.0, 3_300.0, 3_300.0]}
-        bis, danach = h.kv_kosten(random.Random(1), kv, dual, 9_000.0, True, True)
+        bis, danach = h.kv_kosten(random.Random(1), kv, dual, 9_000.0, "grenze", True)
         r_max = 0.140 + 0.036 + 0.036
         # April, Mai voll, Juni zu 27/30, Juli/August pflichtversichert über den Sommerjob
         self.assertLessEqual(bis, (2 + 27 / 30) * r_max * max(kv.mindestbemessung, 9_000 / 8) + 1e-6)
         self.assertEqual(danach, 0.0)
         ohne_job = dict(dual, sommer_lohn_monate=[0.0, 0.0, 0.0])
-        self.assertGreater(h.kv_kosten(random.Random(1), kv, ohne_job, 9_000.0, True, True)[0], bis)
+        self.assertGreater(h.kv_kosten(random.Random(1), kv, ohne_job, 9_000.0, "grenze", True)[0], bis)
+        # Beitragsbemessungsgrenze: nie mehr als 5 Monate x Satz x 6.375 EUR
+        riesig = h.kv_kosten(random.Random(1), kv, ohne_job, 900_000.0, "grenze", True)[0]
+        self.assertLessEqual(riesig, 5 * r_max * kv.bbg + 1e-6)
 
     def test_hauptberuflich_nur_bei_vollzeit(self):
         kv = h.KV()
         fh = {"dual": False, "start": "01.10.", "sommer_lohn_monate": [0.0, 0.0, 0.0]}
-        teil = [h.kv_kosten(random.Random(s), kv, fh, 4_000.0, False, False, (7, 8), 3_000.0, 20.0)[0]
+        # 20 h/Woche: erst über 75 % der Bezugsgröße (~3.100 EUR im Monat) hauptberuflich
+        teil = [h.kv_kosten(random.Random(s), kv, fh, 4_000.0, None, False, (7, 8), 3_000.0, 20.0, 2.0)[0]
                 for s in range(50)]
         self.assertEqual(max(teil), 0.0)
-        voll = [h.kv_kosten(random.Random(s), kv, fh, 4_000.0, False, False, (7, 8), 3_000.0, 40.0)[0]
+        voll = [h.kv_kosten(random.Random(s), kv, fh, 4_000.0, None, False, (7, 8), 3_000.0, 40.0, 2.0)[0]
                 for s in range(200)]
         anteil = sum(1 for x in voll if x > 0) / len(voll)
         self.assertAlmostEqual(anteil, kv.p_hauptberuflich, delta=0.1)
@@ -142,8 +183,8 @@ class TestRegeln(unittest.TestCase):
     def test_familienversicherung_mit_nachlauf(self):
         a = v.Annahmen()
         p = {"selbst": 6_000.0, "mini": 0.0, "mini_monate": 0.0}
-        self.assertFalse(h.famv_verloren(p, a))
-        self.assertTrue(h.famv_verloren(p, a, nachlauf=1_500.0))
+        self.assertIsNone(h.famv_verloren(p, a))
+        self.assertEqual(h.famv_verloren(p, a, nachlauf=1_500.0), "grenze")
 
     def test_kombination_nur_ein_sommer(self):
         k = h.Kombination("x", "x", (h.WebSommer("vollzeit"), h.Umzug(stufenplan=False)))
@@ -191,7 +232,10 @@ class TestOptionen(unittest.TestCase):
             self.assertEqual(ef.gewinn, 0.0)
             self.assertGreaterEqual(ef.zusatz.sommer_brutto, 0.0)
             eg = g.ziehen(random.Random(i), basis, {})
-            self.assertIsNone(eg.zusatz.sommer_brutto)      # selbstständig: Gewinn
+            # selbstständig: Gewinn; ein später Job nach dem Abbruch nur als Lohn für die Resttage
+            if eg.zusatz.sommer_brutto is not None:
+                self.assertTrue(eg.abbruch)
+                self.assertGreater(eg.zusatz.sommer_anteil, 0.0)
             self.assertLessEqual(eg.zusatz.sommer_anteil, 1.0)
             self.assertGreater(eg.wochenstunden, 30)
 

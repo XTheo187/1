@@ -154,13 +154,16 @@ class Regelmaessig:
     kosten: tuple = (0, 0, 0)   # Anteil Kosten am Umsatz (nur selbstständig)
     art: str = "selbst"         # selbst | mini | frei (Übungsleiterpauschale)
     rv_grenze: bool = False     # selbstständige Lehrtätigkeit: rentenversicherungspflichtig über 603/633 EUR
+    sortier_satz: float | None = None   # Erwartungswert für die Reihenfolge, wenn satz je Lauf fest gesetzt ist
 
 
 REGELMAESSIG = (
     # Superprof 12/2024: Oberstufe privat 20–40 EUR/h; Schüler/Studierende eher 15–30.
     Regelmaessig("Nachhilfe (privat)", (15, 22, 30), (1, 3, 6), p_verfuegbar=(0.6, 0.8, 0.95), rv_grenze=True),
-    # Eigenes Modell (sim.sommer_meilensteine): Umsatz je Arbeitsstunde P10 9, Median 26, P90 40 EUR.
-    Regelmaessig("Webgeschäft (standortcheck)", (9, 26, 40), (2, 6, 12), kosten=(0.05, 0.10, 0.20)),
+    # Umsatz je Arbeitsstunde inkl. Akquise, mit den Quoten der Recherche für Neulinge (Einstieg
+    # 0,5-5 % je Kontakt, Upsell 5-30 %, Paket 800-2.200 EUR; plan/hebel_2027.py WebParameter):
+    # sehr ungleich verteilt, im Mittel ~16 EUR/h (früher aus sim.sommer_meilensteine: 9/26/40).
+    Regelmaessig("Webgeschäft (standortcheck)", (0, 6, 42), (2, 6, 12), kosten=(0.05, 0.10, 0.20)),
     # Minijob Handel/Gastro: Mindestlohn 13,90 (2026) / 14,60 EUR (2027) bis ~16 EUR.
     Regelmaessig("Minijob (Handel, Gastro)", (14.6, 15.0, 16.5), (3, 6, 10), art="mini"),
     # Trainer im Sportverein, Betreuung bei gemeinnützigem Träger, Ferienprogramm, VHS:
@@ -196,6 +199,8 @@ class Zusatz:
     sommer_samstage: float = 1.0    # Anteil der Sommer-Samstage, die das Geschäft für den Job frei lässt
     gewinn: tuple = ()              # (Jahr, Gewinn aus selbstständiger Arbeit vor Steuer, auch negativ)
     sommer_brutto: float | None = None  # anderer Sommerjob (z. B. mit Provision): Brutto für den ganzen Sommer
+    sommer_satz: float | None = None    # anderer Stundenlohn des Sommerjobs (z. B. Teilzeit-Ferienjob)
+    sonderausgaben: tuple = ()          # (Jahr, Betrag): z. B. Beiträge einer eigenen Kranken-/Pflegeversicherung
 
 
 def _summe(paare: tuple, schluessel) -> float:
@@ -252,7 +257,12 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
     samstage = _z(rng, a.samstage)
     samstage = min(samstage, max(0.0, z.sommer_samstage))
     werktage_sommer = SOMMER_TAGE[start]
-    sommer_voll = werktage_sommer * z.sommer_anteil * (1 + samstage / 5)      # Arbeitstage inkl. Samstage
+    # Arbeitstage inkl. Samstage: Teilzeit (weniger Tage je Woche) behält alle Samstage, die das Geschäft
+    # frei lässt; ein späterer Beginn hat entsprechend weniger Wochen und damit weniger Samstage
+    if z.sommer_teilzeit:
+        sommer_voll = werktage_sommer * (z.sommer_anteil + samstage / 5) if z.sommer_anteil > 0 else 0.0
+    else:
+        sommer_voll = werktage_sommer * z.sommer_anteil * (1 + samstage / 5)
     # Kalendertage des Sommervertrags: Teilzeit über den ganzen Sommer oder späterer Beginn
     kal_sommer = SOMMER_KALENDERTAGE * (1.0 if z.sommer_teilzeit else z.sommer_anteil)
 
@@ -262,7 +272,8 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
             continue
         quellen.append(dict(r=r, da=rng.random() < _z(rng, r.p_verfuegbar), satz=_z(rng, r.satz),
                             max_woche=_z(rng, r.max_woche), kosten=_z(rng, r.kosten),
-                            netto_erwartet=_mitte(r.satz) * (1 - _mitte(r.kosten))))
+                            netto_erwartet=(r.sortier_satz if r.sortier_satz is not None else _mitte(r.satz))
+                            * (1 - _mitte(r.kosten))))
     # Zuerst die Quellen mit dem höchsten erwarteten Erlös je Stunde (spart Lernzeit).
     quellen.sort(key=lambda q: q["netto_erwartet"], reverse=True)
 
@@ -277,8 +288,10 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
     kt = {j: 0.0 for j in jahre}             # Kalendertage kurzfristig
     abrechnungen = []                        # (jahr, lohn, kalendertage, vorsorge) für die Lohnsteuer
     je_quelle: dict[str, float] = {}
+    ueberlauf: dict[str, float] = {}         # Stunden eines Zusatzgeschäfts über dem Phasenbudget
     stunden_je_quelle: dict[str, float] = {}
     je_phase: dict[str, dict[str, float]] = {}   # Phase -> Quelle -> Betrag (für Frühindikatoren)
+    stunden_je_phase: dict[str, dict[str, float]] = {}   # Phase -> Quelle -> Stunden
     phase_jetzt = "Sommer"
     stunden_gesamt = 0.0
 
@@ -287,6 +300,8 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
         je_quelle[name] = je_quelle.get(name, 0.0) + betrag
         stunden_je_quelle[name] = stunden_je_quelle.get(name, 0.0) + stunden
         je_phase.setdefault(phase_jetzt, {})[name] = je_phase.get(phase_jetzt, {}).get(name, 0.0) + betrag
+        sp = stunden_je_phase.setdefault(phase_jetzt, {})
+        sp[name] = sp.get(name, 0.0) + stunden
         stunden_gesamt += stunden
 
     def frei_tage(jahr: int, kalender_je_tag: float) -> float:
@@ -315,7 +330,11 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
                 kurzfristig("Ferienjobs vor dem Zeugnis (kurzfristig)", ph.jahr, tage, ph.kalender_je_tag,
                             satz_ferien)
         # 2. Stundenbudget neben der Schule (abzüglich der Stunden, die ein Zusatzgeschäft braucht)
-        budget = max(0.0, _z(rng, ph.stunden) * ph.wochen - _summe(z.stunden, ph.name))
+        roh = _z(rng, ph.stunden) * ph.wochen
+        abzug = _summe(z.stunden, ph.name)
+        budget = max(0.0, roh - abzug)
+        if abzug > roh:
+            ueberlauf[ph.name] = abzug - roh     # mehr Stunden, als das Budget hergibt: geht auf Lernzeit
         if a.mit_regelmaessig and budget > 0 and ph.monate > 0:
             for q in quellen:
                 if not q["da"] or budget <= 0:
@@ -379,8 +398,10 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
         else:
             tage = sommer_voll
         anteil = tage / sommer_voll
-        stunden = min(tage * min(h_tag, 10.0), a.max_stunden_woche * werktage_sommer / 5 * anteil)
-        betrag = stunden * satz_ferien if z.sommer_brutto is None else z.sommer_brutto * anteil
+        wochen_job = werktage_sommer * (1.0 if z.sommer_teilzeit else z.sommer_anteil) / 5
+        stunden = min(tage * min(h_tag, 10.0), a.max_stunden_woche * wochen_job * anteil)
+        satz_sommer = satz_ferien if z.sommer_satz is None else z.sommer_satz
+        betrag = stunden * satz_sommer if z.sommer_brutto is None else z.sommer_brutto * anteil
         lohn[2027] += betrag
         vorsorge = 0.0 if sommer_kurz else a.vorsorge_lohnsteuer
         if not sommer_kurz:
@@ -390,7 +411,8 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
         s = z.sommer_anteil
         tage_job = werktage_sommer * s * anteil          # Mo–Fr-Arbeitstage des Jobs
         rest = tage_job
-        monate = list(enumerate(SOMMER_MONATE))
+        # bei Ausbildungsbeginn 01.08. endet der Job am 30.07.: nur Juni und Juli
+        monate = list(enumerate(SOMMER_MONATE[:2] if werktage_sommer <= 25 else SOMMER_MONATE))
         if not z.sommer_teilzeit:
             monate.reverse()
         for monat, (arbeitstage, kalendertage) in monate:
@@ -428,7 +450,8 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
         s = art_summe[j]
         sv = lohn_sv[j] * a.sv_berufsmaessig
         frei_ueber = max(0.0, s["frei"] - a.uebungsleiter_frei)
-        zve = max(0.0, lohn[j] - sv - min(AN_PAUSCHBETRAG[j], lohn[j]) - SA_PAUSCHBETRAG) + s["selbst"] + frei_ueber
+        zve = (max(0.0, lohn[j] - sv - min(AN_PAUSCHBETRAG[j], lohn[j]) - SA_PAUSCHBETRAG) + s["selbst"] + frei_ueber
+               - _summe(z.sonderausgaben, j))
         steuer_jahr[j] = einkommensteuer(zve, j)
         brutto_j = lohn[j] + s["mini"] + s["selbst"] + s["frei"]
         netto += brutto_j - sv - steuer_jahr[j]
@@ -441,9 +464,10 @@ def ein_verlauf(rng: random.Random, a: Annahmen, zusatz: Zusatz | None = None) -
                  "frei": art_summe[j]["frei"], "nachhilfe": nachhilfe[j], "nachhilfe_monate": nachhilfe_monate[j],
                  "arbeitstage": wt[j], "kalendertage": kt[j]} for j in jahre}
     return {"netto": netto, "kontostand": kontostand, "kontostand_ohne_augustlohn": kontostand - augustlohn_netto,
+            "ueberlauf": ueberlauf,
             "einbehalten": einbehalten, "steuer": steuer_jahr, "sommer_lohn_monate": sommer_lohn_monate,
             "sv": sv_summe, "lohn_sv": sum(lohn_sv.values()), "brutto": brutto_summe, "stunden": stunden_gesamt,
-            "je_quelle": je_quelle, "stunden_je_quelle": stunden_je_quelle, "je_phase": je_phase, "dual": dual, "start": start, "industrie": industrie,
+            "je_quelle": je_quelle, "stunden_je_quelle": stunden_je_quelle, "je_phase": je_phase, "stunden_je_phase": stunden_je_phase, "dual": dual, "start": start, "industrie": industrie,
             "tage_kurzfristig": dict(wt), "kalendertage_kurzfristig": dict(kt), "pruef": pruef}
 
 

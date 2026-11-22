@@ -4,33 +4,33 @@
 in Bayern (Raum Regensburg) – bis zum **31. August 2027** durch eigene
 Arbeit verdienen, ohne das Abitur zu gefährden?
 
-> **Antwort: realistisch maximal rund 14.000 € netto.**
+> **Antwort: realistisch maximal rund 13.500 € netto.**
 >
 > | Kennzahl (netto, nach Steuer und Abgaben) | Betrag |
 > |---|---:|
-> | **realistisches Maximum** – nur 1 von 10 Verläufen schafft mehr | **~14.000 €** |
-> | Median mit dem Plan unten | ~11.700 € |
-> | sicher – 9 von 10 Verläufen schaffen mindestens | ~9.100 € |
-> | absolute Obergrenze – jede Annahme am oberen Rand, ~930 Arbeitsstunden | ~21.500 € |
-> | … dazu 60-Stunden-Wochen im Sommer (nur mit Ausgleich nach Arbeitszeitgesetz) | ~23.300 € |
+> | **realistisches Maximum** – nur 1 von 10 Verläufen schafft mehr | **~13.500 €** |
+> | Median mit dem Plan unten | ~11.300 € |
+> | sicher – 9 von 10 Verläufen schaffen mindestens | ~8.800 € |
+> | absolute Obergrenze – jede Annahme am oberen Rand, ~930 Arbeitsstunden | ~21.800 € |
+> | … dazu 60-Stunden-Wochen im Sommer (nur mit Ausgleich nach Arbeitszeitgesetz) | ~23.600 € |
 >
 > **Am 31.08.2027 auf dem Konto ist es weniger:**
 > - Rund 1.500 € Lohnsteuer behalten die Arbeitgeber vor allem im Sommer
 >   ein. Sie kommen erst mit der Steuererklärung 2027 zurück, also 2028.
->   Kontostand im Median: ~10.300 €.
+>   Kontostand im Median: ~9.900 €.
 > - Zahlt der Sommer-Arbeitgeber den Augustlohn erst im September, was bei
->   Stundenlohn üblich ist, sind es am 31.08. nur ~8.000 €.
+>   Stundenlohn üblich ist, sind es am 31.08. nur ~7.600 €.
 >
 > Gut die Hälfte bringt ein **Vollzeit-Sommerjob nach dem Abiturzeugnis**
 > (28.06.–31.08.2027, 47 Arbeitstage). Je etwa ein Fünftel bringen
-> Ferienjobs vor dem Zeugnis sowie Nachhilfe und Webgeschäft. Am stärksten
+> Ferienjobs vor dem Zeugnis sowie Nachhilfe und Minijob. Am stärksten
 > verschiebt das Ergebnis, was danach kommt:
 > - Vor einem **FH-Studium** ab 01.10. bleibt der Sommerjob
->   sozialversicherungsfrei (Median ~12.900 €).
+>   sozialversicherungsfrei (Median ~12.500 €).
 > - Vor einem **dualen Studium oder einer Ausbildung** gehen auf den
->   Sommerjob ~21 % Sozialabgaben ab (Median ~11.300 €).
+>   Sommerjob ~21 % Sozialabgaben ab (Median ~10.900 €).
 > - Bei **Ausbildungsbeginn am 01.08.** ist der Sommer zudem kürzer
->   (Median ~9.300 €).
+>   (Median ~8.900 €).
 
 **Gilt für:**
 - Du bist volljährig.
@@ -59,32 +59,32 @@ Gerechnet mit `python3 plan/verdienst_2027.py` (20.000 simulierte Verläufe):
 
 | Strategie (netto bis 31.08.2027) | sicher (90 %) | Median | gut (10 %) | Spitze (1 %) |
 |---|---:|---:|---:|---:|
-| **beste Mischung (Plan unten)** | **9.100 €** | **11.700 €** | **14.000 €** | **15.400 €** |
+| **beste Mischung (Plan unten)** | **8.800 €** | **11.300 €** | **13.500 €** | **14.900 €** |
 | ohne Webgeschäft | 8.800 € | 11.300 € | 13.500 € | 14.900 € |
 | nur befristete Jobs (Ferien, Einsätze, Sommer) | 7.400 € | 9.800 € | 12.000 € | 13.200 € |
-| nur Nebenjobs neben der Schule (keine Ferien- und Sommerjobs) | 1.900 € | 2.700 € | 3.700 € | 4.600 € |
+| nur Nebenjobs neben der Schule (keine Ferien- und Sommerjobs) | 1.600 € | 2.300 € | 3.200 € | 3.900 € |
 
 **Was danach kommt und welche Jobs du bekommst, entscheidet mit** (beste Mischung):
 
 | Szenario | sicher (90 %) | Median | gut (10 %) |
 |---|---:|---:|---:|
-| FH-Studium ab 01.10. (Sommerjob sozialversicherungsfrei) | 11.200 € | 12.900 € | 14.600 € |
-| duales Studium / Ausbildung, Start 01.09. oder 01.10. | 9.700 € | 11.300 € | 12.800 € |
-| duales Studium / Ausbildung, Start 01.08. (nur 25 Sommer-Arbeitstage, dafür August-Vergütung) | 8.000 € | 9.300 € | 10.700 € |
-| Industrie- oder Lagerjob in Ferien und Sommer sicher (17–20,50 €/h) | 9.500 € | 12.200 € | 14.300 € |
-| kein Industriejob, nur Aushilfe und Zeitarbeit (14,60–17 €/h) | 8.600 € | 10.700 € | 12.500 € |
-| überall nur Mindestlohn (14,60 €/h) | 8.200 € | 10.100 € | 11.700 € |
-| ohne Jobtage im Mai und Juni vor dem Zeugnis | 8.400 € | 10.900 € | 13.000 € |
-| ohne alle Ferienjobs vor dem Zeugnis | 6.700 € | 9.100 € | 11.000 € |
+| FH-Studium ab 01.10. (Sommerjob sozialversicherungsfrei) | 10.900 € | 12.500 € | 14.100 € |
+| duales Studium / Ausbildung, Start 01.09. oder 01.10. | 9.400 € | 10.900 € | 12.300 € |
+| duales Studium / Ausbildung, Start 01.08. (nur 25 Sommer-Arbeitstage, dafür August-Vergütung) | 7.700 € | 8.900 € | 10.200 € |
+| Industrie- oder Lagerjob in Ferien und Sommer sicher (17–20,50 €/h) | 9.200 € | 11.800 € | 13.800 € |
+| kein Industriejob, nur Aushilfe und Zeitarbeit (14,60–17 €/h) | 8.200 € | 10.300 € | 12.100 € |
+| überall nur Mindestlohn (14,60 €/h) | 7.800 € | 9.800 € | 11.300 € |
+| ohne Jobtage im Mai und Juni vor dem Zeugnis | 8.100 € | 10.500 € | 12.600 € |
+| ohne alle Ferienjobs vor dem Zeugnis | 6.300 € | 8.700 € | 10.600 € |
 
 Am 31.08. auf dem Konto (Median) ist es weniger, weil die Lohnsteuer erst
 2028 zurückkommt und der Augustlohn oft erst im September:
 
 | Szenario | Kontostand | … ohne Augustlohn | Lohnsteuer einbehalten |
 |---|---:|---:|---:|
-| FH-Studium | ~11.100 € | ~8.100 € | ~1.800 € |
-| dual, Start 01.09./01.10. | ~9.900 € | ~7.500 € | ~1.300 € |
-| dual, Start 01.08. | ~8.400 € | ~8.400 € | ~900 € |
+| FH-Studium | ~10.700 € | ~7.800 € | ~1.800 € |
+| dual, Start 01.09./01.10. | ~9.600 € | ~7.100 € | ~1.300 € |
+| dual, Start 01.08. | ~8.100 € | ~8.100 € | ~900 € |
 
 Im dualen Fall ist weniger einbehalten, weil die Sozialabgaben die
 Lohnsteuer mindern.
@@ -95,31 +95,41 @@ Lohnsteuer mindern.
 |---|---:|---:|
 | Sommerjob nach dem Zeugnis (28.06.–31.08.) | 6.980 € | 9.250 € |
 | Ferienjobs vor dem Zeugnis (Weihnachten, Februar, Pfingsten, Juni) | 2.610 € | 5.535 € |
-| Webgeschäft (`standortcheck`), Gewinn | 1.280 € | 7.870 € |
 | Nachhilfe (privat) | 1.260 € | – |
+| Minijob | 890 € | – |
+| Webgeschäft (`standortcheck`), Gewinn | 40 € | 8.260 € |
 | August-Vergütung, falls die Ausbildung am 01.08. beginnt | 220 € | – |
-| Minijob | 60 € | – |
 | Übungsleiter/Betreuer, Wochenend-Einsätze | < 10 € | – |
 
 **Neben der Schule ist das Stundenbudget die Grenze, nicht die
-Familienversicherung.** Nachhilfe (privat 15–30 €/h) und Webgeschäft (im
-Modell Median ~26 € Umsatz je Stunde) bringen je Stunde am meisten. Sie
-füllen das Budget fast immer.
+Familienversicherung.** Nachhilfe (privat 15–30 €/h) bringt je Stunde am
+meisten, danach der Minijob (~15 €/h). Sie füllen das Budget fast immer.
 
-Wochenend-Einsätze (~18 €/h), Minijob und Übungsleiter kommen nur zum
-Zug, wenn Nachhilfeschüler oder Kunden fehlen.
+**Das Webgeschäft lohnt sich bis Sommer kaum.** Mit den Quoten, die die
+Recherche für Neulinge ergab (0,5–5 % Einstieg je Kontakt, 5–30 % Upsell,
+Paket 800–2.200 €; siehe [`HEBEL_BIS_SOMMER_2027.md`](HEBEL_BIS_SOMMER_2027.md)),
+bringt es im Mittel ~16 € Umsatz je Stunde, nach Kosten ~14 € – sehr
+ungleich verteilt: oft fast nichts, selten 30–40 €. Im Erwartungswert
+schlägt es den Minijob nicht und bekommt im Modell kaum Stunden. Wer es
+trotzdem macht, kauft damit Erfahrung, Referenzen und die Chance auf den
+oberen Rand, nicht mehr Geld bis August. (Eine frühere Fassung rechnete
+mit 26 € je Stunde aus dem eigenen, ungeprüften Modell; daher lag das
+Maximum bei ~14.000 €.)
+
+Wochenend-Einsätze (~18 €/h) und Übungsleiter kommen nur zum Zug, wenn
+Nachhilfeschüler oder Minijob fehlen.
 
 In der Obergrenze nimmt das Webgeschäft das ganze Stundenbudget, weil es
-dort am oberen Rand gerechnet ist: 40 € Umsatz je Stunde. Sein Gewinn 2027
-liegt mit 6.160 € noch unter 12 × 590 € = 7.080 €.
+dort am oberen Rand gerechnet ist: 42 € Umsatz je Stunde. Sein Gewinn 2027
+liegt mit ~6.460 € noch unter 12 × 590 € = 7.080 €.
 
 ## 3. Der Plan zum Maximum
 
 | Wann | Was | Stunden |
 |---|---|---|
-| **bis 23.12.2026** | <ul><li>2–4 Nachhilfeschüler suchen (Mittel-/Oberstufe, 20–30 €/h). Nachhilfe ist freiberuflich, braucht also kein Gewerbe.</li><li>Webgeschäft mit `standortcheck` starten: Gewerbe in Regensburg 45 €.</li><li>Innerhalb eines Monats nach dem Start den **Fragebogen zur steuerlichen Erfassung** über ELSTER abgeben und dort die Kleinunternehmerregelung wählen.</li></ul> | 3–10 h/Woche |
+| **bis 23.12.2026** | <ul><li>2–4 Nachhilfeschüler suchen (Mittel-/Oberstufe, 20–30 €/h). Nachhilfe ist freiberuflich, braucht also kein Gewerbe.</li><li>Minijob suchen (Handel, Gastro, ~15 €/h, 3–10 h/Woche); dabei die Befreiung von der Rentenversicherung beantragen.</li><li>Optional das Webgeschäft mit `standortcheck` (Gewerbe in Regensburg 45 €) – bringt im Erwartungswert weniger als der Minijob, aber Erfahrung und Referenzen. Dann innerhalb eines Monats nach dem Start den **Fragebogen zur steuerlichen Erfassung** über ELSTER abgeben und dort die Kleinunternehmerregelung wählen.</li></ul> | 3–10 h/Woche |
 | **Weihnachtsferien 24.12.–08.01.** | <ul><li>Befristeter Ferienjob an bis zu 9 Arbeitstagen: 5 Tage im Jahr 2026, 4 im Jahr 2027. Zum Beispiel Inventurhilfe, Lager, Paketsortierung (~18 €/h, z. B. über InStaff) – wenn das Lernen es zulässt.</li><li>Am besten zwei Verträge: 24.–31.12. und ab 04.01. Ein durchgehender Vertrag zählt 2027 mit 8 statt 5 Kalendertagen.</li></ul> | Vollzeit |
-| **Januar – März 2027** | <ul><li>Nachhilfe und Webgeschäft weiterführen.</li><li>**Sommerjob jetzt sichern:** Ferienarbeit oder Produktion bei Industriebetrieben (BMW, Krones, Infineon, Continental) oder über Zeitarbeit (Randstad u. a.), Start 28.06.</li><li>Den Juni-Job (unten) gleich mit vereinbaren.</li></ul> | 3–10 h/Woche |
+| **Januar – März 2027** | <ul><li>Nachhilfe und Minijob (oder Webgeschäft) weiterführen.</li><li>**Sommerjob jetzt sichern:** Ferienarbeit oder Produktion bei Industriebetrieben (BMW, Krones, Infineon, Continental) oder über Zeitarbeit (Randstad u. a.), Start 28.06.</li><li>Den Juni-Job (unten) gleich mit vereinbaren.</li></ul> | 3–10 h/Woche |
 | **Frühjahrsferien 08.–12.02.** | Ferienjob an 5 Arbeitstagen | Vollzeit |
 | **22.03. – 13.06.2027** | <ul><li>Lernen und Prüfungen: schriftliches Abitur 21.04.–13.05., Kolloquium 31.05.–11.06.</li><li>Höchstens ein paar Nachhilfestunden.</li><li>In den Pfingstferien (18.–28.05.) höchstens 1–4 einzelne Jobtage.</li></ul> | 0–6 h/Woche |
 | **14. – 24.06.2027** | <ul><li>Nach dem letzten eigenen Prüfungstermin befristeter Job an 5–9 Tagen. Mit der Schule klären; eigener Vertrag, der vor der Entlassung endet.</li><li>Als **Schülerjob** ist er sozialversicherungsfrei, auch vor einem dualen Studium.</li></ul> | Vollzeit |
@@ -231,7 +241,7 @@ Wer die Wahl hat, nimmt den 01.09. oder 01.10.
 - **60-Stunden-Wochen im Sommer:**
   - Rechtlich nur mit Ausgleich über 6 Monate bzw. 24 Wochen, und
     körperlich belastend.
-  - Brächte ~1.700 € mehr (Obergrenze 23.300 statt 21.500 €).
+  - Brächte ~1.700 € mehr (Obergrenze 23.600 statt 21.800 €).
 - **Glücksspiel, Trading:** kein Erwirtschaften und im Schnitt ein Verlust
   (siehe [`500K_BIS_SOMMER_2027.md`](500K_BIS_SOMMER_2027.md)).
 
@@ -240,9 +250,9 @@ Wer die Wahl hat, nimmt den 01.09. oder 01.10.
 Nach der Sparregel des [Millionenplans](MILLIONENPLAN.md) kommen 60 % von
 allem über dem Grundbedarf in den Welt-ETF.
 
-Beispiel mit ~11.700 €:
+Beispiel mit ~11.300 €:
 - Grundbedarf im Elternhaus ~300–500 € im Monat
-- ergibt ~4.300–5.400 € fürs Depot
+- ergibt ~4.100–5.200 € fürs Depot
 - davon ~1.500 € erst 2028 mit der Steuererstattung
 
 ## 7. Grenzen dieser Rechnung
@@ -254,8 +264,9 @@ Beispiel mit ~11.700 €:
 - **Nachhilfe und Webgeschäft:**
   - Die Nachfrage nach Nachhilfe (1–6 h/Woche) und die Chance, Schüler zu
     finden (60–95 %), sind geschätzt.
-  - Die Werte des Webgeschäfts stammen aus dem eigenen, noch nicht
-    gemessenen Modell (`plan/simulation.py`).
+  - Die Quoten des Webgeschäfts sind für Neulinge nirgends gemessen; die
+    Werte stammen aus Telefon- und Haustürquoten (Recherche in
+    [`HEBEL_BIS_SOMMER_2027.md`](HEBEL_BIS_SOMMER_2027.md)).
 - **Die Stundenbudgets neben der Schule** (3–10 h/Woche, in der
   Prüfungszeit 0–6) sind eine Vorgabe zum Schutz des Abiturs, keine
   Messung. Das gilt auch für die Jobtage im Mai und Juni. Sie hängen von
@@ -279,8 +290,8 @@ Beispiel mit ~11.700 €:
   ohne gerechnet.
 - **Annahme über das Wissen vorab:** Die Quellen werden nach dem
   *erwarteten* Erlös je Stunde gewählt. Wer früh merkt, dass sein
-  Webgeschäft wenig bringt, wechselt zu Einsätzen und verdient etwas mehr
-  als hier gerechnet.
+  Webgeschäft gut läuft (deutlich über 15 € je Stunde), verlagert Stunden
+  dorthin und verdient etwas mehr als hier gerechnet.
 
 ## 8. Nachrechnen
 

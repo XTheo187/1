@@ -59,8 +59,8 @@ erreicht – und warum das nicht bis Sommer 2027, sondern bis Sommer 2065 mit
 Und warum 500.000 EUR bis Sommer 2027 mit keinem Plan wahrscheinlich sind
 (höchstens rund 1 %) – und was man in den neun Monaten stattdessen tut:
 [`docs/500K_BIS_SOMMER_2027.md`](docs/500K_BIS_SOMMER_2027.md).
-Was bis dahin realistisch durch Arbeit drin ist – maximal rund 14.000 EUR
-netto (Median ~11.700 EUR), Obergrenze ~21.500 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)
+Was bis dahin realistisch durch Arbeit drin ist – maximal rund 13.500 EUR
+netto (Median ~11.300 EUR), Obergrenze ~21.800 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)
 (Rechnung: `python3 plan/verdienst_2027.py`).
 Und ob ein Hebel mehr bringt – Mitarbeiter, Vermittlung, Vermietung, Handel,
 Produkte, Provision: bis 31.08.2027 schlägt keiner den Job-Weg im Median, sie
@@ -141,7 +141,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 108 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 131 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau

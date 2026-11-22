@@ -128,28 +128,30 @@ def monat_von_tag(t: float) -> int:
 class KV:
     """Freiwillige Versicherung 2027 (Recherche: SV-Rechengrößen 2027, GKV-SV, BSG B 12 KR 2/21 R)."""
     mindestbemessung: float = 4_130 / 3      # 1/90 der Bezugsgröße je Tag: 1.376,67 EUR/Monat
+    bbg: float = 6_375.0                     # Beitragsbemessungsgrenze 2027 je Monat
     satz_kv: float = 0.140                   # ermäßigt (ohne Krankengeld)
     zusatzbeitrag: tuple = (0.025, 0.031, 0.036)   # amtlich Ø 2,9 %, tatsächlich erhoben ~3,1 %
     satz_pv: float = 0.036                   # Kinderlosenzuschlag erst ab 23
     geplant_ab_monat: int = 4                # Prognose über der Grenze, gemeldet nach dem 31.03.
     # Ungeplant über der Grenze, korrekt gemeldet: kein Monat / nur August / Juli und August
     ungeplant: tuple = ((0.5, ()), (0.3, (8,)), (0.2, (7, 8)))
-    # Vollzeit-Selbstständigkeit (> 30 h/Woche und > 25 % der Bezugsgröße im Monat) gilt als
-    # hauptberuflich: dann entfällt die Familienversicherung für diese Zeit, egal wie viel Gewinn
-    p_hauptberuflich: float = 0.7
-    schwelle_hauptberuflich: float = 0.25 * 4_130
+    # Hauptberufliche Selbstständigkeit (GKV-SV 2019): Arbeitseinkommen je Monat über 25 / 50 / 75 %
+    # der Bezugsgröße bei mehr als 30 / 20-30 / bis 20 Stunden je Woche. Dann entfällt die
+    # Familienversicherung für diese Zeit, egal wie viel Gewinn im Jahr zusammenkommt.
+    bezugsgroesse: float = 4_130.0
+    p_hauptberuflich: float = 0.7            # die Kasse wertet ein befristetes Sommergeschäft so (Schätzung)
     p_september: float = 0.5                 # nach dem Stichtag: September noch freiwillig (Studium)
 
 
-def famv_verloren(pruef_2027: dict, a: v.Annahmen, nachlauf: float = 0.0) -> bool:
-    """§ 10 SGB V: Gewinn/12 <= 590 EUR; mit Minijob Minijob/Monat + Gewinn/12 <= 633 EUR."""
+def famv_verloren(pruef_2027: dict, a: v.Annahmen, nachlauf: float = 0.0) -> str | None:
+    """§ 10 SGB V: "grenze" (Gewinn/12 > 590 EUR), "minijob" (nur Minijob/Monat + Gewinn/12 > 633 EUR) oder None."""
     selbst = pruef_2027["selbst"] + nachlauf
     if selbst > 12 * a.grenze_regel[2027] + 1e-6:
-        return True
+        return "grenze"
     mini, monate = pruef_2027["mini"], pruef_2027["mini_monate"]
-    if mini > 0 and monate > 0:
-        return mini / monate + selbst / 12 > a.grenze_minijob[2027] + 1e-6
-    return False
+    if mini > 0 and monate > 0 and mini / monate + selbst / 12 > a.grenze_minijob[2027] + 1e-6:
+        return "minijob"
+    return None
 
 
 def _frei_anteil(m: int, mit: dict) -> float:
@@ -164,40 +166,56 @@ def _frei_anteil(m: int, mit: dict) -> float:
     return 1.0
 
 
-def kv_kosten(rng: random.Random, kv: KV, mit: dict, gewinn_2027: float, verloren: bool, geplant: bool,
-              hb_monate: tuple = (), gewinn_sommer: float = 0.0, wochenstunden: float = 0.0) -> tuple[float, float]:
+def hauptberuflich(kv: KV, wochenstunden: float, einkommen_monat: float) -> bool:
+    if wochenstunden > 30:
+        return einkommen_monat > 0.25 * kv.bezugsgroesse
+    if wochenstunden > 20:
+        return einkommen_monat > 0.50 * kv.bezugsgroesse
+    return einkommen_monat > 0.75 * kv.bezugsgroesse
+
+
+def kv_kosten(rng: random.Random, kv: KV, mit: dict, gewinn_2027: float, grund: str | None, geplant: bool,
+              hb_monate: tuple = (), gewinn_sommer: float = 0.0, wochenstunden: float = 0.0,
+              aktive_monate: float = 2.0) -> tuple[float, float]:
     """(Kosten bis 31.08.2027, erwartete Kosten danach) der eigenen Kranken- und Pflegeversicherung.
 
-    Als freiwilliges Mitglied zahlt man auf alle Einnahmen: Gewinn (Jahresgewinn auf die
-    Monate mit Tätigkeit verteilt) und – im Studiums-Fall – auch den Lohn des Sommerjobs.
+    - Geplant: Wer der Kasse ehrlich eine Prognose über der Grenze meldet, ist ab April freiwillig
+      versichert – auch wenn der Gewinn am Ende darunter bleibt (Kenntnisstand der Kasse zählt).
+    - Ungeplant über der Grenze: nur die Monate nach der Meldung (``KV.ungeplant``).
+    - Nur über die Minijob-Regel: Der Minijob endet vor dem Sommer; bei ehrlicher Prognose keine Kosten.
+    - Hauptberuflich (Vollzeit-Sommergeschäft): die Monate des Geschäfts.
+    Als freiwilliges Mitglied zahlt man auf alle Einnahmen bis zur Beitragsbemessungsgrenze: Gewinn
+    (Jahresgewinn auf die Monate mit Tätigkeit verteilt) und im Studiums-Fall auch den Sommerjob-Lohn.
     """
     r = kv.satz_kv + d(rng, kv.zusatzbeitrag) + kv.satz_pv
     a_monat = max(0.0, gewinn_2027) / 8                     # Tätigkeit Januar bis August
+    u_ungeplant, u_hb = rng.random(), rng.random()
 
     def beitrag(m: int, arbeitseinkommen: float) -> float:
         lohn = mit["sommer_lohn_monate"][m - 6] if (m >= 6 and not mit["dual"]) else 0.0
-        return _frei_anteil(m, mit) * r * max(kv.mindestbemessung, arbeitseinkommen + lohn)
+        basis = min(kv.bbg, max(kv.mindestbemessung, arbeitseinkommen + lohn))
+        return _frei_anteil(m, mit) * r * basis
 
-    kosten_grenze = 0.0
-    if verloren:
-        if geplant:
-            monate = range(kv.geplant_ab_monat, 9)
-        else:
-            u, acc, monate = rng.random(), 0.0, ()
-            for p, mm in kv.ungeplant:
-                acc += p
-                if u < acc:
-                    monate = mm
-                    break
-        kosten_grenze = sum(beitrag(m, a_monat) for m in monate)
-    kosten_hb = 0.0
-    if hb_monate and wochenstunden > 30 and gewinn_sommer / len(hb_monate) > kv.schwelle_hauptberuflich \
-            and rng.random() < kv.p_hauptberuflich:
-        kosten_hb = sum(beitrag(m, gewinn_sommer / len(hb_monate)) for m in hb_monate)
-    bis = max(kosten_grenze, kosten_hb)
-    danach = 0.0
-    if bis > 0 and not mit["dual"]:
-        danach = kv.p_september * r * max(kv.mindestbemessung, a_monat)
+    kosten: dict[int, float] = {}
+    if geplant:
+        for m in range(kv.geplant_ab_monat, 9):
+            kosten[m] = beitrag(m, a_monat)
+    elif grund == "grenze":
+        acc, monate = 0.0, ()
+        for p, mm in kv.ungeplant:
+            acc += p
+            if u_ungeplant < acc:
+                monate = mm
+                break
+        for m in monate:
+            kosten[m] = beitrag(m, a_monat)
+    if hb_monate and gewinn_sommer > 0:
+        e_monat = gewinn_sommer / max(1.0, aktive_monate)
+        if hauptberuflich(kv, wochenstunden, e_monat) and u_hb < kv.p_hauptberuflich:
+            for m in hb_monate:
+                kosten[m] = max(kosten.get(m, 0.0), beitrag(m, e_monat))
+    bis = sum(kosten.values())
+    danach = kv.p_september * r * kv.mindestbemessung if (bis > 0 and not mit["dual"]) else 0.0
     return bis, danach
 
 
@@ -218,6 +236,7 @@ class Ergebnis:
     hb_monate: tuple = ()         # Monate mit Vollzeit-Selbstständigkeit (Hauptberuflichkeit)
     gewinn_sommer: float = 0.0    # davon im Sommer (für die Hauptberuflichkeit)
     wochenstunden: float = 0.0    # eigene Stunden je Woche im Sommer
+    aktive_monate: float = 2.0    # Monate mit Geschäftstätigkeit im Sommer (Hauptberuflichkeit)
     info: dict = field(default_factory=dict)
 
 
@@ -229,6 +248,7 @@ def _spaeter_job(rng: random.Random, rest_anteil: float, p_finden: tuple) -> flo
 class Option:
     name = ""
     kurz = ""
+    hat_stufenplan = False   # Entscheidung an einem Frühindikator
     prognose = 0.0    # erwarteter Jahresgewinn bei Go (für die Prognose bei der Krankenkasse)
 
     def vorbereiten(self, rng: random.Random, a: v.Annahmen) -> tuple[v.Annahmen, dict]:
@@ -306,19 +326,22 @@ def web_test(rng: random.Random, w: dict, kontakte: int) -> tuple[int, int]:
 
 
 def web_sommer(rng: random.Random, w: dict, p: WebParameter, tage: int, stunden_tag, kontakte_winter: float,
-               testkunden: int, abbruch: bool) -> dict:
+               testkunden: int, abbruch: bool, job_da: bool = True) -> dict:
     """Sommer Tag für Tag: Akquise, Lieferung, Paketentscheidungen, Inhalte, Zahlungen.
 
-    ``stunden_tag(t)``: Web-Stunden am Sommer-Arbeitstag t (0 = 28.06.).
+    ``stunden_tag(t)``: Web-Stunden am Sommer-Arbeitstag t (0 = 28.06.). Ein Paket wird sofort
+    gebaut; live geht es, sobald es fertig ist und die Inhalte des Kunden da sind. Erst dann ist es
+    verdient, bezahlt erst nach dem Zahlungsziel. ``abbruch``: Regel nach 10 Arbeitstagen; abgebrochen
+    wird nur, wenn es einen Job gibt (``job_da``); die Wechseltage sind verloren.
     """
     pool = max(0.0, w["pool"] - kontakte_winter)
-    schlange: list = []          # [Reststunden, Art, Preis]
-    termine: list = []           # (Tag, Art, Preis): Upsell-Entscheidung oder Inhalte da
-    verdient = bezahlt = kosten = 0.0
+    schlange: list = []          # [Reststunden, Art, Preis, Inhalte-Tag]
+    termine: list = []           # (Tag, Art): Upsell-Entscheidung
+    verdient = bezahlt = kosten = nachlauf = 0.0
     einstiege = pakete = live = 0
     kontakte = 0.0
     stunden = 0.0
-    abbruch_tag = None
+    abbruch_tag = job_ab = None
     rest_kontakt = 0.0
 
     def paket_bestellt(t: float):
@@ -329,36 +352,35 @@ def web_sommer(rng: random.Random, w: dict, p: WebParameter, tage: int, stunden_
         verdient += anz * preis
         bezahlt += anz * preis
         kosten += w["kosten_paket"]
-        termine.append((t + d(rng, p.inhalte_tage) * KAL_ZU_ARBEITSTAGEN, "inhalte", preis * (1 - anz)))
+        inhalte = t + d(rng, p.inhalte_tage) * KAL_ZU_ARBEITSTAGEN
+        schlange.append([w["paket_h"], "paket", preis * (1 - anz), inhalte])
 
     def einstieg_gewonnen():
         nonlocal einstiege
         einstiege += 1
-        schlange.append([w["einstieg_h"], "einstieg", w["einstieg"] * rng.uniform(0.85, 1.15)])
+        schlange.append([w["einstieg_h"], "einstieg", w["einstieg"] * rng.uniform(0.85, 1.15), 0.0])
 
     # Einstiegskunden aus dem Schuljahr entscheiden sich in den ersten Sommerwochen
     for _ in range(int(testkunden * d(rng, p.uebertrag))):
         if rng.random() < w["p_u"] * 0.4:
-            termine.append((rng.uniform(0, 30) * KAL_ZU_ARBEITSTAGEN, "upsell_ja", 0.0))
+            termine.append((rng.uniform(0, 30) * KAL_ZU_ARBEITSTAGEN, "upsell_ja"))
 
     for t in range(tage):
         if abbruch_tag is None:
             h = stunden_tag(t)
+        elif t < job_ab:
+            h = 0.0                                   # Wechsel: Job suchen, anfangen
         else:
-            h = p.abend_h_nach_abbruch if t >= abbruch_tag else stunden_tag(t)
-        # fällige Termine
+            h = p.abend_h_nach_abbruch                # abends ausliefern, keine Akquise mehr
         for termin in [x for x in termine if x[0] <= t]:
             termine.remove(termin)
-            if termin[1] == "upsell_ja":
-                paket_bestellt(t)
-            elif termin[1] == "inhalte":
-                schlange.append([w["paket_h"], "paket", termin[2]])
+            paket_bestellt(t)
         if h <= 0:
             continue
         stunden += h
         saison = w["juli"] if monat_von_tag(t) <= 7 else w["august"]
         offen_h = sum(x[0] for x in schlange)
-        nach_abbruch = abbruch_tag is not None and t >= abbruch_tag
+        nach_abbruch = abbruch_tag is not None
         liefer = min(offen_h, h) if nach_abbruch else min(offen_h, p.anteil_lieferung * h)
         akquise = 0.0 if nach_abbruch else h - liefer
         while liefer > 1e-9 and schlange:
@@ -366,27 +388,32 @@ def web_sommer(rng: random.Random, w: dict, p: WebParameter, tage: int, stunden_
             schritt = min(liefer, x[0])
             x[0] -= schritt
             liefer -= schritt
-            if x[0] <= 1e-9:
-                schlange.pop(0)
-                if x[1] == "einstieg":
-                    verdient += x[2]
-                    bezahlt += x[2]
-                    if rng.random() < w["p_u"]:
-                        termine.append((t + d(rng, p.upsell_tage) * KAL_ZU_ARBEITSTAGEN, "upsell_ja", 0.0))
-                else:
-                    live += 1
-                    verdient += x[2]
-                    if t + d(rng, p.zahlung_tage) * KAL_ZU_ARBEITSTAGEN < tage:
-                        bezahlt += x[2]
-                    if rng.random() < w["anteil_betreuung"]:
-                        monate = int((tage - t) / 21.7)
-                        verdient += monate * w["betreuung"]
-                        bezahlt += monate * w["betreuung"]
-                    for _ in range(poisson(rng, w["empfehlung"])):
-                        if rng.random() < w["warm_p"]:
-                            paket_bestellt(t)
-                        elif rng.random() < w["warm_e"]:
-                            einstieg_gewonnen()
+            if x[0] > 1e-9:
+                continue
+            schlange.pop(0)
+            if x[1] == "einstieg":
+                verdient += x[2]
+                bezahlt += x[2]
+                if rng.random() < w["p_u"]:
+                    termine.append((t + d(rng, p.upsell_tage) * KAL_ZU_ARBEITSTAGEN, "upsell_ja"))
+                continue
+            live_tag = max(float(t), x[3])
+            if live_tag >= tage:
+                nachlauf += x[2]                      # Inhalte kommen erst nach dem 31.08.
+                continue
+            live += 1
+            verdient += x[2]
+            if live_tag + d(rng, p.zahlung_tage) * KAL_ZU_ARBEITSTAGEN < tage:
+                bezahlt += x[2]
+            if rng.random() < w["anteil_betreuung"]:
+                monate = int((tage - live_tag) / 21.7)
+                verdient += monate * w["betreuung"]
+                bezahlt += monate * w["betreuung"]
+            for _ in range(poisson(rng, w["empfehlung"])):
+                if rng.random() < w["warm_p"]:
+                    paket_bestellt(t)
+                elif rng.random() < w["warm_e"]:
+                    einstieg_gewonnen()
         # Akquise: Kaltkontakte vor Ort
         rest_kontakt += akquise
         while True:
@@ -402,83 +429,111 @@ def web_sommer(rng: random.Random, w: dict, p: WebParameter, tage: int, stunden_
                 einstieg_gewonnen()
             elif rng.random() < w["p_d"] * q:
                 paket_bestellt(t)
-        if abbruch and abbruch_tag is None and t + 1 == p.abbruch_tag and einstiege + pakete < p.abbruch_schwelle:
-            abbruch_tag = t + 1 + int(round(d(rng, p.wechsel_tage)))
-    # Was am 31.08. noch offen ist, wird im September/Oktober fertig (Nachlauf, nicht im Netto bis 31.08.)
-    nachlauf = (sum(x[2] for x in schlange) + sum(x[2] for x in termine if x[1] == "inhalte"))
+        if (abbruch and job_da and abbruch_tag is None and t + 1 == p.abbruch_tag
+                and einstiege + pakete < p.abbruch_schwelle):
+            abbruch_tag = t + 1
+            job_ab = abbruch_tag + int(round(d(rng, p.wechsel_tage)))
+    # Was am 31.08. noch nicht live ist, wird im September/Oktober fertig (Nachlauf)
+    nachlauf += sum(x[2] for x in schlange)
     return {"verdient": verdient, "bezahlt": bezahlt, "kosten": kosten, "nachlauf": nachlauf,
             "einstiege": einstiege, "pakete": pakete, "live": live, "kontakte": kontakte,
-            "stunden": stunden, "abbruch_tag": abbruch_tag}
+            "stunden": stunden, "abbruch_tag": abbruch_tag, "job_ab": job_ab}
 
 
 class WebSommer(Option):
     """Webgeschäft im Sommer: nebenher (abends), an 2 Tagen je Woche oder in Vollzeit."""
 
     ARTEN = {
-        "abends": "abends neben dem Vollzeit-Sommerjob (~1,6 h je Arbeitstag)",
-        "2tage": "an 2 Tagen je Woche, dazu 3-Tage-Sommerjob",
+        "abends": "abends neben dem Vollzeit-Sommerjob (~1,6 h je Arbeitstag, Gesamtlast ~50 h/Woche)",
+        "abends_48": "abends statt der Samstagsschichten (Gesamtlast höchstens ~48 h/Woche)",
+        "2tage": "an 2 Tagen je Woche, dazu 3-Tage-Sommerjob (16–18 €/h)",
         "vollzeit": "in Vollzeit statt Sommerjob, Abbruch nach 10 Tagen ohne 3 Abschlüsse",
-        "vollzeit_start": "in Vollzeit nur bei Startregel (Testwoche im Februar, >= 5 Einstiege und 1 Paket "
-                          "bis 31.03.), sonst Sommerjob",
+        "vollzeit_start": "in Vollzeit nur bei Startregel (Test mit 30-60 h Akquise im Winter und einer Testwoche "
+                          "im Februar; bis 31.03. >= 5 % von >= 100 Kaltkontakten bezahlt, 1 Paket >= 1.600 €, "
+                          ">= 30 € je Stunde), sonst Sommerjob",
     }
+    TEILZEIT_SATZ = (16.0, 17.0, 18.0)   # Ferienjob mit festen freien Tagen (Recherche Kategorie A)
 
     def __init__(self, art: str = "abends", p: WebParameter = WebParameter()):
         self.art, self.p = art, p
         self.name = f"Webgeschäft im Sommer {self.ARTEN[art]}"
         self.kurz = f"web_{art}"
+        self.hat_stufenplan = art == "vollzeit_start"
 
     def vorbereiten(self, rng, a):
-        # Gleiche Zugkraft im Schuljahr und im Sommer: der Web-Satz des Job-Wegs wird für diesen
-        # Lauf aus demselben Anteil u gezogen (gleiche Verteilung wie im Job-Weg)
+        # Gleiche Zugkraft im Schuljahr und im Sommer: der Web-Satz des Job-Wegs wird für diesen Lauf
+        # aus demselben Anteil u gezogen (gleiche Verteilung wie im Job-Weg). Die Reihenfolge der
+        # Quellen bleibt beim Erwartungswert – die Person kennt ihren Satz vorher nicht.
         u = rng.random()
-        regel = tuple(replace(r, satz=(dreieck_quantil(r.satz, u),) * 3) if r.name == WEB else r
-                      for r in a.regelmaessig)
+        regel = tuple(replace(r, satz=(dreieck_quantil(r.satz, u),) * 3, sortier_satz=v._mitte(r.satz))
+                      if r.name == WEB else r for r in a.regelmaessig)
         return replace(a, regelmaessig=regel), {"u": u}
 
     def ziehen(self, rng, basis, zustand):
         p = self.p
         w = web_welt(rng, zustand["u"], p)
-        kontakte_winter = p.kontakte_winter_je_h * basis["stunden_je_quelle"].get(WEB, 0.0)
-        e_w, pk_w = web_test(rng, w, int(kontakte_winter))
+        web_h = basis["stunden_je_quelle"].get(WEB, 0.0)
+        kontakte_winter = p.kontakte_winter_je_h * web_h
+        bis_maerz_h = sum(basis["stunden_je_phase"].get(ph, {}).get(WEB, 0.0) for ph in (PH_DEZ, PH_JAN))
+        k_test = int(p.kontakte_winter_je_h * bis_maerz_h)
+        e_w, pk_w = web_test(rng, w, k_test)
         zusatz_vorab = {}
         vorab_gewinn, vorab_h = 0.0, 0.0
         if self.art == "vollzeit_start":
+            # Der Test braucht Kaltkontakte im Winter, auch wenn der Job-Weg die Stunden sonst dem
+            # Minijob gäbe: 30-60 h Akquise Dez.-März (gehen vom Stundenbudget ab) plus eine Testwoche
+            # in den Frühjahrsferien statt des Ferienjobs.
+            h_winter = d(rng, (30, 45, 60))
+            k_winter = int(h_winter / w["kontakt_h"])
+            e_v, pk_v = web_test(rng, w, k_winter)
             test = int(d(rng, p.testwoche_kontakte))
             e_t, pk_t = web_test(rng, w, test)
-            zusatz_vorab = {"ferientage": ((PH_FRUEH, 5.0),)}
-            vorab_h = 40.0
-            vorab_gewinn = e_t * w["einstieg"] + pk_t * w["paket"] * 0.5 - test * w["kosten_kontakt"]
-            e_w, pk_w, kontakte_winter = e_w + e_t, pk_w + pk_t, kontakte_winter + test
-            # Startregel der Recherche: >= 5 bezahlte Einstiege aus >= 100 Kaltkontakten und
-            # mindestens ein Paket zu einem Preis, der den Sommer tragen kann (>= 1.600 EUR)
-            go = kontakte_winter >= 100 and e_w >= 5 and pk_w >= 1 and w["paket"] >= 1_600
+            liefer_h = (e_v + e_t) * w["einstieg_h"] + (pk_v + pk_t) * w["paket_h"]
+            zusatz_vorab = {"ferientage": ((PH_FRUEH, 5.0),),
+                            "stunden": ((PH_DEZ, h_winter / 3), (PH_JAN, 2 * h_winter / 3 + liefer_h))}
+            vorab_h = 40.0 + h_winter + liefer_h
+            vorab_gewinn = ((e_v + e_t) * w["einstieg"] + (pk_v + pk_t) * w["paket"] * 0.5
+                            - (k_winter + test) * w["kosten_kontakt"])
+            e_w, pk_w, k_test = e_w + e_v + e_t, pk_w + pk_v + pk_t, k_test + k_winter + test
+            kontakte_winter += k_winter + test
+            umsatz = e_w * w["einstieg"] + pk_w * w["paket"]
+            arbeit = k_test * w["kontakt_h"] + e_w * w["einstieg_h"] + pk_w * w["paket_h"]
+            # Startregel der Recherche: >= 5 bezahlte Einstiege aus >= 100 Kaltkontakten (>= 5 %),
+            # mindestens ein Paket ab 1.600 EUR und >= 30 EUR Umsatz je Stunde Akquise und Lieferung
+            go = (k_test >= 100 and e_w >= max(5, 0.05 * k_test) and pk_w >= 1 and w["paket"] >= 1_600
+                  and umsatz / max(arbeit, 1e-9) >= 30)
             if not go:
                 z = v.Zusatz(gewinn=((2027, vorab_gewinn),), **zusatz_vorab)
                 return Ergebnis(z, vorab_gewinn, vorab_h, go=False, info={"einstiege_winter": e_w})
         tage = sommer_tage(basis)
         h_tag = d(rng, p.stunden_tag) * d(rng, p.disziplin)
-        if self.art == "abends":
+        samstage, satz = 1.0, None
+        if self.art in ("abends", "abends_48"):
             h_abend = dreieck(rng, 1.0, 1.6, 2.0)
             fn, sommer_anteil, wochenstunden = (lambda t: h_abend), 1.0, 5 * h_abend
+            if self.art == "abends_48":
+                samstage = 0.0
         elif self.art == "2tage":
             fn, sommer_anteil, wochenstunden = (lambda t: h_tag if t % 5 in (3, 4) else 0.0), 0.6, 2 * h_tag
+            satz = d(rng, self.TEILZEIT_SATZ)
         else:
             fn, sommer_anteil, wochenstunden = (lambda t: h_tag), 0.0, 5 * h_tag
-        r = web_sommer(rng, w, p, tage, fn, kontakte_winter, e_w, abbruch=self.art.startswith("vollzeit"))
+        job_da = rng.random() < d(rng, p.p_spaeter_job)       # gäbe es nach einem Abbruch einen Job?
+        r = web_sommer(rng, w, p, tage, fn, kontakte_winter, e_w, abbruch=self.art.startswith("vollzeit"),
+                       job_da=job_da)
         gewinn = r["verdient"] - r["kosten"] - d(rng, p.fix) + vorab_gewinn
         teilzeit = True
-        hb = ()
+        hb, aktiv = (), tage / 5 / 4.33
         if self.art.startswith("vollzeit"):
             hb = (7, 8) if tage > 25 else (7,)
             if r["abbruch_tag"] is not None:
-                rest = max(0.0, 1 - r["abbruch_tag"] / tage)
-                sommer_anteil, teilzeit = _spaeter_job(rng, rest, p.p_spaeter_job), False
-                hb = (7,)
-        z = v.Zusatz(sommer_anteil=sommer_anteil, sommer_teilzeit=teilzeit, gewinn=((2027, gewinn),),
-                     **zusatz_vorab)
+                sommer_anteil, teilzeit = max(0.0, 1 - r["job_ab"] / tage), False
+                hb, aktiv = (7,), r["job_ab"] / 5 / 4.33
+        z = v.Zusatz(sommer_anteil=sommer_anteil, sommer_teilzeit=teilzeit, sommer_samstage=samstage,
+                     sommer_satz=satz, gewinn=((2027, gewinn),), **zusatz_vorab)
         return Ergebnis(z, gewinn, r["stunden"] + vorab_h, go=True, abbruch=r["abbruch_tag"] is not None,
                         offen=r["verdient"] - r["bezahlt"], nachlauf=r["nachlauf"], hb_monate=hb,
-                        gewinn_sommer=gewinn, wochenstunden=wochenstunden,
+                        gewinn_sommer=gewinn, wochenstunden=wochenstunden, aktive_monate=aktiv,
                         info={"pakete": r["pakete"], "einstiege": r["einstiege"], "kontakte": r["kontakte"]})
 
 
@@ -513,6 +568,7 @@ class UmzugParameter:
 class Umzug(Option):
     def __init__(self, stufenplan: bool = True, hybrid: bool = False, p: UmzugParameter = UmzugParameter()):
         self.stufen, self.hybrid, self.p = stufenplan, hybrid, p
+        self.hat_stufenplan = stufenplan
         art = ("nur Fr/Sa und Monatsende, dazu 3-Tage-Sommerjob (Mo–Mi)" if hybrid else "statt Sommerjob")
         self.name = (f"Umzugs-Trageteam mit Helfern, {art}, "
                      + ("nur bei >= 10 Anfragen im Feb./März" if stufenplan else "ohne Frühindikator"))
@@ -554,11 +610,13 @@ class Umzug(Option):
         sommer_job, teilzeit = (0.6 if self.hybrid else 0.0), True
         if abbruch:
             sommer_job, teilzeit = _spaeter_job(rng, max(0.0, 1 - 3 / wochen), p.p_spaeter_job), False
+        satz = d(rng, WebSommer.TEILZEIT_SATZ) if (self.hybrid and not abbruch) else None
         z = v.Zusatz(stunden=stunden_vorab + ((PH_PRUEF, pruefzeit),), sommer_anteil=sommer_job,
-                     sommer_teilzeit=teilzeit, sommer_samstage=0.0, gewinn=((2027, gewinn),))
+                     sommer_teilzeit=teilzeit, sommer_samstage=0.0, sommer_satz=satz, gewinn=((2027, gewinn),))
         return Ergebnis(z, gewinn, aufbau + pruefzeit + sommer_h, go=True, abbruch=abbruch,
                         hb_monate=() if self.hybrid else ((7,) if abbruch else (7, 8)),
                         gewinn_sommer=sommer_gewinn, wochenstunden=sommer_h / max(wochen_aktiv, 1e-9),
+                        aktive_monate=wochen_aktiv / 4.33,
                         info={"anfragen": anfragen, "auftraege": auftraege, "helferstunden": helfer})
 
 
@@ -654,6 +712,8 @@ class StartupTeens(Option):
     name = "Startup-Teens-Wettbewerb mit standortcheck, nur mit Beleg bis 31.01."
     kurz = "startup_teens"
 
+    hat_stufenplan = True
+
     def __init__(self, qualitaet_median: float = 4.0):
         self.m_median = qualitaet_median
 
@@ -743,12 +803,21 @@ class Provision(Option):
                 f", Stopp nach Woche 2 unter {stopp_woche2:,.0f} EUR/Woche".replace(",", ".") if stopp_woche2 else "")
         self.kurz = art + ("_stopp" if stopp_woche2 else "")
 
-    def _rueckfall_tage(self, rng: random.Random, rest_wochen: float, heimreise: float) -> float:
+    def _rueckfall_tage(self, rng: random.Random, rest_wochen: float, heimreise: float, geplant: bool) -> float:
+        """Arbeitstage eines Anschlussjobs: nach geplantem Einsatzende vorbereitet, nach Abbruch spontan."""
         p = self.p
-        rest_tage = max(0.0, rest_wochen * 5 - heimreise - d(rng, p.suche_tage))
-        if rest_tage > 0 and rng.random() < p.p_finden * (0.6 if rest_tage < 10 else 1.0):
+        suche = d(rng, (0, 2, 5)) if geplant else d(rng, p.suche_tage)
+        p_finden = 0.85 if geplant else p.p_finden
+        rest_tage = max(0.0, rest_wochen * 5 - heimreise - suche)
+        if rest_tage > 0 and rng.random() < p_finden * (0.6 if rest_tage < 10 else 1.0):
             return rest_tage
         return 0.0
+
+    @staticmethod
+    def _rueckfall_lohn(rng: random.Random, tage: float) -> float:
+        """Später Job: 30 % Industrie, sonst Aushilfe/Zeitarbeit, 7,5-9 h/Tag (Recherche)."""
+        satz = d(rng, v.SATZ_INDUSTRIE if rng.random() < 0.3 else v.SATZ_SONST)
+        return tage * dreieck(rng, 7.5, 8.0, 9.0) * satz
 
     def ziehen(self, rng, basis, zustand):
         p = self.p
@@ -772,14 +841,12 @@ class Provision(Option):
             gearbeitet = sum(lauf)
             kosten_privat = gearbeitet * d(rng, p.verpflegung_woche)
             rest = wochen - gearbeitet
-            abbruch = rest > 1e-9
-            if abbruch:   # Heimreise, Suche, später Job (30 % Industrie, sonst Aushilfe/Zeitarbeit)
-                rest_tage = self._rueckfall_tage(rng, rest, 1.0)
-                if rest_tage > 0:
-                    satz = d(rng, v.SATZ_INDUSTRIE if rng.random() < 0.3 else v.SATZ_SONST)
-                    brutto += rest_tage * dreieck(rng, 7.5, 8.0, 9.0) * satz
+            abgebrochen = sum(lauf[:5]) < min(p.einsatz_wochen, wochen) - 1e-9 or (
+                len(lauf) > p.einsatz_wochen and rest > 1e-9)
+            if rest > 1e-9:   # Heimreise, Suche, später Job
+                brutto += self._rueckfall_lohn(rng, self._rueckfall_tage(rng, rest, 1.0, geplant=not abgebrochen))
             z = v.Zusatz(sommer_brutto=brutto, sommer_samstage=0.0)
-            return Ergebnis(z, 0.0, gearbeitet * 45, abbruch=sum(lauf[:5]) < min(5, wochen) - 1e-9,
+            return Ergebnis(z, 0.0, gearbeitet * 45, abbruch=abgebrochen,
                             kosten_privat=kosten_privat,
                             info={"brutto": brutto, "wochen": gearbeitet})
         # Glasfaser-Haustür, selbstständig
@@ -799,15 +866,18 @@ class Provision(Option):
                 break
         gearbeitet = sum(lauf)
         rest = wochen - gearbeitet
-        sommer_anteil = 0.0
-        if rest > 1e-9:
-            sommer_anteil = self._rueckfall_tage(rng, rest, 0.0 if lokal else 1.0) / tage
+        sommer_anteil, brutto = 0.0, None
+        if rest > 1e-9:   # späterer Job zum Rückfall-Satz der Recherche (wie bei der Spendenwerbung)
+            rest_tage = self._rueckfall_tage(rng, rest, 0.0 if lokal else 1.0, geplant=False)
+            if rest_tage > 0:
+                sommer_anteil, brutto = rest_tage / tage, self._rueckfall_lohn(rng, rest_tage)
         offen = max(0.0, gewinn) * (1 - d(rng, p.ausgezahlt))
         z = v.Zusatz(sommer_anteil=sommer_anteil, sommer_teilzeit=False, sommer_samstage=0.0,
-                     gewinn=((2027, gewinn),))
+                     sommer_brutto=brutto, gewinn=((2027, gewinn),))
         return Ergebnis(z, gewinn, gearbeitet * p.tage_woche * 8, abbruch=rest > 1e-9, offen=offen,
                         hb_monate=(7, 8) if gearbeitet > 4.5 else (7,), gewinn_sommer=gewinn,
-                        wochenstunden=p.tage_woche * 8, info={"wochen": gearbeitet, "gestoppt": gestoppt})
+                        wochenstunden=p.tage_woche * 8, aktive_monate=max(0.25, gearbeitet / 4.33),
+                        info={"wochen": gearbeitet, "gestoppt": gestoppt})
 
 
 class Kombination(Option):
@@ -815,6 +885,7 @@ class Kombination(Option):
 
     def __init__(self, name: str, kurz: str, teile: tuple):
         self.name, self.kurz, self.teile = name, kurz, teile
+        self.hat_stufenplan = any(t.hat_stufenplan for t in teile)
 
     @property
     def prognose(self):
@@ -838,18 +909,41 @@ class Kombination(Option):
         z = v.Zusatz(stunden=tuple(x for e in ergs for x in e.zusatz.stunden),
                      ferientage=tuple(x for e in ergs for x in e.zusatz.ferientage),
                      sommer_anteil=s.sommer_anteil, sommer_teilzeit=s.sommer_teilzeit,
-                     sommer_samstage=s.sommer_samstage, sommer_brutto=s.sommer_brutto, gewinn=((2027, gewinn),))
+                     sommer_samstage=s.sommer_samstage, sommer_brutto=s.sommer_brutto, sommer_satz=s.sommer_satz,
+                     gewinn=((2027, gewinn),))
         hb = max(ergs, key=lambda e: len(e.hb_monate))
-        gos = [e.go for e in ergs if e.go is not None]
+        gos = [e.go for t, e in zip(self.teile, ergs) if t.hat_stufenplan and e.go is not None]
         return Ergebnis(z, gewinn, sum(e.stunden for e in ergs), go=any(gos) if gos else None,
                         abbruch=any(e.abbruch for e in ergs), offen=sum(e.offen for e in ergs),
                         nachlauf=sum(e.nachlauf for e in ergs), kosten_privat=sum(e.kosten_privat for e in ergs),
-                        hb_monate=hb.hb_monate, gewinn_sommer=hb.gewinn_sommer, wochenstunden=hb.wochenstunden)
+                        hb_monate=hb.hb_monate, gewinn_sommer=hb.gewinn_sommer, wochenstunden=hb.wochenstunden,
+                        aktive_monate=hb.aktive_monate)
 
 
 # --------------------------------------------------------------------------
 # Rechnung
 # --------------------------------------------------------------------------
+
+LERNZEIT_EUR_H = 20.0   # Stunden über dem Phasenbudget: so viel brächte eine Stunde Nachhilfe (Schattenpreis)
+
+
+def _ueberlauf_verteilen(zusatz: v.Zusatz, ueberlauf: dict) -> tuple[v.Zusatz, float]:
+    """Stunden, die das Phasenbudget sprengen, zuerst auf Ferientage legen (kostet Ferienjob-Tage),
+    der Rest geht von der Lernzeit ab und wird mit ``LERNZEIT_EUR_H`` bewertet."""
+    extra, rest = [], 0.0
+    for phase, h in ueberlauf.items():
+        ziel = {PH_DEZ: PH_WEIH_26, PH_JAN: PH_FRUEH}.get(phase)
+        if ziel:
+            frei = max(0.0, 5.0 - v._summe(zusatz.ferientage, ziel))
+            tage = min(h / 8, frei)
+            if tage > 0:
+                extra.append((ziel, tage))
+                h -= tage * 8
+        rest += h
+    if extra:
+        zusatz = replace(zusatz, ferientage=zusatz.ferientage + tuple(extra))
+    return zusatz, rest
+
 
 def vergleich(option: Option, i: int, seed: int = 2027, a: v.Annahmen | None = None, kv: KV = KV()) -> dict:
     """Ein Lauf: Job-Weg und Job-Weg mit Option, mit denselben Zufallszahlen."""
@@ -859,31 +953,40 @@ def vergleich(option: Option, i: int, seed: int = 2027, a: v.Annahmen | None = N
     a_lauf, zustand = option.vorbereiten(rng_o, a)
     basis = v.ein_verlauf(random.Random(s), a_lauf, v.Zusatz())
     erg = option.ziehen(rng_o, basis, zustand)
-    mit = v.ein_verlauf(random.Random(s), a_lauf, erg.zusatz)
-    verloren = famv_verloren(mit["pruef"][2027], a_lauf, erg.nachlauf)
+    zusatz = erg.zusatz
+    mit = v.ein_verlauf(random.Random(s), a_lauf, zusatz)
+    lernzeit_h = 0.0
+    if mit["ueberlauf"]:
+        zusatz, lernzeit_h = _ueberlauf_verteilen(zusatz, mit["ueberlauf"])
+        mit = v.ein_verlauf(random.Random(s), a_lauf, zusatz)
+    grund = famv_verloren(mit["pruef"][2027], a_lauf, erg.nachlauf)
     # Ehrliche Prognose bei der Kasse: Gewinn des Job-Wegs plus erwarteter Gewinn des Geschäfts
     geplant = erg.go is not False and basis["pruef"][2027]["selbst"] + option.prognose > GRENZE_JAHR
-    kv_bis, kv_danach = kv_kosten(rng_o, kv, mit, mit["pruef"][2027]["selbst"] + erg.nachlauf, verloren, geplant,
-                                  erg.hb_monate, erg.gewinn_sommer, erg.wochenstunden)
-    netto = mit["netto"] - kv_bis - erg.kosten_privat
+    kv_bis, kv_danach = kv_kosten(rng_o, kv, mit, mit["pruef"][2027]["selbst"] + erg.nachlauf, grund, geplant,
+                                  erg.hb_monate, erg.gewinn_sommer, erg.wochenstunden, erg.aktive_monate)
+    if kv_bis > 0:   # Kranken- und Pflegebeiträge sind Sonderausgaben (§ 10 Abs. 1 Nr. 3 EStG)
+        mit = v.ein_verlauf(random.Random(s), a_lauf, replace(zusatz, sonderausgaben=((2027, kv_bis),)))
+    netto = mit["netto"] - kv_bis - erg.kosten_privat - lernzeit_h * LERNZEIT_EUR_H
     return {"basis": basis["netto"], "netto": netto, "mehr": netto - basis["netto"],
             "basis_kontostand": basis["kontostand"],
             "kontostand": mit["kontostand"] - kv_bis - erg.kosten_privat - erg.offen,
-            "gewinn": erg.gewinn, "nachlauf": erg.nachlauf, "stunden": erg.stunden,
-            "go": erg.go, "abbruch": erg.abbruch, "famv_weg": verloren or kv_bis > 0, "kv": kv_bis,
-            "kv_danach": kv_danach, "dual": basis["dual"], "info": erg.info}
+            "gewinn": erg.gewinn, "nachlauf": erg.nachlauf, "stunden": erg.stunden, "lernzeit_h": lernzeit_h,
+            "go": erg.go, "abbruch": erg.abbruch, "famv_weg": kv_bis > 0 or grund == "grenze" or geplant,
+            "kv": kv_bis, "kv_danach": kv_danach, "dual": basis["dual"], "info": erg.info}
 
 
-def kalibrieren(option: Option, n: int = 600, seed: int = 99) -> float:
-    """Erwarteter Jahresgewinn bei Go (Median) – das, was man der Krankenkasse ehrlich angibt."""
+def kalibrieren(option: Option, n_go: int = 300, n_max: int = 6_000, seed: int = 99) -> float:
+    """Erwarteter Jahresgewinn bei Go (Median) – das, was man der Krankenkasse ehrlich angibt.
+
+    Eigener Seed (nicht der der Auswertung); gerechnet, bis mindestens ``n_go`` Go-Läufe vorliegen."""
     teile = getattr(option, "teile", None)
     if teile:
         for t in teile:
-            kalibrieren(t, n, seed)
+            kalibrieren(t, n_go, n_max, seed)
         return option.prognose
     a = v.Annahmen()
     werte = []
-    for i in range(n):
+    for i in range(n_max):
         s = seed * 1_000_003 + i
         rng_o = random.Random(s * 7 + 3)
         a_lauf, zustand = option.vorbereiten(rng_o, a)
@@ -891,6 +994,8 @@ def kalibrieren(option: Option, n: int = 600, seed: int = 99) -> float:
         erg = option.ziehen(rng_o, basis, zustand)
         if erg.go is not False:
             werte.append(erg.gewinn + erg.nachlauf)
+        if len(werte) >= n_go and i >= 600:
+            break
     option.prognose = sorted(werte)[len(werte) // 2] if werte else 0.0
     return option.prognose
 
@@ -935,6 +1040,8 @@ def auswerten(option: Option, n: int = 10_000, seed: int = 2027, a: v.Annahmen |
         "kv_mittel": sum(x["kv"] for x in laeufe) / m,
         "kv_danach_mittel": sum(x["kv_danach"] for x in laeufe) / m,
         "stunden_median": _q(sorted(x["stunden"] for x in laeufe), 0.5),
+        "p_lernzeit": sum(1 for x in laeufe if x["lernzeit_h"] > 0) / m,
+        "lernzeit_mittel": sum(x["lernzeit_h"] for x in laeufe) / m,
         "kontostand_median": _q(sorted(x["kontostand"] for x in laeufe), 0.5),
         "basis_kontostand_median": _q(sorted(x["basis_kontostand"] for x in laeufe), 0.5),
     }
@@ -966,6 +1073,7 @@ def gegenproben() -> list[Option]:
 def optionen() -> list[Option]:
     return [
         WebSommer("abends"),
+        WebSommer("abends_48"),
         WebSommer("2tage"),
         WebSommer("vollzeit"),
         WebSommer("vollzeit_start"),
@@ -1002,7 +1110,7 @@ def main() -> None:
     print("-" * 118)
     for o in (gegenproben() if args.gegenproben else optionen()):
         r = auswerten(o, args.n, nur=args.nur)
-        print(f"{o.name}")
+        print(f"{o.name}  [{r['n']} Läufe]")
         print(f"  gesamt        P10 {_eur(r['p10'])}  Median {_eur(r['median'])}  P90 {_eur(r['p90'])}  "
               f"P99 {_eur(r['p99'])}   (Job-Weg: {_eur(r['basis_p10'])} / {_eur(r['basis_median'])} / "
               f"{_eur(r['basis_p90'])} / {_eur(r['basis_p99'])})")
@@ -1012,7 +1120,8 @@ def main() -> None:
         print(f"  Geschäft      Gewinn Median {_eur(r['gewinn_median'])}, P90 {_eur(r['gewinn_p90'])}, "
               f"P99 {_eur(r['gewinn_p99'])}, Verlust {_pz(r['p_geschaeftsverlust'])}; Nachlauf Ø "
               f"{_eur(r['nachlauf_mittel'])}; Go {_pz(r['p_go'])}, Abbruch {_pz(r['p_abbruch'])}; "
-              f"Stunden Median {r['stunden_median']:.0f}")
+              f"Stunden Median {r['stunden_median']:.0f}; über dem Stundenbudget in {_pz(r['p_lernzeit'])} "
+              f"(Ø {r['lernzeit_mittel']:.0f} h)")
         print(f"  Versicherung  Familienversicherung weg {_pz(r['p_famv_weg'])}, KV bis 31.08. Ø {_eur(r['kv_mittel'])}, "
               f"danach Ø {_eur(r['kv_danach_mittel'])}; Prognose {_eur(r['prognose'])}; Kontostand Median "
               f"{_eur(r['kontostand_median'])} (Job-Weg {_eur(r['basis_kontostand_median'])})")

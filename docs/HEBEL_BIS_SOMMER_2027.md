@@ -3,37 +3,40 @@
 **Frage:** „Das kann ja nicht alles sein. Dann kann ich ja auch einfach
 arbeiten gehen.“ Der Job-Weg aus
 [`VERDIENST_BIS_SOMMER_2027.md`](VERDIENST_BIS_SOMMER_2027.md) bringt bis
-31.08.2027 realistisch maximal ~14.000 € netto (Median ~11.700 €). Gibt es
+31.08.2027 realistisch maximal ~13.500 € netto (Median ~11.300 €). Gibt es
 einen Weg, der mehr bringt? Gemeint ist ein Hebel statt eigener Stunden
 gegen Lohn: Mitarbeiter, Vermittlung, Kapital, Handel, Produkte, ein
 höherer Stundensatz oder Provision.
 
 > **Antwort: Bis 31.08.2027 nein – jedenfalls nicht im Erwartungswert.**
 >
-> 29 Wege recherchiert, die stärksten 14 Lauf für Lauf gegen denselben
+> Rund 30 Wege recherchiert, die stärksten 15 Lauf für Lauf gegen denselben
 > Job-Weg gerechnet (gleiche Zufallszahlen, gleiches Stundenbudget, gleiche
 > Steuer- und Versicherungsregeln). **Keiner schlägt den Job-Weg im
-> Median.** Hebel verschieben nur den oberen Rand – und kosten dafür im
-> Median Geld.
+> Median.** Am nächsten kommt das Webgeschäft abends neben dem Sommerjob
+> (Median ±0, im Mittel +100 €). Hebel verschieben vor allem den oberen
+> Rand – und kosten dafür im Median Geld.
 >
 > | netto bis 31.08.2027 | Job-Weg | Job-Weg + beste Ergänzung¹ | größte Wette² |
 > |---|---:|---:|---:|
-> | sicher – 9 von 10 schaffen mindestens | ~9.300 € | ~8.900 € | ~6.000 € |
-> | Median | ~11.800 € | ~11.700 € | ~9.600 € |
-> | gut – 1 von 10 schafft mehr | ~14.100 € | ~14.300 € | ~16.100 € |
-> | Spitze – 1 von 100 schafft mehr | ~15.600 € | ~19.100 € | ~29.200 € |
-> | besser als der Job-Weg in | – | 33 % der Verläufe | 24 % der Verläufe |
+> | sicher – 9 von 10 schaffen mindestens | ~8.900 € | ~8.600 € | ~5.600 € |
+> | Median | ~11.300 € | ~11.300 € | ~9.000 € |
+> | gut – 1 von 10 schafft mehr | ~13.500 € | ~13.800 € | ~16.400 € |
+> | Spitze – 1 von 100 schafft mehr | ~14.900 € | ~18.400 € | ~32.200 € |
+> | besser als der Job-Weg in | – | 35 % der Verläufe | 24 % der Verläufe |
 >
 > ¹ Webgeschäft abends neben dem Sommerjob + Startup-Teens-Wettbewerb nur
 > mit Beleg (Abschnitt 3). ² Glasfaser-Haustürvertrieb als Handelsvertreter
 > statt Sommerjob – die einzige Option mit echtem fünfstelligem Ausreißer
-> nach oben, aber mit 48 % Risiko, um mehr als 2.000 € schlechter
+> nach oben, aber mit 54 % Risiko, um mehr als 2.000 € schlechter
 > abzuschneiden.
 >
 > **Das Ergebnis:** Den Job-Weg als Boden behalten und nur billige Lose
 > dazunehmen, die ihn nicht gefährden. Der echte Hebel – Stundensatz durch
 > Referenzen, Kunden, die wiederkommen, Kapital, das arbeitet – entsteht in
-> diesen neun Monaten, wirkt aber erst danach (Abschnitt 6).
+> diesen neun Monaten, wirkt aber erst danach (Abschnitt 6). Wer trotzdem
+> auf 500.000 € bis Sommer 2027 zielt, findet den einzigen Weg, der dafür
+> überhaupt in Frage kommt, in [`500K_BIS_SOMMER_2027.md`](500K_BIS_SOMMER_2027.md).
 
 **Gilt für:** die gleiche Lage wie im Job-Weg – volljährig, über einen
 gesetzlich versicherten Elternteil familienversichert, danach Studium,
@@ -42,16 +45,20 @@ der Job-Weg (55 % dual/Ausbildung); getrennt in Abschnitt 2.
 
 Gerechnet mit `python3 plan/hebel_2027.py` (20.000 Läufe je Option):
 - Jede Option nimmt dem Job-Weg genau die Stunden weg, die sie braucht –
-  vor dem Abitur gehen sie Nachhilfe, Webgeschäft oder Minijob verloren,
-  im Sommer dem Sommerjob oder seinen Samstagen.
+  vor dem Abitur gehen sie Nachhilfe oder Minijob verloren, im Sommer dem
+  Sommerjob oder seinen Samstagen. Braucht sie mehr, als das Stundenbudget
+  hergibt, gehen zuerst Ferienjob-Tage weg, der Rest von der Lernzeit
+  (mit 20 €/h bewertet).
 - Ihr Gewinn zählt zur Einkommensteuer und zusammen mit Nachhilfe und
   Webgeschäft zur Grenze der Familienversicherung. Reißt sie, kostet die
-  eigene Krankenversicherung Geld (Abschnitt 5).
+  eigene Krankenversicherung Geld; die Beiträge mindern dafür die Steuer
+  (Abschnitt 5).
 - Wo eine Option den Sommer braucht, gibt es einen Frühindikator bis
   31.03. oder eine Abbruchregel in den ersten Sommerwochen, danach mit
   einer gewissen Wahrscheinlichkeit noch einen späten Sommerjob.
 - Die Verteilungen stammen aus zwei Recherche-Runden mit Belegen und
-  eigenen Schätzungen, wo es keine gibt (Abschnitt 8).
+  eigenen Schätzungen, wo es keine gibt (Abschnitt 8); eine dritte
+  Prüfrunde hat das Modell auf Rechenfehler durchgesehen.
 
 ## 1. Warum Hebel bis Sommer 2027 nicht greifen
 
@@ -81,9 +88,9 @@ einholen. Nach Kosten verdient der Inhaber eines Umzugsteams im Median
 das Webgeschäft im Sommer ~9 €/h.
 
 **3. Die Stunden vor dem Abitur sind schon belegt.** Im Job-Weg füllen
-Nachhilfe und Webgeschäft das Stundenbudget fast immer (~20 €/h). Jede
+Nachhilfe und Minijob das Stundenbudget fast immer (~15–22 €/h). Jede
 Stunde für Aufbau, Tests und Akquise geht davon ab – 50–130 Stunden
-kosten so ~1.000–2.500 €, bevor das Geschäft einen Euro verdient.
+kosten so ~800–2.500 €, bevor das Geschäft einen Euro verdient.
 
 **4. Die Familienversicherung ist eine Klippe, keine Grenze.** Alle
 Gewinne 2027 zusammen – Nachhilfe, Webgeschäft, das neue Geschäft,
@@ -119,40 +126,44 @@ Sozialabgaben und Krankenversicherung. Netto zählt wie im Job-Weg, was bis
 
 | Option | Median netto | mehr als Job: Median | … Mittel | … gut (10 %) | … Spitze (1 %) | besser in |
 |---|---:|---:|---:|---:|---:|---:|
-| *Job-Weg allein* | *~11.700 €* | | | | | |
-| **Webgeschäft abends neben dem Sommerjob** (~1,6 h je Arbeitstag) | 11.900 € | ±0 € | +100 € | +700 € | +1.500 € | 48 % |
-| **Startup Teens mit standortcheck**, nur mit Beleg bis 31.01. | 11.500 € | −100 € | −100 € | ±0 € | +6.800 € | 4 % |
-| **Kombination: beide zusammen** | 11.700 € | −200 € | ±0 € | +700 € | +7.900 € | 33 % |
-| Technik-Flipping neben Schule und Sommerjob | 11.400 € | −500 € | −200 € | +1.800 € | +4.400 € | 30 % |
-| Webgeschäft im Sommer in Vollzeit nur bei Startregel (Testwoche Februar, ≥ 5 Einstiege, 1 Paket ≥ 1.600 €), sonst Sommerjob | 11.500 € | −400 € | −300 € | +600 € | +1.700 € | 32 % |
-| Fotobox-Verleih am Wochenende, neben dem Sommerjob | 10.600 € | −1.300 € | −1.000 € | +700 € | +3.300 € | 17 % |
-| Umzugsteam Fr/Sa + 3-Tage-Sommerjob, nur bei ≥ 10 Anfragen im Feb./März | 10.400 € | −1.400 € | −1.200 € | +200 € | +3.600 € | 11 % |
-| Umzugsteam statt Sommerjob, nur bei ≥ 10 Anfragen im Feb./März | 10.200 € | −1.500 € | −1.400 € | −200 € | +4.400 € | 9 % |
-| Spendenwerbung angestellt (Reiseteam, Fixum + Prämie) statt Sommerjob | 9.900 € | −1.600 € | −1.700 € | +300 € | +3.900 € | 13 % |
-| **Glasfaser-Haustürvertrieb als Handelsvertreter statt Sommerjob** | 9.600 € | −1.900 € | −1.000 € | **+4.400 €** | **+17.100 €** | 24 % |
-| … mit Stopp nach Woche 2 unter 250 €/Woche | 9.900 € | −2.000 € | −900 € | +4.400 € | +17.100 € | 24 % |
-| Webgeschäft an 2 Tagen je Woche + 3-Tage-Sommerjob | 9.600 € | −2.100 € | −2.000 € | −900 € | +200 € | 1 % |
-| Webgeschäft in Vollzeit statt Sommerjob, Abbruch nach 10 Tagen ohne 3 Abschlüsse | 8.400 € | −2.500 € | −3.300 € | −1.300 € | −100 € | 1 % |
-| Umzugsteam statt Sommerjob, ohne Frühindikator | 6.000 € | −5.500 € | −4.900 € | +200 € | +5.200 € | 11 % |
+| *Job-Weg allein* | *~11.300 €* | | | | | |
+| **Webgeschäft abends neben dem Sommerjob** (~1,6 h je Arbeitstag, Gesamtlast ~50 h/Woche) | 11.400 € | ±0 € | +100 € | +700 € | +1.700 € | 46 % |
+| … dasselbe statt der Samstagsschichten (höchstens ~48 h/Woche) | 10.900 € | −400 € | −400 € | +300 € | +1.300 € | 19 % |
+| **Startup Teens mit standortcheck**, nur mit Beleg bis 31.01. | 11.200 € | ±0 € | ±0 € | ±0 € | +7.300 € | 4 % |
+| **Kombination: Web abends + Startup Teens** | 11.300 € | −200 € | +100 € | +800 € | +7.900 € | 35 % |
+| Technik-Flipping neben Schule und Sommerjob | 11.200 € | −400 € | ±0 € | +2.000 € | +4.700 € | 34 % |
+| Fotobox-Verleih am Wochenende, neben dem Sommerjob | 10.400 € | −1.100 € | −800 € | +800 € | +3.300 € | 20 % |
+| Webgeschäft Vollzeit nur bei Startregel (Test im Winter + Testwoche im Februar), sonst Sommerjob | 10.300 € | −1.100 € | −1.000 € | −300 € | +600 € | 5 % |
+| Umzugsteam Fr/Sa + 3-Tage-Sommerjob, nur bei ≥ 10 Anfragen im Feb./März | 10.000 € | −1.300 € | −1.200 € | −200 € | +3.400 € | 9 % |
+| Umzugsteam statt Sommerjob, nur bei ≥ 10 Anfragen im Feb./März | 9.800 € | −1.400 € | −1.600 € | −700 € | +4.400 € | 7 % |
+| Spendenwerbung angestellt (Reiseteam, Fixum + Prämie) statt Sommerjob | 9.600 € | −1.500 € | −1.600 € | +400 € | +4.100 € | 14 % |
+| Webgeschäft an 2 Tagen je Woche + 3-Tage-Sommerjob (16–18 €/h) | 9.300 € | −1.900 € | −1.900 € | −700 € | +600 € | 3 % |
+| **Glasfaser-Haustürvertrieb als Handelsvertreter statt Sommerjob** | 9.000 € | −2.200 € | −1.000 € | **+4.900 €** | **+20.600 €** | 24 % |
+| … mit Stopp nach Woche 2 unter 250 €/Woche | 9.100 € | −2.200 € | −900 € | +4.900 € | +20.600 € | 24 % |
+| Webgeschäft in Vollzeit statt Sommerjob, Abbruch nach 10 Tagen ohne 3 Abschlüsse | 8.100 € | −2.500 € | −3.100 € | −1.300 € | ±0 € | 1 % |
+| Umzugsteam statt Sommerjob, ohne Frühindikator | 5.600 € | −5.600 € | −5.000 € | ±0 € | +5.700 € | 10 % |
 
 **So liest man das:**
-- **Webgeschäft abends** ist die einzige Ergänzung mit positivem Mittel:
-  kaum Risiko (schlechtestes Zehntel −400 €), die Familienversicherung
-  bleibt. Bis 31.08. bringt es wenig, weil Websites erst nach Texten und
-  Fotos des Kunden fertig werden. Dazu kommen ~500 € für Arbeit im
-  September, die hier nicht mitzählen, und vor allem gemessene Quoten für
-  das Studium.
-- **Startup Teens** ist ein Los: in ~96 % der Fälle −50 bis −700 € (die
+- **Webgeschäft abends** ist die einzige Ergänzung, die im Mittel etwas
+  bringt: kaum Risiko (schlechtestes Zehntel −400 €), die
+  Familienversicherung bleibt. Bis 31.08. bringt es wenig, weil Websites
+  erst nach Texten und Fotos des Kunden live gehen. Dazu kommen ~300 € für
+  Arbeit im September, die hier nicht mitzählen, und vor allem gemessene
+  Quoten für das Studium. Es setzt aber voraus, neben dem Vollzeitjob noch
+  ~8 Stunden je Woche zu arbeiten; wer stattdessen die Samstagsschichten
+  streicht, liegt im Median 400 € unter dem Job-Weg.
+- **Startup Teens** ist ein Los: in ~96 % der Fälle 0 bis −700 € (die
   verdrängten Stunden), in ~3 % der Fälle 2.000–10.000 € Preisgeld.
-- **Alles, was den Sommerjob ersetzt, verliert im Median** 1.500–5.500 €.
-  Die Stufenpläne begrenzen den Schaden, weil das Signal bis 31.03. in den
-  meisten Fällen „Sommerjob“ sagt: beim Umzugsteam in 72 % der Fälle, beim
-  Webgeschäft mit Startregel in 94 %. Aber selbst bei grünem Signal
-  verliert der Sommer im Median (Umzug −1.500 €, Web −2.600 €).
+- **Alles, was den Sommerjob ersetzt, verliert im Median** 1.100–5.600 €.
+  Die Stufenpläne begrenzen den Schaden, weil das Signal bis 31.03. fast
+  immer „Sommerjob“ sagt: beim Umzugsteam in 72 % der Fälle, beim
+  Webgeschäft mit Startregel in 99,5 %. Selbst bei grünem Signal verliert
+  der Sommer im Median (Umzug −2.400 €, Web −3.000 €); besser als der
+  Job-Weg sind dann nur 24 % bzw. 12 % der Fälle.
 - **Die Glasfaser-Wette** ist die einzige mit echtem Ausreißer: 1 von 10
-  Verläufen bringt mehr als +4.400 €, 1 von 100 mehr als +17.000 €. Dafür
-  bricht mehr als die Hälfte ab, und fast die Hälfte steht am Ende mehr
-  als 2.000 € schlechter da.
+  Verläufen bringt mehr als +4.900 €, 1 von 100 mehr als +20.000 €. Dafür
+  bricht mehr als die Hälfte ab, und mehr als die Hälfte steht am Ende
+  über 2.000 € schlechter da.
 
 **Studium oder duales Studium danach** ändert die Abstände, aber nicht das
 Bild. Vor einem dualen Studium kostet der Sommerjob ~21 % Sozialabgaben, er
@@ -160,27 +171,28 @@ ist also leichter zu schlagen:
 
 | mehr als Job, Median (gut 10 % / Spitze 1 %) | Studium danach | dual/Ausbildung danach |
 |---|---:|---:|
-| Webgeschäft abends | ±0 € (+700 / +1.500) | ±0 € (+600 / +1.500) |
-| Kombination Web abends + Startup Teens | −200 € (+700 / +7.200) | −300 € (+600 / +8.300) |
-| Glasfaser-Haustür statt Sommerjob | −2.400 € (+3.800 / +16.700) | −1.600 € (+4.700 / +17.700) |
-| Spendenwerbung statt Sommerjob | −2.100 € (+500 / +4.200) | −1.400 € (+300 / +3.400) |
-| Umzugsteam statt Sommerjob, Stufenplan | −1.500 € (−500 / +3.900) | −1.400 € (+200 / +4.800) |
-| Webgeschäft Vollzeit statt Sommerjob | −3.200 € (−1.700 / −600) | −2.200 € (−1.200 / +100) |
+| Webgeschäft abends | ±0 € (+900 / +1.800) | −100 € (+600 / +1.600) |
+| Kombination Web abends + Startup Teens | −200 € (+900 / +6.400) | −200 € (+700 / +8.500) |
+| Glasfaser-Haustür statt Sommerjob | −2.900 € (+4.700 / +20.300) | −1.800 € (+5.200 / +20.800) |
+| Spendenwerbung statt Sommerjob | −1.900 € (+500 / +4.400) | −1.300 € (+300 / +3.400) |
+| Umzugsteam statt Sommerjob, Stufenplan | −1.400 € (−800 / +4.000) | −1.300 € (−600 / +4.700) |
+| Webgeschäft Vollzeit statt Sommerjob | −3.000 € (−1.700 / −500) | −2.200 € (−1.000 / +200) |
 
 **Gegenproben mit optimistischen Annahmen** (`--gegenproben`):
 
 | Option, optimistisch | mehr als Job: Median | Mittel | gut (10 %) | Spitze (1 %) | besser in |
 |---|---:|---:|---:|---:|---:|
-| Webgeschäft Vollzeit mit den alten Quoten und Preisen, ohne Sommerflaute | −1.500 € | −1.500 € | +1.200 € | +4.100 € | 22 % |
-| Webgeschäft abends, ebenso | +700 € | +800 € | +2.100 € | +3.600 € | 79 % |
-| Spendenwerbung mit Firmenangaben und halben Abbrüchen | −1.200 € | −1.000 € | +1.500 € | +6.600 € | 24 % |
-| Glasfaser mit Firmenangaben und halben Abbrüchen | −1.100 € | +1.000 € | +9.000 € | +26.600 € | 41 % |
-| Startup Teens mit sehr starkem Projekt | −400 € | +100 € | +1.000 € | +8.500 € | 10 % |
+| Webgeschäft Vollzeit mit den alten Quoten und Preisen, ohne Sommerflaute | −1.700 € | −1.400 € | +1.300 € | +4.800 € | 21 % |
+| Webgeschäft abends, ebenso | +500 € | +600 € | +1.800 € | +3.100 € | 74 % |
+| Spendenwerbung mit Firmenangaben und halben Abbrüchen | −1.100 € | −900 € | +1.600 € | +6.700 € | 26 % |
+| Glasfaser mit Firmenangaben und halben Abbrüchen | −1.100 € | +1.500 € | +11.200 € | +33.100 € | 41 % |
+| Startup Teens mit sehr starkem Projekt | −300 € | +200 € | +1.200 € | +8.700 € | 10 % |
 
 Selbst mit den Zahlen aus der Werbung der Firmen schlägt keine Option, die
 den Sommerjob ersetzt, den Job-Weg im Median. Nur die optimistische
 Glasfaser-Rechnung ist im Mittel positiv – getragen von wenigen
-Ausreißern.
+Ausreißern. Die Spitzenwerte (1 %) der Lose schwanken zwischen Seeds um
+etwa ±500 €.
 
 ## 3. Der Plan: Job-Weg plus billige Lose
 
@@ -190,18 +202,19 @@ bleibt die Basis. Dazu kommt nur, was ihn nicht gefährdet:
 | Wann | Was | Abbruchregel |
 |---|---|---|
 | **jetzt bis 31.03.2027** | Sommerjob sichern wie im Job-Weg (Industrie-Ferienarbeit wird Januar bis März vergeben). Unabhängig von allem anderen. | – |
-| **Dezember – März** | Webgeschäft wie im Job-Weg, aber **jeden Kontakt zählen**: Besuche, Gespräche mit dem Inhaber, bezahlte Einstiege, Pakete, Preis, Stunden. Das ist der Datensatz für alles Weitere. | – |
-| **bis 31.01.2027** | Gibt es einen zahlenden Kunden oder einen belastbaren Beleg? Dann den vorhandenen Plan ([`GESCHAEFTSPLAN.md`](GESCHAEFTSPLAN.md)) und das Werkzeug als Businessplan für **Startup Teens** aufbereiten (15–40 h). | ohne Beleg nicht einreichen |
+| **Dezember – März** | Wer das Webgeschäft neben Nachhilfe und Minijob betreibt (bringt im Erwartungswert nicht mehr, aber Erfahrung): **jeden Kontakt zählen** – Besuche, Gespräche mit dem Inhaber, bezahlte Einstiege, Pakete, Preis, Stunden. Das ist der Datensatz für alles Weitere. | – |
+| **bis 31.01.2027** | Gibt es einen zahlenden Kunden oder einen belastbaren Pilot? Dann den vorhandenen Plan ([`GESCHAEFTSPLAN.md`](GESCHAEFTSPLAN.md)) und das Werkzeug als Businessplan für **Startup Teens** aufbereiten (15–40 h). | ohne Beleg nicht einreichen |
 | **März 2027** | Einreichung Bayern-Challenge (Abgabe März, Finale April, 5.000/3.000/2.000 €); denselben Plan im Mai national einreichen (7 Kategorien × 10.000 €, Finale Juni). | ohne Einladung ins Finale keine weiteren Stunden |
 | **22.03. – 13.06.** | Abitur. Keine neuen Geschäfte, keine Akquise. | – |
 | **28.06. – 31.08.** | Vollzeit-Sommerjob. **Abends ~1–2 h Webgeschäft**: Einstiege liefern, Kontakte pflegen, Pakete für den September annehmen. | Familienversicherung im Blick: alle Gewinne 2027 zusammen unter 7.080 € halten |
-| **ab September** | Pakete aus dem Sommer fertigstellen (im Mittel ~500 €), Quoten auswerten, mit Referenzen ins Studium (Abschnitt 6). | – |
+| **ab September** | Pakete aus dem Sommer fertigstellen (im Mittel ~300 €), Quoten auswerten, mit Referenzen ins Studium (Abschnitt 6). | – |
 
 **Startregel für alles, was den Sommer kostet** (Umzugsteam, Webgeschäft in
 Vollzeit, Provisionsvertrieb): Nur wenn bis 31.03. mindestens 5 bezahlte
-Einstiege aus mindestens 100 Kaltkontakten (≥ 5 %) und ein bezahltes Paket
-ab 1.600 € stehen – und selbst dann verliert der Sommer im Modell im Median
-~2.600 €. Ehrlicher gesagt: Den Sommer nicht ins Geschäft stecken.
+Einstiege aus mindestens 100 Kaltkontakten (≥ 5 %), ein bezahltes Paket
+ab 1.600 € und mindestens 30 € Umsatz je Stunde stehen. Das erfüllt im
+Modell nur 1 von 200 Verläufen – und selbst dann verliert der Sommer im
+Median ~3.000 €. Ehrlicher gesagt: den Sommer nicht ins Geschäft stecken.
 
 **Wer bewusst auf den oberen Rand setzen will:** Die einzige Option dafür
 ist der Glasfaser-Haustürvertrieb – und nur so:
@@ -213,7 +226,7 @@ ist der Glasfaser-Haustürvertrieb – und nur so:
   hauptberuflich gilt;
 - mit fester Abbruchregel nach Woche 2 und einem Zeitarbeitsjob als
   Rückfall;
-- im Wissen: Median −1.900 €, in 48 % der Fälle mehr als 2.000 € weniger.
+- im Wissen: Median −2.200 €, in 54 % der Fälle mehr als 2.000 € weniger.
 
 ## 4. Was recherchiert, aber verworfen wurde
 
@@ -295,8 +308,8 @@ Referenzen, Kunden und Zeit, und genau die entstehen jetzt:
 
 ## 8. Quellen
 
-Zwei Recherche-Runden (29 Wege, ~850 Werkzeugaufrufe), dazu eine
-Vollständigkeitsprüfung. Die wichtigsten Belege:
+Zwei Recherche-Runden (rund 30 Wege, ~850 Werkzeugaufrufe), dazu eine
+Vollständigkeitsprüfung und eine Prüfrunde des Modells. Die wichtigsten Belege:
 
 **Nachfrage, Basisraten, Survivorship**
 - Bitkom/ZDH, Studienbericht Handwerk 2026 (94 % mit Website): https://www.bitkom.org/sites/main/files/2026-01/bitkom-studienbericht-handwerk.pdf
