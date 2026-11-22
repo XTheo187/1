@@ -23,17 +23,58 @@ class TestVerdienst(unittest.TestCase):
         self.assertLessEqual(r["p99"], o["netto"])
 
     def test_regeln_werden_eingehalten(self):
-        a = v.Annahmen()
-        rng = random.Random(3)
-        monate = {2026: sum(p.monate for p in a.phasen if p.jahr == 2026),
-                  2027: sum(p.monate for p in a.phasen if p.jahr == 2027)}
-        for _ in range(2_000):
+        for p_dual in (0.0, 1.0):
+            a = replace(v.Annahmen(), p_dual=p_dual)
+            rng = random.Random(3)
+            for _ in range(2_000):
+                e = v.ein_verlauf(rng, a)
+                for jahr in (2026, 2027):
+                    p = e["pruef"][jahr]
+                    # Familienversicherung: Gewinn / 12 unter 565/590; mit Minijob Minijob + Gewinn / 12 unter 603/633
+                    if p["mini"] > 1e-9:
+                        self.assertLessEqual(p["mini"] / p["mini_monate"] + p["selbst"] / 12,
+                                             a.grenze_minijob[jahr] + 1e-6)
+                    else:
+                        self.assertLessEqual(p["selbst"], 12 * a.grenze_regel[jahr] + 1e-6)
+                    # Rentenversicherung: Nachhilfe-Gewinn höchstens 603/633 EUR je Monat
+                    if p["nachhilfe"] > 0:
+                        self.assertLessEqual(p["nachhilfe"], a.grenze_minijob[jahr] * p["nachhilfe_monate"] + 1e-6)
+                    # Übungsleiterpauschale
+                    self.assertLessEqual(p["frei"], a.uebungsleiter_frei + 1e-6)
+                    # Kurzfristige Beschäftigung: 70 Arbeitstage oder 90 Kalendertage je Kalenderjahr
+                    self.assertTrue(p["arbeitstage"] <= a.tage_kurzfristig + 1e-6
+                                    or p["kalendertage"] <= a.kalendertage_kurzfristig + 1e-6)
+
+    def test_sozialabgaben_nur_nach_dem_zeugnis(self):
+        """Schülerjobs bis zum Zeugnis sind SV-frei; vor dualem Studium nur Sommerjob und Vergütung."""
+        a = replace(v.Annahmen(), p_dual=1.0)
+        rng = random.Random(8)
+        for _ in range(500):
             e = v.ein_verlauf(rng, a)
-            for jahr in (2026, 2027):
-                # Familienversicherung: regelmäßiges Einkommen unter der (Minijob-)Grenze
-                self.assertLessEqual(e["regelmaessig"][jahr], a.grenze_minijob[jahr] * monate[jahr] + 1e-6)
-                # Kurzfristige Beschäftigung: höchstens 70 Arbeitstage je Kalenderjahr
-                self.assertLessEqual(e["tage_kurzfristig"][jahr], a.tage_kurzfristig + 1e-6)
+            nach_zeugnis = sum(x for k, x in e["je_quelle"].items()
+                               if k.startswith(("Sommerjob", "Ausbildungsvergütung")))
+            self.assertAlmostEqual(e["sv"], a.sv_berufsmaessig * nach_zeugnis, places=6)
+        fh = v.ein_verlauf(random.Random(8), replace(v.Annahmen(), p_dual=0.0))
+        self.assertEqual(fh["sv"], 0.0)
+
+    def test_familienversicherung_rechnet_den_jahresgewinn(self):
+        """Gewinn aus dem Webgeschäft darf über die Monate verteilt bis 12 x 590 EUR gehen."""
+        o = v.obergrenze()
+        self.assertGreater(o["pruef"][2027]["selbst"], 6 * 590)
+        self.assertLessEqual(o["pruef"][2027]["selbst"], 12 * 590 + 1e-6)
+
+    def test_einbehaltene_lohnsteuer_fehlt_am_31_august(self):
+        r = v.auswerten(3_000, a=replace(v.Annahmen(), p_dual=0.0))
+        self.assertGreater(r["einbehalten_median"], 500)
+        self.assertLess(r["kontostand_median"], r["median"])
+        # kurze Ferienjobs: Tagestabelle behält mehr ein als die Monatstabelle
+        self.assertGreater(v.lohnsteuer(740, 5, 2027), 5 / 30 * v.lohnsteuer(740, 30, 2027))
+        self.assertEqual(v.lohnsteuer(1_000, 30, 2027), 0.0)
+
+    def test_jobtage_vor_dem_zeugnis_bringen_mehr(self):
+        mit = v.auswerten(3_000)
+        ohne = v.auswerten(3_000, a=v.ohne_jobtage_mai_juni(v.Annahmen()))
+        self.assertGreater(mit["median"], ohne["median"])
 
     def test_duales_studium_danach_kostet_abgaben(self):
         fh = v.auswerten(3_000, a=replace(v.Annahmen(), p_dual=0.0))

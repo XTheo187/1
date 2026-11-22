@@ -4,140 +4,260 @@
 in Bayern (Raum Regensburg) – bis zum **31. August 2027** durch eigene
 Arbeit verdienen, ohne das Abitur zu gefährden?
 
-> **Antwort: realistisch maximal rund 13.000 € netto.**
+> **Antwort: realistisch maximal rund 14.000 € netto.**
 >
 > | Kennzahl (netto, nach Steuer und Abgaben) | Betrag |
 > |---|---:|
-> | **realistisches Maximum** – nur 1 von 10 Verläufen schafft mehr | **~13.100 €** |
-> | Median mit dem Plan unten | ~10.700 € |
-> | sicher – 9 von 10 Verläufen schaffen mindestens | ~8.200 € |
-> | absolute Obergrenze – jede Annahme am oberen Rand, ~770 Arbeitsstunden | ~17.300 € |
-> | … dazu 60-Stunden-Wochen im Sommer (nur mit Ausgleich nach Arbeitszeitgesetz) | ~18.800 € |
+> | **realistisches Maximum** – nur 1 von 10 Verläufen schafft mehr | **~14.000 €** |
+> | Median mit dem Plan unten | ~11.700 € |
+> | sicher – 9 von 10 Verläufen schaffen mindestens | ~9.100 € |
+> | absolute Obergrenze – jede Annahme am oberen Rand, ~930 Arbeitsstunden | ~21.500 € |
+> | … dazu 60-Stunden-Wochen im Sommer (nur mit Ausgleich nach Arbeitszeitgesetz) | ~23.200 € |
 >
-> Zwei Drittel davon bringt ein **Vollzeit-Sommerjob nach dem Abiturzeugnis**
-> (28.06.–31.08.2027, 47 Arbeitstage). Am stärksten verschiebt das Ergebnis,
-> was danach kommt: vor einem FH-Studium ab 01.10. bleibt der Sommerjob
-> abgabenfrei (Median ~12.100 €), vor einem dualen Studium oder einer
-> Ausbildung gehen ~21 % Sozialabgaben ab und der Sommer ist oft kürzer
-> (Median ~9.500 €, bei Start am 01.08. ~8.200 €).
+> **Am 31.08.2027 auf dem Konto ist es rund 1.500 € weniger** (Median
+> ~10.200 €). Diese Lohnsteuer behalten die Arbeitgeber vor allem im Sommer
+> ein. Sie kommt erst mit der Steuererklärung 2027, also 2028, zurück.
+>
+> Gut die Hälfte bringt ein **Vollzeit-Sommerjob nach dem Abiturzeugnis**
+> (28.06.–31.08.2027, 47 Arbeitstage). Je etwa ein Fünftel bringen
+> Ferienjobs vor dem Zeugnis sowie Nachhilfe und Webgeschäft. Am stärksten
+> verschiebt das Ergebnis, was danach kommt:
+> - Vor einem **FH-Studium** ab 01.10. bleibt der Sommerjob
+>   sozialversicherungsfrei (Median ~12.900 €).
+> - Vor einem **dualen Studium oder einer Ausbildung** gehen auf den
+>   Sommerjob ~21 % Sozialabgaben ab (Median ~11.300 €).
+> - Bei **Ausbildungsbeginn am 01.08.** ist der Sommer zudem kürzer
+>   (Median ~9.300 €).
+
+**Gilt für:**
+- Du bist volljährig.
+- Mindestens ein Elternteil ist gesetzlich krankenversichert.
+- Nach dem Abitur folgt ein Studium, ein duales Studium oder eine
+  Ausbildung.
+
+Sonst ändern sich die Regeln:
+- **Unter 18** gilt das Jugendarbeitsschutzgesetz: höchstens 40 h/Woche,
+  keine Nachtarbeit.
+- **Privat versicherte Eltern:** Es gibt keine Familienversicherung, also
+  andere Grenzen.
+- **Vor FSJ, BFD oder freiwilligem Wehrdienst** ist der Sommerjob
+  berufsmäßig, wie vor einer Ausbildung.
 
 Gerechnet mit `python3 plan/verdienst_2027.py` (20.000 simulierte Verläufe):
-Jede Phase bis August hat ein Stundenbudget, das das Abitur schützt; die
-Stunden gehen an die Quelle mit dem höchsten erwarteten Erlös je Stunde,
-begrenzt durch Nachfrage und die Regeln in Abschnitt 4.
+- Jede Phase bis August hat ein Stundenbudget, das das Abitur schützt.
+- Die Stunden gehen an die Quelle mit dem höchsten erwarteten Erlös je
+  Stunde.
+- Begrenzt wird das durch die Nachfrage und die Regeln in Abschnitt 4.
 
 ## 1. Was jede Strategie bringt
 
 | Strategie (netto bis 31.08.2027) | sicher (90 %) | Median | gut (10 %) | Spitze (1 %) |
 |---|---:|---:|---:|---:|
-| **beste Mischung (Plan unten)** | **8.200 €** | **10.700 €** | **13.100 €** | **14.400 €** |
-| ohne Webgeschäft | 7.900 € | 10.400 € | 12.700 € | 13.900 € |
-| nur kurzfristige Jobs (Ferien, Einsätze, Sommer) | 6.300 € | 8.800 € | 11.000 € | 12.100 € |
-| nur Nebenjobs neben der Schule (kein Sommerjob) | 1.900 € | 2.600 € | 3.500 € | 4.200 € |
+| **beste Mischung (Plan unten)** | **9.100 €** | **11.700 €** | **14.000 €** | **15.400 €** |
+| ohne Webgeschäft | 8.800 € | 11.300 € | 13.500 € | 14.900 € |
+| nur befristete Jobs (Ferien, Einsätze, Sommer) | 7.400 € | 9.800 € | 12.000 € | 13.200 € |
+| nur Nebenjobs neben der Schule (keine Ferien- und Sommerjobs) | 1.900 € | 2.700 € | 3.700 € | 4.600 € |
 
-**Was danach kommt, entscheidet mit** (beste Mischung):
+**Was danach kommt und welche Jobs du bekommst, entscheidet mit** (beste Mischung):
 
-| Danach … | sicher (90 %) | Median | gut (10 %) |
+| Szenario | sicher (90 %) | Median | gut (10 %) |
 |---|---:|---:|---:|
-| FH-Studium ab 01.10. (Sommerjob sozialversicherungsfrei) | 10.500 € | 12.100 € | 13.600 € |
-| duales Studium / Ausbildung, Start 01.09. | 8.900 € | 10.200 € | 11.400 € |
-| duales Studium / Ausbildung, Start 01.08. (nur 25 Sommer-Arbeitstage, dafür August-Vergütung) | 7.200 € | 8.200 € | 9.300 € |
-| Industrie-/Lagerjob im Sommer sicher (18–20 €/h) | 8.500 € | 11.200 € | 13.300 € |
-| nur Mindestlohn-Jobs (14,60 €/h) | 7.700 € | 9.900 € | 11.700 € |
-| ohne Ferienjob in den Weihnachts- und Frühjahrsferien | 6.700 € | 9.100 € | 11.100 € |
+| FH-Studium ab 01.10. (Sommerjob sozialversicherungsfrei) | 11.200 € | 12.900 € | 14.600 € |
+| duales Studium / Ausbildung, Start 01.09. oder 01.10. | 9.700 € | 11.300 € | 12.800 € |
+| duales Studium / Ausbildung, Start 01.08. (nur 25 Sommer-Arbeitstage, dafür August-Vergütung) | 8.000 € | 9.300 € | 10.700 € |
+| Industrie- oder Lagerjob in Ferien und Sommer sicher (17–20,50 €/h) | 9.500 € | 12.200 € | 14.300 € |
+| kein Industriejob, nur Aushilfe und Zeitarbeit (14,60–17 €/h) | 8.600 € | 10.700 € | 12.500 € |
+| überall nur Mindestlohn (14,60 €/h) | 8.200 € | 10.100 € | 11.700 € |
+| ohne Jobtage im Mai und Juni vor dem Zeugnis | 8.400 € | 10.900 € | 13.000 € |
+| ohne alle Ferienjobs vor dem Zeugnis | 6.700 € | 9.100 € | 11.000 € |
+
+Am 31.08. auf dem Konto (Median) ist es weniger, weil die Lohnsteuer erst
+2028 zurückkommt:
+
+| Szenario | Kontostand | Lohnsteuer einbehalten |
+|---|---:|---:|
+| FH-Studium | ~11.100 € | ~1.800 € |
+| dual, Start 01.09./01.10. | ~9.900 € | ~1.300 € |
+| dual, Start 01.08. | ~8.400 € | ~900 € |
+
+Im dualen Fall ist weniger einbehalten, weil die Sozialabgaben die
+Lohnsteuer mindern.
 
 ## 2. Woher das Geld kommt
 
-| Quelle | Mittel im Plan | in der Obergrenze |
+| Quelle | Mittel im Plan (brutto) | in der Obergrenze |
 |---|---:|---:|
-| Sommerjob nach dem Abitur (kurzfristig, 28.06.–31.08.) | 7.000 € | 9.250 € |
-| Ferienjob in den Weihnachts- und Frühjahrsferien (14 Arbeitstage) | 1.800 € | 2.870 € |
-| Nachhilfe (privat) | 1.330 € | – |
-| Webgeschäft (`standortcheck`) | 1.120 € | 3.750 € |
-| Einsätze am Wochenende (Event, Lager; kurzfristig) | 130 € | 1.690 € |
+| Sommerjob nach dem Zeugnis (28.06.–31.08.) | 6.980 € | 9.250 € |
+| Ferienjobs vor dem Zeugnis (Weihnachten, Februar, Pfingsten, Juni) | 2.610 € | 5.535 € |
+| Webgeschäft (`standortcheck`), Gewinn | 1.280 € | 7.870 € |
+| Nachhilfe (privat) | 1.260 € | – |
 | August-Vergütung, falls die Ausbildung am 01.08. beginnt | 220 € | – |
-| Minijob | 30 € | – |
+| Minijob | 60 € | – |
+| Übungsleiter/Betreuer, Wochenend-Einsätze | < 10 € | – |
 
-Nachhilfe und Webgeschäft schlagen den Minijob, weil sie je Stunde mehr
-bringen (Nachhilfe privat 15–30 €/h, Webgeschäft im Modell Median ~26 €
-Umsatz je Stunde) und unter derselben Einkommensgrenze (Abschnitt 4) mit
-weniger Lernzeit auskommen. In der Obergrenze verdrängt das Webgeschäft
-die Nachhilfe, weil es dort am oberen Rand gerechnet ist.
+**Neben der Schule ist das Stundenbudget die Grenze, nicht die
+Familienversicherung.** Nachhilfe (privat 15–30 €/h) und Webgeschäft (im
+Modell Median ~26 € Umsatz je Stunde) bringen je Stunde am meisten. Sie
+füllen das Budget fast immer.
+
+Wochenend-Einsätze (~18 €/h), Minijob und Übungsleiter kommen nur zum
+Zug, wenn Nachhilfeschüler oder Kunden fehlen.
+
+In der Obergrenze nimmt das Webgeschäft das ganze Stundenbudget, weil es
+dort am oberen Rand gerechnet ist: 40 € Umsatz je Stunde. Sein Gewinn 2027
+liegt mit 6.160 € noch unter 12 × 590 € = 7.080 €.
 
 ## 3. Der Plan zum Maximum
 
 | Wann | Was | Stunden |
 |---|---|---|
-| **bis 23.12.2026** | 2–4 Nachhilfeschüler (Mittel-/Oberstufe, 20–30 €/h) suchen; Webgeschäft mit `standortcheck` starten (Gewerbe 45 € in Regensburg) | 3–10 h/Woche |
-| **Weihnachtsferien 24.12.–08.01.** | kurzfristiger Ferienjob (Lager, Event; ~18 €/h, z. B. über InStaff) an den 9 Arbeitstagen – wenn das Lernen es zulässt | Vollzeit |
-| **Januar – März 2027** | Nachhilfe und Webgeschäft weiter; einzelne Wochenend-Einsätze; **Sommerjob jetzt sichern**: Ferienarbeit/Produktion bei Industriebetrieben (BMW, Krones, Infineon, Continental) oder über Zeitarbeitsfirmen (Randstad u. a.), Start 28.06. | 3–10 h/Woche |
+| **bis 23.12.2026** | <ul><li>2–4 Nachhilfeschüler suchen (Mittel-/Oberstufe, 20–30 €/h). Nachhilfe ist freiberuflich, braucht also kein Gewerbe.</li><li>Webgeschäft mit `standortcheck` starten: Gewerbe in Regensburg 45 €.</li><li>Innerhalb eines Monats nach dem Start den **Fragebogen zur steuerlichen Erfassung** über ELSTER abgeben und dort die Kleinunternehmerregelung wählen.</li></ul> | 3–10 h/Woche |
+| **Weihnachtsferien 24.12.–08.01.** | Befristeter Ferienjob an bis zu 9 Arbeitstagen: 5 Tage im Jahr 2026, 4 im Jahr 2027. Zum Beispiel Inventurhilfe, Lager, Paketsortierung (~18 €/h, z. B. über InStaff) – wenn das Lernen es zulässt. | Vollzeit |
+| **Januar – März 2027** | <ul><li>Nachhilfe und Webgeschäft weiterführen.</li><li>**Sommerjob jetzt sichern:** Ferienarbeit oder Produktion bei Industriebetrieben (BMW, Krones, Infineon, Continental) oder über Zeitarbeit (Randstad u. a.), Start 28.06.</li><li>Den Juni-Job (unten) gleich mit vereinbaren.</li></ul> | 3–10 h/Woche |
 | **Frühjahrsferien 08.–12.02.** | Ferienjob an 5 Arbeitstagen | Vollzeit |
-| **22.03. – 25.06.2027** | Lernen und Prüfungen: schriftliches Abitur 21.04.–13.05., Kolloquium 31.05.–11.06., Zeugnis 25.06. Höchstens ein paar Nachhilfestunden | 0–6 h/Woche |
-| **28.06. – 31.08.2027** | Vollzeit-Sommerjob, gern mit Schicht- und Nachtzulagen (steuerfrei nach § 3b EStG), Mo–Fr und einzelne Samstage | bis 48 h/Woche |
-| **Frühjahr 2028** | Steuererklärung 2027: Die einbehaltene Lohnsteuer kommt zurück, solange der Jahreslohn unter ~13.600 € (Tarif 2026) bzw. ~14.000 € (Entwurf 2027) bleibt | – |
+| **22.03. – 13.06.2027** | <ul><li>Lernen und Prüfungen: schriftliches Abitur 21.04.–13.05., Kolloquium 31.05.–11.06.</li><li>Höchstens ein paar Nachhilfestunden.</li><li>In den Pfingstferien (18.–28.05.) höchstens 1–4 einzelne Jobtage.</li></ul> | 0–6 h/Woche |
+| **14. – 24.06.2027** | <ul><li>Nach dem letzten eigenen Prüfungstermin befristeter Job an 5–9 Tagen. Mit der Schule klären; eigener Vertrag, der vor der Entlassung endet.</li><li>Als **Schülerjob** ist er sozialversicherungsfrei, auch vor einem dualen Studium.</li></ul> | Vollzeit |
+| **28.06. – 31.08.2027** | <ul><li>Vollzeit-Sommerjob, Mo–Fr und einzelne Samstage.</li><li>Gern mit Nacht- und Sonntagszuschlägen: Sie bringen vor allem mehr Lohn.</li><li>Steuerfrei nach § 3b EStG sind nur Zuschläge für Arbeit von 20 bis 6 Uhr und an Sonn- und Feiertagen, keine Schichtzulagen.</li></ul> | bis 48 h/Woche |
+| **bis 31.07.2027** | **Steuererklärung 2026**, mit Anlage EÜR. Pflicht, wenn du 2026 Arbeitslohn hattest (Weihnachtsjob) und Nachhilfe und Webgeschäft zusammen mehr als 410 € Gewinn brachten. Sonst freiwillig: Sie holt die Lohnsteuer vom Weihnachtsjob zurück. | – |
+| **2028** | **Steuererklärung 2027:** Die einbehaltene Lohnsteuer (~1.500 €) kommt zurück, soweit Lohn plus Gewinn unter ~13.830 € bleibt (Entwurf 2027, noch nicht beschlossen). Pflicht, sobald der Gewinn über 410 € liegt. | – |
 
-**Damit der Sommerjob abgabenfrei bleibt:**
-- als **kurzfristige Beschäftigung** anmelden lassen – höchstens **70
-  Arbeitstage im Kalenderjahr 2027**, Ferienjobs und Einsätze zählen mit;
-- **nicht beim selben Arbeitgeber wie ein Minijob** (sonst wird es als eine
-  Dauerbeschäftigung gewertet);
-- sich nach dem Abitur **nicht als ausbildungsuchend melden** (dann gilt
-  der Job als berufsmäßig);
-- vor einem **dualen Studium, PiBS oder einer Ausbildung** ist der Job
-  ohnehin berufsmäßig und sozialversicherungspflichtig (~21 % Abzug) –
-  eingerechnet.
+**Wo suchen:**
+- Bundesagentur für Arbeit (Jobbörse)
+- Einsatz-Plattformen: InStaff, Zenjob, wo es sie gibt
+- Industrie-Ferienarbeit: direkt bei den Firmen und über Zeitarbeitsfirmen
+- Winter:
+  - Inventur Ende Dezember / Anfang Januar
+  - Christkindlmarkt bis 23.12. (Wochenenden)
+  - Weihnachtsaushilfe in der Paketsortierung
+- Sommer:
+  - Biergarten und Sommergastronomie
+  - Freibad (mit Rettungsschwimmer-Schein)
+  - Feste, Dult
+  - Erntehilfe
 
-**Der Starttermin der Ausbildung ist ein Hebel:** Jeder Monat früher kostet
-etwa 22 Sommer-Arbeitstage (~3.000 € brutto) und bringt dafür einen Monat
-Vergütung (dual ~1.000–1.300 € brutto). Wer die Wahl hat, nimmt den
-01.09. oder 01.10.
+**Werkstudentenjobs** gehen erst ab der Immatrikulation. Bis 31.08. sind
+sie für ein Studium ab Oktober also nicht zugänglich.
+
+**Damit der Sommerjob abgabenfrei bleibt (FH-/Uni-Fall):**
+- **Als kurzfristige Beschäftigung anmelden lassen**, von vornherein
+  befristet bis spätestens 31.08.
+  - Die Grenze: höchstens **3 Monate oder 70 Arbeitstage im Kalenderjahr
+    2027**.
+  - Alle befristeten Jobs des Jahres zählen zusammen. Dabei treten
+    90 Kalendertage an die Stelle der 3 Monate; volle Monate zählen mit
+    30 Tagen.
+  - Alle Jobs dem Arbeitgeber angeben.
+  - Der Sommerjob allein zählt 63 Kalendertage (3 + 30 + 30). Für alle
+    befristeten Jobs davor bleiben also ~27 Kalendertage. Im Plan sind das
+    Januar 5, Februar 5, Pfingsten 1–4, Juni bis 11 und einzelne Einsätze.
+- **Nicht gleichzeitig und nicht direkt im Anschluss an einen Minijob
+  beim selben Arbeitgeber.** Sonst gilt es als eine einheitliche
+  Beschäftigung und ist sozialversicherungspflichtig. Unschädlich ist eine
+  Pause von mindestens 2 Monaten.
+- **Wer studieren will:**
+  - Eine Meldung als **ausbildungsuchend** bei der Agentur für Arbeit
+    spätestens zum Schulende beenden und sich danach nicht neu melden.
+  - Das Studium muss zum nächstmöglichen Termin beginnen.
+  - Studienabsicht oder Zulassung dem Arbeitgeber nachweisen.
+- **Vor einem dualen Studium, PiBS, einer Ausbildung, FSJ/BFD oder
+  freiwilligem Wehrdienst** ist der Sommerjob berufsmäßig.
+  - Er ist dann sozialversicherungspflichtig: ~21 % Abzug, eingerechnet.
+  - Dafür gilt keine Tagesgrenze.
+  - Die Jobs bis zum Zeugnis bleiben Schülerjobs und frei.
+- **Auf Abrechnung nach Steuer-ID und Klasse I bestehen**, nicht
+  pauschal mit 25 % (§ 40a EStG). Die Pauschalsteuer kommt über die
+  Steuererklärung nicht zurück.
+
+**Der Starttermin der Ausbildung ist ein Hebel:**
+- Der 01.08. statt 01.09. kostet 22 Sommer-Arbeitstage (~3.000–3.600 €
+  brutto).
+- Dafür kommt eine Monatsvergütung dazu (dual ~1.000–1.300 € brutto).
+- Unterm Strich: Median 9.300 statt 11.300 €.
+
+Wer die Wahl hat, nimmt den 01.09. oder 01.10.
 
 ## 4. Was den Betrag begrenzt
 
 | Regel | Wirkung |
 |---|---|
-| **Familienversicherung:** regelmäßiges Einkommen (Minijob, Nachhilfe, Webgeschäft) höchstens 565 € (2026) bzw. 590 € (2027) im Monat, bei nur einem Minijob 603 bzw. 633 € | Neben der Schule sind höchstens ~4.000–4.500 € drin; darüber käme eine eigene Krankenversicherung (~250–280 €/Monat) |
-| **Kurzfristige Beschäftigung:** höchstens 3 Monate oder 70 Arbeitstage je Kalenderjahr, ohne Verdienstgrenze; zählt nicht zur Familienversicherung | trägt Ferien- und Sommerjobs; deckelt die Zahl der Arbeitstage |
-| **Sozialversicherung:** frei, wenn danach ein Studium folgt; vor dualem Studium/Ausbildung berufsmäßig (~21,15 % Arbeitnehmeranteil 2026) | −1.500 bis −2.000 € im dualen Fall |
+| **Familienversicherung** (§ 10 SGB V): Gesamteinkommen höchstens 565 € (2026) bzw. 590 € (2027) im Monat. Gewinne aus Nachhilfe und Webgeschäft zählen als Jahresgewinn / 12. Wer daneben einen Minijob hat, darf insgesamt (Minijob + Gewinn / 12) bis 603 bzw. 633 € | <ul><li>2027 sind neben der Schule bis ~7.000 € Gewinn drin (12 × 590 €).</li><li>Das gilt, wenn danach kein weiteres regelmäßiges Einkommen folgt (etwa ein Werkstudentenjob ab Oktober) und 2026 vorher keins da war.</li><li>Vorher bei der Krankenkasse nachfragen.</li><li>Im Plan begrenzt das Stundenbudget, nicht diese Grenze.</li><li>Darüber käme eine eigene Krankenversicherung (~250–280 €/Monat).</li></ul> |
+| **Übungsleiter-/Betreuerpauschale** (§ 3 Nr. 26 EStG): bis 3.300 € im Jahr steuer- und sozialversicherungsfrei, zählt nicht zum Gesamteinkommen. Gilt für Arbeit für einen Verein oder eine gemeinnützige oder öffentliche Stelle (Trainer, Betreuer, Ferienprogramm) | <ul><li>Kommt zusätzlich zur Grenze.</li><li>Hilft, sobald die Grenze drückt.</li><li>Im Plan nur ein Ersatz, weil es je Stunde weniger bringt (~10–18 €).</li></ul> |
+| **Rentenversicherung für Selbstständige** (§ 2 SGB VI): Selbstständige Nachhilfe ist ab regelmäßig mehr als 603 bzw. 633 € Gewinn im Monat rentenversicherungspflichtig (18,6 %, Meldung an die DRV binnen 3 Monaten). Das Webgeschäft als Gewerbe ist es nicht | Nachhilfe im Modell auf 603/633 € je Monat begrenzt |
+| **Kurzfristige Beschäftigung:** höchstens 3 Monate (mehrere Jobs: 90 Kalendertage) oder 70 Arbeitstage je Kalenderjahr, ohne Verdienstgrenze; zählt nicht zur Familienversicherung | <ul><li>Trägt Ferien- und Sommerjobs.</li><li>2027 zusammen höchstens 90 Kalendertage, davon braucht der Sommer 63.</li></ul> |
+| **Sozialversicherung:** Jobs bis zum Zeugnis frei (Schülerjobs). Der Sommerjob ist frei, wenn danach ein Studium folgt. Vor einem dualen Studium oder einer Ausbildung ist er berufsmäßig (~21,15 % Arbeitnehmeranteil 2026). Beim Minijob die Befreiung von der Rentenversicherung beantragen, sonst 3,6 % | −1.100 bis −1.650 € (Median) im dualen Fall |
 | **Arbeitszeitgesetz:** 8 h/Tag, bis 10 h; im Schnitt 48 h/Woche (Mo–Sa); 11 h Ruhezeit | Sommer höchstens ~450 Stunden |
-| **Lohnsteuer:** Klasse I, kommt über die Steuererklärung zurück bis ~13.600 € Jahreslohn (2026) | im Plan fällt praktisch keine Steuer an |
-| **Mindestlohn:** 13,90 € (2026), 14,60 € (2027); Zeitarbeit mind. 15,33 € bis 03/2027 und 15,87 € ab 04/2027 | Untergrenze jeder Stunde |
-| **Kalender:** 47 Arbeitstage nach dem Zeugnis (25, wenn die Ausbildung am 01.08. beginnt) | der größte Einzelposten |
+| **Lohnsteuer:** Klasse I. Kurze Jobs werden nach der Tagestabelle aufs Jahr hochgerechnet und behalten deshalb viel ein; ein voller Sommermonat ~350–900 €. Zurück kommt sie über die Steuererklärung, soweit Lohn − 1.266 € + Gewinn unter dem Grundfreibetrag bleibt: 12.348 € (2026), im Entwurf 2027 12.564 €. Lohn plus Gewinn darf also bis ~13.830 € gehen | <ul><li>Am 31.08. fehlen ~900–1.800 € auf dem Konto.</li><li>Endgültig fällt im Plan kaum Steuer an.</li></ul> |
+| **Mindestlohn:** 13,90 € (2026), 14,60 € (2027). Zeitarbeit mindestens 15,33 € bis 03/2027 und 15,87 € ab 04/2027 | Untergrenze jeder Stunde |
+| **Kalender:** 47 Arbeitstage nach dem Zeugnis (25, wenn die Ausbildung am 01.08. beginnt). Dazu bis zu 9 Arbeitstage zwischen letzter Prüfung und Zeugnis und einzelne Tage in den Pfingstferien | der größte Einzelposten |
 
 ## 5. Was mehr bringen würde – und warum der Plan es nicht vorsieht
 
-- **Mehr Stunden vor dem Abitur:** Jede zusätzliche Wochenstunde bringt
-  ~15–25 €, kostet aber Lernzeit; Studien finden ab ~15–20 Stunden pro Woche
-  schlechtere Noten. Die Abiturnote entscheidet über duale Plätze – und
-  damit über viel mehr Geld als ein paar Hundert Euro.
-- **Familienversicherung aufgeben**, um neben der Schule mehr regelmäßig zu
-  verdienen: lohnt sich erst ab ~850 € im Monat, das ist mit den
-  Lernstunden kaum zu schaffen.
-- **60-Stunden-Wochen im Sommer:** rechtlich nur mit Ausgleich über
-  6 Monate bzw. 24 Wochen, körperlich belastend; brächte ~1.500 € mehr
-  (Obergrenze 18.800 statt 17.300 €).
+- **Mehr Stunden vor dem Abitur:**
+  - Jede zusätzliche Stunde pro Woche bringt bis März ~200–340 €
+    (15–25 €/h × ~13,5 Wochen), kostet aber Lernzeit.
+  - Wer über ~20 h/Woche neben der Schule arbeitet, hat im Schnitt
+    schlechtere Noten. Ob das ursächlich ist, ist umstritten: Laut
+    DIW/SOEP schadet moderates Jobben nicht.
+  - Das Stundenbudget hier ist eine bewusste Vorsicht wegen der
+    Prüfungsphase.
+  - Die Abiturnote zählt für viele Studienplätze und für manche duale
+    Plätze.
+- **Familienversicherung aufgeben**, um neben der Schule mehr regelmäßig
+  zu verdienen:
+  - Beim Webgeschäft lohnt sich das erst ab ~850 € Gewinn im Monat:
+    590 € plus eigene Krankenversicherung von ~250–280 €.
+  - Bei Nachhilfe kommt über 633 € der Rentenbeitrag dazu (18,6 %). Dort
+    lohnt es sich erst ab ~1.050–1.100 €.
+  - Mit den Lernstunden ist beides kaum zu schaffen.
+- **60-Stunden-Wochen im Sommer:**
+  - Rechtlich nur mit Ausgleich über 6 Monate bzw. 24 Wochen, und
+    körperlich belastend.
+  - Brächte ~1.700 € mehr (Obergrenze 23.200 statt 21.500 €).
 - **Glücksspiel, Trading:** kein Erwirtschaften und im Schnitt ein Verlust
   (siehe [`500K_BIS_SOMMER_2027.md`](500K_BIS_SOMMER_2027.md)).
 
 ## 6. Was mit dem Geld passieren sollte
 
-Nach der Sparregel des [Millionenplans](MILLIONENPLAN.md): 60 % von allem
-über dem Grundbedarf in den Welt-ETF. Bei ~10.700 € und einem Grundbedarf
-im Elternhaus von ~300–500 € im Monat sind das ~4.000–5.000 € fürs Depot
-bis Ende August.
+Nach der Sparregel des [Millionenplans](MILLIONENPLAN.md) kommen 60 % von
+allem über dem Grundbedarf in den Welt-ETF.
+
+Beispiel mit ~11.700 €:
+- Grundbedarf im Elternhaus ~300–500 € im Monat
+- ergibt ~4.300–5.400 € fürs Depot
+- davon ~1.500 € erst 2028 mit der Steuererstattung
 
 ## 7. Grenzen dieser Rechnung
 
-- Industrie-Ferienlöhne in Regensburg sind nur indirekt belegt (Randstad für
-  BMW 18–20 €/h von 2024, InStaff Lager Ø 18,02 €, Metall-Tarif EG 1
-  ~18,07 €/h); ob man einen solchen Platz bekommt, ist geschätzt (50–90 %).
-- Die Nachfrage nach Nachhilfe (1–6 h/Woche) und die Chance, Schüler zu
-  finden (60–95 %), sind geschätzt; die Werte des Webgeschäfts stammen aus
-  dem eigenen, noch nicht gemessenen Modell (`plan/simulation.py`).
-- Die Stundenbudgets neben der Schule (3–10 h/Woche, in der Prüfungszeit
-  0–6) sind eine Vorgabe zum Schutz des Abiturs, keine Messung.
-- Steuer mit dem Tarif 2026 gerechnet (2027 steigt der Grundfreibetrag
-  voraussichtlich) – eher zu vorsichtig. Trinkgeld ist nicht eingerechnet.
+- **Industrie-Ferienlöhne** in Regensburg sind nur indirekt belegt:
+  Randstad für BMW 18–20 €/h (2024), InStaff Lager Ø 18,02 €,
+  Metall-Tarif EG 1 ~18,07 €/h. Ob man einen solchen Platz bekommt, ist
+  geschätzt (50–90 %).
+- **Nachhilfe und Webgeschäft:**
+  - Die Nachfrage nach Nachhilfe (1–6 h/Woche) und die Chance, Schüler zu
+    finden (60–95 %), sind geschätzt.
+  - Die Werte des Webgeschäfts stammen aus dem eigenen, noch nicht
+    gemessenen Modell (`plan/simulation.py`).
+- **Die Stundenbudgets neben der Schule** (3–10 h/Woche, in der
+  Prüfungszeit 0–6) sind eine Vorgabe zum Schutz des Abiturs, keine
+  Messung. Das gilt auch für die Jobtage im Mai und Juni. Sie hängen von
+  den eigenen Prüfungsterminen und der Schule ab; ohne sie sinkt der
+  Median um ~800 €.
+- **Familienversicherung:**
+  - Wie eine Kasse schwankende Gewinne im Einzelfall bewertet, kann
+    abweichen.
+  - Einkommen von Januar bis November 2026 ist nicht bekannt und nicht
+    eingerechnet.
+- **Steuer:**
+  - Gerechnet mit dem Tarif 2026; für 2027 ist er um den höheren
+    Grundfreibetrag des Entwurfs verschoben.
+  - Die einbehaltene Lohnsteuer ist grob geschätzt: ohne
+    Vorsorgepauschale bei sozialversicherungsfreien Jobs und ohne
+    Kirchensteuer (in Bayern 8 % der Lohnsteuer, kommt ebenfalls zurück).
+  - Trinkgeld ist nicht eingerechnet.
+- **Annahme über das Wissen vorab:** Die Quellen werden nach dem
+  *erwarteten* Erlös je Stunde gewählt. Wer früh merkt, dass sein
+  Webgeschäft wenig bringt, wechselt zu Einsätzen und verdient etwas mehr
+  als hier gerechnet.
 
 ## 8. Nachrechnen
 
@@ -157,34 +277,49 @@ python3 -m unittest discover -s tests     # u. a. tests/test_verdienst.py
 - Metall/Elektro Bayern, EG 1: <https://tarifvertrag-online.de/entgelttabelle/metall-elektro/ig-metall/bayern>
 - Amazon Logistik 16,22–16,66 €/h: <https://retail-news.de/amazon-lohnerhoehung-logistik-deutschland-2026/>
 - Deutsche Post EG 1: <https://tarifvertrag-online.de/entgelttabelle/deutsche-post/2025>
-- InStaff Regensburg: Lager <https://www.instaff.jobs/lagerhelfer-kommissionierer-jobs/regensburg>,
-  Service <https://www.instaff.jobs/service-kellner-jobs/regensburg>,
-  Promotion <https://www.instaff.jobs/promotion-jobs/regensburg>
-- Nachhilfe privat: <https://www.superprof.de/blog/der-richtige-stundenlohn-fuer-nachhilfe/>;
-  Institute: <https://www.ulmato.de/ausbildung/nachhilfelehrer>
+- InStaff Regensburg:
+  - Lager: <https://www.instaff.jobs/lagerhelfer-kommissionierer-jobs/regensburg>
+  - Service: <https://www.instaff.jobs/service-kellner-jobs/regensburg>
+  - Promotion: <https://www.instaff.jobs/promotion-jobs/regensburg>
+- Nachhilfe:
+  - privat: <https://www.superprof.de/blog/der-richtige-stundenlohn-fuer-nachhilfe/>
+  - Institute: <https://www.ulmato.de/ausbildung/nachhilfelehrer>
 - Website-Preise für KMU: <https://sellwerk.de/wissenswert/was-kostet-eine-website>
 - Plattformarbeit (ILO): <https://www.ilo.org/global/about-the-ilo/newsroom/news/WCMS_771909/lang--en/index.htm>
 
 **Regeln**
+- Familienversicherung, § 10 SGB V (Gesamteinkommen, Grenze mit Minijob):
+  <https://www.buzer.de/10_SGB_V.htm>
+- GKV-Spitzenverband, Grundsätzliche Hinweise zum Gesamteinkommen (2022;
+  Freibeträge darin veraltet):
+  <https://www.vdek.com/content/vdeksite/vertragspartner/mitgliedschaftsrecht_beitragsrecht/familienversicherung/_jcr_content/par/download_1642322223/file.res/Grundsaetzliche-Hinweise-Gesamteinkommen-29092022.pdf>
+- Zahlenwerte 2027 (Bezugsgröße 4.130 €, Minijob-Grenze 633 €):
+  <https://www.krankenkassen.de/gesetzliche-krankenkassen/system-gesetzliche-krankenversicherung/sozialversicherung-rechengroessen-beitragsbemessungsgrenze-versicherungspflichtgrenze/rechengroessen-2027/>
 - Geringfügigkeits-Richtlinien 2026 (Minijob, kurzfristige Beschäftigung,
-  Berufsmäßigkeit, Ausbildungsuchende):
+  90 Kalendertage bei Zusammenrechnung, Berufsmäßigkeit, Ausbildungsuchende):
   <https://www.aok.de/fk/fileadmin/user_upload/jahreswechsel/2026/2026-geringfuegigkeits-richtlinien.pdf>
-- Kurzfristige Beschäftigung (70 Tage): <https://www.minijob-zentrale.de/DE/die-minijobs/kurzfristige-beschaeftigung/kurzfristige-beschaeftigung_node.html>;
-  nach dem Schulabschluss: <https://magazin.minijob-zentrale.de/kurzfristiger-minijob-nach-dem-schulabschluss/>
-- Minijob-Abgaben: <https://www.minijob-zentrale.de/DE/fuer-gewerbetreibende/abgaben-und-steuern>
-- Familienversicherung, Gesamteinkommen (vdek):
-  <https://www.vdek.com/content/vdeksite/vertragspartner/mitgliedschaftsrecht_beitragsrecht/familienversicherung/_jcr_content/par/download_1642322223/file.res/Grundsaetzliche-Hinweise-Gesamteinkommen-29092022.pdf>;
-  Grenzen 2027: <https://www.krankenkassen.de/gesetzliche-krankenkassen/system-gesetzliche-krankenversicherung/sozialversicherung-rechengroessen-beitragsbemessungsgrenze-versicherungspflichtgrenze/rechengroessen-2027/>
+- Minijob-Zentrale:
+  - kurzfristige Beschäftigung: <https://www.minijob-zentrale.de/DE/die-minijobs/kurzfristige-beschaeftigung/kurzfristige-beschaeftigung_node.html>
+  - nach dem Schulabschluss: <https://magazin.minijob-zentrale.de/kurzfristiger-minijob-nach-dem-schulabschluss/>
+  - Abgaben: <https://www.minijob-zentrale.de/DE/fuer-gewerbetreibende/abgaben-und-steuern>
+- Rentenversicherungspflicht selbstständiger Lehrer:
+  - § 2 SGB VI: <https://www.buzer.de/2_SGB_VI.htm>
+  - geringfügige Selbstständigkeit, § 5 SGB VI: <https://www.buzer.de/5_SGB_VI.htm>
 - Beitragssätze 2026 (TK): <https://www.tk.de/firmenkunden/versicherung/beitraege-faq-und-mehr/beitragssaetze/aktuelle-beitragssaetze-in-der-sozialversicherung-2031554>
-- Lohnsteuer bei Ferienjobs (BdSt 2026): <https://steuerzahler.de/fileadmin/user_upload/LV_Baden-W%C3%BCrttemberg/BdSt_AN_News_fuer_Arbeitnehmer_Juli_2026_Ferienjob_NEU.pdf>;
-  Entwurf 2027: <https://www.bundestag.de/presse/hib/kurzmeldungen-1221672>
-- Arbeitszeitgesetz § 3: <https://dejure.org/gesetze/ArbZG/3.html>;
-  steuerfreie Zuschläge § 3b EStG: <https://lxgesetze.de/estg/3b>
+- Steuern:
+  - Übungsleiterpauschale, § 3 Nr. 26 EStG: <https://lxgesetze.de/estg/3>
+  - Pauschalsteuer für Aushilfen, § 40a EStG: <https://lxgesetze.de/estg/40a>
+  - steuerfreie Zuschläge, § 3b EStG: <https://lxgesetze.de/estg/3b>
+- Lohnsteuer:
+  - bei Ferienjobs (BdSt 2026): <https://steuerzahler.de/fileadmin/user_upload/LV_Baden-W%C3%BCrttemberg/BdSt_AN_News_fuer_Arbeitnehmer_Juli_2026_Ferienjob_NEU.pdf>
+  - Grundfreibetrag-Entwurf 2027: <https://www.bundestag.de/presse/hib/kurzmeldungen-1221672>
+- Arbeitszeitgesetz § 3: <https://dejure.org/gesetze/ArbZG/3.html>
 - Gewerbeanmeldung Regensburg: <https://www.firma.de/gewerbeamt/regensburg/>
 
 **Kalender und Schule**
 - Abiturtermine 2027 (BayMBl. 2025 Nr. 354): <https://www.verkuendung-bayern.de/baymbl/2025-354/>
 - Ferien Bayern: <https://www.km.bayern.de/termine/ferien-und-feiertage>
 - Ausbildungsbeginn (IHK München): <https://www.ihk-muenchen.de/de/berufsbildung-berufszugang/auszubildende/beratung/allgemeine-informationen/ausbildungsbeginn>
-- Arbeitsstunden und Schulleistung: <https://pmc.ncbi.nlm.nih.gov/articles/PMC2926992>;
-  SOEP/DIW: <https://www.diw.de/de/diw_01.c.10379.de/jobben_von_jugendlichen_beeintraechtigt_weder_schulleistungen_noch_freizeit.html>
+- Arbeitsstunden und Schulleistung:
+  - <https://pmc.ncbi.nlm.nih.gov/articles/PMC2926992>
+  - SOEP/DIW: <https://www.diw.de/de/diw_01.c.10379.de/jobben_von_jugendlichen_beeintraechtigt_weder_schulleistungen_noch_freizeit.html>
