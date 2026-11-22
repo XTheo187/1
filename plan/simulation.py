@@ -1037,6 +1037,21 @@ def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
     print()
 
 
+def kontrollwerte(strategie: Strategie | None = None, n: int = 6_000,
+                  alter: tuple = (22, 25, 30, 35, 40, 45)) -> dict[int, tuple[float, float, float]]:
+    """Vermögen (nach Steuer, nominal) je Alter: 25-, 50- und 75-%-Quantil.
+
+    Damit lässt sich der eigene Stand später einordnen: Wer unter dem
+    25-%-Wert liegt, ist hinter dem Plan und muss nachsteuern.
+    """
+    leben = simulieren(strategie or weichenplan(PLAN), n)
+    erg = {}
+    for a in alter:
+        werte = sorted(w[a - START_ALTER - 1] for w in leben)
+        erg[a] = (werte[len(werte) // 4], werte[len(werte) // 2], werte[3 * len(werte) // 4])
+    return erg
+
+
 def sommer_meilensteine(n: int = 20_000, seed: int = 7, ausgabe: bool = True) -> dict[str, float]:
     """Was ist bis 31.08.2027 mit >= 50 % erreichbar - neben dem Abitur?
 
