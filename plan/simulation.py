@@ -1392,9 +1392,9 @@ def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
     def kennzahl(strat: Strategie) -> str:
         leben = simulieren(strat, n)
         ab = fruehestes_alter(leben)
-        return f"{ab if ab else '>50':>4} / {quote_bis_alter(leben, 40):4.0%}"
+        return f"{ab if ab else '>60':>4} / {quote_bis_alter(leben, 50):4.0%}"
 
-    print(f"Sensitivität des Plans (50-%-Alter / Chance mit 40), Basis: {kennzahl(weichenplan(basis))}")
+    print(f"Sensitivität des Plans (50-%-Alter / Chance mit 50), Basis: {kennzahl(weichenplan(basis))}")
     print("-" * 84)
     faelle: list[tuple[str, Strategie, Strategie]] = []
     wp = basis
@@ -1410,6 +1410,12 @@ def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
     faelle.append(("Grundbedarf (22 / 13 Tsd. EUR im Jahr)",
                    weichenplan(replace(wp, grund_de=22_000, grund_ch=40_000)),
                    weichenplan(replace(wp, grund_de=13_000, grund_ch=30_000))))
+    faelle.append(("Rückkehr aus der Schweiz (4 %/J. / nie)",
+                   weichenplan(replace(wp, rueckkehr_ch=(0.04, 0.04, 0.04))),
+                   weichenplan(replace(wp, rueckkehr_ch=(0, 0, 0), rueckkehr_ch_kind=0.0))))
+    faelle.append(("KI-Szenario für Einsteiger (sicher / nie)",
+                   weichenplan(replace(wp, p_ki=(1, 1, 1))),
+                   weichenplan(replace(wp, p_ki=(0, 0, 0)))))
     faelle.append(("Kinder (sicher, teuer / keine)",
                    weichenplan(replace(wp, p_kinder=(1, 1, 1), kosten_kinder=(8_000, 8_000, 8_000))),
                    weichenplan(replace(wp, p_kinder=(0, 0, 0)))))
@@ -1421,11 +1427,11 @@ def sensitivitaet(n: int = 3_000, basis: Weichen = PLAN) -> None:
     try:
         Welt.ziehen = classmethod(lambda cls, rng: welt_alt.__func__(cls, rng, geo=0.04))
         a_ = kennzahl(weichenplan(wp))
-        Welt.ziehen = classmethod(lambda cls, rng: welt_alt.__func__(cls, rng, geo=0.085))
+        Welt.ziehen = classmethod(lambda cls, rng: welt_alt.__func__(cls, rng, geo=0.08))
         b_ = kennzahl(weichenplan(wp))
     finally:
         Welt.ziehen = welt_alt
-    ergebnisse.append(("Aktienrendite 4 % / 8,5 % geometrisch", a_, b_))
+    ergebnisse.append(("Aktienrendite 4 % / 8 % geometrisch", a_, b_))
     for text, a_, b_ in ergebnisse:
         print(f"  {text:44s} pessimistisch {a_}   optimistisch {b_}")
     print()

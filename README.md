@@ -49,6 +49,15 @@ Der Einstieg ist nicht das Geschäft, sondern der Weg hinein: Nach einer
 gelieferten Maßnahme sind Sie keine Kaltansprache mehr. `standortcheck plan`
 rechnet beide Wege gegeneinander.
 
+## Der größere Plan: Millionär mit mindestens 50 %
+
+Das Webgeschäft ist der Einstieg, nicht das Ziel. Wie man aus der 13. Klasse
+heraus mit mindestens 50 % Wahrscheinlichkeit 1 Mio. EUR Nettovermögen
+erreicht – und warum das nicht bis Sommer 2027, sondern realistisch bis etwa
+2064/65 geht –, steht in [`docs/MILLIONENPLAN.md`](docs/MILLIONENPLAN.md).
+Die Rechnung dahinter: `python3 plan/simulation.py` (Monte-Carlo, belegte
+Spannweiten, drei Runden Gegenprüfung).
+
 ## Installation
 
 Kein Fremdpaket, keine Abhängigkeit, keine laufenden Kosten. Nur Python 3.9+.
@@ -121,7 +130,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 68 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 89 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau
