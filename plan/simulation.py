@@ -1498,8 +1498,9 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
                          "rueckkehr_ch_frueh": (0.11, 0.13, 0.15),
                          "rueckkehr_ch": (0.03, 0.04, 0.05)})
 ZIEL_ALTER = 57      # 31.08.2065, das Planziel: Basis ~53 %, Stress ~49 %
-GARANTIE_ALTER = 61  # Sommer 2069: auch Fall A (ohne Schweiz/PiBS/dual, KI-Druck sicher) knapp über 50 %
-ROBUST_ALTER = 65    # Sommer 2073: auch der härteste getestete Fall über 50 % (Fall A + äußere)
+GARANTIE_ALTER = 62  # Sommer 2070: auch Fall A (ohne Schweiz/PiBS/dual, KI-Druck sicher) knapp über 50 %
+ROBUST_ALTER = 64    # Sommer 2072: Fall A + äußere Kleinannahmen, aber ohne Hauskauf und Aufgeben,
+                     # knapp über 50 % (ohne diese Regeltreue bleibt der Fall bis 65 darunter, ~49 %)
 
 # Äußere Kleinannahmen ohne harte Quelle am pessimistischen Rand (nicht
 # steuerbar): kein Freelancing, harte Lohnnarbe, träger Konsum, keine

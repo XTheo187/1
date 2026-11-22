@@ -14,20 +14,20 @@ Alle folgenden Zahlen gelten für **dasselbe Datum, 31.08.2065**:
 | Fall | Chance auf 1 Mio. € am 31.08.2065 |
 |---|---:|
 | Plan, Sparregel realistisch nicht perfekt gehalten | **53 %** |
-| Plan mit eiserner Sparregel (60 %, nie aufgegeben) | 65 % |
-| die drei großen Schätzungen (Schweizer Stelle, Studienplatz, Rückkehrquote) gleichzeitig pessimistisch | 49 % |
-| dazu KI-Druck auf Einsteiger sicher | 44 % |
-| ganz ohne Schweiz und PiBS | 47 % |
+| Plan mit eiserner Sparregel (60 %, nie aufgegeben) | 67 % |
+| die drei großen Schätzungen (Schweizer Stelle, Studienplatz, Rückkehrquote) gleichzeitig pessimistisch | 48 % |
+| dazu KI-Druck auf Einsteiger sicher | 43 % |
+| ganz ohne Schweiz und PiBS | 46 % |
 
 **Ehrlich gesagt:** 53 % erfüllen die Forderung „mindestens 50 %“, aber der
-Puffer ist klein. Fast jeder zweite Lebensweg verfehlt das Ziel am
-Stichtag, und schon **ein** ungünstiger Faktor drückt die Quote unter 50 %:
-Sparen nur wie typische Gutverdiener (38 %), Aktien nur 4 % im Jahr (42 %),
-Grundbedarf 22 statt ~18 Tsd. € (46 %), nie eine Schweizer Stelle (46 %),
-Kinder sicher und teuer (47 %), KI-Druck sicher (48 %) oder alle drei großen
-Schätzungen pessimistisch (49 %). Diese Fälle erreichen die 50 % mit 58–63.
-Der stärkste Hebel liegt bei dir: Wer die Sparregel wirklich hält, kommt
-auf 65 %.
+Puffer ist klein (3 Punkte). Fast jeder zweite Lebensweg verfehlt das Ziel
+am Stichtag, und schon **ein** ungünstiger Faktor drückt die Quote unter
+50 %: Sparen nur wie typische Gutverdiener (37 %), Aktien das ganze
+Berufsleben über nur 4 % im Jahr (42 %), nie eine Schweizer Stelle (45 %),
+Grundbedarf 22 statt ~18 Tsd. € (46 %), Kinder sicher und teuer (47 %),
+KI-Druck sicher (48 %); ebenso die drei großen Schätzungen zusammen (48 %).
+Diese Fälle erreichen die 50 % mit 58–63. Der stärkste Hebel liegt bei dir:
+Wer die Sparregel wirklich hält, kommt auf 67 %.
 
 - **Bis Sommer 2027 geht es nicht.** Mit Glücksspiel, Wetten oder Trading
   ohne Vorteil ist beweisbar höchstens 0,5 % drin; selbst die beste
@@ -37,18 +37,25 @@ auf 65 %.
 - **Nicht verhandelbar:** die Sparregel (Abschnitt 4) und Märkte, die nicht
   das ganze Berufsleben über schwach bleiben.
 - Alle Härtefälle stehen in Abschnitt 7 – das sind Einordnungen, keine
-  anderen Ziele.
-- **Jede Quelle mit Link** steht in Abschnitt 10. 42 Belege wurden einzeln
-  gegen die Originalquelle geprüft, dazu 23 Angaben, die vorher nur im Code
-  standen (10 bestätigt, 11 korrigiert, 2 als Schätzung gekennzeichnet). Wo
-  die Quelle etwas anderes sagt, sind Text und Modell korrigiert – unter
-  anderem Einstiegsgehalt, Rückkehr aus der Schweiz (jetzt wie beim SECO),
-  Berufsunfähigkeit (jetzt nach Alter), Sozialabgaben, Kaufnebenkosten.
-  Dadurch sank die Hauptzahl von 60 % auf 53 %.
+  anderen Ziele. Im härtesten getesteten Fall trägt der Plan auch mit 65
+  nicht (49 %).
+- **Quellen:** Jede Quelle, auf der eine Zahl des Plans beruht, steht mit
+  Link in Abschnitt 10; was nur geschätzt ist, steht dort und in Abschnitt 7
+  als Schätzung. 42 Belege wurden einzeln gegen die Originalquelle geprüft,
+  dazu 23 Angaben, die vorher nur im Code standen (10 bestätigt,
+  11 korrigiert, 2 als Schätzung gekennzeichnet). Wo die Quelle etwas
+  anderes sagt, sind Text und Modell korrigiert – unter anderem
+  Einstiegsgehalt, Gehalt ohne Abschluss, Rückkehr aus der Schweiz (jetzt
+  wie beim SECO), Berufsunfähigkeit (jetzt nach Alter), Sozialabgaben.
+  Dadurch sank die Hauptzahl von 60 % auf rund 50 %. Zwei Änderungen am
+  Plan selbst bringen sie auf 53 %: Plan B ist ein Bachelor an einer FH
+  statt an einer Uni (deutlich weniger Abbrüche), und die Abbruch-Regel
+  (sofort neu starten) ist jetzt eingerechnet.
 - Frühere Fassungen haben drei Runden Gegenprüfung durch zehn unabhängige
   Prüfer überstanden; dabei wurde die erste Aussage „50 % mit 40“
-  korrigiert. Die heutigen Zahlen werden bei jedem Testlauf gegen den Code
-  geprüft (Abschnitt 9).
+  korrigiert. Die fünf Werte der Kopftabelle und die Hauptzahl prüft ein
+  Test bei jedem Lauf gegen die Simulation (±2 Punkte, 10.000 Leben); alle
+  übrigen Tabellen erzeugen die Befehle unten (Abschnitt 9).
 
 Gemessen wird 1 Mio. € **nominal**, nach der Steuer, die beim Verkauf der
 ETFs fällig würde, ohne Erbschaft, ohne Vermögen eines Partners; eingerechnet
@@ -129,18 +136,18 @@ Eingaben stehen mit Quelle in Abschnitt 7 und 10.
 
 | Weg | mit 40 | mit 45 | mit 50 | mit 55 | **am Zieldatum (57)** | mit 60 | 50 % ab |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| **Plan: PiBS oder dual, sonst Bachelor; dann Schweiz/DE** | 7 % | 19 % | 33 % | 48 % | **53 %** | 61 % | **56** |
-| … mit eiserner Sparregel (60 %, nie aufgegeben) | 11 % | 27 % | 44 % | 60 % | **65 %** | 72 % | 52–53 |
-| … mit typischem Elternerbe (nicht Teil des Plans) | 7 % | 19 % | 33 % | 51 % | **59 %** | 68 % | 55 |
-| Duales Studium, dann Schweiz/DE | 7 % | 19 % | 34 % | 48 % | **54 %** | 62 % | 56 |
-| Sicherer PiBS-Platz, dann Schweiz/DE | 8 % | 20 % | 34 % | 49 % | **54 %** | 62 % | 56 |
-| Bachelor + Agentur, dann Schweiz/DE | 7 % | 17 % | 30 % | 45 % | **51 %** | 58 % | 57 |
-| Plan, aber ohne Schweiz (außer über PiBS) | 3 % | 12 % | 26 % | 42 % | **48 %** | 57 % | 58 |
-| Bachelor + Agentur, nur Deutschland | 2 % | 9 % | 22 % | 38 % | **45 %** | 53 % | 59–60 |
-| Plan, aber spart wie typische Gutverdiener | 3 % | 10 % | 20 % | 32 % | **38 %** | 45 % | 62–63 |
-| Bachelor + Agentur, Schweiz/DE + Firmenkauf | 9 % | 18 % | 27 % | 36 % | **39 %** | 45 % | 63–64 |
-| Vertrieb (SaaS) ab 2027 | 2 % | 6 % | 14 % | 25 % | **30 %** | 38 % | 65 |
-| 2 Jahre Agentur Vollzeit, dann Vertrieb | 2 % | 6 % | 14 % | 25 % | **30 %** | 39 % | 65 |
+| **Plan: PiBS oder dual, sonst Bachelor; dann Schweiz/DE** | 7 % | 19 % | 33 % | 48 % | **53 %** | 60 % | **56–57** |
+| … mit eiserner Sparregel (60 %, nie aufgegeben) | 13 % | 30 % | 46 % | 61 % | **67 %** | 73 % | 51–52 |
+| … mit typischem Elternerbe (nicht Teil des Plans) | 7 % | 20 % | 34 % | 53 % | **61 %** | 70 % | 55 |
+| Duales Studium, dann Schweiz/DE | 7 % | 19 % | 33 % | 48 % | **53 %** | 61 % | 56 |
+| Sicherer PiBS-Platz, dann Schweiz/DE | 8 % | 20 % | 34 % | 48 % | **53 %** | 60 % | 56 |
+| Bachelor + Agentur, dann Schweiz/DE | 7 % | 18 % | 31 % | 45 % | **50 %** | 58 % | 57 |
+| Plan, aber ohne Schweiz (außer über PiBS) | 3 % | 11 % | 25 % | 40 % | **47 %** | 55 % | 58–59 |
+| Bachelor + Agentur, nur Deutschland | 2 % | 9 % | 22 % | 37 % | **43 %** | 52 % | 60 |
+| Plan, aber spart wie typische Gutverdiener | 3 % | 10 % | 21 % | 32 % | **37 %** | 45 % | 63 |
+| Bachelor + Agentur, Schweiz/DE + Firmenkauf | 9 % | 19 % | 28 % | 36 % | **39 %** | 44 % | 64 |
+| Vertrieb (SaaS) ab 2027 | 2 % | 6 % | 14 % | 25 % | **31 %** | 39 % | 65 |
+| 2 Jahre Agentur Vollzeit, dann Vertrieb | 2 % | 4 % | 10 % | 20 % | **24 %** | 32 % | > 65 |
 
 Verworfen und warum:
 
@@ -166,12 +173,12 @@ Verworfen und warum:
 
 Neu getestet: das **praxisintegrierte Bachelorstudium (PiBS) in der
 Schweiz** (4 Jahre FH, 40 % Arbeit im Schweizer Partnerbetrieb). Ergebnis:
-mit Platz gleichauf mit dem dualen Studium (je 54 % am Zieldatum), aber
+mit Platz gleichauf mit dem dualen Studium (je 53 % am Zieldatum), aber
 die Plätze sind knapp (2022 erst 128 Eintritte schweizweit; laut Bund sind
 die Plätze in Unternehmen das Nadelöhr) und der Lohn deckt die Schweizer
 Lebenshaltung nicht. Darum steht es im Plan gleichberechtigt neben dem
 dualen Studium: Nimm, was zuerst sicher zusagt. Der Plan mit beiden
-Optionen liegt mit 53 % innerhalb der Messgenauigkeit gleichauf.
+Optionen liegt ebenfalls bei 53 %.
 
 ## 4. Der Plan
 
@@ -254,7 +261,7 @@ deshalb ist es Regel und Dauerauftrag, nicht Vorsatz. Die Hauptzahl dieses
 Plans (53 % am 31.08.2065) rechnet bewusst damit, dass die Regel nicht
 perfekt hält: im Mittel werden nur ~50 % gespart, und 15 % der Leben werden
 irgendwann halbherzig. Wer sie wirklich hält – auch mit Partner –, hat am
-Zieldatum **65 %**; wer nur so spart wie typische Gutverdiener, **38 %** –
+Zieldatum **67 %**; wer nur so spart wie typische Gutverdiener, **37 %** –
 dann trägt der Plan nicht. (Im Studium rechnet das Modell mit 1.000 €/Monat
 Grundbedarf und spart 40 % von allem darüber.)
 
@@ -304,42 +311,45 @@ Regeln dafür:
 ## 6. Kontrollwerte: Bin ich noch auf Kurs?
 
 Vermögen nach Steuer, nominal (die Hälfte einer Schweizer Pensionskasse
-eingerechnet), Stichtag jeweils 31.08.; für Jahre zwischen den Zeilen linear
-interpolieren. Liegst du **unter dem linken Wert**, bist du hinter dem Plan
+eingerechnet), Stichtag jeweils 31.08.; **nach Datum lesen, nicht nach
+Alter** (wer ein Jahr älter ist, nimmt trotzdem die Zeile seines Datums);
+für Jahre zwischen den Zeilen linear interpolieren. In der Ausbildung (bis
+~2030/31) wächst das Vermögen kaum – das ist eingeplant. Liegst du **unter dem linken Wert**, bist du hinter dem Plan
 und musst nachsteuern; über dem rechten bist du gut vorn
 (`python3 plan/simulation.py --kontrolle`).
 
-| Alter | 25 % liegen darunter | Median | 25 % liegen darüber |
-|---:|---:|---:|---:|
-| 25 | 9 Tsd. € | 21 Tsd. € | 37 Tsd. € |
-| 30 | 49 Tsd. € | 91 Tsd. € | 152 Tsd. € |
-| 35 | 103 Tsd. € | 190 Tsd. € | 319 Tsd. € |
-| 40 | 156 Tsd. € | 292 Tsd. € | 531 Tsd. € |
-| 45 | 219 Tsd. € | 444 Tsd. € | 831 Tsd. € |
-| 50 | 307 Tsd. € | 656 Tsd. € | 1,25 Mio. € |
-| 55 | 443 Tsd. € | 950 Tsd. € | 1,82 Mio. € |
+| Stichtag | Alter (Abitur 2027) | 25 % liegen darunter | Median | 25 % liegen darüber |
+|---|---:|---:|---:|---:|
+| 31.08.2030 | 22 | 1 Tsd. € | 1 Tsd. € | 2 Tsd. € |
+| 31.08.2033 | 25 | 10 Tsd. € | 21 Tsd. € | 36 Tsd. € |
+| 31.08.2038 | 30 | 51 Tsd. € | 95 Tsd. € | 157 Tsd. € |
+| 31.08.2043 | 35 | 105 Tsd. € | 195 Tsd. € | 329 Tsd. € |
+| 31.08.2048 | 40 | 157 Tsd. € | 300 Tsd. € | 542 Tsd. € |
+| 31.08.2053 | 45 | 219 Tsd. € | 450 Tsd. € | 841 Tsd. € |
+| 31.08.2058 | 50 | 301 Tsd. € | 654 Tsd. € | 1,25 Mio. € |
+| 31.08.2063 | 55 | 427 Tsd. € | 944 Tsd. € | 1,82 Mio. € |
 
 ## 7. Was den Plan kippt – und was nicht
 
 Jeweils genau ein Faktor auf einem ungünstigen bzw. günstigen Wert, alle
 anderen bleiben unsicher (4 × 10.000 Leben, `python3 plan/simulation.py
---sens`). Basis: **53 %** am 31.08.2065, 50 % ab 56.
+--sens`). Basis: **53 %** am 31.08.2065, 50 % ab 56–57.
 
 | Faktor (schlecht / gut) | Chance am 31.08.2065 | 50-%-Alter |
 |---|---:|---:|
-| Sparverhalten (typisch / eiserne Regel: 60 %, nie aufgegeben) | 38 % / 65 % | 62–63 / 52–53 |
-| Aktienrendite über das ganze Berufsleben (4 % / 8 % im Jahr) | 42 % / 67 % | 61 / 52 |
-| Grundbedarf (22 / 13 Tsd. € im Jahr) | 46 % / 67 % | 59 / 52 |
-| Kinder (sicher und teuer: 12 Tsd. € im Jahr / keine) | 47 % / 61 % | 58–59 / 54 |
-| Schweiz ganz (nie: kein Anlauf, nicht über PiBS / –) | 46 % / – | 58–59 / – |
-| KI-Druck auf Einsteiger (sicher / nie) | 48 % / 57 % | 58 / 55 |
-| Schweizer Stelle im ersten Anlauf (nie / immer angeboten) | 51 % / 58 % | 57 / 54–55 |
-| Dualer Studienplatz (nie / immer angeboten) | 51 % / 56 % | 57 / 55–56 |
-| Rückkehr aus der Schweiz (13 % je Jahr in den ersten 5 Jahren, deutlich über SECO / nie) | 52 % / 62 % | 57 / 53 |
+| Sparverhalten (typisch / eiserne Regel: 60 %, nie aufgegeben) | 37 % / 67 % | 63 / 51–52 |
+| Aktienrendite über das ganze Berufsleben (4 % / 8 % im Jahr) | 42 % / 67 % | 60–61 / 52 |
+| Grundbedarf (DE 22 / 13, CH 40 / 30 Tsd. € im Jahr) | 46 % / 66 % | 59–60 / 52–53 |
+| Kinder (sicher und teuer: 12 Tsd. € im Jahr / keine) | 47 % / 60 % | 58–59 / 54 |
+| Schweiz ganz (nie: kein Anlauf, nicht über PiBS / –) | 45 % / – | 59 / – |
+| KI-Druck auf Einsteiger (sicher / nie) | 48 % / 56 % | 58–59 / 55–56 |
+| Schweizer Stelle im ersten Anlauf (nie / immer angeboten) | 50 % / 59 % | 57 / 54 |
+| Dualer Studienplatz (nie / immer angeboten) | 51 % / 54 % | 57 / 56 |
+| Rückkehr aus der Schweiz (13 % je Jahr in den ersten 5 Jahren, deutlich über SECO / nie) | 51 % / 61 % | 57 / 53 |
 
 **Von dem, was du selbst steuerst, wirken Sparregel und Grundbedarf am
-stärksten.** Fast jeder einzelne Faktor auf seinem ungünstigen Wert drückt
-das Zieldatum unter 50 % – der Plan hat nur gut 3 Punkte Puffer. Darum sind
+stärksten.** Sechs von neun Einzelfaktoren drücken auf ihrem ungünstigen Wert
+das Zieldatum unter 50 % – der Plan hat nur 3,1 Punkte Puffer. Darum sind
 Sparregel und Grundbedarf Regeln mit Dauerauftrag, keine Vorsätze. Die
 Börse kannst du nicht steuern – nur aushalten.
 
@@ -347,50 +357,53 @@ Börse kannst du nicht steuern – nur aushalten.
 Schätzungen gleichzeitig am pessimistischen Rand – Chance auf eine Schweizer
 Stelle halbiert (auch im zweiten Anlauf), nach PiBS deutlich seltener,
 PiBS-Platz kaum, dualer Platz seltener, Rückkehr aus der Schweiz deutlich
-über dem SECO-Wert (dort 35 % nach 5 und 45 % nach 10 Jahren; im Modell
-sonst 35 % / 47 %, im Stress 43 % / 58 %).
+über dem SECO-Wert (dort 35 % nach 5 und 45 % nach 10 Jahren – darauf ist
+die Basis kalibriert; im Stress 49 % / 60 %).
 
 | Szenario | mit 54 | mit 56 | **mit 57** | mit 60 | mit 62 | mit 65 |
 |---|---:|---:|---:|---:|---:|---:|
-| Plan (Basis) | 45 % | 51 % | **53 %**¹ | 61 % | 66 % | 72 % |
-| Stress: die drei großen Schätzungen pessimistisch | 40 % | 46 % | **49 %**¹ | 58 % | 63 % | 69 % |
-| Stress + KI-Druck sicher | 35 % | 41 % | **44 %** | 52 % | 58 % | 64 % |
+| Plan (Basis) | 45 % | 50 % | **53 %**¹ | 60 % | 65 % | 70 % |
+| Stress: die drei großen Schätzungen pessimistisch | 39 % | 45 % | **48 %**¹ | 56 % | 61 % | 67 % |
+| Stress + KI-Druck sicher | 34 % | 40 % | **43 %** | 51 % | 56 % | 63 % |
 
 ¹ Nachgemessen über 16 Läufe à 10.000 Leben: Plan
-53,6 % ± 0,2, Stress 49,0 % ± 0,2.
+53,2 % ± 0,2, Stress 47,7 % ± 0,2.
 
 Das Planziel bleibt **der 31. August 2065**. Die früheste Marke mit
-mindestens 50 % liegt bei 56 (Sommer 2064, 50,7 %); am Zieldatum hat
-der Plan 53 %. Liegen alle drei großen Schätzungen daneben, reicht es am
-Zieldatum knapp nicht (49 %); dieser Fall erreicht die 50 % mit
-58 (2066), mit zusätzlich sicherem KI-Druck mit 60 (2068). Die
-Jahre 2068 bis 2073 in der folgenden Tabelle zeigen nur, ab wann auch noch
-härtere Fälle über 50 % liegen.
+mindestens 50 % liegt bei 56 (Sommer 2064, 50,4 %; je nach Lauf 56–57); am
+Zieldatum hat der Plan 53 %. Liegen alle drei großen Schätzungen daneben, reicht
+es am Zieldatum nicht (48 %); dieser Fall erreicht die 50 % mit
+58 (Sommer 2066), mit zusätzlich sicherem KI-Druck mit 60 (Sommer 2068).
+Die Jahre 2068 bis 2073 in der folgenden Tabelle zeigen nur, ab wann auch
+noch härtere Fälle über 50 % liegen.
 
 **Härtefälle bis zum Äußersten** (`python3 plan/simulation.py --stress`,
 4 × 10.000 Leben). **Fall A**: ohne Schweiz, ohne PiBS, ohne dualen Platz,
-KI-Druck sicher – also nur Bachelor und eine Stelle in Deutschland.
+KI-Druck sicher – also Bachelor (mit Webgeschäft) und Arbeit in Deutschland.
 „Äußere Kleinannahmen pessimistisch“: kein Freelancing, harte Lohnnarbe nach
 Arbeitslosigkeit, träger Konsum, keine weiterlaufenden Betreuungsverträge.
 
 | Szenario | mit 57 (2065) | mit 60 (2068) | mit 62 (2070) | mit 65 (2073) | 50 % ab |
 |---|---:|---:|---:|---:|---:|
-| Plan (Basis) | 53 % | 61 % | 66 % | 72 % | 56 |
-| äußere Kleinannahmen pessimistisch | 47 % | 55 % | 59 % | 65 % | 58–59 |
-| + die drei großen Schätzungen pessimistisch | 41 % | 49 % | 54 % | 61 % | 61 |
-| ganz ohne Schweiz und PiBS | 47 % | 56 % | 62 % | 68 % | 58–59 |
-| Fall A | 41 % | 49 % | 55 % | 62 % | 61 |
-| Fall A + äußere Kleinannahmen pessimistisch | 32 % | 40 % | 45 % | **51 %** | **65** |
-| … dabei ohne Hauskauf und ohne Aufgeben (Sparquote weiter gestreut) | 37 % | 45 % | 50 % | 57 % | 62–63 |
+| Plan (Basis) | 53 % | 60 % | 65 % | 70 % | 56–57 |
+| äußere Kleinannahmen pessimistisch | 47 % | 54 % | 58 % | 64 % | 59 |
+| + die drei großen Schätzungen pessimistisch | 40 % | 47 % | 52 % | 58 % | 61–62 |
+| ganz ohne Schweiz und PiBS | 46 % | 55 % | 60 % | 67 % | 59 |
+| Fall A | 38 % | 47 % | 52 % | 59 % | 61–62 |
+| Fall A + äußere Kleinannahmen pessimistisch | 30 % | 38 % | 42 % | **49 %** | **> 65** |
+| … dabei ohne Hauskauf und ohne Aufgeben (Sparquote weiter gestreut) | 34 % | 42 % | 47 % | 54 % | 64 |
 
 Die Schweiz und die Studienform machen die Million **früher** erreichbar.
-Ohne sie (Fall A) liegt der Plan ab 61 (Sommer 2069) über 50 %; kommen
-zusätzlich alle äußeren Kleinannahmen ungünstig, erst mit 65 (Sommer 2073,
-51 %): Das ist der härteste getestete Fall. Was nicht verhandelbar bleibt:
+Ohne sie und mit sicherem KI-Druck (Fall A) liegt der Plan ab 61–62 (Sommer
+2069–2070) über 50 %. Kommen zusätzlich alle äußeren Kleinannahmen ungünstig,
+**reicht es bis 65 nicht** (49 % mit 65) – das ist der härteste getestete Fall,
+und dort trägt der Plan nicht. Nur wenn dabei weder ein Haus gekauft noch
+die Sparregel aufgegeben wird, liegt er ab 64 (Sommer 2072, 52 %) über 50 %.
+Was nicht verhandelbar bleibt:
 die Sparregel (bei Sparen wie typische Gutverdiener mit 60: Fall A
-32 %, Fall A + äußere 23 %) und Märkte, die nicht das ganze
-Berufsleben über nur 4 % liefern (dann mit 60: Fall A 36 %, Fall A + äußere
-27 %).
+30 %, Fall A + äußere 22 %) und Märkte, die nicht das ganze
+Berufsleben über nur 4 % liefern (dann mit 60: Fall A 34 %, Fall A + äußere
+25 %).
 
 **Welche Eingaben in Fall A noch wirken – und woher sie stammen** (Links in
 Abschnitt 10):
@@ -399,41 +412,47 @@ Abschnitt 10):
 |---|---|---|
 | Schweizer Stelle, PiBS-Platz, dualer Platz | **0** (abgeschaltet) | – |
 | Einstiegsgehalt IT mit Bachelor | 43–50 Tsd. € (Mitte 46,3), ×0,92 KI-Abschlag | get in IT 2026 (42,4–49,4, typisch 46,3), Stepstone 2026 (~43,7) |
-| Gehaltsverlauf IT | real +2,5–7,5 % je Jahr (Mitte 4,2 %) bis Jahr 10, danach 0–2 %; ergibt Median ~51 / 62 / 74 Tsd. nach 1–3 / 5–8 / 10–13 J., mit KI-Abschlag ~47 / 58 / 68 | in den ersten Jahren gleichauf mit Stack Overflow DE 2024+25 (Median ~50 / 66 / 78 Tsd., n ≈ 4.250), danach bewusst darunter |
-| Gehalt ohne Abschluss (43 % der Leben in Fall A) | 34–45 Tsd. € Einstieg | Stepstone 2026, Web-Entwickler: Einstieg ~37 Tsd., Median 41,8 Tsd. |
-| Steuern, Sozialabgaben | Tarif 2026, BBG 2026, Arbeitnehmeranteil +3,65 Pp. bis 2035 (auch für Selbstständige) | § 32a EStG, Rechengrößen 2026, IGES für die DAK 2026 (42,7 % → 50 %) |
-| Studienabbruch Bachelor Informatik | 35–50 % | DZHW 2022 (Uni 42–47 %, HAW 30–37 %) |
+| Gehaltsverlauf IT | real +2,5–7,5 % je Jahr (Mitte 4,2 %) bis Jahr 10, danach 0–2 %; ergibt Median ~51 / 63 / 75 Tsd. nach 1–3 / 5–8 / 10–13 J., mit KI-Abschlag ~47 / 57 / 68 | in den ersten Jahren gleichauf mit Stack Overflow DE 2024+25 (Median ~50 / 66 / 78 Tsd., n ≈ 4.250), danach bewusst darunter |
+| Gehalt ohne Abschluss (30 % der Leben in Fall A) | 34–45 Tsd. € Einstieg, danach real +1–4,5 % je Jahr; Median ~41 / 47 / 52 Tsd. nach 1–3 / 5–8 / 10–13 J. | Stepstone 2026, Web-Entwickler: Einstieg ~37 Tsd., Median über alle Stufen 41,8 Tsd. (Verlauf darüber hinaus geschätzt) |
+| Steuern, Sozialabgaben | Tarif 2026, BBG 2026, Arbeitnehmeranteil +3,65 Pp. bis 2035; Selbstständige voller KV/PV-Satz (21,1 %, +4 Pp.) | § 32a EStG, Rechengrößen 2026, IGES für die DAK 2026 (42,7 % → 50 %) |
+| Studienabbruch Bachelor Informatik | 30–42 % (FH/HAW, mit Webgeschäft nebenher); die Hälfte der Abbrecher im 1. Jahr startet neu | DZHW 2022 (HAW 30–37 %, Uni 42–47 %); Neustart-Quote geschätzt |
 | Arbeitslosigkeit, Krisen | 2–5 % je Jahr, in Krisen 5–18 %; Lohnnarbe 2–8 % je Arbeitslosigkeit | IAB 1998–2019: Akademiker 2,0–4,1 % (Modell im oberen Bereich); Schmieder et al. 2023 |
-| Berufsunfähigkeit | je Jahr nach DAV-Tafel 2021 I × 0,5–0,75 (≈ 0,1 % mit 25, 0,3 % mit 50, 0,6 % mit 57); BU-Rente 45–65 % des Nettos; Prämie 750 €/Jahr | DAV 2021 I (Informatiker 58 % des Durchschnitts), Finanztip 2026 |
+| Berufsunfähigkeit | je Jahr nach DAV-Tafel 2021 I × 0,5–0,75 (≈ 0,1 % mit 25, 0,3 % mit 50, 0,6 % mit 57); BU-Rente 45–65 % des Nettos; Prämie 3,5 % der versicherten Jahresrente | DAV 2021 I (Gruppe Informatiker 58 % der Tafelerwartung), Finanztip 2026 |
 | Kinder, Partnerschaft, Scheidung | eigener Anteil 5–12 Tsd. €/Jahr für alle Kinder zusammen (1–2), 18 Jahre ab dem ersten (Hälfte der Kosten nach Kindergeld); Väter bei Geburt des 1. Kindes der Mutter 33,3; 28 % Scheidungen (Ehedauer bis 25 J.) | EVS 2018 (424–1.212 €/Monat für ein Kind nach Einkommen), Destatis 2025 |
-| Kaufnebenkosten Haus | 5,5–12 % | Grunderwerbsteuer 3,5–6,5 %, Notar/Grundbuch 1,5–2 %, Makler bis 3,57 % |
+| Kaufnebenkosten Haus | 5–12 % | Grunderwerbsteuer 3,5–6,5 %, Notar/Grundbuch 1,5–2 %, Makler bis 3,57 % |
 | Sparverhalten | 38–62 % jedes Euros über dem Grundbedarf | EVS 2018 (38 % gespart bzw. 58 % nicht konsumiert bei 5–10 Tsd. € netto), DIW/SOEP 2025 |
 | Aktienrendite | 3,5–8 % geometrisch, Vola 13–18 %, dicke Ränder | MSCI World Net seit Ende 2000: 6,7 %; Prognosen Vanguard/Morningstar 4,8–7,5 % nominal (USD) |
 | Steuer beim Verkauf | 18,46 % auf ETF-Gewinne | § 20 InvStG, § 32d EStG |
 
-Ebenfalls wirksam, aber **geschätzt** (ohne harte Quelle): Grundbedarf
-15–22 Tsd. € (aus WG-Mieten abgeleitet: München 849 €, Berlin 659 € warm),
-Inflation 1,5–3 %, Vergütung im dualen Studium und bei PiBS, Vorsprung des
-dualen Studiums beim Einstieg (~1 Tsd. €), Agentur während des Bachelors,
+Ebenfalls wirksam, aber **geschätzt** (ohne harte Quelle), im Plan
+insgesamt: Grundbedarf 15–22 Tsd. € (aus WG-Mieten abgeleitet: München
+849 €, Berlin 659 € warm), Inflation 1,5–3 %, Vergütung im dualen Studium
+und bei PiBS, Vorsprung des dualen Studiums beim Einstieg (~1 Tsd. €),
+Schweizer Stelle (18–50 %), PiBS- und dualer Platz, Schweizer Steuerkurve
+(6–30 % effektiv je nach Einkommen, +1,5 Punkte für Zürich/Basel/Bern –
+nicht gegen den ESTV-Rechner geprüft), Agentur während des Bachelors,
 Freelancing (Chance 30–60 %), Hauskauf trotz Rat (20–40 %), Aufgeben der
-Sparregel (15 %), Konsumträgheit, Lebensstil mit Partner, KI-Szenario. Wie
-stark sie zusammen wirken, zeigt die Härtefall-Tabelle oben.
+Sparregel (15 %), Neustart nach Abbruch im ersten Jahr (50 %),
+Konsumträgheit, Lebensstil mit Partner, KI-Szenario, Partnerschaft und Heirat. Die Härtefall-Tabelle variiert davon nur
+Freelancing, Konsumträgheit und weiterlaufende Betreuungsverträge (dazu
+die belegte Lohnnarbe); Grundbedarf, Sparverhalten und KI zeigt die
+Sensitivitätstabelle, Schweiz und Studienplatz der Stresstest.
 
 **Gegenrechnung ohne Simulation** (unabhängiger Prüfer, typischer Lebensweg
 in Fall A: Bachelor, IT-Stelle in Deutschland ab 46 Tsd. € real, Sparregel,
 Kinder, BU-Prämie): Depot mit 60, nominal nach Steuer. Gerechnet noch mit
-dem früheren Stand (Abgaben +3 statt +3,65 Punkte, BU-Prämie 900 statt
-750 €, höheres Gehalt ohne Abschluss) – die Spalte „ohne Abschluss“ ist
-deshalb eher zu hoch.
+dem früheren Stand (Abgaben +3 statt +3,65 Punkte, BU-Prämie fest 900 €
+statt 3,5 % der versicherten Rente, höheres Gehalt ohne Abschluss) – die
+Spalte „ohne Abschluss“ ist deshalb eher zu hoch.
 
-| Rendite im Jahr | mit Abschluss | ohne Abschluss (43 % der Leben) |
+| Rendite im Jahr | mit Abschluss | ohne Abschluss (30 % der Leben) |
 |---|---:|---:|
 | 8,6 % (MSCI-World-Sparplan, Durchschnitt laut DAI) | 2,65 Mio. € | 2,26 Mio. € |
 | 6 % | 1,57 Mio. € | 1,31 Mio. € |
 | 4 % | 1,11 Mio. € | 0,91 Mio. € |
 
 Für die Million reichen mit Abschluss 3,4 % Rendite. Die Simulation liegt in
-Fall A mit 60 im Median bei 0,99 Mio. € – niedriger als die
+Fall A mit 60 im Median bei 0,93 Mio. € – niedriger als die
 Gegenrechnung, weil sie schwankende Märkte, Arbeitslosigkeit, Abbrüche,
 Berufsunfähigkeit und Hauskäufe mitnimmt.
 
@@ -506,28 +525,34 @@ Verkaufsargument taugt es kaum.
    Originalquelle geprüft (Abschnitt 10): 24 bestätigt, 18 präzisiert oder
    korrigiert; eine unabhängige Gegenprobe von 8 bestätigten Belegen fand
    keinen Fehler. Danach 23 Angaben, die vorher nur im Code standen:
-   10 bestätigt, 11 korrigiert, 2 als Schätzung gekennzeichnet. Ein
-   weiterer Prüfer hat alle Links abgerufen und rund 50 Zahlen erneut
-   gegen die Originale gehalten. Im Modell geändert, weil die Quelle es
-   verlangte: Einstiegsgehalt Bachelor 43–50 statt 44–58 Tsd. € (get in
-   IT), Gehalt ohne Abschluss 34–45 statt 36–50 Tsd. € (Stepstone),
+   10 bestätigt, 11 korrigiert, 2 als Schätzung gekennzeichnet. Zwei
+   weitere Prüfer haben alle Links abgerufen und die Zahlen erneut gegen die
+   Originale gehalten. Im Modell geändert, weil die Quelle es verlangte:
+   Einstiegsgehalt Bachelor 43–50 statt 44–58 Tsd. € (get in IT), Gehalt
+   ohne Abschluss 34–45 Tsd. € Einstieg mit flacherem Verlauf (Stepstone),
    Rückkehr aus der Schweiz auf den SECO-Wert (35 % nach 5, 45 % nach 10
    Jahren; vorher nur ~28 % nach 10), Berufsunfähigkeit nach Alter (DAV
-   2021 I) statt konstant 0,1–0,2 %, Sozialabgaben +3,65 statt +3 Punkte
-   (IGES 2026, auch für Selbstständige), Kaufnebenkosten 5,5–12 statt
-   5–9 %, Aufstieg im Vertrieb 22–46 % statt 35–55 % (UNIFY),
-   Pensionskassen-Zins 2 % (BVG ab 2027), BU-Prämie 750 statt 900 €.
-   Ergebnis: Plan am 31.08.2065 **53 %** statt 60 %, Stress 49 % statt
-   56 %. Ein Test prüft seitdem bei jedem Lauf, dass Zieldatum und alle
-   sechs Kopfzahlen dieses Dokuments zur Simulation passen (±2 Punkte,
-   10.000 Leben) und dass die Hauptzahl in der Simulation über 50 % liegt.
+   2021 I) statt konstant 0,1–0,2 %, BU-Prämie als Anteil der versicherten
+   Rente, Sozialabgaben +3,65 statt +3 Punkte (IGES 2026; Selbstständige
+   voller KV/PV-Satz), Schweizer ALV/NBU nur bis CHF 148.200,
+   Kaufnebenkosten 5–12 statt 5–9 %, Aufstieg im Vertrieb 22–46 % statt
+   35–55 % (UNIFY). Ergebnis: Hauptzahl von 60 % auf rund 50 % (gemessen
+   49,3 %, 10.000 Leben). Dann zwei Änderungen am Plan: Plan B an einer FH
+   (DZHW: weniger Abbrüche) und die Abbruch-Regel im Modell (die Hälfte der
+   Abbrecher im ersten Jahr startet neu). Ergebnis: **53 %** am 31.08.2065
+   (16 Läufe: 53,2 % ± 0,2), Stress 48 %. Ein Test prüft bei jedem Lauf
+   Zieldatum, die fünf Werte der Kopftabelle (±2 Punkte, 10.000 Leben) und
+   dass die Hauptzahl in der Simulation über 50 % liegt.
 5. **Grenzen:** Viele Spannen sind begründete Schätzungen (Chance auf
-   Schweizer Stelle, PiBS-Platz, Rückkehrrate, KI-Szenario). Bewusst nicht in
-   der Hauptzahl: Erbschaften (mit typischem Elternerbe ~1 Jahr früher), das
-   Vermögen eines Partners (als Paar mit Zugewinngemeinschaft gezählt ~1–2
-   Jahre früher), die Pensionskasse voll statt halb (~1 Jahr früher),
-   Kirchensteuer (bei Mitgliedschaft etwas später). Wer eigene Ist-Werte hat,
-   trägt sie in `plan/simulation.py` ein und rechnet neu.
+   Schweizer Stelle, PiBS-Platz, Neustart nach Abbruch, KI-Szenario).
+   Schweizer Beträge zählt das Modell 1:1 als Euro (bei ~0,93 CHF je Euro
+   eher vorsichtig); ein Wechselkursrisiko ist nicht modelliert. Bewusst
+   nicht in der Hauptzahl: Erbschaften (mit typischem Elternerbe 50 % schon
+   mit 55 statt 56–57), das Vermögen eines Partners (früher gemessen: als
+   Paar mit Zugewinngemeinschaft ~1–2 Jahre früher; nicht neu gerechnet),
+   die Pensionskasse voll statt halb (54 % statt 53 % am Zieldatum),
+   Kirchensteuer (bei Mitgliedschaft etwas später). Wer eigene Ist-Werte
+   hat, trägt sie in `plan/simulation.py` ein und rechnet neu.
 
 ## 10. Quellenverzeichnis
 

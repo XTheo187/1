@@ -131,7 +131,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 95 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 96 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau

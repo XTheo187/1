@@ -157,9 +157,10 @@ class TestPlanmodell(unittest.TestCase):
         p = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 10_000, seed=9), sim.GARANTIE_ALTER)
         self.assertGreater(p, 0.5)
 
-    def test_robustalter_haelt_im_haertesten_fall(self):
+    def test_robustalter_haelt_im_haertesten_fall_mit_regeltreue(self):
         from dataclasses import replace
-        wp = replace(sim.PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0), **sim.AUSSEN_PESSIMISTISCH)
+        wp = replace(sim.PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0), p_haus=(0, 0, 0),
+                     p_aufgeben=0.0, **sim.AUSSEN_PESSIMISTISCH)
         p = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 10_000, seed=12), sim.ROBUST_ALTER)
         self.assertGreater(p, 0.5)
 
