@@ -7,7 +7,7 @@
 > gefunden und nachgerechnet habe, liegt bei **höchstens rund 1 %** – und
 > die Wege mit der höchsten Chance kosten in 99 % der Fälle das ganze
 > eingesetzte Geld. Der Plan unten nutzt die neun Monate deshalb so, dass
-> 500.000 € **später sicher erreichbar** werden: mit 50 % Wahrscheinlichkeit
+> 500.000 € **später erreichbar** werden: mit etwa 50 % Wahrscheinlichkeit
 > **mit 47–48 (Sommer 2055/56)**, mit 73 % am 31.08.2065 – und er nimmt
 > die wenigen Chancen bis August mit, die nichts kosten.
 
@@ -18,12 +18,18 @@ oder negativ) gilt für **jede** Strategie, solange man keinen Kredit
 aufnimmt: Die Chance, aus S Euro jemals Z Euro zu machen, ist höchstens
 **S / Z** (Ville-Ungleichung). Mit 5.000 € für 500.000 € sind das **1 %**.
 
-| Startkapital | Obergrenze (fair) | Roulette, beste Strategie, ohne Tischlimit | Roulette, Tischlimit 20.000 € (Wiesbaden) | beste Aktienstrategie mit Drift, theoretisch (Browne) |
+| Startkapital | Obergrenze (fair) | Roulette, kühnes Spiel, ohne Tischlimit (ohne / mit Teilung bei Zero) | Roulette mit Teilung und Tischlimit 20.000 € je Satz | beste Aktienstrategie mit Drift, theoretisch (Browne) |
 |---:|---:|---:|---:|---:|
-| 1.000 € | 0,2 % | 0,14 % | – | 0,5–0,6 % |
-| **5.000 €** | **1,0 %** | **0,8–0,9 %** | **0,65 %** | **2,0–2,6 %** |
-| 10.000 € | 2,0 % | 1,7 % | – | 3,8–4,8 % |
-| 20.000 € | 4,0 % | 3,4 % | – | 7,1–8,7 % |
+| 1.000 € | 0,2 % | 0,16–0,18 % | – | 0,5–0,6 % |
+| **5.000 €** | **1,0 %** | **0,8–0,9 %** | **0,65–0,7 %** | **2,0–2,6 %** |
+| 10.000 € | 2,0 % | 1,7–1,8 % | – | 3,8–4,8 % |
+| 20.000 € | 4,0 % | 3,5–3,7 % | – | 7,1–8,7 % |
+
+„Kühnes Spiel“ heißt: jeweils genau den Betrag setzen, der bis zum Ziel
+fehlt, höchstens das ganze Kapital und das Tischlimit. Ohne Limit reichen
+dafür rund acht gewonnene Coups in Folge; mit einem Limit von 20.000 € sind
+es im Erfolgsfall meist 90–380 Coups mit bis zu 20.000 € je Satz – und die
+meisten Läufe sind nach zwei Coups vorbei, mit null Euro.
 
 Die Browne-Zahl ist ein **theoretisches** Maximum für Aktien mit positivem
 Trend: unbegrenzter Hebel, laufendes Umschichten, keine Kosten, keine
@@ -48,19 +54,21 @@ Abschnitt 8; „eigene Rechnung“ = aus den Quellen abgeleitet).
 
 | Weg | Chance | Was man dafür riskiert | Warum nicht mehr |
 |---|---:|---|---|
-| Roulette, einfache Chancen, alles auf einmal (Spielbank Wiesbaden, ab 18) | ~0,65 % | 5.000 € in 99,3 % der Fälle | Tischlimit 20.000 € je Satz, Hausvorteil |
-| Weit aus dem Geld liegende Index-Calls (S&P 500, Verfall 09/2027) | ~0,1–0,5 % | 5.000 € in ~99,5 % | Der S&P 500 müsste um ~51 % steigen; Markt preist 0,2–0,5 %, historisch 0,4–0,6 % der Zeitfenster; solche Calls verlieren im Schnitt Geld |
-| Sportwette zur Quote ~100 | ~0,4 %, praktisch 0 | 5.000 € | Außenseiterwetten −61 % Rendite; Anbieter zahlen höchstens 10.000 € je Wette bzw. 100.000 € je Woche aus |
-| KENO Typ 9, 10 € je Spiel (500.000 € fest, steuerfrei) | ~0,13–0,2 % | ~5.000 € | 1 : 387.197 je Spiel; Kürzung bei mehreren Gewinnern |
-| Eurojackpot / Aktion Mensch / Lotto 6aus49 | 0,03–0,04 % | ~5.000 € | Hälfte der Einsätze wird nicht ausgeschüttet |
-| Memecoins (pump.fun) | ~0,002 % der Wallets > 1 Mio. USD Gewinn | Einsatz | 62,5 % der Händler mit Verlust |
-| Eigenes Software-/App-Produkt | ≪ 0,1 % | Zeit | ~0,1 % der neuen Apps machen im Startjahr ≥ 1 Mio. USD **Umsatz**; nötig wären ~1 Mio. USD **Gewinn** |
+| Roulette, einfache Chancen, kühnes Spiel (deutsche Spielbank, Teilung bei Zero, Tischlimit 20.000 € je Satz) | ~0,65–0,7 % | 5.000 € in über 99 % der Fälle | Tischlimit, Hausvorteil 2,7 % je Coup |
+| Weit aus dem Geld liegende Index-Calls (S&P 500, Verfall 17.09.2027 – also nach dem Stichtag zu verkaufen) | ~0,1–0,5 % | 5.000 € in ~99,5 % | Der S&P 500 müsste um ~51 % steigen; der Markt preist das mit 0,2–0,5 %; in den letzten zehn Jahren kam ein solcher Anstieg nur einmal vor (2020); solche Calls verlieren im Schnitt Geld |
+| Sportwette zur Quote ~100 | ~0,4 % (übertragen), praktisch ≈ 0 | 5.000 € | Außenseiterwetten brachten −61 % Rendite (US-Pferdewetten 1992–2001, Quote ≥ 100 – übertragen auf Sportwetten), dazu 5,3 % Wettsteuer; viele Anbieter deckeln Gewinne (Interwetten 10.000 € je Wette, 100.000 € je Woche; bwin 100.000 € je Woche), andere höher; online grundsätzlich höchstens 1.000 € Einzahlung im Monat |
+| KENO Typ 9, 10 € je Spiel (500.000 € fest, steuerfrei) | ~0,13–0,2 % | ~5.000 € | 1 : 387.197 je Spiel; Kürzung bei mehreren Gewinnern; online grundsätzlich höchstens 1.000 € im Monat |
+| Eurojackpot / Aktion Mensch / Lotto 6aus49 | 0,03–0,04 % | ~5.000 € | die Hälfte der Einsätze (Aktion Mensch: ~70 %) wird nicht ausgeschüttet |
+| Memecoins (pump.fun) | keine belastbare Chance | Einsatz | Nur ~0,002 % der Wallets (nicht Personen) machten Jan. 2024–Jan. 2025 mehr als 1 Mio. USD realisierten Gewinn – über ein ganzes Jahr und mit beliebigem Einsatz |
+| Eigenes Software-/App-Produkt | ≪ 0,1 % | Zeit | 442 Apps und Spiele mit Release 2024 kamen im Startjahr auf ≥ 1 Mio. USD **Umsatz** – bei geschätzt ~450.000 neuen Apps ≈ 0,1 %; nötig wären ~1 Mio. USD **Gewinn** |
 | Kickstarter, Shop, Creator | ≪ 0,1 % | Zeit, etwas Geld | ≥ 1 Mio. USD Pledges bei 0,14 % der Projekte (Umsatz, nicht Gewinn); ≥ 500.000 USD Jahreseinkommen bei Creatorn nicht einmal belegt |
 | Webagentur (`standortcheck`) | 0 % | Zeit | realistisch 3.000–8.000 € Umsatz bis August (Abschnitt 4) |
-| Startup-Accelerator (Y Combinator) | < 0,1 %, nur „auf dem Papier“ | Zeit | < 1 % Annahme; das Geld geht an die Firma, der Anteil ist nicht verkäuflich |
-| „Wer wird Millionär?“ | ~0,001–0,01 % | nichts | ~1,3 % der Kandidaten gewinnen ≥ 500.000 €, ins Studio kommt fast niemand |
-| Poker, E-Sport, Bug-Bounty | ≈ 0 | – | WSOP erst ab 21; 2025 weltweit 6 E-Sportler mit ≥ 500.000 USD |
+| Startup-Accelerator (Y Combinator) | < 0,1 %, nur „auf dem Papier“ | Zeit, Vollzeit vor Ort | < 1 % Annahme; das Geld geht an die Firma, der Anteil ist nicht verkäuflich |
+| „Wer wird Millionär?“ | ~0,001–0,01 % | nichts | ~1,2–1,8 % der Kandidaten auf dem Stuhl gewinnen ≥ 500.000 € (je nach Zählung der Promi-Specials), ins Studio kommt fast niemand |
+| Poker, E-Sport, Bug-Bounty | ≈ 0 | – | kein Spielvorteil, hohe Varianz (WSOP Las Vegas ab 21, WSOP Europe ab 18); 2025 weltweit 6 E-Sportler mit ≥ 500.000 USD |
+| Preisgeld-Wettbewerbe (Kaggle, KI-Preise) | ≈ 0 bis August | Zeit | Fristen meist später, Gewinner sind Profi-Teams |
 | Stipendien, Preise (Thiel, Jugend forscht, KfW) | 0 % | – | Höchstens 250.000 USD über zwei Jahre bzw. wenige Tausend Euro |
+| Schenkung oder Erbe | nicht planbar | – | hängt nicht von dir ab; Freibetrag 400.000 € je Elternteil (§ 16 ErbStG) |
 
 **Ergebnis:** Der beste Weg mit Geldeinsatz liegt bei unter 1 %, der beste
 selbst steuerbare Weg ohne Glücksspiel (eigenes Produkt) weit darunter.
@@ -97,24 +105,31 @@ Chancen mit, Spur C ist der Wurf mit Einsatz – **nicht empfohlen**.
 ### Spur B – kostenlose Chancen (zusammen weit unter 1 %, aber ohne Einsatz)
 
 - Bei **„Wer wird Millionär?“** und anderen Quizshows bewerben (kostet nur
-  Zeit; Gewinne sind steuerfrei, solange die Teilnahme nicht regelmäßig ist).
-- Wird aus `standortcheck` ein echtes Produkt mit zahlenden Kunden: bei
-  einem **Accelerator** bewerben (Y Combinator nimmt auch Studierende und
-  Gründer aus aller Welt). Das bringt bis August höchstens einen
-  Papierwert, kein Geld – zählt also nicht zum Ziel, aber zum Lebenslauf.
+  Zeit; ein Quizgewinn ist in der Regel nicht steuerpflichtig, außer bei
+  Antrittsgeld, Verhaltensvorgaben oder Formaten über mehrere Folgen –
+  dann sonstige Einkünfte nach § 22 Nr. 3 EStG).
+- **Accelerator wie Y Combinator: nicht jetzt.** YC erwartet Vollzeit am
+  Unternehmen, vor Ort – eine Zusage wäre eine bewusste Entscheidung gegen
+  PiBS oder das duale Studium, auf denen alles Weitere beruht. Und sie
+  brächte bis August nur einen Papierwert, kein Geld. Als Option nach dem
+  Abschluss bleibt sie offen.
 - **Jugend forscht** (Anmeldeschluss 30.11.2026) lohnt sich für Bewerbungen,
   nicht fürs Geld (Preise wenige Tausend Euro).
 
-### Spur C – der Wurf mit Einsatz (nicht empfohlen)
+### Spur C – Glücksspiel oder Hebel: nicht Teil des Plans
 
-Wer trotzdem bis August auf 500.000 € **wetten** will, sollte die Zahlen
-kennen: Die höchste realistische Chance hat **ein einziger** kühner Einsatz
-ohne Kredit – etwa Roulette auf einfache Chancen (~0,65 % mit 5.000 €, ab
-18 in Wiesbaden) oder weit aus dem Geld liegende Index-Calls (~0,1–0,5 %).
-In **99 von 100 Fällen ist das Geld weg**, und es fehlt dann genau dort, wo
-es am meisten bringt: als Startkapital im Depot. Mehrere kleine Wetten
-oder Daytrading senken die Chance weiter (Turbos: 74–91 % der Anleger
-verlieren). Meine Empfehlung: **0 € in Spur C.**
+Die Zahlen in Abschnitt 1 und 2 zeigen: Jeder Wurf mit Einsatz liegt unter
+1 %, und in **99 von 100 Fällen ist das Geld weg** – genau das Geld, das als
+Startkapital im Depot am meisten bringt. Mehrere kleine Wetten oder
+Daytrading senken die Chance weiter (Turbos: 74 % der Anleger verlieren,
+bei über 1.000 Trades 91 %). Deshalb steht hier keine Anleitung, sondern
+die Empfehlung: **0 € in Spur C.**
+
+Wenn der Gedanke an den „einen großen Wurf“ nicht loslässt, ist das selbst
+ein Warnsignal. Hilfe und die Möglichkeit, sich sperren zu lassen (das
+bundesweite Sperrsystem OASIS gilt für Spielbanken, Spielhallen und
+erlaubte Online-Anbieter), gibt es kostenlos und anonym bei
+<https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>.
 
 ## 4. Ab wann 500.000 € realistisch sind
 
@@ -141,8 +156,15 @@ Sparregel und dass das Startkapital nicht verspielt wird.
 
 ## 5. Was du nicht tun solltest
 
-- **Keinen Kredit** für Wetten oder Trading: Die Grenze S / Z steigt nur
-  scheinbar, der Verlust wird größer als das eigene Geld.
+- **Kein Casino- oder Wett-All-in** und **keinen Kredit** für Wetten oder
+  Trading: Die Grenze S / Z steigt nur scheinbar, der Verlust wird größer
+  als das eigene Geld.
+- **Keine Anbieter ohne deutsche Erlaubnis** (Offshore- oder
+  Krypto-Casinos): Die Teilnahme an unerlaubtem Glücksspiel ist strafbar
+  (§ 285 StGB), und ob ausgezahlt wird, ist ungewiss.
+- **Kein Krypto-Hebelhandel** („Perpetuals“ mit 50- bis 100-fachem Hebel
+  bei Börsen außerhalb der EU) – die Hebelgrenzen der EU (2:1 für Krypto)
+  gibt es aus gutem Grund.
 - **Keine „Trading-Kurse“, Signalgruppen, Schneeballsysteme** – wer
   wirklich einen Vorteil hätte, würde ihn nicht verkaufen.
 - **Kein Daytrading mit Turbos oder CFDs**: Je mehr Trades, desto mehr
@@ -152,8 +174,10 @@ Sparregel und dass das Startkapital nicht verspielt wird.
 
 ## 6. Grenzen dieser Rechnung
 
-Die Glücksspiel- und Börsenzahlen sind exakte Wahrscheinlichkeiten bzw.
-Marktpreise (Stand 20.11.2026, VIX 28,4); die Geschäftswege stützen sich auf
+Die Lotteriezahlen sind exakte Wahrscheinlichkeiten, die Roulette-Zahlen
+simuliert (mit Tischlimit genauer gerechnet ≈ 0,68 %), die Optionszahlen
+Marktpreise (SPY 20.11.2026, VIX 28,4 am 19.11.2026), die Sportwetten-Zahl
+ist aus Pferdewetten übertragen; die Geschäftswege stützen sich auf
 Basisraten aus selbstselektierten Listen (TrustMRR, Appfigures,
 Kickstarter) und überschätzen die Chance eher, weil sie keine
 Teilzeit-Gründer neben dem Abitur zeigen. Der Zeitplan in Abschnitt 4 ist
@@ -184,7 +208,10 @@ Ville-Ungleichung, Dubins & Savage, Browne (1999): siehe Abschnitt 10 des
   § 23 EStG (Krypto): <https://www.gesetze-im-internet.de/estg/__23.html>
 - Verlustverrechnung Termingeschäfte abgeschafft (JStG 2024):
   <https://cms.law/de/deu/legal-updates/verlustverrechnungsbeschraenkung-bei-termingeschaeften-gesetzgeber-schafft-vorschrift-ab>
-- Lotto- und Quizgewinne steuerfrei: <https://www.lotto.de/ueber/faq>
+- Lottogewinne steuerfrei: <https://www.lotto.de/ueber/faq>; Preisgelder
+  als sonstige Einkünfte: § 22 EStG <https://www.gesetze-im-internet.de/estg/__22.html>
+- Freibetrag Schenkung/Erbe: § 16 ErbStG <https://www.gesetze-im-internet.de/erbstg_1974/__16.html>;
+  unerlaubtes Glücksspiel: § 285 StGB <https://www.gesetze-im-internet.de/stgb/__285.html>
 
 **Börse und Spekulation**
 - SPY-Optionskette, Verfall 09/2027 (Abruf 20.11.2026):
@@ -194,8 +221,8 @@ Ville-Ungleichung, Dubins & Savage, Browne (1999): siehe Abschnitt 10 des
 - Renditen weit aus dem Geld liegender Calls (Ni 2008):
   <https://www.cxoadvisory.com/equity-options/returns-for-call-options-on-individual-stocks/>;
   Boyer & Vorkink (JF 2014): <https://ideas.repec.org/a/bla/jfinan/v69y2014i4p1485-1527.html>
-- Turbos (BaFin/ESMA, Verlustquoten, Wissenstest ab 16.06.2026):
-  <https://www.esma.europa.eu/sites/default/files/2025-11/ESMA35-243228190-7836_ESMA_opinion_on_BaFin_PI_measures_on_turbos.pdf>
+- Turbos (BaFin-Studie, Verlustquoten): <https://www.esma.europa.eu/sites/default/files/2025-11/ESMA35-243228190-7836_ESMA_opinion_on_BaFin_PI_measures_on_turbos.pdf>;
+  Wissenstest seit 16.06.2026: <https://www.cssf.lu/de/2026/01/bafin-produktintervention-in-bezug-auf-turbo-zertifikate/>
 - CFD-Hebelgrenzen: <https://www.esma.europa.eu/press-news/esma-news/esma-adopts-final-product-intervention-measures-cfds-and-binary-options>
 - Krypto-Kleinanleger (BIZ): <https://www.bis.org/publications/bulletin-69-crypto-shocks-and-retail-losses.pdf>;
   Memecoins (pump.fun): <https://decrypt.co/300403/pump-fun-traders-millionaires>
@@ -206,10 +233,12 @@ Ville-Ungleichung, Dubins & Savage, Browne (1999): siehe Abschnitt 10 des
 - KENO (Bayern): <https://lotto-bayern.de/keno/quoten?chances=>
 - Roulette Spielbank Wiesbaden (Limits, Teilung bei Zero):
   <https://www.spielbank-wiesbaden.de/fileadmin/user_upload/S-W_Homepage_Spielregeln_Roulette_2024.pdf>
-- Spielbanken Bayern (ab 21): <https://www.spielbanken-bayern.de/storage/filemanager/files/shares/Spielregeln/Deutsch/Spielregeln_Roulette_2023_dt.pdf>
+- Spielbanken Bayern (Limits, Zutritt ab 21): <https://www.spielbanken-bayern.de/storage/filemanager/files/shares/Spielregeln/Deutsch/Spielregeln_Roulette_2023_dt.pdf>
 - Außenseiterwetten (Snowberg/Wolfers): <https://www.nber.org/system/files/working_papers/w15923/w15923.pdf>;
   Gewinnlimits der Wettanbieter (Sekundärquelle): <https://www.wettfreunde.net/sportwetten-gewinnlimit/>
-- Online-Einzahlungslimit GlüStV: <https://www.gesetze-bayern.de/Content/Document/StVGlueStV2021-6c>
+- Online-Einzahlungslimit GlüStV (grundsätzlich 1.000 €/Monat, Lotterien mit
+  höchstens zwei Ziehungen je Woche ausgenommen): <https://www.gesetze-bayern.de/Content/Document/StVGlueStV2021-6c>
+- Hilfe und Sperre (OASIS): <https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>
 
 **Geschäft**
 - TrustMRR (Live-Liste, 22.11.2026): <https://trustmrr.com/>;
