@@ -3,13 +3,15 @@
 **Frage:** Wie komme ich – heute, am 22.11.2026, in der 13. Klasse, mit
 ~5.000 € – bis zum **31. August 2027** auf 500.000 € Nettovermögen?
 
-> **Kurzantwort:** Mit keinem Plan wahrscheinlich. Jeder Weg, den ich
-> gefunden und nachgerechnet habe, liegt bei **höchstens rund 1 %** – und
-> die Wege mit der höchsten Chance kosten in 99 % der Fälle das ganze
-> eingesetzte Geld. Der Plan unten nutzt die neun Monate deshalb so, dass
-> 500.000 € **später erreichbar** werden: mit etwa 50 % Wahrscheinlichkeit
-> **mit 47–48 (Sommer 2055/56)**, mit 73 % am 31.08.2065 – und er nimmt
-> die wenigen Chancen bis August mit, die nichts kosten.
+> **Kurzantwort:** Hier ist der Plan, der auf **500.000 € am 31.08.2027**
+> zielt (Abschnitt 3) – mit der ehrlichen Chance, die er hat: **rund
+> 0,1–0,6 %**. Mehr gibt kein Weg her: Jede Strategie, die ich gefunden und
+> nachgerechnet habe, liegt bei höchstens rund 1 % (Abschnitt 1 und 2). Der
+> Plan ist deshalb so gebaut, dass du im Fall des Scheiterns (99 von 100
+> Fällen) nicht schlechter dastehst als nötig: Ausbildungsplatz und
+> Sparplan laufen parallel. Damit werden 500.000 € mit etwa 50 %
+> Wahrscheinlichkeit **mit 47–48 (Sommer 2055/56)** erreicht, mit 73 % am
+> 31.08.2065 (Abschnitt 4).
 
 ## 1. Die harte Grenze – beweisbar
 
@@ -75,60 +77,112 @@ selbst steuerbare Weg ohne Glücksspiel (eigenes Produkt) weit darunter.
 Kredit würde die Grenze nur scheinbar heben: Dann verliert man in den
 übrigen 98–99 % der Fälle mehr, als man hat.
 
-## 3. Der Plan bis 31.08.2027
+## 3. Der Zielplan: 500.000 € bis 31.08.2027
 
-Drei Spuren. Spur A ist der eigentliche Plan, Spur B nimmt kostenlose
-Chancen mit, Spur C ist der Wurf mit Einsatz – **nicht empfohlen**.
+Ziel: am **31.08.2027 ein Nettovermögen von 500.000 €** (nach Steuer).
+Der Plan kombiniert alle Bausteine, die bis dahin überhaupt etwas bringen
+können, und legt darunter ein Sicherheitsnetz.
 
-### Spur A – das Fundament (macht 500.000 € ab ~2055 wahrscheinlich)
+| Baustein | Beitrag zur Chance auf 500.000 € bis 31.08.2027 |
+|---|---:|
+| Stufe 2: ein einmaliger Kauf weit aus dem Geld liegender Index-Optionen mit 5.000 € | ~0,1–0,5 % |
+| Stufe 3: Produktwette – aus `standortcheck` ein Abo-Produkt machen | ≤ ~0,05 % |
+| Stufe 4: kostenlose Würfe (Quizshow-Bewerbungen) | ~0,001–0,01 % |
+| **Zielplan zusammen** | **~0,1–0,6 %** |
+| Ohne Stufe 2 (kein Geldeinsatz) | ~0,01–0,06 % |
+
+### Stufe 1 – sofort: das Sicherheitsnetz (Dezember 2026)
+
+Weil der Zielplan in 99 von 100 Fällen scheitert, kommt zuerst das, was
+danach trägt:
 
 | Wann | Was |
 |---|---|
-| **Dezember 2026** | Bewerbungen auf PiBS-Plätze in der Schweiz (direkt bei den Partnerfirmen) und 20–40 Bewerbungen auf duale Studienplätze Informatik/Wirtschaftsinformatik; Depot mit Welt-ETF-Sparplan eröffnen; Notgroschen |
-| Dezember – März | Abitur zuerst. Webgeschäft mit `standortcheck` ~5 h/Woche: erste Einzelmaßnahmen bei Betrieben vor Ort |
+| **bis 31.12.2026** | Bewerbungen auf PiBS-Plätze in der Schweiz (direkt bei den Partnerfirmen) und 20–40 Bewerbungen auf duale Studienplätze Informatik/Wirtschaftsinformatik |
+| Dezember – März | Abitur zuerst |
 | **Februar 2027** | Kein dualer Platz → Bachelor an einer FH vorbereiten (6 Semester bevorzugen) |
-| April – Mitte Mai | Prüfungen, Geschäft ruht |
 | **Ende April 2027** | Auch kein PiBS-Vertrag → FH-Bewerbung abschicken |
-| Mitte Mai – August | Webgeschäft bis 25 h/Woche; jeder Gewinn nach der Sparregel ins Depot (60 % über dem Grundbedarf); Gewinn 2027 unter ~7.080 € halten (Familienversicherung) |
-| **31.08.2027** | Ausbildung mit Einkommen beginnt; ab hier läuft der Millionenplan |
+| **31.08.2027** | Ausbildung mit Einkommen beginnt – egal, wie der Zielplan ausgeht |
 
-**Realistische Ziele bis 31.08.2027** (Modell, `python3 plan/simulation.py --sommer`):
+### Stufe 2 – der Wurf mit Geld (einmalig, Entscheidung bis 15.12.2026)
 
-| Ziel | Chance |
-|---|---:|
-| mindestens 5 zahlende Kunden | 88 % |
-| mindestens 1 komplettes Website-Paket | 80 % |
-| mindestens 3.000 € Umsatz | 75 % |
-| mindestens 5.000 € Umsatz | 52 % |
-| mindestens 10.000 € Umsatz | 14 % |
+Der einzige Baustein mit mehr als einem Promille. Warum Optionen und nicht
+Roulette (~0,65–0,7 %, etwas mehr): **ein einziger Kauf, der Verlust ist
+auf den Einsatz begrenzt, es gibt kein Nachsetzen** – beim Roulette mit
+Tischlimit müsste man im Erfolgsfall 90–380 Mal setzen, mit allen Gefahren
+des Glücksspiels.
 
-### Spur B – kostenlose Chancen (zusammen weit unter 1 %, aber ohne Einsatz)
+- **Was:** Kaufoptionen (Calls) auf einen breiten Aktienindex (z. B. S&P 500
+  oder Euro Stoxx 50), Laufzeit bis nach dem 31.08.2027, Basispreis rund
+  **40 % über dem heutigen Indexstand**. Beispiel vom 20.11.2026: Calls auf
+  den S&P-500-ETF SPY, Basispreis 965 USD (+40 %), Verfall 17.09.2027,
+  ~0,56 USD je Aktie (56 USD je Kontrakt).
+- **Wie viel:** höchstens **5.000 €** – und nur, wenn dich der Totalverlust
+  nicht aus der Bahn wirft. Weniger Einsatz heißt proportional weniger
+  Chance (1.000 € → ~0,02–0,1 %).
+- **Wann es klappt:** Steigt der Index bis Ende August 2027 um **rund
+  50 %**, sind die Optionen etwa das 135-Fache wert (~677.000 € brutto,
+  nach 26,375 % Abgeltungsteuer ~500.000 €). Der Markt preist das mit
+  0,2–0,5 %; in den letzten zehn Jahren kam ein solcher Anstieg nur einmal
+  vor (2020).
+- **Regeln:** einmal kaufen, **nie nachkaufen, nie mit Kredit**, nicht
+  zwischendurch umschichten. Spätestens am 31.08.2027 verkaufen (die
+  Optionen verfallen danach). Bei einem deutschen Broker, der Optionen für
+  Privatkunden anbietet; er fragt Kenntnisse und Erfahrung ab.
+- **Was in 99,5 % der Fälle passiert:** Die Optionen verfallen wertlos.
+  Die 5.000 € fehlen dann im Depot – über 38 Jahre wären das bei 6 % im
+  Jahr rund 45.000 € am Zieldatum des Millionenplans.
+
+**Mein Rat:** Wenn dir das Ziel bis August diesen Preis nicht wert ist,
+lass Stufe 2 weg. Die Chance des Zielplans sinkt dann auf ~0,01–0,06 %,
+dein Startkapital bleibt.
+
+### Stufe 3 – die Produktwette (Januar – August 2027)
+
+Der einzige Weg ohne Wette mit nennenswertem Aufwärtspotenzial – mit sehr
+kleiner Chance, weil 500.000 € netto rund **0,9 Mio. € Gewinn** in wenigen
+Monaten bedeuten.
+
+| Wann | Ziel | sonst |
+|---|---|---|
+| Dez. – März (~5 h/Woche) | Webgeschäft starten: Vor-Ort-Besuche mit `standortcheck`-Bericht, erste Einzelmaßnahmen | – |
+| **31.03.2027** | ≥ 10 Kunden, die für eine laufende Prüfung ihrer Website monatlich zahlen würden (Vorbestellung) | Produktwette beenden, nur Webgeschäft |
+| Mitte Mai – Juli (bis 25 h/Woche) | Abo-Produkt („Website-Check für Handwerksbetriebe“) bauen und verkaufen | – |
+| **31.07.2027** | ≥ 30.000 € Monatsumsatz mit Wachstum > 50 % im Monat | Produkt als Nebenprojekt weiterführen |
+
+Realistisch bringt Stufe 3 bis August das, was das Webgeschäft bringt
+(Modell: 75 % für ≥ 3.000 € Umsatz, 14 % für ≥ 10.000 €) – und eine
+Erfahrung, die im Studium und in jeder Bewerbung zählt. Gewinne nach der
+Sparregel ins Depot; Gewinn 2027 unter ~7.080 € halten (Familienversicherung).
+
+### Stufe 4 – kostenlose Würfe (laufend)
 
 - Bei **„Wer wird Millionär?“** und anderen Quizshows bewerben (kostet nur
   Zeit; ein Quizgewinn ist in der Regel nicht steuerpflichtig, außer bei
   Antrittsgeld, Verhaltensvorgaben oder Formaten über mehrere Folgen –
   dann sonstige Einkünfte nach § 22 Nr. 3 EStG).
 - **Accelerator wie Y Combinator: nicht jetzt.** YC erwartet Vollzeit am
-  Unternehmen, vor Ort – eine Zusage wäre eine bewusste Entscheidung gegen
-  PiBS oder das duale Studium, auf denen alles Weitere beruht. Und sie
-  brächte bis August nur einen Papierwert, kein Geld. Als Option nach dem
-  Abschluss bleibt sie offen.
+  Unternehmen, vor Ort – eine Zusage wäre eine Entscheidung gegen PiBS oder
+  das duale Studium und brächte bis August nur einen Papierwert, kein Geld.
 - **Jugend forscht** (Anmeldeschluss 30.11.2026) lohnt sich für Bewerbungen,
-  nicht fürs Geld (Preise wenige Tausend Euro).
+  nicht fürs Geld.
 
-### Spur C – Glücksspiel oder Hebel: nicht Teil des Plans
+### Stufe 5 – Abrechnung am 31.08.2027
 
-Die Zahlen in Abschnitt 1 und 2 zeigen: Jeder Wurf mit Einsatz liegt unter
-1 %, und in **99 von 100 Fällen ist das Geld weg** – genau das Geld, das als
-Startkapital im Depot am meisten bringt. Mehrere kleine Wetten oder
-Daytrading senken die Chance weiter (Turbos: 74 % der Anleger verlieren,
-bei über 1.000 Trades 91 %). Deshalb steht hier keine Anleitung, sondern
-die Empfehlung: **0 € in Spur C.**
+- **Ziel erreicht** (≥ 500.000 € nach Steuer): Optionen verkaufen, Steuer
+  zurücklegen, Rest breit gestreut anlegen – und trotzdem die Ausbildung
+  beginnen.
+- **Ziel verfehlt** (der Normalfall): Ausbildung beginnt, Sparregel läuft,
+  der Millionenplan übernimmt (Abschnitt 4).
 
-Wenn der Gedanke an den „einen großen Wurf“ nicht loslässt, ist das selbst
-ein Warnsignal. Hilfe und die Möglichkeit, sich sperren zu lassen (das
-bundesweite Sperrsystem OASIS gilt für Spielbanken, Spielhallen und
-erlaubte Online-Anbieter), gibt es kostenlos und anonym bei
+### Nicht Teil des Plans: Casino, Sportwetten, Krypto-Hebel
+
+Roulette, Sportwetten und Krypto-Hebel bringen nicht mehr als Stufe 2,
+verleiten aber zum Nachsetzen (Turbos: 74 % der Anleger verlieren, bei über
+1.000 Trades 91 %). Wenn der Gedanke an den „einen großen Wurf“ nicht
+loslässt, ist das selbst ein Warnsignal. Hilfe und die Möglichkeit, sich
+sperren zu lassen (das bundesweite Sperrsystem OASIS gilt für Spielbanken,
+Spielhallen und erlaubte Online-Anbieter), gibt es kostenlos und anonym bei
 <https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>.
 
 ## 4. Ab wann 500.000 € realistisch sind
@@ -156,9 +210,9 @@ Sparregel und dass das Startkapital nicht verspielt wird.
 
 ## 5. Was du nicht tun solltest
 
-- **Kein Casino- oder Wett-All-in** und **keinen Kredit** für Wetten oder
-  Trading: Die Grenze S / Z steigt nur scheinbar, der Verlust wird größer
-  als das eigene Geld.
+- **Kein Casino- oder Wett-All-in**, **kein Nachkaufen** nach Stufe 2 und
+  **keinen Kredit** für Wetten oder Trading: Die Grenze S / Z steigt nur
+  scheinbar, der Verlust wird größer als das eigene Geld.
 - **Keine Anbieter ohne deutsche Erlaubnis** (Offshore- oder
   Krypto-Casinos): Die Teilnahme an unerlaubtem Glücksspiel ist strafbar
   (§ 285 StGB), und ob ausgezahlt wird, ist ungewiss.
