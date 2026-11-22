@@ -144,7 +144,7 @@ class TestPlanmodell(unittest.TestCase):
     def test_robustalter_haelt_im_haertesten_fall(self):
         from dataclasses import replace
         wp = replace(sim.PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0), **sim.AUSSEN_PESSIMISTISCH)
-        p = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 4000, seed=12), sim.ROBUST_ALTER)
+        p = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 10_000, seed=12), sim.ROBUST_ALTER)
         self.assertGreater(p, 0.5)
 
     def test_ohne_schweiz_ist_schlechter(self):
@@ -173,12 +173,24 @@ class TestDokument(unittest.TestCase):
         self.assertEqual(jahr, 2027 + sim.ZIEL_ALTER - sim.START_ALTER)
 
     def test_kopfquoten_stimmen_mit_der_simulation(self):
-        plan = self._kopf(r"Erfolgswahrscheinlichkeit mit diesem Plan: (\d+) %")
-        stress = self._kopf(r"gleichzeitig pessimistisch \| (\d+) %")
-        self.assertGreaterEqual(min(plan, stress), 50)
-        for wp, soll in ((sim.PLAN, plan), (sim.PLAN_STRESS, stress)):
-            ist = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 4000, seed=2027), sim.ZIEL_ALTER)
-            self.assertLess(abs(100 * ist - soll), 2.5, (soll, ist))
+        from dataclasses import replace
+        faelle = (
+            (r"Erfolgswahrscheinlichkeit mit diesem Plan: (\d+) %", sim.PLAN),
+            (r"\| Plan, Sparregel realistisch nicht perfekt gehalten \| \*\*(\d+) %\*\* \|", sim.PLAN),
+            (r"\| Plan mit eiserner Sparregel \(60 %, nie aufgegeben\) \| (\d+) % \|",
+             replace(sim.PLAN, lam_streu=None, lam=0.4, p_aufgeben=0.0)),
+            (r"gleichzeitig pessimistisch \| (\d+) % \|", sim.PLAN_STRESS),
+            (r"\| dazu KI-Druck auf Einsteiger sicher \| (\d+) % \|", replace(sim.PLAN_STRESS, p_ki=(1, 1, 1))),
+            (r"\| ganz ohne Schweiz und PiBS \| (\d+) % \|", sim.PLAN_OHNE_CH),
+        )
+        for muster, wp in faelle:
+            soll = self._kopf(muster)
+            ist = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 10_000, seed=2027), sim.ZIEL_ALTER)
+            self.assertLess(abs(100 * ist - soll), 2.0, (muster, soll, ist))
+            if wp is sim.PLAN:
+                # Die Kernaussage: mindestens 50 % am Zieldatum - in der Simulation, nicht nur im Text.
+                self.assertGreaterEqual(soll, 50)
+                self.assertGreater(ist, 0.5)
 
 
 class TestSommer(unittest.TestCase):
