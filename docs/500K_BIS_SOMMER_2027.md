@@ -4,14 +4,15 @@
 ~5.000 € – bis zum **31. August 2027** auf 500.000 € Nettovermögen?
 
 > **Kurzantwort:** Hier ist der Plan, der auf **500.000 € am 31.08.2027**
-> zielt (Abschnitt 3) – mit der ehrlichen Chance, die er hat: **rund
-> 0,1–0,6 %**. Mehr gibt kein Weg her: Jede Strategie, die ich gefunden und
-> nachgerechnet habe, liegt bei höchstens rund 1 % (Abschnitt 1 und 2). Der
-> Plan ist deshalb so gebaut, dass du im Fall des Scheiterns (99 von 100
-> Fällen) nicht schlechter dastehst als nötig: Ausbildungsplatz und
-> Sparplan laufen parallel. Damit werden 500.000 € mit etwa 50 %
-> Wahrscheinlichkeit **mit 47–48 (Sommer 2055/56)** erreicht, mit 73 % am
-> 31.08.2065 (Abschnitt 4).
+> zielt (Abschnitt 3). Seine ehrliche Chance: **praktisch null ohne
+> Geldeinsatz** (~0,001–0,06 %) und **~0,1–0,5 %**, wenn du bewusst einmalig
+> bis zu 5.000 € in Index-Optionen setzt – dann ist das Geld in über 99 von
+> 100 Fällen (eher 995 von 1.000) weg. Kein Weg kommt über rund 1 %
+> (Abschnitt 1 und 2); Roulette brächte mit ~0,7 % etwas mehr, ist aber
+> bewusst nicht Teil des Plans. Darunter liegt ein Sicherheitsnetz:
+> Ausbildungsplatz, Notgroschen und Sparplan. Damit werden 500.000 € mit
+> etwa 50 % Wahrscheinlichkeit **mit 47–48 (Sommer 2055/56)** erreicht, mit
+> 73 % am 31.08.2065 (Abschnitt 4).
 
 ## 1. Die harte Grenze – beweisbar
 
@@ -57,7 +58,7 @@ Abschnitt 8; „eigene Rechnung“ = aus den Quellen abgeleitet).
 | Weg | Chance | Was man dafür riskiert | Warum nicht mehr |
 |---|---:|---|---|
 | Roulette, einfache Chancen, kühnes Spiel (deutsche Spielbank, Teilung bei Zero, Tischlimit 20.000 € je Satz) | ~0,65–0,7 % | 5.000 € in über 99 % der Fälle | Tischlimit, Hausvorteil 2,7 % je Coup |
-| Weit aus dem Geld liegende Index-Calls (S&P 500, Verfall 17.09.2027 – also nach dem Stichtag zu verkaufen) | ~0,1–0,5 % | 5.000 € in ~99,5 % | Der S&P 500 müsste um ~51 % steigen; der Markt preist das mit 0,2–0,5 %; in den letzten zehn Jahren kam ein solcher Anstieg nur einmal vor (2020); solche Calls verlieren im Schnitt Geld |
+| Weit aus dem Geld liegende Index-Calls (S&P 500, Verfall 17.09.2027, also nach dem Stichtag – spätestens am 31.08.2027 zu verkaufen) | ~0,1–0,5 % | 5.000 € in ~99,5 % | Der S&P 500 müsste um ~51 % steigen; der Markt preist das mit 0,2–0,5 %; in den letzten zehn Jahren kam ein solcher Anstieg nur einmal vor (2020); solche Calls verlieren im Schnitt Geld |
 | Sportwette zur Quote ~100 | ~0,4 % (übertragen), praktisch ≈ 0 | 5.000 € | Außenseiterwetten brachten −61 % Rendite (US-Pferdewetten 1992–2001, Quote ≥ 100 – übertragen auf Sportwetten), dazu 5,3 % Wettsteuer; viele Anbieter deckeln Gewinne (Interwetten 10.000 € je Wette, 100.000 € je Woche; bwin 100.000 € je Woche), andere höher; online grundsätzlich höchstens 1.000 € Einzahlung im Monat |
 | KENO Typ 9, 10 € je Spiel (500.000 € fest, steuerfrei) | ~0,13–0,2 % | ~5.000 € | 1 : 387.197 je Spiel; Kürzung bei mehreren Gewinnern; online grundsätzlich höchstens 1.000 € im Monat |
 | Eurojackpot / Aktion Mensch / Lotto 6aus49 | 0,03–0,04 % | ~5.000 € | die Hälfte der Einsätze (Aktion Mensch: ~70 %) wird nicht ausgeschüttet |
@@ -80,80 +81,103 @@ Kredit würde die Grenze nur scheinbar heben: Dann verliert man in den
 ## 3. Der Zielplan: 500.000 € bis 31.08.2027
 
 Ziel: am **31.08.2027 ein Nettovermögen von 500.000 €** (nach Steuer).
-Der Plan kombiniert alle Bausteine, die bis dahin überhaupt etwas bringen
-können, und legt darunter ein Sicherheitsnetz.
+Der Plan kombiniert die Bausteine, die ich für vertretbar halte, und legt
+darunter ein Sicherheitsnetz. Bewusst **nicht** dabei: Roulette (~0,65–0,7 %
+mit 5.000 € – etwas mehr als der ganze Zielplan), KENO (~0,13–0,2 %),
+Sportwetten und Krypto-Hebel – reines Glücksspiel mit vielen Einsätzen
+und der Gefahr, Verlusten hinterherzujagen.
 
 | Baustein | Beitrag zur Chance auf 500.000 € bis 31.08.2027 |
 |---|---:|
-| Stufe 2: ein einmaliger Kauf weit aus dem Geld liegender Index-Optionen mit 5.000 € | ~0,1–0,5 % |
-| Stufe 3: Produktwette – aus `standortcheck` ein Abo-Produkt machen | ≤ ~0,05 % |
+| Stufe 2 (freiwillig): ein einmaliger Kauf weit aus dem Geld liegender Index-Optionen mit bis zu 5.000 € | ~0,1–0,5 % |
+| Stufe 3: Produktwette – aus `standortcheck` ein Abo-Produkt machen | ≈ 0 (höchstens ~0,05 %) |
 | Stufe 4: kostenlose Würfe (Quizshow-Bewerbungen) | ~0,001–0,01 % |
-| **Zielplan zusammen** | **~0,1–0,6 %** |
-| Ohne Stufe 2 (kein Geldeinsatz) | ~0,01–0,06 % |
+| **Zielplan mit Stufe 2** | **~0,1–0,5 %** |
+| **Zielplan ohne Stufe 2 (empfohlen)** | **~0,001–0,06 %, praktisch null** |
 
 ### Stufe 1 – sofort: das Sicherheitsnetz (Dezember 2026)
 
-Weil der Zielplan in 99 von 100 Fällen scheitert, kommt zuerst das, was
-danach trägt:
+Weil der Zielplan fast sicher scheitert, kommt zuerst das, was danach trägt:
 
 | Wann | Was |
 |---|---|
 | **bis 31.12.2026** | Bewerbungen auf PiBS-Plätze in der Schweiz (direkt bei den Partnerfirmen) und 20–40 Bewerbungen auf duale Studienplätze Informatik/Wirtschaftsinformatik |
+| **bis 31.12.2026** | Depot eröffnen, **Notgroschen von drei Monatsausgaben** auf ein Tagesgeldkonto, Welt-ETF-Sparplan einrichten. Ohne Stufe 2 geht das übrige Startkapital in den ETF |
 | Dezember – März | Abitur zuerst |
 | **Februar 2027** | Kein dualer Platz → Bachelor an einer FH vorbereiten (6 Semester bevorzugen) |
+| April – Mitte Mai | Abiturprüfungen, Geschäft ruht |
 | **Ende April 2027** | Auch kein PiBS-Vertrag → FH-Bewerbung abschicken |
-| **31.08.2027** | Ausbildung mit Einkommen beginnt – egal, wie der Zielplan ausgeht |
+| **Herbst 2027** | Ausbildung beginnt – dual oder PiBS mit Einkommen, FH-Bachelor ohne –, egal, wie der Zielplan ausgeht |
 
-### Stufe 2 – der Wurf mit Geld (einmalig, Entscheidung bis 15.12.2026)
+### Stufe 2 – freiwillig: der Wurf mit Geld (einmalig)
 
-Der einzige Baustein mit mehr als einem Promille. Warum Optionen und nicht
-Roulette (~0,65–0,7 %, etwas mehr): **ein einziger Kauf, der Verlust ist
-auf den Einsatz begrenzt, es gibt kein Nachsetzen** – beim Roulette mit
-Tischlimit müsste man im Erfolgsfall 90–380 Mal setzen, mit allen Gefahren
-des Glücksspiels.
+Der einzige Baustein mit rund 1–5 Promille. Er ist **nicht empfohlen** und
+nur ein bewusstes Opt-in: eine Woche Bedenkzeit, mit einer Person besprechen,
+der du vertraust. Warum Optionen und nicht Roulette, obwohl Roulette etwas
+mehr brächte: **ein einziger Kauf, der Verlust ist auf den Einsatz begrenzt,
+es gibt kein Nachsetzen** – beim Roulette mit Tischlimit müsste man im
+Erfolgsfall 90–380 Mal setzen, mit allen Gefahren des Glücksspiels.
 
-- **Was:** Kaufoptionen (Calls) auf einen breiten Aktienindex (z. B. S&P 500
-  oder Euro Stoxx 50), Laufzeit bis nach dem 31.08.2027, Basispreis rund
-  **40 % über dem heutigen Indexstand**. Beispiel vom 20.11.2026: Calls auf
-  den S&P-500-ETF SPY, Basispreis 965 USD (+40 %), Verfall 17.09.2027,
-  ~0,56 USD je Aktie (56 USD je Kontrakt).
-- **Wie viel:** höchstens **5.000 €** – und nur, wenn dich der Totalverlust
-  nicht aus der Bahn wirft. Weniger Einsatz heißt proportional weniger
-  Chance (1.000 € → ~0,02–0,1 %).
+- **Vorbereitung bis 08.12.2026:** Depot mit Optionsfreigabe bei einem
+  Broker beantragen, der Optionen für Privatkunden anbietet. Im Fragebogen
+  zu Kenntnissen und Erfahrung **wahrheitsgemäß** antworten. Verweigert der
+  Broker die Freigabe oder warnt er ausdrücklich, **entfällt Stufe 2**.
+- **Was (Kauf bis 15.12.2026):** Kaufoptionen (Calls) auf einen breiten
+  Aktienindex mit Laufzeit bis nach dem 31.08.2027, Basispreis rund **40 %
+  über dem heutigen Indexstand**. Beispiel vom 20.11.2026: Calls auf den
+  S&P-500-ETF SPY, Basispreis 965 USD (+40 %), Verfall 17.09.2027, ~0,56 USD
+  je Aktie (56 USD je Kontrakt über 100 Aktien; 5.000 € ≈ 98 Kontrakte).
+  Optionen auf den Euro Stoxx 50 (Eurex, Barausgleich) vermeiden das
+  Wechselkursrisiko und die physische Lieferung; die Zahlen hier gelten
+  für das SPY-Beispiel.
+- **Wie viel:** nur Geld **über dem Notgroschen**, höchstens 5.000 €. Mit
+  weniger Geld sinkt die Chance etwa proportional – aber nur, wenn man dann
+  einen noch höheren Basispreis wählt (1.000 € → ~0,02–0,1 % bei ~+55–60 %);
+  mit demselben Basispreis wäre sie praktisch null.
 - **Wann es klappt:** Steigt der Index bis Ende August 2027 um **rund
   50 %**, sind die Optionen etwa das 135-Fache wert (~677.000 € brutto,
-  nach 26,375 % Abgeltungsteuer ~500.000 €). Der Markt preist das mit
-  0,2–0,5 %; in den letzten zehn Jahren kam ein solcher Anstieg nur einmal
-  vor (2020).
-- **Regeln:** einmal kaufen, **nie nachkaufen, nie mit Kredit**, nicht
-  zwischendurch umschichten. Spätestens am 31.08.2027 verkaufen (die
-  Optionen verfallen danach). Bei einem deutschen Broker, der Optionen für
-  Privatkunden anbietet; er fragt Kenntnisse und Erfahrung ab.
-- **Was in 99,5 % der Fälle passiert:** Die Optionen verfallen wertlos.
-  Die 5.000 € fehlen dann im Depot – über 38 Jahre wären das bei 6 % im
-  Jahr rund 45.000 € am Zieldatum des Millionenplans.
+  nach 26,375 % Abgeltungsteuer ~500.000 €) – bei gleichem
+  Euro-Dollar-Kurs und ohne Kirchensteuer; Spanne, Gebühren je Kontrakt und
+  Währungstausch kosten zusätzlich. Der Markt preist einen solchen Anstieg
+  mit 0,2–0,5 %; in den letzten zehn Jahren kam er nur einmal vor (2020).
+- **Regeln:**
+  1. einmal kaufen, **nie nachkaufen, nie mit Kredit**, nicht rollen;
+  2. **sobald der Wert der Position ~677.000 € erreicht** (in Euro zum
+     aktuellen Kurs), **sofort alles verkaufen** – kurz vor dem Ziel
+     schwankt der Wert extrem;
+  3. **spätestens am 31.08.2027 alles verkaufen**, egal wie viel die
+     Optionen noch wert sind – nie bis zum Verfall halten (bei SPY würde
+     sonst ausgeübt und es müssten Aktien für Millionen geliefert werden).
+- **Was in über 99,5 % der Fälle passiert:** Das Ziel wird verfehlt; meist
+  sind die Optionen praktisch wertlos, gelegentlich bleibt ein kleiner
+  Restwert. Die 5.000 € fehlen dann im Depot – über 38 Jahre wären das bei
+  6 % im Jahr rund 46.000 € am Zieldatum des Millionenplans (nominal, vor
+  Steuer).
 
-**Mein Rat:** Wenn dir das Ziel bis August diesen Preis nicht wert ist,
-lass Stufe 2 weg. Die Chance des Zielplans sinkt dann auf ~0,01–0,06 %,
-dein Startkapital bleibt.
+**Mein Rat:** Lass Stufe 2 weg. Die Chance des Zielplans ist dann praktisch
+null, aber dein Startkapital arbeitet für dich.
 
-### Stufe 3 – die Produktwette (Januar – August 2027)
+### Stufe 3 – die Produktwette (Dezember 2026 – August 2027)
 
-Der einzige Weg ohne Wette mit nennenswertem Aufwärtspotenzial – mit sehr
-kleiner Chance, weil 500.000 € netto rund **0,9 Mio. € Gewinn** in wenigen
-Monaten bedeuten.
+Der einzige Weg ohne Wette mit Aufwärtspotenzial – aber nicht bis August:
+500.000 € netto bedeuten rund **0,9 Mio. € Gewinn**; selbst ein Produkt,
+das im Juli 30.000 € im Monat umsetzt und weiter wächst, käme bis 31.08.
+nur auf rund 0,1 Mio. € Umsatz. Ein Firmenverkauf in dieser Zeit ist
+unrealistisch. Stufe 3 trägt deshalb ≈ 0 zum Ziel bei und lohnt sich für
+später: Kunden, Umsatz, Erfahrung für jede Bewerbung.
 
 | Wann | Ziel | sonst |
 |---|---|---|
 | Dez. – März (~5 h/Woche) | Webgeschäft starten: Vor-Ort-Besuche mit `standortcheck`-Bericht, erste Einzelmaßnahmen | – |
 | **31.03.2027** | ≥ 10 Kunden, die für eine laufende Prüfung ihrer Website monatlich zahlen würden (Vorbestellung) | Produktwette beenden, nur Webgeschäft |
-| Mitte Mai – Juli (bis 25 h/Woche) | Abo-Produkt („Website-Check für Handwerksbetriebe“) bauen und verkaufen | – |
-| **31.07.2027** | ≥ 30.000 € Monatsumsatz mit Wachstum > 50 % im Monat | Produkt als Nebenprojekt weiterführen |
+| April – Mitte Mai | Abiturprüfungen, Pause | – |
+| Mitte Mai – August (bis 25 h/Woche) | Abo-Produkt („Website-Check für Handwerksbetriebe“) bauen und verkaufen | – |
+| **31.07.2027** | wachsende Abo-Umsätze; Entscheidung, ob das Produkt neben der Ausbildung weiterläuft | als kleines Nebenprojekt weiterführen |
 
 Realistisch bringt Stufe 3 bis August das, was das Webgeschäft bringt
-(Modell: 75 % für ≥ 3.000 € Umsatz, 14 % für ≥ 10.000 €) – und eine
-Erfahrung, die im Studium und in jeder Bewerbung zählt. Gewinne nach der
-Sparregel ins Depot; Gewinn 2027 unter ~7.080 € halten (Familienversicherung).
+(Modell: 75 % für ≥ 3.000 € Umsatz, 14 % für ≥ 10.000 €). Gewinne nach der
+Sparregel ins Depot. Bleibt es beim Webgeschäft, den Gewinn 2027 unter
+~7.080 € halten (Familienversicherung).
 
 ### Stufe 4 – kostenlose Würfe (laufend)
 
@@ -169,20 +193,23 @@ Sparregel ins Depot; Gewinn 2027 unter ~7.080 € halten (Familienversicherung).
 
 ### Stufe 5 – Abrechnung am 31.08.2027
 
-- **Ziel erreicht** (≥ 500.000 € nach Steuer): Optionen verkaufen, Steuer
-  zurücklegen, Rest breit gestreut anlegen – und trotzdem die Ausbildung
-  beginnen.
-- **Ziel verfehlt** (der Normalfall): Ausbildung beginnt, Sparregel läuft,
-  der Millionenplan übernimmt (Abschnitt 4).
+- **Ziel erreicht** (≥ 500.000 € nach Steuer): Bei einem deutschen Broker
+  ist die Abgeltungsteuer schon einbehalten; bei einem ausländischen Broker
+  Steuer zurücklegen und über die Anlage KAP erklären. Den Rest breit
+  gestreut anlegen – und trotzdem die Ausbildung beginnen.
+- **Ziel verfehlt** (der Normalfall): Optionen, falls vorhanden, spätestens
+  jetzt verkaufen; Ausbildung beginnt, Sparregel läuft, der Millionenplan
+  übernimmt (Abschnitt 4).
 
 ### Nicht Teil des Plans: Casino, Sportwetten, Krypto-Hebel
 
-Roulette, Sportwetten und Krypto-Hebel bringen nicht mehr als Stufe 2,
-verleiten aber zum Nachsetzen (Turbos: 74 % der Anleger verlieren, bei über
-1.000 Trades 91 %). Wenn der Gedanke an den „einen großen Wurf“ nicht
-loslässt, ist das selbst ein Warnsignal. Hilfe und die Möglichkeit, sich
-sperren zu lassen (das bundesweite Sperrsystem OASIS gilt für Spielbanken,
-Spielhallen und erlaubte Online-Anbieter), gibt es kostenlos und anonym bei
+Roulette bringt mit ~0,65–0,7 % sogar etwas mehr als der Zielplan,
+Sportwetten und KENO weniger – alle verleiten zum Nachsetzen (Turbos: 74 %
+der Anleger verlieren, bei über 1.000 Trades 91 %). Wenn der Gedanke an den
+„einen großen Wurf“ nicht loslässt, ist das selbst ein Warnsignal. Hilfe und
+die Möglichkeit, sich sperren zu lassen (das bundesweite Sperrsystem OASIS
+gilt für Spielbanken, Spielhallen und erlaubte Online-Anbieter), gibt es
+kostenlos und anonym bei
 <https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>.
 
 ## 4. Ab wann 500.000 € realistisch sind
@@ -204,14 +231,18 @@ Leben):
 | 2063 (55) | 70 % |
 | 2065 (57) | 73 % |
 
-Die neun Monate bis August entscheiden darüber kaum durch das Geld, das
-man bis dahin verdient – sondern durch den Ausbildungsplatz, die
+Das Modell startet mit einem Depot von 1.000 €; wer die 5.000 € behält
+und anlegt, liegt etwas besser, wer sie in Stufe 2 verliert, etwas
+schlechter. Die neun Monate bis August entscheiden darüber kaum durch das
+Geld, das man bis dahin verdient – sondern durch den Ausbildungsplatz, die
 Sparregel und dass das Startkapital nicht verspielt wird.
 
 ## 5. Was du nicht tun solltest
 
-- **Kein Casino- oder Wett-All-in**, **kein Nachkaufen** nach Stufe 2 und
-  **keinen Kredit** für Wetten oder Trading: Die Grenze S / Z steigt nur
+- **Kein Casino- oder Wett-All-in** (die einzige Ausnahme, die der Plan
+  zulässt, ist der einmalige, begrenzte Kauf in Stufe 2, wenn du dich
+  bewusst dafür entscheidest), **kein Nachkaufen** und **keinen Kredit** für
+  Wetten oder Trading: Die Grenze S / Z steigt nur
   scheinbar, der Verlust wird größer als das eigene Geld.
 - **Keine Anbieter ohne deutsche Erlaubnis** (Offshore- oder
   Krypto-Casinos): Die Teilnahme an unerlaubtem Glücksspiel ist strafbar
