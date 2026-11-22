@@ -130,15 +130,15 @@ class TestPlanmodell(unittest.TestCase):
             self.assertNotIn("ch", {z for z, _d, _p, _a in protokoll})
 
     def test_stress_ist_schlechter_als_basis(self):
-        basis = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN), 800, seed=6), sim.ZIEL_ALTER)
-        stress = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN_STRESS), 800, seed=6),
+        basis = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN), 4000, seed=6), sim.ZIEL_ALTER)
+        stress = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(sim.PLAN_STRESS), 4000, seed=6),
                                      sim.ZIEL_ALTER)
         self.assertLess(stress, basis)
 
     def test_garantiealter_haelt_auch_ohne_schweiz(self):
         from dataclasses import replace
         wp = replace(sim.PLAN_OHNE_CH, p_ki=(1, 1, 1), p_dual_platz=(0, 0, 0))
-        p = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 3000, seed=9), sim.GARANTIE_ALTER)
+        p = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 10_000, seed=9), sim.GARANTIE_ALTER)
         self.assertGreater(p, 0.5)
 
     def test_robustalter_haelt_im_haertesten_fall(self):
@@ -153,6 +153,32 @@ class TestPlanmodell(unittest.TestCase):
         ohne = sim.quote_bis_alter(sim.simulieren(
             sim.weichenplan(replace(sim.PLAN, rueckfall=("de",))), 800, seed=4), 55)
         self.assertGreater(mit, ohne)
+
+
+class TestDokument(unittest.TestCase):
+    """Die Kopfzahlen in docs/MILLIONENPLAN.md müssen zum Code passen."""
+
+    DOK = (Path(__file__).resolve().parents[1] / "docs" / "MILLIONENPLAN.md").read_text()
+
+    def _kopf(self, muster):
+        import re
+        treffer = re.search(muster, self.DOK)
+        self.assertIsNotNone(treffer, muster)
+        return int(treffer.group(1))
+
+    def test_zieldatum_passt_zum_zielalter(self):
+        jahr = self._kopf(r"Festgelegtes Ziel: 1 Mio\. € Nettovermögen am 31\. August (\d{4})")
+        alter = self._kopf(r"\(Alter ~(\d+)\)")
+        self.assertEqual(alter, sim.ZIEL_ALTER)
+        self.assertEqual(jahr, 2027 + sim.ZIEL_ALTER - sim.START_ALTER)
+
+    def test_kopfquoten_stimmen_mit_der_simulation(self):
+        plan = self._kopf(r"Erfolgswahrscheinlichkeit mit diesem Plan: (\d+) %")
+        stress = self._kopf(r"gleichzeitig pessimistisch \| (\d+) %")
+        self.assertGreaterEqual(min(plan, stress), 50)
+        for wp, soll in ((sim.PLAN, plan), (sim.PLAN_STRESS, stress)):
+            ist = sim.quote_bis_alter(sim.simulieren(sim.weichenplan(wp), 4000, seed=2027), sim.ZIEL_ALTER)
+            self.assertLess(abs(100 * ist - soll), 2.5, (soll, ist))
 
 
 class TestSommer(unittest.TestCase):

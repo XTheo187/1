@@ -78,9 +78,10 @@ def netto_angestellt(brutto: float, index: float, jahr: int = 0) -> float:
     BBG KV 69.750 EUR; RV 9,3 % + AV 1,3 % bis BBG RV 101.400 EUR (Werte 2026).
     """
     lohn = 1.01 ** jahr                   # BBG folgt den Löhnen (real ~+1 %/Jahr), nicht nur der Inflation
-    # Sozialabgaben steigen (IGES 2026: 42,8 % -> 48,8 % bis 2035): Arbeitnehmeranteil
-    # bis Jahr 9 (2036) linear um 3 Prozentpunkte höher.
-    aufschlag = 0.03 * min(1.0, jahr / 9)
+    # Sozialabgaben steigen (IGES für die DAK, Herbst 2026: 42,7 % im Jahr 2026 -> 50,0 %
+    # im Jahr 2035 im Basisszenario, günstig 47 %): Arbeitnehmeranteil (die Hälfte von
+    # +7,3 Prozentpunkten) bis Jahr 8 (2035/36) linear um 3,65 Punkte höher, danach konstant.
+    aufschlag = 0.0365 * min(1.0, jahr / 8)
     bbg_kv = 69_750 * index * lohn
     bbg_rv = 101_400 * index * lohn
     kvpv = min(brutto, bbg_kv) * (0.073 + 0.0145 + 0.024 + aufschlag / 2)
@@ -312,27 +313,30 @@ def _gehalt_pfad(rng: random.Random, *args, **kwargs) -> GehaltPfad:
     return GehaltPfad(rng, *args, **kwargs)
 
 
-# Gehaltspfade aus der Recherche (Stepstone 2026, BA-Entgeltstatistik 2025,
-# levels.fyi; Details in docs/MILLIONENPLAN.md). Wachstum real, inkl. Drift.
-# Abgleich Stack Overflow DE 2024+25 (Rohdaten, n=4.345 Angestellte): Median
-# 49 Tsd. (1-3 J.), 66 Tsd. (5-8 J.), 78 Tsd. (10-13 J.), 80 Tsd. (15-18 J.);
-# P(>=100 Tsd.) nach 10-13 Jahren 18 %.
+# Gehaltspfade aus der Recherche (get in IT 2026, Stepstone 2026, BA-Entgeltstatistik
+# 2025; Quellen in docs/MILLIONENPLAN.md, Abschnitt 10). Wachstum real, inkl. Drift.
+# Einstieg Bachelor: get in IT 2026 typisch 46.300 EUR (50 %-Intervall 42.400-49.400),
+# Stepstone 2026 Informatiker-Einstieg ~43.700 EUR.
+# Gegenprobe Stack Overflow DE 2024+25 (Rohdaten, n ~4.250 Angestellte mit EUR-Gehalt):
+# Median ~50 Tsd. (1-3 J.), 66 Tsd. (5-8 J.), 78 Tsd. (10-13 J.) - die Pfade liegen
+# bewusst etwas darunter (Umfrage-Teilnehmer sind eher positiv ausgewählt).
 IT_UNI = dict(start=(45_000, 55_000, 68_000), wachstum_frueh=(0.025, 0.042, 0.075),
               wachstum_spaet=(0.0, 0.008, 0.02), knick=10, streu=(0.22, 0.30, 0.40))
-IT_BACHELOR = dict(IT_UNI, start=(44_000, 50_000, 58_000))
-DUAL = dict(IT_UNI, start=(45_000, 52_000, 60_000))
+IT_BACHELOR = dict(IT_UNI, start=(43_000, 46_300, 50_000))
+DUAL = dict(IT_UNI, start=(43_500, 47_500, 52_000))      # geschätzt: kleiner Vorsprung durch 3 J. Praxis
 WEBDEV = dict(IT_UNI, start=(42_000, 48_500, 56_000))   # Stepstone: Webentwickler-Einstieg 48.500
 # IT-/SaaS-Vertrieb, korrigiert nach der Gegenprüfung (Bridge Group 2025,
 # UNIFY ~180.000 SDRs, RepVue DE, JOIN, Skipcall, gehalt.de):
 # - Einstieg als SDR mit 19: 34-50 Tsd. tatsächlich gezahlt (fix 35-42 + Provision).
-# - Beförderung zum AE nur in den SDR-Jahren 2-5, je Jahr 8-25 %
-#   -> jemals AE ~35-55 % (UNIFY: 22-46 %); Gehaltssprung x1,3-1,9
+# - Beförderung zum AE nur in den SDR-Jahren 2-5, je Jahr 6-15 %
+#   -> jemals AE ~17-48 %, Mitte ~25-31 % (UNIFY 2026: 22 % aller SDR-Starter,
+#   32 % bei kleineren Software-Firmen, 46,5 % bei großen KI-Firmen); Gehaltssprung x1,3-1,9
 #   (AE-Mitte mit 34-39: ~70 / ~95 / ~125 Tsd. tatsächlich gezahlt).
 # - 15-35 % der Beförderungen scheitern im ersten Jahr (Bridge Group: 26 %).
 # - Nach dem Sprung nur noch spätes Wachstum (0-2 %).
 VERTRIEB = dict(start=(34_000, 42_000, 50_000), wachstum_frueh=(0.01, 0.035, 0.06),
                 wachstum_spaet=(0.0, 0.01, 0.02), knick=10, streu=(0.20, 0.30, 0.40),
-                sprung_p=(0.08, 0.15, 0.25), sprung_faktor=(1.3, 1.55, 1.9),
+                sprung_p=(0.06, 0.09, 0.15), sprung_faktor=(1.3, 1.55, 1.9),
                 schock=0.18, sprung_ab=2, sprung_bis=4, p_scheitern=(0.15, 0.25, 0.35))
 
 
@@ -782,11 +786,12 @@ class Weichen:
     vertrieb_boden: tuple = (36_000, 45_000, 55_000)  # Innendienst/Kaufmann mit Erfahrung
     vertrieb_deckel: float = 90_000                   # CSM/Account Management (Jobrise 55-100 Tsd.)
     grund_vertrieb: tuple = (18_000, 19_500, 22_000)  # Großstadt: WG-Zimmer München 850, Berlin 650 EUR
-    p_studienabbruch: tuple = (0.35, 0.42, 0.50)      # DZHW: Uni-Bachelor Informatik 42 %, + Agentur
+    p_studienabbruch: tuple = (0.35, 0.42, 0.50)      # DZHW 2022: Uni-Bachelor Informatik 42-47 %, HAW 30-37 %
     nachfolge: bool = True
     freelance: bool = True
-    # IT-Freelancing (Freelancer-Kompass 2026: Software/Web 91 EUR/h, Median ~145
-    # fakturierte Tage, 25 % mit >= 100 Tsd. Gewinn, 80 % mit > 10 J. Praxis)
+    # IT-Freelancing (Freelancer-Kompass 2026: Software/Web 91 EUR/h; fakturierte Tage
+    # stark gestreut, 24 % unter 50, ~1/3 über 200, Mitte grob ~140; 80 % aller
+    # Befragten mit > 10 J. Praxis)
     freelance_nach_jahren: int = 5          # vorher kaum Projekte (nur 5 % mit < 5 J. Praxis)
     p_freelance: tuple = (0.3, 0.45, 0.6)   # traut sich und findet Projekte
     satz: tuple = (65, 82, 105)             # EUR/h für junge Software-/Web-Freelancer
@@ -839,7 +844,8 @@ class Weichen:
     p_haus: tuple = (0.2, 0.3, 0.4)
     haus_alter: tuple = (30, 34, 39)
     haus_preis: tuple = (350_000, 480_000, 650_000)
-    haus_nk: tuple = (0.05, 0.07, 0.09)             # Grunderwerbsteuer, Notar, Makler: sofort weg
+    haus_nk: tuple = (0.055, 0.09, 0.12)            # Grunderwerbsteuer 3,5-6,5 %, Notar/Grundbuch ~2 %,
+                                                    # Makler bis 3,57 % (baufi24): sofort weg
     p_heirat: tuple = (0.45, 0.55, 0.65)
     scheidung: tuple = (0.008, 0.013, 0.016)        # je Ehejahr (Destatis: 28 % der Ehen)
     scheidung_verlust: tuple = (0.10, 0.25, 0.40)   # Anteil des in der Ehe aufgebauten Vermögens (Zugewinn)
@@ -1423,9 +1429,9 @@ PLAN_STRESS = Weichen(**{**PLAN.__dict__,
                          "p_pibs_platz": (0.03, 0.07, 0.12),
                          "p_dual_platz": (0.25, 0.40, 0.55),
                          "rueckkehr_ch": (0.05, 0.065, 0.08)})
-ZIEL_ALTER = 57      # Sommer 2065: Basis ~60 %, Stress ~56 %, Stress + KI sicher ~50,6 %
-GARANTIE_ALTER = 60  # Sommer 2068: Vergleichsalter für die Härtefälle in --stress
-ROBUST_ALTER = 62    # Sommer 2070: auch der härteste getestete Fall über 50 %
+ZIEL_ALTER = 57      # 31.08.2065, das Planziel: Basis ~57 %, Stress ~51 %
+GARANTIE_ALTER = 60  # Sommer 2068: auch ohne Schweiz/PiBS/dual und mit KI-Druck sicher über 50 %
+ROBUST_ALTER = 64    # Sommer 2072: auch der härteste getestete Fall über 50 %
 
 # Äußere Kleinannahmen ohne harte Quelle am pessimistischen Rand (nicht
 # steuerbar): kein Freelancing, harte Lohnnarbe, träger Konsum, keine
