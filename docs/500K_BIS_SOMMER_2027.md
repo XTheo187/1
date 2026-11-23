@@ -24,24 +24,29 @@ Nettovermögen? „Andere haben es auch geschafft.“
 >
 > | Chance auf 500.000 € Nettovermögen am 31.08.2027 | |
 > |---|---:|
-> | mit diesem Plan (Modell, 300.000 Läufe) | **~0,06 % – etwa 1 zu 1.700** |
-> | plausible Spanne der Annahmen | 0,01–0,2 % |
-> | mit einem erfahrenen Vertriebspartner für höchstens 25 % der Anteile (Wirkung geschätzt) | **~0,17 % – etwa 1 zu 600** |
-> | wenn bis 31.03. eine App 30.000 $ im Monat umsetzt | ~10 % |
-> | wenn bis 30.04. eine App 100.000 $ im Monat umsetzt | ~35 % |
-> | wenn am 28.02. keine App 5.000 $ im Monat umsetzt | ≈ 0 % |
-> | wahrscheinlichster Ausgang (Median) | ~3.600 € Verlust, dafür eine eigene App, Daten und Erfahrung |
-> | jeder zehnte Lauf / jeder hundertste | ≥ 7.600 € / ≥ 72.000 € Gewinn |
+> | allein, mit diesem Plan und seinem Abiturschutz (Modell, 300.000 Läufe) | **~0,02 % – etwa 1 zu 4.300** |
+> | je nach Trefferquoten | ~0,01–0,04 % |
+> | **wenn bis 31.01. ein erfahrener Vertriebspartner für 25 % der Anteile zusagt** (Wirkung geschätzt) | **~0,6 % – etwa 1 zu 170** |
+> | … Partner für 10 % vom Umsatz / für 40 % der Anteile | ~0,4 % / ~0,3 % |
+> | wenn bis 31.03. eine App 30.000 $ im Monat umsetzt | ~8–14 % |
+> | wenn bis 30.04. eine App 100.000 $ im Monat umsetzt | ~30–45 % |
+> | wenn am 28.02. keine App 5.000 $ im Monat umsetzt | ≈ 0 % (0,001–0,01 %) |
+> | typischer Ausgang allein (Median) | ~2.200 € Verlust, dafür eine eigene App, Daten und Erfahrung |
+> | Verlust in jedem zehnten Lauf / Gewinn in jedem hundertsten | > 3.300 € / ≥ 41.000 € |
 >
 > **Das ist die ehrliche Zahl, keine Ausrede.** Der Weg ist echt, aber er
 > ist eine Jagd nach einem Treffer: Selbst die Gründer von Cal AI hatten
 > sechs Apps davor, rund zehn Jahre Programmierpraxis (seit dem 7.
 > Lebensjahr) und einen erfahrenen Mitgründer. Was den Plan trotzdem vernünftig macht:
-> - der Einsatz ist klein (~3.000 € plus Zeit);
-> - der größte Hebel ist bekannt und planbar: ein Partner, der schon eine
->   App über Creator groß gemacht hat (Abschnitt 4, Partnersuche);
+> - der Einsatz ist begrenzt: im Median ~2.200 €, kaum je mehr als die
+>   5.000 €, weil die Tore G3/G4 die Ausgaben stoppen;
+> - der größte Hebel ist bekannt: ein Partner, der schon eine App über
+>   Creator groß gemacht hat, vervielfacht die Chance (Abschnitt 4,
+>   Partnersuche) – ob sich bis 31.01. einer findet, ist allerdings offen;
 > - nach 14 Wochen weißt du am Messpunkt 28.02., ob du im Rennen bist;
-> - das Abitur bleibt geschützt;
+> - das Abitur bleibt geschützt: Die Zahlen gelten mit 10 Stunden in
+>   Schulwochen und 0–5 in der Abiturzeit. Mehr Stunden (bis 22 bzw. 20)
+>   brächten ~0,06 % statt ~0,02 % – um den Preis der Note;
 > - und im Normalfall bleiben eine App, gemessene Zahlen und Fähigkeiten,
 >   die im Studium Geld bringen.
 
@@ -232,7 +237,13 @@ Hebel des Plans:**
   eigene belegte App.
 - **Partner-Tor 31.01.:** Wer bis dahin zugesagt hat, wird Gesellschafter
   nach dem Angebot oben. Ohne Zusage läuft der Plan allein weiter; die
-  Suche geht nebenbei bis zum G3 weiter.
+  Suche geht nebenbei bis zum G3 weiter (eine spätere Zusage rechnet das
+  Modell nicht).
+- **Was das bringt (Modell, Wirkung geschätzt):** mit Partner für 25 % der
+  Anteile ~0,6 % statt ~0,02 %, für 10 % vom Umsatz ~0,4 %, für 40 % der
+  Anteile ~0,3 %. Findet sich mit Wahrscheinlichkeit q ein Partner, ist die
+  Gesamtchance ≈ q × 0,6 % + (1 − q) × 0,02 % – bei q = 10 % also ~0,08 %,
+  bei q = 25 % ~0,16 %.
 
 ### B – 24.12.2026 bis 10.01.2027: Weihnachtsferien (bis Fr 08.01.)
 
@@ -303,7 +314,7 @@ Hebel des Plans:**
 - Regel für Ausgaben: je Woche höchstens den Umsatz der Vorwoche.
 - Keine Entscheidung darf von dir abhängen, kein Prüfungstermin wird für
   die Firma geopfert.
-- **G5 (30.04.):** ≥ 50.000 $ Monatsumsatz (dann ~19 % Chance auf das
+- **G5 (30.04.):** ≥ 50.000 $ Monatsumsatz (dann ~18–19 % Chance auf das
   Ziel). Darunter: Ziel beenden.
 
 ### G – 14. bis 27.06.: Übergang
@@ -340,32 +351,38 @@ Wie wahrscheinlich das Ziel ist, **wenn** ein Messpunkt erreicht bzw.
 verfehlt wird (höchster Monatsumsatz einer einzelnen App in $, gezählt
 werden nur volle Wochen bis zum Stichtag; Modell „Der Plan“):
 
-| Messpunkt | so oft erreicht | Chance auf das Ziel, wenn erreicht | … wenn verfehlt |
-|---|---:|---:|---:|
-| ≥ 1.000 $ bis 31.01. | 6 % | 0,8 % | 0,005 % |
-| ≥ 5.000 $ bis 31.01. | 2 % | 2,3 % | 0,007 % |
-| **≥ 5.000 $ bis 28.02. (G3)** | 5 % | 1,2 % | **0,001 %** |
-| ≥ 10.000 $ bis 28.02. | 1,2 % | 4 % | 0,005 % |
-| **≥ 10.000 $ bis 31.03. (G4)** | 3 % | 1,9 % | **< 0,001 %** |
-| ≥ 30.000 $ bis 31.03. | 0,4 % | 10 % | 0,02 % |
-| **≥ 50.000 $ bis 30.04. (G5)** | 0,2 % | 19 % | 0,01 % |
-| ≥ 100.000 $ bis 30.04. | 0,03 % | ~35 % | 0,05 % |
-| ≥ 150.000 $ bis 15.06. (G6) | 0,04 % | ~40 % | 0,04 % |
-| ≥ 300.000 $ bis 15.07. | 0,02 % | ~37 % | 0,05 % |
+| Messpunkt | allein: so oft erreicht | allein: Chance, wenn erreicht | allein: … wenn verfehlt | mit Partner (25 %): so oft erreicht | mit Partner: Chance, wenn erreicht |
+|---|---:|---:|---:|---:|---:|
+| ≥ 1.000 $ bis 31.01. | 5,5 % | 0,4 % | 0,003 % | 21 % | 2,1 % |
+| ≥ 5.000 $ bis 31.01. | 1,6 % | 1,1 % | 0,006 % | 10 % | 4,3 % |
+| **≥ 5.000 $ bis 28.02. (G3)** | 2,7 % | 0,8 % | **0,001 %** | 19 % | 3,0 % |
+| ≥ 10.000 $ bis 28.02. | 0,7 % | 2,5 % | 0,005 % | 6,9 % | 7,0 % |
+| **≥ 10.000 $ bis 31.03. (G4)** | 1,2 % | 1,9 % | **0,001 %** | 11 % | 5,3 % |
+| ≥ 30.000 $ bis 31.03. | 0,12 % | 8 % | 0,01 % | 2,6 % | 14 % |
+| **≥ 50.000 $ bis 30.04. (G5)** | 0,07 % | 18 % | 0,01 % | 2,3 % | 19 % |
+| ≥ 100.000 $ bis 30.04. | 0,004 % | ~30 % (13 Läufe) | 0,02 % | 0,34 % | 44 % |
+| ≥ 150.000 $ bis 15.06. (G6) | 0,008 % | ~35 % (23 Läufe) | 0,02 % | 0,68 % | 37 % |
+| ≥ 300.000 $ bis 15.07. | 0,002 % | ~30 % (7 Läufe) | 0,02 % | 0,31 % | 43 % |
 
 **So liest man das:**
 - Die Chance wird fast vollständig an den frühen Toren entschieden.
   Wer am 28.02. keine 5.000 $ Monatsumsatz hat, hat das Ziel verfehlt –
-  das ist Mathematik, kein Mangel an Einsatz.
+  das ist Mathematik, kein Mangel an Einsatz. Deshalb endet die Jagd dort:
+  Ohne die Tore läge die Chance genauso bei ~0,02 %, der Verlust im Median
+  aber bei ~2.900 € statt ~2.200 €, und fast jeder zweite Lauf verlöre
+  mehr als 3.000 € (mit Toren jeder fünfte).
 - Selbst 100.000 $ Monatsumsatz Ende April bringen das Ziel nur mit rund
-  35 % (je nach Annahmen 28–52 %; nur wenige Dutzend Läufe kommen so weit): Es bleiben vier Monate, das Abitur bremst, Apple zahlt 5–9 Wochen
-  später aus, und Wachstum frisst die Marge.
-- Die stärksten Hebel: **ein erfahrener Vertriebspartner für höchstens
-  25 %** (0,055 % → ~0,17 %; bei 40 % Abgabe fällt die Chance auf 0,03 %,
-  also unter den Plan ohne Partner), **US-Web-Checkout** (schnelleres Geld,
-  geringere Gebühr) und **Tempo der Versuche**. Weniger wichtig: mehr Versuche nach dem Abitur. Im Modell
-  heben Web-Checkout, eine wiederverwendete App-Vorlage und volle
-  Ferienwochen die Chance von 0,01 % auf 0,055 % – fast auf das Fünffache.
+  30–45 %: Es bleiben vier Monate, das Abitur bremst, Apple zahlt 5–9
+  Wochen später aus, und Wachstum frisst die Marge.
+- Allein kommen bis zum 28.02. meist nur **zwei Apps** an den Start; die
+  Weihnachtsferien sind das wichtigste Bau-Fenster. Darum zählt Tempo:
+  Web-Checkout und eine wiederverwendete App-Vorlage heben die Chance im
+  Modell von ~0,001 % auf ~0,02 %.
+- Der mit Abstand stärkste Hebel ist **ein erfahrener Vertriebspartner**:
+  ~0,6 % bei 25 % Anteil, ~0,4 % bei 10 % vom Umsatz, ~0,3 % bei 40 %
+  Anteil. Mehr abgegebene Anteile senken die Chance, weil die Firma dann
+  mehr verdienen muss (bei 25 % Abgabe 0,96 Mio. €, bei 40 % 1,2 Mio. €
+  statt 0,72 Mio. €).
 
 ## 6. Die App: Idee, Produkt, Technik
 
@@ -434,10 +451,10 @@ mit Datennutzung für Nutzerfotos ungeeignet (DSGVO).
    mit Creator-Videos als Anzeigen.
 5. **Team:** ein Vertriebspartner von Anfang an (Partnersuche in
    Abschnitt 4), sonst ab ~20.000 € Monatsumsatz ein Creator-Manager gegen
-   Honorar oder Umsatzanteil je Kanal. **Keine Firmenanteile über 25 %**:
-   Gibt die Gründerin 40 % ab, sinkt die Chance auf das Ziel unter die ohne
-   Partner (0,03 % statt 0,055 %), weil die Firma dann 1,2 statt 0,72 Mio. €
-   verdienen müsste.
+   Honorar oder Umsatzanteil je Kanal. **Firmenanteile nur mit Vesting und
+   möglichst nicht über 25 %**: Bei 40 % Abgabe halbiert sich die Chance
+   gegenüber 25 % (~0,3 % statt ~0,6 %), weil die Firma dann 1,2 statt
+   0,96 Mio. € verdienen müsste.
 
 Jeder bezahlte Beitrag wird als **„Werbung“** gekennzeichnet (§ 5a UWG),
 mit schriftlichem Vertrag über Nutzungsrechte (Anzeigen, Spark Ads,
@@ -544,9 +561,11 @@ laufender Buchhaltung bei Umsatz ~3.000–6.000 €; IHK-Beitrag: Grundbeitrag
   Arbeit braucht (Februar bis Juni), fallen genau auf 13/2 und die
   Prüfungen. Entweder läuft die App dann mit Helfern, die sich aus dem
   Umsatz tragen, oder sie pausiert 12 Wochen.
-- Im Modell kostet strenger Abiturschutz (6–10 statt 8–22 Stunden in
-  Schulwochen) rund ein Drittel der Chance: ~0,04 % statt ~0,06 %
-  (Abschnitt 14).
+- **Was der Schutz kostet:** Alle Zahlen dieses Plans gelten schon mit
+  dieser Regel. Wer in Schulwochen 8–22 Stunden und in der Abiturzeit
+  3–20 Stunden arbeitet, hätte ~0,06 % statt ~0,02 % – eine dreimal so
+  hohe, aber immer noch winzige Chance, bezahlt mit einem echten Risiko
+  für die Note (Abschnitt 14).
 
 ## 12. Sicherheitsnetz
 
@@ -579,7 +598,7 @@ möglich; Sparregel) sind 500.000 € Nettovermögen so wahrscheinlich
 
 | Weg | Chance auf 500.000 € bis 31.08.2027 | Was man riskiert |
 |---|---:|---|
-| **KI-Abo-Apps nach dem Muster (dieser Plan)** | ~0,06 % (0,01–0,2 %) | ~3.000 € und Zeit; im Normalfall ~3.600 € Verlust |
+| **KI-Abo-Apps nach dem Muster (dieser Plan)** | allein ~0,02 % (0,01–0,04 %); mit Partner ~0,3–0,6 % | Zeit; im Median ~2.200 € Verlust, in jedem zehnten Lauf mehr als 3.300 € |
 | Roblox-Spiele in Sprints (8–12 Spiele, Studio als Partner oder Käufer) | ~0,06 % (0,02–0,17 %) | Zeit, ~500–1.500 € Werbetests |
 | App als Hauptweg + 2–4 Roblox-Sprints in den Ferien | ~0,04–0,05 % | teilt die Zeit, deshalb nicht mehr |
 | Steam-Indie-Spiel (ein Release bis Juli) | ~0,02 % | Zeit |
@@ -652,46 +671,50 @@ Apps nacheinander, mit den Regeln dieses Plans:
 - **Prüfungen:** In jedem Lauf gilt Gewinn = Kasse − Startkapital + offene
   Forderungen − offene Rechnungen (Test `test_kassenprobe`).
 
-| Szenario (300.000 Läufe) | Chance auf das Ziel | Gewinn im Median |
-|---|---:|---:|
-| Trefferquoten der Recherche | 0,13 % | −2.000 € |
-| strengere Quoten (Gegenprüfung) | 0,05 % | −3.400 € |
-| strengere Quoten + Lernkurve | 0,01 % | −4.200 € |
-| **Der Plan** (+ Web-Checkout, schneller Bau, volle Ferien) | **0,055 %** | −3.600 € |
-| der Plan mit strengem Abiturschutz (6–10 h in Schulwochen) | 0,04 % | −4.200 € |
-| der Plan, optimistischer Rand (Quoten × 1,5) | 0,10 % | −2.800 € |
-| Partner mit Vertrieb (geschätzt), Anteil der Gründerin 100 % | 0,70 % | −300 € |
-| … Anteil der Gründerin 75 % | **0,17 %** | −300 € |
-| … Anteil der Gründerin 60 % | 0,03 % | −200 € |
-| Obergrenze: die erste App ist ein Cal-AI-Treffer | 34 % | +211.000 € |
+| Szenario (300.000 Läufe, alle mit Stundenregel und Toren, wo nicht anders genannt) | Chance auf das Ziel | Gewinn im Median | Verlust > 3.000 € |
+|---|---:|---:|---:|
+| Trefferquoten der Recherche | 0,007 % | −2.000 € | 17 % |
+| strengere Quoten (Gegenprüfung) | 0,004 % | −2.100 € | 19 % |
+| strengere Quoten + Lernkurve | 0,001 % | −2.300 € | 22 % |
+| **Der Plan** (+ Web-Checkout, wiederverwendete Vorlage) | **0,023 %** | **−2.200 €** | 19 % |
+| der Plan, optimistischer Rand (Quoten × 1,5) | 0,036 % | −2.100 € | 19 % |
+| der Plan ohne Tore (weiter bis August) | 0,021 % | −2.900 € | 46 % |
+| der Plan mit mehr Stunden (Schulwochen 8–22 h, Abiturzeit 3–20 h) | 0,061 % | −1.800 € | 15 % |
+| **der Plan + Partner (Zusage bis 31.01.) für 25 % der Anteile** | **0,59 %** | −500 € | 1 % |
+| … Partner für 10 % vom Umsatz | 0,42 % | −1.400 € | 14 % |
+| … Partner für 40 % der Anteile | 0,27 % | −400 € | < 0,1 % |
+| Obergrenze: die erste App ist ein Cal-AI-Treffer | 60 % | +310.000 € | – |
 
 **Was die Zahlen sagen:**
 - Gewinn allein schafft das Ziel praktisch nie (die Wachstumsphase frisst
   die Marge); fast alle Erfolge laufen über einen Verkauf im Sommer.
 - Selbst ein Treffer der Cal-AI-Klasse als erste App bringt das Ziel nur
-  mit rund einem Drittel: Zeit, Vorfinanzierung und Abitur bremsen.
-- Eine unabhängige Zerlegung nach Basisraten (statt Simulation) kommt im
-  Median auf ~0,014 % (P10 0,001 %, P90 0,07 %). Mit allen Hebeln zugleich
-  und ohne Abgabe von Anteilen lässt sich aus Basisraten höchstens rund
-  0,5 % begründen.
+  mit rund 60 %: Zeit, Cashflow ohne Kredit und Abitur bremsen.
+- In 9 von 10 Läufen endet der Plan allein mit einem Verlust; der Mittelwert
+  liegt bei ~−850 €, weil wenige Läufe viel gewinnen.
+- Eine unabhängige Zerlegung nach Basisraten (statt Simulation) kam schon
+  vor dem Abiturschutz im Median auf ~0,014 % (P10 0,001 %, P90 0,07 %);
+  das Modell liegt also in derselben Größenordnung.
 
 **Grenzen:**
 - Fast alle Erfolgszahlen sind Selbstangaben (Podcasts, Interviews); sauber
   belegt ist nur Cal AI. Die Trefferquoten je Versuch sind Schätzungen,
   kalibriert an RevenueCat und Appfigures; 2027 dürfte die Konkurrenz
   größer sein als 2024.
-- Die Wirkung eines erfahrenen Partners ist nicht messbar, nur geschätzt
-  (Modell: Trefferquoten zwischen Recherche-Basis und Gegenprüfung ohne
-  Lernkurve, höherer Startumsatz, günstigere Creator, 20–50 Partnerstunden
-  je Woche). Ob sich ein solcher Partner findet, ist offen.
+- Die Wirkung eines erfahrenen Partners ist nicht messbar, nur geschätzt –
+  und sie ist die größte Einzelannahme des Modells. Ob sich ein solcher
+  Partner bis 31.01. findet, ist offen; die Partnerzahlen gelten nur unter
+  dieser Bedingung.
 - Umsatz aus Jahresabos wäre nach HGB abzugrenzen (der Modellgewinn ist
-  dafür nicht korrigiert); Monte-Carlo-Fehler bei 0,06 % rund ±10 %
-  relativ.
+  dafür nicht korrigiert). Monte-Carlo-Fehler: bei 0,023 % (70 Treffer)
+  rund ±12 % relativ, bei 0,59 % rund ±2,5 %; die Chancen „wenn erreicht“
+  mit wenigen Dutzend Läufen sind entsprechend grob.
 
 ## 15. Was du nicht tun solltest
 
 - **Keine Kredite** für Werbung oder Wetten, keine Bürgschaften.
-- **Keine Firmenanteile über 25 %** an Helfer oder Partner abgeben.
+- **Keine Firmenanteile ohne Vesting**, und möglichst nicht über 25 % an
+  Helfer oder Partner (bei 40 % halbiert sich die Chance gegenüber 25 %).
 - **Keine Täuschung:** keine Fake-Bewertungen, keine verdeckte Werbung,
   keine Konten, die unabhängige Nutzer vortäuschen, keine geschönten
   Kennzahlen gegenüber Käufern (Roy Lee gab überhöhte Umsatzzahlen zu).
