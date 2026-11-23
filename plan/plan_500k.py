@@ -98,6 +98,7 @@ BASE = dict(
                                        #    Halo AI: 20 USD Probevideo; Cal AI: 2.000 USD 1. Story)
     test_cap=1500.0,                   # Plan: Tests bis G3 (28.02.) zusammen hoechstens 1.500 EUR,
                                        #       danach nur aus Umsatz (hoechstens Umsatz der letzten 4 Wochen)
+    test_cap_bis=date(2027, 2, 28),    # Plan: Stichtag, bis zu dem Tests aus dem Startgeld bezahlt werden
     ksk=0.04,                          # B/S: Kuenstlersozialabgabe 2027 5,0 % auf Honorare an selbstaendige
                                        #      Creator (~80 % der Creator-Kosten an Privatpersonen)
     # Erfolgswahrscheinlichkeit je Versuch (Spitzen-MRR), mit Unsicherheit je Lauf
@@ -173,6 +174,8 @@ BASE = dict(
     partner_vertrag=(0, 0, 0),         # S: Notar/Anwalt fuer Partnervertrag (bei Zusage faellig)
     # ---- echte Angaben (November 2026): Niedersachsen, ohne Programmierkenntnisse, anonym ----
     kalender='BY',                     # 'BY' Bayern (fruehere Annahme) oder 'NI' Niedersachsen
+    h_q4=(3, 5, 7),                    # Plan (NI): Q4 03.02.-18.03. hoechstens 6-7 h je Woche, in Wochen mit
+                                       #            mehreren Klausuren nur Samstag 3 h
     neben='BY',                        # Nebenaufgaben des Wochenplans: 'BY' (frueher) oder 'NI' (ETH-Bewerbung)
     apple_ab=(0, 0, 0),                # S/B: Woche ab Start, ab der das Apple-Konto aktiv ist (UG: Notar,
                                        #      Register, D-U-N-S, Pruefung); vorher keine Einreichung
@@ -214,8 +217,43 @@ def hours_level(d, lv, kalender='BY'):
 
 
 def stunden_ni(d, lv):
-    """Arbeitsstunden-Phase der Woche ab Montag d nach dem Kalender Niedersachsen 2026/27 (folgt)."""
-    raise NotImplementedError("Kalender Niedersachsen folgt mit der Recherche")
+    """Arbeitsstunden der Woche ab Montag d nach dem Kalender Niedersachsen 2026/27 (B).
+
+    Ferienordnung 2024/25-2029/30 (RdErl. MK 18.11.2022) und Abiturtermine 2027 (Bek. MK 28.04.2025):
+    Weihnachtsferien Mi 23.12.2026-Sa 09.01.2027 (die Woche ab 21.12. hat zwei Schultage, einen
+    Ferientag und die freien Tage 24.-27.12.: ~80 % einer Schulwoche; Neujahr frei; der 06.01. ist in
+    Niedersachsen kein Feiertag), Halbjahreszeugnis Fr 29.01., Halbjahresferien Mo 01.-Di
+    02.02. (Schulwoche plus zwei freie Tage), Q4 Mi 03.02.-Do 18.03. mit je einer Klausur in jedem
+    Fach (eigene Stufe h_q4), Osterferien 22.03.-03.04. (Abiturvorbereitung), schriftliches Abitur
+    06.04.-13.05., Prüfung im 5. Fach und Nachschreibtermine 19.05.-07.06., danach frei bis auf
+    mögliche Nachprüfungen 28.-30.06. und die Zeugnisse 01.-03.07.; Sommer ab 05.07.
+    """
+    if d < date(2026, 12, 21):
+        return lv['h_school']
+    if d < date(2026, 12, 28):
+        # Mo/Di Schule, Mi 23.12. erster Ferientag, 24.-27.12. frei
+        return lv['h_school'] * 0.8
+    if d < date(2027, 1, 4):
+        # Neujahr (Fr 01.01.) frei: vier Ferientage und Samstag
+        return 3 + (lv['h_holiday'] - 3) * 4 / 5
+    if d < date(2027, 1, 11):
+        return lv['h_holiday']
+    if d < date(2027, 2, 1):
+        return lv['h_school']
+    if d < date(2027, 2, 8):
+        # zwei freie Tage mit Ferienstunden statt je einer Stunde Schulwoche
+        return lv['h_school'] + 2 * (lv['h_holiday'] - 3) / 5 - 2
+    if d < date(2027, 3, 15):
+        return lv['h_q4']
+    if d < date(2027, 4, 5):
+        return lv['h_abiprep']
+    if d < date(2027, 5, 17):
+        return lv['h_abi']
+    if d < date(2027, 6, 7):
+        return lv['h_oral']
+    if d < date(2027, 7, 5):
+        return lv['h_gap']
+    return lv['h_full']
 
 
 def nebenstunden(d, mit_partner, partnersuche=True, variante='BY'):
@@ -239,6 +277,11 @@ def nebenstunden(d, mit_partner, partnersuche=True, variante='BY'):
     if d in (date(2026, 12, 28), date(2027, 1, 4)):
         h += 6.0
     return h
+
+
+def woche_ab(tag: date) -> int:
+    """Modellwoche, die den Tag `tag` enthält."""
+    return (tag - START).days // 7
 
 
 def bis_woche(tag: date) -> int:
@@ -269,6 +312,8 @@ def simulate(rng, P):
     t_neu = lambda k: tri(rng, *P[k]) if P[k][0] != P[k][2] else P[k][0]
     lv = {k: t(k) for k in ('h_school', 'h_holiday', 'h_abiprep', 'h_abi',
                             'h_oral', 'h_gap', 'h_full')}
+    if P['kalender'] == 'NI':
+        lv['h_q4'] = t('h_q4')          # Q4 mit Klausuren in jedem Fach (nur Kalender Niedersachsen)
     n_max = rng.randint(*P['n_attempts'])
     p1k, p10k, q100k, q1m = t('p1k'), t('p10k'), t('q100k'), t('q1m')
     _pf = t_neu('p_faktor')
@@ -312,7 +357,9 @@ def simulate(rng, P):
     neu_stopp_wochen = [(bis_woche(tag), schwelle * FX) for tag, schwelle in P['neu_stopp']]
     team_rate = t('team_rate')
     max_ueber = 0.0      # groesste Ueberschreitung des Budgets durch freiwillige Ausgaben (Pruefgroesse)
-    g3_woche = bis_woche(date(2027, 2, 28))
+    g3_woche = bis_woche(P['test_cap_bis'])   # bis hierher Tests aus dem Startgeld (test_cap)
+    sp = P.get('startpause')                   # (von, bis): kein Start in der Abiturzeit
+    startpause = (woche_ab(sp[0]), woche_ab(sp[1])) if sp else None
     gestoppt = False
     stopp_woche = None
     best_mrr = 0.0      # hoechster Monatsumsatz (EUR) einer einzelnen App bisher
@@ -330,7 +377,24 @@ def simulate(rng, P):
     angel_state = None   # None | ('pending', week, amount, dil) | 'done' | 'no'
     weeks_over_20k = 0
 
-    cash = P['start_cash'] - t('setup_cost')
+    # Gruendung: sofort (bisherige Szenarien) oder erst, wenn App 1 zu einem Anteil gebaut ist
+    # ("erst bauen, dann gruenden"); vorher fallen nur die Werkzeuge an, das Apple-Konto fehlt noch
+    GR = P.get('gruendung')
+    gr_rest = 0.0
+    zu_teuer = False
+    bh1 = None
+    if GR:
+        gr_setup = tri(rng, *GR['setup'])
+        gr_apple = tri(rng, *GR['apple_dauer'])
+        gr_vorher_w = tri(rng, *GR['fix_vorher']) / WPM
+        gegruendet = False
+        gruendung_woche = None
+        apple_ab = float(WEEKS + 99)
+        cash = P['start_cash']
+    else:
+        gegruendet = True
+        gruendung_woche = 0
+        cash = P['start_cash'] - t('setup_cost')
     profit = -(P['start_cash'] - cash)  # Gruendungskosten als Aufwand
     nachschuss = 0.0     # privates Geld, das der Gruender nachlegen muss, wenn die Kasse leer ist
     angel_geld = 0.0     # Einlage eines Business Angels (Eigenkapital, kein Gewinn)
@@ -357,6 +421,30 @@ def simulate(rng, P):
     max_mrr = 0.0
     chk = {}
 
+    def pflicht_bis_ende(wk):
+        """Pflichtkosten der gegründeten Firma von Woche wk bis 31.08. (bis zum nächsten Tor voll)."""
+        naechstes = next((sw + 1 for sw, _ in stopp_wochen if sw + 1 > wk), None)
+        if gestoppt:
+            return (WEEKS - wk) * fixed_stop_w
+        if naechstes is None:
+            return (WEEKS - wk) * fixed_w
+        return (naechstes - wk) * fixed_w + (WEEKS - naechstes) * fixed_stop_w
+
+    def gruenden(wk):
+        """Gründung in Woche wk: Kosten, Stunden, Wartezeit bis zum aktiven Apple-Konto."""
+        nonlocal cash, profit, gegruendet, apple_ab, gr_rest, gruendung_woche, zu_teuer
+        if P['harte_grenze'] and gr_setup + pflicht_bis_ende(wk) + abw > cash - sum(c for (_, c) in cost_queue):
+            # Pflichtkosten und Auflösung passten nicht mehr in den Einsatz: nicht gründen
+            zu_teuer = True
+            return False
+        cash -= gr_setup
+        profit -= gr_setup
+        gegruendet = True
+        apple_ab = wk + gr_apple
+        gr_rest = GR['stunden']
+        gruendung_woche = wk
+        return True
+
     for w in range(WEEKS):
         d = START + timedelta(weeks=w)
         if d.year == 2027 and (d - timedelta(weeks=1)).year == 2026:
@@ -372,6 +460,17 @@ def simulate(rng, P):
             use = min(hours, einmal_rest, einmal_w if w < 8 else einmal_rest)
             hours -= use
             einmal_rest -= use
+        if GR and not gegruendet and not zu_teuer and bau is not None and bau[1] == 1 and bh1 \
+                and bh1 - bau[0] >= GR['bei'] * bh1:
+            if not gruenden(w):
+                bau = None                  # ohne bezahlbare Firma kein Start: Versuch endet
+                attempts -= 1
+                n_max = attempts
+        if gr_rest > 1e-9:
+            # Gründungsaufgaben (Notar, Konto, Anmeldungen, Apple) über mindestens zwei Wochen
+            use = min(hours, gr_rest, GR['stunden'] / 2)
+            hours -= use
+            gr_rest -= use
         agent_laeuft = agent_aktiv or (P['agent_ab_start'] and focus)
         if apps and (not gestoppt or agent_laeuft):
             hours = max(0.0, hours - pflege_w)
@@ -393,7 +492,10 @@ def simulate(rng, P):
                     bau = None
                     attempts -= 1           # abgebrochener Bau zaehlt nicht als Versuch
                 n_max = attempts            # keine neuen Versuche
-        fix_basis = fixed_stop_w if gestoppt else fixed_w
+        if gegruendet:
+            fix_basis = fixed_stop_w if gestoppt else fixed_w
+        else:
+            fix_basis = 0.0 if gestoppt else gr_vorher_w + extra_w   # nur Werkzeuge (Claude)
         if gestoppt and agent_laeuft:
             # Treffer nach dem Tor: Abo für den Agenten läuft weiter
             fix_basis += ag_extra_w if agent_aktiv else extra_w
@@ -450,11 +552,18 @@ def simulate(rng, P):
                         bh = tri(rng, *PP['build_next'])
                     else:
                         bh = t('build_first') if attempts == 1 else t('build_next')
+                        if attempts == 1:
+                            bh1 = bh
                     bau = [bh, attempts]
                 use = min(h_free, bau[0])
                 bau[0] -= use
                 h_free -= use
                 if bau[0] <= 0:
+                    if GR and not gegruendet and not gruenden(w):
+                        bau = None                  # ohne bezahlbare Firma kein Start
+                        attempts -= 1
+                        n_max = attempts
+                        break
                     # Einreichung im Lauf der Woche: das Review zählt ab der Folgewoche; ist das
                     # Apple-Konto noch nicht aktiv, wartet die fertige App bis dahin
                     reviews.append([t('review_weeks') + 1.0 + max(0.0, apple_ab - w), bau[1]])
@@ -463,10 +572,11 @@ def simulate(rng, P):
                     break
         # Review-Zeit laeuft kalendarisch
         fertig = []
+        in_pause = startpause is not None and startpause[0] <= w < startpause[1]
         for rv in reviews:
             rv[0] -= 1.0
-            if rv[0] <= 0:
-                fertig.append(rv)
+            if rv[0] <= 0 and not in_pause:
+                fertig.append(rv)          # in der Startpause bleibt eine freigegebene App unveröffentlicht
         for rv in fertig:
             reviews.remove(rv)
             versuch = rv[1]
@@ -488,7 +598,7 @@ def simulate(rng, P):
                     pflicht = (WEEKS - w) * fixed_w
                 else:
                     pflicht = (naechstes - w) * fixed_w + (WEEKS - naechstes) * fixed_stop_w
-                frei = cash - max(P['reserve'], pflicht + abw) + credit0 - sum(c for (_, c) in cost_queue)
+                frei = cash - max(P['reserve'], pflicht + (abw if gegruendet else 0.0)) + credit0 - sum(c for (_, c) in cost_queue)
                 cost = max(0.0, min(frei, wunsch, deckel))
             if w <= g3_woche:
                 testkosten_g3 += cost
@@ -587,7 +697,7 @@ def simulate(rng, P):
                 pflicht_rest = (WEEKS - w) * fix_basis
             else:
                 pflicht_rest = (naechstes - w) * fixed_w + (WEEKS - naechstes) * fixed_stop_w
-            floor = max(floor, pflicht_rest + abw - credit0)
+            floor = max(floor, pflicht_rest + (abw if gegruendet else 0.0) - credit0)
         if fin_ok and weeks_over_10k >= fin_weeks:
             floor -= fin_k * mrr_eur
         # Die Kosten dieser Woche werden nach cost_lag Wochen fällig. Bis dahin zählen nur sichere
@@ -705,8 +815,9 @@ def simulate(rng, P):
     s0 = P.get('founder_share', 1.0)
     ekp = max(0.0, eigenkapital)
     angel_teil = max(min(ekp, angel_geld), (1 - share / s0) * ekp) if angel_geld else 0.0
-    ergebnis = s0 * (ekp - angel_teil) + min(0.0, eigenkapital) - einsatz - abw
-    g3 = bis_woche(date(2027, 2, 28))
+    abw_eff = abw if gegruendet else 0.0      # ohne Gründung nichts aufzulösen
+    ergebnis = s0 * (ekp - angel_teil) + min(0.0, eigenkapital) - einsatz - abw_eff
+    g3 = bis_woche(P["test_cap_bis"])
     return dict(launch1=(apps[0]['launch'] if apps else 99), profit=profit * share,
                 exit=exit_value * share, paper=paper * share, attempts=attempts,
                 gestartet=len(apps), gestartet_g3=sum(a['launch'] <= g3 for a in apps), max_ueber=max_ueber,
@@ -719,7 +830,8 @@ def simulate(rng, P):
                 ergebnis=ergebnis, angel_geld=angel_geld, agent_aktiv=agent_aktiv,
                 einmal_offen=einmal_rest + ag_rest,
                 offene_versuche=(bau is not None) + len(reviews),
-                partner_woche=pw, abwicklung=abw, apple_ab=apple_ab)
+                partner_woche=pw, abwicklung=abw_eff, apple_ab=apple_ab,
+                gegruendet=gegruendet, gruendung_woche=gruendung_woche, zu_teuer=zu_teuer)
 
 
 def scen(**kw):
@@ -903,6 +1015,8 @@ def auswerten(P: dict, n: int, seed: int = 2027) -> dict:
         "p_eine_bis_g3": sum(r["gestartet_g3"] == 1 for r in res) / n,
         "p_zwei_bis_g3": sum(r["gestartet_g3"] >= 2 for r in res) / n,
         "test_g3_median": sorted(r["testkosten_g3"] for r in res)[n // 2],
+        "p_gegruendet": sum(r["gegruendet"] for r in res) / n,
+        "p_zu_teuer": sum(r["zu_teuer"] for r in res) / n,
         "erster_launch_woche": sorted(r["launch1"] for r in res)[n // 2],
         "meilensteine": meilensteine,
     }
