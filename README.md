@@ -150,7 +150,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 150 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 151 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau

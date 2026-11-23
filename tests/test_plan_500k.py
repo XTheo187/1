@@ -68,6 +68,13 @@ class TestPlan500k(unittest.TestCase):
         rng = random.Random(18)
         self.assertGreater(sum(p.simulate(rng, O)["agent_aktiv"] for _ in range(60)), 40)
 
+    def test_einrichtung_wird_nachgeholt(self):
+        """Einrichtungsstunden, die in einer Woche keinen Platz finden, werden später nachgeholt."""
+        P = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("Claude-Stufe 3"))]
+        rng = random.Random(19)
+        offen = [p.simulate(rng, P)["einmal_offen"] for _ in range(300)]
+        self.assertGreater(sum(x < 1e-6 for x in offen), 290)
+
     def test_plan_haelt_die_eigenen_stundenregeln(self):
         """Das Hauptszenario rechnet mit den Stunden des Wochenplans (Abiturschutz)."""
         P = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("DER PLAN"))]

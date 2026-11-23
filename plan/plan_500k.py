@@ -164,6 +164,7 @@ BASE = dict(
     einmal_stunden=(0, 0, 0),          # S: einmalige Einrichtung (z. B. Claude-Abläufe, Agenten), verteilt auf
                                        #    die ersten 8 Wochen
     pflege_h_woche=(0, 0, 0),          # S: laufende Pflege (z. B. Agenten prüfen) je Woche, solange die Jagd läuft
+    agent_ab_start=False,              # Agent (und sein Abo) läuft ab Start; bei einem Treffer auch nach einem Tor weiter
     agent_bei_treffer=None,            # dict: Agent erst, wenn ein Treffer erkannt ist: h_need, einmal (Stunden über
                                        #       4 Wochen), extra_monat (EUR), pflege (h/Woche)
     partner_vertrag=(0, 0, 0),         # S: Notar/Anwalt fuer Partnervertrag (bei Zusage faellig)
@@ -258,15 +259,18 @@ def simulate(rng, P):
     web_net = t('web_net')
     deal_cost = t('deal_cost')
     churn_stop = t('churn_stop')
-    fixed_w = (t('fixed_month') + t_neu('extra_fix_monat')) / WPM
-    einmal_w = t_neu('einmal_stunden') / 8.0
+    _fix_monat = t('fixed_month')
+    extra_w = t_neu('extra_fix_monat') / WPM
+    fixed_w = _fix_monat / WPM + extra_w
+    einmal_rest = t_neu('einmal_stunden')
+    einmal_w = einmal_rest / 8.0
     pflege_w = t_neu('pflege_h_woche')
+    ag_rest = 0.0
     AG = P.get('agent_bei_treffer')
     if AG:
         ag_h_need, ag_einmal = tri(rng, *AG['h_need']), tri(rng, *AG['einmal'])
         ag_extra_w, ag_pflege = tri(rng, *AG['extra_monat']) / WPM, tri(rng, *AG['pflege'])
     agent_aktiv = False
-    agent_setup_wochen = 0
     credit0 = t('credit0')
     fin_weeks = t('fin_weeks')
     fin_ok = rng.random() < t('p_fin')
@@ -337,9 +341,13 @@ def simulate(rng, P):
         hours = hours_level(d, lv) * rng.uniform(0.8, 1.2)
         if P['nebenaufgaben']:
             hours = max(0.0, hours - nebenstunden(d, mit_partner, P.get('partnersuche', True)))
-        if w < 8:
-            hours = max(0.0, hours - einmal_w)
-        if apps and not gestoppt:
+        if einmal_rest > 1e-9:
+            # Einrichtung in den ersten 8 Wochen; was dort keinen Platz fand, wird nachgeholt
+            use = min(hours, einmal_rest, einmal_w if w < 8 else einmal_rest)
+            hours -= use
+            einmal_rest -= use
+        agent_laeuft = agent_aktiv or (P['agent_ab_start'] and focus)
+        if apps and (not gestoppt or agent_laeuft):
             hours = max(0.0, hours - pflege_w)
         if mit_partner and not partner_bezahlt:
             # Notar/Anwalt fuer Gesellschaftervereinbarung bzw. Kooperationsvertrag
@@ -360,6 +368,9 @@ def simulate(rng, P):
                     attempts -= 1           # abgebrochener Bau zaehlt nicht als Versuch
                 n_max = attempts            # keine neuen Versuche
         fix_basis = fixed_stop_w if gestoppt else fixed_w
+        if gestoppt and agent_laeuft:
+            # Treffer nach dem Tor: Abo für den Agenten läuft weiter
+            fix_basis += ag_extra_w if agent_aktiv else extra_w
         # ---------------- App-Arbeit (neue Versuche) ----------------
         mrr_now = sum(a['R'] for a in apps) * WPM
         if mit_partner:
@@ -372,15 +383,18 @@ def simulate(rng, P):
         if hit:
             focus = True
         if AG and focus and not agent_aktiv:
-            # Treffer erkannt: jetzt erst Max/Ultra und Agent einrichten (4 Wochen Einrichtung)
+            # Treffer erkannt: jetzt erst Max/Ultra und Agent einrichten
             agent_aktiv = True
-            agent_setup_wochen = 4
-            h_need = ag_h_need
+            ag_rest = ag_einmal
             fixed_w += ag_extra_w
             pflege_w += ag_pflege
-        if agent_aktiv and agent_setup_wochen > 0:
-            hours = max(0.0, hours - ag_einmal / 4.0)
-            agent_setup_wochen -= 1
+        if agent_aktiv and ag_rest > 1e-9:
+            # höchstens ein Viertel der Einrichtung je Woche, Rest in den Folgewochen; erst danach wirkt der Agent
+            use = min(hours, ag_rest, ag_einmal / 4.0)
+            hours -= use
+            ag_rest -= use
+            if ag_rest <= 1e-9:
+                h_need = min(h_need, ag_h_need)      # der Agent senkt den Bedarf, erhöht ihn nie
         # Effort-Faktor fuer das Wachstum grosser Apps: Skalieren braucht h_need Stunden je Woche,
         # ob die App schon als Treffer erkannt ist oder nicht
         eff = min(1.0, (hours + team) / h_need)
@@ -668,6 +682,7 @@ def simulate(rng, P):
                 stopp_woche=stopp_woche, bau_nach_stopp=bau_nach_stopp, test_log=test_log,
                 testkosten_g3=testkosten_g3, min_kasse=min_kasse, nachschuss=nachschuss,
                 ergebnis=ergebnis, angel_geld=angel_geld, agent_aktiv=agent_aktiv,
+                einmal_offen=einmal_rest + ag_rest,
                 offene_versuche=(bau is not None) + len(reviews),
                 partner_woche=pw)
 
@@ -734,7 +749,7 @@ CLAUDE_2 = dict(CLAUDE_1, test_hours=(23, 42, 72), einmal_stunden=(3, 6, 12))
 # Stufe 3: + Agent im Betrieb (RevenueCat-/App-Store-Auswertungen, Paywall-Tests, Support-Entwürfe,
 # Releases): Skalieren 10-32 statt 15-35 h je Woche; 10-35 h Einrichtung, 1 h Pflege je Woche; Max/Ultra.
 CLAUDE_3 = dict(CLAUDE_2, h_need=(10, 20, 32), einmal_stunden=(13, 26, 47), pflege_h_woche=(0.5, 1.0, 2.0),
-                extra_fix_monat=(70, 90, 200))
+                extra_fix_monat=(70, 90, 200), agent_ab_start=True)
 # Stufe 4: Vollabgabe: Claude baut ohne eigene Prüfung, KI-Avatar-Videos statt eigener (kennzeichnungs-
 # pflichtig nach Art. 50 KI-VO, gekennzeichnet bis -31,5 % CTR; ein Fall mit 0,4-0,6x ROAS), Wer alles
 # abgibt, lernt weniger (Anthropic-RCT 2026: 50 statt 67 %): Lernkurve langsamer.

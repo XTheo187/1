@@ -609,7 +609,7 @@ danach Deutsch.
 | Expo (Builds in der Cloud, kein Mac nötig; Gerätebuilds und Sandbox erst mit aktivem, bezahltem Apple-Konto) | 0–19 $/Monat |
 | Supabase Pro (pausiert nicht) | 25 $/Monat |
 | RevenueCat / Superwall | frei bis 2.500 $ bzw. 10.000 $ Monatsumsatz, dann 1 % |
-| KI-Modell für Bilder (z. B. Claude Haiku 5.5) | ~10–30 $ je 1.000 aktive Nutzer und Monat |
+| KI-Modell für Bilder (z. B. Claude Haiku 5.5) | typisch ~30 $ (5–180 $) je 1.000 aktive Nutzer und Monat |
 | Schnitt (CapCut/Canva), Domain | ~12 $/Monat |
 | zusammen | **~850 €** |
 
@@ -1055,8 +1055,8 @@ Programmieren und im Marketing, Plattformregeln, Preise, Stand November
 > | 2: + Marketing-Vorarbeit ab Start | Max | 0 von 300.000 | 8,0 % | 3,0 % | −3.600 € | −2.300 € | +25.800 € |
 > | 3: + Agent im Betrieb ab Start | Max/Ultra | 0 von 300.000 | 6,4 % | 2,4 % | −3.650 € | −2.650 € | +21.000 € |
 > | 4: Vollabgabe (KI-Avatar-Videos, kaum eigene Prüfung) | Max/Ultra + Avatar-Werkzeug | 0 von 300.000 | 4,5 % | 1,7 % | −3.750 € | −3.050 € | +16.200 € |
-> | gestaffelt, falls Claude als Lehrer die Lernkurve verkürzt (unbelegt) | Pro | 0 von 300.000 | 9,7 % | 3,9 % | −3.450 € | −1.900 € | +30.600 € |
-> | gestaffelt im strengeren Markt 2027 (mehr Konkurrenz, Abwanderung, Kopien) | Pro | 0 von 300.000 | 7,3 % | 2,8 % | −3.450 € | −2.300 € | +24.200 € |
+> | gestaffelt, falls Claude als Lehrer die Lernkurve verkürzt (unbelegt) | Pro, Max nur wenn nötig | 0 von 300.000 | 9,7 % | 3,9 % | −3.450 € | −1.900 € | +30.600 € |
+> | gestaffelt im strengeren Markt 2027 (mehr Konkurrenz, Abwanderung, Kopien) | Pro, Max nur wenn nötig | 0 von 300.000 | 7,3 % | 2,8 % | −3.450 € | −2.300 € | +24.200 € |
 >
 > Stufe 0 und gestaffelt liegen gleichauf: Gestaffelt startet öfter eine
 > zweite App vor dem 28.02. (32 % statt 29 % der Läufe) und schafft etwas
@@ -1068,8 +1068,11 @@ Programmieren und im Marketing, Plattformregeln, Preise, Stand November
 > 17 %), weil ~22 Stunden mehr übrig bleiben.
 >
 > **Ehrlich:** Die Chance auf 500.000 € bleibt in jeder Stufe praktisch
-> null (höchstens 1 Treffer in 900.000 Läufen, sicher unter ~0,0005 %);
-> ≥ 100.000 € schaffen ~3–4 von 100.000 Läufen. Claude löst den Engpass
+> null (höchstens 1 Treffer in 900.000 Läufen; mit 95 % Sicherheit unter
+> ~0,0005 % bei Stufe 0 und gestaffelt, unter ~0,001 % bei den Zeilen mit
+> 300.000 Läufen); ≥ 100.000 € schaffen bei Stufe 0 und gestaffelt ~3–4
+> von 100.000 Läufen, in den übrigen Zeilen 0–5 (bei 300.000 Läufen nur
+> wenige solche Läufe, also unsicher). Claude löst den Engpass
 > dieses Plans nicht: Den Code schreibt
 > Claude schnell, aber Videos mit deinem Gesicht, Creator-Beziehungen,
 > Freigaben und das Skalieren eines Treffers in der Abiturzeit bleiben bei
@@ -1084,7 +1087,7 @@ Programmieren und im Marketing, Plattformregeln, Preise, Stand November
 |---|---|---|
 | Code: Vorlage, App, Paywall (RevenueCat, Superwall), KI-Funktion, Backend | schreibt alles und erklärt jeden Schritt, legt eine Projektdatei mit gelösten Review-Problemen an | prüfst mit einer Checkliste, testest auf dem iPhone, entscheidest |
 | Sicherheit und Datenschutz | Checklisten und Entwürfe: Schlüssel nur auf dem Server, Zugriffsregeln (RLS) auf jeder Tabelle, Ausgabenlimit beim KI-Anbieter, Einwilligung vor dem KI-Aufruf (5.1.2(i)), Datenschutzerklärung | prüfst und verantwortest |
-| App Store | Texte, Screenshots, Antworten an das Review | reichst ein (nur du als Account Holder), gibst frei |
+| App Store | Texte, Screenshots, Antworten an das Review | reichst ein und gibst frei (Verträge, Bankdaten und den API-Zugang darf nur der Account Holder, also du) |
 | Ideen | Recherche, 10 Kandidaten mit Begründung | wählst 3 aus |
 | Videos | Hooks, Skripte, Schnittlisten, Untertitel, Auswertung der Aufrufe | filmst, sprichst, postest selbst (offizielle Planer sind erlaubt) |
 | Creator | Recherche über TikTok One, Entwürfe für persönliche Anfragen, Briefings, Vertragsvorlage mit Kennzeichnungsklausel, Tabelle für Termine und Zahlungen | schreibst jede Anfrage selbst, verhandelst, bezahlst, prüfst die Kennzeichnung |
@@ -1128,7 +1131,8 @@ werden (Art. 50 KI-Verordnung).
 **Was Claude kostet:** Pro 20 $, Max 100 $, Ultra 200 $ im Monat; Max
 und Ultra enthalten 100 bzw. 200 $ API-Guthaben im Monat für eigene Apps
 und Agenten. Die Foto-Analyse mit Claude Haiku 5.5 (0,10 $ / 0,50 $ je
-1 Mio. Tokens) kostet ~5–30 $ je 1.000 aktive Nutzer im Monat.
+1 Mio. Tokens) kostet typisch ~30 $ je 1.000 aktive Nutzer im Monat
+(5–180 $; mit Sonnet 5.5 rund 20-mal so viel).
 
 **Regeln für die Zusammenarbeit:**
 - Claude im Erklär-Modus: Code erzeugen lassen und sich erklären
