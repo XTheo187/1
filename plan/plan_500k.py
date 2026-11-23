@@ -158,6 +158,9 @@ BASE = dict(
     stopps=(),                         # Tore: ((Datum, Schwelle USD MRR der besten App), ...)
     neu_stopp=(),                      # Messpunkte, unter denen nur neue Versuche enden (G5)
     nebenaufgaben=False,               # Plan: Stunden fuer Partnersuche, Gruendung, Sicherheitsnetz abziehen
+    partnersuche=True,                 # False: bewusst allein, keine Stunden fuer die Partnersuche
+    extra_fix_monat=(0, 0, 0),         # S: Zusatzkosten je Monat waehrend der Jagd (z. B. Claude-Abo, KI-Werkzeuge)
+    p_faktor=(1.0, 1.0, 1.0),          # S: Faktor auf die Trefferquoten (z. B. Konkurrenz durch KI-Apps)
     partner_vertrag=(0, 0, 0),         # S: Notar/Anwalt fuer Partnervertrag (bei Zusage faellig)
 )
 
@@ -190,15 +193,16 @@ def hours_level(d, lv):
     return lv['h_full']
 
 
-def nebenstunden(d, mit_partner):
+def nebenstunden(d, mit_partner, partnersuche=True):
     """Stunden der Woche ab Montag d, die nicht in Apps fließen (Wochenplan, Abschnitt 4).
 
-    Partnersuche 2,5 h je Woche bis 31.01. (entfällt, sobald ein Partner zugesagt hat),
+    Partnersuche 2,5 h je Woche bis 31.01. (entfällt, sobald ein Partner zugesagt hat oder wer
+    bewusst allein arbeitet),
     Gründung, Konten und Ideenvideos vor dem Bau ~10 h (KW 49/50), Sicherheitsnetz
     (Bewerbungen) 12 h in den Weihnachtsferien.
     """
     h = 0.0
-    if d < date(2027, 2, 1) and not mit_partner:
+    if d < date(2027, 2, 1) and not mit_partner and partnersuche:
         h += 2.5
     if d < date(2026, 12, 14):
         h += 5.0
@@ -231,10 +235,14 @@ def draw_peak(rng, p1k, p10k, q100k, q1m, alpha, flop_power=1.0):
 
 def simulate(rng, P):
     t = lambda k: tri(rng, *P[k])
+    # neue Parameter nur ziehen, wenn gesetzt (sonst bleibt der Zufallsstrom der bisherigen Szenarien gleich)
+    t_neu = lambda k: tri(rng, *P[k]) if P[k][0] != P[k][2] else P[k][0]
     lv = {k: t(k) for k in ('h_school', 'h_holiday', 'h_abiprep', 'h_abi',
                             'h_oral', 'h_gap', 'h_full')}
     n_max = rng.randint(*P['n_attempts'])
     p1k, p10k, q100k, q1m = t('p1k'), t('p10k'), t('q100k'), t('q1m')
+    _pf = t_neu('p_faktor')
+    p1k, p10k = min(1.0, p1k * _pf), min(1.0, p10k * _pf)
     p1k = max(p1k, p10k)
     ksk = P['ksk']
     c_g, c_p, c_e = t('c_growth'), t('c_plateau') * (1 + ksk), t('c_early') * (1 + ksk)
@@ -245,7 +253,7 @@ def simulate(rng, P):
     web_net = t('web_net')
     deal_cost = t('deal_cost')
     churn_stop = t('churn_stop')
-    fixed_w = t('fixed_month') / WPM
+    fixed_w = (t('fixed_month') + t_neu('extra_fix_monat')) / WPM
     credit0 = t('credit0')
     fin_weeks = t('fin_weeks')
     fin_ok = rng.random() < t('p_fin')
@@ -315,7 +323,7 @@ def simulate(rng, P):
         mit_partner = pw is not None and w >= pw
         hours = hours_level(d, lv) * rng.uniform(0.8, 1.2)
         if P['nebenaufgaben']:
-            hours = max(0.0, hours - nebenstunden(d, mit_partner))
+            hours = max(0.0, hours - nebenstunden(d, mit_partner, P.get('partnersuche', True)))
         if mit_partner and not partner_bezahlt:
             # Notar/Anwalt fuer Gesellschaftervereinbarung bzw. Kooperationsvertrag
             cash -= partner_vertrag
@@ -761,6 +769,9 @@ def auswerten(P: dict, n: int, seed: int = 2027) -> dict:
         "p_papier": sum(r["profit"] + r["exit"] + r["paper"] >= P["profit_target"] for r in res) / n,
         "gewinn_median": q(0.5), "gewinn_p10": q(0.1), "gewinn_p90": q(0.9), "gewinn_p99": q(0.99),
         "gewinn_mittel": sum(gewinne) / n,
+        "p_plus": sum(r["ergebnis"] > 0 for r in res) / n,
+        "p_10k": sum(r["ergebnis"] >= 10_000 for r in res) / n,
+        "p_100k": sum(r["ergebnis"] >= 100_000 for r in res) / n,
         "p_mrr_10k": sum(r["max_mrr"] >= 10_000 * FX for r in res) / n,
         "p_mrr_100k": sum(r["max_mrr"] >= 100_000 * FX for r in res) / n,
         "versuche_median": sorted(r["attempts"] for r in res)[n // 2],
@@ -797,6 +808,7 @@ def main() -> None:
               f"   mit Papierwert {_pz(r['p_papier'])}")
         print(f"   Verlust > 3.000 EUR {_pz(r['p_verlust_3000'])}   > 5.000 EUR {_pz(r['p_verlust_5000'])}"
               f"   Nachschuss nötig {_pz(r['p_nachschuss'])}   Jagd an G3/G4 beendet {_pz(r['p_gestoppt'])}")
+        print(f"   Ergebnis > 0 {_pz(r['p_plus'])}   >= 10.000 EUR {_pz(r['p_10k'])}   >= 100.000 EUR {_pz(r['p_100k'])}")
         print(f"   Ergebnis für dich: Median {r['gewinn_median']:,.0f}  P10 {r['gewinn_p10']:,.0f}  "
               f"P90 {r['gewinn_p90']:,.0f}  P99 {r['gewinn_p99']:,.0f}  Mittel {r['gewinn_mittel']:,.0f} EUR"
               f"   (Firma Median {r['firma_median']:,.0f})".replace(",", "."))
