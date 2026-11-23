@@ -577,29 +577,50 @@ def simulate(rng, P):
             rv[0] -= 1.0
             if rv[0] <= 0 and not in_pause:
                 fertig.append(rv)          # in der Startpause bleibt eine freigegebene App unveröffentlicht
+        def testgeld(wunsch):
+            """Testgeld, das diese Woche höchstens ausgegeben werden darf (Deckel, Reserve, Pflichtkosten)."""
+            if w <= g3_woche:
+                deckel = max(0.0, P['test_cap'] - testkosten_g3)
+            else:
+                # nur aus Umsatz: Umsatz der letzten 4 Wochen minus Tests, die schon daraus bezahlt sind
+                deckel = max(0.0, sum(g for (g, _) in rev_hist[-4:])
+                             - sum(c for (ww, c) in test_log if ww > max(w - 4, g3_woche)))
+            # Reserve fuer Tests: mindestens 1.000 EUR und alle Pflichtkosten bis 31.08.
+            # (bis zum naechsten Tor volle Fixkosten, danach die nach einem Abbruch;
+            # ohne weiteres Tor laufen die vollen Fixkosten bis zum Ende)
+            naechstes = next((sw + 1 for sw, _ in stopp_wochen if sw + 1 > w), None)
+            if naechstes is None:
+                pflicht = (WEEKS - w) * fixed_w
+            else:
+                pflicht = (naechstes - w) * fixed_w + (WEEKS - naechstes) * fixed_stop_w
+            frei = cash - max(P['reserve'], pflicht + (abw if gegruendet else 0.0)) + credit0 - sum(c for (_, c) in cost_queue)
+            return max(0.0, min(frei, wunsch, deckel))
+
+        SIG = P.get('signal')
+        if SIG:
+            # Testgeld erst, wenn eine App ohne bezahlte Werbung ein Signal zeigt (Monatsumsatz nach x Wochen)
+            for a in apps:
+                if a.get('signal_w') == w:
+                    a['signal_w'] = None
+                    if not gestoppt and a['R'] * WPM >= SIG['schwelle_usd'] * FX:
+                        cost = testgeld(a['wunsch'])
+                        if cost >= 100:
+                            if w <= g3_woche:
+                                testkosten_g3 += cost
+                            test_log.append((w, cost))
+                            cash -= cost
+                            profit -= cost
+                            a['peak'] = a['latent']
+                            if a['phase'] == 'plateau':
+                                a['phase'] = 'grow'
         for rv in fertig:
             reviews.remove(rv)
             versuch = rv[1]
             wunsch = t('test_cost') * (1 + ksk)
-            if gestoppt:
-                cost = 0.0                      # nach dem Tor kein Testbudget mehr
+            if gestoppt or SIG:
+                cost = 0.0                      # nach dem Tor kein Testbudget; mit Signalregel erst später
             else:
-                if w <= g3_woche:
-                    deckel = max(0.0, P['test_cap'] - testkosten_g3)
-                else:
-                    # nur aus Umsatz: Umsatz der letzten 4 Wochen minus Tests, die schon daraus bezahlt sind
-                    deckel = max(0.0, sum(g for (g, _) in rev_hist[-4:])
-                                 - sum(c for (ww, c) in test_log if ww > max(w - 4, g3_woche)))
-                # Reserve fuer Tests: mindestens 1.000 EUR und alle Pflichtkosten bis 31.08.
-                # (bis zum naechsten Tor volle Fixkosten, danach die nach einem Abbruch;
-                # ohne weiteres Tor laufen die vollen Fixkosten bis zum Ende)
-                naechstes = next((sw + 1 for sw, _ in stopp_wochen if sw + 1 > w), None)
-                if naechstes is None:
-                    pflicht = (WEEKS - w) * fixed_w
-                else:
-                    pflicht = (naechstes - w) * fixed_w + (WEEKS - naechstes) * fixed_stop_w
-                frei = cash - max(P['reserve'], pflicht + (abw if gegruendet else 0.0)) + credit0 - sum(c for (_, c) in cost_queue)
-                cost = max(0.0, min(frei, wunsch, deckel))
+                cost = testgeld(wunsch)
             if w <= g3_woche:
                 testkosten_g3 += cost
             test_log.append((w, cost))
@@ -615,6 +636,7 @@ def simulate(rng, P):
             erzwungen = versuch == P.get('force_attempt', 1)
             if erzwungen and P.get('force_first_peak'):
                 peak = P['force_first_peak']
+            latent = peak
             if cost < 100:
                 peak *= 0.5
             if erzwungen and P.get('force_m0'):
@@ -629,6 +651,9 @@ def simulate(rng, P):
                              plateau=t('plateau_weeks'), decay=t('decay_month'),
                              killw=(w + rng.randint(4, 40)) if rng.random() < t('p_kill') else None,
                              kdrop=t('kill_drop'), revealed=False, test_end=None))
+            if SIG:
+                apps[-1].update(latent=latent, wunsch=wunsch,
+                                signal_w=(w + SIG['wochen']) if not gestoppt else None)
             tests.append([t('test_hours'), t('test_min_weeks'), len(apps) - 1])
         for tst in list(tests):
             tst[1] -= 1.0
@@ -916,6 +941,56 @@ CLAUDE_GESTAFFELT = dict(ALLEIN, build_next=(22, 40, 75), test_hours=(23, 42, 72
 MARKT_2027 = dict(p_faktor=(0.65, 0.85, 1.0), churn_stop=(0.05, 0.13, 0.20), decay_month=(0.03, 0.07, 0.18),
                   p_kill=(0.07, 0.12, 0.22), review_weeks=(0.3, 1.0, 4.0), c_growth=(0.58, 0.74, 0.88))
 
+# ---- Deine Angaben (November 2026): Niedersachsen, keine Programmierkenntnisse, anonym, <= 5.000 EUR ----
+# Recherche November 2026 (docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md, Quellen dort). Erst bauen, dann gründen: App 1
+# entsteht in Expo Go ohne Firma; gegründet wird, wenn sie zur Hälfte steht. Kein Start in der Abiturzeit
+# (15.03.-06.06.): eine freigegebene App bleibt bis 07.06. unveröffentlicht. Freiwillige Ausgaben nur, solange
+# Pflichtkosten bis 31.08. und die Auflösung bezahlt sind (Gesamtverlust höchstens 5.000 EUR).
+STARTPAUSE_NI = (date(2027, 3, 15), date(2027, 6, 7))
+
+
+def _nebenaufgaben_ni():
+    """Nebenaufgaben nach Wochenplan: ETH-Bewerbung (eApply 01.12.-31.03., ~1 Tag) in den Weihnachtsferien,
+    Rückfall-Bewerbung (LUH bis 15.07.), Abiturzeugnis hochladen, ab Juli Zimmersuche, Unterlagen für
+    Zürich und Mathe-Auffrischung (~6 h je Woche)."""
+    m = {date(2026, 12, 28): 6.0, date(2027, 6, 14): 2.0, date(2027, 6, 28): 1.0}
+    d = date(2027, 7, 5)
+    while d < END:
+        m[d] = m.get(d, 0.0) + 6.0
+        d += timedelta(weeks=1)
+    return m
+
+
+NEBEN_NI = _nebenaufgaben_ni()
+# Ohne Programmierkenntnisse (S): keine Studie misst den Abstand zu Profis; Debugging (61 % der Anfänger-
+# Prompts), Signierung, Deployment und Review sind die Engpässe, Puffer 2-3x (Recherche). Erste App 80/140/280 h
+# statt 50/80/130, weitere 35/60/120 statt 22/40/75; Grundlagen (Expo-Tutorials, Shell/Git, JavaScript lesen)
+# 20-40 h; 1-2 Ablehnungen bei der ersten App; Claude Pro, Max nur in einzelnen Monaten.
+OHNE_PROGRAMMIEREN = dict(build_first=(80, 140, 280), build_next=(35, 60, 120), einmal_stunden=(20, 30, 40),
+                          review_weeks=(0.5, 1.5, 4.0), extra_fix_monat=(0, 10, 70))
+# Tore im Sommer: vor dem Abitur gibt es kaum Teststunden (Q4 3-7 h, Abitur 0-5 h); die Jagd endet am
+# 18.07. unter 5.000 USD und am 08.08. unter 10.000 USD MRR, Tests aus dem Startgeld bis 18.07.
+TORE_SOMMER = ((date(2027, 7, 18), 5_000), (date(2027, 8, 8), 10_000))
+# Signalregel: Creator-Geld erst, wenn eine App drei Wochen nach dem Start ohne bezahlte Werbung mindestens
+# 300 USD Monatsumsatz zeigt (bis 18.07. höchstens 750 EUR aus dem Startgeld, danach nur aus Umsatz); vorher
+# laufen nur eigene Videos ohne Gesicht. Gegenproben: Tests sofort beim Start, ganz ohne Testgeld.
+SIGNAL = dict(wochen=3, schwelle_usd=300)
+DEINE_ANGABEN = dict(CLAUDE_GESTAFFELT, **OHNE_PROGRAMMIEREN, kalender='NI', neben=NEBEN_NI, harte_grenze=True,
+                     startpause=STARTPAUSE_NI, stopps=TORE_SOMMER, neu_stopp=(), test_cap_bis=date(2027, 7, 18),
+                     test_cap=750.0, signal=SIGNAL)
+# Rechtsformen (Kosten je Monat ab der Gründung, nach dem Tor, Gründung, Auflösung nach dem 31.08.; S/B):
+# Einzelunternehmen: Gewerbe, Apple 99 USD, Werkzeuge; dein Name steht als Verkäufer im App Store.
+EINZEL = dict(gruendung=dict(bei=0.5, setup=(110, 150, 230), apple_dauer=(0.3, 0.6, 1.5), fix_vorher=(20, 22, 25),
+                             stunden=4.0),
+              fixed_month=(40, 70, 120), fixed_stop=(15, 30, 60), abwicklung=(0, 200, 600), profit_target=970000.0)
+# UG mit registertauglicher Geschäftsadresse (49-130 EUR/Monat): im App Store nur der Firmenname, im Impressum
+# und Handelsregister trotzdem dein Name; Notar, Register, D-U-N-S, Apple-Prüfung 2-8 Wochen.
+UG_ADRESSE = dict(gruendung=dict(bei=0.5, setup=(550, 750, 1000), apple_dauer=(3, 5, 8), fix_vorher=(20, 22, 25),
+                                 stunden=10.0),
+                  fixed_month=(230, 320, 470), fixed_stop=(190, 260, 380), abwicklung=(800, 1500, 2500))
+# UG mit der Anschrift der Eltern als Geschäftsanschrift (öffentlich im Handelsregister und in der EU-Anzeige).
+UG_ELTERN = dict(UG_ADRESSE, fixed_month=(170, 240, 360), fixed_stop=(130, 180, 260))
+
 SZENARIEN = {
     "Recherche-Quoten (Regeln des Plans)": scen(**PLAN_REGELN),
     "Strengere Quoten (Gegenprüfung)": scen(**PLAN_REGELN, **KRITIKER),
@@ -952,6 +1027,30 @@ SZENARIEN = {
         scen(**dict(CLAUDE_GESTAFFELT, learn=[0.35, 0.65, 0.90, 1.0])),
     "Claude gestaffelt im strengeren Markt 2027 (mehr Konkurrenz, Abwanderung, Kopien)":
         scen(**dict(CLAUDE_GESTAFFELT, **MARKT_2027)),
+    # ---- Deine Angaben (docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md) ----
+    "Deine Angaben: Einzelunternehmen, Creator-Geld nur nach Signal, bis 750 EUR (DEIN PLAN)": scen(**dict(DEINE_ANGABEN, **EINZEL)),
+    "Deine Angaben: UG mit gemieteter Geschäftsadresse":
+        scen(**dict(DEINE_ANGABEN, **UG_ADRESSE)),
+    "Deine Angaben: UG mit Anschrift der Eltern": scen(**dict(DEINE_ANGABEN, **UG_ELTERN)),
+    "Deine Angaben: Einzelunternehmen, ohne Testbudget": scen(**dict(DEINE_ANGABEN, **EINZEL, test_cap=0.0,
+                                                                        signal=None)),
+    "Deine Angaben: Einzelunternehmen, Tests sofort beim Start (ohne Signalregel)":
+        scen(**dict(DEINE_ANGABEN, **EINZEL, signal=None)),
+    "Deine Angaben: Einzelunternehmen, Signalregel mit bis zu 1.500 EUR":
+        scen(**dict(DEINE_ANGABEN, **EINZEL, test_cap=1500.0)),
+    "Deine Angaben: Einzelunternehmen, Tore wie bisher (28.02./31.03.)":
+        scen(**dict(DEINE_ANGABEN, **EINZEL, stopps=TORE, neu_stopp=G5, test_cap_bis=date(2027, 2, 28))),
+    "Deine Angaben: Einzelunternehmen, ohne Tore": scen(**dict(DEINE_ANGABEN, **EINZEL, stopps=(),
+                                                                 test_cap_bis=date(2027, 8, 31))),
+    "Deine Angaben: Einzelunternehmen, gründen schon im Dezember":
+        scen(**dict(DEINE_ANGABEN, **dict(EINZEL, gruendung=dict(EINZEL['gruendung'], bei=0.0)))),
+    "Deine Angaben: Einzelunternehmen, ohne Startpause im Abitur":
+        scen(**dict(DEINE_ANGABEN, **EINZEL, startpause=None)),
+    "Deine Angaben: Einzelunternehmen, falls du schneller baust (wie mit Programmierkenntnissen)":
+        scen(**dict(DEINE_ANGABEN, **EINZEL, build_first=(50, 80, 130), build_next=(22, 40, 75),
+                    einmal_stunden=(3, 6, 12))),
+    "Deine Angaben: Einzelunternehmen im strengeren Markt 2027":
+        scen(**dict(DEINE_ANGABEN, **EINZEL, **MARKT_2027)),
 }
 
 

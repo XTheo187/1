@@ -253,5 +253,131 @@ class TestPlan500k(unittest.TestCase):
                 self.assertEqual(erreicht, gestartet)
 
 
+    # ---- Deine Angaben: Niedersachsen, ohne Programmierkenntnisse, Gesamtverlust <= 5.000 EUR ----
+    def _deine(self, teil="DEIN PLAN"):
+        return p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("Deine Angaben") and teil in k)]
+
+    def test_kalender_niedersachsen(self):
+        """Ferienordnung NI und Abiturtermine 2027: Q4 als eigene Stufe, Abitur geschützt."""
+        lv = {"h_school": 10, "h_holiday": 38, "h_abiprep": 2.5, "h_abi": 0.5, "h_oral": 3, "h_gap": 28,
+              "h_full": 55, "h_q4": 5}
+        h = lambda y, m, d: p.hours_level(date(y, m, d), lv, "NI")  # noqa: E731
+        self.assertEqual(h(2026, 12, 14), 10)                     # Schulwoche (Q3)
+        self.assertAlmostEqual(h(2026, 12, 21), 8)                # zwei Schultage, Mi 23.12. Ferien, 24.-27. frei
+        self.assertAlmostEqual(h(2026, 12, 28), 3 + 35 * 4 / 5)   # Neujahr frei
+        self.assertEqual(h(2027, 1, 4), 38)                       # 06.01. ist in NI kein Feiertag
+        self.assertEqual(h(2027, 1, 11), 10)                      # erster Schultag 11.01.
+        self.assertAlmostEqual(h(2027, 2, 1), 10 + 2 * 35 / 5 - 2)  # Halbjahresferien Mo/Di
+        for d in (date(2027, 2, 8), date(2027, 3, 8)):            # Q4 bis 18.03.
+            self.assertEqual(p.hours_level(d, lv, "NI"), 5)
+        self.assertEqual(h(2027, 3, 22), 2.5)                     # Osterferien = Abiturvorbereitung
+        self.assertEqual(h(2027, 4, 5), 0.5)                      # schriftlich 06.04.-13.05.
+        self.assertEqual(h(2027, 5, 10), 0.5)
+        self.assertEqual(h(2027, 5, 17), 3)                       # 5. Fach und Nachschreiben bis 07.06.
+        self.assertEqual(h(2027, 6, 7), 28)
+        self.assertEqual(h(2027, 7, 5), 55)
+        # Bayern bleibt unverändert
+        self.assertEqual(p.hours_level(date(2027, 2, 8), lv), 38)
+
+    def test_nebenaufgaben_niedersachsen(self):
+        """ETH-Bewerbung in den Weihnachtsferien, Rückfall-Bewerbung, Zeugnis, ab Juli Umzug nach Zürich."""
+        P = self._deine()
+        self.assertFalse(P["partnersuche"])
+        gesamt = sum(p.nebenstunden(p.START + p.timedelta(weeks=w), False, False, P["neben"])
+                     for w in range(p.WEEKS))
+        self.assertAlmostEqual(gesamt, 6 + 2 + 1 + 8 * 6)
+        self.assertEqual(p.nebenstunden(date(2026, 12, 28), False, False, P["neben"]), 6.0)
+
+    def test_erst_bauen_dann_gruenden(self):
+        """Gegründet wird erst, wenn App 1 halb steht; vorher nur Werkzeugkosten, kein Start ohne Firma."""
+        P = self._deine()
+        rng = random.Random(41)
+        ohne = 0
+        for _ in range(300):
+            r = p.simulate(rng, P)
+            if r["gegruendet"]:
+                self.assertIsNotNone(r["gruendung_woche"])
+                for w in r["launches"]:
+                    self.assertGreaterEqual(w, r["gruendung_woche"])
+            else:
+                ohne += 1
+                self.assertEqual(r["launches"], [])
+                self.assertEqual(r["abwicklung"], 0.0)
+                self.assertGreater(r["ergebnis"], -400)       # nur Claude Pro und Ähnliches
+        rng = random.Random(42)
+        frueh = [p.simulate(rng, self._deine("Tore wie bisher")) for _ in range(300)]
+        self.assertGreater(sum(not r["gegruendet"] for r in frueh), 0)   # Bau am 28.02. abgebrochen
+
+    def test_harte_grenze_fuenftausend(self):
+        """Mit allen Pflichtkosten und der Auflösung nach dem 31.08. nie mehr als 5.000 EUR Verlust."""
+        for k, P in p.SZENARIEN.items():
+            if not k.startswith("Deine Angaben"):
+                continue
+            self.assertTrue(P["harte_grenze"], k)
+            rng = random.Random(43)
+            for _ in range(150):
+                r = p.simulate(rng, P)
+                self.assertGreaterEqual(r["ergebnis"], -P["start_cash"] - 1e-6, k)
+                self.assertEqual(r["nachschuss"], 0.0, k)
+                self.assertGreaterEqual(r["min_kasse"], 0.0, k)
+
+    def test_ug_zu_teuer_heisst_kein_start(self):
+        """Passt eine UG mit Pflichtkosten und Auflösung nicht in den Einsatz, wird nicht gegründet."""
+        P = self._deine("gemieteter Geschäftsadresse")
+        rng = random.Random(44)
+        teuer = 0
+        for _ in range(300):
+            r = p.simulate(rng, P)
+            if r["zu_teuer"]:
+                teuer += 1
+                self.assertFalse(r["gegruendet"])
+                self.assertEqual(r["launches"], [])
+        self.assertGreater(teuer, 0)
+
+    def test_kein_start_im_abitur(self):
+        """Zwischen 15.03. und 06.06. startet keine App; eine freigegebene wartet bis 07.06."""
+        P = self._deine()
+        von, bis = p.woche_ab(date(2027, 3, 15)), p.woche_ab(date(2027, 6, 7))
+        rng = random.Random(45)
+        for _ in range(300):
+            for w in p.simulate(rng, P)["launches"]:
+                self.assertFalse(von <= w < bis, w)
+
+    def test_kassenprobe_deine_angaben(self):
+        """Gewinn = Kasse - Einlagen + Forderungen - offene Kosten, auch mit späterer Gründung."""
+        for teil in ("DEIN PLAN", "Anschrift der Eltern", "falls du schneller baust"):
+            P = self._deine(teil)
+            rng = random.Random(46)
+            for _ in range(150):
+                r = p.simulate(rng, P)
+                probe = r["cash"] - P["start_cash"] - r["nachschuss"] - r["angel_geld"] + r["forderungen"] \
+                    - r["offene_kosten"]
+                self.assertAlmostEqual(r["profit_firma"], probe, delta=1e-6 * max(1.0, abs(probe)))
+
+    def test_creator_geld_nur_nach_signal(self):
+        """Signalregel: beim Start kein Testgeld; bezahlt wird nur drei Wochen später für eine App mit Signal."""
+        P = self._deine()
+        rng = random.Random(47)
+        bezahlt = 0
+        for _ in range(400):
+            r = p.simulate(rng, P)
+            for woche, kosten in r["test_log"]:
+                if kosten > 0:
+                    bezahlt += 1
+                    self.assertIn(woche - P["signal"]["wochen"], r["launches"])
+                    self.assertGreaterEqual(kosten, 100.0)
+            self.assertLessEqual(r["testkosten_g3"], P["test_cap"] + 1e-9)
+        self.assertGreater(bezahlt, 0)
+
+    def test_bisherige_szenarien_ohne_neue_teile(self):
+        """Die früheren Szenarien rechnen mit Bayern, sofortiger Gründung und ohne harte Grenze."""
+        for k, P in p.SZENARIEN.items():
+            if k.startswith("Deine Angaben"):
+                continue
+            self.assertEqual(P["kalender"], "BY", k)
+            self.assertIsNone(P.get("gruendung"), k)
+            self.assertFalse(P["harte_grenze"], k)
+            self.assertEqual(P["abwicklung"], (0, 0, 0), k)
+
 if __name__ == "__main__":
     unittest.main()
