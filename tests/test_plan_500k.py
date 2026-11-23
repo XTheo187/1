@@ -496,6 +496,37 @@ class TestPlan500k(unittest.TestCase):
                 for k in a:
                     self.assertEqual(a[k], b[k], (name, k))
 
+    def test_frueher_frei_nach_der_letzten_pruefung(self):
+        """Liegt die Prüfung im 5. Fach früh, beginnen die freien Wochen früher (Standard: 07.06.)."""
+        lv = {"h_school": 10, "h_holiday": 38, "h_abiprep": 2.5, "h_abi": 0.5, "h_oral": 3, "h_gap": 28,
+              "h_full": 55, "h_q4": 5}
+        self.assertEqual(p.hours_level(date(2027, 5, 31), lv, "NI"), 3)
+        self.assertEqual(p.hours_level(date(2027, 5, 31), lv, "NI", date(2027, 5, 31)), 28)
+        self.assertEqual(p.hours_level(date(2027, 5, 24), lv, "NI", date(2027, 5, 31)), 3)
+        self.assertEqual(p.hours_level(date(2027, 5, 10), lv, "NI", date(2027, 5, 24)), 0.5)   # Abitur bleibt
+
+    def test_restwert_und_ferienjob(self):
+        """Restwert nur bei laufendem Gewinn, Ferienjob nur nach dem Ende der Jagd; beides getrennt ausgewiesen."""
+        P = dict(self._deine(), restwert=dict(monate=(2, 5, 10), p=(1, 1, 1)),
+                 ferienjob=dict(ab=date(2027, 7, 19), netto_woche=(600, 600, 600), max_app_h=5))
+        rng = random.Random(58)
+        mit_rest = 0
+        for _ in range(300):
+            r = p.simulate(rng, P)
+            self.assertAlmostEqual(r["ergebnis"], r["ergebnis_app"] + r["restwert"] + r["job_netto"])
+            self.assertGreaterEqual(r["restwert"], 0.0)
+            mit_rest += r["restwert"] > 0
+            if r["gestoppt"]:
+                # Tor 1 am 18.07.: Job in den 6 Wochen ab 19.07. (bei Tor 2 am 08.08. entsprechend weniger)
+                self.assertEqual(r["job_wochen"], p.WEEKS - max(r["stopp_woche"], p.woche_ab(date(2027, 7, 19))))
+                self.assertAlmostEqual(r["job_netto"], 600.0 * r["job_wochen"])
+            else:
+                self.assertEqual(r["job_netto"], 0.0)
+        self.assertGreater(mit_rest, 0)
+        ohne = self._deine()
+        self.assertIsNone(ohne["restwert"])
+        self.assertIsNone(ohne["ferienjob"])
+
     def test_bisherige_szenarien_ohne_neue_teile(self):
         """Die früheren Szenarien rechnen mit Bayern, sofortiger Gründung und ohne harte Grenze."""
         for k, P in p.SZENARIEN.items():

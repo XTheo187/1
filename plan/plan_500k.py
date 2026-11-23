@@ -183,6 +183,11 @@ BASE = dict(
     m0_ohne_test=(1, 1, 1),            # S: Faktor auf den Startumsatz eines Treffers ohne bezahlten Test (Signal
                                        #    damit unsicher: auch ein Treffer kann unter der Schwelle starten)
     kein_testgeld=False,               # Gegenprobe: gar kein Testgeld, auch nicht aus Umsatz
+    frei_ab=None,                      # Kalender NI: Montag nach der letzten eigenen Pruefung (Standard 07.06.)
+    restwert=None,                     # dict(monate, p): Wert laufender Apps nach dem 31.08. (Verkauf oder
+                                       # Uebergabe): Monatsgewinn der letzten 4 Wochen x Monate, mit Wahrscheinlichkeit p
+    ferienjob=None,                    # dict(ab, netto_woche, max_app_h): Vollzeit-Ferienjob, sobald die Jagd
+                                       # an einem Tor beendet ist (kurzfristige Beschaeftigung vor dem Studium)
     kv_grenze=None,                    # dict(monatsgewinn, beitrag): Einzelunternehmen; Gewinn ueber der Grenze
                                        # beendet die Familienversicherung (eigene Beitraege, privat)
     harte_grenze=False,                # Plan: freiwillige Ausgaben nur, solange danach alle Pflichtkosten bis
@@ -190,7 +195,7 @@ BASE = dict(
 )
 
 
-def hours_level(d, lv, kalender='BY'):
+def hours_level(d, lv, kalender='BY', frei_ab=None):
     """Arbeitsstunden-Phase der Woche, die am Montag d beginnt.
 
     kalender 'BY' (fruehere Annahme, Ferien Bayern 2026/27): Weihnachtsferien 24.12.2026-08.01.2027
@@ -199,7 +204,7 @@ def hours_level(d, lv, kalender='BY'):
     Mitte Juni. kalender 'NI': siehe stunden_ni.
     """
     if kalender == 'NI':
-        return stunden_ni(d, lv)
+        return stunden_ni(d, lv, frei_ab)
     if d < date(2026, 12, 28):
         return lv['h_school']
     if d < date(2027, 1, 11):
@@ -221,7 +226,7 @@ def hours_level(d, lv, kalender='BY'):
     return lv['h_full']
 
 
-def stunden_ni(d, lv):
+def stunden_ni(d, lv, frei_ab=None):
     """Arbeitsstunden der Woche ab Montag d nach dem Kalender Niedersachsen 2026/27 (B).
 
     Ferienordnung 2024/25-2029/30 (RdErl. MK 18.11.2022) und Abiturtermine 2027 (Bek. MK 28.04.2025):
@@ -256,8 +261,8 @@ def stunden_ni(d, lv):
         return lv['h_abiprep']
     if d < date(2027, 5, 17):
         return lv['h_abi']
-    if d < date(2027, 6, 7):
-        return lv['h_oral']
+    if d < (frei_ab or date(2027, 6, 7)):
+        return lv['h_oral']         # bis zum Montag nach der letzten eigenen Prüfung (5. Fach)
     if d < date(2027, 7, 5):
         return lv['h_gap']
     return lv['h_full']
@@ -387,6 +392,8 @@ def simulate(rng, P):
     # Gruendung: sofort (bisherige Szenarien) oder erst, wenn App 1 zu einem Anteil gebaut ist
     # ("erst bauen, dann gruenden"); vorher fallen nur die Werkzeuge an, das Apple-Konto fehlt noch
     GR = P.get('gruendung')
+    FJ = P['ferienjob']
+    job_wochen = 0
     KV = P.get('kv_grenze')
     kv_kosten = 0.0
     kv_hist = []
@@ -463,7 +470,7 @@ def simulate(rng, P):
         if exit_state and exit_state[0] == 'done':
             break
         mit_partner = pw is not None and w >= pw
-        hours = hours_level(d, lv, P['kalender']) * rng.uniform(0.8, 1.2)
+        hours = hours_level(d, lv, P['kalender'], P['frei_ab']) * rng.uniform(0.8, 1.2)
         if P['nebenaufgaben']:
             hours = max(0.0, hours - nebenstunden(d, mit_partner, P.get('partnersuche', True), P['neben']))
         if einmal_rest > 1e-9:
@@ -505,6 +512,10 @@ def simulate(rng, P):
                     bau = None
                     attempts -= 1           # abgebrochener Bau zaehlt nicht als Versuch
                 n_max = attempts            # keine neuen Versuche
+        if FJ and gestoppt and d >= FJ['ab']:
+            # Jagd beendet: Vollzeit-Ferienjob, für die Apps bleiben nur wenige Stunden je Woche
+            job_wochen += 1
+            hours = min(hours, FJ['max_app_h'])
         if gegruendet:
             fix_basis = fixed_stop_w if gestoppt else fixed_w
         else:
@@ -874,6 +885,17 @@ def simulate(rng, P):
     angel_teil = max(min(ekp, angel_geld), (1 - share / s0) * ekp) if angel_geld else 0.0
     abw_eff = abw if gegruendet else 0.0      # ohne Gründung nichts aufzulösen
     ergebnis = s0 * (ekp - angel_teil) + min(0.0, eigenkapital) - einsatz - abw_eff - kv_kosten
+    # Wert nach dem 31.08.: Verkauf oder Übergabe laufender Apps (Monatsgewinn der letzten 4 Wochen x Monate)
+    RW = P['restwert']
+    restwert = 0.0
+    if RW and apps and exit_value == 0:
+        monatsgewinn = sum(profit_hist[-4:]) * WPM / 4
+        if monatsgewinn > 0 and rng.random() < tri(rng, *RW['p']):
+            restwert = monatsgewinn * tri(rng, *RW['monate'])
+    # Ferienjob nach dem Ende der Jagd (netto, kurzfristige Beschäftigung vor dem Studium)
+    job_netto = job_wochen * tri(rng, *FJ['netto_woche']) if FJ and job_wochen else 0.0
+    ergebnis_app = ergebnis
+    ergebnis += restwert + job_netto
     g3 = bis_woche(P["test_cap_bis"])
     return dict(launch1=(apps[0]['launch'] if apps else 99), profit=profit * share,
                 exit=exit_value * share, paper=paper * share, attempts=attempts,
@@ -889,7 +911,8 @@ def simulate(rng, P):
                 offene_versuche=(bau is not None) + len(reviews),
                 partner_woche=pw, abwicklung=abw_eff, apple_ab=apple_ab,
                 gegruendet=gegruendet, gruendung_woche=gruendung_woche, zu_teuer=zu_teuer, kv_kosten=kv_kosten,
-                einreichung1=einreichung1)
+                einreichung1=einreichung1, restwert=restwert, job_netto=job_netto, job_wochen=job_wochen,
+                ergebnis_app=ergebnis_app)
 
 
 def scen(**kw):
