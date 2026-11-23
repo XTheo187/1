@@ -748,7 +748,8 @@ laufender Buchhaltung bei Umsatz ~3.000–6.000 €; IHK-Beitrag: Grundbeitrag
   5–20) arbeitet, hätte zehnmal so oft einen großen Treffer (≥ 100.000 $
   Monatsumsatz in ~0,1 % statt ~0,01 % der Läufe), allein aber immer noch
   nur ~0,001 % Chance auf das Ziel – bezahlt mit einem echten Risiko für
-  die Note. Mit Partner siehe Abschnitt 14.
+  die Note. Mit Partner wären es ~0,16 % statt ~0,12 % (Abschnitt 14):
+  Der Schutz kostet dann rund ein Viertel der Chance.
 
 ## 12. Sicherheitsnetz
 
@@ -911,7 +912,7 @@ Apps nacheinander, mit den Regeln dieses Plans:
 | **der Plan + Partner (Zusage bis 31.01.) für 25 % der Anteile** | **0,12 % (373)** | −450 € | 34 % |
 | … Partner für 10 % vom Umsatz | 0,08 % (239) | +300 € | 29 % |
 | … Partner für 40 % der Anteile | 0,05 % (156) | −1.400 € | 38 % |
-⟨P_MEHR_ZEILE⟩
+| … Partner für 25 % und mehr Stunden (ohne Abiturschutz) | 0,16 % (482) | ±0 € | 31 % |
 | Obergrenze: die erste App ist ein Cal-AI-Treffer | 25 % | +265.000 € | 0,5 % |
 | … ohne Business Angel (30.000 Läufe) | 23 % | +206.000 € | – |
 | … ohne Kassengrenze, als gäbe es unbegrenzten Kredit (30.000 Läufe) | 85 % | +1,26 Mio. € | – |
