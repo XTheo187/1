@@ -4,9 +4,12 @@ Die belegten Fälle junger Gründer mit >= 500.000 in <= 12-18 Monaten (Cal AI,
 Quittr, Summly, Roblox-Hits) folgen einem Muster: eine Consumer-App mit Abo
 (KI-Utility, harte Paywall), Vertrieb über Kurzvideos und Creator, Werbung aus
 dem laufenden Umsatz bezahlt, viele schnelle Versuche, Vermögen am Ende oft über
-einen Verkauf. Dieses Modell rechnet genau diesen Weg für eine 18-Jährige in
-Regensburg mit ~5.000 EUR Startkapital und Abitur 2027 (Stundenbudget nach
-Kalender, Abitur geschützt):
+einen Verkauf. Dieses Modell rechnet genau diesen Weg für einen 18-Jährigen mit
+höchstens ~5.000 EUR Einsatz und Abitur 2027 (Stundenbudget nach Kalender, Abitur
+geschützt). Die ersten Szenarien nehmen Bayern und Programmierkenntnisse an; die
+Szenarien „Deine Angaben“ rechnen mit den echten Angaben (Niedersachsen, keine
+Programmierkenntnisse, Videos ohne Gesicht, Gesamtverlust einschließlich Auflösung
+höchstens 5.000 EUR):
 
 - mehrere Apps (Bau, App Review, Test mit Kurzvideos und Creatorn); die nächste App
   entsteht in den Stunden, die der Test der vorigen übrig lässt,
@@ -22,8 +25,8 @@ Kalender, Abitur geschützt):
 - Verkauf der App ab 16 Wochen Alter zum Vielfachen des Gewinns, abzüglich
   Transaktionskosten.
 
-Ziel: Gewinn plus Verkaufserlös (Anteil der Gründerin) >= 720.000 EUR bis 31.08.2027.
-In einer UG bleiben davon nach ~30,7 % Steuer (KSt + Soli + GewSt Regensburg 425 %)
+Ziel: Gewinn plus Verkaufserlös (Anteil des Gründers) >= 720.000 EUR bis 31.08.2027.
+In einer UG bleiben davon nach ~30,7 % Steuer (KSt + Soli + GewSt bei ~425 % Hebesatz)
 ~500.000 EUR Eigenkapital; privat verfügbar wären ~965.000-980.000 EUR Gewinn nötig
 (als UG wegen der 25-%-Rücklage ohne Kapitalerhöhung sogar ~1,3 Mio. EUR).
 
@@ -33,8 +36,8 @@ Ausgaben nie unter die Reserve, kein Kredit, keine Fremdfinanzierung, Abbruch de
 an den Toren G3 (28.02.: beste App < 5.000 USD MRR) und G4 (31.03.: < 10.000 USD),
 danach keine neuen Versuche, kein Testbudget und nur noch Mindestkosten.
 
-Verluste werden aus Sicht der Gründerin gerechnet: Sie bringt das ganze Geld ein, ein
-Partner nur Arbeit; ihr gehört ihr Anteil am Eigenkapital der UG.
+Verluste werden aus Sicht des Gründers gerechnet: Er bringt das ganze Geld ein, ein
+Partner nur Arbeit; ihm gehört sein Anteil am Eigenkapital der UG.
 
 Herkunft: Recherche-Runde zum 500k-Plan (Modell der Recherche, strengere
 Kalibrierung und Lernkurve aus der Gegenprüfung, zwei Prüfrunden). B = belegt,
@@ -168,16 +171,27 @@ BASE = dict(
     agent_bei_treffer=None,            # dict: Agent erst, wenn ein Treffer erkannt ist: h_need, einmal (Stunden über
                                        #       4 Wochen), extra_monat (EUR), pflege (h/Woche)
     partner_vertrag=(0, 0, 0),         # S: Notar/Anwalt fuer Partnervertrag (bei Zusage faellig)
+    # ---- echte Angaben (November 2026): Niedersachsen, ohne Programmierkenntnisse, anonym ----
+    kalender='BY',                     # 'BY' Bayern (fruehere Annahme) oder 'NI' Niedersachsen
+    neben='BY',                        # Nebenaufgaben des Wochenplans: 'BY' (frueher) oder 'NI' (ETH-Bewerbung)
+    apple_ab=(0, 0, 0),                # S/B: Woche ab Start, ab der das Apple-Konto aktiv ist (UG: Notar,
+                                       #      Register, D-U-N-S, Pruefung); vorher keine Einreichung
+    abwicklung=(0, 0, 0),              # S/B: Kosten nach dem 31.08. fuer Aufloesung bzw. Abmeldung (EUR)
+    harte_grenze=False,                # Plan: freiwillige Ausgaben nur, solange danach alle Pflichtkosten bis
+                                       #       31.08. UND die Aufloesung bezahlt sind (Gesamtverlust <= Einsatz)
 )
 
 
-def hours_level(d, lv):
-    """Arbeitsstunden-Phase der Woche, die am Montag d beginnt (Ferien Bayern 2026/27).
+def hours_level(d, lv, kalender='BY'):
+    """Arbeitsstunden-Phase der Woche, die am Montag d beginnt.
 
-    Weihnachtsferien 24.12.2026-08.01.2027 (die Woche ab 21.12. hat drei Schultage und
-    drei Feiertage, sie zaehlt als Schulwoche), Fruehjahrsferien 08.-12.02.2027,
-    Osterferien 22.03.-02.04., Pfingstferien 18.-28.05., Abitur bis Mitte Juni.
+    kalender 'BY' (fruehere Annahme, Ferien Bayern 2026/27): Weihnachtsferien 24.12.2026-08.01.2027
+    (die Woche ab 21.12. hat drei Schultage und drei Feiertage, sie zaehlt als Schulwoche),
+    Fruehjahrsferien 08.-12.02.2027, Osterferien 22.03.-02.04., Pfingstferien 18.-28.05., Abitur bis
+    Mitte Juni. kalender 'NI': siehe stunden_ni.
     """
+    if kalender == 'NI':
+        return stunden_ni(d, lv)
     if d < date(2026, 12, 28):
         return lv['h_school']
     if d < date(2027, 1, 11):
@@ -199,15 +213,25 @@ def hours_level(d, lv):
     return lv['h_full']
 
 
-def nebenstunden(d, mit_partner, partnersuche=True):
+def stunden_ni(d, lv):
+    """Arbeitsstunden-Phase der Woche ab Montag d nach dem Kalender Niedersachsen 2026/27 (folgt)."""
+    raise NotImplementedError("Kalender Niedersachsen folgt mit der Recherche")
+
+
+def nebenstunden(d, mit_partner, partnersuche=True, variante='BY'):
     """Stunden der Woche ab Montag d, die nicht in Apps fließen (Wochenplan, Abschnitt 4).
 
-    Partnersuche 2,5 h je Woche bis 31.01. (entfällt, sobald ein Partner zugesagt hat oder wer
-    bewusst allein arbeitet),
-    Gründung, Konten und Ideenvideos vor dem Bau ~10 h (KW 49/50), Sicherheitsnetz
-    (Bewerbungen) 12 h in den Weihnachtsferien.
+    variante 'BY' (frühere Annahme): Partnersuche 2,5 h je Woche bis 31.01. (entfällt, sobald ein
+    Partner zugesagt hat oder wer bewusst allein arbeitet), Gründung, Konten und Ideenvideos vor dem
+    Bau ~10 h (KW 49/50), Sicherheitsnetz (Bewerbungen) 12 h in den Weihnachtsferien.
+    variante als dict {Montag: Stunden}: die Nebenaufgaben des Wochenplans mit den echten Angaben
+    (Gründung je nach Rechtsform, ETH-Bewerbung, Rückfall-Bewerbung), dazu wie oben die Partnersuche.
     """
     h = 0.0
+    if isinstance(variante, dict):
+        if d < date(2027, 2, 1) and not mit_partner and partnersuche:
+            h += 2.5
+        return h + variante.get(d, 0.0)
     if d < date(2027, 2, 1) and not mit_partner and partnersuche:
         h += 2.5
     if d < date(2026, 12, 14):
@@ -265,6 +289,8 @@ def simulate(rng, P):
     einmal_rest = t_neu('einmal_stunden')
     einmal_w = einmal_rest / 8.0
     pflege_w = t_neu('pflege_h_woche')
+    apple_ab = t_neu('apple_ab')        # vor dieser Woche keine Einreichung (Apple-Konto noch nicht aktiv)
+    abw = t_neu('abwicklung')           # Aufloesung bzw. Abmeldung nach dem 31.08.
     ag_rest = 0.0
     AG = P.get('agent_bei_treffer')
     if AG:
@@ -306,7 +332,7 @@ def simulate(rng, P):
 
     cash = P['start_cash'] - t('setup_cost')
     profit = -(P['start_cash'] - cash)  # Gruendungskosten als Aufwand
-    nachschuss = 0.0     # privates Geld, das die Gruenderin nachlegen muss, wenn die Kasse leer ist
+    nachschuss = 0.0     # privates Geld, das der Gruender nachlegen muss, wenn die Kasse leer ist
     angel_geld = 0.0     # Einlage eines Business Angels (Eigenkapital, kein Gewinn)
     min_kasse = cash
     testkosten_g3 = 0.0
@@ -338,9 +364,9 @@ def simulate(rng, P):
         if exit_state and exit_state[0] == 'done':
             break
         mit_partner = pw is not None and w >= pw
-        hours = hours_level(d, lv) * rng.uniform(0.8, 1.2)
+        hours = hours_level(d, lv, P['kalender']) * rng.uniform(0.8, 1.2)
         if P['nebenaufgaben']:
-            hours = max(0.0, hours - nebenstunden(d, mit_partner, P.get('partnersuche', True)))
+            hours = max(0.0, hours - nebenstunden(d, mit_partner, P.get('partnersuche', True), P['neben']))
         if einmal_rest > 1e-9:
             # Einrichtung in den ersten 8 Wochen; was dort keinen Platz fand, wird nachgeholt
             use = min(hours, einmal_rest, einmal_w if w < 8 else einmal_rest)
@@ -404,7 +430,7 @@ def simulate(rng, P):
             # Helfer arbeiten am Wachstum einer großen App: bezahlt werden die genutzten Stunden
             helfer_kosten = min(team, max(0.0, h_need - hours)) * team_rate
         if focus:
-            # Gruenderin skaliert den Treffer, keine neuen Apps
+            # Gruender skaliert den Treffer, keine neuen Apps
             h_free = 0.0
         if not focus:
             # 1. Testarbeit (Videos, Creator) für gestartete Apps hat Vorrang
@@ -429,8 +455,9 @@ def simulate(rng, P):
                 bau[0] -= use
                 h_free -= use
                 if bau[0] <= 0:
-                    # Einreichung im Lauf der Woche: das Review zählt ab der Folgewoche
-                    reviews.append([t('review_weeks') + 1.0, bau[1]])
+                    # Einreichung im Lauf der Woche: das Review zählt ab der Folgewoche; ist das
+                    # Apple-Konto noch nicht aktiv, wartet die fertige App bis dahin
+                    reviews.append([t('review_weeks') + 1.0 + max(0.0, apple_ab - w), bau[1]])
                     bau = None
                 else:
                     break
@@ -461,7 +488,7 @@ def simulate(rng, P):
                     pflicht = (WEEKS - w) * fixed_w
                 else:
                     pflicht = (naechstes - w) * fixed_w + (WEEKS - naechstes) * fixed_stop_w
-                frei = cash - max(P['reserve'], pflicht) + credit0 - sum(c for (_, c) in cost_queue)
+                frei = cash - max(P['reserve'], pflicht + abw) + credit0 - sum(c for (_, c) in cost_queue)
                 cost = max(0.0, min(frei, wunsch, deckel))
             if w <= g3_woche:
                 testkosten_g3 += cost
@@ -553,6 +580,14 @@ def simulate(rng, P):
         if mrr_eur >= 10000:
             weeks_over_10k += 1
         floor = P['reserve'] - credit0
+        if P['harte_grenze']:
+            # Werbung nur, solange danach alle Pflichtkosten bis 31.08. und die Aufloesung bezahlt sind
+            naechstes = next((sw + 1 for sw, _ in stopp_wochen if sw + 1 > w), None)
+            if gestoppt or naechstes is None:
+                pflicht_rest = (WEEKS - w) * fix_basis
+            else:
+                pflicht_rest = (naechstes - w) * fixed_w + (WEEKS - naechstes) * fixed_stop_w
+            floor = max(floor, pflicht_rest + abw - credit0)
         if fin_ok and weeks_over_10k >= fin_weeks:
             floor -= fin_k * mrr_eur
         # Die Kosten dieser Woche werden nach cost_lag Wochen fällig. Bis dahin zählen nur sichere
@@ -610,7 +645,7 @@ def simulate(rng, P):
         cost_queue = [(wk, c) for (wk, c) in cost_queue if wk > w]
         min_kasse = min(min_kasse, cash)
         if cash < 0 and credit0 <= 0 and not fin_ok:
-            # Kasse leer (nur durch Pflichtkosten möglich): die Gründerin legt privat nach
+            # Kasse leer (nur durch Pflichtkosten möglich): der Gründer legt privat nach
             nachschuss += -cash
             cash = 0.0
         mrr_eur = gross * WPM
@@ -642,7 +677,7 @@ def simulate(rng, P):
                 p13 = sum(profit_hist[-13:])
                 val = mult * 4 * p13 * (1 - deal_cost)      # Kaufpreis nach Transaktionskosten
                 close_w = w + int(round(t('exit_close_weeks')))
-                # Verkauf nur, wenn er das Ziel erreicht (Anteil der Gruenderin an Gewinn + Erloes)
+                # Verkauf nur, wenn er das Ziel erreicht (Anteil des Gruenders an Gewinn + Erloes)
                 if share * (profit + val) >= P['profit_target'] and close_w < WEEKS:
                     exit_state = ('listing', close_w, val)
         elif exit_state and exit_state[0] == 'listing' and w >= exit_state[1]:
@@ -660,17 +695,17 @@ def simulate(rng, P):
     forderungen = sum(pr for (_, pr) in rev_hist[-lag:]) if lag > 0 else 0.0
     if rev_hist:
         forderungen += rev_hist[-1][0] * web * web_net
-    # Vermoegensaenderung der Gruenderin: Sie bringt das ganze Geld ein (Rest des Startkapitals als
-    # Kapitalruecklage), der Partner nur Arbeit; ihr gehoert der Anteil `share` am Eigenkapital.
-    # Ist das Eigenkapital am Ende negativ, zahlt sie die offenen Rechnungen allein. Ein Angel hat
+    # Vermoegensaenderung des Gruenders: Er bringt das ganze Geld ein (Rest des Startkapitals als
+    # Kapitalruecklage), der Partner nur Arbeit; ihm gehoert der Anteil `share` am Eigenkapital.
+    # Ist das Eigenkapital am Ende negativ, zahlt er die offenen Rechnungen allein. Ein Angel hat
     # die übliche 1x-Liquidationspräferenz ohne Beteiligung: Er bekommt seine Einlage zurück oder
-    # seinen Anteil, was mehr ist; der Rest gehört Gründerin (und Partner) im alten Verhältnis.
+    # seinen Anteil, was mehr ist; der Rest gehört dem Gründer (und Partner) im alten Verhältnis.
     einsatz = P['start_cash'] + nachschuss
     eigenkapital = einsatz + angel_geld + profit + exit_value
     s0 = P.get('founder_share', 1.0)
     ekp = max(0.0, eigenkapital)
     angel_teil = max(min(ekp, angel_geld), (1 - share / s0) * ekp) if angel_geld else 0.0
-    ergebnis = s0 * (ekp - angel_teil) + min(0.0, eigenkapital) - einsatz
+    ergebnis = s0 * (ekp - angel_teil) + min(0.0, eigenkapital) - einsatz - abw
     g3 = bis_woche(date(2027, 2, 28))
     return dict(launch1=(apps[0]['launch'] if apps else 99), profit=profit * share,
                 exit=exit_value * share, paper=paper * share, attempts=attempts,
@@ -684,7 +719,7 @@ def simulate(rng, P):
                 ergebnis=ergebnis, angel_geld=angel_geld, agent_aktiv=agent_aktiv,
                 einmal_offen=einmal_rest + ag_rest,
                 offene_versuche=(bau is not None) + len(reviews),
-                partner_woche=pw)
+                partner_woche=pw, abwicklung=abw, apple_ab=apple_ab)
 
 
 def scen(**kw):
@@ -722,7 +757,7 @@ LERNKURVE = [0.3, 0.6, 0.85, 1.0]
 # Apps), dort wählt nur ein Teil den Web-Kauf; RevenueCat (Mai 2025): Link-out konvertierte mit 18 %
 # statt 28 % beim In-App-Kauf.
 # Wachstumsfinanzierung ohne Kredit: Bremst die Kasse einen Treffer (>= 20.000 EUR MRR über 4 Wochen),
-# sucht die Gründerin einen Business Angel (Eigenkapital gegen 8-25 % der Anteile, S).
+# sucht der Gründer einen Business Angel (Eigenkapital gegen 8-25 % der Anteile, S).
 BESTER_PLAN = dict(PLAN_REGELN, **KRITIKER, learn=LERNKURVE, web_share=(0.05, 0.20, 0.40),
                    build_first=(50, 80, 130), build_next=(25, 45, 70), angel=True)
 # Partner mit Vertrieb (Creator-Netzwerk, Playbook) – Wirkung geschätzt. Er arbeitet ab einer Woche
@@ -756,7 +791,7 @@ CLAUDE_3 = dict(CLAUDE_2, h_need=(10, 20, 32), einmal_stunden=(13, 26, 47), pfle
 CLAUDE_4 = dict(CLAUDE_3, build_first=(45, 80, 180), build_next=(18, 35, 75), test_hours=(20, 35, 60),
                 h_need=(10, 18, 30), learn=[0.25, 0.50, 0.80, 1.0], p_faktor=(0.6, 0.8, 1.0),
                 pflege_h_woche=(0.3, 0.5, 1.0), extra_fix_monat=(110, 130, 240))
-# Gestaffelt: Claude schreibt den Code und erklärt ihn (sie prüft mit Checkliste; erste App wie im Plan,
+# Gestaffelt: Claude schreibt den Code und erklärt ihn (er prüft mit Checkliste; erste App wie im Plan,
 # weitere schneller), Marketing-Vorarbeit ab Start; bei Claude Pro bleiben, Max nur, wenn das Limit wirklich
 # bremst (+0-70 EUR/Monat, meist 0). Der Agent für den Betrieb (Max/Ultra, 10-35 h Einrichtung) kommt erst,
 # wenn ein Treffer erkannt ist.
@@ -831,7 +866,7 @@ def auswerten(P: dict, n: int, seed: int = 2027) -> dict:
     rng = random.Random(seed)
     res = [simulate(rng, P) for _ in range(n)]
     ziel = [r["profit"] + r["exit"] >= P["profit_target"] for r in res]
-    # Verluste und Quantile aus Sicht der Gründerin (Vermögensänderung, nicht Anteil am Firmengewinn)
+    # Verluste und Quantile aus Sicht des Gründers (Vermögensänderung, nicht Anteil am Firmengewinn)
     gewinne = sorted(r["ergebnis"] for r in res)
     q = lambda p: gewinne[min(n - 1, int(p * n))]  # noqa: E731
     meilensteine = []

@@ -174,8 +174,8 @@ class TestPlan500k(unittest.TestCase):
             for _ in range(400):
                 self.assertLessEqual(p.simulate(rng, P)["testkosten_g3"], P["test_cap"] + 1e-9)
 
-    def test_gruenderin_traegt_den_verlust(self):
-        """Der Partner bringt kein Geld ein: Bei Verlust verliert die Gründerin mindestens den Firmenverlust."""
+    def test_gruender_traegt_den_verlust(self):
+        """Der Partner bringt kein Geld ein: Bei Verlust verliert der Gründer mindestens den Firmenverlust."""
         P = p.SZENARIEN[next(k for k in p.SZENARIEN if "25 % der Anteile" in k)]
         rng = random.Random(4)
         verluste = 0

@@ -207,7 +207,7 @@ der Apps bleiben bis zum Haupttor G3 deshalb nur rund 150–170 Stunden
   (haftungsbeschränkt) i. G.“.
 - **Alle Konten gehören der UG**: Apple, Google Play, Stripe, RevenueCat,
   Superwall, Supabase, Expo, GitHub, Domain und Markenkonten mit der
-  Firmen-E-Mail und Zwei-Faktor-Anmeldung; du bist überall Inhaberin bzw.
+  Firmen-E-Mail und Zwei-Faktor-Anmeldung; du bist überall Inhaber bzw.
   Account Holder. Partner und Helfer bekommen später nur Rollen (z. B. App
   Manager in App Store Connect, Maintainer bei GitHub), nie den
   Eigentümerzugang.
@@ -445,7 +445,7 @@ Ferien.
   Kohorten); Unterlagen bis 31.03. vorbereiten. Den Vertrag prüft ein
   Anwalt; üblich sind eine 1×-Liquidationspräferenz für den Angel (er
   bekommt zuerst seine Einlage zurück) und ein Vesting auch für die
-  Gründerin.
+  Gründer.
 - **G4 (31.03.):** ≥ 10.000 $ Monatsumsatz, besser ≥ 30.000 $. Darunter
   endet die Jagd wie bei G3. Ab 30.000 $: Kohortendaten für Käufer ab jetzt sauber
   sammeln.
@@ -478,7 +478,7 @@ Ferien.
 - Android-Start, wenn der geschlossene Test bestanden ist.
 - **G6 (15.06.):** ≥ 150.000 $ Monatsumsatz. Dann **Verkauf
   vorbereiten**: Kohorten D1–D90, Erstattungsquote, Kanalmix, Zeitaufwand
-  der Gründerin; Gespräche mit App-Portfolio-Käufern und Studios. Ziel ist
+  des Gründers; Gespräche mit App-Portfolio-Käufern und Studios. Ziel ist
   eine Absichtserklärung (LOI). Verfehlt: kein Abbruch – die Chance liegt
   mit Partner dann noch bei ~0,08 % (zwei Drittel aller Treffer), weil
   fast alle Treffer über einen Verkauf im Juli/August kommen. Gespräche mit Käufern trotzdem beginnen, sobald der
@@ -661,7 +661,7 @@ Ausland können unter § 50a EStG fallen (Abschnitt 4, Phase C).
 Ohne jeden Umsatz sind bis zum G3 ~1.350–4.100 € verbraucht, bis 31.08.
 nach dem Abbruch weitere ~870–1.700 €. Weil Tests nur aus Geld über
 den Pflichtkosten bezahlt werden, reicht das Startkapital allein fast
-immer. Mit Partner wird es knapp: Dort muss die Gründerin in ~0,4 %
+immer. Mit Partner wird es knapp: Dort muss der Gründer in ~0,4 %
 der Läufe am Ende ein paar hundert Euro privat nachlegen. **Nach dem
 31.08.** kommen noch ~1.000–3.000 € für ein weiteres Jahr UG oder ihre
 Auflösung dazu (Abschnitt 4, G3).
@@ -705,7 +705,7 @@ Angel ~21 %), ohne Kassengrenze wären es ~85 %. Deshalb:
 | **Umsatzsteuer** | Apple und Google verkaufen im eigenen Namen (Kommissionär, EuGH C-101/24); deine Leistung an sie ist in Deutschland nicht steuerbar. Eigener Web-Checkout an EU-Kunden: ab 10.000 € Auslandsumsatz OSS | auf die Kleinunternehmerregelung verzichten; Web-Checkout zuerst nur für US-Nutzer |
 | **Apple-Gebühr** | 15 % im Small Business Program bis 1 Mio. $ Erlös nach Provision; darüber für den Rest des Jahres 30 % (EU seit 01.10.2026: 15 % bzw. 26 % beim In-App-Kauf) | Programm sofort beantragen |
 | **Familienversicherung** | Einbehaltene Gewinne der UG zählen nicht zum Gesamteinkommen; Gehalt über ~690 €/Monat (590 € plus Arbeitnehmer-Pauschbetrag) und Ausschüttungen über ~8.080 €/Jahr schon. Ob du hauptberuflich selbstständig bist, prüft die Kasse nach Stunden **und** Arbeitseinkommen (GKV-Spitzenverband, Grundsätze vom 20.03.2019): bei mehr als 30 h/Woche in der Regel schon ab einem Arbeitseinkommen über 25 % der Bezugsgröße (2027 ~1.030 €/Monat), bei 20–30 h ab 50 % (~2.065 €), bei bis zu 20 h erst ab 75 % (~3.100 €). Einbehaltene UG-Gewinne sind kein Arbeitseinkommen; ohne Gehalt spricht die Regel also eher gegen Hauptberuflichkeit, die Kasse entscheidet aber im Einzelfall. Liegt sie vor, endet die Familienversicherung unabhängig vom Einkommen | kein Gehalt, keine Ausschüttung 2027; in Schulwochen unter 20 h; die Ferienwochen mit mehr Stunden (Weihnachten, Februar, ab Mitte Juni) und den Vollzeitsommer **vor den Weihnachtsferien** schriftlich mit der Kasse klären; für den Fall der Fälle ~280–290 €/Monat einplanen |
-| **Rentenversicherung** | Geschäftsführerin mit ≥ 50 % Anteil nicht abhängig beschäftigt; Ein-Personen-GmbH mit einem Auftraggeber kann rentenversicherungspflichtig sein (ob Apple als „ein Auftraggeber“ gilt, ist offen) | Steuerberater oder DRV fragen |
+| **Rentenversicherung** | Geschäftsführer mit ≥ 50 % Anteil nicht abhängig beschäftigt; Ein-Personen-GmbH mit einem Auftraggeber kann rentenversicherungspflichtig sein (ob Apple als „ein Auftraggeber“ gilt, ist offen) | Steuerberater oder DRV fragen |
 | **Schule** | keine Genehmigung nötig; Unterrichtspflicht und Prüfungen gehen vor (Art. 56 BayEUG) | Termine nachmittags oder in den Ferien |
 | **Künstlersozialabgabe** | Eigenwerber, die 2027 mehr als 1.000 € an selbstständige Creator zahlen, sind abgabepflichtig; Satz 2027 5,0 % (KSA-VO 2027), auch für Creator im Ausland, nicht für Zahlungen an Firmen | bei der KSK anmelden, Honorare bis 31.03. des Folgejahres melden |
 | **Abzugsteuer § 50a EStG** | Kauf von Nutzungsrechten (z. B. für Spark Ads) bei Creatorn im Ausland: 15 % plus Soli Abzug, Haftung der UG ohne Freistellungsbescheinigung | vorher mit dem Steuerberater klären oder über eine Plattform buchen |
@@ -959,7 +959,7 @@ Apps nacheinander, mit den Regeln dieses Plans:
 - **Der Partner ist der Unterschied zwischen null und einer kleinen, echten
   Chance:** mehr Stunden, im Median vier Apps statt einer, keine
   Lernkurve, bessere Creator-Konditionen, und ein Treffer wird auch in der
-  Abiturzeit skaliert. Für die Gründerin ist der typische Ausgang mit
+  Abiturzeit skaliert. Für den Gründer ist der typische Ausgang mit
   Partner fast ausgeglichen (Median −700 € bei 25 % Abgabe), weil seine
   Apps öfter etwas verdienen.
 - Gewinn allein schafft das Ziel praktisch nie (die Wachstumsphase frisst
@@ -980,7 +980,7 @@ obwohl der Plan Kredite ausschließt), rechnete ab der ersten App mit 30–60 %
 Web-Checkout ohne Beleg, gab Partnersuche und Gründung keine Stunden, ließ
 jede gescheiterte App sofort bis zu 1.000 $ im Monat verdienen und eine
 große App vor dem Ende ihres Tests mit vollem Tempo wachsen, egal wie
-wenig Zeit die Gründerin hatte. Dazu kommen Kosten, die fehlten:
+wenig Zeit der Gründer hatte. Dazu kommen Kosten, die fehlten:
 Künstlersozialabgabe, Gebühren des Web-Checkouts, bezahlte Helfer,
 Transaktionskosten beim Verkauf, der Partnervertrag, und die Pflichtkosten
 der UG lagen unter der Summe ihrer eigenen Posten. Im Gegenzug baut das
