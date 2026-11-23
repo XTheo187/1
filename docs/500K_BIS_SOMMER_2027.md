@@ -114,7 +114,7 @@ Charli D'Amelio), Lil Nas X, Fortnite-Weltmeister 2019 (3 Mio. $ bzw. je
 erreichen 10.000 $ (RevenueCat 2026). Von den Nicht-Spiele-Apps mit Release
 2024 kamen weltweit nur ~90 im Startjahr auf ≥ 1 Mio. $ Umsatz, im Schnitt
 1,3 Mio. $ (Appfigures). Für 500.000 € netto aus Gewinn braucht es aber
-2–5 Mio. $ Kundenumsatz bis August (Abschnitt 2): Das schaffen weltweit vielleicht
+2–5,5 Mio. $ Kundenumsatz bis August (Abschnitt 2): Das schaffen weltweit vielleicht
 1–13 neue Apps im Jahr. Die bekannten Fälle sind Ausnahmen, keine
 Stichprobe.
 
@@ -132,9 +132,10 @@ Steuerlast der UG in Regensburg: Körperschaftsteuer 15 % + Soli = 15,825 %,
 Gewerbesteuer 3,5 % × 425 % = 14,875 %, zusammen **30,7 %**.
 
 **Was das für die App heißt:**
-- Bei ~17–40 % Marge in der Wachstumsphase (nach 15 % Apple-Gebühr,
-  KI-Kosten und 45–70 % für Creator und Werbung) sind für 720.000 € Gewinn
-  **1,8–4,2 Mio. € Kundenumsatz** in rund sieben Monaten nötig. Das ist eine Kurve wie bei Cal AI: 30.000 → 100.000 → 300.000 →
+- Bei ~15–40 % Marge in der Wachstumsphase (nach 15 % Apple-Gebühr und
+  45–70 % für Creator und Werbung, vor den kleinen KI-Kosten) sind für
+  720.000 € Gewinn **1,8–4,8 Mio. € Kundenumsatz** in rund sieben Monaten
+  nötig. Das ist eine Kurve wie bei Cal AI: 30.000 → 100.000 → 300.000 →
   500.000 → 1 Mio. $ Monatsumsatz.
 - Für einen Verkauf über ~0,7 Mio. € zahlen Käufer junger Apps 1–3,5 ×
   den Jahresgewinn. Gebraucht werden also ~200.000–700.000 €
@@ -151,7 +152,7 @@ Gewerbesteuer 3,5 % × 425 % = 14,875 %, zusammen **30,7 %**.
 | Phase | Zeitraum | Ziel | Stunden je Woche | Messpunkt |
 |---|---|---|---:|---|
 | **A** Gründen, Ideen testen, App 1 bauen, Partner suchen | 23.11.–23.12. | UG, Apple-Konto, 3 Ideen mit Kurzvideos getestet, App 1 im Bau, 20 Partner-Kandidaten angeschrieben | 10 (3–15) | G0 13.12., Ideen-Tor 20.12. |
-| **B** Weihnachtsferien | 24.12.–10.01. (Ferien bis Fr 08.01., 24.–26.12. frei) | App 1 eingereicht, App 2 begonnen | 25–50 | G1 Fr 08.01. |
+| **B** Weihnachtsferien | 24.12.–10.01. (Ferien bis Fr 08.01., 24.–26.12. frei) | App 1 fertig bauen und möglichst einreichen (im Modell bis Ferienende nur in ~30 % der Läufe), dann App 2 | 25–50 | G1 Fr 08.01. |
 | **C** Launch | 11.01.–07.02. | Funnel messen, erste Creator, Partner-Entscheidung | 10 (3–15) | G2 und Partner-Tor 31.01. |
 | **D** Frühjahrsferien | 08.–14.02. (Ferien 08.–12.02.) | Paywall-Tests, Vorrat an Videos, App 2 bauen, Helfer vormerken | 25–50 | – |
 | **E** bis zur Prüfungszeit | 15.02.–21.03. | Treffer skalieren, sonst App 2 starten | 10 (3–15) | **G3 28.02. (Haupttor)**, G4 31.03. |
@@ -195,8 +196,11 @@ der Apps bleiben bis zum Haupttor G3 deshalb nur rund 150–170 Stunden
   das steuerliche Einlagekonto (§ 27 KStG), soweit das Stammkapital gedeckt
   bleibt (§ 30 GmbHG).
 - **Regel ab jetzt:** Eigenkapital und Kasse monatlich prüfen. Droht
-  Zahlungsunfähigkeit oder ist die Hälfte des Stammkapitals verloren,
-  sofort den Steuerberater fragen (§ 5a Abs. 4 GmbHG, §§ 15a, 19 InsO).
+  Zahlungsunfähigkeit, unverzüglich eine Gesellschafterversammlung
+  abhalten und dokumentieren (bei der UG Pflicht nach § 5a Abs. 4 GmbHG,
+  anstelle der GmbH-Regel bei Verlust der Hälfte des Stammkapitals) und
+  sofort den Steuerberater fragen; bei Zahlungsunfähigkeit oder
+  Überschuldung gilt die Insolvenzantragspflicht (§§ 15a, 17, 19 InsO).
 - Domain, einfache Website und Firmen-E-Mail anlegen (Apple verlangt beides
   für Organisationen), ~20–100 €. **Impressum** nach § 5 DDG auf der
   Website und in allen Markenkonten, bis zur Eintragung mit „UG
@@ -342,12 +346,18 @@ Ferien.
   - Auftragsverarbeitungsverträge mit KI-Anbieter, Supabase, RevenueCat
     und Superwall; bei Gewicht oder Gesundheitszielen ausdrückliche
     Einwilligung nach Art. 9 DSGVO und Datenschutz-Folgenabschätzung.
-- TestFlight mit 10–20 Testern; Einreichung bis Mo 04.01.
+- TestFlight mit 10–20 Testern; Einreichung so früh wie möglich, Ziel
+  Mo 04.01. **Ehrlich:** Mit den Stunden dieses Plans bleiben bis 03.01.
+  im Schnitt nur ~45 App-Stunden, App 1 braucht 50–130. Im Modell ist sie
+  bis 04.01. nur in ~1 % der Läufe eingereicht, bis Ferienende in ~30 %;
+  im Median wird sie um den 25.01. eingereicht und geht in der Woche ab
+  01.02. live.
 - **Plan B:** Ist das Apple-Konto am 28.12. noch nicht aktiv (späte
   Eintragung, D-U-N-S, Feiertage), in den Ferien App 1 fertig bauen und
   App 2 beginnen; Einreichung dann bis Mitte Januar, G1 auf 15.01.
 - **G1 (Fr 08.01.):** App 1 im Review oder live; App 2 begonnen (dieselbe
-  Vorlage, andere Nische).
+  Vorlage, andere Nische). Allein gelingt das in rund drei von zehn
+  Läufen; der Normalfall ist Plan B mit Einreichung Ende Januar.
 
 ### C – 11.01. bis 07.02.: Launch
 
@@ -372,7 +382,9 @@ Ferien.
   Aufrufe (~1–3 $), Download → Zahler ≥ 5 %, Testphase → Zahler ≥ 25 %,
   Erstattungen < 5 %, **Web-Anteil am Umsatz** (Ziel ≥ 20 %; sonst
   Paywall für US-Nutzer umbauen, z. B. Web-Kauf mit Rabatt als erste
-  Option). Eine App, die nach 3 Wochen und 2–3
+  Option). Allein ist App 1 am 31.01. nur in ~40 % der Läufe live und
+  fast nie schon drei Wochen im Test; die Regel „nach 3 Wochen“ greift
+  dann meist erst Ende Februar. Eine App, die nach 3 Wochen und 2–3
   Paywall-Varianten darunter liegt, bekommt kein Creator-Geld mehr. App 2
   entsteht in den Stunden, die der Test von App 1 übrig lässt, und wird
   eingereicht, sobald sie fertig ist – allein startet sie bis 28.02. nur
@@ -381,12 +393,15 @@ Ferien.
 ### D – 08. bis 14.02.: Frühjahrsferien (08.–12.02.)
 
 - Version 1.1 mit Paywall-Test und Teilen-Funktion.
-- **App 2 fertig bauen und einreichen** – die Ferienstunden sind nach
-  Weihnachten das zweite Bau-Fenster vor dem Haupttor.
+- **App 1 fertig bauen und einreichen, falls noch nicht geschehen (im
+  Modell in rund einem Viertel der Läufe), sonst App 2** – die
+  Ferienstunden sind nach Weihnachten das zweite Bau-Fenster vor dem
+  Haupttor.
 - 40–60 Videos auf Vorrat.
 - Helfer-Kandidaten für Schnitt, Creator-Betreuung und Support nur
-  **vormerken**. Bezahlte Probeaufgaben (z. B. 2 h zu 15–20 €) und
-  Einstellung erst nach erreichtem G3 und nur aus Umsatz – als Minijob
+  **vormerken**. Bezahlte Probeaufgaben (z. B. 2 h zu 15–20 €) erst nach
+  erreichtem G3, Einstellung ab ~20.000 € Monatsumsatz und nur aus
+  Umsatz – als Minijob
   (Anmeldung bei der Minijob-Zentrale, Betriebsnummer, Unfallversicherung,
   Lohnabrechnung) oder als freie Mitarbeit mit schriftlichem Vertrag
   (Rechteübertragung an die UG, Geheimhaltung).
@@ -394,11 +409,14 @@ Ferien.
 
 ### E – 15.02. bis 21.03.: bis zur Prüfungszeit
 
-- **G3 (28.02.), das Haupttor:** ≥ 5.000 $ Monatsumsatz, Wachstum ≥ 50 %
-  im Monat, Werbung in ≤ 4 Wochen zurückverdient.
+- **G3 (28.02.), das Haupttor:** ≥ 5.000 $ Monatsumsatz einer App am
+  Stichtag – das ist das Abbruchkriterium. Wachstum ≥ 50 % im Monat und
+  Werbung in ≤ 4 Wochen zurückverdient sind Ziele, kein Abbruchgrund
+  (so rechnet auch das Modell; mit ihnen als Abbruchgrund wäre die Chance
+  eher noch etwas kleiner).
   - **Verfehlt:** Die 500k-Jagd endet hier. Keine neuen Versuche und
     kein Testbudget mehr, Werkzeuge kündigen; es bleiben nur das
-    Apple-Konto und die Pflichtkosten der UG (~120–250 €/Monat). Die App
+    Apple-Konto und die Pflichtkosten der UG (~145–280 €/Monat). Die App
     läuft als kleines Projekt weiter, das Abitur hat Vorrang, im Sommer ein
     Job (Abschnitt 12). **Bis 30.09.2027 entscheiden**, ob die UG
     weiterläuft (~1.500–3.000 € im Jahr, nur wenn die App das trägt) oder
@@ -408,8 +426,11 @@ Ferien.
     Verlängerung kündigen.
   - **Erreicht:** Web-Anteil am Umsatz auf ≥ 30 % bringen, Creator nach
     dem Prinzip „Fixpreis plus garantierte Aufrufe“, Werbung nur aus
-    Umsatz, Helfer einstellen (Phase D).
-- KW 11 „Autopilot“ für das Abitur: Anleitung für den Helfer, Creator mit
+    Umsatz. Helfer (Phase D) einstellen, sobald die Apps zusammen ~20.000 €
+    im Monat umsetzen (so rechnet das Modell); vorher nur bezahlte
+    Probeaufgaben.
+- KW 11 „Autopilot“ für das Abitur: Anleitung für den Helfer (falls schon
+  einer da ist), Creator mit
   festen Terminen und Freigaben vorab gebucht (Rahmenverträge), **bezahlt
   nach dem Posten** im festen Wochenbudget (höchstens Umsatz der
   Vorwoche) – nicht im Voraus, das sprengt die Kasse. Für den Helfer eine
@@ -473,9 +494,13 @@ Ferien.
   Absichtserklärung über einen Kaufpreis, der **nach Transaktionskosten**
   (Makler, Anwalt, Due Diligence, Steuerberater: ~3–10 %) zusammen mit dem
   bisherigen Gewinn ≥ 720.000 € ergibt (mit Partner oder Angel: ≥ 720.000 €
-  ÷ eigener Anteil), Abschluss bis 25.08. **oder** ≥ 300.000 €
-  aufgelaufener Gewinn. Gelingt nichts davon, bleibt bis Ende Juli noch
-  eine Listung bei einem Makler oder Käufer mit Abschluss bis 25.08.;
+  ÷ eigener Anteil), Abschluss spätestens in der letzten vollen Woche
+  (bis So 29.08.) **oder** ≥ 300.000 € aufgelaufener Gewinn. Gelingt nichts
+  davon, bleibt bis Ende Juli noch eine Listung bei einem Makler oder
+  Käufer mit Abschluss bis 29.08. Vorsicht: Im Modell schließt fast die
+  Hälfte der erfolgreichen Verkäufe erst in dieser letzten Woche – ein
+  paar Tage Verzug beim Käufer kosten das Ziel. Deshalb Gespräche früh
+  beginnen (G6) und den Abschlusstermin in die Absichtserklärung schreiben;
   danach ist das Ziel verfehlt: App behalten, als Geschäft weiterführen,
   im Herbst den Ausbildungsweg antreten.
 - **G8 (31.08.):** Eigenkapital nach Steuerrückstellung ≥ 500.000 €
@@ -626,13 +651,13 @@ Ausland können unter § 50a EStG fallen (Abschnitt 4, Phase C).
 | Posten | bis zum Haupttor G3 (28.02.) | 01.03.–31.08. |
 |---|---:|---:|
 | Start: Notar, Register, Gewerbe (~505–555 €, davon ~150–255 € privat, Abschnitt 4), Website und Rechtstexte (~50–200 €), falls nötig ein gebrauchtes Testgerät (0–350 €) | ~600–1.100 € | – |
-| Laufende Kosten: Werkzeuge (Tabelle oben, ~100 €/Monat), Buchhaltung und Steuerberater anteilig, Konto, IHK, gegebenenfalls Geschäftsadresse – zusammen 200–500 €/Monat | ~600–1.500 € | läuft die Jagd weiter, genauso; nach Abbruch nur ~120–250 €/Monat, also ~700–1.500 € |
+| Laufende Kosten: Werkzeuge (Tabelle oben, ~100 €/Monat), Buchhaltung und Steuerberater anteilig (~125–250 €/Monat), Konto, IHK, gegebenenfalls Geschäftsadresse – zusammen ~250–500 €/Monat | ~750–1.500 € | läuft die Jagd weiter, genauso; nach Abbruch nur ~145–280 €/Monat, also ~870–1.700 € |
 | **Creator- und Videotests** (mit 4 % für die Künstlersozialabgabe) | **200–1.250 € je App, zusammen höchstens 1.500 €** | nur aus Umsatz (höchstens der Umsatz der letzten vier Wochen); nach einem verfehlten Tor gar nicht mehr |
 | Mit Partner: Vertrag (Notar, Anwalt) | ~300–2.000 € (10 % vom Umsatz: ~150–800 €) | – |
 | **Reserve** – Werbung darf die Kasse nie darunter drücken; Tests nur, wenn danach auch alle Pflichtkosten bis 31.08. gedeckt sind | **≥ 1.000 €** | |
 
-Ohne jeden Umsatz sind bis zum G3 ~1.400–4.100 € verbraucht, bis 31.08.
-nach dem Abbruch weitere ~700–1.500 €. Weil Tests nur aus Geld über
+Ohne jeden Umsatz sind bis zum G3 ~1.350–4.100 € verbraucht, bis 31.08.
+nach dem Abbruch weitere ~870–1.700 €. Weil Tests nur aus Geld über
 den Pflichtkosten bezahlt werden, reicht das Startkapital allein fast
 immer. Mit Partner wird es knapp: Dort muss die Gründerin in ~0,2 %
 der Läufe am Ende ein paar hundert Euro privat nachlegen. **Nach dem
@@ -846,7 +871,7 @@ Apps nacheinander, mit den Regeln dieses Plans:
 - **Tore:** Hat am 28.02. (G3) keine App 5.000 $ Monatsumsatz oder am
   31.03. (G4) keine 10.000 $ (Stand am Stichtag), endet die Jagd: kein
   neuer Bau (ein laufender Bau wird verworfen und zählt nicht als
-  Versuch), kein Testbudget, laufende Kosten 120–250 €/Monat. Unter
+  Versuch), kein Testbudget, laufende Kosten 145–280 €/Monat. Unter
   50.000 $ am 30.04. (G5) beginnt kein neuer Versuch mehr, die Apps laufen
   weiter; G6 und G7 sind Messpunkte ohne Abbruch.
 - **Treffer:** je App eine latente Spitzen-MRR; Chance auf ≥ 1.000 $
@@ -860,11 +885,12 @@ Apps nacheinander, mit den Regeln dieses Plans:
   Risiko eines Einbruchs (Kopie, Ablehnung, Plattform). Skalieren braucht
   15–35 Stunden je Woche; mit weniger (Abiturzeit) wächst eine große App
   entsprechend langsamer. Ab ~20.000 € Monatsumsatz und nach G3 helfen
-  10–40 Helferstunden je Woche, bezahlt mit 15–25 € je genutzter Stunde.
+  10–40 Helferstunden je Woche, bezahlt mit 15–25 € je Stunde, die sie am
+  Wachstum einer großen App arbeiten.
 - **Kosten:** 30–65 % vom Umsatz beim Wachstum über Creator, 55–85 % mit
   bezahlten Anzeigen, 35–60 % auf dem Plateau (Creator-Anteile plus 4 %
   Künstlersozialabgabe); Apple 15 %, über 870.000 € 30 %; Start
-  600–1.100 €, laufend 200–500 €/Monat.
+  600–1.100 €, laufend 245–500 €/Monat.
 - **Cashflow:** Apple-Auszahlung nach 5–9 Wochen; Web-Checkout mit einer
   Woche, Anteil 5–40 % des Umsatzes (Schätzung: nur US-Nutzer, und nur ein
   Teil von ihnen kauft im Web), nach Gebühren 86–93 %; Creator und Werbung
@@ -883,7 +909,8 @@ Apps nacheinander, mit den Regeln dieses Plans:
 - **Verkauf:** ab 16 Wochen App-Alter zum 1- bis 3,5-Fachen des
   annualisierten Gewinns abzüglich 3–10 % Transaktionskosten, aber nur,
   wenn er zusammen mit dem bisherigen Gewinn das Ziel erreicht; Abschluss
-  nach 4–14 Wochen mit 30–70 % Wahrscheinlichkeit.
+  nach 4–14 Wochen mit 30–70 % Wahrscheinlichkeit, spätestens in der
+  letzten vollen Woche (bis 29.08.).
 - **Partner:** sagt in einer Woche zwischen Start und 31.01. zu und
   arbeitet ab dann mit: Trefferquoten zwischen Recherche und Gegenprüfung
   ohne Lernkurve, höherer Startumsatz eines Treffers, günstigere Creator,
@@ -943,8 +970,9 @@ Apps nacheinander, mit den Regeln dieses Plans:
 - In über 9 von 10 Läufen endet der Plan allein mit einem Verlust; der
   Mittelwert liegt bei ~−2.000 €, weil wenige Läufe etwas gewinnen.
 
-**Warum die Zahl kleiner ist als in der vorigen Fassung (~0,02 %):** Drei
-Prüfrunden haben Fehler gefunden, die die Chance zu hoch zeigten. Das
+**Warum die Zahl kleiner ist als in früheren Fassungen (~0,02 %, zuletzt
+~0,002 %):** Mehrere Prüfrunden haben Fehler gefunden, die die Chance zu
+hoch zeigten. Das
 alte Modell ließ die Kasse ins Minus laufen (ein versteckter Dispo,
 obwohl der Plan Kredite ausschließt), rechnete ab der ersten App mit 30–60 %
 Web-Checkout ohne Beleg, gab Partnersuche und Gründung keine Stunden, ließ

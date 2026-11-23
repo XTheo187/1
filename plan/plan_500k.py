@@ -72,9 +72,10 @@ BASE = dict(
     setup_cost=(600, 800, 1100),       # B/S: UG-Gruendung ~505-555 (Notar ~150-200, Handelsregister 300
                                        #      inkl. Bereitstellung, Gewerbe ~55), Website und Rechtstexte
                                        #      ~50-200, ggf. gebrauchtes Testgeraet 0-350
-    fixed_month=(200, 300, 500),       # S: Werkzeuge (~100), Buchhaltung/Steuerberater anteilig
-                                       #    (~1.500-3.000 EUR/Jahr), Konto, IHK, Server
-    fixed_stop=(120, 170, 250),        # S: nach Abbruch: UG-Pflichtkosten + Apple-Konto
+    fixed_month=(245, 320, 500),       # S: Werkzeuge (~100), Buchhaltung/Steuerberater anteilig
+                                       #    (~1.500-3.000 EUR/Jahr = 125-250/Monat), Konto, IHK, Server
+    fixed_stop=(145, 195, 280),        # S: nach Abbruch: UG-Pflichtkosten (Steuerberater 125-250/Monat),
+                                       #    Apple-Konto ~7, IHK ~7, Konto
     # Arbeitsstunden je Woche nach Phase (S)
     h_school=(8, 15, 22),
     h_holiday=(20, 32, 45),
@@ -349,11 +350,13 @@ def simulate(rng, P):
         # ob die App schon als Treffer erkannt ist oder nicht
         eff = min(1.0, (hours + team) / h_need)
         helfer_kosten = 0.0
+        if not mit_partner and team > 0 and (
+                focus or any(a['peak'] * FX >= 50000 and a['phase'] == 'grow' for a in apps)):
+            # Helfer arbeiten am Wachstum einer großen App: bezahlt werden die genutzten Stunden
+            helfer_kosten = min(team, max(0.0, h_need - hours)) * team_rate
         if focus:
             # Gruenderin skaliert den Treffer, keine neuen Apps
             h_free = 0.0
-            if not mit_partner and team > 0:
-                helfer_kosten = min(team, max(0.0, h_need - hours)) * team_rate
         if not focus:
             # 1. Testarbeit (Videos, Creator) für gestartete Apps hat Vorrang
             for tst in tests:
