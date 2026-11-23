@@ -161,6 +161,11 @@ BASE = dict(
     partnersuche=True,                 # False: bewusst allein, keine Stunden fuer die Partnersuche
     extra_fix_monat=(0, 0, 0),         # S: Zusatzkosten je Monat waehrend der Jagd (z. B. Claude-Abo, KI-Werkzeuge)
     p_faktor=(1.0, 1.0, 1.0),          # S: Faktor auf die Trefferquoten (z. B. Konkurrenz durch KI-Apps)
+    einmal_stunden=(0, 0, 0),          # S: einmalige Einrichtung (z. B. Claude-Abläufe, Agenten), verteilt auf
+                                       #    die ersten 8 Wochen
+    pflege_h_woche=(0, 0, 0),          # S: laufende Pflege (z. B. Agenten prüfen) je Woche, solange die Jagd läuft
+    agent_bei_treffer=None,            # dict: Agent erst, wenn ein Treffer erkannt ist: h_need, einmal (Stunden über
+                                       #       4 Wochen), extra_monat (EUR), pflege (h/Woche)
     partner_vertrag=(0, 0, 0),         # S: Notar/Anwalt fuer Partnervertrag (bei Zusage faellig)
 )
 
@@ -254,6 +259,14 @@ def simulate(rng, P):
     deal_cost = t('deal_cost')
     churn_stop = t('churn_stop')
     fixed_w = (t('fixed_month') + t_neu('extra_fix_monat')) / WPM
+    einmal_w = t_neu('einmal_stunden') / 8.0
+    pflege_w = t_neu('pflege_h_woche')
+    AG = P.get('agent_bei_treffer')
+    if AG:
+        ag_h_need, ag_einmal = tri(rng, *AG['h_need']), tri(rng, *AG['einmal'])
+        ag_extra_w, ag_pflege = tri(rng, *AG['extra_monat']) / WPM, tri(rng, *AG['pflege'])
+    agent_aktiv = False
+    agent_setup_wochen = 0
     credit0 = t('credit0')
     fin_weeks = t('fin_weeks')
     fin_ok = rng.random() < t('p_fin')
@@ -324,6 +337,10 @@ def simulate(rng, P):
         hours = hours_level(d, lv) * rng.uniform(0.8, 1.2)
         if P['nebenaufgaben']:
             hours = max(0.0, hours - nebenstunden(d, mit_partner, P.get('partnersuche', True)))
+        if w < 8:
+            hours = max(0.0, hours - einmal_w)
+        if apps and not gestoppt:
+            hours = max(0.0, hours - pflege_w)
         if mit_partner and not partner_bezahlt:
             # Notar/Anwalt fuer Gesellschaftervereinbarung bzw. Kooperationsvertrag
             cash -= partner_vertrag
@@ -354,6 +371,16 @@ def simulate(rng, P):
         hit = [a for a in apps if a['peak'] * FX >= 50000 and a['revealed']]
         if hit:
             focus = True
+        if AG and focus and not agent_aktiv:
+            # Treffer erkannt: jetzt erst Max/Ultra und Agent einrichten (4 Wochen Einrichtung)
+            agent_aktiv = True
+            agent_setup_wochen = 4
+            h_need = ag_h_need
+            fixed_w += ag_extra_w
+            pflege_w += ag_pflege
+        if agent_aktiv and agent_setup_wochen > 0:
+            hours = max(0.0, hours - ag_einmal / 4.0)
+            agent_setup_wochen -= 1
         # Effort-Faktor fuer das Wachstum grosser Apps: Skalieren braucht h_need Stunden je Woche,
         # ob die App schon als Treffer erkannt ist oder nicht
         eff = min(1.0, (hours + team) / h_need)
@@ -640,7 +667,7 @@ def simulate(rng, P):
                 offene_kosten=sum(c for (_, c) in cost_queue), gestoppt=gestoppt,
                 stopp_woche=stopp_woche, bau_nach_stopp=bau_nach_stopp, test_log=test_log,
                 testkosten_g3=testkosten_g3, min_kasse=min_kasse, nachschuss=nachschuss,
-                ergebnis=ergebnis, angel_geld=angel_geld,
+                ergebnis=ergebnis, angel_geld=angel_geld, agent_aktiv=agent_aktiv,
                 offene_versuche=(bau is not None) + len(reviews),
                 partner_woche=pw)
 
@@ -694,6 +721,39 @@ PARTNER_PLAN = dict(BESTER_PLAN, partner=PARTNER, partner_week=(0, bis_woche(dat
 VERTRAG_ANTEILE = (300, 800, 2000)
 VERTRAG_UMSATZ = (150, 400, 800)
 
+# ---- Allein mit Claude: Stufen der Abgabe (Recherche November 2026, Schätzungen mit Belegen) ----
+# Stufe 0: allein, ohne Stunden für die Partnersuche; Claude Pro ist schon in den Werkzeugkosten.
+ALLEIN = dict(BESTER_PLAN, partnersuche=False)
+# Stufe 1: Claude Code schreibt den ganzen Code (Max statt Pro: +0-160 EUR/Monat). Erste App: Modus gleich,
+# oberes Ende weiter (Fehlersuche, wenn man den Code nicht versteht; METR 2025/2026, Anthropic-RCT 2026);
+# weitere Apps etwas schneller (Vorlage, CLAUDE.md mit Review-Lösungen).
+CLAUDE_1 = dict(ALLEIN, build_first=(50, 80, 160), build_next=(22, 40, 75), extra_fix_monat=(0, 70, 160))
+# Stufe 2: + Hooks, Skripte, Schnittlisten, Creator-Recherche, Anfrage-Entwürfe, Briefings, Auswertung
+# (~15 % weniger Teststunden; P&G 16 %, BCG ~25 %, Praxis 3-7 %); 3-12 h einmalige Einrichtung.
+CLAUDE_2 = dict(CLAUDE_1, test_hours=(23, 42, 72), einmal_stunden=(3, 6, 12))
+# Stufe 3: + Agent im Betrieb (RevenueCat-/App-Store-Auswertungen, Paywall-Tests, Support-Entwürfe,
+# Releases): Skalieren 10-32 statt 15-35 h je Woche; 10-35 h Einrichtung, 1 h Pflege je Woche; Max/Ultra.
+CLAUDE_3 = dict(CLAUDE_2, h_need=(10, 20, 32), einmal_stunden=(13, 26, 47), pflege_h_woche=(0.5, 1.0, 2.0),
+                extra_fix_monat=(70, 90, 200))
+# Stufe 4: Vollabgabe: Claude baut ohne eigene Prüfung, KI-Avatar-Videos statt eigener (kennzeichnungs-
+# pflichtig nach Art. 50 KI-VO, gekennzeichnet bis -31,5 % CTR; ein Fall mit 0,4-0,6x ROAS), Wer alles
+# abgibt, lernt weniger (Anthropic-RCT 2026: 50 statt 67 %): Lernkurve langsamer.
+CLAUDE_4 = dict(CLAUDE_3, build_first=(45, 80, 180), build_next=(18, 35, 75), test_hours=(20, 35, 60),
+                h_need=(10, 18, 30), learn=[0.25, 0.50, 0.80, 1.0], p_faktor=(0.6, 0.8, 1.0),
+                pflege_h_woche=(0.3, 0.5, 1.0), extra_fix_monat=(110, 130, 240))
+# Gestaffelt: Claude schreibt den Code und erklärt ihn (sie prüft mit Checkliste; erste App wie im Plan,
+# weitere schneller), Marketing-Vorarbeit ab Start; bei Claude Pro bleiben, Max nur, wenn das Limit wirklich
+# bremst (+0-70 EUR/Monat, meist 0). Der Agent für den Betrieb (Max/Ultra, 10-35 h Einrichtung) kommt erst,
+# wenn ein Treffer erkannt ist.
+CLAUDE_GESTAFFELT = dict(ALLEIN, build_next=(22, 40, 75), test_hours=(23, 42, 72), einmal_stunden=(3, 6, 12),
+                         extra_fix_monat=(0, 10, 70),
+                         agent_bei_treffer=dict(h_need=(10, 20, 32), einmal=(10, 20, 35), extra_monat=(40, 60, 150),
+                                                pflege=(0.5, 1.0, 2.0)))
+# Strengerer Markt 2027 (Gegenprobe): Angebot neuer Apps verdoppelt (Sensor Tower H1 2026), RevenueCat-Quoten
+# gesunken, KI-Apps verlieren Abonnenten 30 % schneller, Kopien in Tagen, längere Reviews, teurere Anzeigen.
+MARKT_2027 = dict(p_faktor=(0.65, 0.85, 1.0), churn_stop=(0.05, 0.13, 0.20), decay_month=(0.03, 0.07, 0.18),
+                  p_kill=(0.07, 0.12, 0.22), review_weeks=(0.3, 1.0, 4.0), c_growth=(0.58, 0.74, 0.88))
+
 SZENARIEN = {
     "Recherche-Quoten (Regeln des Plans)": scen(**PLAN_REGELN),
     "Strengere Quoten (Gegenprüfung)": scen(**PLAN_REGELN, **KRITIKER),
@@ -717,6 +777,19 @@ SZENARIEN = {
     "Der Plan ohne Tore (weiter bis August, Vergleich)": scen(**dict(BESTER_PLAN, stopps=(), neu_stopp=())),
     "Der Plan + Partner für 25 % + mehr Stunden (ohne Abiturschutz, Vergleich)":
         scen(**dict(PARTNER_PLAN, **MEHR_STUNDEN), founder_share=0.75, partner_vertrag=VERTRAG_ANTEILE),
+    # ---- Allein mit Claude (docs/500K_BIS_SOMMER_2027.md, Abschnitt 16) ----
+    "Claude-Stufe 0: allein, ohne Partnersuche (Claude Pro hilft wie im Plan)": scen(**ALLEIN),
+    "Claude-Stufe 1: Claude schreibt den ganzen Code": scen(**CLAUDE_1),
+    "Claude-Stufe 2: + Marketing-Vorarbeit (Hooks, Skripte, Creator-Recherche, Auswertung)": scen(**CLAUDE_2),
+    "Claude-Stufe 3: + Agent im Betrieb (Auswertungen, Paywall-Tests, Support-Entwürfe, Releases)":
+        scen(**CLAUDE_3),
+    "Claude-Stufe 4: Vollabgabe (KI-Avatar-Videos, kaum eigene Prüfung)": scen(**CLAUDE_4),
+    "Claude gestaffelt: Code mit Erklärung und Marketing-Vorarbeit ab Start, Agent erst bei einem Treffer":
+        scen(**CLAUDE_GESTAFFELT),
+    "Claude gestaffelt, falls Claude als Lehrer die Lernkurve verkürzt (unbelegt)":
+        scen(**dict(CLAUDE_GESTAFFELT, learn=[0.35, 0.65, 0.90, 1.0])),
+    "Claude gestaffelt im strengeren Markt 2027 (mehr Konkurrenz, Abwanderung, Kopien)":
+        scen(**dict(CLAUDE_GESTAFFELT, **MARKT_2027)),
 }
 
 

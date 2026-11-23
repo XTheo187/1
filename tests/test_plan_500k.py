@@ -42,6 +42,32 @@ class TestPlan500k(unittest.TestCase):
         gesamt = sum(p.nebenstunden(p.START + p.timedelta(weeks=w), False) for w in range(p.WEEKS))
         self.assertAlmostEqual(gesamt, 9 * 2.5 + 2 * 5 + 12)
 
+    def test_allein_ohne_partnersuche(self):
+        """Wer bewusst allein arbeitet, verliert keine Stunden an die Partnersuche."""
+        self.assertEqual(p.nebenstunden(date(2026, 11, 30), False, partnersuche=False), 5.0)
+        self.assertEqual(p.nebenstunden(date(2027, 1, 25), False, partnersuche=False), 0.0)
+        for name in ("Claude-Stufe", "Claude gestaffelt"):
+            for k, P in p.SZENARIEN.items():
+                if k.startswith(name):
+                    self.assertFalse(P["partnersuche"], k)
+                    self.assertEqual(P["stopps"], p.TORE, k)            # Tore und Abiturschutz bleiben
+                    self.assertLessEqual(P["h_school"][2] * 1.2, 16, k)
+
+    def test_agent_erst_bei_einem_treffer(self):
+        """Gestaffelt: Agent und teures Abo kommen nur, wenn eine große App als Treffer erkannt ist."""
+        P = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("Claude gestaffelt:"))]
+        rng = random.Random(17)
+        for _ in range(300):
+            r = p.simulate(rng, P)
+            if r["agent_aktiv"]:
+                self.assertTrue(any(x * p.FX >= 50000 for x in r["peaks"]))
+            if not any(x * p.FX >= 50000 for x in r["peaks"]):
+                self.assertFalse(r["agent_aktiv"])
+        O = dict(p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("Obergrenze"))],
+                 agent_bei_treffer=P["agent_bei_treffer"])
+        rng = random.Random(18)
+        self.assertGreater(sum(p.simulate(rng, O)["agent_aktiv"] for _ in range(60)), 40)
+
     def test_plan_haelt_die_eigenen_stundenregeln(self):
         """Das Hauptszenario rechnet mit den Stunden des Wochenplans (Abiturschutz)."""
         P = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("DER PLAN"))]

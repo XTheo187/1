@@ -1027,18 +1027,111 @@ Business Angel mit.
   Darmstadt oder bei einem zugelassenen Anbieter; wie das geht:
   <https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>.
 
-## 16. Nachrechnen
+## 16. Allein mit Claude: wie viel abgeben bringt am meisten?
+
+Du hast den App-Plan **allein** gewählt und willst so viel Arbeit an
+Claude abgeben, wie es den meisten Gewinn bringt. Gerechnet sind fünf
+Stufen der Abgabe und eine gestaffelte Variante, alle mit den Regeln
+dieses Plans (Abiturschutz, Tore, keine Kredite) und ohne Stunden für die
+Partnersuche, weil du bewusst allein arbeitest. Die Annahmen stammen aus
+einer eigenen Recherche mit Gegenprüfung (Studien zu KI beim
+Programmieren und im Marketing, Plattformregeln, Preise, Stand November
+2026).
+
+> **Antwort: Am meisten bringt nicht die größte Abgabe, sondern die
+> gestaffelte.** Claude schreibt von Anfang an den Code und erklärt ihn
+> dir, und Claude macht die Schreib- und Analysearbeit im Marketing – mit
+> Claude Pro (20 $ im Monat). Ein teures Abo und ein Agent für den
+> Betrieb kommen erst, wenn eine App ein Treffer ist. Mehr Abgabe ab dem
+> ersten Tag macht das Ergebnis schlechter: Sie kostet jeden Monat Geld
+> und frisst mit der Einrichtung genau die Stunden vor dem Haupttor, und
+> sie spart belegt weniger Zeit, als man denkt.
+>
+> ⟨TABELLE_STUFEN⟩
+>
+> **Ehrlich:** Die Chance auf 500.000 € bleibt in jeder Stufe praktisch
+> null. Claude löst den Engpass dieses Plans nicht: Den Code schreibt
+> Claude schnell, aber Videos mit deinem Gesicht, Creator-Beziehungen,
+> Freigaben und das Skalieren eines Treffers in der Abiturzeit bleiben bei
+> dir. Was Claude zuverlässig bringt, ist ein etwas besserer typischer
+> Ausgang und öfter eine zweite App vor dem 28.02.
+
+**Wer was macht (gestaffelte Variante):**
+
+| Aufgabe | Claude | du |
+|---|---|---|
+| Code: Vorlage, App, Paywall (RevenueCat, Superwall), KI-Funktion, Backend | schreibt alles und erklärt jeden Schritt, legt eine Projektdatei mit gelösten Review-Problemen an | prüfst mit einer Checkliste, testest auf dem iPhone, entscheidest |
+| Sicherheit und Datenschutz | Checklisten und Entwürfe: Schlüssel nur auf dem Server, Zugriffsregeln (RLS) auf jeder Tabelle, Ausgabenlimit beim KI-Anbieter, Einwilligung vor dem KI-Aufruf (5.1.2(i)), Datenschutzerklärung | prüfst und verantwortest |
+| App Store | Texte, Screenshots, Antworten an das Review | reichst ein (nur du als Account Holder), gibst frei |
+| Ideen | Recherche, 10 Kandidaten mit Begründung | wählst 3 aus |
+| Videos | Hooks, Skripte, Schnittlisten, Untertitel, Auswertung der Aufrufe | filmst, sprichst, postest selbst (offizielle Planer sind erlaubt) |
+| Creator | Recherche über TikTok One, Entwürfe für persönliche Anfragen, Briefings, Vertragsvorlage mit Kennzeichnungsklausel, Tabelle für Termine und Zahlungen | schreibst jede Anfrage selbst, verhandelst, bezahlst, prüfst die Kennzeichnung |
+| Kennzahlen | Auswertung von RevenueCat und App Store Connect, Vorschläge für Paywall-Tests | entscheidest |
+| **erst bei einem Treffer:** Agent für den Betrieb (Claude Max oder Ultra) | tägliche Berichte, Paywall-Tests vorbereiten, Antworten auf Support und Bewertungen entwerfen (mit KI-Hinweis), Releases vorbereiten | gibst jede Veröffentlichung frei; Schlüssel mit der kleinsten Rolle |
+
+**Was Claude nicht tun darf** (Plattformregeln, Recht, Anthropic-Richtlinie):
+keine Konten, die unabhängige Nutzer vortäuschen; kein automatisches
+Posten, Kommentieren oder Versenden von Nachrichten über inoffizielle
+Werkzeuge; keine Massenmails an Creator (§ 7 UWG); keine KI-Avatare, die
+eine Erfahrung mit der App bezeugen (FTC-Regel gegen gefälschte
+Testimonials, UWG Anhang Nr. 22 und 23c); keine Kundendaten über dein
+privates Claude-Abo – Fotos und Support-Mails nur über die API der UG mit
+Vertrag zur Auftragsverarbeitung. Seit 02.08.2026 muss ein KI-Support
+als KI erkennbar sein und ein fotorealistischer KI-Avatar gekennzeichnet
+werden (Art. 50 KI-Verordnung).
+
+**Warum mehr Abgabe nicht mehr bringt:**
+- **Code:** Der Plan rechnet schon mit KI-Hilfe. Die neuesten
+  kontrollierten Studien finden für erfahrene Entwickler keine sichere
+  zusätzliche Ersparnis (METR 2025: 19 % langsamer; Wiederholung 2026:
+  4–18 % schneller, nicht signifikant); bei kleinen, neuen Aufgaben
+  sind es 21–56 % (Google, Peng et al.). Wer alles abgibt, versteht den
+  Code schlechter und bleibt bei Fehlern hängen (Anthropic-Studie 2026:
+  50 % statt 67 % im Wissenstest, beim Debuggen am größten). Deshalb:
+  Claude schreibt, **erklärt** und du prüfst.
+- **Marketing:** Für einzelne Schreibaufgaben sparen Sprachmodelle
+  13–40 % (P&G, BCG, Noy und Zhang), in der Praxis nur 3–7 % der
+  Arbeitszeit. Gerechnet sind ~15 % weniger Teststunden.
+- **Agent ab Start:** Die Einrichtung kostet 10–35 Stunden genau in den
+  Wochen vor dem 28.02., in denen App 1 und App 2 entstehen sollen, und
+  das Abo kostet in den ~99 % der Läufe ohne Treffer nur Geld.
+- **KI-Avatare statt eigener Videos:** gekennzeichnet bis zu 31,5 %
+  weniger Klicks (Arbeitspapier der NYU), kein unabhängiger Beleg, dass
+  sie echte Creator ersetzen.
+- **Trefferquote:** Kein Beleg, dass KI sie erhöht – aber mehr
+  Konkurrenz: Im ersten Quartal 2026 erschienen ~80 % mehr neue iOS-Apps
+  als ein Jahr zuvor (Appfigures), im ersten Halbjahr fast so viele wie im
+  ganzen Jahr 2025, bei kaum mehr Downloads.
+
+**Was Claude kostet:** Pro 20 $, Max 100 $, Ultra 200 $ im Monat; Max
+und Ultra enthalten 100 bzw. 200 $ API-Guthaben im Monat für eigene Apps
+und Agenten. Die Foto-Analyse mit Claude Haiku 5.5 (0,10 $ / 0,50 $ je
+1 Mio. Tokens) kostet ~5–30 $ je 1.000 aktive Nutzer im Monat.
+
+**Regeln für die Zusammenarbeit:**
+- Claude im Erklär-Modus: Code erzeugen lassen und sich erklären
+  lassen; Paywall, Berechtigungen und Datenhaltung selbst verstehen.
+- Eigene Stunden ab der ersten Stunde aufschreiben; nach App 1 mit den
+  echten Zahlen neu rechnen (gefühlte KI-Ersparnis täuscht nachweislich).
+- Agenten nur mit Schlüsseln der kleinsten Rolle, Änderungen nur auf
+  eigenen Branches, keine Rechte an der Produktivdatenbank, Freigabe vor
+  jeder Veröffentlichung – Bewertungen, Mails und Webseiten können
+  versteckte Anweisungen enthalten.
+- Gespeicherte Agenten-Sitzungen regelmäßig löschen (Datenschutz).
+
+## 17. Nachrechnen
 
 ```
 python3 plan/plan_500k.py                      # Szenarien und Messpunkte (60.000 Läufe)
 python3 plan/plan_500k.py --n 300000           # wie im Dokument (je Szenario 2–5 Minuten)
 python3 plan/plan_500k.py --n 300000 --seed 3027 --nur "DER PLAN"   # weitere Läufe mit anderem Startwert
 python3 plan/plan_500k.py --nur "DER PLAN"     # nur der Plan
+python3 plan/plan_500k.py --n 300000 --nur "Claude"   # die Stufen aus Abschnitt 16
 python3 plan/simulation.py --zeitplan --ziel 500000   # Abschnitt 12
 python3 -m unittest discover -s tests
 ```
 
-## 17. Quellen
+## 18. Quellen
 
 **Fälle**
 - Cal AI: CNBC/Benzinga <https://www.benzinga.com/news/topics/25/10/48148366/lessons-well-learned-this-18-year-old-learned-to-code-at-age-7-now-his-ai-app-makes-1-4-million-per-m>;
@@ -1094,6 +1187,13 @@ python3 -m unittest discover -s tests
 - Gesamtqualifikation und Bestehen: <https://www.gesetze-bayern.de/Content/Document/BayGSO-53>, <https://www.gesetze-bayern.de/Content/Document/BayGSO-54>
 - Ferientermine Bayern: <https://www.km.bayern.de/ministerium/termine/ferientermine.html>
 - KI beim Programmieren (RCTs): <https://arxiv.org/abs/2302.06590>, <https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/>
+
+**Allein mit Claude (Abschnitt 16)**
+- KI beim Programmieren: METR 2025 <https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/>, METR 2026 <https://metr.org/blog/2026-02-24-uplift-update/>; Anthropic, KI-Hilfe und Lernen <https://www.anthropic.com/research/AI-assistance-coding-skills>; Peng et al. <https://arxiv.org/abs/2302.06590>
+- KI bei Schreib- und Teamarbeit: P&G <https://www.library.hbs.edu/working-knowledge/when-ai-joins-the-team-better-ideas-surface>, BCG <https://aiinstitute.hbs.edu/back-to-the-beginnings-of-ai-at-work/>, Support <https://www.nber.org/papers/w31161>, Praxis <https://www.nber.org/papers/w33777>
+- KI in der Werbung: <https://www.stern.nyu.edu/experience-stern/faculty-research/ai-advertising-paradox>; Art. 50 KI-Verordnung <https://artificialintelligenceact.eu/article/50/>, FAQ der Kommission <https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act>; FTC-Regel gegen gefälschte Bewertungen <https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials>; TikTok <https://www.tiktok.com/community-guidelines/en/integrity-authenticity/>; Anthropic-Nutzungsrichtlinie <https://www.anthropic.com/aup>
+- Neue Apps 2026: <https://techcrunch.com/2026/04/18/the-app-store-is-booming-again-and-ai-may-be-why/>, <https://9to5mac.com/2026/07/20/report-app-store-added-nearly-as-many-new-apps-in-h1-2026-as-in-all-of-2025>
+- Preise: <https://claude.com/pricing>, API-Guthaben in Max/Ultra <https://support.claude.com/en/articles/17154008>; KI-Avatare <https://www.heygen.com/pricing>
 
 **Wetten und Grenzen** (frühere Fassung dieses Dokuments): Ville-Ungleichung,
 Dubins & Savage, Browne (1999) – siehe Abschnitt 10 des
