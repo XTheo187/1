@@ -8,7 +8,8 @@ einen Verkauf. Dieses Modell rechnet genau diesen Weg für eine 18-Jährige in
 Regensburg mit ~5.000 EUR Startkapital und Abitur 2027 (Stundenbudget nach
 Kalender, Abitur geschützt):
 
-- nacheinander mehrere Apps (Bau, App Review, Test mit Kurzvideos und Creatorn),
+- mehrere Apps (Bau, App Review, Test mit Kurzvideos und Creatorn); die nächste App
+  entsteht in den Stunden, die der Test der vorigen übrig lässt,
 - je App eine latente Spitzen-MRR (Stufen 1k/10k/100k/1 Mio. USD, darüber Pareto;
   Fehlschläge rechtsschief nahe null wie bei RevenueCat),
 - Wachstum eines Treffers bis zur Spitze, Plateau, Abfall, Risiko eines Einbruchs,
@@ -109,6 +110,8 @@ BASE = dict(
     h_need=(15, 25, 35),               # S: Stunden/Woche, die Skalierung braucht
     team_threshold=20000.0,            # S: ab 20k EUR MRR Freelancer/Creator-Manager
     team_hours=(10, 20, 40),           # S
+    team_rate=(15, 18, 25),            # S: EUR je Helferstunde (Minijob mit Abgaben oder freie Mitarbeit),
+                                       #    bezahlt werden nur genutzte Stunden, Einstellung erst nach G3
     plateau_weeks=(4, 10, 26),         # S
     decay_month=(0.02, 0.06, 0.15),    # S: RizzGPT 250k -> 150-200k MRR (B, Starter Story)
     p_kill=(0.05, 0.10, 0.20),         # S: Entfernung/Kopie/Plattformaenderung je Treffer
@@ -152,6 +155,7 @@ BASE = dict(
     angel_delay_weeks=(3, 6, 10),      # S
     profit_target=720000.0,
     stopps=(),                         # Tore: ((Datum, Schwelle USD MRR der besten App), ...)
+    neu_stopp=(),                      # Messpunkte, unter denen nur neue Versuche enden (G5)
     nebenaufgaben=False,               # Plan: Stunden fuer Partnersuche, Gruendung, Sicherheitsnetz abziehen
     partner_vertrag=(0, 0, 0),         # S: Notar/Anwalt fuer Partnervertrag (bei Zusage faellig)
 )
@@ -253,6 +257,9 @@ def simulate(rng, P):
     share = P.get('founder_share', 1.0)
     fixed_stop_w = t('fixed_stop') / WPM
     stopp_wochen = [(bis_woche(tag), schwelle * FX) for tag, schwelle in P['stopps']]
+    neu_stopp_wochen = [(bis_woche(tag), schwelle * FX) for tag, schwelle in P['neu_stopp']]
+    team_rate = t('team_rate')
+    max_ueber = 0.0      # groesste Ueberschreitung des Budgets durch freiwillige Ausgaben (Pruefgroesse)
     g3_woche = bis_woche(date(2027, 2, 28))
     gestoppt = False
     stopp_woche = None
@@ -314,32 +321,39 @@ def simulate(rng, P):
             profit -= partner_vertrag
             partner_bezahlt = True
         # ---------------- Tore: Abbruch der Jagd ----------------
+        aktuell = max((a['R'] for a in apps), default=0.0) * WPM   # Stand am Ende der Vorwoche
+        for sw, schwelle in neu_stopp_wochen:
+            if w == sw + 1 and aktuell < schwelle:
+                n_max = min(n_max, attempts)       # keine neuen Versuche, ein laufender Bau wird fertig
         for sw, schwelle in stopp_wochen:
-            if w == sw + 1 and best_mrr < schwelle and not gestoppt:
+            if w == sw + 1 and aktuell < schwelle and not gestoppt:
                 gestoppt = True
                 stopp_woche = w
                 if bau is not None:
                     bau = None
                     attempts -= 1           # abgebrochener Bau zaehlt nicht als Versuch
                 n_max = attempts            # keine neuen Versuche
-        fix_w = fixed_stop_w if gestoppt else fixed_w
+        fix_basis = fixed_stop_w if gestoppt else fixed_w
         # ---------------- App-Arbeit (neue Versuche) ----------------
         mrr_now = sum(a['R'] for a in apps) * WPM
         if mit_partner:
             team = pp['team_hours']
         else:
-            team = team_h if mrr_now >= P['team_threshold'] else 0.0
+            team = team_h if (mrr_now >= P['team_threshold'] and w > g3_woche) else 0.0
         c_e_w = pp['c_early'] if mit_partner else c_e
         h_free = hours + (team if mit_partner else 0.0)
         hit = [a for a in apps if a['peak'] * FX >= 50000 and a['revealed']]
         if hit:
             focus = True
+        # Effort-Faktor fuer das Wachstum grosser Apps: Skalieren braucht h_need Stunden je Woche,
+        # ob die App schon als Treffer erkannt ist oder nicht
+        eff = min(1.0, (hours + team) / h_need)
+        helfer_kosten = 0.0
         if focus:
-            # Gruenderin skaliert den Treffer; Effort-Faktor fuer Wachstum
-            eff = min(1.0, (hours + team) / h_need)
+            # Gruenderin skaliert den Treffer, keine neuen Apps
             h_free = 0.0
-        else:
-            eff = 1.0
+            if not mit_partner and team > 0:
+                helfer_kosten = min(team, max(0.0, h_need - hours)) * team_rate
         if not focus:
             # 1. Testarbeit (Videos, Creator) für gestartete Apps hat Vorrang
             for tst in tests:
@@ -363,7 +377,8 @@ def simulate(rng, P):
                 bau[0] -= use
                 h_free -= use
                 if bau[0] <= 0:
-                    reviews.append([t('review_weeks'), bau[1]])
+                    # Einreichung im Lauf der Woche: das Review zählt ab der Folgewoche
+                    reviews.append([t('review_weeks') + 1.0, bau[1]])
                     bau = None
                 else:
                     break
@@ -383,7 +398,9 @@ def simulate(rng, P):
                 if w <= g3_woche:
                     deckel = max(0.0, P['test_cap'] - testkosten_g3)
                 else:
-                    deckel = sum(g for (g, _) in rev_hist[-4:])   # nur aus Umsatz
+                    # nur aus Umsatz: Umsatz der letzten 4 Wochen minus Tests, die schon daraus bezahlt sind
+                    deckel = max(0.0, sum(g for (g, _) in rev_hist[-4:])
+                                 - sum(c for (ww, c) in test_log if ww > max(w - 4, g3_woche)))
                 # Reserve fuer Tests: mindestens 1.000 EUR und alle Pflichtkosten bis 31.08.
                 # (bis zum naechsten Tor volle Fixkosten, danach die nach einem Abbruch;
                 # ohne weiteres Tor laufen die vollen Fixkosten bis zum Ende)
@@ -438,7 +455,7 @@ def simulate(rng, P):
             R = a['R']
             if a['phase'] == 'grow':
                 gw = a['g'] ** (1 / WPM)
-                e = eff if (focus and a['peak'] * FX >= 50000) else 1.0
+                e = eff if a['peak'] * FX >= 50000 else 1.0
                 gw = 1 + (gw - 1) * e
                 Rn = min(R * gw, a['peak'] * FX / WPM)
                 if Rn >= a['peak'] * FX / WPM * 0.999:
@@ -456,6 +473,7 @@ def simulate(rng, P):
                 a['phase'] = 'decay'
             planned.append(Rn)
         # Kosten und Cash-Limit
+        fix_w = fix_basis + helfer_kosten
         grow_mask = [a['phase'] == 'grow' for a in apps]
         rs = rev_share if mit_partner else 0.0
 
@@ -464,12 +482,15 @@ def simulate(rng, P):
                 return c_p
             return c_e_w if Rn * WPM < 100000 * FX else c_g
 
-        def kosten(pl, erhalt=False):
-            r = [min(c_p, rate(Rn, gm)) if erhalt else rate(Rn, gm) for Rn, gm in zip(pl, grow_mask)]
-            spend = sum(Rn * x for Rn, x in zip(pl, r))
-            return spend, rs * sum(pl)
-        spend, anteil = kosten(planned)
-        cost_plan = spend + anteil + fix_w
+        def kosten(pl, erhalt=None):
+            """Variable Kosten (ohne Umsatzanteil); erhalt[i]: App i nur mit Erhaltungssatz."""
+            sp = 0.0
+            for i, (Rn, gm) in enumerate(zip(pl, grow_mask)):
+                r = rate(Rn, gm)
+                sp += Rn * (min(c_p, r) if (erhalt and erhalt[i]) else r)
+            return sp
+        spend = kosten(planned)
+        cost_plan = spend + rs * sum(planned) + fix_w
         # Zufluss dieser Woche
         inflow = 0.0
         if len(rev_hist) >= lag:
@@ -490,25 +511,35 @@ def simulate(rng, P):
         budget = cash + inflow + sicher - offen - floor
         if not no_cash_limit and cost_plan > budget:
             cash_squeeze += 1
-            # 1. Wachstum drosseln: wachsende Apps bleiben auf Vorwochenniveau
-            for i, a in enumerate(apps):
-                if grow_mask[i] and a['launch'] != w:
-                    planned[i] = min(planned[i], a['R'])
-            spend, anteil = kosten(planned)
-            cost_plan = spend + anteil + fix_w
-            if cost_plan > budget:
-                # 2. Nur Erhaltungsbudget (nie teurer als der gedrosselte Plan)
-                spend, anteil = kosten(planned, erhalt=True)
-                cost_plan = spend + anteil + fix_w
-                if cost_plan > budget:
+            # 1. Wachstum nur so weit, wie das Geld reicht: gedrosselte Apps wachsen um den Anteil f,
+            #    der Rest ihres Umsatzes kostet nur den Erhaltungssatz
+            gedrosselt = [grow_mask[i] and a['launch'] != w and planned[i] > a['R'] for i, a in enumerate(apps)]
+            flach = [a['R'] if gedrosselt[i] else planned[i] for i, a in enumerate(apps)]
+            k_flach = kosten(flach, gedrosselt) + rs * sum(flach) + fix_w
+            if k_flach <= budget:
+                f_w = (budget - k_flach) / (cost_plan - k_flach) if cost_plan > k_flach else 0.0
+                planned = [fl + f_w * (pl - fl) for fl, pl in zip(flach, planned)]
+                cost_plan = k_flach + f_w * (cost_plan - k_flach)
+                max_ueber = max(max_ueber, cost_plan - budget)
+            else:
+                planned = flach
+                # 2. Nur Erhaltungsbudget für alle Apps
+                alle = [True] * len(apps)
+                spend = kosten(planned, alle)
+                cost_plan = spend + rs * sum(planned) + fix_w
+                if cost_plan <= budget:
+                    max_ueber = max(max_ueber, cost_plan - budget)
+                else:
                     # 3. Werbung auf das Verfügbare kürzen (Anteil k); ohne Werbung kommen keine
                     #    Neukunden, der Umsatz sinkt um churn_stop je Woche (S)
                     tot = sum(planned)
                     z = budget - fix_w - rs * tot * (1 - churn_stop)
-                    nn = spend - rs * tot * churn_stop
+                    nn = spend + rs * tot * churn_stop
                     k = min(1.0, max(0.0, z / nn)) if nn > 0 else 0.0
                     planned = [Rn * (1 - churn_stop * (1 - k)) for Rn in planned]
                     cost_plan = k * spend + rs * sum(planned) + fix_w
+                    if k > 0:
+                        max_ueber = max(max_ueber, cost_plan - budget)
         for i, a in enumerate(apps):
             a['R'] = planned[i]
         gross = sum(planned)
@@ -579,14 +610,19 @@ def simulate(rng, P):
         forderungen += rev_hist[-1][0] * web * web_net
     # Vermoegensaenderung der Gruenderin: Sie bringt das ganze Geld ein (Rest des Startkapitals als
     # Kapitalruecklage), der Partner nur Arbeit; ihr gehoert der Anteil `share` am Eigenkapital.
-    # Ist das Eigenkapital am Ende negativ, zahlt sie die offenen Rechnungen allein.
+    # Ist das Eigenkapital am Ende negativ, zahlt sie die offenen Rechnungen allein. Ein Angel hat
+    # die übliche 1x-Liquidationspräferenz ohne Beteiligung: Er bekommt seine Einlage zurück oder
+    # seinen Anteil, was mehr ist; der Rest gehört Gründerin (und Partner) im alten Verhältnis.
     einsatz = P['start_cash'] + nachschuss
     eigenkapital = einsatz + angel_geld + profit + exit_value
-    ergebnis = share * max(0.0, eigenkapital) + min(0.0, eigenkapital) - einsatz
+    s0 = P.get('founder_share', 1.0)
+    ekp = max(0.0, eigenkapital)
+    angel_teil = max(min(ekp, angel_geld), (1 - share / s0) * ekp) if angel_geld else 0.0
+    ergebnis = s0 * (ekp - angel_teil) + min(0.0, eigenkapital) - einsatz
     g3 = bis_woche(date(2027, 2, 28))
     return dict(launch1=(apps[0]['launch'] if apps else 99), profit=profit * share,
                 exit=exit_value * share, paper=paper * share, attempts=attempts,
-                gestartet=len(apps), gestartet_g3=sum(a['launch'] <= g3 for a in apps),
+                gestartet=len(apps), gestartet_g3=sum(a['launch'] <= g3 for a in apps), max_ueber=max_ueber,
                 max_mrr=max_mrr, f10=first10k_week, f100=first100k_week,
                 squeeze=cash_squeeze, peaks=[a['peak'] for a in apps], launches=[a['launch'] for a in apps], chk=chk,
                 profit_firma=profit, cash=cash, forderungen=forderungen,
@@ -617,7 +653,9 @@ PLAN_STUNDEN = dict(h_school=(3, 10, 13), h_holiday=(25, 38, 50), h_abiprep=(1, 
 # Tore G3 und G4: beste App unter 5.000 bzw. 10.000 USD MRR -> Jagd beenden
 TORE = ((date(2027, 2, 28), 5_000), (date(2027, 3, 31), 10_000))
 # Nebenaufgaben des Wochenplans (Partnersuche, Gründung, Sicherheitsnetz) kosten App-Stunden
-PLAN_REGELN = dict(PLAN_STUNDEN, stopps=TORE, nebenaufgaben=True)
+# G5 (30.04.: beste App unter 50.000 USD MRR): keine neuen Versuche mehr, die Apps laufen weiter
+G5 = ((date(2027, 4, 30), 50_000),)
+PLAN_REGELN = dict(PLAN_STUNDEN, stopps=TORE, neu_stopp=G5, nebenaufgaben=True)
 # Mehr Stunden, als der Abiturschutz erlaubt (frühere Annahme des Modells); Übergang und Sommer wie im Plan
 MEHR_STUNDEN = dict(h_school=(8, 15, 22), h_abiprep=(3, 8, 15), h_abi=(0, 3, 8), h_oral=(5, 12, 20))
 # Strengere Trefferquoten (Gegenprüfung): RevenueCat 4,6 % der neuen Apps >= 10k USD MRR in zwei
@@ -665,7 +703,7 @@ SZENARIEN = {
         scen(**dict(BESTER_PLAN, **MEHR_STUNDEN)),
     "Obergrenze: erste App ist ein Cal-AI-Treffer (Start 30k, Spitze 1,5 Mio. USD MRR)": scen(
         **BESTER_PLAN, force_first_peak=1.5e6, force_g=3.0, force_m0=30000),
-    "Der Plan ohne Tore (weiter bis August, Vergleich)": scen(**dict(BESTER_PLAN, stopps=())),
+    "Der Plan ohne Tore (weiter bis August, Vergleich)": scen(**dict(BESTER_PLAN, stopps=(), neu_stopp=())),
 }
 
 
@@ -722,7 +760,8 @@ def auswerten(P: dict, n: int, seed: int = 2027) -> dict:
         "p_mrr_100k": sum(r["max_mrr"] >= 100_000 * FX for r in res) / n,
         "versuche_median": sorted(r["attempts"] for r in res)[n // 2],
         "apps_median": sorted(r["gestartet"] for r in res)[n // 2],
-        "p_eine_app": sum(r["gestartet"] <= 1 for r in res) / n,
+        "p_keine_bis_g3": sum(r["gestartet_g3"] == 0 for r in res) / n,
+        "p_eine_bis_g3": sum(r["gestartet_g3"] == 1 for r in res) / n,
         "p_zwei_bis_g3": sum(r["gestartet_g3"] >= 2 for r in res) / n,
         "test_g3_median": sorted(r["testkosten_g3"] for r in res)[n // 2],
         "erster_launch_woche": sorted(r["launch1"] for r in res)[n // 2],
@@ -757,8 +796,9 @@ def main() -> None:
               f"P90 {r['gewinn_p90']:,.0f}  P99 {r['gewinn_p99']:,.0f}  Mittel {r['gewinn_mittel']:,.0f} EUR"
               f"   (Firma Median {r['firma_median']:,.0f})".replace(",", "."))
         print(f"   MRR >= 10k USD {_pz(r['p_mrr_10k'])}, >= 100k USD {_pz(r['p_mrr_100k'])}; Versuche Median "
-              f"{r['versuche_median']}; gestartete Apps Median {r['apps_median']} (nur eine: {_pz(r['p_eine_app'])}, "
-              f"zwei bis 28.02.: {_pz(r['p_zwei_bis_g3'])}); erster Launch Woche {r['erster_launch_woche']} "
+              f"{r['versuche_median']}; gestartete Apps bis 31.08. Median {r['apps_median']}; bis 28.02.: keine "
+              f"{_pz(r['p_keine_bis_g3'])}, genau eine {_pz(r['p_eine_bis_g3'])}, zwei oder mehr "
+              f"{_pz(r['p_zwei_bis_g3'])}; erster Launch Woche {r['erster_launch_woche']} "
               f"ab 30.11.2026; Tests bis G3 Median {r['test_g3_median']:,.0f} EUR".replace(",", "."))
         for m in r["meilensteine"]:
             print(f"     MRR >= {m['mrr_usd']:>7,} USD bis {m['bis']}: erreicht {_pz(m['p'])}   P(Ziel | erreicht) "

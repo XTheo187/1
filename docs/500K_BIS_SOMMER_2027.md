@@ -151,7 +151,7 @@ Gewerbesteuer 3,5 % × 425 % = 14,875 %, zusammen **30,7 %**.
 | **A** Gründen, Ideen testen, App 1 bauen, Partner suchen | 23.11.–23.12. | UG, Apple-Konto, 3 Ideen mit Kurzvideos getestet, App 1 im Bau, 20 Partner-Kandidaten angeschrieben | 10 (3–15) | G0 13.12., Ideen-Tor 20.12. |
 | **B** Weihnachtsferien | 24.12.–10.01. (Ferien bis Fr 08.01., 24.–26.12. frei) | App 1 eingereicht, App 2 begonnen | 25–50 | G1 Fr 08.01. |
 | **C** Launch | 11.01.–07.02. | Funnel messen, erste Creator, Partner-Entscheidung | 10 (3–15) | G2 und Partner-Tor 31.01. |
-| **D** Frühjahrsferien | 08.–14.02. (Ferien 08.–12.02.) | Paywall-Tests, Vorrat an Videos, Helfer auswählen | 25–50 | – |
+| **D** Frühjahrsferien | 08.–14.02. (Ferien 08.–12.02.) | Paywall-Tests, Vorrat an Videos, App 2 bauen, Helfer vormerken | 25–50 | – |
 | **E** bis zur Prüfungszeit | 15.02.–21.03. | Treffer skalieren, sonst App 2 starten | 10 (3–15) | **G3 28.02. (Haupttor)**, G4 31.03. |
 | **F** Abitur | 22.03.–13.06. (mündliche Zusatzprüfungen bis 18.06.) | App läuft mit Helfern und festen Regeln | 0–5 | G5 30.04. |
 | **G** Übergang | 14.–27.06. | Android, Studienbewerbung als Rückfall | 15–40 | G6 15.06. |
@@ -303,9 +303,9 @@ Ferien.
 - **Nicht:** Geld vorab, „Kurse“, Agenturen mit Grundgebühr, Partner ohne
   eigene belegte App.
 - **Partner-Tor 31.01.:** Wer bis dahin zugesagt hat, wird Gesellschafter
-  nach dem Angebot oben. Ohne Zusage läuft der Plan allein weiter; die
-  Suche geht nebenbei bis zum G3 weiter (eine spätere Zusage rechnet das
-  Modell nicht).
+  nach dem Angebot oben. Ohne Zusage läuft der Plan allein weiter, und die
+  Suche endet: Ab Februar gehören die Stunden der App. (Meldet sich später
+  doch jemand Passendes, umso besser – das Modell rechnet damit nicht.)
 - **Was das bringt (Modell, Wirkung geschätzt):** mit Partner für 25 % der
   Anteile ~0,12 % statt ~0,002 %, für 10 % vom Umsatz ~0,07 %, für 40 % der
   Anteile ~0,04 %. Der Partner bringt Stunden, Erfahrung und Kontakte: Mit
@@ -374,6 +374,8 @@ Ferien.
 ### D – 08. bis 14.02.: Frühjahrsferien (08.–12.02.)
 
 - Version 1.1 mit Paywall-Test und Teilen-Funktion.
+- **App 2 fertig bauen und einreichen** – die Ferienstunden sind nach
+  Weihnachten das zweite Bau-Fenster vor dem Haupttor.
 - 40–60 Videos auf Vorrat.
 - Helfer-Kandidaten für Schnitt, Creator-Betreuung und Support nur
   **vormerken**. Bezahlte Probeaufgaben (z. B. 2 h zu 15–20 €) und
@@ -413,8 +415,9 @@ Ferien.
   oder Pre-Seed-Investor suchen – Eigenkapital gegen 8–25 % der Anteile,
   kein Kredit. Ansprechen mit belegten Zahlen (RevenueCat-Dashboard,
   Kohorten); Unterlagen bis 31.03. vorbereiten. Den Vertrag prüft ein
-  Anwalt; dass Investoren auch für die Gründerin ein Vesting verlangen,
-  ist üblich.
+  Anwalt; üblich sind eine 1×-Liquidationspräferenz für den Angel (er
+  bekommt zuerst seine Einlage zurück) und ein Vesting auch für die
+  Gründerin.
 - **G4 (31.03.):** ≥ 10.000 $ Monatsumsatz, besser ≥ 30.000 $. Darunter
   endet die Jagd wie bei G3. Ab 30.000 $: Kohortendaten für Käufer ab jetzt sauber
   sammeln.
@@ -820,18 +823,21 @@ Apps nacheinander, mit den Regeln dieses Plans:
   Gründung und Ideenvideos 10 h in den ersten zwei Wochen, Bewerbungen
   12 h in den Weihnachtsferien. Die Woche ab 21.12. zählt als Schulwoche,
   die Frühjahrsferien liegen auf 08.–12.02.
-- **Bau und Test:** erste App 50–130 h, jede weitere 25–70 h, streng
-  nacheinander (Bau → Review → Test → nächste App); App Review 0,3–3
-  Wochen; Test 30–80 h über 2–5 Wochen mit 200–1.200 € für Creator plus
+- **Bau und Test:** erste App 50–130 h, jede weitere 25–70 h; die nächste
+  App entsteht in den Stunden, die der Test der vorigen übrig lässt
+  (Testarbeit hat Vorrang), also schon während Review und Test; App Review
+  0,3–3 Wochen ab der Woche nach der Einreichung; Test 30–80 h über 2–5
+  Wochen mit 200–1.200 € für Creator plus
   4 % Künstlersozialabgabe, bis G3 zusammen höchstens 1.500 €, danach nur
   aus dem Umsatz der letzten vier Wochen, und nur so viel, dass die
   Pflichtkosten bis 31.08. gedeckt bleiben. Ohne Testbudget halbiert sich
   die Spitze der App.
 - **Tore:** Hat am 28.02. (G3) keine App 5.000 $ Monatsumsatz oder am
-  31.03. (G4) keine 10.000 $, endet die Jagd: kein neuer Bau (ein
-  laufender Bau wird verworfen und zählt nicht als Versuch), kein
-  Testbudget, laufende Kosten 120–250 €/Monat. G5–G7 sind Messpunkte
-  ohne Abbruch.
+  31.03. (G4) keine 10.000 $ (Stand am Stichtag), endet die Jagd: kein
+  neuer Bau (ein laufender Bau wird verworfen und zählt nicht als
+  Versuch), kein Testbudget, laufende Kosten 120–250 €/Monat. Unter
+  50.000 $ am 30.04. (G5) beginnt kein neuer Versuch mehr, die Apps laufen
+  weiter; G6 und G7 sind Messpunkte ohne Abbruch.
 - **Treffer:** je App eine latente Spitzen-MRR; Chance auf ≥ 1.000 $
   10–30 %, ≥ 10.000 $ 2–8 %, davon ≥ 100.000 $ 5–22 %, davon ≥ 1 Mio. $
   3–15 %, darüber Pareto. Lernkurve: die ersten drei Versuche mit 30 %,
@@ -840,7 +846,10 @@ Apps nacheinander, mit den Regeln dieses Plans:
   Median-App macht nach 12 Monaten unter 50 $ im Monat).
 - **Wachstum** eines Treffers mit dem 1,5- bis 3-Fachen im Monat bis zur
   Spitze, Plateau 4–26 Wochen, danach −2 bis −15 % im Monat; 5–20 %
-  Risiko eines Einbruchs (Kopie, Ablehnung, Plattform).
+  Risiko eines Einbruchs (Kopie, Ablehnung, Plattform). Skalieren braucht
+  15–35 Stunden je Woche; mit weniger (Abiturzeit) wächst eine große App
+  entsprechend langsamer. Ab ~20.000 € Monatsumsatz und nach G3 helfen
+  10–40 Helferstunden je Woche, bezahlt mit 15–25 € je genutzter Stunde.
 - **Kosten:** 30–65 % vom Umsatz beim Wachstum über Creator, 55–85 % mit
   bezahlten Anzeigen, 35–60 % auf dem Plateau (Creator-Anteile plus 4 %
   Künstlersozialabgabe); Apple 15 %, über 870.000 € 30 %; Start
@@ -851,12 +860,15 @@ Apps nacheinander, mit den Regeln dieses Plans:
   nach 0–3 Wochen fällig. Kein Kredit, keine Finanzierung: Neue Kosten
   dürfen die Kasse bei Fälligkeit nicht unter die Reserve von 1.000 €
   drücken, gerechnet nur mit sicheren Zuflüssen (schon verdiente
-  Apple-Auszahlungen). Fehlt Geld, bleiben wachsende Apps erst auf dem
-  Stand der Vorwoche, dann gilt nur das Erhaltungsbudget, zuletzt wird die
-  Werbung gekürzt – dann sinkt der Umsatz um 5–15 % je Woche (Kündigungen
-  ohne Neukunden). Bei einem Treffer (≥ 20.000 € Monatsumsatz über vier
-  Wochen) kommt mit 20–60 % ein Business Angel: 50.000–250.000 € nach
-  3–10 Wochen gegen 8–25 % der Anteile.
+  Apple-Auszahlungen). Fehlt Geld, wachsen Apps nur so weit, wie es
+  reicht (der Rest ihres Umsatzes kostet nur den Erhaltungssatz); reicht
+  es nicht einmal für das Halten, gilt nur das Erhaltungsbudget, zuletzt
+  wird die Werbung gekürzt – dann sinkt der Umsatz um 5–15 % je Woche
+  (Kündigungen ohne Neukunden). Bei einem Treffer (≥ 20.000 € Monatsumsatz
+  über vier Wochen) kommt mit 20–60 % ein Business Angel: 50.000–250.000 €
+  nach 3–10 Wochen gegen 8–25 % der Anteile, mit der üblichen
+  1×-Liquidationspräferenz (er bekommt zuerst seine Einlage zurück oder
+  seinen Anteil, was mehr ist).
 - **Verkauf:** ab 16 Wochen App-Alter zum 1- bis 3,5-Fachen des
   annualisierten Gewinns abzüglich 3–10 % Transaktionskosten, aber nur,
   wenn er zusammen mit dem bisherigen Gewinn das Ziel erreicht; Abschluss

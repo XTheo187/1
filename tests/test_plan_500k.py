@@ -90,6 +90,29 @@ class TestPlan500k(unittest.TestCase):
                 self.assertGreaterEqual(r["min_kasse"], 0.0, name)
                 self.assertEqual(r["nachschuss"], 0.0, name)
 
+    def test_freiwillige_ausgaben_halten_das_budget(self):
+        """Wachstum, Erhalt und gekürzte Werbung bleiben im Budget, auch mit Umsatzbeteiligung."""
+        for name in ("Der Plan + Partner (Zusage bis 31.01.), Partner erhält 10", "Obergrenze"):
+            P = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith(name))]
+            if name == "Obergrenze":
+                P = dict(P, partner_rev_share=0.10, partner=p.PARTNER, partner_week=(0, 1),
+                         partner_vertrag=p.VERTRAG_UMSATZ)
+            rng = random.Random(31)
+            for _ in range(150):
+                self.assertLessEqual(p.simulate(rng, P)["max_ueber"], 1e-6, name)
+
+    def test_g5_beendet_neue_versuche(self):
+        """Unter 50.000 USD am 30.04. beginnt kein neuer Bau mehr (G5)."""
+        P = dict(p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("DER PLAN"))], stopps=())
+        g5 = p.bis_woche(date(2027, 4, 30))
+        rng = random.Random(13)
+        for _ in range(200):
+            r = p.simulate(rng, P)
+            if p._bis(r["chk"], g5) < 50_000 * p.FX:
+                # spätestens ein laufender Bau wird noch fertig: höchstens eine App startet nach G5 + Review
+                spaet = [w for w in r["launches"] if w > g5 + 5]
+                self.assertLessEqual(len(spaet), 1)
+
     def test_tore_beenden_die_jagd(self):
         """Nach dem Tor: kein neuer Bau, kein Testbudget; ein abgebrochener Bau zählt nicht als Versuch."""
         for name in ("DER PLAN", "Der Plan + Partner (Zusage bis 31.01.), Partner erhält 25"):
@@ -172,7 +195,8 @@ class TestPlan500k(unittest.TestCase):
     def test_meilensteine_fester_lauf(self):
         """Cal-AI-Treffer mit 30k USD Start und Faktor 3 je Monat: 10k USD in der Launch-Woche,
         100k USD frühestens 5 Wochen später (30k x 3^(5/4,33) >= 100k)."""
-        P = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("Obergrenze"))]
+        # ohne Einbruch (p_kill = 0), sonst kann ein früher Einbruch die 100k verhindern
+        P = dict(p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("Obergrenze"))], p_kill=(0, 0, 0))
         for frei in (True, False):
             rng = random.Random(8)
             erreicht = 0
