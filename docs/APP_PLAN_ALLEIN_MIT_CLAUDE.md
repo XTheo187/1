@@ -241,13 +241,17 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
 - **Alles zählt in diese Stunden:** Lernen, Bauen, Prüfen, Videos,
   Behördenkram, Bewerbungen.
 - Nie nach 22 Uhr an der App. Kein Prüfungstermin wird für die App geopfert.
-- **Schule und ETH-Grenze:** Für die ETH brauchst du in Mathe, deiner
-  Prüfungs-Naturwissenschaft und deinem Prüfungs-Sprachfach zusammen
+- **Schule und ETH-Grenze:** Für die ETH brauchst du in deinen drei
+  ETH-Fächern **Chemie (P2), Mathe (P4) und Englisch (P5)** zusammen
   mindestens 32 von 45 Punkten in den Abiturprüfungen (Abschnitt 9). Liegt
   der Schnitt deiner letzten Klausuren in diesen drei Fächern unter
   11,5 Punkten oder eine davon unter 10, arbeitest du sofort nur noch
   3 Stunden je Woche an der App. Die frei gewordene Zeit geht in genau dieses
   Fach, bis die nächste Klausur dort wieder darüber liegt.
+- **Deine Prüfungstage:** Mathe Mi 05.05., Chemie Do 13.05. (der letzte Tag
+  des schriftlichen Abiturs), Englisch als P5 an einem Tag zwischen 19.05. und
+  07.06., den deine Schule festlegt. Trag die Tage von P1 und P3 dazu. Ab
+  einer Woche vor jedem Prüfungstag gar nichts an der App.
 
 **Geld**
 - **Insgesamt höchstens 5.000 €**, einschließlich der Abmeldung, der
@@ -543,14 +547,31 @@ nicht.
   unterrichtet.
 
 **Was das für den Plan heißt:**
-- Am Dienstag prüfst du deine fünf Prüfungsfächer (P1–P4 schriftlich, P5
-  mündlich) gegen diese Bedingung.
-- Du schreibst der Zulassungsstelle (zulassungsstelle@ethz.ch) eine kurze
-  Mail: Zählen für die 70 % nur die Ergebnisse der Abiturprüfungen? Gelten die
-  Bedingungen von 2026/27 auch für den Studienbeginn im Herbst 2027? Die
-  Antwort legst du ab.
-- Mathe, die Naturwissenschaft und das Sprachfach haben im Abitur Vorrang vor
-  allem in diesem Plan.
+- **Deine Fächer erfüllen die Bedingung (Stand 23.11.):** Chemie ist P2
+  (schriftlich, Do 13.05.), Mathe P4 (schriftlich, Mi 05.05.), Englisch P5
+  (mündlich oder als Präsentation, zwischen 19.05. und 07.06.). Damit sind
+  Mathe, eine Naturwissenschaft und eine Fremdsprache Prüfungsfächer.
+- **Noch zu prüfen:**
+  - dass du diese drei Fächer in den letzten zwei Jahren durchgehend hattest;
+  - dass in den letzten drei Jahren vier weitere Fächer aus Physik, Biologie,
+    Informatik, weiterer Sprache (z. B. Deutsch), Erdkunde, Geschichte und
+    Wirtschaft unterrichtet wurden. Ob Politik-Wirtschaft als „Wirtschaft“
+    zählt, fragst du in der Mail mit.
+- **Dein Ziel:** Chemie + Mathe + Englisch zusammen mindestens 32 von
+  45 Punkten in den Prüfungen, z. B. 11/11/10. Plane mit Puffer, also eher
+  12/11/11.
+- **Englisch als P5:** Hast du die Präsentationsprüfung gewählt (die Wahl lag
+  am Ende von Q2), bekommst du die Aufgabe zwei Wochen vor dem Termin und
+  gibst die Dokumentation eine Woche vorher ab. Diese zwei Wochen gehören
+  ganz der Prüfung.
+- **Fehlt nach den schriftlichen Ergebnissen wenig:** In Chemie und Mathe
+  kannst du eine zusätzliche mündliche Prüfung beantragen (28.–30.06.). Frag
+  die Oberstufenkoordination, wie sie mit dem schriftlichen Ergebnis
+  verrechnet wird, und die ETH, ob sie das Gesamtergebnis zählt.
+- **Mail an die Zulassungsstelle** (zulassungsstelle@ethz.ch): Vorlage in
+  Abschnitt 16. Die Antwort legst du ab.
+- Chemie, Mathe und Englisch haben im Abitur Vorrang vor allem in diesem
+  Plan.
 
 **Bewerbung**
 
@@ -653,8 +674,8 @@ schon bezahlt.
 
 | Tag | Zeit | was | Ergebnis |
 |---|---|---|---|
-| Mo 23.11. | 1 h | 10 min: deine Prüfungsfächer P1–P5 gegen die ETH-Bedingung prüfen (Abschnitt 9). Ist eine Bedingung nicht erfüllt, sag es mir, dann planen wir die Aufnahmeprüfung oder den Rückfall. 40 min: Git for Windows und Node.js (LTS) installieren, dann in PowerShell Claude Code (`irm https://claude.ai/install.ps1 \| iex`); mit `claude` anmelden; `/output-style learning` einschalten und Claude bitten, den Lernmodus in deinen Benutzereinstellungen einzutragen (Abschnitt 7). 5 min: Expo Go auf iPhone und iPad laden. 5 min: auf claude.ai unter Abrechnung nachsehen, wann Max endet, und danach auf Pro umstellen statt Max zu verlängern. | Prüfungsfächer geklärt, Claude Code läuft |
-| Di 24.11. | 1 h | 5 min: dieses Repository auf GitHub auf privat stellen (Settings → General → Danger Zone → Change repository visibility → Private). 10 min: Mail an die ETH-Zulassungsstelle (Abschnitt 9). 45 min: Expo-Tutorial „Build with AI“ mit Claude Code. | Repository privat, Mail raus, erste App in Expo Go |
+| Mo 23.11. | 1 h | 10 min: deine Prüfungsfächer gegen die ETH-Bedingung prüfen (Abschnitt 9) – **erledigt:** Chemie P2, Mathe P4, Englisch P5 erfüllen sie. 40 min: Git for Windows und Node.js (LTS) installieren, dann in PowerShell Claude Code (`irm https://claude.ai/install.ps1 \| iex`); mit `claude` anmelden; `/output-style learning` einschalten und Claude bitten, den Lernmodus in deinen Benutzereinstellungen einzutragen (Abschnitt 7). 5 min: Expo Go auf iPhone und iPad laden. 5 min: auf claude.ai unter Abrechnung nachsehen, wann Max endet, und danach auf Pro umstellen statt Max zu verlängern. | Prüfungsfächer geklärt, Claude Code läuft |
+| Di 24.11. | 1 h | 5 min: dieses Repository auf GitHub auf privat stellen (Settings → General → Danger Zone → Change repository visibility → Private). 10 min: Mail an die ETH-Zulassungsstelle (Vorlage in Abschnitt 16), vorher aufschreiben, welche Fächer du in den Klassen 11–13 hattest. 45 min: Expo-Tutorial „Build with AI“ mit Claude Code. | Repository privat, Mail raus, erste App in Expo Go |
 | Mi 25.11. | 1 h | Missing Semester: Shell (Teil 1). | Terminal-Grundlagen |
 | Do 26.11. | 1 h | Gespräch mit deinen Eltern: Abschnitt 3 zeigen. Wer soll im App Store stehen, du oder ein Elternteil? Darf ihre Anschrift ins Impressum? Noch nichts entscheiden, nur verstehen. **Karte:** Hast du keine eigene Visa- oder Mastercard (Debit reicht, sie muss in US-Dollar zahlen können), beantragst du sie diese Woche bei deiner Bank zum Girokonto; sie kommt oft erst nach 1–2 Wochen. Du brauchst sie ab KW 53 für das Guthaben der Claude API und später für Apple (oder du meldest dich bei Apple über die Developer-App an). Für die ETH-Gebühr im Dezember geht notfalls die Karte deiner Eltern. | Fragen geklärt, Karte beantragt, Entscheidung im Januar |
 | Fr 27.11. | 1 h | Missing Semester: Shell (Teil 2) und Git (Teil 1). | Terminal- und Git-Grundlagen |
@@ -801,6 +822,9 @@ schon bezahlt.
 
 ### KW 11–22 (15.03.–06.06.), Ende Q4 und Abitur, 0–5 h
 
+- **Deine Prüfungstage:** Mathe Mi 05.05., Chemie Do 13.05., Englisch (P5)
+  am Termin deiner Schule zwischen 19.05. und 07.06., dazu P1 und P3. Ab einer
+  Woche vor jedem dieser Tage gar nichts an der App.
 - **In den 0–5 Stunden** (im schriftlichen Abitur 0–1): Zahlen, Notfälle
   (Tabelle in Abschnitt 18) und kleine Bau-Schritte ohne Termindruck, nie an
   Prüfungstagen und nie am Tag davor. Eine fertige App darfst du einreichen,
@@ -1117,6 +1141,34 @@ Stelle im Code. Ändere nichts, bis ich es freigebe.
 Apple hat abgelehnt: [Text der Ablehnung]. Erkläre mir den Grund, schlage die
 kleinste Änderung vor und entwirf eine kurze, höfliche Antwort. Trage den
 Fall in docs/review-log.md ein.
+```
+
+**Mail an die ETH-Zulassungsstelle (KW 48)** – an zulassungsstelle@ethz.ch,
+selbst abschicken:
+```
+Betreff: Prüfungsfreie Zulassung Bachelor Informatik HS 2027 – Frage zum
+deutschen Abitur (Niedersachsen)
+
+Guten Tag,
+
+ich mache im Sommer 2027 Abitur an einem Gymnasium in Niedersachsen und
+möchte mich für den Bachelor Informatik ab Herbstsemester 2027 bewerben.
+Meine Prüfungsfächer sind unter anderem Chemie (P2, schriftlich),
+Mathematik (P4, schriftlich) und Englisch (P5, mündlich). In den Klassen
+11–13 hatte ich außerdem [Fächer eintragen, z. B. Deutsch, Physik,
+Biologie, Geschichte, Erdkunde, Politik-Wirtschaft].
+
+1. Zählen für den Notendurchschnitt von 70 % nur die Ergebnisse der
+   Abiturprüfungen in Chemie, Mathematik und Englisch?
+2. Wird eine zusätzliche mündliche Prüfung in einem schriftlichen Fach
+   mitgerechnet?
+3. Gelten die Zulassungsbedingungen 2026/27 auch für den Studienbeginn im
+   Herbst 2027?
+4. Erfüllen meine weiteren Fächer die Bedingung der vier zusätzlichen
+   Fächer, und zählt Politik-Wirtschaft als „Wirtschaft“?
+
+Vielen Dank und freundliche Grüße
+[Vorname Nachname]
 ```
 
 **Brief an die Krankenkasse (nach der Gewerbeanmeldung)**
