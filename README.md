@@ -65,10 +65,17 @@ wächst in der Abiturzeit kaum), mit einem erfahrenen Vertriebspartner ~0,12 %
 (etwa 1 zu 800), falls sich bis 31.01. einer findet. Wer allein geht und
 möglichst viel an Claude abgibt: Am meisten bringt die sparsame, gestaffelte
 Abgabe (Claude Pro, Agent erst bei einem Treffer), mehr Abgabe ab Start
-verschlechtert das Ergebnis (Abschnitt 16; Umsetzung Tag für Tag und Woche
-für Woche in [`docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md`](docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md)):
+verschlechtert das Ergebnis:
 [`docs/500K_BIS_SOMMER_2027.md`](docs/500K_BIS_SOMMER_2027.md)
-(Rechnung: `python3 plan/plan_500k.py`).
+(Rechnung: `python3 plan/plan_500k.py`). Diese Rechnungen nahmen Bayern und
+Programmierkenntnisse an. **Mit den echten Angaben** (Niedersachsen, keine
+Programmierkenntnisse, Videos ohne Gesicht, insgesamt höchstens 5.000 €,
+danach ETH Zürich) steht der Plan Tag für Tag und Woche für Woche in
+[`docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md`](docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md):
+erst bauen, dann als Einzelunternehmen gründen (eine UG passt nicht in
+5.000 €), kein Start im Abitur, Creator-Geld nur nach einem Signal. Ergebnis:
+500.000 € in keinem von 300.000 Läufen, ein Gewinn in 10 von 100, im Median
+~1.100 € Verlust, nie mehr als 5.000 €.
 Was bis dahin realistisch durch Arbeit drin ist – maximal rund 13.500 EUR
 netto (Median ~11.300 EUR), Obergrenze ~21.800 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)
 (Rechnung: `python3 plan/verdienst_2027.py`).
@@ -151,7 +158,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 151 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 160 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau

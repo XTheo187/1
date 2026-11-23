@@ -15,20 +15,20 @@ Auswertungen. Du lernst die Grundlagen, prüfst, testest, entscheidest und
 trägst die Verantwortung. Gerechnet ist alles mit
 [`plan/plan_500k.py`](../plan/plan_500k.py), Szenarien „Deine Angaben“.
 
-> **Worauf du dich einlässt** (Modell, ⟨N⟩ Läufe je Variante):
+> **Worauf du dich einlässt** (Modell, 300.000 Läufe je Variante):
 >
 > | | |
 > |---|---|
-> | Zeit bis 31.08. | **~⟨STD_GESAMT⟩ Stunden**, davon ~⟨STD_ABI⟩ bis zum Ende des Abiturs (10 je Schulwoche, ~31–38 je Ferienwoche, 3–7 in Q4, 0–5 im Abitur, ab Juni 15–55) |
-> | App 1 fertig | im Median am ⟨E1_MED⟩; bis 14.03. in ⟨E1_1403⟩ von 100 Läufen, sonst erst nach dem Abitur |
-> | App 1 im App Store | im Median ab ⟨L1_MED⟩ |
-> | Geld bis zum Schluss (einschließlich Abmeldung und Steuererklärung) | im Median **⟨MED⟩ €**, im Mittel ⟨MITTEL⟩ €, nie mehr als 5.000 € |
-> | überhaupt ein Gewinn | in **⟨PLUS⟩ von 100** Läufen, meist ein paar Hundert Euro (P90 ⟨P90⟩ €) |
-> | 10.000 € oder mehr | in ⟨10K⟩ von 100 Läufen |
-> | 500.000 € bis 31.08.2027 | **in keinem** von ⟨N⟩ Läufen |
+> | Zeit bis 31.08. | **~760 Stunden**, davon ~200 bis zum Ende des Abiturs (10 je Schulwoche, ~31–38 je Ferienwoche, 3–7 in Q4, 0–5 im Abitur, ab Juni 15–55) |
+> | App 1 fertig | im Median am 07.06.; bis 14.03. in 26 von 100 Läufen, sonst meist erst nach dem Abitur |
+> | App 1 im App Store | im Median ab 21.06. |
+> | Geld bis zum Schluss (einschließlich Abmeldung und Steuererklärung) | im Median **−1.095 €**, im Mittel −744 €, nie mehr als 5.000 € |
+> | überhaupt ein Gewinn | in **10 von 100** Läufen, meist nur wenig; die besten 1 % der Läufe enden ab +5.110 € |
+> | 10.000 € oder mehr | in 0,39 von 100 Läufen (etwa 4 von 1.000) |
+> | 500.000 € bis 31.08.2027 | **in keinem** von 300.000 Läufen |
 >
 > Das ist ehrlich gesagt ein **Lernprojekt mit kleiner Gewinnchance**, kein
-> Weg zu 500.000 €. Es kostet dich im Normalfall rund ⟨MED_POS⟩ € und ~⟨STD_GESAMT⟩
+> Weg zu 500.000 €. Es kostet dich im Normalfall rund 1.095 € und ~760
 > Stunden. Dafür hast du am Ende eine eigene App im App Store, echte
 > Programmier- und Marketingerfahrung vor dem ETH-Studium und gemessene Zahlen.
 > Die Regeln unten sorgen dafür, dass weder das Abitur noch die ETH-Zulassung
@@ -84,7 +84,7 @@ Korrekturen und was sie bewirken:
    App 1 mit Claude in Expo Go, ganz ohne Firma. Ausgaben: nur Claude Pro
    (~21 € im Monat).
 2. **Gegründet wird erst, wenn App 1 halb steht** (im Modell im Median am
-   ⟨GR_MED⟩), und zwar als **Einzelunternehmen**. Eine UG frisst dein ganzes
+   25.01.), und zwar als **Einzelunternehmen**. Eine UG frisst dein ganzes
    Geld (Abschnitt 3).
 3. **Ganz anonym geht es nicht.** Ohne Gesicht und ohne Stimme geht es. Aber
    als Verkäufer im App Store steht der Name einer echten Person, deiner
@@ -119,15 +119,15 @@ gewerblich anbietet.
 | Register | Gewerberegister: Name, Anschrift, Tätigkeit gibt die Gemeinde an jeden heraus | dasselbe vom Elternteil | Handelsregister kostenlos für jeden: dein Name, Geburtsdatum, Wohnort; North Data zeigt Name und Wohnort |
 | Gesicht und Stimme | nie nötig | nie nötig | nie nötig |
 
-**Was es kostet und bringt** (Modell, ⟨N⟩ Läufe je Variante, alles bis zur
+**Was es kostet und bringt** (Modell, 300.000 Läufe je Variante, alles bis zur
 Abmeldung bzw. Auflösung eingerechnet)
 
 | | Einzelunternehmen | UG, Anschrift der Eltern | UG, gemietete Geschäftsadresse |
 |---|---:|---:|---:|
-| Formalkosten bis zum Ende | ~200–1.300 € (Gewerbe, Apple, Erstberatung, Steuererklärung) | ~4.000–9.000 € bis zur Löschung (frühestens Ende 2028) | dazu 50–130 € je Monat für die Adresse |
-| passt in 5.000 € | ja | **nein:** in ⟨UGE_TEUER⟩ von 100 Läufen lassen Pflichtkosten und Auflösung gar keine Gründung zu | **nein:** in ⟨UGA_TEUER⟩ von 100 Läufen keine Gründung |
-| überhaupt ein Gewinn | ⟨PLUS⟩ von 100 | ⟨UGE_PLUS⟩ von 100 | ⟨UGA_PLUS⟩ von 100 |
-| Geld im Median | ⟨MED⟩ € | ⟨UGE_MED⟩ € (nur Claude, weil meist gar nicht gegründet wird und dann auch keine App erscheint) | ⟨UGA_MED⟩ € (ebenso) |
+| Formalkosten bis zum Ende | ~150–1.300 € (Gewerbe, Apple, Erstberatung, Steuererklärung) | ~4.000–9.000 € bis zur Löschung (frühestens Ende 2028) | dazu 50–130 € je Monat für die Adresse |
+| passt in 5.000 € | ja | **nein:** in 92 von 100 Läufen lassen Pflichtkosten und Auflösung gar keine Gründung zu | **nein:** in 99 von 100 Läufen keine Gründung |
+| überhaupt ein Gewinn | 10 von 100 | 0,06 von 100 | 0 von 100 |
+| Geld im Median | −1.095 € | −375 € (nur Claude, weil meist gar nicht gegründet wird und dann auch keine App erscheint) | −357 € (ebenso) |
 | vor dem Umzug sauber beenden | ja, Abmeldung an einem Tag | nein: wegen des Sperrjahrs läuft die Auflösung, während du in Zürich lebst; führst du die UG von dort, wird sie auch in der Schweiz steuerpflichtig, und dir droht Wegzugsteuer auf die Anteile | wie links |
 
 **Meine Empfehlung:** das **Einzelunternehmen**. Die UG versteckt deinen
@@ -626,7 +626,7 @@ schon bezahlt.
 - **Ist sie bis Sa 13.03. freigegeben:** starten, mit 3 Slideshows je Woche.
   Sonst „manuell veröffentlichen“ einstellen und bis 07.06. warten.
 - **Ist sie noch nicht eingereicht:** im Rahmen der Q4-Stunden weiterbauen,
-  ohne Druck. Im Modell ist sie bis 14.03. nur in ~⟨E1_1403⟩ von 100 Läufen
+  ohne Druck. Im Modell ist sie bis 14.03. nur in ~26 von 100 Läufen
   fertig, und das ist kein Fehler.
 - **Messpunkt M3 (So 14.03.):** Ist App 1 gestartet, freigegeben oder noch im
   Bau? Davon hängt ab, was du am 07.06. tust.
@@ -691,7 +691,7 @@ App so weit wachsen kann.
 
 ## 14. Ab Juli: drei Wege
 
-### Weg A – kein Treffer (~⟨WEG_A⟩ von 100 Läufen)
+### Weg A – kein Treffer (~98 von 100 Läufen)
 
 - Ab 19.07. keine neue App, kein Creator-Geld. Die Apps laufen ohne Budget
   weiter, eigene Slideshows nur, wenn du Lust hast.
@@ -710,7 +710,7 @@ App so weit wachsen kann.
 - Die letzte EÜR und Einkommensteuererklärung 2027 gibst du 2028 per ELSTER
   ab, auch aus Zürich.
 
-### Weg B – Tor 1 bestanden, Tor 2 verfehlt (~⟨WEG_B⟩ von 100)
+### Weg B – Tor 1 bestanden, Tor 2 verfehlt (~1,2 von 100)
 
 - Bis 08.08. Creator nur aus dem Umsatz der Vorwoche, jede Woche ein
   Paywall-Test.
@@ -719,7 +719,7 @@ App so weit wachsen kann.
 - Achte auf die Familienversicherung (Gewinn über ~590 € im Monat) und melde
   Gewinne der Krankenkasse.
 
-### Weg C – ein echter Treffer (~⟨WEG_C⟩ von 100)
+### Weg C – ein echter Treffer (~0,7 von 100)
 
 - Steuerberatung zu Deutschland und der Schweiz **vor** dem Umzug: verkaufen,
   ein Elternteil übernimmt, oder geordnet weiterführen.
@@ -943,11 +943,11 @@ meisten bringen?
 | – | nur wenn der Gewinn über ~590 € im Monat liegt | eigene Kranken- und Pflegeversicherung | ~280 € im Monat |
 
 **Was im Modell herauskommt** (alles bis zum Schluss eingerechnet):
-- Median ⟨MED⟩ €, im Mittel ⟨MITTEL⟩ €;
-- in 9 von 10 Läufen höchstens ⟨P10_POS⟩ € Verlust;
+- Median −1.095 €, im Mittel −744 €;
+- in 9 von 10 Läufen höchstens 1.495 € Verlust;
 - mehr als 5.000 € Verlust in keinem Lauf.
 
-Creator-Geld fließt im Modell nur in ⟨TEST_P⟩ von 100 Läufen, im Schnitt aller Läufe ~⟨TEST_MITTEL⟩ €.
+Creator-Geld fließt im Modell nur in 11 von 100 Läufen, im Schnitt aller Läufe ~65 €.
 
 **Kassenregeln**
 - Jeden Sonntag: Kontostand, offene Rechnungen, erwartete Zahlungen von Apple
@@ -998,12 +998,26 @@ Deine eigene Zahl ist genauer als jede Schätzung hier.
 
 ## 20. Alle Varianten im Vergleich
 
-Modell `plan/plan_500k.py`, ⟨N⟩ Läufe je Variante. „Geld“ ist deine
+Modell `plan/plan_500k.py`, 300.000 Läufe je Variante. „Geld“ ist deine
 Vermögensänderung bis zum Schluss, einschließlich Abmeldung, Steuererklärung
 und gegebenenfalls eigener Krankenversicherung (vor Einkommensteuer; bis
 ~12.500 € Jahresgewinn fällt keine an).
 
-⟨VERGLEICH⟩
+| Variante | Gewinn in … von 100 | ≥ 10.000 € in … von 100 | Geld im Median | im Mittel | schlechteste 10 % ab | beste 1 % ab | gegründet | 500.000 € erreicht |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Einzelunternehmen, Creator-Geld nur nach Signal, bis 750 EUR (DEIN PLAN)** | 10,0 | 0,39 | −1.095 € | −744 € | −1.495 € | 5.110 € | 100 % | 0 |
+| UG mit gemieteter Geschäftsadresse | 0,000 | 0,000 | −357 € | −422 € | −557 € | −189 € | 1 % | 0 |
+| UG mit Anschrift der Eltern | 0,060 | 0,000 | −375 € | −690 € | −631 € | −190 € | 8 % | 0 |
+| Einzelunternehmen, ohne Testbudget | 10,0 | 0,26 | −1.077 € | −764 € | −1.474 € | 4.349 € | 100 % | 0 |
+| Einzelunternehmen, Tests sofort beim Start (ohne Signalregel) | 8,5 | 0,35 | −1.595 € | −1.206 € | −2.118 € | 4.967 € | 100 % | 0 |
+| Einzelunternehmen, Signalregel mit bis zu 1.500 EUR | 10,0 | 0,39 | −1.099 € | −753 € | −1.502 € | 5.138 € | 100 % | 0 |
+| Einzelunternehmen, Tore wie bisher (28.02./31.03.) | 1,2 | 0,21 | −963 € | −826 € | −1.253 € | 187 € | 92 % | 0 |
+| Einzelunternehmen, ohne Tore | 9,4 | 0,38 | −1.240 € | −908 € | −1.762 € | 5.076 € | 100 % | 0 |
+| Einzelunternehmen, gründen schon im Dezember | 9,5 | 0,40 | −1.179 € | −824 € | −1.593 € | 5.031 € | 100 % | 0 |
+| Einzelunternehmen, ohne Startpause im Abitur | 10,4 | 0,56 | −1.082 € | −684 € | −1.486 € | 6.037 € | 100 % | 0 |
+| Einzelunternehmen, falls du schneller baust (wie mit Programmierkenntnissen) | 30,5 | 3,5 | −672 € | 839 € | −1.357 € | 31.573 € | 100 % | 0 |
+| Einzelunternehmen im strengeren Markt 2027 | 8,5 | 0,33 | −1.116 € | −814 € | −1.505 € | 4.566 € | 100 % | 0 |
+| Einzelunternehmen, falls Videos ohne Gesicht schlechter wirken (Trefferquoten -25 %) | 7,5 | 0,27 | −1.122 € | −859 € | −1.507 € | 4.032 € | 100 % | 0 |
 
 So liest du die Tabelle:
 - **Signalregel:** Creator-Geld nur nach einem Signal ist besser als Tests
@@ -1016,6 +1030,10 @@ So liest du die Tabelle:
 - **Schneller bauen** ist der größte Hebel: Mit den Bauzeiten von jemandem,
   der programmieren kann, wäre App 1 schon im Winter draußen. Deshalb lohnt
   der Lernpfad, und deshalb soll App 1 so klein wie möglich sein.
+- **Startpause im Abitur:** Sie kostet etwas (10,4 statt 10,0 von 100 Läufen
+  mit Gewinn). Dafür musst du im Abitur weder auf Bewertungen noch auf
+  Ablehnungen reagieren. Abitur und ETH-Zulassung sind mehr wert als dieser
+  Unterschied.
 - **Gegenproben:** Wirken Videos ohne Gesicht schlechter oder ist der Markt
   2027 strenger, sinkt die Chance etwas, aber die Grenze von 5.000 € hält.
 

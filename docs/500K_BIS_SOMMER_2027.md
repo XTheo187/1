@@ -5,7 +5,7 @@
 > UG-Gründung, eigene Videos mit Gesicht, Haupttor am 28.02. Tatsächlich:
 > Niedersachsen, keine Programmierkenntnisse, kein Gesicht, höchstens 5.000 €
 > insgesamt, danach ETH Zürich. Mit deinen Angaben erreicht kein einziger von
-> ⟨N⟩ Läufen 500.000 €. Den Plan mit deinen echten Angaben findest du in
+> 300.000 Läufen 500.000 €. Den Plan mit deinen echten Angaben findest du in
 > [`APP_PLAN_ALLEIN_MIT_CLAUDE.md`](APP_PLAN_ALLEIN_MIT_CLAUDE.md) (Szenarien
 > „Deine Angaben“ in `plan/plan_500k.py`). Die Abschnitte unten bleiben als
 > Vergleich stehen.
