@@ -180,6 +180,8 @@ BASE = dict(
     apple_ab=(0, 0, 0),                # S/B: Woche ab Start, ab der das Apple-Konto aktiv ist (UG: Notar,
                                        #      Register, D-U-N-S, Pruefung); vorher keine Einreichung
     abwicklung=(0, 0, 0),              # S/B: Kosten nach dem 31.08. fuer Aufloesung bzw. Abmeldung (EUR)
+    kv_grenze=None,                    # dict(monatsgewinn, beitrag): Einzelunternehmen; Gewinn ueber der Grenze
+                                       # beendet die Familienversicherung (eigene Beitraege, privat)
     harte_grenze=False,                # Plan: freiwillige Ausgaben nur, solange danach alle Pflichtkosten bis
                                        #       31.08. UND die Aufloesung bezahlt sind (Gesamtverlust <= Einsatz)
 )
@@ -380,9 +382,12 @@ def simulate(rng, P):
     # Gruendung: sofort (bisherige Szenarien) oder erst, wenn App 1 zu einem Anteil gebaut ist
     # ("erst bauen, dann gruenden"); vorher fallen nur die Werkzeuge an, das Apple-Konto fehlt noch
     GR = P.get('gruendung')
+    KV = P.get('kv_grenze')
+    kv_kosten = 0.0
     gr_rest = 0.0
     zu_teuer = False
     bh1 = None
+    einreichung1 = None  # Woche, in der App 1 fertig gebaut ist (Einreichung, sobald das Apple-Konto aktiv ist)
     if GR:
         gr_setup = tri(rng, *GR['setup'])
         gr_apple = tri(rng, *GR['apple_dauer'])
@@ -566,6 +571,8 @@ def simulate(rng, P):
                         break
                     # Einreichung im Lauf der Woche: das Review zählt ab der Folgewoche; ist das
                     # Apple-Konto noch nicht aktiv, wartet die fertige App bis dahin
+                    if bau[1] == 1:
+                        einreichung1 = max(float(w), apple_ab)
                     reviews.append([t('review_weeks') + 1.0 + max(0.0, apple_ab - w), bau[1]])
                     bau = None
                 else:
@@ -774,6 +781,8 @@ def simulate(rng, P):
         wk_profit = proceeds + gross * web * web_net - cost_plan - fin_cost
         profit += wk_profit
         profit_hist.append(wk_profit)
+        if KV and sum(profit_hist[-4:]) * WPM / 4 > KV['monatsgewinn']:
+            kv_kosten += KV['beitrag'] / WPM      # eigene Kranken- und Pflegeversicherung (privat)
         cost_queue.append((w + cost_lag, cost_plan))
         due_now = sum(c for (wk, c) in cost_queue if wk <= w)   # inkl. dieser Woche bei Ziel 0
         cash += inflow - due_now - fin_cost
@@ -841,7 +850,7 @@ def simulate(rng, P):
     ekp = max(0.0, eigenkapital)
     angel_teil = max(min(ekp, angel_geld), (1 - share / s0) * ekp) if angel_geld else 0.0
     abw_eff = abw if gegruendet else 0.0      # ohne Gründung nichts aufzulösen
-    ergebnis = s0 * (ekp - angel_teil) + min(0.0, eigenkapital) - einsatz - abw_eff
+    ergebnis = s0 * (ekp - angel_teil) + min(0.0, eigenkapital) - einsatz - abw_eff - kv_kosten
     g3 = bis_woche(P["test_cap_bis"])
     return dict(launch1=(apps[0]['launch'] if apps else 99), profit=profit * share,
                 exit=exit_value * share, paper=paper * share, attempts=attempts,
@@ -856,7 +865,8 @@ def simulate(rng, P):
                 einmal_offen=einmal_rest + ag_rest,
                 offene_versuche=(bau is not None) + len(reviews),
                 partner_woche=pw, abwicklung=abw_eff, apple_ab=apple_ab,
-                gegruendet=gegruendet, gruendung_woche=gruendung_woche, zu_teuer=zu_teuer)
+                gegruendet=gegruendet, gruendung_woche=gruendung_woche, zu_teuer=zu_teuer, kv_kosten=kv_kosten,
+                einreichung1=einreichung1)
 
 
 def scen(**kw):
@@ -978,18 +988,27 @@ SIGNAL = dict(wochen=3, schwelle_usd=300)
 DEINE_ANGABEN = dict(CLAUDE_GESTAFFELT, **OHNE_PROGRAMMIEREN, kalender='NI', neben=NEBEN_NI, harte_grenze=True,
                      startpause=STARTPAUSE_NI, stopps=TORE_SOMMER, neu_stopp=(), test_cap_bis=date(2027, 7, 18),
                      test_cap=750.0, signal=SIGNAL)
-# Rechtsformen (Kosten je Monat ab der Gründung, nach dem Tor, Gründung, Auflösung nach dem 31.08.; S/B):
-# Einzelunternehmen: Gewerbe, Apple 99 USD, Werkzeuge; dein Name steht als Verkäufer im App Store.
-EINZEL = dict(gruendung=dict(bei=0.5, setup=(110, 150, 230), apple_dauer=(0.3, 0.6, 1.5), fix_vorher=(20, 22, 25),
+# Rechtsformen (Recherche November 2026; Kosten je Monat ab der Gründung, nach dem Tor, Gründung, Auflösung bzw.
+# Abmeldung nach dem 31.08.; B/S):
+# Einzelunternehmen: Gewerbeanmeldung 20-65 EUR, Apple 99 USD/Jahr, Erstberatung beim Steuerberater 0-250 EUR
+# (Kleinunternehmer oder Verzicht), IHK 0 EUR (Gründer, Gewerbeertrag < 25.000 EUR); laufend Claude Pro
+# (~21 EUR brutto), Server 0-25 USD, Domain/E-Mail; EÜR und Steuererklärung 2027 selbst über ELSTER oder mit
+# Steuerberater (0-800 EUR), Abmeldung 0-32,50 EUR vor dem Umzug. Dein Name steht als Verkäufer im App Store.
+# Gewinn über 590 EUR im Monat (Grenze 2027) beendet die Familienversicherung: dann ~280 EUR/Monat privat.
+EINZEL = dict(gruendung=dict(bei=0.5, setup=(150, 250, 450), apple_dauer=(0.3, 0.6, 1.5), fix_vorher=(20, 22, 25),
                              stunden=4.0),
-              fixed_month=(40, 70, 120), fixed_stop=(15, 30, 60), abwicklung=(0, 200, 600), profit_target=970000.0)
+              fixed_month=(35, 60, 110), fixed_stop=(10, 25, 50), abwicklung=(0, 300, 800), profit_target=970000.0,
+              kv_grenze=dict(monatsgewinn=590.0, beitrag=280.0))
 # UG mit registertauglicher Geschäftsadresse (49-130 EUR/Monat): im App Store nur der Firmenname, im Impressum
-# und Handelsregister trotzdem dein Name; Notar, Register, D-U-N-S, Apple-Prüfung 2-8 Wochen.
-UG_ADRESSE = dict(gruendung=dict(bei=0.5, setup=(550, 750, 1000), apple_dauer=(3, 5, 8), fix_vorher=(20, 22, 25),
+# und Handelsregister trotzdem dein Name. Notar ~165-205 EUR, Register 300 EUR, Gewerbe; Steuerberater für
+# Jahresabschluss und Erklärungen 500-2.000 EUR/Jahr, IHK ~130 EUR, Transparenz- und Unternehmensregister ~40 EUR,
+# Konto 0-12 EUR/Monat; Auflösung mit Sperrjahr 2.500-5.000 EUR (Löschung frühestens Ende 2028, während du
+# in Zürich lebst); D-U-N-S und Apple-Prüfung 2-8 Wochen.
+UG_ADRESSE = dict(gruendung=dict(bei=0.5, setup=(500, 560, 700), apple_dauer=(3, 5, 8), fix_vorher=(20, 22, 25),
                                  stunden=10.0),
-                  fixed_month=(230, 320, 470), fixed_stop=(190, 260, 380), abwicklung=(800, 1500, 2500))
+                  fixed_month=(150, 280, 450), fixed_stop=(120, 230, 380), abwicklung=(2500, 3500, 5000))
 # UG mit der Anschrift der Eltern als Geschäftsanschrift (öffentlich im Handelsregister und in der EU-Anzeige).
-UG_ELTERN = dict(UG_ADRESSE, fixed_month=(170, 240, 360), fixed_stop=(130, 180, 260))
+UG_ELTERN = dict(UG_ADRESSE, fixed_month=(100, 190, 320), fixed_stop=(70, 140, 250))
 
 SZENARIEN = {
     "Recherche-Quoten (Regeln des Plans)": scen(**PLAN_REGELN),
