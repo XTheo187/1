@@ -65,7 +65,8 @@ wächst in der Abiturzeit kaum), mit einem erfahrenen Vertriebspartner ~0,12 %
 (etwa 1 zu 800), falls sich bis 31.01. einer findet. Wer allein geht und
 möglichst viel an Claude abgibt: Am meisten bringt die sparsame, gestaffelte
 Abgabe (Claude Pro, Agent erst bei einem Treffer), mehr Abgabe ab Start
-verschlechtert das Ergebnis (Abschnitt 16):
+verschlechtert das Ergebnis (Abschnitt 16; Umsetzung Tag für Tag und Woche
+für Woche in [`docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md`](docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md)):
 [`docs/500K_BIS_SOMMER_2027.md`](docs/500K_BIS_SOMMER_2027.md)
 (Rechnung: `python3 plan/plan_500k.py`).
 Was bis dahin realistisch durch Arbeit drin ist – maximal rund 13.500 EUR

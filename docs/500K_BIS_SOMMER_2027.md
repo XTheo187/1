@@ -1082,6 +1082,10 @@ Programmieren und im Marketing, Plattformregeln, Preise, Stand November
 > Läufen, davon in knapp 40 % 10.000 € oder mehr. Im Normalfall bleibt es
 > ein Verlust von ~3.400–3.450 € bis 31.08.
 
+**Die Umsetzung Woche für Woche** – mit Tagesplan für diese Woche,
+Stundenbudgets, Checklisten und Vorlagen für Claude – steht in
+[`APP_PLAN_ALLEIN_MIT_CLAUDE.md`](APP_PLAN_ALLEIN_MIT_CLAUDE.md).
+
 **Wer was macht (gestaffelte Variante):**
 
 | Aufgabe | Claude | du |
