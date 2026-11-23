@@ -149,34 +149,69 @@ Gewerbesteuer 3,5 % × 425 % = 14,875 %, zusammen **30,7 %**.
 
 **Stundenregel in Schulwochen:** 10 Stunden (Mo–Fr je 1 Stunde, Samstag
 5 Stunden), höchstens 15; in Wochen mit Schulaufgaben nur der Samstag
-(3 Stunden); nie nach 22 Uhr. Bis zum Haupttor G3 sind das rund 200–250
-Stunden. Wer danach weitermacht, kommt bis 31.08. auf rund 800 Stunden,
-gut zwei Drittel davon nach dem Zeugnis.
+(3 Stunden); nie nach 22 Uhr. **Alles zählt in diese Stunden** – auch
+Partnersuche (2–3 h je Woche bis 31.01.), Gründung und Konten, Ideenvideos
+und die 12 Stunden Bewerbungen in den Weihnachtsferien. Für Bau und Test
+der Apps bleiben bis zum Haupttor G3 deshalb nur rund 150–170 Stunden
+(ohne diese Aufgaben wären es ~200). Wer danach weitermacht, kommt bis
+31.08. auf rund 760 App-Stunden, knapp zwei Drittel davon nach dem Zeugnis
+(ab 28.06.).
 
 ## 4. Woche für Woche
 
 ### A – 23.11. bis 23.12.2026: gründen, Ideen testen, App 1 bauen
 
 **KW 48 (23.–29.11.):**
+- **Vorher prüfen** (für den Online-Termin): Personalausweis mit
+  freigeschalteter Online-Funktion und bekannter PIN, NFC-Smartphone mit
+  der Notar-App der Bundesnotarkammer, Laptop mit Kamera.
 - **UG (haftungsbeschränkt) gründen**: Online-Notartermin mit
-  Musterprotokoll, Stammkapital 1.000–2.500 €. Kosten ~375–430 €
-  (Notar ~150–200 € brutto mit Auslagen, Handelsregister ~225 €).
-- Geschäftskonto eröffnen, Stammkapital einzahlen.
+  Musterprotokoll, Stammkapital 1.000–2.500 €. Kosten ~450–500 €
+  (Notar ~150–200 € brutto mit Auslagen, Handelsregister 300 € einschließlich
+  Bereitstellungsgebühr). Laut Musterprotokoll trägt die UG davon höchstens
+  300 € (und nicht mehr als ihr Stammkapital); den Rest zahlst du privat,
+  die UG darf ihn dir nicht erstatten.
+- **Geschäftsanschrift festlegen:** Sie steht öffentlich im
+  Handelsregister, im Impressum, bei D&B und im EU-App-Store. Das
+  Elternhaus nur mit Zustimmung der Eltern; sonst eine ladungsfähige
+  Geschäftsadresse buchen (~10–40 €/Monat, passt in die laufenden Kosten).
+- Geschäftskonto eröffnen, Stammkapital einzahlen. **Den Rest der 5.000 €
+  als freiwillige Zuzahlung in die Kapitalrücklage** überweisen (§ 272
+  Abs. 2 Nr. 4 HGB), **nicht als Darlehen** – ein Darlehen wäre ein Kredit
+  an die UG, und ohne Rangrücktritt wäre die UG schon bei ~2.000 € Verlust
+  bilanziell überschuldet. Zurück an dich geht die Rücklage später über
+  das steuerliche Einlagekonto (§ 27 KStG), soweit das Stammkapital gedeckt
+  bleibt (§ 30 GmbHG).
+- **Regel ab jetzt:** Eigenkapital und Kasse monatlich prüfen. Droht
+  Zahlungsunfähigkeit oder ist die Hälfte des Stammkapitals verloren,
+  sofort den Steuerberater fragen (§ 5a Abs. 4 GmbHG, §§ 15a, 19 InsO).
 - Domain, einfache Website und Firmen-E-Mail anlegen (Apple verlangt beides
-  für Organisationen), ~20–100 €.
+  für Organisationen), ~20–100 €. **Impressum** nach § 5 DDG auf der
+  Website und in allen Markenkonten, bis zur Eintragung mit „UG
+  (haftungsbeschränkt) i. G.“.
+- **Alle Konten gehören der UG**: Apple, Google Play, Stripe, RevenueCat,
+  Superwall, Supabase, Expo, GitHub, Domain und Markenkonten mit der
+  Firmen-E-Mail und Zwei-Faktor-Anmeldung; du bist überall Inhaberin bzw.
+  Account Holder. Partner und Helfer bekommen später nur Rollen (z. B. App
+  Manager in App Store Connect, Maintainer bei GitHub), nie den
+  Eigentümerzugang.
 - Steuerberater auswählen und Kosten klären: Jahresabschluss,
   Offenlegung und Steuererklärungen der UG kosten ~1.500–3.000 € im Jahr,
   auch ohne Umsatz. Die laufende Buchhaltung kann bis zum ersten Umsatz
-  selbst laufen.
-- **Entscheidung Holding** (am einfachsten jetzt: erst eine Holding-UG
-  gründen, die dann die App-UG gründet – ohne Sperrfrist; später geht es
-  nur mit Aufwand, solange die App-UG noch wenig wert ist, über einen
-  Anteilstausch mit 7 Jahren Sperrfrist nach § 22 UmwStG): Eine Holding
-  senkt den nötigen Kaufpreis bei einem Anteilsverkauf von ~670.000 €
-  (privat, § 17 EStG) auf ~508.000 € (§ 8b KStG), kostet aber ~375–430 €
-  Gründung und ~1.000–3.000 € im Jahr. Käufer kleiner Apps kaufen meist
-  die App (Asset-Deal), dann bringt die Holding nichts. **Empfehlung: eine
-  UG, keine Holding.**
+  selbst laufen. Im selben Gespräch die **Statusfrage zur
+  Rentenversicherung** klären (Abschnitt 9).
+- **Entscheidung Holding:** Am einfachsten wäre es jetzt: erst eine
+  Holding-UG gründen, die dann die App-UG gründet. Später geht es nur mit
+  Aufwand – entweder kauft eine Holding die Anteile zum Verkehrswert (§ 17
+  EStG auf den Wertzuwachs bis dahin), oder Anteilstausch nach § 21 UmwStG
+  mit 7 Jahren Sperrfrist nach § 22 UmwStG, aber nur in eine GmbH-Holding:
+  Eine Holding-UG darf keine Sacheinlage annehmen (§ 5a Abs. 2 S. 2 GmbHG),
+  außer bei einer Kapitalerhöhung auf ≥ 25.000 €. Eine Holding senkt den
+  nötigen Kaufpreis bei einem Anteilsverkauf von ~670.000 € (privat, § 17
+  EStG) auf ~508.000 € (§ 8b KStG), kostet aber ~450–500 € Gründung und
+  ~1.000–3.000 € im Jahr. Käufer kleiner Apps kaufen meist die App
+  (Asset-Deal), dann bringt die Holding nichts. **Empfehlung: eine UG,
+  keine Holding.**
 - Markenkonten auf TikTok, Instagram und YouTube Shorts anlegen, klar als
   App-Marke erkennbar (Name und Logo der App).
 - **Ideensuche** nach den Regeln aus Abschnitt 6: 10 Kandidaten
@@ -188,24 +223,34 @@ gut zwei Drittel davon nach dem Zeugnis.
   ELSTER mit USt-IdNr. und **Verzicht auf die Kleinunternehmerregelung**
   (sonst fallen auf Werbung bei Meta und TikTok 19 % Umsatzsteuer ohne
   Vorsteuerabzug an), Transparenzregister.
-- **D-U-N-S-Nummer** beantragen (kostenlos, bis 5 Werktage plus 2 bei
-  Apple).
+- **Am Tag der Eintragung die D-U-N-S-Nummer beantragen** (kostenlos). Sie
+  setzt die eingetragene UG voraus; bis zu 5 Werktage bei D&B plus 2 bei
+  Apple, erst dann ist die Anmeldung als Organisation möglich.
+- **Krankenkasse schriftlich anfragen** (Familienversicherung, Abschnitt 9):
+  Stunden in Schulwochen, Ferien und Sommer, kein Gehalt, keine
+  Ausschüttung. Antwort bis 23.12. erbitten.
 - Je Idee 5–7 Kurzvideos im eigenen Markenkonto: das Problem, ein
   „Magic Moment“, Kommentare lesen.
-- Expo/React-Native-Vorlage aufsetzen: Kamera oder Eingabe → KI-Aufruf →
-  Ergebnis → Paywall. Kernfunktion läuft auf dem Testgerät.
+- Expo/React-Native-Vorlage aufsetzen: Kamera oder Eingabe →
+  Einwilligung → KI-Aufruf → Ergebnis → Paywall. Bis das Apple-Konto aktiv
+  ist, läuft die Kernfunktion in Expo Go auf dem Testgerät.
 
 **KW 50 (07.–13.12.):**
-- **Apple Developer Program als Organisation** (99 $/Jahr), Paid Apps
-  Agreement, Bank- und Steuerdaten (W-8BEN-E), DSA-Händlerangaben,
-  **Small Business Program sofort beantragen** (15 % statt 30 %, wirkt
-  erst 15 Tage nach Ende des Fiskalmonats der Zusage).
+- **Apple Developer Program als Organisation** (99 $/Jahr), sobald die
+  D-U-N-S-Nummer bei Apple angekommen ist; danach Paid Apps Agreement,
+  Bank- und Steuerdaten (W-8BEN-E), DSA-Händlerangaben, **Small Business
+  Program sofort beantragen** (15 % statt 30 %, wirkt erst 15 Tage nach
+  Ende des Fiskalmonats der Zusage).
 - Google Play als Organisation (25 $ einmalig).
-- Stripe-Konto für den US-Web-Checkout.
-- Onboarding und Paywall (RevenueCat, Superwall) im Sandbox-Kauf
-  lauffähig.
-- **G0 (13.12.):** UG eingetragen oder im Verfahren, Apple-Konto
-  beantragt, 3 Ideen mit je 10–20 Videos getestet.
+- Web-Checkout für US-Nutzer einrichten: entweder über einen Merchant of
+  Record (z. B. Paddle, ~5 % + 0,50 $), der die US-Sales-Tax übernimmt,
+  oder Stripe mit Stripe Tax und Überwachung der Schwellen je
+  Bundesstaat (Abschnitt 10). Mit dem Steuerberater entscheiden.
+- Onboarding und Paywall (RevenueCat, Superwall) bauen; Gerätebuild,
+  Sandbox-Kauf und TestFlight gehen erst mit aktivem, bezahltem
+  Apple-Konto.
+- **G0 (13.12.):** UG eingetragen oder im Verfahren, D-U-N-S beantragt
+  (bzw. Eintragung abgewartet), 3 Ideen mit je 5–7 Videos getestet.
 
 **KW 51 (14.–20.12.):**
 - Wenn Schulaufgaben anstehen, gilt die Regel: nur der Samstag (3 Stunden).
@@ -217,8 +262,8 @@ gut zwei Drittel davon nach dem Zeugnis.
 **KW 52 (21.–23.12.):** drei Schultage, Regel für Schulwochen; ab 24.12.
 Ferien.
 
-**Partnersuche (KW 48 bis 31.01., 2–3 Stunden je Woche) – der größte
-Hebel des Plans:**
+**Partnersuche (KW 48 bis 31.01., 2–3 Stunden je Woche, innerhalb der
+10-Stunden-Regel) – der größte Hebel des Plans:**
 - **Gesucht:** jemand, der schon eine Consumer-App über Kurzvideos und
   Creator auf ≥ 10.000 $ Monatsumsatz gebracht hat – im Gespräch belegt mit
   Zahlen aus App Store Connect oder RevenueCat, nicht nur behauptet. Er
@@ -232,7 +277,19 @@ Hebel des Plans:**
   Mindestzeit (Vesting über eine notarielle Gesellschaftervereinbarung mit
   Rückkaufrecht; die Übertragung von UG-Anteilen braucht ohnehin den Notar,
   § 15 GmbHG). Alternativ eine Umsatzbeteiligung ohne Anteile, z. B.
-  10 % vom Umsatz, solange er oder sie mitarbeitet.
+  10 % vom Umsatz, solange er oder sie mitarbeitet. Der Partner bringt
+  Arbeit, kein Geld: **Verluste trägst du allein**, und mit 25 % Anteil
+  gehört ihm auch ein Viertel deiner eingezahlten Rücklage.
+- **Bei Zusage:** Eckpunkte (Term Sheet) in einer Woche; dann
+  Gesellschaftervereinbarung mit Vesting, Good/Bad Leaver, Regel für einen
+  Verkauf, Wettbewerbsverbot und **Übertragung aller Nutzungsrechte an
+  Code, Videos und Designs auf die UG** (ohne Vertrag bleiben die Rechte
+  beim Urheber – § 69b UrhG gilt nur für Angestellte –, und ein Käufer
+  prüft genau das). Entwurf nach einer Vorlage, Prüfung durch einen
+  Anwalt zum Festpreis, Beurkundung beim Notar: ~300–2.000 € und ein bis
+  drei Wochen (Schätzung, vorher Angebote einholen). Für die 10-%-Variante
+  ein schriftlicher Kooperationsvertrag mit Laufzeit, Kündigung und
+  derselben Rechteübertragung (~150–800 €).
 - **Nicht:** Geld vorab, „Kurse“, Agenturen mit Grundgebühr, Partner ohne
   eigene belegte App.
 - **Partner-Tor 31.01.:** Wer bis dahin zugesagt hat, wird Gesellschafter
@@ -253,9 +310,23 @@ Hebel des Plans:**
   Studienplätze und PiBS (Unternehmen suchen ein Jahr vorher, Abschnitt 12).
 - App 1 fertig: Onboarding mit Fragen, **harte Paywall** direkt danach
   (ohne Umschalter für die Testphase – Apple lehnt solche „Toggle-Paywalls“
-  seit Januar 2026 ab), Wochen- und Jahresabo, Web-Kauf für US-Nutzer,
-  Kontolöschung in der App, Datenschutzerklärung.
+  seit Januar 2026 ab), Wochen- und Jahresabo, Web-Kauf für US-Nutzer
+  neben dem In-App-Kauf.
+- **Liste vor der Einreichung** (jeder fehlende Punkt kostet eine
+  Ablehnung, also Tage):
+  - Einwilligungsdialog vor dem ersten KI-Aufruf: welcher Anbieter, welche
+    Daten (Apple 5.1.2(i), seit November 2025);
+  - Knopf „Käufe wiederherstellen“ (3.1.1);
+  - Links zu Datenschutzerklärung und Nutzungsbedingungen (EULA) auf der
+    Paywall und in App Store Connect (5.1.1, 3.1.2);
+  - Kontolöschung in der App;
+  - Auftragsverarbeitungsverträge mit KI-Anbieter, Supabase, RevenueCat
+    und Superwall; bei Gewicht oder Gesundheitszielen ausdrückliche
+    Einwilligung nach Art. 9 DSGVO und Datenschutz-Folgenabschätzung.
 - TestFlight mit 10–20 Testern; Einreichung bis Mo 04.01.
+- **Plan B:** Ist das Apple-Konto am 28.12. noch nicht aktiv (späte
+  Eintragung, D-U-N-S, Feiertage), in den Ferien App 1 fertig bauen und
+  App 2 beginnen; Einreichung dann bis Mitte Januar, G1 auf 15.01.
 - **G1 (Fr 08.01.):** App 1 im Review oder live; App 2 begonnen (dieselbe
   Vorlage, andere Nische).
 
@@ -266,12 +337,23 @@ Hebel des Plans:**
   der **Umsatz je 1.000 Aufrufe (RPM)**.
 - KW 02: 10–20 Nano-Creator (unter 10.000 Follower) anschreiben; KW 04:
   3–5 bezahlte, gekennzeichnete Posts zu 50–150 $.
+- **Vor dem ersten bezahlten Post:** Creator-Honorare an selbstständige
+  Privatpersonen sind abgabepflichtig zur Künstlersozialkasse, sobald sie
+  2027 zusammen 1.000 € übersteigen (5,0 % darauf, Meldung bis 31.03.2028;
+  Influencer zählen ausdrücklich dazu, auch im Ausland). Mit Creatorn im
+  Ausland nur Post-Deals ohne Nutzungsrechte für Anzeigen vereinbaren;
+  Rechte für Spark Ads erst nach Klärung von § 50a EStG mit dem
+  Steuerberater (Freistellung beim BZSt oder Einbehalt) oder über eine
+  Plattform als Vertragspartner.
 - KW 02–03 (letzte Leistungsnachweise von 13/1, Zeugnis 13/1 am Mo
-  25.01.): in Wochen mit Schulaufgaben nur der Samstag.
+  25.01.): in Wochen mit Schulaufgaben nur der Samstag – Videos dann am
+  Samstag vorproduzieren und zeitgesteuert posten, keine Creator-Ansprache.
 - **G2 (31.01.):** Irgendeine App ≥ 1.000 $ Monatsumsatz? Messwerte je
   Test (ab ~200.000 Aufrufen): RPM größer als die Creator-Kosten je 1.000
   Aufrufe (~1–3 $), Download → Zahler ≥ 5 %, Testphase → Zahler ≥ 25 %,
-  Erstattungen < 5 %. Eine App, die nach 3 Wochen und 2–3
+  Erstattungen < 5 %, **Web-Anteil am Umsatz** (Ziel ≥ 20 %; sonst
+  Paywall für US-Nutzer umbauen, z. B. Web-Kauf mit Rabatt als erste
+  Option). Eine App, die nach 3 Wochen und 2–3
   Paywall-Varianten darunter liegt, wird eingestellt; App 2 startet
   spätestens 15.02.
 
@@ -279,24 +361,46 @@ Hebel des Plans:**
 
 - Version 1.1 mit Paywall-Test und Teilen-Funktion.
 - 40–60 Videos auf Vorrat.
-- Helfer per Probeaufgabe auswählen (5–10 Kandidaten je 1–2 Stunden, den
-  Besten behalten): Schnitt, Creator-Betreuung, Support.
+- Helfer-Kandidaten für Schnitt, Creator-Betreuung und Support nur
+  **vormerken**. Bezahlte Probeaufgaben (z. B. 2 h zu 15–20 €) und
+  Einstellung erst nach erreichtem G3 und nur aus Umsatz – als Minijob
+  (Anmeldung bei der Minijob-Zentrale, Betriebsnummer, Unfallversicherung,
+  Lohnabrechnung) oder als freie Mitarbeit mit schriftlichem Vertrag
+  (Rechteübertragung an die UG, Geheimhaltung).
 - Geschlossenen Test im Google Play starten (Android später).
 
 ### E – 15.02. bis 21.03.: bis zur Prüfungszeit
 
 - **G3 (28.02.), das Haupttor:** ≥ 5.000 $ Monatsumsatz, Wachstum ≥ 50 %
   im Monat, Werbung in ≤ 4 Wochen zurückverdient.
-  - **Verfehlt:** Die 500k-Jagd endet hier. Keine neuen Versuche mehr,
-    Werkzeuge kündigen; es bleiben nur das Apple-Konto und die
-    Pflichtkosten der UG (~120–250 €/Monat). Die App läuft als kleines
-    Projekt weiter, das Abitur hat Vorrang, im Sommer ein Job
-    (Abschnitt 12).
-  - **Erreicht:** Web-Anteil auf ≥ 30 %, Creator nach dem Prinzip
-    „Fixpreis plus garantierte Aufrufe“, Werbung nur aus Umsatz.
-- KW 11 „Autopilot“ für das Abitur: Anleitung für den Helfer, Creator
-  vorab gebucht und bezahlt, Supabase Pro (pausiert nicht), Alarme bei
-  Ausfall und Ablehnung, festes Wochenbudget.
+  - **Verfehlt:** Die 500k-Jagd endet hier. Keine neuen Versuche und
+    kein Testbudget mehr, Werkzeuge kündigen; es bleiben nur das
+    Apple-Konto und die Pflichtkosten der UG (~120–250 €/Monat). Die App
+    läuft als kleines Projekt weiter, das Abitur hat Vorrang, im Sommer ein
+    Job (Abschnitt 12). **Bis 30.09.2027 entscheiden**, ob die UG
+    weiterläuft (~1.500–3.000 € im Jahr, nur wenn die App das trägt) oder
+    aufgelöst wird (Beschluss beim Notar, Gläubigeraufruf, Sperrjahr,
+    Löschung; geschätzt ~1.000–2.500 €, das Restgeld kommt frühestens nach
+    dem Sperrjahr zurück). Werkzeuge, Domain und Apple-Konto vor der
+    Verlängerung kündigen.
+  - **Erreicht:** Web-Anteil am Umsatz auf ≥ 30 % bringen, Creator nach
+    dem Prinzip „Fixpreis plus garantierte Aufrufe“, Werbung nur aus
+    Umsatz, Helfer einstellen (Phase D).
+- KW 11 „Autopilot“ für das Abitur: Anleitung für den Helfer, Creator mit
+  festen Terminen und Freigaben vorab gebucht (Rahmenverträge), **bezahlt
+  nach dem Posten** im festen Wochenbudget (höchstens Umsatz der
+  Vorwoche) – nicht im Voraus, das sprengt die Kasse. Für den Helfer eine
+  Handlungsvollmacht in Textform mit Wochenlimit und eine Firmenkarte mit
+  Limit; neue Apple-Vereinbarungen kannst nur du als Account Holder
+  annehmen (Benachrichtigung aufs Handy). Supabase Pro (pausiert nicht),
+  Alarme bei Ausfall und Ablehnung.
+- **Wenn die Kasse einen Treffer bremst** (ab ~20.000 € Monatsumsatz über
+  vier Wochen, Apple zahlt erst nach 5–9 Wochen): einen **Business Angel**
+  oder Pre-Seed-Investor suchen – Eigenkapital gegen 8–25 % der Anteile,
+  kein Kredit. Ansprechen mit belegten Zahlen (RevenueCat-Dashboard,
+  Kohorten); Unterlagen bis 31.03. vorbereiten. Den Vertrag prüft ein
+  Anwalt; dass Investoren auch für die Gründerin ein Vesting verlangen,
+  ist üblich.
 - **G4 (31.03.):** ≥ 10.000 $ Monatsumsatz, besser ≥ 30.000 $. Darunter
   endet die Jagd wie bei G3. Ab 30.000 $: Kohortendaten für Käufer ab jetzt sauber
   sammeln.
@@ -314,8 +418,10 @@ Hebel des Plans:**
 - Regel für Ausgaben: je Woche höchstens den Umsatz der Vorwoche.
 - Keine Entscheidung darf von dir abhängen, kein Prüfungstermin wird für
   die Firma geopfert.
-- **G5 (30.04.):** ≥ 50.000 $ Monatsumsatz (dann ~18–19 % Chance auf das
-  Ziel). Darunter: Ziel beenden.
+- **G5 (30.04.), Messpunkt ohne Abbruch:** ≥ 50.000 $ Monatsumsatz (dann
+  ⟨G5_ERR⟩ Chance auf das Ziel). Darunter sinkt die Chance auf ⟨G5_VERF⟩;
+  weiter nur ohne neue Versuche und solange ein Verkauf zum 1- bis
+  3,5-Fachen des Gewinns erreichbar bleibt.
 
 ### G – 14. bis 27.06.: Übergang
 
@@ -326,8 +432,10 @@ Hebel des Plans:**
 - **G6 (15.06.):** ≥ 150.000 $ Monatsumsatz. Dann **Verkauf
   vorbereiten**: Kohorten D1–D90, Erstattungsquote, Kanalmix, Zeitaufwand
   der Gründerin; Gespräche mit App-Portfolio-Käufern und Studios. Ziel ist
-  eine Absichtserklärung (LOI). Verfehlt: App auf Gewinn statt Wachstum
-  umstellen; das Ziel ist faktisch verfehlt.
+  eine Absichtserklärung (LOI). Verfehlt: kein Abbruch – die Chance liegt
+  dann noch bei ⟨G6_VERF⟩, weil fast alle Treffer über einen Verkauf im
+  Juli/August kommen. Gespräche mit Käufern trotzdem beginnen, sobald der
+  Gewinn der letzten drei Monate einen Kaufpreis in Reichweite bringt.
 
 ### H – 28.06. bis 31.08.: Vollzeit
 
@@ -336,11 +444,14 @@ Hebel des Plans:**
   Pauschalverträge mit den besten Creatorn, eigene Werbevideos der Creator
   als Anzeigen (Spark Ads) – nur bei Rückverdienst in ≤ 4 Wochen.
 - **G7 (15.07.):** ≥ 300.000 $ Monatsumsatz **oder** eine unterschriebene
-  Absichtserklärung über einen Kaufpreis, der zusammen mit dem bisherigen
-  Gewinn ≥ 720.000 € ergibt (mit Partner: ≥ 720.000 € ÷ eigener Anteil),
-  Abschluss bis 25.08. **oder** ≥ 300.000 € aufgelaufener Gewinn. Sonst ist das Ziel verfehlt: App
-  behalten, als Geschäft weiterführen, im Herbst den Ausbildungsweg
-  antreten.
+  Absichtserklärung über einen Kaufpreis, der **nach Transaktionskosten**
+  (Makler, Anwalt, Due Diligence, Steuerberater: ~3–10 %) zusammen mit dem
+  bisherigen Gewinn ≥ 720.000 € ergibt (mit Partner oder Angel: ≥ 720.000 €
+  ÷ eigener Anteil), Abschluss bis 25.08. **oder** ≥ 300.000 €
+  aufgelaufener Gewinn. Gelingt nichts davon, bleibt bis Ende Juli noch
+  eine Listung bei einem Makler oder Käufer mit Abschluss bis 25.08.;
+  danach ist das Ziel verfehlt: App behalten, als Geschäft weiterführen,
+  im Herbst den Ausbildungsweg antreten.
 - **G8 (31.08.):** Eigenkapital nach Steuerrückstellung ≥ 500.000 €
   (offene Forderungen gegen Apple zählen) oder ein abgeschlossener
   Verkauf.
@@ -414,8 +525,14 @@ danach Deutsch.
   Jahr mit 3 Tagen Test. Längere Testphasen wandeln besser, bei 3 Tagen
   fallen 55 % der Kündigungen auf Tag 0.
 - Bindung: Streaks, Erinnerungen, Genauigkeit der Kernfunktion.
-- US-Web-Checkout per Stripe (in den USA erlaubt; Apple verlangt
-  während des laufenden Verfahrens keine Provision darauf).
+- US-Web-Checkout per Stripe oder Merchant of Record **neben** dem
+  In-App-Kauf (in den USA erlaubt; Apple verlangt während des laufenden
+  Verfahrens keine Provision darauf). Kein Wundermittel: In einem Test von
+  RevenueCat (Mai 2025) kauften über den Link nach außen 18 % statt 28 %
+  beim In-App-Kauf, und nach Stripe-Gebühren (internationale Karten,
+  Umrechnung, Billing, Tax) bleiben vom Web-Kauf ~86–93 % statt 85 %
+  bei Apple. Der eigentliche Vorteil: Das Geld kommt nach Tagen statt
+  nach 5–9 Wochen.
 
 **Technik und Kosten (Dezember bis August):**
 
@@ -423,7 +540,7 @@ danach Deutsch.
 |---|---|
 | Apple Developer Program / Google Play | 99 $/Jahr / 25 $ einmalig |
 | Claude Pro mit Claude Code (im Sommer Max) | 20 $/Monat (100 $) |
-| Expo (Builds in der Cloud, kein Mac nötig) | 0–19 $/Monat |
+| Expo (Builds in der Cloud, kein Mac nötig; Gerätebuilds und Sandbox erst mit aktivem, bezahltem Apple-Konto) | 0–19 $/Monat |
 | Supabase Pro (pausiert nicht) | 25 $/Monat |
 | RevenueCat / Superwall | frei bis 2.500 $ bzw. 10.000 $ Monatsumsatz, dann 1 % |
 | KI-Modell für Bilder (z. B. Claude Haiku 5.5) | ~10–30 $ je 1.000 aktive Nutzer und Monat |
@@ -458,33 +575,45 @@ mit Datennutzung für Nutzerfotos ungeeignet (DSGVO).
 
 Jeder bezahlte Beitrag wird als **„Werbung“** gekennzeichnet (§ 5a UWG),
 mit schriftlichem Vertrag über Nutzungsrechte (Anzeigen, Spark Ads,
-Dauer, Gebiet) und Freigabe vor Veröffentlichung.
+Dauer, Gebiet) und Freigabe vor Veröffentlichung. Bezahlt wird **nach
+dem Posten**. Honorare an selbstständige Creator kosten zusätzlich 5,0 %
+Künstlersozialabgabe (ab 1.000 € im Jahr); Nutzungsrechte von Creatorn im
+Ausland können unter § 50a EStG fallen (Abschnitt 4, Phase C).
 
 ## 8. Geld: Budget, Cashflow, Finanzierung
 
-**Die 5.000 €** (dieselben Spannen rechnet das Modell):
+**Die 5.000 €** (dieselben Spannen und Regeln rechnet das Modell):
 
 | Posten | bis zum Haupttor G3 (28.02.) | 01.03.–31.08. |
 |---|---:|---:|
-| Start: Notar, Register, Gewerbe (~430 €), Website und Rechtstexte (~100–200 €), falls nötig ein gebrauchtes Testgerät (0–350 €) | ~450–1.200 € | – |
-| Laufende Kosten: Werkzeuge (Tabelle oben, ~100 €/Monat), Buchhaltung und Steuerberater anteilig, Konto, IHK – zusammen 200–500 €/Monat | ~600–1.500 € | läuft die Jagd weiter, genauso; nach Abbruch nur ~120–250 €/Monat, also ~700–1.500 € |
-| **Creator- und Videotests** | **200–1.200 € je App, zusammen höchstens ~1.500 €** | nur aus Umsatz |
-| **Reserve** – Tests und Werbung dürfen die Kasse nie darunter drücken | **1.000 €** | |
+| Start: Notar, Register, Gewerbe (~505–555 €, davon ~150–255 € privat, Abschnitt 4), Website und Rechtstexte (~50–200 €), falls nötig ein gebrauchtes Testgerät (0–350 €) | ~600–1.100 € | – |
+| Laufende Kosten: Werkzeuge (Tabelle oben, ~100 €/Monat), Buchhaltung und Steuerberater anteilig, Konto, IHK, gegebenenfalls Geschäftsadresse – zusammen 200–500 €/Monat | ~600–1.500 € | läuft die Jagd weiter, genauso; nach Abbruch nur ~120–250 €/Monat, also ~700–1.500 € |
+| **Creator- und Videotests** (mit 4 % für die Künstlersozialabgabe) | **200–1.250 € je App, zusammen höchstens 1.500 €** | nur aus Umsatz (höchstens der Umsatz der letzten vier Wochen); nach einem verfehlten Tor gar nicht mehr |
+| Mit Partner: Vertrag (Notar, Anwalt) | ~300–2.000 € (10 % vom Umsatz: ~150–800 €) | – |
+| **Reserve** – Werbung darf die Kasse nie darunter drücken; Tests nur, wenn danach auch alle Pflichtkosten bis 31.08. gedeckt sind | **≥ 1.000 €** | |
 
-Ohne jeden Umsatz sind bis zum G3 ~1.300–4.200 € verbraucht, bis 31.08.
-nach dem Abbruch weitere ~700–1.500 €. Die Reserve schützt vor
-Ausgaben für Tests und Werbung, nicht vor den Pflichtkosten der UG.
+Ohne jeden Umsatz sind bis zum G3 ~1.400–4.100 € verbraucht, bis 31.08.
+nach dem Abbruch weitere ~700–1.500 €. Weil Tests nur aus Geld über
+den Pflichtkosten bezahlt werden, reicht das Startkapital allein fast
+immer. Mit Partner wird es knapp: Dort muss die Gründerin in ⟨NACHSCHUSS⟩
+der Läufe am Ende ein paar hundert Euro privat nachlegen. **Nach dem
+31.08.** kommen noch ~1.000–3.000 € für ein weiteres Jahr UG oder ihre
+Auflösung dazu (Abschnitt 4, G3).
 
 **Cashflow – das eigentliche Nadelöhr:** Apple zahlt 5–9 Wochen nach dem
-Kauf aus, Creator und Werbung sind sofort fällig. Aus eigener Kraft
-wächst eine App so höchstens um das 1,6- bis 2-Fache im Monat
+Kauf aus, Creator und Werbung sind nach 0–3 Wochen fällig. Aus eigener
+Kraft wächst eine App so höchstens um das 1,6- bis 2-Fache im Monat
 (Werbekosten 45 % vom Umsatz) bzw. 1,15-Fache (70 % mit bezahlten
 Anzeigen). Cal AI wuchs um das 2- bis 3-Fache. Ein solcher Treffer
-bräuchte auf dem Höhepunkt ~0,3–0,6 Mio. € Vorfinanzierung. Deshalb:
+bräuchte auf dem Höhepunkt ~0,3–0,6 Mio. € Vorfinanzierung. Im Modell
+ist das der stärkste Bremsklotz überhaupt: Selbst ein Cal-AI-Treffer als
+erste App erreicht das Ziel ohne Kredit nur in ⟨OBER_OHNE_ANGEL⟩ der Läufe,
+ohne Kassengrenze wären es ~95 %. Deshalb:
 - **Web-Checkout für US-Nutzer** (Geld nach Tagen statt Wochen);
 - Creator nach dem Posten bezahlen, Zahlungsziele von Werbekonten nutzen;
 - **je Woche höchstens den Umsatz der Vorwoche ausgeben**;
-- **keine Kredite** – weder privat noch für die UG.
+- **keine Kredite** – weder privat noch für die UG;
+- bei einem Treffer **Eigenkapital von einem Business Angel** (unten).
 
 **Finanzierung, Stand November 2026:**
 - Umsatzbasierte Finanzierung für Apps: Pollen VC und Uncapped bieten sie
@@ -493,21 +622,26 @@ bräuchte auf dem Höhepunkt ~0,3–0,6 Mio. € Vorfinanzierung. Deshalb:
   laut eigener FAQ nur in Frankreich registrierte Firmen mit mindestens
   12 Monaten Geschäftstätigkeit. Für diese UG gibt es vor dem 31.08.2027
   also keine Finanzierung; das Modell rechnet ohne.
-- Business Angel ab ~20.000 € Monatsumsatz: hilft im Modell kaum, weil
-  die Verwässerung den eigenen Anteil am Ziel senkt. Höchstens, wenn der
-  Anteil der Gründerin bei ≥ 85 % bleibt.
+- **Business Angel ab ~20.000 € Monatsumsatz über vier Wochen** (Teil des
+  Plans, Phase E): 50.000–250.000 € gegen 8–25 % der Anteile, Zusage in
+  20–60 % der Fälle nach 3–10 Wochen (Schätzung). Das ist Eigenkapital,
+  kein Kredit, und genau das Geld, das einem Treffer fehlt: Für die
+  Obergrenze hebt es die Chance von ⟨OBER_OHNE_ANGEL⟩ auf ⟨OBER_MIT_ANGEL⟩,
+  obwohl der eigene Anteil sinkt.
 
 ## 9. Rechtsform, Steuer, Versicherung
 
 | Thema | Regel | Was du tust |
 |---|---|---|
-| **Rechtsform** | UG (haftungsbeschränkt) mit 1 € bis 24.999 € Stammkapital; 25 % des Jahresüberschusses in die Rücklage (§ 5a GmbHG). GmbH braucht 25.000 €. Einzelunternehmen: unbeschränkte Haftung, Privatadresse öffentlich im EU-App-Store, und für 500.000 € privat ~915.000 € Gewinn | sofort UG mit Musterprotokoll |
+| **Rechtsform** | UG (haftungsbeschränkt) mit 1 € bis 24.999 € Stammkapital; 25 % des Jahresüberschusses in die Rücklage (§ 5a GmbHG). GmbH braucht 25.000 €. Einzelunternehmen: unbeschränkte Haftung, Privatadresse öffentlich im EU-App-Store (bei der UG nur mit eigener Geschäftsadresse vermeidbar), und für 500.000 € privat ~915.000 € Gewinn | sofort UG mit Musterprotokoll, Rest des Startkapitals als Kapitalrücklage |
 | **Steuer** | 30,7 % auf den Gewinn der UG; Ausschüttung zusätzlich 26,375 % (oder Teileinkünfteverfahren); Kirchensteuer 8 % bei Mitgliedschaft | Gewinn in der UG lassen, Steuer für 2027 zurücklegen |
 | **Umsatzsteuer** | Apple und Google verkaufen im eigenen Namen (Kommissionär, EuGH C-101/24); deine Leistung an sie ist in Deutschland nicht steuerbar. Eigener Web-Checkout an EU-Kunden: ab 10.000 € Auslandsumsatz OSS | auf die Kleinunternehmerregelung verzichten; Web-Checkout zuerst nur für US-Nutzer |
 | **Apple-Gebühr** | 15 % im Small Business Program bis 1 Mio. $ Erlös nach Provision; darüber für den Rest des Jahres 30 % (EU seit 01.10.2026: 15 % bzw. 26 % beim In-App-Kauf) | Programm sofort beantragen |
 | **Familienversicherung** | Einbehaltene Gewinne der UG zählen nicht zum Gesamteinkommen; Gehalt über ~690 €/Monat (590 € plus Arbeitnehmer-Pauschbetrag) und Ausschüttungen über ~8.080 €/Jahr schon. Ob du hauptberuflich selbstständig bist, prüft die Kasse nach Stunden **und** Arbeitseinkommen (GKV-Spitzenverband, Grundsätze vom 20.03.2019): bei mehr als 30 h/Woche in der Regel schon ab einem Arbeitseinkommen über 25 % der Bezugsgröße (2027 ~1.030 €/Monat), bei 20–30 h ab 50 % (~2.065 €), bei bis zu 20 h erst ab 75 % (~3.100 €). Einbehaltene UG-Gewinne sind kein Arbeitseinkommen; ohne Gehalt spricht die Regel also eher gegen Hauptberuflichkeit, die Kasse entscheidet aber im Einzelfall. Liegt sie vor, endet die Familienversicherung unabhängig vom Einkommen | kein Gehalt, keine Ausschüttung 2027; in Schulwochen unter 20 h; die Ferienwochen mit mehr Stunden (Weihnachten, Februar, ab Mitte Juni) und den Vollzeitsommer **vor den Weihnachtsferien** schriftlich mit der Kasse klären; für den Fall der Fälle ~280–290 €/Monat einplanen |
 | **Rentenversicherung** | Geschäftsführerin mit ≥ 50 % Anteil nicht abhängig beschäftigt; Ein-Personen-GmbH mit einem Auftraggeber kann rentenversicherungspflichtig sein (ob Apple als „ein Auftraggeber“ gilt, ist offen) | Steuerberater oder DRV fragen |
 | **Schule** | keine Genehmigung nötig; Unterrichtspflicht und Prüfungen gehen vor (Art. 56 BayEUG) | Termine nachmittags oder in den Ferien |
+| **Künstlersozialabgabe** | Eigenwerber, die 2027 mehr als 1.000 € an selbstständige Creator zahlen, sind abgabepflichtig; Satz 2027 5,0 % (KSA-VO 2027), auch für Creator im Ausland, nicht für Zahlungen an Firmen | bei der KSK anmelden, Honorare bis 31.03. des Folgejahres melden |
+| **Abzugsteuer § 50a EStG** | Kauf von Nutzungsrechten (z. B. für Spark Ads) bei Creatorn im Ausland: 15 % plus Soli Abzug, Haftung der UG ohne Freistellungsbescheinigung | vorher mit dem Steuerberater klären oder über eine Plattform buchen |
 | **Kindergeld** | während der Schulzeit unabhängig vom Einkommen | – |
 
 Laufende Kosten der UG: Jahresabschluss, Offenlegung und
@@ -524,12 +658,19 @@ laufender Buchhaltung bei Umsatz ~3.000–6.000 €; IHK-Beitrag: Grundbeitrag
   (UWG Anhang Nr. 23b/c, Apple 5.6.3), keine Kaufaufforderung an Kinder
   (UWG Anhang Nr. 28), nur lizenzierte Musik.
 - **Abos:** Apple-Regeln 3.1.2 (laufender Nutzen, klare Preise, kein
-  Lockangebot). Bei eigenen Web-Abos: Kündigungsbutton (§ 312k BGB),
-  Widerrufsbutton (§ 356a BGB seit 19.06.2026), „zahlungspflichtig
-  bestellen“, Gesamtpreise; in den USA Auto-Renewal-Gesetze.
+  Lockangebot), Wiederherstellen von Käufen (3.1.1). Bei eigenen Web-Abos:
+  Kündigungsbutton (§ 312k BGB), Widerrufsbutton (§ 356a BGB seit
+  19.06.2026), „zahlungspflichtig bestellen“, Gesamtpreise; in den USA
+  Auto-Renewal-Gesetze und **Sales Tax**: Viele Bundesstaaten besteuern
+  digitale Abos, und seit dem Wayfair-Urteil (2018) gilt eine Pflicht ab
+  Umsatz- oder Transaktionsschwellen auch für ausländische Verkäufer –
+  bei Wochenabos ist eine Schwelle von 200 Transaktionen schnell erreicht.
+  Ein Merchant of Record übernimmt das; mit Stripe allein musst du die
+  Schwellen selbst überwachen.
 - **Datenschutz:** Datenschutzerklärung in App und App Store Connect,
   Kontolöschung in der App, Einwilligung für Tracking (§ 25 TDDDG),
-  Auftragsverarbeitungsverträge. Gewicht und Gesundheitsziele können
+  ausdrückliche Zustimmung, bevor Daten an eine fremde KI gehen (Apple
+  5.1.2(i)), Auftragsverarbeitungsverträge. Gewicht und Gesundheitsziele können
   Gesundheitsdaten sein (Art. 9 DSGVO): ausdrückliche Einwilligung,
   Folgenabschätzung, gute Sicherheit – Quittr legte die Daten von
   Hunderttausenden offen.
@@ -563,9 +704,9 @@ laufender Buchhaltung bei Umsatz ~3.000–6.000 €; IHK-Beitrag: Grundbeitrag
   Umsatz tragen, oder sie pausiert 12 Wochen.
 - **Was der Schutz kostet:** Alle Zahlen dieses Plans gelten schon mit
   dieser Regel. Wer in Schulwochen 8–22 Stunden und in der Abiturzeit
-  3–20 Stunden arbeitet, hätte ~0,06 % statt ~0,02 % – eine dreimal so
-  hohe, aber immer noch winzige Chance, bezahlt mit einem echten Risiko
-  für die Note (Abschnitt 14).
+  0–20 Stunden (Osterzeit 3–15, schriftlich 0–8, Pfingsten und Kolloquium
+  5–20) arbeitet, hätte ⟨MEHR_VS⟩ – bezahlt mit einem echten Risiko für
+  die Note (Abschnitt 14).
 
 ## 12. Sicherheitsnetz
 
@@ -638,38 +779,66 @@ Apps nacheinander, mit den Regeln dieses Plans:
 - **Zeit nach dem Wochenplan:** Schulwochen 3–13 h (Modus 10), Weihnachts-
   und Frühjahrsferien 25–50 h, Abiturzeit nach Tabelle F (Osterzeit 1–5 h,
   schriftlich 0–1 h, Pfingsten und Kolloquium 1–5 h), Übergang 15–40 h, ab
-  28.06. 45–65 h; je Woche zusätzlich ±20 %. Die Woche ab 21.12. zählt als
-  Schulwoche, die Frühjahrsferien liegen auf 08.–12.02.
-- **Bau und Test:** erste App 50–130 h, jede weitere 25–70 h; App Review
-  0,3–3 Wochen; Test 30–80 h über 2–5 Wochen mit 200–1.200 € für Creator.
+  28.06. 45–65 h; je Woche zusätzlich ±20 %. Davon gehen die Nebenaufgaben
+  ab: Partnersuche 2,5 h je Woche bis 31.01. (bis ein Partner zusagt),
+  Gründung und Ideenvideos 10 h in den ersten zwei Wochen, Bewerbungen
+  12 h in den Weihnachtsferien. Die Woche ab 21.12. zählt als Schulwoche,
+  die Frühjahrsferien liegen auf 08.–12.02.
+- **Bau und Test:** erste App 50–130 h, jede weitere 25–70 h, streng
+  nacheinander (Bau → Review → Test → nächste App); App Review 0,3–3
+  Wochen; Test 30–80 h über 2–5 Wochen mit 200–1.200 € für Creator plus
+  4 % Künstlersozialabgabe, bis G3 zusammen höchstens 1.500 €, danach nur
+  aus dem Umsatz der letzten vier Wochen, und nur so viel, dass die
+  Pflichtkosten bis 31.08. gedeckt bleiben. Ohne Testbudget halbiert sich
+  die Spitze der App.
 - **Tore:** Hat am 28.02. (G3) keine App 5.000 $ Monatsumsatz oder am
-  31.03. (G4) keine 10.000 $, endet die Jagd: keine neuen Versuche,
-  laufende Kosten sinken auf 120–250 €/Monat.
+  31.03. (G4) keine 10.000 $, endet die Jagd: kein neuer Bau (ein
+  laufender Bau wird verworfen und zählt nicht als Versuch), kein
+  Testbudget, laufende Kosten 120–250 €/Monat. G5–G7 sind Messpunkte
+  ohne Abbruch.
 - **Treffer:** je App eine latente Spitzen-MRR; Chance auf ≥ 1.000 $
   10–30 %, ≥ 10.000 $ 2–8 %, davon ≥ 100.000 $ 5–22 %, davon ≥ 1 Mio. $
   3–15 %, darüber Pareto. Lernkurve: die ersten drei Versuche mit 30 %,
-  60 % und 85 % der vollen Chance.
+  60 % und 85 % der vollen Chance. Fehlschläge (unter 1.000 $) bringen
+  1.000 $ × u⁴ im Monat (Median ~60 $, Mittel ~200 $; RevenueCat 2025: die
+  Median-App macht nach 12 Monaten unter 50 $ im Monat).
 - **Wachstum** eines Treffers mit dem 1,5- bis 3-Fachen im Monat bis zur
   Spitze, Plateau 4–26 Wochen, danach −2 bis −15 % im Monat; 5–20 %
   Risiko eines Einbruchs (Kopie, Ablehnung, Plattform).
 - **Kosten:** 30–65 % vom Umsatz beim Wachstum über Creator, 55–85 % mit
-  bezahlten Anzeigen, 35–60 % auf dem Plateau; Apple 15 %, über 870.000 €
-  30 %; Start 450–1.200 €, laufend 200–500 €/Monat.
-- **Cashflow:** Apple-Auszahlung nach 5–9 Wochen, 30–60 % Web-Checkout mit
-  einer Woche, Creator und Werbung nach 0–3 Wochen fällig. Kein Kredit,
-  keine Finanzierung; Tests und Wachstum dürfen die Kasse nicht unter die
-  Reserve von 1.000 € drücken, sonst wird das Wachstum gedrosselt.
+  bezahlten Anzeigen, 35–60 % auf dem Plateau (Creator-Anteile plus 4 %
+  Künstlersozialabgabe); Apple 15 %, über 870.000 € 30 %; Start
+  600–1.100 €, laufend 200–500 €/Monat.
+- **Cashflow:** Apple-Auszahlung nach 5–9 Wochen; Web-Checkout mit einer
+  Woche, Anteil 5–40 % des Umsatzes (Schätzung: nur US-Nutzer, und nur ein
+  Teil von ihnen kauft im Web), nach Gebühren 86–93 %; Creator und Werbung
+  nach 0–3 Wochen fällig. Kein Kredit, keine Finanzierung: Neue Kosten
+  dürfen die Kasse bei Fälligkeit nicht unter die Reserve von 1.000 €
+  drücken, gerechnet nur mit sicheren Zuflüssen (schon verdiente
+  Apple-Auszahlungen). Fehlt Geld, bleiben wachsende Apps erst auf dem
+  Stand der Vorwoche, dann gilt nur das Erhaltungsbudget, zuletzt wird die
+  Werbung gekürzt – dann sinkt der Umsatz um 5–15 % je Woche (Kündigungen
+  ohne Neukunden). Bei einem Treffer (≥ 20.000 € Monatsumsatz über vier
+  Wochen) kommt mit 20–60 % ein Business Angel: 50.000–250.000 € nach
+  3–10 Wochen gegen 8–25 % der Anteile.
 - **Verkauf:** ab 16 Wochen App-Alter zum 1- bis 3,5-Fachen des
-  annualisierten Gewinns, aber nur, wenn er zusammen mit dem bisherigen
-  Gewinn das Ziel erreicht; Abschluss nach 4–14 Wochen mit 30–70 %
-  Wahrscheinlichkeit.
+  annualisierten Gewinns abzüglich 3–10 % Transaktionskosten, aber nur,
+  wenn er zusammen mit dem bisherigen Gewinn das Ziel erreicht; Abschluss
+  nach 4–14 Wochen mit 30–70 % Wahrscheinlichkeit.
 - **Partner:** sagt in einer Woche zwischen Start und 31.01. zu und
   arbeitet ab dann mit: Trefferquoten zwischen Recherche und Gegenprüfung
   ohne Lernkurve, höherer Startumsatz eines Treffers, günstigere Creator,
   20–50 eigene Stunden je Woche für Bau, Test und Skalierung. Bezahlt wird
-  er mit Anteilen oder mit 10 % vom Umsatz.
-- **Prüfungen:** In jedem Lauf gilt Gewinn = Kasse − Startkapital + offene
-  Forderungen − offene Rechnungen (Test `test_kassenprobe`).
+  er mit Anteilen (Vertrag 300–2.000 €) oder mit 10 % vom Umsatz (Vertrag
+  150–800 €).
+- **Ergebnis für dich:** Du bringst das ganze Geld ein, ein Partner nur
+  Arbeit. Dir gehört dein Anteil am Eigenkapital der UG; ist es am Ende
+  negativ, zahlst du die offenen Rechnungen allein. Reicht die Kasse
+  nicht für die Pflichtkosten, legst du privat nach.
+- **Prüfungen:** In jedem Lauf gilt Gewinn = Kasse − Einlagen + offene
+  Forderungen − offene Rechnungen (Test `test_kassenprobe`); Werbung und
+  Tests drücken die Kasse nie unter null (`test_kein_dispo`); nach einem
+  Tor beginnt kein Bau und fließt kein Testbudget (`test_tore_beenden_die_jagd`).
 
 | Szenario (300.000 Läufe, alle mit Stundenregel und Toren, wo nicht anders genannt) | Chance auf das Ziel | Gewinn im Median | Verlust > 3.000 € |
 |---|---:|---:|---:|
@@ -736,7 +905,8 @@ Apps nacheinander, mit den Regeln dieses Plans:
 
 ```
 python3 plan/plan_500k.py                      # Szenarien und Messpunkte (60.000 Läufe)
-python3 plan/plan_500k.py --n 300000           # wie im Dokument (rund eine halbe Stunde)
+python3 plan/plan_500k.py --n 300000           # wie im Dokument (je Szenario 2–5 Minuten)
+python3 plan/plan_500k.py --n 300000 --seed 3027 --nur "DER PLAN"   # weitere Läufe mit anderem Startwert
 python3 plan/plan_500k.py --nur "DER PLAN"     # nur der Plan
 python3 plan/simulation.py --zeitplan --ziel 500000   # Abschnitt 12
 python3 -m unittest discover -s tests
@@ -764,7 +934,8 @@ python3 -m unittest discover -s tests
 
 **Basisraten und Kennzahlen**
 - RevenueCat State of Subscription Apps 2026: <https://www.revenuecat.com/state-of-subscription-apps>, <https://9to5mac.com/2026/03/04/new-report-looks-into-the-sustainability-of-the-subscription-app-market-for-2026/>;
-  2025: <https://www.revenuecat.com/blog/company/the-state-of-subscription-apps-2025-launch>
+  2025 (Median-App nach 12 Monaten unter 50 $ im Monat): <https://www.revenuecat.com/blog/company/the-state-of-subscription-apps-2025-launch>
+- Link nach außen gegen In-App-Kauf (RevenueCat, Mai 2025: 18 % statt 28 % Kaufquote): <https://daringfireball.net/linked/2025/05/15/revenuecat-external-purchase-report>
 - Appfigures, neue Millionäre 2024: <https://appfigures.com/resources/insights/20250124>
 - Adapty 2026 (Paywalls, Erstattungen): <https://adapty.io/state-of-paywalls-2026/>, <https://adapty.io/blog/refund-rate-metrics-and-benchmarking/>
 - Toggle-Paywall: <https://www.revenuecat.com/blog/growth/rip-toggle-paywall>
@@ -778,6 +949,8 @@ python3 -m unittest discover -s tests
 - US-Link-outs (Epic-Verfahren): <https://9to5mac.com/2026/05/04/apple-files-for-supreme-court-stay-in-epic-case-over-off-app-store-commission-dispute/>
 - Google Play Tests und Gebühren: <https://support.google.com/googleplay/android-developer/answer/14151465>, <https://support.google.com/googleplay/android-developer/answer/112622>
 - Silvr (Finanzierung, Bedingungen): <https://silvr.co/faq>; Uncapped ohne RBF: <https://weareuncapped.com/blog/uncapped-remove-rbf-offering>
+- D-U-N-S-Nummer für Apple: <https://developer.apple.com/support/D-U-N-S/>
+- Gebühren: Stripe <https://stripe.com/de/pricing>, Paddle (Merchant of Record) <https://www.paddle.com/pricing>
 
 **Recht und Steuer**
 - UG: § 5a GmbHG <https://www.gesetze-im-internet.de/gmbhg/__5a.html>; Holding: § 8b KStG; Anteilsverkauf: § 17, § 3 Nr. 40 EStG; Sperrfrist § 22 UmwStG
@@ -785,6 +958,9 @@ python3 -m unittest discover -s tests
 - Familienversicherung: § 10 SGB V <https://dejure.org/gesetze/SGB_V/10.html>; GKV-SV, Hauptberufliche Selbstständigkeit <https://files.viactiv.de/uploads/sites/11/200319-Hauptberuflich-Selbstständig.pdf>; Gesamteinkommen <https://www.vdek.com/content/vdeksite/vertragspartner/mitgliedschaftsrecht_beitragsrecht/familienversicherung/_jcr_content/par/download_1642322223/file.res/Grundsaetzliche-Hinweise-Gesamteinkommen-29092022.pdf>
 - Werbung: § 5a UWG <https://www.gesetze-im-internet.de/uwg_2004/__5a.html>; FTC Endorsement Guides <https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides>
 - Abos: § 312k BGB <https://www.gesetze-im-internet.de/bgb/__312k.html>
+- Gründung: Gebühren des Handelsregisters (HRegGebV Nr. 2100, 6000) <https://www.gesetze-im-internet.de/hreggebv/>; Sacheinlagen bei der UG ausgeschlossen: § 5a Abs. 2 GmbHG; Kapitalrücklage § 272 Abs. 2 Nr. 4 HGB; Insolvenzantragspflicht §§ 15a, 19 InsO
+- Impressum: § 5 DDG <https://www.gesetze-im-internet.de/ddg/__5.html>; Rechte an Software nur bei Angestellten: § 69b UrhG <https://www.gesetze-im-internet.de/urhg/__69b.html>
+- Künstlersozialabgabe (Eigenwerber, Influencer, Grenze 1.000 € ab 2026, Satz 2027 5,0 %): <https://www.kuenstlersozialkasse.de/>; Abzugsteuer bei Nutzungsrechten: § 50a EStG <https://www.gesetze-im-internet.de/estg/__50a.html>
 - Umsatzsteuer bei App-Stores: EuGH 09.10.2025, C-101/24 (Xyrality)
 
 **Zeit und Abitur**
