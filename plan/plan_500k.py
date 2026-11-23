@@ -1070,6 +1070,8 @@ SZENARIEN = {
                     einmal_stunden=(3, 6, 12))),
     "Deine Angaben: Einzelunternehmen im strengeren Markt 2027":
         scen(**dict(DEINE_ANGABEN, **EINZEL, **MARKT_2027)),
+    "Deine Angaben: Einzelunternehmen, falls Videos ohne Gesicht schlechter wirken (Trefferquoten -25 %)":
+        scen(**dict(DEINE_ANGABEN, **EINZEL, p_faktor=(0.6, 0.75, 0.9))),
 }
 
 

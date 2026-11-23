@@ -1,5 +1,12 @@
 # Wie viel kann ich bis Sommer 2027 maximal erwirtschaften?
 
+> **Hinweis (23.11.2026): nicht mit deinen echten Angaben gerechnet.** Diese
+> Rechnung nimmt Bayern und den Arbeitsmarkt im Raum Regensburg an (Löhne,
+> Ferien, Kirchensteuer). Tatsächlich lebst du in Niedersachsen, und Juli und
+> August gehören teils deinem Umzug nach Zürich. Die Größenordnung bleibt
+> ähnlich, die Zahlen sind aber nicht neu gerechnet. Deinen gewählten Plan
+> findest du in [`APP_PLAN_ALLEIN_MIT_CLAUDE.md`](APP_PLAN_ALLEIN_MIT_CLAUDE.md).
+
 **Frage:** Wie viel Geld kann ich – heute, am 22.11.2026, in der 13. Klasse
 in Bayern (Raum Regensburg) – bis zum **31. August 2027** durch eigene
 Arbeit verdienen, ohne das Abitur zu gefährden?

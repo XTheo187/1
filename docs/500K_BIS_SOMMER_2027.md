@@ -1,5 +1,15 @@
 # 500.000 € bis Sommer 2027 – der Plan
 
+> **Hinweis (23.11.2026): Die Abschnitte 1–16 rechnen mit Annahmen, die nicht
+> für dich gelten:** Bayern (Raum Regensburg), Programmierkenntnisse, sofortige
+> UG-Gründung, eigene Videos mit Gesicht, Haupttor am 28.02. Tatsächlich:
+> Niedersachsen, keine Programmierkenntnisse, kein Gesicht, höchstens 5.000 €
+> insgesamt, danach ETH Zürich. Mit deinen Angaben erreicht kein einziger von
+> ⟨N⟩ Läufen 500.000 €. Den Plan mit deinen echten Angaben findest du in
+> [`APP_PLAN_ALLEIN_MIT_CLAUDE.md`](APP_PLAN_ALLEIN_MIT_CLAUDE.md) (Szenarien
+> „Deine Angaben“ in `plan/plan_500k.py`). Die Abschnitte unten bleiben als
+> Vergleich stehen.
+
 **Frage:** Wie komme ich – heute, am 22.11.2026, in der 13. Klasse in
 Regensburg, mit ~5.000 € – bis zum **31. August 2027** auf 500.000 €
 Nettovermögen? „Andere haben es auch geschafft.“

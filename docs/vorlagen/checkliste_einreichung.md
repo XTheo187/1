@@ -1,21 +1,37 @@
 # Checkliste vor jeder Einreichung
 
-(Vorlage aus docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md, Abschnitt 10 C. Als
+(Vorlage aus docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md, Abschnitt 15 C und 7. Als
 `docs/checkliste-einreichung.md` ins App-Repository kopieren.)
 
-- [ ] Kernfunktion auf dem echten iPhone geprüft, auch ohne Netz (Meldung statt Absturz)
+- [ ] Kernfunktion auf dem echten iPhone **und iPad** geprüft, auch ohne Netz (Meldung statt Absturz)
 - [ ] Einwilligung vor dem ersten KI-Aufruf: Anbieter und Daten genannt (5.1.2(i))
-- [ ] Harte Paywall ohne Umschalter; Preis, Laufzeit, Verlängerung klar (3.1.2)
+- [ ] Harte Paywall ohne Umschalter; Preis deutlicher als jede Testphase; Laufzeit, Verlängerung und Kündigung klar (3.1.2)
 - [ ] „Käufe wiederherstellen“ vorhanden (3.1.1)
 - [ ] Links zu Datenschutz und Nutzungsbedingungen auf der Paywall und in App Store Connect (5.1.1)
 - [ ] Abo-Gruppe und alle Abos angelegt und zusammen mit dieser App-Version eingereicht
-- [ ] Knopf oder Link zum Web-Kauf nur im US-Storefront sichtbar; sonst kein Hinweis auf Käufe außerhalb der App
+- [ ] Kein Hinweis auf Käufe außerhalb der App
+- [ ] Nur Wochen- und Monatsabo (kein Jahresabo vor Juli 2027)
+- [ ] Impressum in der App erreichbar
+- [ ] Keine Platzhalter, echte Screenshots, Backend läuft während des Reviews (2.1)
 - [ ] Falls Nutzerkonten: Kontolöschung in der App
 - [ ] Keine Gesundheitsversprechen, keine Diagnose, keine fremden Marken
 - [ ] Eigene Kernfunktion, keine Variante einer bekannten App (4.3)
 - [ ] Datenschutzangaben in App Store Connect passen zur App
-- [ ] Kein Schlüssel in der App; Zugriffsregeln auf jeder Tabelle; Fotos werden nicht gespeichert
-- [ ] Supabase Pro aktiv; Abo-Prüfung über RevenueCat und Tageslimit je App-User-ID auf dem Server; Ausgabenlimit der KI-API passend zur erwarteten Nutzerzahl
+- [ ] Fotos werden nach der Analyse nicht gespeichert
+- [ ] Supabase Pro aktiv (ab dem Start)
+
+## Sicherheit (Mindestprüfung, Claude führt aus, du siehst dir das Ergebnis an)
+
+- [ ] Kein Schlüssel in der App; KI- und RevenueCat-Schlüssel nur als Supabase-Geheimnis; `.env` in `.gitignore`
+- [ ] Server-Funktion prüft bei jedem Aufruf das aktive Abo der App-User-ID über RevenueCat und zählt ein Tageslimit
+- [ ] RLS auf jeder Tabelle, keine Regel `using (true)`, Security Advisor ohne Fehler
+- [ ] Ausgabenlimit in der Anthropic-Konsole passend zur Nutzerzahl
+- [ ] Repository und App nach Schlüsseln durchsucht (`git grep`, GitHub Secret Scanning)
+- [ ] Test- und Betriebsprojekt getrennt, Backups an, Claude ohne Zugang zum Betrieb
+- [ ] Von außen getestet: Aufruf ohne aktives Abo scheitert
+
+## Zum Schluss
+
 - [ ] Eigene Messereignisse nur mit Einwilligung (§ 25 TDDDG)
 - [ ] Hinweise für das Review: was die App tut, wie man die Paywall testet
 - [ ] docs/review-log.md gelesen

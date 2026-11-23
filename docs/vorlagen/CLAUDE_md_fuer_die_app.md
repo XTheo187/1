@@ -6,13 +6,20 @@ Klammern ausfüllen.)
 
 ## Worum es geht
 - App: [Name], Zielgruppe: [wer], Kernfunktion: [Foto oder Eingabe → Ergebnis].
-- Betreiberin: [Name der UG] (haftungsbeschränkt). Ich bin Schülerin, arbeite
-  ~1 Stunde am Tag und verstehe TypeScript erst teilweise.
-- Technik: Expo (React Native, TypeScript, Expo Router), EAS Build,
-  RevenueCat für Abos und Paywall, Supabase-Funktion für den KI-Aufruf
-  (Claude Haiku 5.5 über die API der UG).
+- Anbieter: [dein Name bzw. der des Elternteils], Einzelunternehmen. Ich bin
+  Schüler, arbeite ~1 Stunde am Tag (in Q4 und im Abitur fast gar nicht),
+  **kann nicht programmieren** und lerne gerade, Code zu lesen.
+- Ich arbeite unter Windows ohne Mac, teste auf iPhone und iPad.
+- Technik: Expo (React Native, TypeScript, Expo Router), EAS Build und
+  `eas submit`, RevenueCat für Abos und Paywall, Supabase-Funktion für den
+  KI-Aufruf (Claude Haiku 5.5 über meinen eigenen API-Schlüssel).
+- Keine Nutzerkonten, keine Inhalte, die andere Nutzer sehen, nur Wochen- und
+  Monatsabo (kein Jahresabo vor Juli 2027).
 
 ## Wie du arbeitest
+- Ich lerne mit. Arbeite im Lernmodus: erkläre jede Entscheidung, lass mich an
+  wichtigen Stellen selbst schreiben (`TODO(human)`) und frag nach, ob ich es
+  verstanden habe.
 - Kleine Schritte. Vor jeder Änderung: kurzer Plan (welche Dateien, was),
   dann auf mein OK warten.
 - Nach jeder Änderung in zwei, drei einfachen Sätzen erklären, was du
@@ -21,6 +28,10 @@ Klammern ausfüllen.)
   getestet habe. Wenn du dir nicht sicher bist, sag es.
 - Wenn derselbe Fehler zweimal auftritt: anhalten und mir den Fehler
   erklären, statt weiter zu raten.
+- Für Windows: Befehle für PowerShell angeben; wenn etwas nur auf dem Mac
+  geht, sag es und nenn den Weg über EAS.
+- Sag mir bei jeder Änderung, ob ich sie in Expo Go prüfen kann oder einen
+  neuen Development Build brauche (nur 15 iOS-Builds im Monat gratis).
 - Keine neuen Pakete oder Dienste, die Geld kosten oder Daten an Dritte
   schicken, ohne mich zu fragen.
 - Lies vor jeder Einreichung `docs/checkliste-einreichung.md` und
@@ -29,11 +40,15 @@ Klammern ausfüllen.)
 ## Was nie passieren darf
 - Keine Schlüssel oder Passwörter in der App oder im Repository. Der
   KI-Schlüssel und der geheime RevenueCat-Schlüssel liegen nur als
-  Geheimnis in der Supabase-Funktion.
+  Geheimnis in der Supabase-Funktion (`supabase secrets set`); `.env` steht in
+  `.gitignore`.
+- Du bekommst nie Zugangsdaten für das Projekt im Betrieb; du arbeitest nur
+  im Testprojekt.
 - Die Server-Funktion prüft bei jedem Aufruf über die REST-API von
   RevenueCat, ob die App-User-ID ein aktives Abo hat; ohne aktives Abo
   kein KI-Aufruf.
-- Keine Tabelle ohne Zugriffsregeln (Row Level Security).
+- Keine Tabelle ohne Zugriffsregeln (Row Level Security), keine Regel
+  `using (true)`; der Security Advisor zeigt null Fehler.
 - Fotos werden nach der Analyse nicht gespeichert.
 - Vor dem ersten KI-Aufruf fragt die App um Erlaubnis und nennt den
   Anbieter (Apple 5.1.2(i)).
@@ -45,8 +60,9 @@ Klammern ausfüllen.)
 - Keine Gesundheitsversprechen und keine Diagnosen in Texten der App.
 - Keine eigenen Messereignisse (z. B. „Paywall gesehen“) ohne Einwilligung
   der Nutzer (§ 25 TDDDG).
-- Knopf oder Link zum Web-Kauf nur im US-Storefront (Storefront abfragen,
-  nicht Sprache oder IP).
+- Kein Web-Kauf in App 1.
+- Die App läuft auch auf dem iPad sauber (Apple prüft iPhone-Apps dort).
+- Impressum in der App erreichbar (Einstellungen).
 
 ## Kosten
 - Tageslimit für KI-Aufrufe je App-User-ID, gezählt auf dem Server

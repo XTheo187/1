@@ -1,5 +1,11 @@
 # Mehr als arbeiten gehen? Hebel bis Sommer 2027
 
+> **Hinweis (23.11.2026): nicht mit deinen echten Angaben gerechnet.** Diese
+> Rechnung baut auf dem Job-Modell für Bayern (Raum Regensburg) auf.
+> Tatsächlich lebst du in Niedersachsen. Die Zahlen sind nicht neu gerechnet.
+> Deinen gewählten Plan findest du in
+> [`APP_PLAN_ALLEIN_MIT_CLAUDE.md`](APP_PLAN_ALLEIN_MIT_CLAUDE.md).
+
 **Frage:** „Das kann ja nicht alles sein. Dann kann ich ja auch einfach
 arbeiten gehen.“ Der Job-Weg aus
 [`VERDIENST_BIS_SOMMER_2027.md`](VERDIENST_BIS_SOMMER_2027.md) bringt bis

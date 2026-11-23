@@ -1,5 +1,13 @@
 # Der Millionenplan
 
+> **Hinweis (23.11.2026): nicht mit deinen echten Angaben gerechnet.** Dieser
+> Plan nimmt einen Studienweg über ein duales oder praxisintegriertes Studium in
+> Deutschland an. Tatsächlich willst du Informatik an der ETH Zürich studieren,
+> lebst in Niedersachsen und kannst noch nicht programmieren. Die Zahlen hier
+> sind nicht neu gerechnet. Für die Zeit bis 31.08.2027 gilt
+> [`APP_PLAN_ALLEIN_MIT_CLAUDE.md`](APP_PLAN_ALLEIN_MIT_CLAUDE.md); den
+> Millionenplan mit ETH-Studium kann ich auf Wunsch neu rechnen.
+
 **Frage:** Wie werde ich – heute in der 13. Klasse – mit mindestens 50 %
 Wahrscheinlichkeit Millionär?
 

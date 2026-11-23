@@ -1,851 +1,1062 @@
-# App-Plan allein mit Claude – Schritt für Schritt
+# App-Plan allein mit Claude – mit deinen echten Angaben
 
-**Für wen:** dich, 13. Klasse in Bayern, Abitur 2027, ~5.000 € Startkapital,
-allein (ohne Partner), mit Claude als Werkzeug. Das ist die Umsetzung der
-Variante **„gestaffelt“** aus Abschnitt 16 von
-[`500K_BIS_SOMMER_2027.md`](500K_BIS_SOMMER_2027.md): Claude schreibt den
-Code und erklärt ihn dir, Claude macht die Schreib- und Analysearbeit im
-Marketing, du filmst, entscheidest, gibst frei und trägst die
-Verantwortung. Ein teures Claude-Abo und ein Agent für den Betrieb kommen
-erst, wenn eine App ein Treffer ist.
+**Für wen:** dich. Du bist 18 und wirst im Dezember 19, gehst in die
+13. Klasse eines Gymnasiums in Niedersachsen und machst 2027 Abitur. Danach
+willst du Informatik an der ETH Zürich studieren (Studienbeginn 20.09.2027).
+Du setzt **insgesamt höchstens 5.000 €** ein, lieber weniger, und zwar
+einschließlich allem, was nach dem Sommer noch kommt. Programmieren kannst
+du nicht. Du hast ein iPhone, ein iPad und einen Windows-PC. Dein Claude-Max-Abo
+läuft noch ein paar Tage. Du willst dich nicht zeigen und deine Identität so
+wenig wie möglich preisgeben. Du wohnst bei deinen Eltern, sie wissen
+Bescheid, und du bist über sie gesetzlich familienversichert.
 
-> **Worauf du dich einlässt** (Modell, 900.000 Läufe, Abschnitt 16):
+Claude schreibt den Code und erklärt ihn dir, macht Texte, Recherche und
+Auswertungen. Du lernst die Grundlagen, prüfst, testest, entscheidest und
+trägst die Verantwortung. Gerechnet ist alles mit
+[`plan/plan_500k.py`](../plan/plan_500k.py), Szenarien „Deine Angaben“.
+
+> **Worauf du dich einlässt** (Modell, ⟨N⟩ Läufe je Variante):
 >
 > | | |
 > |---|---|
-> | Zeit bis zum Haupttor 28.02. | **~190 Stunden** (10 je Schulwoche, ~27–33 je Ferienwoche) |
-> | danach im Normalfall (kein Treffer, ~98 % der Läufe) | ~1 Stunde je Woche, im Sommer ein Ferienjob |
-> | danach bei einem echten Treffer (~0,3 %) | bis 31.08. zusammen ~800 Stunden |
-> | Geld bis 31.08. im Median | ~3.450 € Verlust von den 5.000 € |
-> | überhaupt ein Gewinn | in knapp 9 von 100 Läufen, davon in knapp 40 % ≥ 10.000 € |
-> | 500.000 € bis 31.08.2027 | praktisch null (3 von 900.000 Läufen) |
+> | Zeit bis 31.08. | **~⟨STD_GESAMT⟩ Stunden**, davon ~⟨STD_ABI⟩ bis zum Ende des Abiturs (10 je Schulwoche, ~31–38 je Ferienwoche, 3–7 in Q4, 0–5 im Abitur, ab Juni 15–55) |
+> | App 1 fertig | im Median am ⟨E1_MED⟩; bis 14.03. in ⟨E1_1403⟩ von 100 Läufen, sonst erst nach dem Abitur |
+> | App 1 im App Store | im Median ab ⟨L1_MED⟩ |
+> | Geld bis zum Schluss (einschließlich Abmeldung und Steuererklärung) | im Median **⟨MED⟩ €**, im Mittel ⟨MITTEL⟩ €, nie mehr als 5.000 € |
+> | überhaupt ein Gewinn | in **⟨PLUS⟩ von 100** Läufen, meist ein paar Hundert Euro (P90 ⟨P90⟩ €) |
+> | 10.000 € oder mehr | in ⟨10K⟩ von 100 Läufen |
+> | 500.000 € bis 31.08.2027 | **in keinem** von ⟨N⟩ Läufen |
 >
-> Der Plan ist so gebaut, dass du dabei **nicht** das Abitur riskierst,
-> **bis 31.08. nie** mehr als die 5.000 € verlierst (danach kosten ein
-> weiteres Jahr UG oder ihre Auflösung noch ~1.000–3.000 €, die bei knapper
-> Kasse privat dazukommen) und am Ende im Normalfall eine eigene App,
-> gemessene Zahlen und Fähigkeiten hast. Wer die Regeln unten bricht (mehr
-> Stunden, Kredit, Abkürzungen beim Recht), verschlechtert laut Modell die
-> Lage, statt sie zu verbessern.
+> Das ist ehrlich gesagt ein **Lernprojekt mit kleiner Gewinnchance**, kein
+> Weg zu 500.000 €. Es kostet dich im Normalfall rund ⟨MED_POS⟩ € und ~⟨STD_GESAMT⟩
+> Stunden. Dafür hast du am Ende eine eigene App im App Store, echte
+> Programmier- und Marketingerfahrung vor dem ETH-Studium und gemessene Zahlen.
+> Die Regeln unten sorgen dafür, dass weder das Abitur noch die ETH-Zulassung
+> noch dein Geld für Zürich darunter leiden.
 
 Inhalt:
-1. [Die Regeln](#1-die-regeln)
-2. [Wer was macht](#2-wer-was-macht)
-3. [Werkzeuge, Konten, Kosten](#3-werkzeuge-konten-kosten)
-4. [So arbeitest du mit Claude](#4-so-arbeitest-du-mit-claude)
-5. [Wochenvorlagen und Tagesablauf](#5-wochenvorlagen-und-tagesablauf)
-6. [Diese Woche Tag für Tag (KW 48)](#6-diese-woche-tag-für-tag-kw-48)
-7. [Woche für Woche bis zum Haupttor 28.02.](#7-woche-für-woche-bis-zum-haupttor-2802)
-8. [Die Messpunkte und was du dann tust](#8-die-messpunkte-und-was-du-dann-tust)
-9. [Ab 01.03.: drei Wege](#9-ab-0103-drei-wege)
-10. [Checklisten](#10-checklisten)
-11. [Vorlagen für Claude](#11-vorlagen-für-claude)
-12. [Geld: Budget und Kassenregeln](#12-geld-budget-und-kassenregeln)
-13. [Wenn etwas schiefgeht](#13-wenn-etwas-schiefgeht)
-14. [Was du aufschreibst](#14-was-du-aufschreibst)
+1. [Was sich gegenüber der ersten Fassung ändert](#1-was-sich-gegenüber-der-ersten-fassung-ändert)
+2. [Das Wichtigste in Kürze](#2-das-wichtigste-in-kürze)
+3. [Die eine große Entscheidung: Rechtsform und Anonymität](#3-die-eine-große-entscheidung-rechtsform-und-anonymität)
+4. [Die Regeln](#4-die-regeln)
+5. [Wer was macht](#5-wer-was-macht)
+6. [Werkzeuge, Konten, Kosten](#6-werkzeuge-konten-kosten)
+7. [So arbeitest du mit Claude, ohne programmieren zu können](#7-so-arbeitest-du-mit-claude-ohne-programmieren-zu-können)
+8. [Videos ohne Gesicht](#8-videos-ohne-gesicht)
+9. [ETH Zürich und Rückfall](#9-eth-zürich-und-rückfall)
+10. [Wochenvorlagen](#10-wochenvorlagen)
+11. [Diese Woche Tag für Tag (KW 48)](#11-diese-woche-tag-für-tag-kw-48)
+12. [Woche für Woche bis 31.08.](#12-woche-für-woche-bis-3108)
+13. [Die Messpunkte und was du dann tust](#13-die-messpunkte-und-was-du-dann-tust)
+14. [Ab Juli: drei Wege](#14-ab-juli-drei-wege)
+15. [Checklisten](#15-checklisten)
+16. [Vorlagen für Claude](#16-vorlagen-für-claude)
+17. [Geld: Stufen, Budget, Kassenregeln](#17-geld-stufen-budget-kassenregeln)
+18. [Wenn etwas schiefgeht](#18-wenn-etwas-schiefgeht)
+19. [Was du aufschreibst](#19-was-du-aufschreibst)
+20. [Alle Varianten im Vergleich](#20-alle-varianten-im-vergleich)
+21. [Quellen](#21-quellen)
 
 ---
 
-## 1. Die Regeln
+## 1. Was sich gegenüber der ersten Fassung ändert
 
-Diese Regeln stehen über allem anderen in diesem Dokument. Sie sind die
-Bedingungen, unter denen die Zahlen oben gelten.
+Die erste Fassung beruhte auf Annahmen, die nicht stimmten. Das sind die
+Korrekturen und was sie bewirken:
 
-**Zeit (Abiturschutz)**
-- Schulwoche: **10 Stunden** – Montag bis Freitag je 1 Stunde, Samstag
-  5 Stunden, Sonntag frei. Höchstens 15.
-- Woche mit Schulaufgaben oder Leistungsnachweisen: **nur Samstag,
-  3 Stunden.** Videos dann am Samstag vorproduzieren und zeitgesteuert
-  posten, keine Creator-Ansprache. Einzige Ausnahme: Kommt in dieser Woche
-  die Eintragung ins Handelsregister, stellst du am selben Tag den
-  D-U-N-S-Antrag (~15 Minuten), damit die Wartezeit sofort läuft; alles
-  andere wartet bis Samstag.
-- Ferienwoche: Montag bis Freitag 9–12 und 14–17 Uhr, Samstag 3 Stunden,
-  also ~27–33 Stunden (Feiertage frei), dazu 1–1,5 Stunden Schule am Tag.
-- Abiturzeit (22.03.–13.06., mit mündlicher Zusatzprüfung bis 18.06.):
-  0–5 Stunden je Woche, im schriftlichen Abitur (21.04.–13.05.)
-  0–1 Stunde, nur Notfälle.
-- **Alles zählt in diese Stunden:** Gründung, Behördenkram, Videos,
-  Bewerbungen, das Prüfen von Claudes Arbeit.
-- Nie nach 22 Uhr an der App. Kein Prüfungstermin wird für die Firma
-  geopfert.
+| erste Fassung | richtig | Folge im Plan |
+|---|---|---|
+| Bayern (Raum Regensburg) | Niedersachsen | andere Ferien; keine Februarferien, dafür Q4 vom 03.02. bis 18.03. mit einer Klausur in jedem Fach; schriftliches Abitur 06.04.–13.05., Prüfung im 5. Fach 19.05.–07.06. |
+| du kannst programmieren (Python) | du kannst nicht programmieren | App 1 braucht ~80–280 Stunden statt 50–130, dazu 20–40 Stunden Grundlagen; sie ist meist erst nach dem Abitur fertig |
+| sofort eine UG gründen | erst bauen, dann gründen, als Einzelunternehmen | die UG kostet bis zu ihrer Löschung 4.000–9.000 € und passt nicht in 5.000 € (Abschnitt 3) |
+| du filmst dich selbst | kein Gesicht, keine Stimme | Foto-Slideshows, Bildschirmaufnahmen, Hände mit Handy; Creator erst, wenn die App ein Signal zeigt (Abschnitt 8) |
+| Rückfall: Studium in München | ETH Zürich | Bewerbung über eApply bis 31.03.2027; deine Abitur-Prüfungsfächer und 70 % in drei Fächern entscheiden (Abschnitt 9) |
+| bis 31.08. höchstens 5.000 € Verlust, danach noch 1.000–3.000 € für die UG | insgesamt höchstens 5.000 € | harte Grenze: Ausgaben nur, solange alle Pflichtkosten und die Abmeldung bezahlt sind |
+| Haupttor am 28.02. | Tore am 18.07. und 08.08. | ein frühes Tor hätte App 1 abgebrochen, bevor sie fertig ist; dein Zeitfenster ist der Sommer |
+| Claude Pro neu abschließen | Max läuft noch ein paar Tage | die Max-Tage für die Einrichtung nutzen, danach Pro |
+| „Geschäftsführerin“ | männliche Formen | – |
+
+---
+
+## 2. Das Wichtigste in Kürze
+
+1. **Bis Januar kostet es fast nichts.** Du lernst die Grundlagen und baust
+   App 1 mit Claude in Expo Go, ganz ohne Firma. Ausgaben: nur Claude Pro
+   (~21 € im Monat).
+2. **Gegründet wird erst, wenn App 1 halb steht** (im Modell im Median am
+   ⟨GR_MED⟩), und zwar als **Einzelunternehmen**. Eine UG frisst dein ganzes
+   Geld (Abschnitt 3).
+3. **Ganz anonym geht es nicht.** Ohne Gesicht und ohne Stimme geht es. Aber
+   als Verkäufer im App Store steht der Name einer echten Person, deiner
+   oder der eines Elternteils.
+4. **Abitur und ETH gehen vor.** In Q4 arbeitest du höchstens 6–7 Stunden je
+   Woche an der App, im Abitur fast gar nicht, und zwischen 15.03. und 06.06.
+   startet keine App. Die ETH-Bewerbung schickst du in den Weihnachtsferien ab.
+5. **Geld für Creator nur nach einem Signal.** Erst wenn eine App drei Wochen
+   nach dem Start ohne bezahlte Werbung mindestens 300 $ Monatsumsatz macht,
+   bekommt sie bis zu 750 €. Das ist im Modell die beste Regel (Abschnitt 20).
+6. **Am 18.07. entscheidet eine Zahl.** Liegt keine App über 5.000 $
+   Monatsumsatz, endet die Jagd. Vor dem Umzug nach Zürich meldest du das
+   Gewerbe ab oder klärst mit einem Steuerberater, wie es weitergeht.
+
+---
+
+## 3. Die eine große Entscheidung: Rechtsform und Anonymität
+
+Du entscheidest das, sobald App 1 etwa halb fertig ist, voraussichtlich
+zwischen Mitte und Ende Januar. Bis dahin brauchst du keine Firma: Bauen und
+Testen in Expo Go geht ohne. Für echte Käufe, TestFlight und den App Store
+brauchst du ein Apple-Konto, und das setzt voraus, dass jemand die App
+gewerblich anbietet.
+
+**Was öffentlich wird**
+
+| | Einzelunternehmen (du) | Einzelunternehmen eines Elternteils | UG mit dir als Geschäftsführer |
+|---|---|---|---|
+| Verkäufer im App Store (weltweit) | dein voller Name (Apple erlaubt keinen anderen Namen) | Name des Elternteils | Firmenname |
+| EU-Seite der App (Pflicht für Händler seit 2025) | Adresse oder Postfach (mit Nachweis), Telefon, E-Mail | dasselbe vom Elternteil | Firmenadresse aus der D-U-N-S-Nummer, Telefon, E-Mail |
+| Impressum (Website, App, Markenkonten) | dein Name und eine zustellfähige Anschrift (praktisch das Elternhaus; ein Postfach reicht nicht, ein Adressdienst ist für Einzelpersonen rechtlich unsicher) | Name und Anschrift des Elternteils | Firma, Anschrift und **dein Name als Geschäftsführer** |
+| Register | Gewerberegister: Name, Anschrift, Tätigkeit gibt die Gemeinde an jeden heraus | dasselbe vom Elternteil | Handelsregister kostenlos für jeden: dein Name, Geburtsdatum, Wohnort; North Data zeigt Name und Wohnort |
+| Gesicht und Stimme | nie nötig | nie nötig | nie nötig |
+
+**Was es kostet und bringt** (Modell, ⟨N⟩ Läufe je Variante, alles bis zur
+Abmeldung bzw. Auflösung eingerechnet)
+
+| | Einzelunternehmen | UG, Anschrift der Eltern | UG, gemietete Geschäftsadresse |
+|---|---:|---:|---:|
+| Formalkosten bis zum Ende | ~200–1.300 € (Gewerbe, Apple, Erstberatung, Steuererklärung) | ~4.000–9.000 € bis zur Löschung (frühestens Ende 2028) | dazu 50–130 € je Monat für die Adresse |
+| passt in 5.000 € | ja | **nein:** in ⟨UGE_TEUER⟩ von 100 Läufen lassen Pflichtkosten und Auflösung gar keine Gründung zu | **nein:** in ⟨UGA_TEUER⟩ von 100 Läufen keine Gründung |
+| überhaupt ein Gewinn | ⟨PLUS⟩ von 100 | ⟨UGE_PLUS⟩ von 100 | ⟨UGA_PLUS⟩ von 100 |
+| Geld im Median | ⟨MED⟩ € | ⟨UGE_MED⟩ € (nur Claude, weil meist gar nicht gegründet wird und dann auch keine App erscheint) | ⟨UGA_MED⟩ € (ebenso) |
+| vor dem Umzug sauber beenden | ja, Abmeldung an einem Tag | nein: wegen des Sperrjahrs läuft die Auflösung, während du in Zürich lebst; führst du die UG von dort, wird sie auch in der Schweiz steuerpflichtig, und dir droht Wegzugsteuer auf die Anteile | wie links |
+
+**Meine Empfehlung:** das **Einzelunternehmen**. Die UG versteckt deinen
+Namen nur halb: im App Store ja, im Impressum und im Handelsregister nicht.
+Dafür kostet sie fast dein ganzes Geld und lässt sich vor dem Umzug nicht
+mehr beenden.
+
+Ist dir dein Name im App Store zu viel, gibt es zwei ehrliche Wege:
+- **Ein Elternteil meldet das Gewerbe an** und schließt den Apple-Vertrag;
+  du arbeitest als Admin im Apple-Konto mit. Dann gehören App und Gewinn
+  rechtlich dem Elternteil, es haftet unbeschränkt und versteuert den
+  Gewinn. Geld, das es dir gibt, ist eine Schenkung (bis 400.000 € je
+  Elternteil steuerfrei). Das geht nur, wenn das Elternteil es wirklich will
+  und versteht. Ein „Strohmann“, hinter dem du nach außen die Firma führst,
+  schützt keinen von euch.
+- **Gar nicht veröffentlichen:** App 1 als Lernprojekt bauen, im Sommer mit
+  einem Organisationskonto oder dem Elternteil entscheiden. Das kostet die
+  meisten Chancen, weil dann der Sommer fehlt.
+
+Was in jedem Fall geht, damit möglichst wenig von dir sichtbar wird:
+- ein neutraler Markenname für die App;
+- eine eigene Telefonnummer nur für die App, also eine Prepaid- oder
+  Zweitnummer statt deiner Handynummer. Apple prüft sie mit einem Code.
+- ein Postfach für die EU-Seite bei Apple (mit Nachweis);
+- eine Projekt-E-Mail auf deiner Domain;
+- Markenkonten ohne Gesicht und ohne Stimme.
+
+Für das Impressum frag deine Eltern, ob ihre Anschrift darin stehen darf.
+Das ist rechtlich am sichersten.
+
+---
+
+## 4. Die Regeln
+
+Diese Regeln stehen über allem anderen. Unter ihnen gelten die Zahlen oben.
+
+**Zeit (Abitur- und ETH-Schutz)** – nach der Ferienordnung Niedersachsen und
+den Abiturterminen 2027:
+
+| Zeitraum | Stunden je Woche | Hinweis |
+|---|---|---|
+| Schulwochen bis Di 22.12. und 11.–29.01. (Q3) | **10** (Mo–Fr je 1 h, Sa 5 h, So frei), höchstens 15 | Woche mit Klausuren: nur Samstag 3 h |
+| Weihnachtsferien Mi 23.12.–Sa 09.01. | 21.–27.12.: ~8; 28.12.–03.01.: ~31; 04.–09.01.: ~38 | Mo–Fr 9–12 und 14–17 Uhr, Sa 3 h; 24.–27.12. und 01.01. frei; dazu 1–1,5 h Schule am Tag |
+| Halbjahresferien Mo 01.–Di 02.02. | ~22 in dieser Woche | zwei Ferientage für einen kurzen Bau-Block |
+| Q4, Mi 03.02.–Do 18.03. | **höchstens 6–7**, in Wochen mit zwei oder mehr Klausuren nur Sa 3 h | Q4-Noten zählen fürs Abitur; keine neue Kampagne |
+| 19.03.–05.04. (Ende Q4, Osterferien) | 0–5 | Abiturvorbereitung |
+| schriftliches Abitur 06.04.–13.05. | 0–1, nur Notfälle | an Prüfungstagen und davor gar nichts |
+| 5. Prüfungsfach und Nachschreibtermine 19.05.–07.06. | 0–5 | bei einer Präsentationsprüfung zwei Wochen gar nichts |
+| 08.06.–04.07. | 15–40 | mögliche mündliche Nachprüfung 28.–30.06., Zeugnis 01.–03.07. |
+| ab 05.07. | Mo–Sa ~9 h, So frei | davon ~6 h je Woche für Zürich (Zimmer, Unterlagen, Mathe) |
+
+- **Kein App-Start zwischen 15.03. und 06.06.** Wird App 1 in Q4 von Apple
+  freigegeben, stellst du in App Store Connect „Diese Version manuell
+  veröffentlichen“ ein und veröffentlichst sie am 07.06.
+- **Alles zählt in diese Stunden:** Lernen, Bauen, Prüfen, Videos,
+  Behördenkram, Bewerbungen.
+- Nie nach 22 Uhr an der App. Kein Prüfungstermin wird für die App geopfert.
+- **Schule wird schlechter?** Sofort auf 3 Stunden je Woche, bis die Note
+  wieder steht. Für die ETH zählen Mathe, die Naturwissenschaft und das
+  Sprachfach (Abschnitt 9).
 
 **Geld**
-- Kein Kredit, kein Dispo, keine Bürgschaft – weder privat noch für die UG.
-- Creator-Tests bis 28.02. zusammen **höchstens 1.500 €**, je App
-  200–1.250 € (mit 4 % Künstlersozialabgabe).
-- Nach dem 28.02. Tests und Werbung **nur aus Umsatz**: je Woche höchstens
-  den Umsatz der Vorwoche.
-- **Reserve:** Werbung darf die Kasse nie unter 1.000 € drücken; Tests nur,
-  wenn danach auch alle Pflichtkosten bis 31.08. bezahlt sind.
-- Claude Pro (20 $ im Monat) reicht für den Anfang. Max (100 $) nur für
-  einen Monat, wenn das Limit dich wirklich bremst, Max oder Ultra (200 $)
-  dauerhaft erst bei einem Treffer.
+- **Insgesamt höchstens 5.000 €**, einschließlich der Abmeldung, der
+  Steuererklärung 2027 und einer eigenen Krankenversicherung, falls dein
+  Gewinn zu hoch wird. Das Geld für Zürich ist getrennt und wird nie
+  angefasst.
+- **Ausgaben in Stufen** (Abschnitt 17): bis zur Gründung nur Claude Pro,
+  dann die Gründung, Creator-Geld erst nach einem Signal.
+- Kein Kredit, kein Dispo, keine Ratenzahlung.
+- Vor jeder Ausgabe über 50 €: Sind danach alle Pflichtkosten bis 31.08. und
+  ~800 € für Abmeldung und Steuererklärung noch gedeckt?
+- **Familienversicherung:** Gewinn im Monat unter ~590 € halten (Grenze
+  2027, vorbehaltlich Bundesrat; 2026: 565 €). Gemeint ist Gewinn, also
+  Einnahmen minus Kosten. Zeit für die App unter 20 Stunden je Woche im
+  Schnitt, keine Angestellten.
 
 **Recht**
-- Alle Konten gehören der UG (ab der Beurkundung), du bist überall
-  Inhaberin.
-- Bezahlte Beiträge immer als **„Werbung“** gekennzeichnet (§ 5a UWG), auf
-  TikTok zusätzlich der Schalter für kommerzielle Inhalte.
-- Keine Konten, die unabhängige Nutzer vortäuschen. Keine gekauften oder
-  gefälschten Bewertungen. Keine KI-Avatare, die eine Erfahrung mit der
-  App bezeugen.
-- Kein automatisches Posten, Kommentieren oder Versenden von Nachrichten
-  über inoffizielle Werkzeuge; keine Massenmails an Creator (§ 7 UWG).
-  Offizielle Planer der Plattformen sind erlaubt.
-- Kundendaten (Fotos, Support-Mails) nur über Dienste der UG mit Vertrag
-  zur Auftragsverarbeitung – nie über dein privates Claude-Abo.
-
-**Tore** (Abschnitt 8): Am 28.02. entscheidet eine Zahl, ob die Jagd
-weitergeht – und daran hältst du dich, auch wenn es wehtut.
+- Ein Markenkonto je Plattform, klar als App erkennbar, mit Link auf das
+  Impressum. **Keine Konten, die unabhängige Nutzer vortäuschen**, keine
+  gekauften oder gefälschten Bewertungen, keine KI-Personen, die eine
+  Erfahrung mit der App bezeugen.
+- Auf TikTok bei jedem Post den Schalter für kommerzielle Inhalte auf „Your
+  brand“ und nur Musik aus der Commercial Music Library. Bezahlte Creator
+  kennzeichnen „Werbung“ und nutzen „Paid partnership“.
+- Kein automatisches Posten, Kommentieren oder Versenden über inoffizielle
+  Werkzeuge; keine Massenanfragen an Creator.
+- Kundendaten (Fotos, Support-Mails) nur über Dienste mit Vertrag zur
+  Auftragsverarbeitung, nie über dein privates Claude-Abo.
 
 ---
 
-## 2. Wer was macht
+## 5. Wer was macht
 
 | Aufgabe | Claude | du |
 |---|---|---|
-| Code: Vorlage, App, Paywall, KI-Funktion, Server | schreibt alles in kleinen Schritten und erklärt jeden Schritt; führt eine Projektdatei mit Regeln und gelösten Review-Problemen | beschreibst, was du willst; prüfst mit der Checkliste; testest auf dem iPhone; entscheidest |
-| Sicherheit und Datenschutz | Entwürfe und Prüflisten (Schlüssel nur auf dem Server, Abo-Prüfung auf dem Server, Zugriffsregeln, Einwilligung, Datenschutzerklärung) | prüfst, verstehst und verantwortest |
-| App Store | Texte, Screenshot-Entwürfe, Antworten an das Review | reichst ein und gibst frei; Verträge, Bankdaten und den API-Zugang darf nur der Account Holder, also du |
-| Ideen | Recherche, 10 Kandidaten mit Begründung und Konkurrenz | wählst 3 aus, am Ende eine |
-| Videos | 30+ Hooks je Idee, Skripte, Schnittlisten, Untertitel-Texte, Auswertung | filmst, sprichst, schneidest kurz, postest |
-| Creator | Recherche (TikTok One, Suche), Entwürfe für persönliche Anfragen, Briefing, Vertragsvorlage, Tabelle für Termine und Zahlungen | schreibst jede Anfrage selbst und einzeln, verhandelst, bezahlst nach dem Posten, prüfst die Kennzeichnung |
-| Kennzahlen | Auswertung aus RevenueCat, App Store Connect und den Video-Statistiken; Vorschläge | entscheidest |
-| Verwaltung | Entwürfe für Briefe, Formulare, Belege sortieren | unterschreibst, reichst ein; der Steuerberater macht Jahresabschluss und Steuern |
-| **erst bei einem Treffer:** Agent für den Betrieb | tägliche Berichte, Paywall-Tests vorbereiten, Support- und Bewertungsantworten entwerfen (mit KI-Hinweis), Releases vorbereiten | gibst jede Veröffentlichung frei; Schlüssel mit der kleinsten Rolle |
-
-**Steuerberater:** Jahresabschluss, Steuererklärungen, Fragen zu
-Umsatzsteuer, Künstlersozialabgabe, § 50a EStG, Web-Checkout und
-Rentenversicherung. Kosten ~1.500–3.000 € im Jahr. Für Datenschutzfragen
-ist er nicht zuständig – dafür eine Anwältin für Datenschutzrecht oder
-die IHK.
+| Grundlagen | erklärt im Lernmodus, stellt dir Übungen, lässt dich Stellen selbst schreiben | lernst ~25–40 Stunden bis Weihnachten; fragst nach, bis du es einem Mitschüler erklären kannst |
+| Code: App, Paywall, KI-Funktion, Server | schreibt alles in kleinen Schritten, erklärt jeden Schritt, führt die `CLAUDE.md` und das Review-Log | beschreibst, was du willst; testest auf iPhone und iPad; prüfst mit den Checklisten; entscheidest |
+| Sicherheit und Datenschutz | Entwürfe, Prüflisten, führt die Prüfungen aus | siehst dir jedes Ergebnis selbst an; verantwortest |
+| App Store | Texte, Screenshot-Entwürfe, Antworten an das Review | reichst ein, gibst frei; Verträge, Bank- und Steuerdaten nur du (bzw. das Elternteil) |
+| Ideen | Recherche, 10 Kandidaten mit Konkurrenz und Risiken | wählst 3, am Ende eine |
+| Videos ohne Gesicht | Hooks, Folientexte, Bildideen, Skripte für Bildschirmaufnahmen, Auswertung | baust die Slideshows (10–20 min je Stück), nimmst Bildschirm und Hände auf, postest von Hand |
+| Creator (nach Signal) | Suche, Entwürfe für persönliche Anfragen, Briefing, Vertragsvorlage | schreibst jede Anfrage einzeln, bezahlst nach dem Posten, prüfst die Kennzeichnung |
+| Kennzahlen | Auswertung aus RevenueCat und App Store Connect, Vorschläge | entscheidest |
+| Verwaltung | Entwürfe für Briefe und Formulare, sortiert Belege | unterschreibst, reichst ein |
 
 ---
 
-## 3. Werkzeuge, Konten, Kosten
-
-Alle Konten mit der Firmen-E-Mail und Zwei-Faktor-Anmeldung, Inhaberin
-ist die UG bzw. du als Geschäftsführerin. Konten, die vor der Beurkundung
-entstehen, laufen bis dahin auf dich; danach Inhaber- und Rechnungsdaten
-auf die UG umstellen.
+## 6. Werkzeuge, Konten, Kosten
 
 | Werkzeug | wofür | Kosten | wann |
 |---|---|---|---|
-| Claude Pro (mit Claude Code) | Code, Texte, Auswertungen | 20 $/Monat | ab heute |
-| GitHub | Code der Apps (privates Repository) | 0 € | KW 48 |
-| Expo mit EAS (React Native, TypeScript) | App bauen, Builds in der Cloud (kein Mac nötig) | 0–19 $/Monat | KW 48 |
-| Apple Developer Program als Organisation | App Store | 99 $/Jahr | nach der D-U-N-S-Nummer |
-| Google Play als Organisation | Android, später | 25 $ einmalig | nach dem Start von App 1 |
-| RevenueCat | Abos, Paywall, Umsatzzahlen, Abo-Prüfung für den Server | frei bis 2.500 $ Monatsumsatz, dann 1 % | KW 50 |
-| Supabase | Server-Funktion für den KI-Aufruf | 0 € zum Testen, Pro 25 $/Monat ab dem Start (pausiert nicht) | KW 50 |
-| Claude API (Haiku 5.5) | KI-Funktion der App, über die UG | typisch ~30 $ je 1.000 aktive Nutzer im Monat (5–180 $) | ab dem Start |
-| Domain, Website, Firmen-E-Mail | Impressum, Datenschutz, Support-Adresse | ~20–100 € im Jahr | KW 48 |
-| CapCut oder Canva | Schnitt, Untertitel | ~12 $/Monat zusammen mit Domain | KW 49 |
-| Paddle oder Stripe | Web-Kauf für US-Nutzer | Paddle ~5 % + 0,50 $, Stripe nach Gebühren | Konto nach Rücksprache mit dem Steuerberater, einbauen nach dem Start |
+| Claude Max (läuft aus), dann Claude Pro | Code, Texte, Auswertungen; Claude Code läuft nativ unter Windows | Max schon bezahlt; Pro ~21 € brutto je Monat | Max-Tage jetzt nutzen, nicht verlängern; danach Pro |
+| Claude Code unter Windows | Installation in PowerShell: `irm https://claude.ai/install.ps1 \| iex` (ohne Adminrechte); dazu Git for Windows und Node.js (LTS) | 0 € | KW 48 |
+| GitHub | Code der Apps, privates Repository | 0 € | KW 48 |
+| Expo mit EAS (React Native, TypeScript) | App bauen; Builds in der Cloud, Einreichung per `eas submit` – kein Mac nötig | 0 € (15 iOS-Builds im Monat), sonst 19 $/Monat | KW 48 |
+| Expo Go auf iPhone und iPad | Oberfläche testen; Käufe sind dort nur Attrappen | 0 € | KW 48 |
+| Supabase | Server-Funktion für den KI-Aufruf | 0 € zum Testen, Pro 25 $/Monat ab dem Start | KW 53 |
+| Claude API (Haiku 5.5) | KI-Funktion der App, getrennt vom Abo | typisch ~30 $ je 1.000 aktive Nutzer im Monat; Ausgabenlimit in der Konsole | ab dem ersten Test mit echter KI |
+| Apple Developer Program (Einzelperson) | Gerätetests mit echten Käufen, TestFlight, App Store | 99 $/Jahr, mit einer Karte auf deinen Namen; ohne D-U-N-S, Konto meist nach wenigen Tagen aktiv | bei der Gründung |
+| RevenueCat | Abos, Paywall, Umsatzzahlen, Abo-Prüfung für den Server | frei bis 2.500 $ Monatsumsatz | mit dem Apple-Konto |
+| Domain, Website, E-Mail | Impressum, Datenschutz, Support | ~20–60 € im Jahr | bei der Gründung |
+| Zweitnummer (Prepaid) | Telefon für Apples EU-Seite | ~0–10 € im Monat | bei der Gründung |
+| Canva oder CapCut (Gratisversion) | Slideshows, Untertitel | 0 € | bei der Gründung |
 
 Bewusst **nicht** in App 1:
-- **Nutzerkonten:** Dann entfällt die Pflicht zur Kontolöschung in der App.
-  Die Abo-Prüfung läuft über die anonyme App-User-ID von RevenueCat.
-- **Fremde Tracking- und Analyse-SDKs:** Dann entfällt Apples
-  Tracking-Abfrage (ATT). Achtung: Das deutsche Recht (§ 25 TDDDG) ist
-  strenger. Auch eigene Messereignisse in der App („Onboarding
-  abgeschlossen“, „Paywall gesehen“), die die App dafür speichert oder
-  eigens an den Server schickt, brauchen in der Regel eine Einwilligung.
-  Ohne Einwilligung wertest du in App 1 nur aus, was ohnehin anfällt:
-  Downloads aus App Store Connect, Testphasen, Käufe und Erstattungen aus
-  RevenueCat, die Zahl der KI-Aufrufe auf dem Server.
-- **Fotos speichern:** Fotos gehen zur KI-Funktion und werden danach
+- **Nutzerkonten:** Dann entfällt die Pflicht zur Kontolöschung. Die
+  Abo-Prüfung läuft über die anonyme App-User-ID von RevenueCat.
+- **Fremde Tracking- und Analyse-SDKs:** Auch eigene Messereignisse
+  („Paywall gesehen“) nur mit Einwilligung (§ 25 TDDDG). Ohne Einwilligung
+  wertest du nur aus, was ohnehin anfällt: Downloads, Testphasen, Käufe, Zahl
+  der KI-Aufrufe.
+- **Fotos speichern:** Fotos gehen an die KI-Funktion und werden danach
   verworfen.
-
-Das spart Stunden und senkt das Risiko beim Review und beim Datenschutz.
+- **Jahresabos:** Du ziehst im September um. Ein Jahresabo verpflichtet dich,
+  die App bis zu zwölf Monate weiterzubetreiben. Deshalb nur Wochen- und
+  Monatsabo; ein Jahresabo erst, wenn im Juli klar ist, wie es weitergeht.
+- **Nutzerinhalte, die andere sehen** (Teilen, Profile): Dann bräuchtest du
+  Filter, Melden, Blockieren und veröffentlichte Kontaktdaten (Richtlinie 1.2).
 
 ---
 
-## 4. So arbeitest du mit Claude
+## 7. So arbeitest du mit Claude, ohne programmieren zu können
 
-**Das Projekt**
-- Ein privates GitHub-Repository je App, alle aus derselben Vorlage.
-- Im Repository eine Datei `CLAUDE.md` mit den Regeln für Claude – die
-  Vorlage liegt in [`vorlagen/CLAUDE_md_fuer_die_app.md`](vorlagen/CLAUDE_md_fuer_die_app.md).
-  Claude liest sie zu Beginn jeder Sitzung.
-- `docs/checkliste-einreichung.md` (Vorlage:
-  [`vorlagen/checkliste_einreichung.md`](vorlagen/checkliste_einreichung.md))
-  und `docs/review-log.md`: jede Ablehnung durch Apple mit Grund und
-  Lösung. Die nächste App liest daraus.
+**Was die Forschung sagt:**
+- **Bei Anfängern ist die Fehlersuche der Engpass.** In einer Studie gingen
+  61 % der Anfragen an einen KI-Agenten in das Reparieren von Code, den der
+  Agent selbst geschrieben hatte.
+- **Nicht-Programmierer fragen lieber neu, statt den Fehler zu suchen**, und
+  bringen seltener etwas Fertiges heraus.
+- **Abgeben ohne Verstehen schadet beim Lernen.** In einem Versuch von
+  Anthropic schnitt beim Verstehen am schlechtesten ab, wer alles nur abgab,
+  vor allem bei der Fehlersuche. Gut schnitt ab, wer sich erklären ließ und
+  nachfragte.
+- **Das Gefühl täuscht.** Erfahrene Entwickler hielten sich mit KI für 20 %
+  schneller und waren in Wahrheit 19 % langsamer.
+
+Deshalb lernst du zuerst die Grundlagen, arbeitest im Lernmodus und glaubst
+nur, was du selbst gesehen hast.
+
+**Lernpfad (~25–40 Stunden, KW 48 bis Weihnachten)**
+1. Expo-Tutorial „Build with AI“ (für Menschen ohne Programmierhintergrund,
+   ~1 h, mit Claude Code, iPhone mit Expo Go).
+2. Expo-Standard-Tutorial „StickerSmash“ (~2 h).
+3. MIT „Missing Semester“ 2026: Shell, Git, Fehlersuche (~6–10 h mit
+   Übungen).
+4. JavaScript und TypeScript lesen lernen, nicht schreiben (~10–20 h, z. B. die
+   ersten Abschnitte von freeCodeCamp).
+5. Expo- und EAS-Doku zu Development Builds und `eas submit` (~3–5 h).
+6. Fehlermeldungen lesen üben, an deinen eigenen echten Fehlern.
+
+CS50x (10–20 Stunden je Woche) machst du erst nach dem Abitur, als
+Vorbereitung auf die ETH.
+
+**Lernmodus:** In Claude Code `/output-style learning` einschalten. Claude
+erklärt dann seine Entscheidungen und lässt dich an wichtigen Stellen selbst
+schreiben (`TODO(human)`). Für reine Erklärungen gibt es `/output-style explanatory`.
 
 **Eine Sitzung (30–90 Minuten)**
-1. Ein Ziel, klein und prüfbar: „Onboarding mit 5 Fragen, danach die
-   Paywall-Seite, noch ohne Kauf“ – nicht „bau die App“.
-2. Claude plant zuerst und sagt, welche Dateien es ändert. Du sagst Ja
-   oder änderst den Plan.
-3. Claude setzt um und **erklärt in zwei, drei Sätzen**, was es gemacht
-   hat und warum.
-4. Du startest die App auf dem iPhone (erst Expo Go, ab dem aktiven
-   Apple-Konto der Entwicklungs-Build) und prüfst das Ziel selbst.
-   **Glaube kein „ist behoben“, bevor du es gesehen hast** –
-   KI-Werkzeuge melden das nachweislich auch, wenn es nicht stimmt.
-5. Erst dann speichern (Commit) mit einer kurzen Nachricht.
-6. Notieren: Zeit, Ergebnis, offene Punkte (Abschnitt 14).
+1. Ein kleines, prüfbares Ziel: „Onboarding mit 5 Fragen, danach die
+   Paywall-Seite, noch ohne Kauf“, nicht „bau die App“.
+2. Claude plant zuerst und sagt, welche Dateien es ändert. Du sagst Ja oder
+   änderst den Plan.
+3. Claude setzt um und erklärt in zwei, drei Sätzen, was es gemacht hat.
+4. Du prüfst auf dem iPhone (Expo Go, später Development Build) **und auf
+   dem iPad**. Apple prüft iPhone-Apps auch auf dem iPad.
+5. **Glaube kein „ist behoben“, bevor du es gesehen hast.**
+6. Commit mit kurzer Nachricht, Zeit und Ergebnis notieren.
 
-**Erklär-Modus:** Bitte Claude bei allem, was Geld oder Daten berührt
-(Paywall, Abo-Prüfung, Server-Funktion, Zugriffsregeln), es dir so zu
-erklären, dass du es einem Mitschüler erklären könntest. Wer alles nur
-abgibt, versteht den Code nachweislich schlechter und bleibt bei Fehlern
-hängen – genau dann, wenn in der Abiturzeit keine Zeit ist.
+**Wenn Claude im Kreis läuft** (zweimal derselbe Fehler): Sitzung beenden,
+den Fehler in einem Satz aufschreiben, neue Sitzung mit „Erkläre mir zuerst,
+was der Fehler bedeutet und wo er entsteht; ändere noch nichts“.
 
-**Wenn Claude im Kreis läuft** (dreimal derselbe Fehler): Sitzung beenden,
-den Fehler in einem Satz aufschreiben, neue Sitzung mit „Erkläre mir
-zuerst, was der Fehler bedeutet und wo er entsteht; ändere noch nichts“.
+**Testweg ohne Mac**
+- **Expo Go:** nur Oberfläche und Ablauf; RevenueCat zeigt dort nur
+  Attrappen.
+- **Ab dem Apple-Konto:** iPhone und iPad mit `eas device:create`
+  registrieren, Entwicklermodus einschalten, Development Build per QR-Code
+  installieren. Bei einem neuen Konto kann das 24–72 Stunden dauern.
+- **TestFlight:** Production-Build per `eas submit`, dort echte Käufe mit
+  einem Sandbox-Konto testen.
+- Im Free-Plan gibt es nur 15 iOS-Builds im Monat. Kleine Änderungen prüfst
+  du im Development Build mit Hot Reload.
 
-**Die KI-Funktion sicher und bezahlbar**
-- Eigener API-Schlüssel der UG, nur als Geheimnis in der Server-Funktion.
-- Die Server-Funktion prüft bei jedem Aufruf selbst über die REST-API von
-  RevenueCat (geheimer Schlüssel nur auf dem Server), ob die mitgeschickte
-  App-User-ID ein aktives Abo hat, und zählt ein Tageslimit je
-  App-User-ID. Vor dem Kauf gibt es keine KI-Aufrufe (harte Paywall). Ohne
-  diese Prüfung könnte jeder, der die Adresse der Funktion ausliest, die
-  Paywall umgehen und deine Kosten treiben.
-- Ausgabenlimit in der Anthropic-Konsole als **Notbremse**: vor dem Start
-  50 $ im Monat, ab dem Start jeden Sonntag auf etwa das Dreifache der
-  erwarteten Monatskosten anheben (aktive Nutzer × 0,03 $, vorsichtig
-  × 0,18 $). Ist das Limit erreicht, beantwortet die API bis zur Erhöhung
-  keine Anfrage mehr – dann verlieren zahlende Nutzer die Kernfunktion.
-  Das Limit geht höchstens bis zur Obergrenze deiner Nutzungsstufe (zu
-  Beginn 500 $ im Monat); wird das knapp, rechtzeitig eine höhere Stufe
-  beantragen.
-- In der App bei jedem Fehler der API eine freundliche Meldung statt
-  Absturz.
-
-**Kosten für Claude selbst:** Pro reicht für eine Stunde am Tag. Stößt du
-in den Ferien mehrmals an das Limit, für diesen Monat Max nehmen und
-danach zurück.
+**Die KI-Funktion sicher und bezahlbar** – Mindestprüfung vor jedem Release.
+Claude darf sie ausführen, das Ergebnis siehst du dir selbst an:
+1. **Kein Schlüssel in der App.** Der KI-Schlüssel und der geheime
+   RevenueCat-Schlüssel liegen nur als Geheimnis in der Server-Funktion
+   (`supabase secrets set`). Die Datei `.env` steht in `.gitignore`.
+2. **Die Server-Funktion prüft bei jedem Aufruf selbst**, ob die
+   mitgeschickte App-User-ID ein aktives Abo hat (REST-API von RevenueCat),
+   und zählt ein Tageslimit je App-User-ID. Ohne diese Prüfung wird sie
+   zum offenen Zugang, über den Fremde dein API-Budget leerziehen können.
+   Genau diesen Fehler hatte in einer Untersuchung ein Drittel der
+   betroffenen iOS-Apps mit KI-Funktion.
+3. **Zugriffsregeln (RLS)** auf jeder Tabelle, keine Regel `using (true)`.
+   Der Security Advisor von Supabase zeigt null Fehler.
+4. **Ausgabenlimit in der Anthropic-Konsole als Notbremse:** vor dem Start
+   50 $ im Monat, danach jeden Sonntag anpassen (aktive Nutzer × 0,03 $,
+   vorsichtig × 0,18 $, davon das Dreifache).
+5. Repository und App nach Schlüsseln durchsuchen (`git grep`, GitHub Secret
+   Scanning).
+6. **Getrennte Projekte für Test und Betrieb.** Der Agent bekommt keine
+   Zugangsdaten für den Betrieb, und Backups sind an.
+7. **Von außen testen:** Ein Aufruf ohne aktives Abo muss scheitern.
+8. Ein neues Supabase-Projekt gleich mit den neuen Schlüsseln anlegen, weil
+   die alten Ende 2026 wegfallen.
 
 **Was Claude nie tun darf:** Schlüssel in die App schreiben; Zahlungen,
-Verträge oder Veröffentlichungen ohne deine Freigabe; Posten oder
-Nachrichten verschicken; Kundendaten über dein privates Abo verarbeiten.
+Verträge oder Veröffentlichungen ohne deine Freigabe; posten oder Nachrichten
+verschicken; mit Zugangsdaten für den Betrieb arbeiten; Kundendaten über dein
+privates Abo verarbeiten.
 
 ---
 
-## 5. Wochenvorlagen und Tagesablauf
+## 8. Videos ohne Gesicht
+
+**Was ohne Gesicht funktioniert** (Fallberichte, alle selbst berichtet):
+- **Foto-Slideshows und Karussells:** Text auf Bild, Hook auf der ersten
+  Folie, letzte Folie mit Hinweis auf die App. Eine Paar-Fragen-App kam mit
+  26 Konten und über 20 Formaten auf über 140 Mio. Aufrufe. Ein anderer
+  Gründer schaffte in 5 Tagen 500.000 Aufrufe und rund 590 $ Monatsumsatz.
+- **Bildschirmaufnahmen der App und „Hände mit Handy“:** Ein Gründer kam damit
+  auf 2,4 Mio. Aufrufe, 20.000 Downloads und 9.000 $ Monatsumsatz in
+  78 Tagen.
+- **Gegenbeispiel:** Voll automatisierte Slideshows brachten einem anderen
+  Gründer nur rund 100 Downloads.
+- **Gesicht oder nicht:** Für Reichweite ohne Werbung gibt es keinen Beleg,
+  dass Videos mit Gesicht besser verkaufen. Bei bezahlten Anzeigen
+  schneiden Creator-Inhalte laut TikTok deutlich besser ab, rund 70 % mehr
+  Klicks.
+
+**Dein Ablauf**
+- **Ab der Gründung:** ein Markenkonto je Plattform (TikTok, Instagram,
+  YouTube Shorts), mit dem Namen der App und dem Link „Impressum“ zur Website.
+  Unter 1.000 TikTok-Followern schreibst du die Adresse als Text in die Bio.
+- **Format testen:** viele Varianten eines Formats, Hook in der ersten Sekunde
+  bzw. auf der ersten Folie. Claude liefert je Tag 10 Hook-Varianten und die
+  Folientexte, du baust die Slideshow in Canva (10–20 Minuten) und postest
+  von Hand vom iPhone.
+- **Menge:** in Q4 höchstens 3 je Woche auf Vorrat; ab dem Start 1–3 am Tag.
+- **Stimme:** keine eigene. Wenn überhaupt, die Vorlesestimme der Plattform;
+  ein Stimmklon ist tabu.
+- **KI-Bilder** mit realistisch wirkenden Personen oder Szenen kennzeichnen
+  (TikTok-AIGC-Label, KI-Verordnung Art. 50). Am einfachsten sind Grafiken,
+  Bildschirmaufnahmen und Text.
+- **Kennzeichnung:** Auf einem klar erkennbaren Markenkonto brauchen Posts über
+  die eigene App in der Regel kein „Werbung“, wohl aber den TikTok-Schalter
+  „Your brand“. Rabattcodes immer mit „Werbung“.
+- **App-Ideen, die bezahlte Creator auf TikTok nicht bewerben dürfen:**
+  Abnehmen, Gesundheit und Medizin, manche Dating-Apps, schnelles Geld. Solche
+  Ideen fallen weg.
+
+**Creator nach dem Signal:** Hat eine App drei Wochen nach dem Start ohne
+Werbung mindestens 300 $ Monatsumsatz, bekommt sie bis zu 750 € für Creator.
+Die zeigen sich selbst, du nicht.
+- **Preise:** UGC-Videos in Deutschland im Schnitt ~83 $ je 30 Sekunden
+  (Influee), auf dem US-Markt ~150–200 $ (Collabstr).
+- **Wo buchen:** TikTok One verlangt kein Mindestbudget, Collabstr nimmt eine
+  Gebühr je Auftrag. Insense (650 $ Testmonat) und Billo (ab 1.000 $ Paket)
+  binden zu viel Geld.
+- **Lieferzeit:** 1–2 Wochen.
+- **Rechte:** Nutzungsrechte oder Spark Ads kosten meist 30–50 % extra.
+
+---
+
+## 9. ETH Zürich und Rückfall
+
+**Zulassung ohne Prüfung mit deutschem Abitur** (ETH, Studienjahr 2026/27;
+Änderungen erst ab Herbst 2028):
+- **Fächer:** Mathematik, eine Naturwissenschaft (Physik, Chemie oder
+  Biologie) und Deutsch oder eine Fremdsprache müssen in den letzten zwei
+  Jahren unterrichtet worden **und Prüfungsfächer deines Abiturs** sein.
+- **Note:** Der Schnitt dieser drei Prüfungsfächer muss mindestens 70 % des
+  Höchstwerts erreichen, rechnerisch ~10,5 Punkte. Ob die ETH nur die
+  Prüfungsergebnisse zählt, sagt sie nicht; frag bei zulassungsstelle@ethz.ch
+  nach.
+- **Breite:** Vier weitere Fächer aus Physik, Chemie, Biologie, Informatik,
+  weiterer Sprache, Geografie, Geschichte und Wirtschaft müssen in den
+  letzten drei Jahren unterrichtet worden sein.
+- **Gesamtnote:** Eine Mindest-Abiturnote gibt es nicht.
+- **Sonst:** Fehlt etwas, bleibt nur die Aufnahmeprüfung im Januar 2028 mit
+  Studienbeginn im September 2028. Das kostet ein Jahr.
+- **Programmieren** ist keine Voraussetzung. Im ersten Jahr wird Java
+  unterrichtet.
+
+**Was das für den Plan heißt:**
+- Am Dienstag prüfst du deine fünf Prüfungsfächer (P1–P4 schriftlich, P5
+  mündlich) gegen diese Bedingung.
+- Mathe, die Naturwissenschaft und das Sprachfach haben im Abitur Vorrang vor
+  allem in diesem Plan.
+
+**Bewerbung**
+
+| Schritt | Termin | Aufwand |
+|---|---|---|
+| eApply ist offen | 01.12.2026–31.03.2027, danach geht nichts mehr | – |
+| Bewerbung abschicken: Passfoto, Ausweis, Lebenslauf (Vorlage der ETH), Einverständniserklärung, Zeugnisse der letzten drei Schuljahre als PDF, Gebühr 150 CHF | **in den Weihnachtsferien (KW 53)** | ~6 h |
+| Antwort | ~8 Wochen nach Eingang, also etwa Anfang März | – |
+| Abiturzeugnis hochladen, Original per Post | sofort nach der Ausgabe 01.–03.07., spätestens 31.08. | ~1 h |
+| Studienbeginn | 20.09.2027 | – |
+
+**Zürich kostet** laut ETH für internationale Studierende ~28.100 CHF im
+Jahr:
+- **Schulgeld und Beiträge:** 2.264 CHF je Semester.
+- **Zimmer:** ~800–1.000 CHF im Monat, bei WOKO ab ~400 CHF.
+- **Vor dem Einzug:** bis zu drei Monatsmieten Kaution plus die erste Miete.
+- **Aufenthaltsbewilligung B:** innerhalb von 14 Tagen nach der Ankunft
+  beantragen. Dafür brauchst du einen Finanzierungsnachweis über 21.000 CHF;
+  ein Brief deiner Eltern über 1.750 CHF im Monat reicht.
+- **Krankenversicherung:** Mit der Europäischen Krankenversicherungskarte
+  innerhalb von drei Monaten die Befreiung beantragen. **Jedes Einkommen in
+  der Schweiz hebt sie auf**; als Deutscher kannst du dann eine Ausnahme
+  beantragen.
+
+Deshalb gehört jeder Euro, den die App nicht braucht, deinem Start in Zürich.
+
+**Rückfall in Niedersachsen** (Fristen 2026, für 2027 erwartet gleich):
+- **Leibniz Universität Hannover**, Informatik: Bewerbung 01.06.–15.07.;
+  formal zulassungsbeschränkt, seit 2022 wurden aber alle zugelassen. Diese
+  Bewerbung schickst du **auf jeden Fall** bis 15.07. ab (~2 h).
+- **Ohne Bewerbung, nur Einschreibung:**
+  - TU Braunschweig bis 15.10.
+  - Göttingen (Angewandte Informatik) bis 30.09.
+  - Osnabrück bis 30.09.
+  - Oldenburg 16.07.–15.10.2027
+  - TU Clausthal ~15.10.
+
+---
+
+## 10. Wochenvorlagen
 
 **Schulwoche (10 Stunden)**
 
 | Tag | Zeit | was |
 |---|---|---|
-| Mo–Fr | 1 h, z. B. 18–19 Uhr | 30 min: Claudes Ergebnis prüfen und testen; 30 min: Video filmen und posten bzw. Kommentare lesen (in der Testphase) oder eine kleine Code-Sitzung (in der Bauphase) |
-| Sa | 5 h, z. B. 10–13 und 14–16 Uhr | 3 h Bau-Sitzung mit Claude; 2 h Videos auf Vorrat (5–8 Stück) |
+| Mo–Fr | 1 h, z. B. 18–19 Uhr | 30 min Claudes Ergebnis prüfen und testen, 30 min kleine Sitzung oder Lernen |
+| Sa | 5 h, z. B. 10–13 und 14–16 Uhr | 3 h Bau-Sitzung, 2 h Lernen bzw. ab der Gründung Slideshows auf Vorrat |
 | So | frei | – |
 
-**Woche mit Schulaufgaben (3 Stunden):** nur Samstag. 1 h Videos auf
-Vorrat und zeitgesteuert einplanen, 2 h das Wichtigste der Woche
-(Review-Antwort, Fehler beheben). Mo–Fr gar nichts (einzige Ausnahme: der
-D-U-N-S-Antrag am Tag der Eintragung, Abschnitt 1).
+**Woche mit Klausuren (3 Stunden):** nur Samstag. Das Wichtigste der Woche,
+sonst nichts.
 
-**Ferienwoche (~27–33 Stunden)**
+**Ferienwoche (~31–38 Stunden)**
 
 | Tag | Zeit | was |
 |---|---|---|
-| Mo–Fr (ohne Feiertage) | 9–12 und 14–17 Uhr | Bau-Sitzungen, Test auf dem Gerät, Store-Eintrag, Videos |
-| Sa | 3 h | Videos auf Vorrat, Wochenauswertung |
-| täglich | 1–1,5 h | Schule (Lernen, Facharbeit) |
+| Mo–Fr (ohne Feiertage) | 9–12 und 14–17 Uhr | Bau-Sitzungen, Tests auf iPhone und iPad, Store-Eintrag |
+| Sa | 3 h | Wochenauswertung, Lernen |
+| täglich | 1–1,5 h | Schule |
 
-**Abiturwoche (0–5 Stunden)** – nur, wenn eine App die Tore bestanden hat:
-zweimal 20 Minuten Zahlen prüfen, Freigaben, eine Stunde Gespräch mit dem
-Helfer. Sonst nichts.
+**Q4-Woche (höchstens 6–7 Stunden):** Mo–Fr frei, Sa 3 h, dazu höchstens
+zweimal 1–2 h; mit zwei oder mehr Klausuren nur der Samstag.
+
+**Abiturzeit (0–5 Stunden):** nur Zahlen ansehen und Notfälle. Ist eine App
+schon gestartet: zweimal 20 Minuten je Woche.
+
+**Sommerwoche ab 05.07. (~55 Stunden):** Mo–Sa 9–12, 13–17 und 18–20 Uhr,
+So frei; davon ~6 Stunden für Zürich.
 
 ---
 
-## 6. Diese Woche Tag für Tag (KW 48)
+## 11. Diese Woche Tag für Tag (KW 48)
 
-Montag, 23.11. bis Sonntag, 29.11.2026 – Schulwoche, 10 Stunden. Ziel:
-Notartermin angefragt, Bank gewählt, Claude eingerichtet, Ideensuche
-läuft.
+Di 24.11. bis So 29.11.2026, Schulwoche. Kosten diese Woche: 0 €, Max ist
+schon bezahlt.
 
-| Tag | Stunde(n) | was | Ergebnis |
+**Ziel der Woche:**
+- Claude Code läuft unter Windows.
+- Das erste Expo-Projekt läuft auf deinem iPhone.
+- Deine Prüfungsfächer sind gegen die ETH-Bedingung geprüft.
+- Drei Ideen sind gewählt.
+
+| Tag | Zeit | was | Ergebnis |
 |---|---|---|---|
-| Mo 23.11. | 1 h | Mit den Eltern klären: Geschäftsanschrift (sie erscheint öffentlich im Handelsregister, Impressum, bei D&B und im EU-App-Store – das Elternhaus nur mit ihrer Zustimmung, sonst eine Geschäftsadresse für ~10–40 €/Monat buchen). Personalausweis: Online-Funktion an, PIN bekannt? NFC-Handy, Notar-App, Laptop mit Kamera. Name der UG festlegen (nicht der Name einer App). | Adresse, Name, Ausweis geklärt |
-| Di 24.11. | 1 h | Online-Notar mit Musterprotokoll anfragen (UG, eine Gesellschafterin, Stammkapital 1.000–2.500 €; Kosten ~450–500 €). Bank auswählen, die ein Konto für eine UG in Gründung mit Kapitaleinzahlung anbietet, und die Unterlagen klären – eröffnen lässt es sich erst mit der notariellen Urkunde. | Termin angefragt, Bank gewählt |
-| Mi 25.11. | 1 h | Claude Pro abschließen. Mit Claude: Brief an die Krankenkasse entwerfen (Familienversicherung: Stunden je Schulwoche, in den Ferien und im Sommer, kein Gehalt, keine Ausschüttung 2027, Bitte um schriftliche Antwort bis 23.12.). Absenden. | Brief raus |
-| Do 26.11. | 1 h | Zwei, drei Steuerberater anfragen (Festpreis für die UG ohne Umsatz und mit kleinem Umsatz; Fragen: Verzicht auf die Kleinunternehmerregelung, Künstlersozialabgabe, § 50a EStG, Web-Checkout über Paddle oder Stripe, Statusfrage Rentenversicherung). | Anfragen raus |
-| Fr 27.11. | 1 h | Firmen-E-Mail und Domain (Name der UG). Mit Claude: einfache Website mit Impressum und einer kurzen, vollständigen Datenschutzerklärung für die Website (Verantwortliche, Hoster und Server-Logs, E-Mail-Kontakt, Rechte) – kein Platzhalter. **Impressum:** bis zum Notartermin mit deinem eigenen Namen und der Anschrift (eine UG gibt es noch nicht; was du bis dahin abschließt, läuft auf dich); ab der Beurkundung „[Name] UG (haftungsbeschränkt) i. G., vertreten durch die Geschäftsführerin [Name]“; ab der Eintragung mit Registergericht und HRB-Nummer. Vertrag zur Auftragsverarbeitung beim Anbieter von Website und E-Mail annehmen. | Domain, E-Mail, Website online |
-| Sa 28.11. | 5 h | 2 h: GitHub- und Expo-Konto, Repository „vorlage“, `CLAUDE.md` aus der Vorlage, mit Claude ein leeres Expo-Projekt, das auf deinem iPhone in Expo Go läuft. 2 h: Ideensuche mit Claude (Abschnitt 11, Vorlage „Ideen“): 10 Kandidaten, du wählst 3. 1 h: je Idee ein TikTok-Markenkonto mit eigener Adresse deiner Firmen-Domain (Name und einfaches Logo der App, klar als App-Marke erkennbar, Impressum verlinkt); Instagram und YouTube Shorts erst für die Idee, die das Ideen-Tor besteht. | Vorlage läuft auf dem iPhone, 3 Ideen, 3 TikTok-Konten |
+| Di 24.11. | 1 h | 10 min: deine Prüfungsfächer P1–P5 gegen die ETH-Bedingung prüfen (Abschnitt 9). Ist eine Bedingung nicht erfüllt, sag es mir, dann planen wir die Aufnahmeprüfung oder den Rückfall. 50 min: in PowerShell Claude Code installieren (`irm https://claude.ai/install.ps1 \| iex`), dazu Git for Windows und Node.js (LTS); mit `claude` anmelden; `/output-style learning` einschalten. Das Max-Abo nicht verlängern, sondern zum Ende auf Pro umstellen. | Prüfungsfächer geklärt, Claude Code läuft |
+| Mi 25.11. | 1 h | Expo-Tutorial „Build with AI“ mit Claude Code; Expo Go auf iPhone und iPad. | erste App in Expo Go |
+| Do 26.11. | 1 h | Gespräch mit deinen Eltern: Abschnitt 3 zeigen. Wer soll im App Store stehen, du oder ein Elternteil? Darf ihre Anschrift ins Impressum? Noch nichts entscheiden, nur verstehen. | Fragen geklärt, Entscheidung im Januar |
+| Fr 27.11. | 1 h | Missing Semester: Shell (Teil 1). | Terminal-Grundlagen |
+| Sa 28.11. | 5 h | 2 h: Expo-Tutorial „StickerSmash“ mit Erklärungen von Claude. 2 h: Ideensuche mit Claude (Vorlage „Ideen“, Abschnitt 16): 10 Kandidaten, du wählst 3. 1 h: GitHub-Konto, privates Repository `vorlage`, `CLAUDE.md` aus [`vorlagen/CLAUDE_md_fuer_die_app.md`](vorlagen/CLAUDE_md_fuer_die_app.md); solange Max noch läuft, legt Claude damit das leere Vorlagen-Projekt an. | 3 Ideen, Vorlage im Repository |
 | So 29.11. | frei | – | – |
 
-**Sobald der Notartermin steht:** Termin wahrnehmen (~1 h, zählt in die
-Stunden der Woche). Danach mit der Urkunde das Geschäftskonto eröffnen,
-Stammkapital einzahlen und **den Rest der 5.000 € – abzüglich deines
-privaten Anteils an den Gründungskosten (~150–255 €, den die UG dir nicht
-erstatten darf) – als freiwillige Zuzahlung in die Kapitalrücklage**
-überweisen, nicht als Darlehen (Abschnitt 4 des 500k-Plans). **Die
-Einzahlungsbestätigung sofort an den Notar schicken:** Erst dann reicht er
-die Anmeldung ein, und erst ab dann laufen die Wochen bis zur Eintragung.
+---
+
+## 12. Woche für Woche bis 31.08.
+
+### Phase 1 – Grundlagen und Idee (KW 49–51, 30.11.–20.12.), Schulwochen, 10 h (mit Klausuren 3 h)
+
+- **Lernen (~5 h je Woche):**
+  - Missing Semester (Git, Fehlersuche).
+  - JavaScript und TypeScript lesen.
+  - Expo- und EAS-Doku.
+- **Idee ohne eigene Posts:** Claude recherchiert für deine 3 Ideen:
+  - die Nachfrage: Wie viele Aufrufe haben Inhalte zum Thema? Verdienen
+    Konkurrenz-Apps Geld?
+  - drei Konkurrenten mit Preis;
+  - das Risiko beim App Review.
+
+  Eigene Markenkonten gibt es erst ab der Gründung, wegen des Impressums.
+- **Ideen-Tor (So 20.12.):** eine Idee für App 1, die zweitbeste für App 2.
+  Kriterien:
+  - Menschen geben schon Geld dafür aus;
+  - der „Magic Moment“ lässt sich ohne Gesicht zeigen;
+  - keine Gesundheits-, Abnehm- oder Finanzthemen;
+  - einfach zu bauen.
+- **Bauen (~4 h je Woche):** eine Seite Beschreibung von App 1, dann in der
+  Vorlage Eingabe oder Foto → Einwilligung → Ergebnis, zunächst mit einer
+  Beispiel-Antwort in Expo Go.
+- **Messpunkt M0 (So 20.12.):** Grundlagen zur Hälfte durch, Idee gewählt,
+  erster Ablauf in Expo Go.
+
+### KW 52 (21.–27.12.), ~8 h
+
+- Mo/Di je 1 h, Mi 23.12. (erster Ferientag) 6 h: Bau weiter. 24.–27.12. frei.
+
+### KW 53 (28.12.–03.01.), Weihnachtsferien, ~31 h (Neujahr frei)
+
+- **ETH-Bewerbung (6 h):** Lebenslauf mit Claude nach der ETH-Vorlage,
+  Zeugnisse der letzten drei Schuljahre scannen, Passfoto,
+  Einverständniserklärung, Gebühr 150 CHF (privat, nicht aus dem App-Geld).
+  **Abschicken.**
+- **App 1 (~25 h):**
+  - echte KI-Funktion: Supabase-Funktion mit Claude Haiku 5.5, Schlüssel nur
+    als Geheimnis, Ausgabenlimit 50 $;
+  - Fehlerfälle: kein Netz, KI lehnt ab, Limit erreicht;
+  - Onboarding mit 5–8 Fragen;
+  - Paywall als Vorschau in Expo Go.
+
+### KW 01 (04.–10.01.), Ferien, ~38 h (der 06.01. ist in Niedersachsen kein Feiertag)
+
+- **App 1:**
+  - harte Paywall (kein Umschalter für eine Testphase), Wochen- und
+    Monatsabo, „Käufe wiederherstellen“, Links zu Datenschutz und
+    Nutzungsbedingungen;
+  - Einwilligung vor dem ersten KI-Aufruf mit Nennung des Anbieters;
+  - die Abo-Prüfung in der Server-Funktion.
+- **Sobald App 1 etwa halb steht** (Kernfunktion läuft mit echter KI,
+  Onboarding und Paywall stehen als Oberfläche): **Messpunkt M2,
+  Rechtsform entscheiden und gründen** (Checkliste A, ~4 h). Gelingt das
+  nicht in den Ferien, ist es im Modell meist bis Ende Januar so weit.
+- **Messpunkt M1 (Fr 08.01.):** ETH-Bewerbung abgeschickt, die KI-Funktion
+  läuft in Expo Go.
+
+### KW 02–04 (11.–31.01.), Schulwochen, 10 h (Q3-Ende, mit Klausuren 3 h)
+
+- **Gründung**, falls noch nicht geschehen.
+- **Brief an die Krankenkasse**, sobald das Gewerbe angemeldet ist: Claude
+  entwirft ihn, du schickst ihn ab. Inhalt: Schüler mit Gewerbe, erwarteter
+  Gewinn unter 590 € im Monat, unter 20 Stunden je Woche, keine Angestellten;
+  Bitte um schriftliche Bestätigung.
+- **Apple-Konto:**
+  - Paid Apps Agreement, Bank- und Steuerdaten;
+  - Händlerangaben für die EU mit Postfach oder Adresse, Zweitnummer und
+    Projekt-E-Mail;
+  - Small Business Program.
+- **Geräte:** iPhone und iPad registrieren, Development Build, Sandbox-Kauf
+  testen.
+- **Website und Konten:** Website mit Impressum und Datenschutzerklärung,
+  Markenkonten anlegen.
+- **Fr 29.01. Halbjahreszeugnis:** Lade es in eApply nach, falls die ETH es
+  verlangt.
+
+### KW 05 (01.–07.02.), Halbjahresferien Mo/Di, ~22 h
+
+- App 1: zwei Ferientage für Tests nach Checkliste C, TestFlight mit 5–10
+  Testern aus Familie und Freundeskreis, Fehler beheben.
+- **Einreichen, sobald die Checkliste steht.** Abo-Gruppe und Abos zusammen
+  mit dieser Version einreichen.
+- Erste Slideshows auf dem Markenkonto, noch ohne App-Link.
+
+### KW 06–10 (08.02.–14.03.), Q4, höchstens 6–7 h
+
+- **Ist App 1 eingereicht:** auf das Review reagieren. Den Grund jeder
+  Ablehnung schreibst du in `docs/review-log.md`, Claude schlägt die kleinste
+  Lösung vor. Rechne mit 1–2 Ablehnungen bei der ersten App; 90 % der Prüfungen
+  sind in 48 Stunden fertig.
+- **Ist sie bis Sa 13.03. freigegeben:** starten, mit 3 Slideshows je Woche.
+  Sonst „manuell veröffentlichen“ einstellen und bis 07.06. warten.
+- **Ist sie noch nicht eingereicht:** im Rahmen der Q4-Stunden weiterbauen,
+  ohne Druck. Im Modell ist sie bis 14.03. nur in ~⟨E1_1403⟩ von 100 Läufen
+  fertig, und das ist kein Fehler.
+- **Messpunkt M3 (So 14.03.):** Ist App 1 gestartet, freigegeben oder noch im
+  Bau? Davon hängt ab, was du am 07.06. tust.
+- **ETH-Antwort (etwa Anfang März):** lesen und ablegen; bei Fragen an die
+  Zulassungsstelle wenden.
+
+### KW 11–22 (15.03.–06.06.), Ende Q4 und Abitur, 0–5 h
+
+- Keine Arbeit an der App außer Notfällen (Checkliste in Abschnitt 18).
+- Läuft App 1 schon: zweimal je Woche 20 Minuten Zahlen ansehen, Support-Mails
+  beantworten (Claude entwirft).
+- **Signal-Prüfung bei einer schon laufenden App:** drei Wochen nach dem Start.
+  Liegt sie über 300 $ Monatsumsatz, buchst du die Creator erst ab 07.06.
+
+### KW 23–26 (07.06.–04.07.), nach dem Abitur, 15–40 h
+
+- **App 1 starten** (veröffentlichen oder fertig bauen und einreichen).
+  Täglich 1–3 Slideshows.
+- **Signal-Prüfung** drei Wochen nach dem Start: ≥ 300 $ Monatsumsatz →
+  Creator buchen (Checkliste F, bis 750 € bis 18.07.); sonst nur eigene
+  Videos weiter.
+- **App 2** (die zweitbeste Idee) aus derselben Vorlage, mit anderer
+  Kernfunktion. Reine Varianten lehnt Apple ab.
+- **Bis 15.07.:** Bewerbung an der Leibniz Universität Hannover (~2 h).
+- **01.–03.07.:** Abiturzeugnis in eApply hochladen, Original an die ETH.
+
+### KW 27–29 (05.–25.07.), Sommer, ~55 h (davon ~6 h für Zürich)
+
+- Tests nach der Signalregel, App 2 fertig, eingereicht und gestartet.
+- Zimmer in Zürich suchen (WOKO braucht die Zulassung), Finanzierungsbrief
+  der Eltern.
+- **Tor 1 (So 18.07.):** Abschnitt 13.
+
+### KW 30–35 (26.07.–31.08.), Sommer, ~55 h
+
+- Weg A, B oder C (Abschnitt 14).
+- Abschluss vor dem Umzug (Checkliste H).
+- Mathe auffrischen nach den Empfehlungen der ETH (Folgen und Reihen,
+  Induktion, komplexe Zahlen, Analysis, Vektorgeometrie), Java-Tutorial der
+  ETH.
 
 ---
 
-## 7. Woche für Woche bis zum Haupttor 28.02.
-
-**Der wichtigste Zeitpuffer ist Apple.** Vor dem ersten Gerätebuild,
-Sandbox-Kauf oder TestFlight muss diese Kette durch sein:
-1. Notartermin: wenige Tage bis 2 Wochen nach der Anfrage.
-2. Konto und Einzahlung: 1–3 Tage, dann Bestätigung an den Notar.
-3. Registergericht: 1–4 Wochen (zusammen 2–6 Wochen ab der Anfrage).
-4. D-U-N-S: bis zu 5 Werktage bei D&B und 2, bis Apple sie hat.
-5. Apple prüft die Organisation noch einige Tage.
-
-Aktiv ist das Apple-Konto damit **im besten Fall Mitte Dezember, im
-Normalfall Anfang bis Mitte Januar.** Das Modell rechnet ohne diese
-Wartezeit: Dort wird App 1 im Median in der Woche ab 11.01. eingereicht
-(bis 10.01. in gut vier, bis 17.01. in knapp sechs von zehn Läufen) und
-geht in der Woche ab 25.01. live (bis 31.01. in knapp sechs, bis 07.02.
-in sieben von zehn Läufen). **Für die Planung gilt deshalb als
-Normalfall:** Einreichung Mitte bis Ende Januar, Start Ende Januar oder
-Anfang Februar. Fallen in KW 02–03 Leistungsnachweise (nur 3 h), rutscht
-beides um ein bis zwei Wochen. Die Testwochen zählen ab der Startwoche.
-
-### KW 49 (30.11.–06.12.) – Schulwoche, 10 h
-
-- **Du (~2 h):** Notartermin (falls noch nicht, ~1 h). Danach mit der
-  Urkunde das Geschäftskonto eröffnen, Stammkapital und Rücklage
-  überweisen, Einzahlungsbestätigung an den Notar (~1 h). Behörden und
-  D-U-N-S erst am Tag der Eintragung.
-- **Videos (~5 h):** Claude schreibt je Idee 30 Hooks und 5 Skripte, du
-  wählst unter der Woche aus (~1 h). Am Samstag filmst und schneidest du
-  9 Videos (je Idee 3) und planst sie im TikTok-Konto der Idee für Mo–Fr
-  der KW 50 ein (~4 h). Auf TikTok bei jedem Post den Schalter für
-  kommerzielle Inhalte an („Your brand“) und nur Musik aus der Commercial
-  Music Library.
-- **Claude (~3 h):** in der Vorlage Kamera oder Eingabe → Einwilligung →
-  Ergebnis, zunächst mit einer Beispiel-Antwort, geprüft in Expo Go.
-- **Geld:** Gründung ~450–500 €, Werkzeuge.
-- **Ergebnis:** UG beurkundet (oder Termin fest), Konto beantragt bzw.
-  Kapital eingezahlt, 9 Videos eingeplant, Ablauf mit Beispiel-Antwort in
-  Expo Go.
-
-### KW 50 (07.–13.12.) – Schulwoche, 10 h
-
-- **Du – am Tag der Eintragung (~3 h, auch später):** Gewerbeanmeldung
-  (~55 €), Fragebogen zur steuerlichen Erfassung in ELSTER mit USt-IdNr.
-  und Verzicht auf die Kleinunternehmerregelung, Transparenzregister und
-  **am selben Tag die D-U-N-S-Nummer**. Rechne damit, dass die Eintragung
-  erst in KW 51 oder 52 kommt. Sobald Apple die D-U-N-S hat: Apple
-  Developer Program als Organisation (99 $/Jahr); sobald das Konto aktiv
-  ist: Paid Apps Agreement, Bank- und Steuerdaten, DSA-Händlerangaben
-  (geschäftliche Telefonnummer und E-Mail, sie werden öffentlich), Small
-  Business Program.
-- **Videos (~3 h):** Kommentare und Aufrufe der ersten 9 Videos auswerten
-  (Claude fasst zusammen). Am Samstag 6 weitere (je Idee 2 Varianten des
-  besten Formats), eingeplant für Mo–Mi der KW 51. Bis zum Ideen-Tor hat
-  dann jede Idee 5 Videos mit mehreren Tagen Daten.
-- **Claude (~4 h):** Supabase-Funktion mit Claude Haiku 5.5 (Schlüssel nur
-  als Geheimnis auf dem Server, Ausgabenlimit in der Konsole), danach
-  Onboarding (5–8 Fragen) und Paywall mit RevenueCat (in Expo Go nur als
-  Vorschau ohne echten Kauf).
-- **G0 (So 13.12.):** UG beurkundet und angemeldet oder schon eingetragen,
-  D-U-N-S beantragt, sobald eingetragen, 3 Ideen mit je 3 Videos online
-  und je 2 weiteren eingeplant.
-
-### KW 51 (14.–20.12.) – Schulwoche, 10 h (mit Schulaufgaben 3 h)
-
-- **Ideen-Tor (So 20.12.):** Weiter mit der Idee, die ein Video über
-  100.000 Aufrufe oder deutlich über deinem Schnitt hat **und** echte
-  Kaufabsicht in den Kommentaren („wo gibt es das?“). Ohne klares Signal:
-  die beste der drei nehmen und trotzdem bauen – Zeit ist der Engpass.
-  Die zweitbeste merkst du dir für App 2.
-- **Claude:** Beschreibung von App 1 (eine Seite: Zielgruppe,
-  Kernfunktion, Onboarding-Fragen, Preise – Wochenabo und Jahresabo –,
-  Store-Texte), dann der erste Bau-Schritt aus der Vorlage.
-- **Ergebnis:** App 1 festgelegt, Bau begonnen.
-
-### KW 52 (21.–23.12.) – drei Schultage, 3 h (Mo–Mi je 1 h)
-
-- **Claude:** Kernfunktion von App 1 weiterbauen (Foto oder Eingabe →
-  Ergebnis); die Fehlerfälle folgen in KW 53.
-- **Du:** Antwort der Krankenkasse da? Sonst nachfragen.
-- **24.–27.12.: frei.**
-
-### KW 53 (28.12.–03.01.) – Weihnachtsferien, ~27 h (Neujahr Fr 01.01. frei)
-
-- **6 h Sicherheitsnetz:** Bewerbungen auf duale Studienplätze und
-  praxisintegrierte Studiengänge (Unternehmen suchen ein Jahr vorher);
-  Claude hilft beim Anschreiben, du schickst ab.
-- **~17 h App 1:** Fehlerfälle (kein Netz, KI lehnt ab, Limit erreicht),
-  Onboarding, **harte Paywall** direkt danach (kein Umschalter für eine
-  Testphase – Apple lehnt solche „Toggle-Paywalls“ seit Januar 2026 ab),
-  Wochen- und Jahresabo, Knopf „Käufe wiederherstellen“, Links zu
-  Datenschutz und Nutzungsbedingungen auf der Paywall, Einwilligung vor
-  dem ersten KI-Aufruf, Abo-Prüfung in der Server-Funktion. Ist das
-  Apple-Konto schon aktiv: Entwicklungs-Build per EAS, Sandbox-Kauf
-  testen, TestFlight.
-- **~4 h:** Store-Eintrag (Claude schreibt Texte und Screenshot-Entwürfe,
-  du machst die Screenshots auf dem iPhone); Datenschutzerklärung und
-  Nutzungsbedingungen (EULA) für App 1 (Claude entwirft, du prüfst und
-  stellst sie auf die Website).
-- **Ergebnis:** App 1 fast fertig, Store-Eintrag als Entwurf.
-
-### KW 01 (04.–10.01.) – Ferien bis Fr 08.01., ~27 h (Heilige Drei Könige Mi 06.01. frei)
-
-- **6 h Sicherheitsnetz:** restliche Bewerbungen.
-- **App 1:** Prüfung mit Checkliste C (Abschnitt 10), 10–20 Tester in
-  TestFlight (Freunde, Familie; der erste Build für sie wird von Apple kurz
-  geprüft), Fehler beheben, **einreichen**, sobald Apple-Konto und
-  Checkliste stehen. Abo-Gruppe und Abos zusammen mit dieser App-Version
-  einreichen.
-- **App 2:** Sobald App 1 eingereicht ist, gehören alle übrigen Stunden
-  App 2 (die zweitbeste Idee): eine Seite Beschreibung, dann Bau aus der
-  Vorlage (im Modell 22–75 h, meist ~40 h).
-- **G1 (Fr 08.01.):** App 1 im Review oder live, App 2 begonnen. Im Modell
-  gelingt das in gut vier von zehn Läufen, aber nur, weil es das
-  Apple-Konto ab dem ersten Tag voraussetzt. Real geht es nur, wenn das
-  Konto spätestens Anfang Januar aktiv ist. Im Normalfall folgt Plan B:
-  App 1 fertig bauen, Einreichung bis Ende Januar.
-
-### KW 02 und KW 03 (11.–24.01.) – Schulwochen, je 10 h (Leistungsnachweise 13/1: dann 3 h)
-
-- **App 1:** fertig bauen, sobald das Apple-Konto aktiv ist testen und
-  einreichen bzw. auf das Review reagieren. Jede Ablehnung: Grund in
-  `docs/review-log.md`, Claude schlägt die Lösung vor, du prüfst, neu
-  einreichen. Rechne mit 1–2 Ablehnungen bei der ersten App und 1–14
-  Tagen Wartezeit je Runde.
-- **App 2:** Alle Stunden, die App 1 übrig lässt, gehen in den Bau von
-  App 2. Einreichen, sobald sie fertig ist.
-- **Creator vorbereiten und Videos (zusammen höchstens 3 h je Woche):**
-  Claude sucht 20 Nano-Creator (unter 10.000 Follower) in der Nische von
-  App 1 und schreibt Entwürfe für persönliche Anfragen; du schickst 5–10
-  davon einzeln ab, mit eigenem Satz am Anfang und dem Link auf kurze
-  Datenschutzhinweise für Creator (Art. 14 DSGVO). Noch kein Geld. Videos
-  vorproduziert, 3–5 je Woche.
-
-### KW 04 (25.–31.01.) – Schulwoche, 10 h · Zeugnis 13/1 am Mo 25.01.
-
-- **Normalfall:** App 1 im Review oder in dieser Woche live; ab dem Start
-  gilt der Testablauf aus KW 05.
-- **Bester Fall:** App 1 seit Mitte Januar live – dann läuft schon
-  Testwoche 2.
-- **G2 (So 31.01.):** Ist irgendeine App über 1.000 $ Monatsumsatz? Im
-  Normalfall ist App 1 dafür noch zu kurz live – dann gilt G2 für App 1
-  drei Wochen nach ihrem Start (Abschnitt 8).
-
-### KW 05 (01.–07.02.) – Schulwoche, 10 h – Testwoche 1 (Normalfall)
-
-- **Jeden Tag** ein Video im Markenkonto, ein Format, viele Varianten
-  (Claude: 10 Hook-Varianten je Tag zur Auswahl).
-- **Messen:** Aufrufe → Downloads → Testphasen → Käufe, daraus der Umsatz
-  je 1.000 Aufrufe (RPM). Die Schritte dazwischen („Onboarding
-  abgeschlossen“, „Paywall gesehen“) nur mit Einwilligung nach § 25 TDDDG.
-  Claude baut dir dafür eine einfache Tabelle (Abschnitt 14).
-- **Creator:** mit 3–5 Creatorn einen Post vereinbaren (50–150 $ je Post,
-  Vertrag nach Checkliste F, Zahlung nach dem Posten).
-- **Geld:** bis zu ~500 € für diese ersten Posts.
-
-### KW 06 (08.–14.02.) – Frühjahrsferien, ~33 h – Testwoche 2
-
-Die ~33 h reichen nicht für alles. Reihenfolge nach Vorrang (wie im
-Modell: Testarbeit vor neuem Bau):
-1. **App 1 testen (~12 h):** jeden Tag ein Video, Creator-Posts betreuen,
-   Zahlen auswerten; ein Paywall-Test (anderer Text, oder ein anderer
-   Preis als neues Abo-Produkt, das Apple vorher prüft).
-2. **App 2 (~15 h):** weiterbauen (dieselbe Vorlage, andere Nische, eine
-   andere Kernfunktion – reine Varianten lehnt Apple ab) und einreichen,
-   sobald sie fertig ist. Im Modell ist sie bis Ende KW 06 in rund einem
-   Drittel der Läufe eingereicht, bis 28.02. in gut der Hälfte, live bis
-   28.02. in knapp einem Drittel. Ist App 1 noch nicht eingereicht (rund
-   jeder siebte Lauf), zuerst App 1.
-3. **Web-Kauf für US-Nutzer (Paddle oder Stripe, ~8–15 h):** nur, wenn
-   App 1 schon zahlende Nutzer hat – dann aus den Stunden von App 2; sonst
-   bringt er vor dem 28.02. nichts. Der Knopf zum Web-Kauf erscheint nur im
-   US-Storefront (Checkliste C).
-4. **Videos auf Vorrat:** 10–15 für KW 07 und KW 08.
-5. **Helfer:** nur vormerken, niemanden einstellen.
-
-### KW 07 (15.–21.02.) – Schulwoche, 10 h – Testwoche 3
-
-- **Entscheidung für App 1 (drei Wochen nach dem Start):** Liegt sie nach
-  2–3 Paywall-Varianten unter den Messwerten aus Abschnitt 8, bekommt sie
-  kein Creator-Geld mehr; die Videos laufen weiter.
-- **App 2:** fertig bauen und einreichen, falls noch nicht geschehen;
-  sonst Review, bei Ablehnung reagieren.
-
-### KW 08 (22.–28.02.) – Schulwoche, 10 h
-
-- **App 2:** Start, falls das Review durch ist – mit Testbudget nur, wenn
-  bis 28.02. noch Geld im Rahmen von 1.500 € übrig ist.
-- **G3 (So 28.02.), das Haupttor:** Hat eine App **am Stichtag** mindestens
-  5.000 $ Monatsumsatz (in RevenueCat: „MRR“)? Abschnitt 8 sagt, was dann
-  passiert.
-
----
-
-## 8. Die Messpunkte und was du dann tust
+## 13. Die Messpunkte und was du dann tust
 
 | Messpunkt | Frage | Ja | Nein |
 |---|---|---|---|
-| **G0** So 13.12. | UG beurkundet und angemeldet (oder eingetragen), D-U-N-S beantragt, sobald eingetragen, 3 Ideen mit je 3 Videos online und je 2 weiteren eingeplant? | weiter | fehlende Schritte in KW 51 nachholen; Videos haben Vorrang vor Code |
-| **Ideen-Tor** So 20.12. | Ein Video > 100.000 Aufrufe oder klar über dem Schnitt, und Kaufabsicht in den Kommentaren? | diese Idee bauen | trotzdem die beste der drei bauen – Zeit ist knapper als Ideen |
-| **G1** Fr 08.01. | App 1 im Review oder live, App 2 begonnen? | weiter | Plan B: Einreichung bis Ende Januar |
-| **G2** 3 Wochen nach dem Start einer App (frühestens 31.01.) | ≥ 1.000 $ Monatsumsatz? Und nach ~200.000 Aufrufen: RPM größer als die Creator-Kosten je 1.000 Aufrufe (~1–3 $), Download → Zahler ≥ 5 %, Testphase → Zahler ≥ 25 %, Erstattungen < 5 %? (Web-Anteil: Ziel ≥ 20 %, gemessen ab dem Tag, an dem der Web-Kauf live ist; kein Abbruchgrund) | Creator-Budget im Rahmen weiter | nach 2–3 Paywall-Varianten kein Creator-Geld mehr für diese App |
-| **G3** So 28.02. | Eine App am Stichtag ≥ 5.000 $ Monatsumsatz? | Weg B, bei weiter kräftigem Wachstum Weg C (Abschnitt 9) | **Weg A: Die Jagd endet.** Keine neue App, kein Testbudget |
-| **G4** Mi 31.03. | ≥ 10.000 $ Monatsumsatz am Stichtag? | Weg C bestätigt | Weg A |
-| **G5** Fr 30.04. | ≥ 50.000 $? | weiter skalieren | keine neuen Versuche mehr; die Apps laufen weiter |
-| **G6** Di 15.06. | ≥ 150.000 $? | Verkauf vorbereiten (Kohorten, Gespräche, Absichtserklärung) | kein Abbruch; Gespräche beginnen, sobald der Gewinn der letzten drei Monate einen Kaufpreis in Reichweite bringt |
-| **G7** Do 15.07. | ≥ 300.000 $, oder Absichtserklärung über einen Kaufpreis, der nach Transaktionskosten mit dem bisherigen Gewinn ≥ 720.000 € ergibt, oder ≥ 300.000 € Gewinn? | Abschluss bis spätestens 29.08. | App behalten, als Geschäft weiterführen |
-| **G8** Di 31.08. | Eigenkapital nach Steuer ≥ 500.000 € oder Verkauf abgeschlossen? | Ziel erreicht | – |
+| **M0** So 20.12. | Grundlagen zur Hälfte, Idee gewählt, Ablauf in Expo Go? | weiter | Lernpfad in den Ferien fertig, Idee bis 28.12. |
+| **M1** Fr 08.01. | ETH-Bewerbung abgeschickt? KI-Funktion läuft in Expo Go? | weiter | ETH-Bewerbung hat Vorrang, App danach |
+| **M2** App 1 halb fertig (meist Mitte/Ende Januar) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen, Entscheidung bis spätestens 07.06. |
+| **M3** So 14.03. | App 1 freigegeben? | gestartet bzw. zurückgehalten bis 07.06. | Pause bis 07.06., dann fertig bauen |
+| **Signal** 3 Wochen nach jedem Start | ≥ 300 $ Monatsumsatz ohne bezahlte Werbung? | Creator-Geld, bis 18.07. zusammen höchstens 750 € | nur eigene Videos, nächstes Format oder nächste App |
+| **Tor 1** So 18.07. | eine App am Stichtag ≥ 5.000 $ Monatsumsatz? | weiter (Weg B oder C) | **Weg A:** keine neue App, kein Creator-Geld |
+| **Tor 2** So 08.08. | ≥ 10.000 $? | Weg C | Weg B endet wie Weg A |
+| **31.08.** | Abschluss vor dem Umzug erledigt? | Ende | Checkliste H bis zum Umzug |
 
-Wer am 28.02. keine 5.000 $ hat, hat das Ziel verfehlt (in den Läufen des
-Modells praktisch nie anders). Das ist keine Frage des Einsatzes.
-
----
-
-## 9. Ab 01.03.: drei Wege
-
-### Weg A – kein Treffer (~98 von 100 Läufen)
-
-Die Jagd ist vorbei, der Einsatz begrenzt. Ab jetzt hat das Abitur Vorrang.
-
-- **Woche 1 nach G3 (2 h):**
-  - Alle Werkzeuge kündigen bis auf Apple-Konto, Domain mit Firmen-E-Mail
-    (Impressum, Support) und – nur solange eine App Käufer hat –
-    Supabase Pro. Also auch Claude Pro, Max (falls gebucht), Expo-Abo und
-    Schnitt-Abo. Für eine nötige Fehlerbehebung Claude Pro für einen Monat
-    neu buchen.
-  - Liegt App 2 noch im Review, darf sie starten – ohne Creator-Budget,
-    nur mit eigenen Videos auf Vorrat.
-  - Soll eine App ganz eingestellt werden: nach Checkliste H (zuerst die
-    Abos aus dem Verkauf, der Server läuft bis zum Ende der letzten
-    bezahlten Laufzeit).
-- **Danach ~1 Stunde je Woche:** Support-Mails, Bewertungen, Zahlen. Die
-  App läuft als kleines Projekt; jeder Euro Umsatz ist willkommen.
-- **Bis 15.07.: Studienbewerbung als Rückfall** (z. B. TUM Informatik mit
-  Eignungsverfahren, Bewerbung 15.05.–15.07.; FH-Bachelor bis Mitte Juli),
-  auch wenn die Antworten auf die dualen Bewerbungen noch ausstehen;
-  ~3–5 h zwischen 14.06. und 15.07. Gilt in Weg B und C genauso.
-- **Sommer:** Ferienjob statt Vollzeit-App (~6.000–7.000 € netto, siehe
-  [`VERDIENST_BIS_SOMMER_2027.md`](VERDIENST_BIS_SOMMER_2027.md)).
-- **Bis 30.09.2027 entscheiden:** UG weiterführen (~1.500–3.000 € im Jahr,
-  nur wenn die App das trägt) oder auflösen (Beschluss beim Notar,
-  Gläubigeraufruf, Sperrjahr, Löschung; ~1.000–2.500 €; das Restgeld kommt
-  frühestens nach dem Sperrjahr zurück). Apple-Konto, Domain und Werkzeuge
-  vor der Verlängerung kündigen – nicht, solange noch bezahlte
-  Abo-Laufzeiten offen sind.
-
-### Weg B – G3 bestanden, aber G4 verfehlt (~2 von 100)
-
-- **01.–21.03. (je 10 h; ab 22.03. gilt die Abiturregel mit 0–5 h):**
-  - skalieren: Creator nach „Fixpreis plus garantierte Aufrufe“, jede
-    Woche höchstens den Umsatz der Vorwoche ausgeben, Web-Anteil auf
-    ≥ 30 %;
-  - Unterlagen für einen Business Angel vorbereiten (RevenueCat-Dashboard,
-    Kohorten).
-- **G4 (31.03.) verfehlt:** weiter wie Weg A, aber die App behält ihr
-  Budget aus dem eigenen Umsatz.
-
-### Weg C – ein echter Treffer (~0,3 von 100)
-
-- **Woran du Weg C erkennst:** Nach G3 gilt zunächst Weg B. Weg C beginnt
-  erst, wenn eine App ihren Test (2–5 Wochen) hinter sich hat und weiter
-  kräftig wächst (z. B. schon im März ≥ 10.000 $ MRR und steigend); G4 am
-  31.03. bestätigt das nur.
-- **März:**
-  - **Agent einrichten** (10–35 h, Claude Max oder Ultra), verteilt auf
-    mindestens vier Wochen, höchstens ein Viertel je Woche (~2,5–9 h).
-    Vorrang haben der Autopilot (KW 11) und der Helfer; was bis 21.03.
-    nicht fertig ist, läuft in der Abiturzeit nur im Rahmen der 0–5 h
-    weiter, im schriftlichen Abitur gar nicht. Schlüssel mit der kleinsten
-    Rolle (nur Lesen für Berichte); tägliche Berichte aus RevenueCat und
-    App Store Connect; Entwürfe für Support und Bewertungsantworten (mit
-    KI-Hinweis); Paywall-Tests vorbereiten, nicht veröffentlichen.
-  - **Helfer ab ~20.000 € Monatsumsatz:** Minijob oder freie Mitarbeit mit
-    schriftlichem Vertrag, Rechteübertragung an die UG, Geheimhaltung.
-  - **Business Angel ansprechen** (Eigenkapital gegen 8–25 %, mit Vesting
-    auch für dich und einer 1×-Liquidationspräferenz für den Angel).
-- **KW 11 „Autopilot“ für das Abitur:**
-  - Creator mit festen Terminen vorab gebucht, **bezahlt nach dem
-    Posten** im festen Wochenbudget;
-  - für den Helfer eine Handlungsvollmacht in Textform mit Wochenlimit und
-    eine Firmenkarte mit Limit;
-  - Alarme bei Ausfall und Ablehnung; das Ausgabenlimit der KI-API vorher
-    für die erwartete Nutzerzahl anheben.
-- **Abitur (22.03.–13.06., mit Zusatzprüfung bis 18.06.):** 0–5 Stunden je
-  Woche, nur Zahlen und Freigaben. Kein Prüfungstermin wird geopfert.
-- **14.–27.06.** (mit mündlicher Zusatzprüfung erst ab 19.06.):
-  15–40 h je Woche; Verkauf vorbereiten (G6).
-- **28.06.–31.08.:** Mo–Sa ~9 Stunden, Sonntag frei; Creator-Formate
-  verdoppeln, jede Woche ein Paywall-Test, Verkauf abschließen (G7, G8).
-  Rund zwei Fünftel der erfolgreichen Verkäufe schließen im Modell erst in
-  der letzten Augustwoche – Abschlusstermin in die Absichtserklärung
-  schreiben.
+500.000 € bis 31.08.2027 erreicht das Modell in keinem einzigen Lauf. Das ist
+keine Frage des Einsatzes: Die Zeit nach dem Abitur ist zu kurz, damit eine
+App so weit wachsen kann.
 
 ---
 
-## 10. Checklisten
+## 14. Ab Juli: drei Wege
 
-### A – Gründung und Behörden (KW 48–51)
+### Weg A – kein Treffer (~⟨WEG_A⟩ von 100 Läufen)
 
-- [ ] Geschäftsanschrift geklärt (Eltern oder gebuchte Adresse)
-- [ ] Online-Ausweis mit PIN, NFC-Handy, Notar-App, Laptop mit Kamera
-- [ ] Notartermin UG mit Musterprotokoll, Stammkapital 1.000–2.500 €
-- [ ] Gründungskosten: die UG trägt laut Musterprotokoll höchstens 300 €,
-      den Rest zahlst du privat
-- [ ] Geschäftskonto (erst mit der Urkunde), Stammkapital eingezahlt, Rest
-      als **Kapitalrücklage**, Einzahlungsbestätigung an den Notar
-- [ ] Eintragung im Handelsregister (1–4 Wochen nach der Anmeldung)
-- [ ] Am Tag der Eintragung: Gewerbeanmeldung (~55 €), ELSTER-Fragebogen
-      zur steuerlichen Erfassung mit USt-IdNr. und Verzicht auf die
-      Kleinunternehmerregelung, Transparenzregister, D-U-N-S-Nummer
-- [ ] Impressum (§ 5 DDG) auf Website und in allen Markenkonten, je nach
-      Stand mit deinem Namen, „UG (haftungsbeschränkt) i. G.“ oder mit
-      Registernummer
-- [ ] Krankenkasse schriftlich gefragt, Antwort abgelegt
-- [ ] Steuerberater beauftragt, Rentenversicherung gefragt
-- [ ] Monatlich: Kasse und Eigenkapital prüfen
+- Ab 19.07. keine neue App, kein Creator-Geld. Die Apps laufen ohne Budget
+  weiter, eigene Slideshows nur, wenn du Lust hast.
+- **Vor dem Umzug entscheiden** (Checkliste H):
+  - **Einstellen:** zuerst die Abos aus dem Verkauf nehmen und den Server bis
+    zum Ende der letzten bezahlten Laufzeit weiterbetreiben. Mit Wochen- und
+    Monatsabos ist das in ein paar Wochen vorbei. Dann die App entfernen und
+    das Gewerbe abmelden (0–32,50 €).
+  - **Verkaufen:** eine kleine App lässt sich mit Umsatzzahlen auf
+    Marktplätzen anbieten; die App wird zu einem anderen Apple-Konto
+    übertragen.
+  - **Weiterlaufen lassen:** nur nach einer Beratung zu Deutschland und der
+    Schweiz. Mit Gewerbe in Zürich kommen eine Anmeldung bei der SVA,
+    Schweizer Steuern und AHV-Beiträge hinzu, und dein Einkommen hebt die
+    Befreiung von der Schweizer Krankenversicherung auf.
+- Die letzte EÜR und Einkommensteuererklärung 2027 gibst du 2028 per ELSTER
+  ab, auch aus Zürich.
 
-### B – Apple und Google (ab der D-U-N-S-Nummer)
+### Weg B – Tor 1 bestanden, Tor 2 verfehlt (~⟨WEG_B⟩ von 100)
 
-- [ ] Apple Developer Program als Organisation (99 $/Jahr)
-- [ ] Paid Apps Agreement, Bank, Steuerformular (W-8BEN-E)
-- [ ] DSA-Händlerangaben mit geschäftlicher Telefonnummer und E-Mail
+- Bis 08.08. Creator nur aus dem Umsatz der Vorwoche, jede Woche ein
+  Paywall-Test.
+- Danach wie Weg A, aber Verkaufen ist hier oft die beste Wahl, weil die App
+  messbaren Umsatz hat.
+- Achte auf die Familienversicherung (Gewinn über ~590 € im Monat) und melde
+  Gewinne der Krankenkasse.
+
+### Weg C – ein echter Treffer (~⟨WEG_C⟩ von 100)
+
+- Steuerberatung zu Deutschland und der Schweiz **vor** dem Umzug: verkaufen,
+  ein Elternteil übernimmt, oder geordnet weiterführen.
+- Erst jetzt lohnt sich, was vorher zu teuer war: Max oder Ultra mit einem
+  Agenten für Berichte und Support-Entwürfe, ein Helfer auf Rechnung,
+  eventuell eine UG.
+- Das ETH-Studium hat Vorrang. Im Basisjahr gibt es keine Wachstumsphase,
+  höchstens Wartung.
+
+---
+
+## 15. Checklisten
+
+### A – Gründung als Einzelunternehmen (bei M2)
+
+- [ ] Entscheidung: du oder ein Elternteil (Abschnitt 3), mit den Eltern
+      besprochen
+- [ ] Erstberatung bei einem Steuerberater (Festpreis anfragen):
+      Kleinunternehmerregelung oder Verzicht? Bei reinem App-Store-Vertrieb
+      zählen die Apple-Erlöse in Deutschland nicht, aber Leistungen aus dem
+      Ausland (Claude API, Supabase, Werbung) kosten Kleinunternehmer 19 %
+      Umsatzsteuer, die sie nicht zurückbekommen
+- [ ] Gewerbe online bei deiner Gemeinde anmelden (~20–65 €), Tätigkeit z. B.
+      „Entwicklung und Vertrieb von Software-Apps“
+- [ ] Fragebogen zur steuerlichen Erfassung in ELSTER
+- [ ] Zweitnummer, Projekt-E-Mail, Domain, Website mit Impressum und
+      Datenschutzerklärung
+- [ ] Apple Developer Program als Einzelperson (99 $, Karte auf deinen Namen,
+      Zwei-Faktor-Anmeldung)
+- [ ] Brief an die Krankenkasse abgeschickt, Antwort abgelegt
+- [ ] Ordner für Belege (Claude sortiert, du legst ab)
+
+### B – Apple (nach der Anmeldung)
+
+- [ ] Paid Apps Agreement, Bankverbindung, Steuerformular
+- [ ] EU-Händlerangaben: Adresse oder Postfach mit Nachweis, Zweitnummer,
+      E-Mail
 - [ ] Small Business Program beantragt (15 % statt 30 %)
-- [ ] Google Play als Organisation (später, 25 $)
+- [ ] iPhone und iPad registriert, Entwicklermodus an
 
 ### C – Vor jeder Einreichung
 
-- [ ] Kernfunktion funktioniert auf dem echten iPhone, auch ohne Netz
-      (Fehlermeldung statt Absturz)
-- [ ] Einwilligung **vor** dem ersten KI-Aufruf: welcher Anbieter, welche
-      Daten (Apple 5.1.2(i))
-- [ ] Harte Paywall ohne Umschalter; Preise, Laufzeit und Verlängerung klar
-      genannt (3.1.2)
-- [ ] Knopf „Käufe wiederherstellen“ (3.1.1)
-- [ ] Links zu Datenschutzerklärung und Nutzungsbedingungen auf der Paywall
-      und in App Store Connect (5.1.1)
-- [ ] Abo-Gruppe und alle Abos in App Store Connect angelegt und
-      **zusammen mit dieser App-Version** eingereicht (das erste Abo geht
-      nur mit einer neuen Version)
-- [ ] Knopf oder Link zum Web-Kauf nur im US-Storefront sichtbar
-      (Storefront in der App abfragen, nicht Sprache oder IP); in allen
-      anderen Storefronts kein Hinweis auf Käufe außerhalb der App
-- [ ] Gibt es Nutzerkonten? Dann Kontolöschung in der App
-- [ ] Keine Gesundheitsversprechen, keine Diagnose, keine fremden Marken
-- [ ] Eigene Kernfunktion, keine Variante einer bekannten App (4.3)
-- [ ] Datenschutzangaben in App Store Connect passen zur App
-- [ ] Server: Supabase Pro aktiv, Abo-Prüfung über RevenueCat und
-      Tageslimit je App-User-ID, Ausgabenlimit der KI-API passend zur
-      erwarteten Nutzerzahl
+- [ ] Kernfunktion läuft auf iPhone **und iPad**, auch ohne Netz (Meldung
+      statt Absturz)
+- [ ] Einwilligung vor dem ersten KI-Aufruf mit Nennung des Anbieters
+      (5.1.2(i))
+- [ ] Harte Paywall ohne Umschalter, Preis deutlicher als jede Testphase,
+      Laufzeit, Verlängerung und Kündigung genannt (3.1.2)
+- [ ] „Käufe wiederherstellen“ (3.1.1)
+- [ ] Links zu Datenschutzerklärung und Nutzungsbedingungen in der App und in
+      App Store Connect
+- [ ] Abo-Gruppe und Abos zusammen mit dieser Version eingereicht
+- [ ] Impressum in der App erreichbar (z. B. in den Einstellungen)
+- [ ] Keine Platzhalter, echte Screenshots, Backend läuft (2.1)
+- [ ] Keine Gesundheitsversprechen, keine fremden Marken, eigene
+      Kernfunktion (4.3)
 - [ ] Hinweise für das Review: was die App tut, wie man die Paywall testet
-- [ ] Review-Log der früheren Apps gelesen
+- [ ] Mindestprüfung Sicherheit (Abschnitt 7) bestanden
+- [ ] Review-Log gelesen
 
-### D – Sicherheit und Datenschutz
+### D – Datenschutz
 
-- [ ] Kein Schlüssel in der App – die KI-Funktion läuft über eine
-      Server-Funktion, die das Abo selbst prüft
-- [ ] Zugriffsregeln (RLS) auf jeder Tabelle, auch wenn sie leer scheint
+- [ ] Verträge zur Auftragsverarbeitung mit Anthropic (API), Supabase,
+      RevenueCat und dem Anbieter von Website und E-Mail
 - [ ] Fotos werden nach der Analyse nicht gespeichert
-- [ ] Verträge zur Auftragsverarbeitung mit Anthropic (API der UG),
-      Supabase, RevenueCat, Paddle bzw. Stripe und dem Anbieter von Website
-      und Firmen-E-Mail (über ihn laufen die Support-Mails)
-- [ ] Eigene Messereignisse in der App nur mit Einwilligung (§ 25 TDDDG)
-- [ ] Bei Gewicht oder Gesundheitszielen: ausdrückliche Einwilligung nach
-      Art. 9 DSGVO und Folgenabschätzung – oder solche Daten gar nicht
-      erheben
-- [ ] Datenschutzerklärung nennt alle Dienste
-- [ ] Bei einem KI-Support: als KI erkennbar (Art. 50 KI-Verordnung)
+- [ ] Eigene Messereignisse nur mit Einwilligung (§ 25 TDDDG)
+- [ ] Keine Gesundheitsdaten (Art. 9 DSGVO) erheben
+- [ ] Datenschutzerklärung nennt alle Dienste und dich als Verantwortlichen
+- [ ] Ein KI-Support wäre als KI erkennbar (KI-Verordnung Art. 50)
 
-### E – Videos
+### E – Videos ohne Gesicht
 
-- [ ] Markenkonto klar als App erkennbar; auf TikTok bei jedem Post, der
-      die App bewirbt, den Schalter für kommerzielle Inhalte an und „Your
-      brand“ wählen – auch auf dem Markenkonto; auf deinem privaten Konto
-      zusätzlich „Werbung“ am Anfang
-- [ ] Musik: auf TikTok nur aus der Commercial Music Library – auf den
-      Markenkonten und bei jedem Werbe-Post auch auf dem privaten Konto;
-      die allgemeine Bibliothek und Trend-Sounds sind für Unternehmen nicht
-      lizenziert. Auf Instagram und YouTube nur Musik, die für die
-      gewerbliche Nutzung freigegeben ist; im Zweifel eigener Ton
-- [ ] Ein Format, viele Varianten: Hook in der ersten Sekunde, „Magic
-      Moment“, Ergebnis
-- [ ] Keine erfundenen Erfahrungen, keine Vorher-nachher-Versprechen
-- [ ] KI-erzeugte, realistisch wirkende Bilder oder Videos gekennzeichnet
-- [ ] Für jedes Video notieren: Hook, Aufrufe nach 48 h, Downloads
+- [ ] Markenkonto klar als App erkennbar, Impressum-Link im Profil
+- [ ] TikTok: Schalter „Your brand“, nur Commercial Music Library
+- [ ] Keine erfundenen Erfahrungen, keine KI-Personen als „Nutzer“
+- [ ] Realistische KI-Bilder gekennzeichnet
+- [ ] Je Post notieren: Format, Hook, Aufrufe nach 48 h
 
-### F – Creator
+### F – Creator (nur nach Signal)
 
-- [ ] Anfrage persönlich und einzeln (kein Massenversand), an die
-      veröffentlichte Geschäftsadresse oder per Plattform-Nachricht
-- [ ] In der ersten Nachricht ein Satz mit Link auf kurze
-      Datenschutzhinweise für Creator (woher die Kontaktdaten stammen,
-      wofür und wie lange sie gespeichert werden, Rechte; Art. 14 DSGVO);
-      Einträge löschen, wenn jemand absagt oder nach einer Nachfrage nicht
-      antwortet
-- [ ] Vertrag in Textform: Leistung (Video, Länge, Termin), Freigabe vor dem
-      Posten, Kennzeichnung „Werbung“ und Schalter für kommerzielle Inhalte,
-      Honorar, Zahlung **nach** dem Posten, Nutzungsrechte nur für den Post
-      selbst
-- [ ] Keine Rechte für Anzeigen (Spark Ads) von Creatorn im Ausland, bevor
-      § 50a EStG mit dem Steuerberater geklärt ist
-- [ ] Honorare an selbstständige Privatpersonen mitschreiben: über 1.000 €
-      im Jahr 2027 → Künstlersozialabgabe 5,0 %, Meldung bis 31.03.2028
-- [ ] Kennzeichnung nach dem Posten selbst prüfen
-- [ ] Keine Kaufaufforderung an Kinder; minderjährige Creator nur mit den
-      Eltern
+- [ ] Signal erreicht (≥ 300 $ Monatsumsatz drei Wochen nach dem Start)
+- [ ] Anfrage persönlich und einzeln, mit Link auf kurze
+      Datenschutzhinweise für Creator (Art. 14 DSGVO)
+- [ ] Vertrag in Textform: Video, Termin, Freigabe, Kennzeichnung „Werbung“
+      plus „Paid partnership“, Honorar, Zahlung **nach** dem Posten,
+      Nutzungsrechte nur für den Post
+- [ ] Keine Spark-Ads-Rechte von Creatorn im Ausland, bevor § 50a EStG geklärt
+      ist
+- [ ] Honorare an selbstständige Privatpersonen mitschreiben (über 1.000 € im
+      Jahr: Künstlersozialabgabe 5,0 %)
+- [ ] Kennzeichnung nach dem Posten selbst geprüft
 
 ### G – Kennzahlen je App und Woche
 
-Aufrufe, Downloads, Testphasen, Käufe, Umsatz (USD), Web-Anteil,
-Erstattungen, Creator-Kosten, RPM; „Onboarding abgeschlossen“ und
-„Paywall gesehen“ nur mit Einwilligung, sonst leer lassen. Vorlage:
-[`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.csv).
+Aufrufe, Downloads, Testphasen, Käufe, Umsatz (USD), Erstattungen,
+Creator-Kosten, Umsatz je 1.000 Aufrufe, Monatsgewinn (für die
+Familienversicherung). Vorlage: [`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.csv).
 
-### H – Abschluss, wenn die Jagd endet
+### H – Abschluss vor dem Umzug (bis 31.08.)
 
-- [ ] Werkzeuge und Abos kündigen, die nicht mehr gebraucht werden (Weg A)
-- [ ] App ohne Budget weiterlaufen lassen – oder einstellen: zuerst die
-      Abo-Produkte in App Store Connect aus dem Verkauf nehmen (das stoppt
-      Neuabschlüsse und Verlängerungen, das Entfernen der App allein nicht);
-      Abonnenten mindestens 31 Tage vorher in der App und per Mail
-      informieren; Server, Apple-Mitgliedschaft und UG bis zum Ende der
-      letzten bezahlten Laufzeit weiterführen (bei Jahresabos bis zu
-      12 Monate); geht das nicht, vorher Apple kontaktieren; erst danach
-      App entfernen und Server abschalten
-- [ ] Belege für den Steuerberater vollständig
-- [ ] Studienbewerbung bis 15.07. abgeschickt (Rückfall, falls dual oder
-      praxisintegriert nicht klappt)
-- [ ] Bis 30.09.2027: UG weiterführen oder auflösen
-- [ ] Review-Log, Vorlage und Zahlen aufheben – das ist der Wert, der bleibt
+- [ ] Entscheidung je App: einstellen, verkaufen oder mit Beratung
+      weiterführen
+- [ ] Einstellen: zuerst die Abos aus dem Verkauf nehmen; Abonnenten
+      mindestens 31 Tage vorher informieren; Server bis zum Ende der letzten
+      bezahlten Laufzeit betreiben; dann App entfernen und Server abschalten
+- [ ] Werkzeuge kündigen (Claude Pro, Supabase, Domain bis Laufzeitende)
+- [ ] Gewerbe abmelden (0–32,50 €), falls nichts weiterläuft
+- [ ] Belege vollständig für die EÜR 2027
+- [ ] Krankenkasse über das Ende des Gewerbes informieren
+- [ ] Review-Log, Vorlage und Zahlen aufheben
 
 ---
 
-## 11. Vorlagen für Claude
+## 16. Vorlagen für Claude
 
-Kopieren, die Teile in eckigen Klammern ersetzen. Claude Code liest
-zusätzlich die `CLAUDE.md` des Projekts.
+Kopieren, Teile in eckigen Klammern ersetzen. Claude Code liest zusätzlich
+die `CLAUDE.md` des Projekts.
+
+**Lernen (Grundlagen, KW 48–52)**
+```
+Ich kann nicht programmieren und lerne gerade [Shell / Git / JavaScript lesen /
+Expo]. Erkläre mir [Thema] in kleinen Schritten mit einem Beispiel aus meinem
+Projekt. Stell mir danach drei kurze Fragen, ob ich es verstanden habe, und
+gib mir eine Übung, die ich selbst mache. Schreib die Lösung erst, wenn ich
+darum bitte.
+```
 
 **Ideen (KW 48)**
 ```
-Suche 10 Ideen für eine iPhone-Abo-App mit einer KI-Funktion, die sich in
-drei Sekunden filmen lässt („Magic Moment“). Bedingungen: Menschen geben
-dafür schon Geld aus; viele Creator in der Nische, aber wenige Markendeals;
-kein Medizinprodukt, keine Diagnose, möglichst keine Gesundheits- oder
-Sexualdaten; keine Kopie einer bekannten App. Für jede Idee: Zielgruppe,
-Kernfunktion, Magic Moment, drei Konkurrenten mit Preis, Risiko beim
-App-Review. Am Ende eine Rangliste mit Begründung.
+Suche 10 Ideen für eine iPhone-Abo-App mit einer KI-Funktion. Bedingungen:
+Menschen geben dafür schon Geld aus; der Moment, in dem die App beeindruckt,
+lässt sich ohne Gesicht zeigen (Bildschirmaufnahme oder Slideshow); keine
+Gesundheit, kein Abnehmen, keine Finanzen, kein Dating, keine Diagnose; keine
+Kopie einer bekannten App; mit Claude Code für einen Anfänger in ~150 Stunden
+baubar; keine Nutzerkonten nötig. Für jede Idee: Zielgruppe, Kernfunktion,
+Magic Moment, drei Konkurrenten mit Preis, Risiko beim App Review, Aufwand.
+Am Ende eine Rangliste mit Begründung.
 ```
 
-**Hooks und Skripte (ab KW 49)**
+**Slideshows (ab der Gründung)**
 ```
-Idee: [Idee]. Schreibe 30 Hooks für ein 7–15-Sekunden-Video (erste
-Sekunde), dann 5 Skripte im Format Problem → Magic Moment → Ergebnis, mit
-Schnittliste und Untertiteltext. Keine erfundenen Erfahrungen, keine
-Heilversprechen. Ich filme selbst.
+App: [Name], Zielgruppe: [wer]. Schreibe 10 Hooks für die erste Folie einer
+TikTok-Slideshow (höchstens 8 Wörter) und für die besten 3 je 5 weitere
+Folientexte, letzte Folie mit Hinweis auf die App. Keine erfundenen
+Erfahrungen, keine Versprechen, keine KI-Personen. Schlag zu jeder Folie ein
+Bildmotiv vor, das ohne Personen auskommt.
 ```
 
-**Bau-Schritt (ab KW 49)**
+**Bau-Schritt**
 ```
 Ziel dieser Sitzung: [ein prüfbares Ziel]. Plane zuerst: welche Dateien,
-welche Schritte. Warte auf mein OK. Setze dann um und erkläre mir danach in
-drei Sätzen, was du gemacht hast und warum. Sag mir, wie ich es auf dem
-iPhone prüfe. Behaupte nicht, dass es funktioniert, bevor ich es getestet
-habe.
+welche Schritte. Warte auf mein OK. Setze dann um und erkläre mir in drei
+Sätzen, was du gemacht hast und warum. Sag mir, wie ich es auf iPhone und
+iPad prüfe. Behaupte nicht, dass es funktioniert, bevor ich es getestet habe.
 ```
 
 **Erklären (immer, wenn Geld oder Daten betroffen sind)**
 ```
 Erkläre mir [Paywall / Abo-Prüfung / Server-Funktion / Zugriffsregeln] so,
-dass ich es einem Mitschüler erklären kann: was passiert der Reihe nach,
-wo liegen die Schlüssel, was kann schiefgehen und wie merke ich das.
-Ändere nichts.
+dass ich es einem Mitschüler erklären kann: was passiert der Reihe nach, wo
+liegen die Schlüssel, was kann schiefgehen und wie merke ich das. Ändere
+nichts.
 ```
 
-**Prüfung vor der Einreichung**
+**Sicherheitsprüfung vor jedem Release**
 ```
-Prüfe das Projekt gegen docs/checkliste-einreichung.md und gegen
-docs/review-log.md. Liste jeden Punkt mit OK oder FEHLT und der Stelle im
-Code. Ändere nichts, bis ich es freigebe.
+Führe die Mindestprüfung aus docs/checkliste-einreichung.md (Abschnitt
+Sicherheit) aus. Zeige mir für jeden Punkt den Befehl, das Ergebnis und die
+Stelle im Code. Ändere nichts, bis ich es freigebe.
 ```
 
 **Antwort an das Review**
 ```
-Apple hat abgelehnt: [Text der Ablehnung]. Erkläre mir den Grund, schlage
-die kleinste Änderung vor, die ihn behebt, und entwirf eine kurze, höfliche
-Antwort an das Review. Trage den Fall in docs/review-log.md ein.
+Apple hat abgelehnt: [Text der Ablehnung]. Erkläre mir den Grund, schlage die
+kleinste Änderung vor und entwirf eine kurze, höfliche Antwort. Trage den
+Fall in docs/review-log.md ein.
 ```
 
-**Creator suchen und anfragen**
+**Brief an die Krankenkasse (nach der Gewerbeanmeldung)**
+```
+Entwirf einen kurzen Brief an die Krankenkasse meiner Eltern: Ich bin
+Schüler (13. Klasse), familienversichert, habe seit [Datum] ein Gewerbe für
+eine App, arbeite daran im Schnitt unter 20 Stunden je Woche, habe keine
+Angestellten und erwarte 2027 einen Gewinn unter 590 € im Monat. Bitte um
+schriftliche Bestätigung, dass die Familienversicherung bleibt, und um
+Hinweis, welche Nachweise sie brauchen.
+```
+
+**Creator suchen (nur nach Signal)**
 ```
 Nische: [Nische]. Erstelle eine Liste von 20 Creatorn mit 1.000–10.000
-Followern, die regelmäßig zu diesem Thema posten (Profil, Thema, typische
-Aufrufe, veröffentlichte Geschäftsadresse, falls vorhanden). Schreibe für
-jeden einen kurzen, persönlichen Anfrage-Entwurf, der sich auf ein
-konkretes Video bezieht. Ich schicke jede Anfrage selbst und einzeln. Füge
-in jeden Entwurf einen Satz mit dem Link auf unsere Datenschutzhinweise für
-Creator ein.
+Followern, die regelmäßig zu diesem Thema posten (Profil, typische Aufrufe,
+veröffentlichte Geschäftsadresse, falls vorhanden). Schreibe für jeden einen
+kurzen, persönlichen Anfrage-Entwurf, der sich auf ein konkretes Video
+bezieht, mit dem Link auf unsere Datenschutzhinweise für Creator. Ich
+schicke jede Anfrage selbst und einzeln.
 ```
 
 **Wochenauswertung (sonntags)**
 ```
-Hier sind die Zahlen der Woche: [Tabelle]. Berechne RPM, Download → Zahler,
-Testphase → Zahler, Erstattungen, Web-Anteil. Vergleiche mit den Werten
-für G2 und G3. Was sind die drei Dinge, die nächste Woche am meisten
-bringen? Begründe kurz.
+Hier sind die Zahlen der Woche: [Tabelle]. Berechne Umsatz je 1.000 Aufrufe,
+Download → Zahler, Testphase → Zahler, Erstattungen und den Monatsgewinn.
+Vergleiche mit Signal (300 $), Tor 1 (5.000 $) und der Grenze der
+Familienversicherung (590 €). Was sind die drei Dinge, die nächste Woche am
+meisten bringen?
 ```
 
 ---
 
-## 12. Geld: Budget und Kassenregeln
+## 17. Geld: Stufen, Budget, Kassenregeln
 
-| Posten | bis 28.02. | 01.03.–31.08. |
-|---|---:|---:|
-| Gründung, Gewerbe, Website, ggf. Testgerät (davon ~150–255 € Gründungskosten privat, aus den 5.000 €) | ~600–1.100 € | – |
-| Laufend: Werkzeuge (~100 €), Steuerberater anteilig, Konto, IHK, ggf. Geschäftsadresse | ~750–1.500 € (250–500 €/Monat) | Weg A: ~145–280 €/Monat Pflichtkosten, dazu Domain und E-Mail (~2–8 €), ggf. Geschäftsadresse (~10–40 €) und, solange eine App Käufer hat, Supabase Pro (~22 €) |
-| Claude Pro (in den Werkzeugen enthalten); Max nur in Monaten, in denen das Limit bremst | 0–90 € extra | Weg C: Max/Ultra ~90–180 €/Monat |
-| Creator-Tests (mit 4 % Künstlersozialabgabe) | höchstens 1.500 € | nur aus Umsatz |
-| Reserve | ≥ 1.000 € und alle Pflichtkosten bis 31.08. | |
+**Ausgaben in Stufen** – jede Stufe erst, wenn die vorige erreicht ist:
 
-Ohne jeden Umsatz sind bis 28.02. ~1.350–4.100 € ausgegeben, danach im
-Weg A bis 31.08. weitere ~880–2.100 € (Pflichtkosten, Domain, ggf.
-Geschäftsadresse und Supabase Pro). Nach dem 31.08. kommen ~1.000–3.000 €
-für ein weiteres Jahr UG oder ihre Auflösung dazu.
+| Stufe | wann | was | Kosten |
+|---|---|---|---|
+| 0 | KW 48 bis zur Gründung | Claude Max (bezahlt), dann Pro | ~21 € im Monat, bis Ende Januar ~40–60 € |
+| 1 | Gründung (meist Mitte/Ende Januar) | Gewerbe, Apple, Erstberatung beim Steuerberater, Domain, Zweitnummer | ~150–450 € einmalig |
+| 2 | ab der Gründung | Claude Pro, Domain und E-Mail, Zweitnummer, ab dem Start Supabase Pro (25 $), KI-API nach Nutzung, ggf. EAS | ~35–110 € im Monat |
+| 3 | nur nach Signal | Creator | bis 18.07. höchstens 750 €, danach nur aus dem Umsatz der Vorwoche |
+| 4 | nach dem 31.08. | Abmeldung, EÜR und Einkommensteuererklärung 2027 (selbst über ELSTER oder mit Steuerberater) | 0–800 € |
+| – | nur wenn der Gewinn über ~590 € im Monat liegt | eigene Kranken- und Pflegeversicherung | ~280 € im Monat |
 
-**Kassenregeln:**
-- Jeden Sonntag: Kontostand, offene Rechnungen, erwartete Zahlungen von
-  Apple (5–9 Wochen nach dem Kauf) aufschreiben.
-- Vor jeder Ausgabe über 100 €: Bleiben danach Reserve und Pflichtkosten
-  bis 31.08. gedeckt?
-- Creator nach dem Posten bezahlen, nie im Voraus für Wochen.
-- Kein Gehalt und keine Ausschüttung 2027 (Familienversicherung).
+**Was im Modell herauskommt** (alles bis zum Schluss eingerechnet):
+- Median ⟨MED⟩ €, im Mittel ⟨MITTEL⟩ €;
+- in 9 von 10 Läufen höchstens ⟨P10_POS⟩ € Verlust;
+- mehr als 5.000 € Verlust in keinem Lauf.
+
+Creator-Geld fließt im Modell nur in ⟨TEST_P⟩ von 100 Läufen, im Schnitt aller Läufe ~⟨TEST_MITTEL⟩ €.
+
+**Kassenregeln**
+- Jeden Sonntag: Kontostand, offene Rechnungen, erwartete Zahlungen von Apple
+  (5–9 Wochen nach dem Kauf), Monatsgewinn.
+- Vor jeder Ausgabe über 50 €: Bleiben Pflichtkosten bis 31.08. und ~800 € für
+  den Abschluss gedeckt?
+- Creator nach dem Posten bezahlen, nie im Voraus.
+- Ein eigenes Konto für die App, damit Belege und Umsatzsteuer sauber bleiben.
+  Ein Girokonto auf deinen Namen genügt.
 
 ---
 
-## 13. Wenn etwas schiefgeht
+## 18. Wenn etwas schiefgeht
 
 | Problem | was du tust |
 |---|---|
-| Notartermin oder Handelsregister brauchen länger | beim Notar nachfragen (ist die Einzahlungsbestätigung angekommen?); weiter an der Vorlage in Expo Go und an Videos arbeiten |
-| D-U-N-S oder Apple-Prüfung dauert | nach 2 Wochen bei D&B nachfragen; App 1 fertig bauen; Einreichung später (Plan B) |
+| Du kommst mit den Grundlagen nicht voran | Lernmodus, kleinere Schritte, ein Thema je Woche; im Zweifel App 1 noch kleiner schneiden |
+| App 1 ist am 14.03. nicht fertig | normal (in ~3 von 4 Läufen): Pause bis 07.06., dann in zwei bis drei Wochen fertig |
 | Apple lehnt ab | Grund ins Review-Log, kleinste Änderung, neu einreichen; Ablehnungen bei der ersten App sind normal |
-| Videos bekommen kaum Aufrufe | anderes Format, nicht mehr Videos desselben Formats; nach 15–20 Videos ohne Signal die nächste Idee |
+| Videos bekommen kaum Aufrufe | anderes Format, nicht mehr Videos desselben Formats; nach 15–20 Posts ohne Signal ein neues Format |
 | Claude läuft im Kreis | Sitzung beenden, erst erklären lassen, dann ein kleineres Ziel |
-| Kosten der KI-Funktion steigen | Kosten je Aufruf senken (Bildgröße, kürzere Ausgabe), Tageslimit je App-User-ID senken, prüfen, ob Aufrufe ohne aktives Abo durchkommen; das Ausgabenlimit mit der Zahl zahlender Nutzer anheben, bei Bedarf eine höhere Nutzungsstufe beantragen – nie die Funktion für Zahler abschalten |
-| Ein Creator postet ohne Kennzeichnung | sofort ansprechen und korrigieren lassen; die UG haftet mit |
-| Datenpanne oder offener Schlüssel | Schlüssel sofort sperren und neu anlegen; prüfen, welche personenbezogenen Daten betroffen sein können; den Vorfall mit Zeitpunkt, Daten und Maßnahmen schriftlich festhalten (Art. 33 Abs. 5 DSGVO, auch wenn du nicht meldest). Lässt sich ein Risiko für Betroffene nicht ausschließen: binnen 72 Stunden ab Kenntnis beim Bayerischen Landesamt für Datenschutzaufsicht melden (Online-Formular auf lda.bayern.de; eine vorläufige Meldung reicht, Details folgen; die Frist läuft auch am Wochenende); bei hohem Risiko die Betroffenen benachrichtigen (Art. 34). Rat von einer Anwältin für Datenschutzrecht parallel einholen, nicht vorher |
-| Kasse nähert sich der Reserve | Tests stoppen; nur noch Pflichtkosten; droht Zahlungsunfähigkeit, unverzüglich eine Gesellschafterversammlung (§ 5a Abs. 4 GmbHG) und den Steuerberater |
-| Schule wird schlechter | sofort auf die Woche mit Schulaufgaben (3 h) umschalten, bis die Note wieder steht |
-| Krankenkasse sieht Hauptberuflichkeit | Stunden senken oder ~280–290 €/Monat für die eigene Versicherung einplanen; mit dem Steuerberater sprechen |
+| Pro-Limit bremst in den Ferien | einen Monat Max oder Usage Credits, danach zurück |
+| Kosten der KI-Funktion steigen | Bild kleiner, Antworten kürzer, Tageslimit je App-User-ID senken, prüfen, ob Aufrufe ohne Abo durchkommen; Ausgabenlimit mit der Zahl der Zahler anheben |
+| Datenpanne oder offener Schlüssel | Schlüssel sofort sperren und neu anlegen; prüfen, welche Daten betroffen sein können; Vorfall schriftlich festhalten (Art. 33 Abs. 5 DSGVO). Lässt sich ein Risiko nicht ausschließen: **binnen 72 Stunden** bei der Landesbeauftragten für den Datenschutz Niedersachsen melden (vorläufige Meldung reicht, die Frist läuft auch am Wochenende); bei hohem Risiko die Betroffenen benachrichtigen (Art. 34) |
+| Ein Creator postet ohne Kennzeichnung | sofort korrigieren lassen; du haftest mit |
+| Gewinn steigt über ~590 € im Monat | Krankenkasse informieren, eigene Versicherung einplanen (~280 € im Monat) |
+| Schule wird schlechter | sofort nur noch 3 Stunden je Woche, bis die Note wieder steht |
+| ETH-Antwort ist negativ oder verlangt die Aufnahmeprüfung | Rückfall-Bewerbung in Hannover sicher abschicken; mit mir den Plan für die Aufnahmeprüfung im Januar 2028 rechnen |
 
 ---
 
-## 14. Was du aufschreibst
+## 19. Was du aufschreibst
 
 - **Stunden, jeden Tag** – Vorlage [`vorlagen/zeiterfassung.csv`](vorlagen/zeiterfassung.csv):
-  Datum, Bereich (Code, Videos, Creator, Verwaltung, Bewerbung), App,
-  Stunden, Notiz. Gefühlte KI-Ersparnis täuscht nachweislich; nach App 1
-  rechne ich das Modell mit deinen echten Stunden neu.
+  Datum, Bereich (Lernen, Code, Videos, Creator, Verwaltung, ETH), App,
+  Stunden, Notiz. Das ist auch dein Nachweis für die Krankenkasse
+  (unter 20 Stunden je Woche).
 - **Kennzahlen, jede Woche** – Vorlage [`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.csv).
 - **Review-Log** im App-Repository.
-- **Entscheidungen an den Toren:** Datum, Zahl, Entscheidung, ein Satz
+- **Entscheidungen an den Messpunkten:** Datum, Zahl, Entscheidung, ein Satz
   Begründung.
 
-Wenn du nach App 1 deine echten Stunden, Kosten und Kennzahlen hast,
-rechnen wir Chancen und Wochenplan mit diesen Zahlen neu – das ist
-genauer als jede Schätzung in diesem Dokument. Das Modell rechnet übrigens
-ohne die Wartezeit auf das Apple-Konto und ohne Feiertage in den Ferien;
-mit beiden wären die Chancen eher noch etwas kleiner.
+Wenn App 1 fertig ist, rechnen wir das Modell mit deinen echten Stunden neu.
+Keine Studie misst, wie lange Nicht-Programmierer mit KI wirklich brauchen.
+Deine eigene Zahl ist genauer als jede Schätzung hier.
+
+---
+
+## 20. Alle Varianten im Vergleich
+
+Modell `plan/plan_500k.py`, ⟨N⟩ Läufe je Variante. „Geld“ ist deine
+Vermögensänderung bis zum Schluss, einschließlich Abmeldung, Steuererklärung
+und gegebenenfalls eigener Krankenversicherung (vor Einkommensteuer; bis
+~12.500 € Jahresgewinn fällt keine an).
+
+⟨VERGLEICH⟩
+
+So liest du die Tabelle:
+- **Signalregel:** Creator-Geld nur nach einem Signal ist besser als Tests
+  gleich beim Start. Es spart in den vielen Läufen ohne Treffer Geld und
+  verliert bei den Treffern kaum etwas. Ganz ohne Testgeld fehlt den
+  seltenen großen Treffern der Schub.
+- **UG:** In keiner Form passt sie zu deinen 5.000 €.
+- **Frühe Tore** (28.02.) hätten App 1 meist abgebrochen, bevor sie fertig
+  ist. Dann bliebe nur der kleine Verlust ohne jede Chance.
+- **Schneller bauen** ist der größte Hebel: Mit den Bauzeiten von jemandem,
+  der programmieren kann, wäre App 1 schon im Winter draußen. Deshalb lohnt
+  der Lernpfad, und deshalb soll App 1 so klein wie möglich sein.
+- **Gegenproben:** Wirken Videos ohne Gesicht schlechter oder ist der Markt
+  2027 strenger, sinkt die Chance etwas, aber die Grenze von 5.000 € hält.
+
+---
+
+## 21. Quellen
+
+**Schule und Studium**
+- Ferienordnung Niedersachsen 2024/25–2029/30 (RdErl. MK 18.11.2022): <https://www.mk.niedersachsen.de/download/190060/Ferienordnung_2024_25-_2029_30.pdf>
+- Abiturtermine 2027 (Bek. MK 28.04.2025): <https://www.mk.niedersachsen.de/download/99040/Abiturtermine_2027.pdf>
+- EB-VO-GO (Klausuren in der Qualifikationsphase): <https://www.schure.de/22410/eb-vo-go.htm>
+- ETH, Termine und Bewerbung mit ausländischem Reifezeugnis: <https://ethz.ch/de/studium/bachelor/bewerbung/auslaendische-reifezeugnisse/termine.html>
+- ETH, Zulassungsbedingungen (PDF): <https://ethz.ch/content/dam/ethz/main/education/admission/bachelor/andere-qual/ETH-ZulassungsbedingungenHS2026_DE.pdf>
+- ETH, Studiengebühren und Lebenshaltung: <https://ethz.ch/studierende/de/studium/finanzielles/studiengebuehren.html>, <https://ethz.ch/content/dam/ethz/main/education/finanzielles/files-de/lebenshaltung_international.pdf>
+- ETH, Einreise und Krankenversicherung: <https://ethz.ch/content/dam/ethz/main/education/internationales/pdf-en/immigration-to-switzerland-EU.pdf>, <https://ethz.ch/en/studies/international/after-arrival/health-insurance/exemption.html>
+- Rückfall: <https://www.uni-hannover.de/de/studium/studienangebot/info/studiengang/detail/informatik>, <https://www.tu-braunschweig.de/bewerbung/>, <https://uol.de/studium/bewerben/bewerbungs-und-einschreibefristen?bachelor>
+
+**Rechtsform, Anonymität, Steuern**
+- Apple, Anmeldung und Verkäufername: <https://developer.apple.com/support/enrollment/>
+- Apple, EU-Händlerangaben (DSA): <https://developer.apple.com/help/app-store-connect/manage-compliance-information/manage-european-union-digital-services-act-trader-requirements>
+- § 5 DDG: <https://www.gesetze-im-internet.de/ddg/__5.html>; Impressum-Merkblatt IHK: <https://www.ihk.de/karlsruhe/fachthemen/recht/internetrecht/impressumspflichten-6266634>
+- § 14 GewO: <https://www.gesetze-im-internet.de/gewo/__14.html>; § 40 GmbHG: <https://dejure.org/gesetze/GmbHG/40.html>
+- UG-Kosten und Auflösung: <https://www.firma.de/firmengruendung/gruendungskosten-ug-was-kostet-die-gruendung-einer-ug-haftungsbeschraenkt>, <https://epago.de/lexikon/steuern/ug-aufloesen-ablauf-kosten>
+- IHK Hannover, Wirtschaftssatzung 2026 (Beiträge): <https://www.ihk.de/blueprint/servlet/resource/blob/6929436/2859854a86e1a9c52fa1c9e06a5ddda5/wirtschaftssatzung-2026-data.pdf>; Handelsregister-Gebühren: <https://www.ihk.de/hannover/hauptnavigation/recht/aktuell3/gebuehren-fuer-eintragungen-im-handelsregister-steigen-6569774>
+- Familienversicherung und Bezugsgröße 2027: <https://www.vdek.com/vertragspartner/mitgliedschaftsrecht_beitragsrecht/familienversicherung.html>, <https://www.bmas.de/DE/Service/Presse/Pressemitteilungen/2026/bundeskabinett-beschliesst-sozialversicherungsrechengroessen-2027.html>
+- § 16 EStG (Betriebsaufgabe beim Wegzug): <https://dejure.org/gesetze/EStG/16.html>; § 10 AO: <https://dejure.org/gesetze/AO/10.html>
+
+**Bauen ohne Programmierkenntnisse**
+- METR 2025 und 2026: <https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/>, <https://metr.org/blog/2026-02-24-uplift-update/>
+- Anthropic, KI-Hilfe und Lernen: <https://www.anthropic.com/research/AI-assistance-coding-skills>
+- Anfänger mit KI-Agenten: <https://arxiv.org/abs/2507.22614>; LLM-Schlüssel in iOS-Apps: <https://arxiv.org/abs/2606.12212>
+- Claude Code: <https://code.claude.com/docs/en/setup>, <https://code.claude.com/docs/en/output-styles>; Preise: <https://claude.com/pricing>
+- Expo: <https://docs.expo.dev/tutorial/build-with-ai/introduction/>, <https://expo.dev/pricing>, <https://docs.expo.dev/submit/ios/>, <https://docs.expo.dev/tutorial/eas/ios-development-build-for-devices/>
+- RevenueCat in Expo Go: <https://www.revenuecat.com/docs/getting-started/installation/expo>
+- Supabase, Geheimnisse und Sicherheit: <https://supabase.com/docs/guides/functions/secrets>, <https://supabase.com/blog/supabase-security-2025-retro>
+- Apple App Review: <https://developer.apple.com/app-store/review/guidelines/>, <https://developer.apple.com/distribute/app-review/>, <https://www.apple.com/legal/app-store/transparency/2025/>
+- Missing Semester: <https://missing.csail.mit.edu/2026>; CS50x: <https://cs50.harvard.edu/x/2026/>
+
+**Videos ohne Gesicht und Creator**
+- Fallbeispiele: <https://www.socialgrowthengineers.com/how-to-go-viral-without-knowing-how-to-go-viral>, <https://shortimize.com/blog/20k-downloads-and-9k-mrr-in-78-days-how-this-indie-app-turned-minimalism-into-millions-of-views>
+- TikTok Creator-Anzeigen: <https://ads.tiktok.com/business/en/blog/tiktok-creator-advantage>
+- UGC-Preise: <https://www.netinfluencer.com/collabstr-report-tiktok-campaigns-plummet-as-brands-pivot-to-ugc/>, <https://influee.co/ugc-creator/countries/germany>
+- TikTok-Regeln: <https://www.tiktok.com/community-guidelines/en/integrity-authenticity/>, <https://www.tiktok.com/legal/page/global/bc-policy/en>, <https://ads.tiktok.com/help/article/commercial-music-library>
+- UWG-Anhang: <https://dejure.org/gesetze/UWG/Anhang.html>; KI-Verordnung Art. 50: <https://artificialintelligenceact.eu/article/50/>
