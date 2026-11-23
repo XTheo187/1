@@ -263,11 +263,11 @@ class TestPlan500k(unittest.TestCase):
               "h_full": 55, "h_q4": 5}
         h = lambda y, m, d: p.hours_level(date(y, m, d), lv, "NI")  # noqa: E731
         self.assertEqual(h(2026, 12, 14), 10)                     # Schulwoche (Q3)
-        self.assertAlmostEqual(h(2026, 12, 21), 8)                # zwei Schultage, Mi 23.12. Ferien, 24.-27. frei
+        self.assertAlmostEqual(h(2026, 12, 21), 2 + 35 / 5)       # Mo/Di je 1 h, Mi 23.12. Ferientag, 24.-27. frei
         self.assertAlmostEqual(h(2026, 12, 28), 3 + 35 * 4 / 5)   # Neujahr frei
         self.assertEqual(h(2027, 1, 4), 38)                       # 06.01. ist in NI kein Feiertag
         self.assertEqual(h(2027, 1, 11), 10)                      # erster Schultag 11.01.
-        self.assertAlmostEqual(h(2027, 2, 1), 10 + 2 * 35 / 5 - 2)  # Halbjahresferien Mo/Di
+        self.assertAlmostEqual(h(2027, 2, 1), 2 * 35 / 5 + 5)     # Halbjahresferien Mo/Di, ab Mi 03.02. Q4
         for d in (date(2027, 2, 8), date(2027, 3, 8)):            # Q4 bis 18.03.
             self.assertEqual(p.hours_level(d, lv, "NI"), 5)
         self.assertEqual(h(2027, 3, 22), 2.5)                     # Osterferien = Abiturvorbereitung
@@ -361,13 +361,140 @@ class TestPlan500k(unittest.TestCase):
         bezahlt = 0
         for _ in range(400):
             r = p.simulate(rng, P)
+            ende_pause = p.woche_ab(P["startpause"][1])
             for woche, kosten in r["test_log"]:
                 if kosten > 0:
                     bezahlt += 1
-                    self.assertIn(woche - P["signal"]["wochen"], r["launches"])
+                    # drei Wochen nach einem Start, oder zum Ende der Startpause, wenn die Prüfung hineinfiel
+                    self.assertTrue(woche - P["signal"]["wochen"] in r["launches"] or woche == ende_pause, woche)
                     self.assertGreaterEqual(kosten, 100.0)
             self.assertLessEqual(r["testkosten_g3"], P["test_cap"] + 1e-9)
         self.assertGreater(bezahlt, 0)
+
+    def _bis_signal(self, P, peak, n=60, seed=50):
+        """Läufe mit fester Spitze der ersten App, deren Signalprüfung vor Tor 1 und nach der Startpause liegt."""
+        rng = random.Random(seed)
+        tor = p.bis_woche(P["stopps"][0][0])
+        out = []
+        for _ in range(n):
+            r = p.simulate(rng, dict(P, force_first_peak=peak))
+            if r["launches"] and r["launches"][0] + P["signal"]["wochen"] <= tor \
+                    and r["launches"][0] >= p.woche_ab(date(2027, 6, 7)):
+                out.append(r)
+        return out
+
+    def test_signal_trennt_flop_und_treffer(self):
+        """Ein Flop bekommt kein Testgeld; ein großer Treffer mit Signal bekommt es und seine Spitze zurück."""
+        P = self._deine()
+        flops = self._bis_signal(P, 300.0)
+        self.assertGreater(len(flops), 5)
+        for r in flops:
+            self.assertFalse(any(w == r["launches"][0] + 3 and c > 0 for w, c in r["test_log"]))
+        P_sicher = dict(P, m0_ohne_test=(1, 1, 1), signal=dict(P["signal"], abschlag=(1, 1, 1)))
+        treffer = self._bis_signal(P_sicher, 20000.0)
+        self.assertGreater(len(treffer), 5)
+        for r in treffer:
+            self.assertTrue(any(w == r["launches"][0] + 3 and c > 0 for w, c in r["test_log"]))
+            self.assertEqual(r["peaks"][0], 20000.0)
+
+    def test_signal_ist_unsicher(self):
+        """Ohne bezahlten Test startet ein kleiner Treffer oft unter der Schwelle und bekommt kein Geld."""
+        P = self._deine()
+        laeufe = self._bis_signal(P, 1500.0, n=200, seed=51)
+        ohne = sum(not any(w == r["launches"][0] + 3 and c > 0 for w, c in r["test_log"]) for r in laeufe)
+        self.assertGreater(ohne, 0)
+
+    def test_kein_testgeld_nach_dem_tor_und_nicht_im_abitur(self):
+        """Testgeld nur vor dem Tor und nie in der Startpause (15.03.-06.06.)."""
+        P = self._deine()
+        von, bis = p.woche_ab(date(2027, 3, 15)), p.woche_ab(date(2027, 6, 7))
+        rng = random.Random(52)
+        for _ in range(400):
+            r = p.simulate(rng, P)
+            for w, c in r["test_log"]:
+                if c > 0:
+                    self.assertFalse(von <= w < bis, w)
+                    if r["gestoppt"]:
+                        self.assertLess(w, r["stopp_woche"])
+
+    def test_ganz_ohne_testgeld(self):
+        P = self._deine("ganz ohne Testgeld")
+        rng = random.Random(53)
+        for _ in range(200):
+            self.assertEqual(sum(c for _, c in p.simulate(rng, P)["test_log"]), 0.0)
+
+    def test_harte_grenze_ug_mit_gruendung(self):
+        """Auch eine gegründete UG verliert mit Auflösung nie mehr als 5.000 EUR (günstigere Kosten zum Testen)."""
+        P = dict(self._deine("Anschrift der Eltern"), abwicklung=(1500, 1800, 2200),
+                 fixed_month=(80, 120, 160), fixed_stop=(60, 90, 120))
+        rng = random.Random(54)
+        gegruendet = 0
+        for _ in range(400):
+            r = p.simulate(rng, P)
+            gegruendet += r["gegruendet"]
+            self.assertGreaterEqual(r["ergebnis"], -P["start_cash"] - 1e-6)
+            self.assertEqual(r["nachschuss"], 0.0)
+            if r["gegruendet"] and r["launches"]:
+                self.assertGreaterEqual(r["launches"][0], r["apple_ab"])      # Apple-Wartezeit
+                self.assertGreaterEqual(r["einreichung1"], r["gruendung_woche"])
+            self.assertEqual(r["kv_kosten"], 0.0)                            # UG: keine Krankenversicherung
+        self.assertGreater(gegruendet, 200)
+
+    def test_gruendung_bei_der_haelfte(self):
+        """Wird App 1 am 28.02. abgebrochen, bevor sie halb steht, gibt es keine Gründung und keine Kosten."""
+        P = self._deine("Tore wie bisher")
+        rng = random.Random(55)
+        ohne = 0
+        for _ in range(300):
+            r = p.simulate(rng, P)
+            if not r["gegruendet"]:
+                ohne += 1
+                self.assertEqual(r["launches"], [])
+                self.assertGreater(r["ergebnis"], -400)
+            elif r["gestoppt"]:
+                self.assertLess(r["gruendung_woche"], r["stopp_woche"])       # nie in der Woche des Tors
+        self.assertGreater(ohne, 0)
+
+    def test_krankenversicherung_nur_bei_dauerhaftem_gewinn(self):
+        """Eigene Krankenversicherung nur, wenn der Gewinn dauerhaft über der Grenze liegt."""
+        P = self._deine()
+        rng = random.Random(56)
+        for _ in range(300):
+            r = p.simulate(rng, P)
+            if r["profit_firma"] < 0:
+                self.assertEqual(r["kv_kosten"], 0.0)
+        gross = dict(P, force_first_peak=60000.0, force_m0=20000.0, force_g=2.0, startpause=None)
+        rng = random.Random(57)
+        self.assertGreater(sum(p.simulate(rng, gross)["kv_kosten"] > 0 for _ in range(40)), 10)
+
+    def test_deine_angaben_ohne_web_und_angel(self):
+        for k, P in p.SZENARIEN.items():
+            if k.startswith("Deine Angaben"):
+                self.assertEqual(P["web_share"], (0.0, 0.0, 0.0), k)
+                self.assertFalse(P["angel"], k)
+
+    def test_alte_szenarien_lauf_fuer_lauf_gleich(self):
+        """Die bisherigen Szenarien rechnen mit dem neuen Code Lauf für Lauf wie im Stand 7cb0468."""
+        import importlib.util
+        import subprocess
+        import tempfile
+        root = Path(__file__).resolve().parents[1]
+        try:
+            alt_code = subprocess.run(["git", "-C", str(root), "show", "7cb0468:plan/plan_500k.py"],
+                                      capture_output=True, text=True, check=True).stdout
+        except (OSError, subprocess.CalledProcessError):
+            self.skipTest("git oder Stand 7cb0468 nicht verfügbar")
+        with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as f:
+            f.write(alt_code)
+        spec = importlib.util.spec_from_file_location("plan_alt", f.name)
+        alt = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(alt)
+        for name, P_alt in alt.SZENARIEN.items():
+            r1, r2 = random.Random(5), random.Random(5)
+            for _ in range(15):
+                a, b = alt.simulate(r1, P_alt), p.simulate(r2, p.SZENARIEN[name])
+                for k in a:
+                    self.assertEqual(a[k], b[k], (name, k))
 
     def test_bisherige_szenarien_ohne_neue_teile(self):
         """Die früheren Szenarien rechnen mit Bayern, sofortiger Gründung und ohne harte Grenze."""

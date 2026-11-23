@@ -180,6 +180,9 @@ BASE = dict(
     apple_ab=(0, 0, 0),                # S/B: Woche ab Start, ab der das Apple-Konto aktiv ist (UG: Notar,
                                        #      Register, D-U-N-S, Pruefung); vorher keine Einreichung
     abwicklung=(0, 0, 0),              # S/B: Kosten nach dem 31.08. fuer Aufloesung bzw. Abmeldung (EUR)
+    m0_ohne_test=(1, 1, 1),            # S: Faktor auf den Startumsatz eines Treffers ohne bezahlten Test (Signal
+                                       #    damit unsicher: auch ein Treffer kann unter der Schwelle starten)
+    kein_testgeld=False,               # Gegenprobe: gar kein Testgeld, auch nicht aus Umsatz
     kv_grenze=None,                    # dict(monatsgewinn, beitrag): Einzelunternehmen; Gewinn ueber der Grenze
                                        # beendet die Familienversicherung (eigene Beitraege, privat)
     harte_grenze=False,                # Plan: freiwillige Ausgaben nur, solange danach alle Pflichtkosten bis
@@ -222,19 +225,21 @@ def stunden_ni(d, lv):
     """Arbeitsstunden der Woche ab Montag d nach dem Kalender Niedersachsen 2026/27 (B).
 
     Ferienordnung 2024/25-2029/30 (RdErl. MK 18.11.2022) und Abiturtermine 2027 (Bek. MK 28.04.2025):
-    Weihnachtsferien Mi 23.12.2026-Sa 09.01.2027 (die Woche ab 21.12. hat zwei Schultage, einen
-    Ferientag und die freien Tage 24.-27.12.: ~80 % einer Schulwoche; Neujahr frei; der 06.01. ist in
-    Niedersachsen kein Feiertag), Halbjahreszeugnis Fr 29.01., Halbjahresferien Mo 01.-Di
-    02.02. (Schulwoche plus zwei freie Tage), Q4 Mi 03.02.-Do 18.03. mit je einer Klausur in jedem
-    Fach (eigene Stufe h_q4), Osterferien 22.03.-03.04. (Abiturvorbereitung), schriftliches Abitur
-    06.04.-13.05., Prüfung im 5. Fach und Nachschreibtermine 19.05.-07.06., danach frei bis auf
-    mögliche Nachprüfungen 28.-30.06. und die Zeugnisse 01.-03.07.; Sommer ab 05.07.
+    Weihnachtsferien Mi 23.12.2026-Sa 09.01.2027 (die Woche ab 21.12. hat zwei Schultage mit je 1 h,
+    einen Ferientag und die freien Tage 24.-27.12.; Neujahr frei; der 06.01. ist in Niedersachsen kein
+    Feiertag), Halbjahreszeugnis Fr 29.01., Halbjahresferien Mo 01.-Di 02.02. (zwei Ferientage, ab
+    Mi 03.02. Q4), Q4 bis Do 18.03. mit je einer Klausur in jedem Fach (eigene Stufe h_q4; die Woche
+    ab 15.03. mit den letzten Q4-Tagen zählt schon als Abiturvorbereitung), Osterferien
+    22.03.-03.04., schriftliches Abitur 06.04.-13.05., Prüfung im 5. Fach und Nachschreibtermine
+    19.05.-07.06. (die Woche ab 07.06. zählt als frei, der 07.06. kann noch Prüfungstag sein),
+    danach frei bis auf mögliche Nachprüfungen 28.-30.06. und die Zeugnisse 01.-03.07.; Sommer
+    ab 05.07.
     """
     if d < date(2026, 12, 21):
         return lv['h_school']
     if d < date(2026, 12, 28):
-        # Mo/Di Schule, Mi 23.12. erster Ferientag, 24.-27.12. frei
-        return lv['h_school'] * 0.8
+        # Mo/Di je 1 h Schulwoche, Mi 23.12. erster Ferientag, 24.-27.12. frei
+        return 2 + (lv['h_holiday'] - 3) / 5
     if d < date(2027, 1, 4):
         # Neujahr (Fr 01.01.) frei: vier Ferientage und Samstag
         return 3 + (lv['h_holiday'] - 3) * 4 / 5
@@ -243,8 +248,8 @@ def stunden_ni(d, lv):
     if d < date(2027, 2, 1):
         return lv['h_school']
     if d < date(2027, 2, 8):
-        # zwei freie Tage mit Ferienstunden statt je einer Stunde Schulwoche
-        return lv['h_school'] + 2 * (lv['h_holiday'] - 3) / 5 - 2
+        # Mo/Di Halbjahresferien mit Ferienstunden, ab Mi 03.02. Q4
+        return 2 * (lv['h_holiday'] - 3) / 5 + lv['h_q4']
     if d < date(2027, 3, 15):
         return lv['h_q4']
     if d < date(2027, 4, 5):
@@ -384,6 +389,7 @@ def simulate(rng, P):
     GR = P.get('gruendung')
     KV = P.get('kv_grenze')
     kv_kosten = 0.0
+    kv_hist = []
     gr_rest = 0.0
     zu_teuer = False
     bh1 = None
@@ -465,8 +471,10 @@ def simulate(rng, P):
             use = min(hours, einmal_rest, einmal_w if w < 8 else einmal_rest)
             hours -= use
             einmal_rest -= use
-        if GR and not gegruendet and not zu_teuer and bau is not None and bau[1] == 1 and bh1 \
-                and bh1 - bau[0] >= GR['bei'] * bh1:
+        _akt = max((a['R'] for a in apps), default=0.0) * WPM
+        tor_stoppt = not gestoppt and any(w == sw + 1 and _akt < sch for sw, sch in stopp_wochen)
+        if GR and not gegruendet and not zu_teuer and not tor_stoppt and bau is not None and bau[1] == 1 \
+                and bh1 and bh1 - bau[0] >= GR['bei'] * bh1:
             if not gruenden(w):
                 bau = None                  # ohne bezahlbare Firma kein Start: Versuch endet
                 attempts -= 1
@@ -608,8 +616,11 @@ def simulate(rng, P):
             # Testgeld erst, wenn eine App ohne bezahlte Werbung ein Signal zeigt (Monatsumsatz nach x Wochen)
             for a in apps:
                 if a.get('signal_w') == w:
+                    if in_pause:
+                        a['signal_w'] = startpause[1]   # in der Startpause erst ab dem Ende der Pause buchen
+                        continue
                     a['signal_w'] = None
-                    if not gestoppt and a['R'] * WPM >= SIG['schwelle_usd'] * FX:
+                    if not gestoppt and a['phase'] != 'decay' and a['R'] * WPM >= SIG['schwelle_usd'] * FX:
                         cost = testgeld(a['wunsch'])
                         if cost >= 100:
                             if w <= g3_woche:
@@ -617,14 +628,16 @@ def simulate(rng, P):
                             test_log.append((w, cost))
                             cash -= cost
                             profit -= cost
-                            a['peak'] = a['latent']
+                            # Spitze wiederhergestellt, mit Abschlag für die verlorenen Wochen
+                            abschlag = tri(rng, *SIG['abschlag']) if 'abschlag' in SIG else 1.0
+                            a['peak'] = max(a['peak'], a['latent'] * abschlag)
                             if a['phase'] == 'plateau':
                                 a['phase'] = 'grow'
         for rv in fertig:
             reviews.remove(rv)
             versuch = rv[1]
             wunsch = t('test_cost') * (1 + ksk)
-            if gestoppt or SIG:
+            if gestoppt or SIG or P['kein_testgeld']:
                 cost = 0.0                      # nach dem Tor kein Testbudget; mit Signalregel erst später
             else:
                 cost = testgeld(wunsch)
@@ -652,7 +665,10 @@ def simulate(rng, P):
                 m0 = min(peak, tri(rng, *PP['m0']))
             else:
                 m0 = min(peak, t('m0'))
-            apps.append(dict(peak=peak, R=m0 * FX / WPM if peak >= 1000 else peak * FX / WPM,
+            R0 = m0 * FX / WPM if peak >= 1000 else peak * FX / WPM
+            if cost < 100:
+                R0 *= t_neu('m0_ohne_test')     # ohne bezahlten Test startet auch ein Treffer schwächer
+            apps.append(dict(peak=peak, R=R0,
                              g=(P['force_g'] if (erzwungen and P.get('force_g')) else t('g_demand')),
                              launch=w, phase='grow',
                              plateau=t('plateau_weeks'), decay=t('decay_month'),
@@ -781,8 +797,15 @@ def simulate(rng, P):
         wk_profit = proceeds + gross * web * web_net - cost_plan - fin_cost
         profit += wk_profit
         profit_hist.append(wk_profit)
-        if KV and sum(profit_hist[-4:]) * WPM / 4 > KV['monatsgewinn']:
-            kv_kosten += KV['beitrag'] / WPM      # eigene Kranken- und Pflegeversicherung (privat)
+        if KV:
+            # Familienversicherung: Die Kasse schätzt den regelmäßigen Monatsgewinn vorausschauend (Jahr 2027).
+            # Gewinn der letzten 4 Wochen einschließlich Testgeld, hochgerechnet; zählt nur, wenn auch die
+            # Prognose für das Jahr über der Grenze liegt.
+            kv_hist.append(wk_profit - sum(c for (ww, c) in test_log if ww == w))
+            rate = sum(kv_hist[-4:]) * WPM / 4
+            rest = (date(2027, 12, 31) - d).days / 30.4
+            if rate > KV['monatsgewinn'] and (profit + rate * rest) / 12 > KV['monatsgewinn']:
+                kv_kosten += KV['beitrag'] / WPM      # eigene Kranken- und Pflegeversicherung (privat)
         cost_queue.append((w + cost_lag, cost_plan))
         due_now = sum(c for (wk, c) in cost_queue if wk <= w)   # inkl. dieser Woche bei Ziel 0
         cash += inflow - due_now - fin_cost
@@ -984,10 +1007,15 @@ TORE_SOMMER = ((date(2027, 7, 18), 5_000), (date(2027, 8, 8), 10_000))
 # Signalregel: Creator-Geld erst, wenn eine App drei Wochen nach dem Start ohne bezahlte Werbung mindestens
 # 300 USD Monatsumsatz zeigt (bis 18.07. höchstens 750 EUR aus dem Startgeld, danach nur aus Umsatz); vorher
 # laufen nur eigene Videos ohne Gesicht. Gegenproben: Tests sofort beim Start, ganz ohne Testgeld.
-SIGNAL = dict(wochen=3, schwelle_usd=300)
+# Das Signal ist unsicher: Ohne bezahlten Test startet auch ein Treffer nur mit 20-70 % des Startumsatzes und
+# kann unter der Schwelle bleiben; nach dem Signal kommt die Spitze mit 70-100 % zurück (verlorene Wochen). Ein
+# Signal in der Startpause (Abitur) wird erst ab 07.06. gebucht. Kein Web-Kauf und kein Business Angel (beim
+# Einzelunternehmen gibt es keine Anteile zu verkaufen).
+SIGNAL = dict(wochen=3, schwelle_usd=300, abschlag=(0.7, 0.85, 1.0))
 DEINE_ANGABEN = dict(CLAUDE_GESTAFFELT, **OHNE_PROGRAMMIEREN, kalender='NI', neben=NEBEN_NI, harte_grenze=True,
                      startpause=STARTPAUSE_NI, stopps=TORE_SOMMER, neu_stopp=(), test_cap_bis=date(2027, 7, 18),
-                     test_cap=750.0, signal=SIGNAL)
+                     test_cap=750.0, signal=SIGNAL, m0_ohne_test=(0.2, 0.4, 0.7), web_share=(0.0, 0.0, 0.0),
+                     angel=False)
 # Rechtsformen (Recherche November 2026; Kosten je Monat ab der Gründung, nach dem Tor, Gründung, Auflösung bzw.
 # Abmeldung nach dem 31.08.; B/S):
 # Einzelunternehmen: Gewerbeanmeldung 20-65 EUR, Apple 99 USD/Jahr, Erstberatung beim Steuerberater 0-250 EUR
@@ -1052,8 +1080,8 @@ SZENARIEN = {
     "Deine Angaben: UG mit gemieteter Geschäftsadresse":
         scen(**dict(DEINE_ANGABEN, **UG_ADRESSE)),
     "Deine Angaben: UG mit Anschrift der Eltern": scen(**dict(DEINE_ANGABEN, **UG_ELTERN)),
-    "Deine Angaben: Einzelunternehmen, ohne Testbudget": scen(**dict(DEINE_ANGABEN, **EINZEL, test_cap=0.0,
-                                                                        signal=None)),
+    "Deine Angaben: Einzelunternehmen, ganz ohne Testgeld": scen(**dict(DEINE_ANGABEN, **EINZEL, test_cap=0.0,
+                                                                           signal=None, kein_testgeld=True)),
     "Deine Angaben: Einzelunternehmen, Tests sofort beim Start (ohne Signalregel)":
         scen(**dict(DEINE_ANGABEN, **EINZEL, signal=None)),
     "Deine Angaben: Einzelunternehmen, Signalregel mit bis zu 1.500 EUR":
@@ -1160,21 +1188,23 @@ def main() -> None:
         if args.nur and args.nur not in name:
             continue
         r = auswerten(P, args.n, seed=args.seed + i)
+        stichtag = P['test_cap_bis'].strftime('%d.%m.')
         print(f"== {name}  ({args.n} Läufe)")
-        print(f"   P(Ziel: Gewinn + Verkauf >= 720.000 EUR)  {_pz(r['p_ziel'])}  [{r['treffer']} Treffer]"
+        print(f"   P(Ziel: Gewinn + Verkauf >= {P['profit_target']:,.0f} EUR)".replace(",", ".")
+              + f"  {_pz(r['p_ziel'])}  [{r['treffer']} Treffer]"
               f"   davon ohne Verkauf {_pz(r['p_gewinn'])}   mit Verkauf {_pz(r['p_verkauf'])}"
               f"   mit Papierwert {_pz(r['p_papier'])}")
         print(f"   Verlust > 3.000 EUR {_pz(r['p_verlust_3000'])}   > 5.000 EUR {_pz(r['p_verlust_5000'])}"
-              f"   Nachschuss nötig {_pz(r['p_nachschuss'])}   Jagd an G3/G4 beendet {_pz(r['p_gestoppt'])}")
+              f"   Nachschuss nötig {_pz(r['p_nachschuss'])}   Jagd an einem Tor beendet {_pz(r['p_gestoppt'])}")
         print(f"   Ergebnis > 0 {_pz(r['p_plus'])}   >= 10.000 EUR {_pz(r['p_10k'])}   >= 100.000 EUR {_pz(r['p_100k'])}")
         print(f"   Ergebnis für dich: Median {r['gewinn_median']:,.0f}  P10 {r['gewinn_p10']:,.0f}  "
               f"P90 {r['gewinn_p90']:,.0f}  P99 {r['gewinn_p99']:,.0f}  Mittel {r['gewinn_mittel']:,.0f} EUR"
               f"   (Firma Median {r['firma_median']:,.0f})".replace(",", "."))
         print(f"   MRR >= 10k USD {_pz(r['p_mrr_10k'])}, >= 100k USD {_pz(r['p_mrr_100k'])}; Versuche Median "
-              f"{r['versuche_median']}; gestartete Apps bis 31.08. Median {r['apps_median']}; bis 28.02.: keine "
+              f"{r['versuche_median']}; gestartete Apps bis 31.08. Median {r['apps_median']}; bis {stichtag}: keine "
               f"{_pz(r['p_keine_bis_g3'])}, genau eine {_pz(r['p_eine_bis_g3'])}, zwei oder mehr "
               f"{_pz(r['p_zwei_bis_g3'])}; erster Launch Woche {r['erster_launch_woche']} "
-              f"ab 30.11.2026; Tests bis G3 Median {r['test_g3_median']:,.0f} EUR".replace(",", "."))
+              f"ab 30.11.2026; Tests bis {stichtag} Median {r['test_g3_median']:,.0f} EUR".replace(",", "."))
         for m in r["meilensteine"]:
             print(f"     MRR >= {m['mrr_usd']:>7,} USD bis {m['bis']}: erreicht {_pz(m['p'])}   P(Ziel | erreicht) "
                   f"{_pz(m['p_ziel_wenn'])}   P(Ziel | verfehlt) {_pz(m['p_ziel_sonst'])}   "

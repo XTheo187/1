@@ -12,6 +12,11 @@
 - [ ] Kein Hinweis auf Käufe außerhalb der App
 - [ ] Nur Wochen- und Monatsabo (kein Jahresabo vor Juli 2027)
 - [ ] Impressum in der App erreichbar
+- [ ] Nur fürs iPhone: in `app.json` `ios.supportsTablet: false`; trotzdem auf dem iPad testen (Apple prüft dort im Kompatibilitätsmodus)
+- [ ] Screenshots vom eigenen iPhone, fehlende Größen in Canva auf das verlangte Format gesetzt (Inhalt bleibt die echte App)
+- [ ] Exportkontrolle: nur Standardverschlüsselung, `ios.config.usesNonExemptEncryption: false`
+- [ ] Altersfreigabe ehrlich beantwortet; Nutzungsbedingungen und Onboarding sagen „ab 18“; Hinweis auf die KI vor dem ersten Aufruf
+- [ ] Freigabe „Diese Version manuell veröffentlichen“ gewählt (keine Veröffentlichung zwischen 15.03. und der letzten Abiturprüfung)
 - [ ] Keine Platzhalter, echte Screenshots, Backend läuft während des Reviews (2.1)
 - [ ] Falls Nutzerkonten: Kontolöschung in der App
 - [ ] Keine Gesundheitsversprechen, keine Diagnose, keine fremden Marken

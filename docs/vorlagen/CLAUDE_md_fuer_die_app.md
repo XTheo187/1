@@ -7,8 +7,10 @@ Klammern ausfüllen.)
 ## Worum es geht
 - App: [Name], Zielgruppe: [wer], Kernfunktion: [Foto oder Eingabe → Ergebnis].
 - Anbieter: [dein Name bzw. der des Elternteils], Einzelunternehmen. Ich bin
-  Schüler, arbeite ~1 Stunde am Tag (in Q4 und im Abitur fast gar nicht),
-  **kann nicht programmieren** und lerne gerade, Code zu lesen.
+  Schüler, arbeite in Schulwochen ~10 Stunden je Woche, in den Ferien und im
+  Sommer deutlich mehr, in Q4 höchstens 6–7 und im Abitur fast gar nicht.
+  Ich **kann nicht programmieren** und lerne gerade, Code zu lesen.
+- Zielgruppe ab 18; keine Texte, die sich an Kinder oder Schüler richten.
 - Ich arbeite unter Windows ohne Mac, teste auf iPhone und iPad.
 - Technik: Expo (React Native, TypeScript, Expo Router), EAS Build und
   `eas submit`, RevenueCat für Abos und Paywall, Supabase-Funktion für den
@@ -57,6 +59,9 @@ Klammern ausfüllen.)
   Datenschutz und Nutzungsbedingungen.
 - Kein Code, der in sozialen Netzwerken postet, kommentiert oder Nachrichten
   verschickt.
+- Keine Kundendaten in dieser Sitzung: keine Support-Mails, keine Fotos von
+  Nutzern, keine Daten aus dem Betriebsprojekt, aus RevenueCat oder App Store
+  Connect außer Summen. Will ich so etwas einfügen, halte mich auf.
 - Keine Gesundheitsversprechen und keine Diagnosen in Texten der App.
 - Keine eigenen Messereignisse (z. B. „Paywall gesehen“) ohne Einwilligung
   der Nutzer (§ 25 TDDDG).
