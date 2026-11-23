@@ -1039,22 +1039,44 @@ Programmieren und im Marketing, Plattformregeln, Preise, Stand November
 2026).
 
 > **Antwort: Am meisten bringt nicht die größte Abgabe, sondern die
-> gestaffelte.** Claude schreibt von Anfang an den Code und erklärt ihn
-> dir, und Claude macht die Schreib- und Analysearbeit im Marketing – mit
+> sparsame.** Claude schreibt von Anfang an den Code und erklärt ihn dir,
+> und Claude macht die Schreib- und Analysearbeit im Marketing – mit
 > Claude Pro (20 $ im Monat). Ein teures Abo und ein Agent für den
-> Betrieb kommen erst, wenn eine App ein Treffer ist. Mehr Abgabe ab dem
-> ersten Tag macht das Ergebnis schlechter: Sie kostet jeden Monat Geld
-> und frisst mit der Einrichtung genau die Stunden vor dem Haupttor, und
-> sie spart belegt weniger Zeit, als man denkt.
+> Betrieb kommen erst, wenn eine App ein Treffer ist („gestaffelt“). Mehr
+> Abgabe ab dem ersten Tag macht das Ergebnis schlechter: Sie kostet
+> jeden Monat Geld, frisst mit der Einrichtung genau die Stunden vor dem
+> Haupttor und spart belegt weniger Zeit, als man denkt.
 >
-> ⟨TABELLE_STUFEN⟩
+> | Stufe (allein, Abiturschutz, 300.000 Läufe; Stufe 0 und gestaffelt je 900.000) | Abo | 500.000 € | überhaupt Gewinn | ≥ 10.000 € | Median | Mittelwert | jeder 100. Lauf ≥ |
+> |---|---|---:|---:|---:|---:|---:|---:|
+> | 0: Claude hilft wie im Plan (Code mit Claude Code, Entwürfe), keine Stunden für die Partnersuche | Pro | 0 von 900.000 | 8,4 % | 3,4 % | −3.400 € | −2.000 € | +29.400 € |
+> | **gestaffelt:** Claude schreibt und erklärt den Code, Marketing-Vorarbeit, Agent erst bei einem Treffer | Pro, Max nur wenn nötig | 1 von 900.000 | **8,8 %** | **3,5 %** | −3.450 € | −2.050 € | +28.400 € |
+> | 1: Claude schreibt den ganzen Code, ab Start Max | Max | 0 von 300.000 | 7,9 % | 3,2 % | −3.600 € | −2.300 € | +26.900 € |
+> | 2: + Marketing-Vorarbeit ab Start | Max | 0 von 300.000 | 8,0 % | 3,0 % | −3.600 € | −2.300 € | +25.800 € |
+> | 3: + Agent im Betrieb ab Start | Max/Ultra | 0 von 300.000 | 6,4 % | 2,4 % | −3.650 € | −2.650 € | +21.000 € |
+> | 4: Vollabgabe (KI-Avatar-Videos, kaum eigene Prüfung) | Max/Ultra + Avatar-Werkzeug | 0 von 300.000 | 4,5 % | 1,7 % | −3.750 € | −3.050 € | +16.200 € |
+> | gestaffelt, falls Claude als Lehrer die Lernkurve verkürzt (unbelegt) | Pro | 0 von 300.000 | 9,7 % | 3,9 % | −3.450 € | −1.900 € | +30.600 € |
+> | gestaffelt im strengeren Markt 2027 (mehr Konkurrenz, Abwanderung, Kopien) | Pro | 0 von 300.000 | 7,3 % | 2,8 % | −3.450 € | −2.300 € | +24.200 € |
+>
+> Stufe 0 und gestaffelt liegen gleichauf: Gestaffelt startet öfter eine
+> zweite App vor dem 28.02. (32 % statt 29 % der Läufe) und schafft etwas
+> häufiger einen Gewinn, kostet dafür im Median ~50 € mehr, weil in
+> manchen Monaten Max nötig ist. Bleibst du ganz bei Pro, ist gestaffelt
+> in allen Kennzahlen leicht vorn (Gegenprobe mit 60.000 Läufen: Median
+> ~−3.390 €, Gewinn in ~9 %). Allein ohne Partnersuche startet
+> übrigens öfter eine zweite App als im Plan mit Partnersuche (29 % statt
+> 17 %), weil ~22 Stunden mehr übrig bleiben.
 >
 > **Ehrlich:** Die Chance auf 500.000 € bleibt in jeder Stufe praktisch
-> null. Claude löst den Engpass dieses Plans nicht: Den Code schreibt
+> null (höchstens 1 Treffer in 900.000 Läufen, sicher unter ~0,0005 %);
+> ≥ 100.000 € schaffen ~3–4 von 100.000 Läufen. Claude löst den Engpass
+> dieses Plans nicht: Den Code schreibt
 > Claude schnell, aber Videos mit deinem Gesicht, Creator-Beziehungen,
 > Freigaben und das Skalieren eines Treffers in der Abiturzeit bleiben bei
-> dir. Was Claude zuverlässig bringt, ist ein etwas besserer typischer
-> Ausgang und öfter eine zweite App vor dem 28.02.
+> dir. Was Claude dir bringt, ist Tempo beim Code, öfter eine zweite App
+> vor dem 28.02. und etwas häufiger einen Gewinn: in knapp 9 von 100
+> Läufen, davon in gut einem Drittel 10.000 € oder mehr. Im Normalfall
+> bleibt es ein Verlust von gut 3.000 € bis 31.08.
 
 **Wer was macht (gestaffelte Variante):**
 
