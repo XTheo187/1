@@ -480,7 +480,7 @@ Ferien.
   vorbereiten**: Kohorten D1–D90, Erstattungsquote, Kanalmix, Zeitaufwand
   der Gründerin; Gespräche mit App-Portfolio-Käufern und Studios. Ziel ist
   eine Absichtserklärung (LOI). Verfehlt: kein Abbruch – die Chance liegt
-  mit Partner dann noch bei ~0,09 % (zwei Drittel aller Treffer), weil
+  mit Partner dann noch bei ~0,08 % (zwei Drittel aller Treffer), weil
   fast alle Treffer über einen Verkauf im Juli/August kommen. Gespräche mit Käufern trotzdem beginnen, sobald der
   Gewinn der letzten drei Monate einen Kaufpreis in Reichweite bringt.
 
@@ -497,8 +497,8 @@ Ferien.
   ÷ eigener Anteil), Abschluss spätestens in der letzten vollen Woche
   (bis So 29.08.) **oder** ≥ 300.000 € aufgelaufener Gewinn. Gelingt nichts
   davon, bleibt bis Ende Juli noch eine Listung bei einem Makler oder
-  Käufer mit Abschluss bis 29.08. Vorsicht: Im Modell schließt fast die
-  Hälfte der erfolgreichen Verkäufe erst in dieser letzten Woche – ein
+  Käufer mit Abschluss bis 29.08. Vorsicht: Im Modell schließen rund zwei
+  Fünftel der erfolgreichen Verkäufe erst in dieser letzten Woche – ein
   paar Tage Verzug beim Käufer kosten das Ziel. Deshalb Gespräche früh
   beginnen (G6) und den Abschlusstermin in die Absichtserklärung schreiben;
   danach ist das Ziel verfehlt: App behalten, als Geschäft weiterführen,
@@ -525,8 +525,8 @@ gelten mit Partner für 25 % (300.000 Läufe, 374 Treffer):
 | ≥ 30.000 $ bis 31.03. | 24 von 900.000 | 0,29 % | 9 % | 0,1 % |
 | **≥ 50.000 $ bis 30.04. (G5)** | 13 von 900.000 | 0,4 % | 13 % | 0,07 % |
 | ≥ 100.000 $ bis 30.04. | kein Lauf | 0,01 % | ~45 % (18 von 40) | 0,12 % |
-| ≥ 150.000 $ bis 15.06. (G6) | kein Lauf | 0,15 % | 27 % | 0,09 % |
-| ≥ 300.000 $ bis 15.07. (G7) | kein Lauf | 0,08 % | 25 % | 0,11 % |
+| ≥ 150.000 $ bis 15.06. (G6) | kein Lauf | 0,15 % | 27 % | 0,08 % |
+| ≥ 300.000 $ bis 15.07. (G7) | kein Lauf | 0,08 % | 25 % | 0,10 % |
 
 **So liest man das:**
 - **Allein kommt kaum ein Treffer über die Abiturzeit.** Bis zum 28.02.
