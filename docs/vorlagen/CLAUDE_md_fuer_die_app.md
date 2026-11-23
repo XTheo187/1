@@ -28,7 +28,11 @@ Klammern ausfüllen.)
 
 ## Was nie passieren darf
 - Keine Schlüssel oder Passwörter in der App oder im Repository. Der
-  KI-Schlüssel liegt nur als Geheimnis in der Supabase-Funktion.
+  KI-Schlüssel und der geheime RevenueCat-Schlüssel liegen nur als
+  Geheimnis in der Supabase-Funktion.
+- Die Server-Funktion prüft bei jedem Aufruf über die REST-API von
+  RevenueCat, ob die App-User-ID ein aktives Abo hat; ohne aktives Abo
+  kein KI-Aufruf.
 - Keine Tabelle ohne Zugriffsregeln (Row Level Security).
 - Fotos werden nach der Analyse nicht gespeichert.
 - Vor dem ersten KI-Aufruf fragt die App um Erlaubnis und nennt den
@@ -39,12 +43,19 @@ Klammern ausfüllen.)
 - Kein Code, der in sozialen Netzwerken postet, kommentiert oder Nachrichten
   verschickt.
 - Keine Gesundheitsversprechen und keine Diagnosen in Texten der App.
+- Keine eigenen Messereignisse (z. B. „Paywall gesehen“) ohne Einwilligung
+  der Nutzer (§ 25 TDDDG).
+- Knopf oder Link zum Web-Kauf nur im US-Storefront (Storefront abfragen,
+  nicht Sprache oder IP).
 
 ## Kosten
-- Je Gerät ein Tageslimit für KI-Aufrufe (Start: [z. B. 20]).
-- Bilder vor dem Senden verkleinern.
-- In der Anthropic-Konsole ist ein Ausgabenlimit gesetzt; die App zeigt bei
-  Überschreitung eine freundliche Meldung statt abzustürzen.
+- Tageslimit für KI-Aufrufe je App-User-ID, gezählt auf dem Server
+  (Start: [z. B. 20]).
+- Bilder vor dem Senden verkleinern, Antworten kurz halten.
+- In der Anthropic-Konsole ist ein Ausgabenlimit als Notbremse gesetzt und
+  wird jede Woche an die Nutzerzahl angepasst; bei Fehlern der API (400 bei
+  erreichtem Limit, 429 bei zu vielen Anfragen) zeigt die App eine
+  freundliche Meldung statt abzustürzen.
 
 ## Dateien, die du pflegst
 - `docs/review-log.md`: jede Ablehnung durch Apple mit Grund und Lösung.
