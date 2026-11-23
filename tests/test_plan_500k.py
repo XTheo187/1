@@ -5,6 +5,7 @@ from __future__ import annotations
 import random
 import sys
 import unittest
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "plan"))
@@ -17,10 +18,74 @@ class TestPlan500k(unittest.TestCase):
         """Wochen bis 31.08.2027, Abiturphasen mit wenig Stunden."""
         self.assertEqual(p.WEEKS, 39)
         lv = {k: (k, k, k) for k in ("h_school", "h_holiday", "h_abiprep", "h_abi", "h_oral", "h_gap", "h_full")}
-        from datetime import date
         self.assertEqual(p.hours_level(date(2027, 4, 26), lv)[0], "h_abi")       # schriftliches Abitur
         self.assertEqual(p.hours_level(date(2026, 12, 28), lv)[0], "h_holiday")   # Weihnachtsferien
         self.assertEqual(p.hours_level(date(2027, 7, 5), lv)[0], "h_full")        # Sommer
+        # Weihnachtsferien erst ab Do 24.12.: die Woche ab 21.12. ist eine Schulwoche
+        self.assertEqual(p.hours_level(date(2026, 12, 21), lv)[0], "h_school")
+        self.assertEqual(p.hours_level(date(2027, 1, 4), lv)[0], "h_holiday")
+        self.assertEqual(p.hours_level(date(2027, 1, 11), lv)[0], "h_school")
+        # Frühjahrsferien 08.-12.02.2027
+        self.assertEqual(p.hours_level(date(2027, 2, 8), lv)[0], "h_holiday")
+        self.assertEqual(p.hours_level(date(2027, 2, 15), lv)[0], "h_school")
+        # Stichtage zählen nur volle Wochen: 31.01. (So) schließt Woche 8 ab, 31.03. (Mi) Woche 16
+        self.assertEqual(p.bis_woche(date(2027, 1, 31)), 8)
+        self.assertEqual(p.bis_woche(date(2027, 3, 31)), 16)
+
+    def test_plan_haelt_die_eigenen_stundenregeln(self):
+        """Das Hauptszenario rechnet mit den Stunden des Wochenplans (Abiturschutz)."""
+        P = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("DER PLAN"))]
+        self.assertLessEqual(P["h_school"][2] * 1.2, 16)       # Schulwochen höchstens ~15 h
+        for k in ("h_abiprep", "h_abi", "h_oral"):             # Abiturzeit höchstens ~5 h
+            self.assertLessEqual(P[k][2] * 1.2, 6)
+        self.assertEqual(P["stopps"], p.TORE)
+        self.assertEqual(P["credit0"], (0, 0, 0))               # kein Kredit
+        self.assertEqual(P["p_fin"], (0.0, 0.0, 0.0))           # keine Finanzierung
+
+    def test_kassenprobe(self):
+        """Gewinn = Kasse - Startkapital + offene Forderungen - offene Kosten, in jedem Lauf.
+
+        Fängt nicht bezahlte Kosten (Zahlungsziel 0) und doppelt gekürzte Apple-Zahlungen ab.
+        """
+        plan = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("DER PLAN"))]
+        faelle = [plan, dict(plan, cost_lag_weeks=(0, 0, 0)),
+                  p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("Obergrenze"))],
+                  p.SZENARIEN[next(k for k in p.SZENARIEN if "10 % vom Umsatz" in k)]]
+        for i, P in enumerate(faelle):
+            rng = random.Random(100 + i)
+            for _ in range(150):
+                r = p.simulate(rng, P)
+                probe = r["cash"] - P["start_cash"] + r["forderungen"] - r["offene_kosten"]
+                self.assertAlmostEqual(r["profit_firma"], probe, delta=1e-6 * max(1.0, abs(probe)))
+
+    def test_verkauf_nur_wenn_er_das_ziel_erreicht(self):
+        P = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("Obergrenze"))]
+        rng = random.Random(3)
+        verkauft = 0
+        for _ in range(300):
+            r = p.simulate(rng, P)
+            if r["exit"] > 0:
+                verkauft += 1
+                self.assertGreaterEqual(r["profit"] + r["exit"], P["profit_target"])
+        self.assertGreater(verkauft, 0)
+
+    def test_tore_beenden_die_jagd(self):
+        """Wer am 28.02. keine App mit 5.000 USD MRR hat, startet keine neuen Versuche mehr."""
+        P = p.SZENARIEN[next(k for k in p.SZENARIEN if k.startswith("DER PLAN"))]
+        rng = random.Random(11)
+        g3 = p.bis_woche(date(2027, 2, 28))
+        for _ in range(300):
+            r = p.simulate(rng, P)
+            if p._bis(r["chk"], g3) < 5_000 * p.FX:
+                self.assertTrue(r["gestoppt"])
+
+    def test_partner_kommt_bis_zum_partner_tor(self):
+        P = p.SZENARIEN[next(k for k in p.SZENARIEN if "25 % der Anteile" in k)]
+        rng = random.Random(4)
+        for _ in range(100):
+            w = p.simulate(rng, P)["partner_woche"]
+            self.assertGreaterEqual(w, 0)
+            self.assertLessEqual(w, p.bis_woche(date(2027, 1, 31)) + 1)
 
     def test_spitzen_mrr_stufen(self):
         """Die latente Spitzen-MRR trifft die vorgegebenen Stufenwahrscheinlichkeiten."""

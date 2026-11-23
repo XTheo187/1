@@ -18,7 +18,13 @@ Kalender, Abitur geschützt):
 
 Ziel: Gewinn plus Verkaufserlös (Anteil der Gründerin) >= 720.000 EUR bis 31.08.2027.
 In einer UG bleiben davon nach ~30,7 % Steuer (KSt + Soli + GewSt Regensburg 425 %)
-~500.000 EUR Eigenkapital; privat verfügbar wären ~930.000-980.000 EUR nötig.
+~500.000 EUR Eigenkapital; privat verfügbar wären ~965.000-980.000 EUR Gewinn nötig
+(als UG wegen der 25-%-Rücklage ohne Kapitalerhöhung sogar ~1,3 Mio. EUR).
+
+Regeln des Plans im Modell: Stunden nach dem Wochenplan (Abiturschutz), Ausgaben
+nie unter die Reserve von 1.000 EUR, kein Kredit, keine Fremdfinanzierung, Abbruch
+der Jagd an den Toren G3 (28.02.: beste App < 5.000 USD MRR) und G4 (31.03.:
+< 10.000 USD), danach keine neuen Versuche und nur noch Mindestkosten.
 
 Herkunft: Recherche-Runde zum 500k-Plan (Modell der Recherche, strengere
 Kalibrierung und Lernkurve aus der Gegenprüfung). B = belegt, S = Schätzung.
@@ -26,7 +32,7 @@ Kalibrierung und Lernkurve aus der Gegenprüfung). B = belegt, S = Schätzung.
 Aufruf:
 
     python3 plan/plan_500k.py                 # Szenarien und Meilensteine (60.000 Läufe)
-    python3 plan/plan_500k.py --n 300000      # genauer (Minuten)
+    python3 plan/plan_500k.py --n 300000      # wie im Dokument (rund eine halbe Stunde)
 
 Eingaben mit Quellen: docs/500K_BIS_SOMMER_2027.md.
 """
@@ -51,8 +57,11 @@ def tri(rng, lo, mode, hi):
 # ---------------------------------------------------------------------------
 BASE = dict(
     start_cash=5000.0,                 # B (Angabe der Person)
-    setup_cost=(400, 700, 1200),       # S: UG-Gruendung Notar/HR, Apple 99 USD, Tools
-    fixed_month=(250, 450, 800),       # S: Steuerberater, Tools, Server, Versicherung
+    setup_cost=(450, 700, 1200),       # S/B: UG-Gruendung (Notar ~150-200, HR 150-225, Gewerbe ~55),
+                                       #      Website, Rechtstexte, ggf. gebrauchtes Testgeraet
+    fixed_month=(200, 300, 500),       # S: Werkzeuge (~100), Buchhaltung/Steuerberater anteilig
+                                       #    (~1.500-3.000 EUR/Jahr), Konto, IHK, Server
+    fixed_stop=(120, 170, 250),        # S: nach Abbruch: UG-Pflichtkosten + Apple-Konto
     # Arbeitsstunden je Woche nach Phase (S)
     h_school=(8, 15, 22),
     h_holiday=(20, 32, 45),
@@ -98,9 +107,11 @@ BASE = dict(
     # Cashflow
     apple_lag_weeks=(5, 7, 9),         # B/S: Zahlung ~33-45 Tage nach Ende des Fiskalmonats
     web_share=(0.0, 0.10, 0.30),       # S: Web-Checkout (Stripe) USA, Lag ~1 Woche
-    credit0=(1000, 2000, 5000),        # S: Kreditkarte / Werbekonto-Schwelle
-    fin_weeks=(13, 20, 26),            # B/S: Silvr DE: 6 Monate Historie, >=10k EUR/Monat
-    p_fin=(0.2, 0.4, 0.6),             # S: Zusage fuer junge UG
+    reserve=1000.0,                    # Plan: Ausgaben (Tests, Wachstum) nie unter diese Reserve
+    credit0=(0, 0, 0),                 # Plan: kein Kredit (Zahlungsziele stecken in cost_lag_weeks)
+    fin_weeks=(26, 26, 30),            # B: umsatzbasierte Finanzierung braucht >= 6 Monate Historie
+    p_fin=(0.0, 0.0, 0.0),             # B: Silvr (jetzt Karmen) nur fuer Firmen in Frankreich, Pollen VC
+                                       #    und Uncapped ohne RBF: fuer die junge UG keine Finanzierung
     fin_k=(0.5, 1.0, 2.0),             # S: Kreditrahmen in Monatsumsaetzen
     fin_fee_month=0.015,               # S
     # Exit
@@ -116,19 +127,24 @@ BASE = dict(
     angel_dilution=(0.08, 0.15, 0.25),  # S
     angel_delay_weeks=(3, 6, 10),      # S
     profit_target=720000.0,
-    exit_target=700000.0,
+    stopps=(),                         # Tore: ((Datum, Schwelle USD MRR der besten App), ...)
 )
 
 
 def hours_level(d, lv):
-    """Arbeitsstunden-Phase nach Kalender (Ferien Bayern ungefaehr)."""
-    if d < date(2026, 12, 21):
+    """Arbeitsstunden-Phase der Woche, die am Montag d beginnt (Ferien Bayern 2026/27).
+
+    Weihnachtsferien 24.12.2026-08.01.2027 (die Woche ab 21.12. hat drei Schultage und
+    drei Feiertage, sie zaehlt als Schulwoche), Fruehjahrsferien 08.-12.02.2027,
+    Osterferien 22.03.-02.04., Pfingstferien 18.-28.05., Abitur bis Mitte Juni.
+    """
+    if d < date(2026, 12, 28):
         return lv['h_school']
     if d < date(2027, 1, 11):
         return lv['h_holiday']
-    if d < date(2027, 2, 15):
+    if d < date(2027, 2, 8):
         return lv['h_school']
-    if d < date(2027, 2, 22):
+    if d < date(2027, 2, 15):
         return lv['h_holiday']
     if d < date(2027, 3, 22):
         return lv['h_school']
@@ -141,6 +157,11 @@ def hours_level(d, lv):
     if d < date(2027, 6, 28):
         return lv['h_gap']
     return lv['h_full']
+
+
+def bis_woche(tag: date) -> int:
+    """Letzte Modellwoche, die am Tag `tag` vollständig vorbei ist."""
+    return ((tag - START).days + 1) // 7 - 1
 
 
 def draw_peak(rng, p1k, p10k, q100k, q1m, alpha):
@@ -183,6 +204,18 @@ def simulate(rng, P):
     p_close = t('p_close')
     no_cash_limit = P.get('no_cash_limit', False)
     share = P.get('founder_share', 1.0)
+    fixed_stop_w = t('fixed_stop') / WPM
+    stopp_wochen = [(bis_woche(tag), schwelle * FX) for tag, schwelle in P['stopps']]
+    gestoppt = False
+    best_mrr = 0.0      # hoechster Monatsumsatz (EUR) einer einzelnen App bisher
+    # Partner mit Vertrieb: arbeitet ab Woche pw mit (Zusage bis spaetestens 31.01.)
+    PP = P.get('partner')
+    pw = None
+    if PP:
+        pw = rng.uniform(*P['partner_week'])
+        pp = {k: tri(rng, *PP[k]) for k in ('p1k', 'p10k', 'q100k', 'q1m', 'c_early', 'team_hours')}
+        pp['p1k'] = max(pp['p1k'], pp['p10k'])
+    rev_share = P.get('partner_rev_share', 0.0)
     angel_state = None   # None | ('pending', week, amount, dil) | 'done' | 'no'
     weeks_over_20k = 0
 
@@ -212,10 +245,23 @@ def simulate(rng, P):
         hours = hours_level(d, lv) * rng.uniform(0.8, 1.2)
         if exit_state and exit_state[0] == 'done':
             break
+        mit_partner = pw is not None and w >= pw
+        # ---------------- Tore: Abbruch der Jagd ----------------
+        for sw, schwelle in stopp_wochen:
+            if w == sw + 1 and best_mrr < schwelle and not gestoppt:
+                gestoppt = True
+                n_max = attempts            # keine neuen Versuche
+                if task and task[0] == 'build':
+                    task = None
+        fix_w = fixed_stop_w if gestoppt else fixed_w
         # ---------------- App-Arbeit (neue Versuche) ----------------
         mrr_now = sum(a['R'] for a in apps) * WPM
-        team = team_h if mrr_now >= P['team_threshold'] else 0.0
-        h_free = hours
+        if mit_partner:
+            team = pp['team_hours']
+        else:
+            team = team_h if mrr_now >= P['team_threshold'] else 0.0
+        c_e_w = pp['c_early'] if mit_partner else c_e
+        h_free = hours + (team if mit_partner else 0.0)
         hit = [a for a in apps if a['peak'] * FX >= 50000 and a['revealed']]
         if hit:
             focus = True
@@ -230,7 +276,10 @@ def simulate(rng, P):
                 if attempts >= n_max:
                     break
                 attempts += 1
-                bh = t('build_first') if attempts == 1 else t('build_next')
+                if mit_partner:
+                    bh = tri(rng, *PP['build_next'])
+                else:
+                    bh = t('build_first') if attempts == 1 else t('build_next')
                 task = ['build', bh, 0.0]
             if task[0] == 'build':
                 use = min(h_free, task[1])
@@ -251,16 +300,25 @@ def simulate(rng, P):
         if task and task[0] == 'review':
             task[2] -= 1.0
             if task[2] <= 0:
-                cost = min(max(cash + credit0, 0.0), t('test_cost'))
+                cost = min(max(cash - P['reserve'] + credit0, 0.0), t('test_cost'))
                 cash -= cost
                 profit -= cost
-                _lf = P.get('learn'); _f = _lf[min(attempts - 1, len(_lf) - 1)] if _lf else 1.0
-                peak = draw_peak(rng, p1k * _f, p10k * _f, q100k, q1m, P['pareto_alpha'])
+                if mit_partner:
+                    # Partner bringt Playbook und Creator-Netzwerk: eigene Quoten, keine Lernkurve
+                    peak = draw_peak(rng, pp['p1k'], pp['p10k'], pp['q100k'], pp['q1m'], P['pareto_alpha'])
+                else:
+                    _lf = P.get('learn'); _f = _lf[min(attempts - 1, len(_lf) - 1)] if _lf else 1.0
+                    peak = draw_peak(rng, p1k * _f, p10k * _f, q100k, q1m, P['pareto_alpha'])
                 if attempts == P.get('force_attempt', 1) and P.get('force_first_peak'):
                     peak = P['force_first_peak']
                 if cost < 100:
                     peak *= 0.5
-                m0 = min(peak, P['force_m0'] if (attempts == P.get('force_attempt', 1) and P.get('force_m0')) else t('m0'))
+                if attempts == P.get('force_attempt', 1) and P.get('force_m0'):
+                    m0 = min(peak, P['force_m0'])
+                elif mit_partner:
+                    m0 = min(peak, tri(rng, *PP['m0']))
+                else:
+                    m0 = min(peak, t('m0'))
                 apps.append(dict(peak=peak, R=m0 * FX / WPM if peak >= 1000 else peak * FX / WPM,
                                  g=(P['force_g'] if (attempts == P.get('force_attempt', 1) and P.get('force_g')) else t('g_demand')),
                                  launch=w, phase='grow',
@@ -301,23 +359,25 @@ def simulate(rng, P):
             planned.append(Rn)
         # Kosten und Cash-Limit
         grow_mask = [a['phase'] == 'grow' for a in apps]
+        rs = rev_share if mit_partner else 0.0
+
         def cshare(Rn, gm):
             if not gm:
-                return c_p
-            return c_e if Rn * WPM < 100000 * FX else c_g
-        cost_plan = sum(Rn * cshare(Rn, gm) for Rn, gm in zip(planned, grow_mask)) + fixed_w
+                return c_p + rs
+            return (c_e_w if Rn * WPM < 100000 * FX else c_g) + rs
+        cost_plan = sum(Rn * cshare(Rn, gm) for Rn, gm in zip(planned, grow_mask)) + fix_w
         # Zufluss
         inflow = 0.0
         if len(rev_hist) >= lag:
-            inflow += rev_hist[-lag][1] * (1 - web)
+            inflow += rev_hist[-lag][1]          # Apple-Erlös (schon ohne Web-Anteil und Gebühr)
         if rev_hist:
             inflow += rev_hist[-1][0] * web * 0.95
         mrr_eur = sum(planned) * WPM
         if mrr_eur >= 10000:
             weeks_over_10k += 1
-        floor = -credit0
+        floor = P['reserve'] - credit0
         if fin_ok and weeks_over_10k >= fin_weeks:
-            floor = -credit0 - fin_k * mrr_eur
+            floor -= fin_k * mrr_eur
         due_old = sum(c for (wk, c) in cost_queue if wk <= w)
         avail = cash + inflow - floor - due_old
         # Kosten dieser Woche werden erst nach cost_lag faellig; Limit: kuenftige Faelligkeiten
@@ -329,10 +389,10 @@ def simulate(rng, P):
             for i, a in enumerate(apps):
                 if grow_mask[i] and a['launch'] != w:
                     planned[i] = min(planned[i], a['R'])
-            cost_plan = sum(Rn * cshare(Rn, gm) for Rn, gm in zip(planned, grow_mask)) + fixed_w
+            cost_plan = sum(Rn * cshare(Rn, gm) for Rn, gm in zip(planned, grow_mask)) + fix_w
             if cost_plan > avail_future:
                 # Nur Erhaltungsbudget
-                cost_plan = sum(Rn * c_p for Rn in planned) + fixed_w
+                cost_plan = sum(Rn * (c_p + rs) for Rn in planned) + fix_w
         for i, a in enumerate(apps):
             a['R'] = planned[i]
         gross = sum(planned)
@@ -346,11 +406,13 @@ def simulate(rng, P):
         profit += wk_profit
         profit_hist.append(wk_profit)
         cost_queue.append((w + cost_lag, cost_plan))
-        cash += inflow - due_old - fin_cost
+        due_now = sum(c for (wk, c) in cost_queue if wk <= w)   # inkl. dieser Woche bei Ziel 0
+        cash += inflow - due_now - fin_cost
         cost_queue = [(wk, c) for (wk, c) in cost_queue if wk > w]
         mrr_eur = gross * WPM
         max_mrr = max(max_mrr, mrr_eur)
-        chk[w] = max_mrr
+        best_mrr = max(best_mrr, max((a['R'] for a in apps), default=0.0) * WPM)
+        chk[w] = best_mrr
         if P['angel']:
             weeks_over_20k = weeks_over_20k + 1 if mrr_eur >= P['angel_trigger_mrr'] else 0
             if angel_state is None and weeks_over_20k >= 4:
@@ -375,12 +437,13 @@ def simulate(rng, P):
                 p13 = sum(profit_hist[-13:])
                 val = mult * 4 * p13
                 close_w = w + int(round(t('exit_close_weeks')))
-                if val >= P['exit_target'] and close_w < WEEKS:
+                # Verkauf nur, wenn er das Ziel erreicht (Anteil der Gruenderin an Gewinn + Erloes)
+                if share * (profit + val) >= P['profit_target'] and close_w < WEEKS:
                     exit_state = ('listing', close_w, val)
         elif exit_state and exit_state[0] == 'listing' and w >= exit_state[1]:
             p13 = sum(profit_hist[-13:])
             val = min(exit_state[2], mult * 4 * p13)
-            if rng.random() < p_close and val >= P['exit_target']:
+            if rng.random() < p_close and share * (profit + val) >= P['profit_target']:
                 exit_state = ('done', val)
                 exit_value = val
             else:
@@ -388,17 +451,24 @@ def simulate(rng, P):
                 relist_after = w + 4
     p13 = sum(profit_hist[-13:]) if profit_hist else 0.0
     paper = max(0.0, 2.0 * 4 * p13) if exit_value == 0 else 0.0
+    # Offene Posten fuer die Kassenprobe: Gewinn = Kasse - Start + Forderungen - offene Kosten
+    forderungen = sum(pr for (_, pr) in rev_hist[-lag:]) if lag > 0 else 0.0
+    if rev_hist:
+        forderungen += rev_hist[-1][0] * web * 0.95
     return dict(launch1=(apps[0]['launch'] if apps else 99), profit=profit * share,
                 exit=exit_value * share, paper=paper * share, attempts=attempts,
                 max_mrr=max_mrr, f10=first10k_week, f100=first100k_week,
-                squeeze=cash_squeeze, peaks=[a['peak'] for a in apps], chk=chk)
+                squeeze=cash_squeeze, peaks=[a['peak'] for a in apps], chk=chk,
+                profit_firma=profit, cash=cash, forderungen=forderungen,
+                offene_kosten=sum(c for (_, c) in cost_queue), gestoppt=gestoppt,
+                partner_woche=pw)
 
 
 def run(P, N, seed=1):
     rng = random.Random(seed)
     res = [simulate(rng, P) for _ in range(N)]
     A = sum(r['profit'] >= P['profit_target'] for r in res) / N
-    B = sum(r['exit'] >= P['exit_target'] for r in res) / N
+    B = sum(r['exit'] > 0 and r['profit'] + r['exit'] >= P['profit_target'] for r in res) / N
     C = sum(r['profit'] + r['exit'] >= P['profit_target'] for r in res) / N
     D = sum(r['profit'] + r['exit'] + r['paper'] >= P['profit_target'] for r in res) / N
     prof = sorted(r['profit'] for r in res)
@@ -432,6 +502,18 @@ def scen(**kw):
 # Szenarien
 # --------------------------------------------------------------------------
 
+# Regeln des Plans (docs/500K_BIS_SOMMER_2027.md, Abschnitte 3, 4 und 11):
+# Schulwochen 10 h (in Wochen mit Schulaufgaben nur Samstag 3 h, hoechstens 15 h), Ferien 25-50 h,
+# Abiturzeit nach Tabelle F (Osterzeit 1-5 h, schriftlich 0-1 h, Pfingsten/Kolloquium 1-5 h),
+# Uebergang 15-40 h, Sommer 45-65 h; je Woche zusaetzlich x0,8-1,2.
+PLAN_STUNDEN = dict(h_school=(3, 10, 13), h_holiday=(25, 38, 50), h_abiprep=(1, 2.5, 5),
+                    h_abi=(0, 0.5, 1), h_oral=(1, 3, 5), h_gap=(15, 28, 40), h_full=(45, 55, 65))
+# Tore G3 und G4: beste App unter 5.000 bzw. 10.000 USD MRR -> Jagd beenden
+TORE = ((date(2027, 2, 28), 5_000), (date(2027, 3, 31), 10_000))
+PLAN_REGELN = dict(PLAN_STUNDEN, stopps=TORE)
+# Mehr Stunden, als der Abiturschutz erlaubt (frühere Annahme des Modells)
+MEHR_STUNDEN = dict(h_school=(8, 15, 22), h_abiprep=(3, 8, 15), h_abi=(0, 3, 8), h_oral=(5, 12, 20),
+                    h_gap=(15, 25, 40), h_full=(40, 55, 70))
 # Strengere Trefferquoten (Gegenprüfung): RevenueCat 4,6 % der neuen Apps >= 10k USD MRR in zwei
 # Jahren, 2026/27 deutlich mehr Konkurrenz (14.700 neue Abo-Apps im Januar 2026), Appfigures-Tail dünn
 KRITIKER = dict(p1k=(0.10, 0.18, 0.30), p10k=(0.02, 0.04, 0.08), q100k=(0.05, 0.12, 0.22),
@@ -439,29 +521,35 @@ KRITIKER = dict(p1k=(0.10, 0.18, 0.30), p10k=(0.02, 0.04, 0.08), q100k=(0.05, 0.
 # Lernkurve: Treffer kommen selten beim ersten Versuch (Cal AI war die 7. App, Halo AI nach 18 Monaten)
 LERNKURVE = [0.3, 0.6, 0.85, 1.0]
 # Der Plan: Vorlagen-Code und schnelle MVPs, US-Web-Checkout 30-60 %, Ferien voll genutzt
-BESTER_PLAN = dict(KRITIKER, learn=LERNKURVE, web_share=(0.3, 0.45, 0.6), build_first=(50, 80, 130),
-                   build_next=(25, 45, 70), h_holiday=(25, 38, 50))
-# Partner mit Vertrieb (Creator-Netzwerk, Playbook) – Wirkung geschätzt
+BESTER_PLAN = dict(PLAN_REGELN, **KRITIKER, learn=LERNKURVE, web_share=(0.3, 0.45, 0.6),
+                   build_first=(50, 80, 130), build_next=(25, 45, 70))
+# Partner mit Vertrieb (Creator-Netzwerk, Playbook) – Wirkung geschätzt. Er arbeitet ab einer Woche
+# zwischen Start und 31.01. (Partner-Tor) mit: eigene Trefferquoten ohne Lernkurve, höherer Startumsatz,
+# günstigere Creator, 20-50 Stunden je Woche für Bau, Test und Skalierung.
 PARTNER = dict(p1k=(0.15, 0.25, 0.40), p10k=(0.03, 0.065, 0.13), q100k=(0.07, 0.15, 0.25),
                q1m=(0.03, 0.08, 0.15), m0=(2000, 5000, 12000), c_early=(0.25, 0.38, 0.55),
-               web_share=(0.15, 0.30, 0.50), team_hours=(20, 30, 50),
-               build_first=(40, 70, 120), build_next=(25, 45, 70))
+               team_hours=(20, 30, 50), build_next=(25, 45, 70))
+PARTNER_PLAN = dict(BESTER_PLAN, partner=PARTNER, partner_week=(0, bis_woche(date(2027, 1, 31)) + 1))
 
 SZENARIEN = {
-    "Recherche-Basis (Trefferquoten der Recherche)": scen(),
-    "Strengere Quoten (Gegenprüfung)": scen(**KRITIKER),
-    "Strengere Quoten + Lernkurve": scen(**KRITIKER, learn=LERNKURVE),
+    "Recherche-Quoten (Regeln des Plans)": scen(**PLAN_REGELN),
+    "Strengere Quoten (Gegenprüfung)": scen(**PLAN_REGELN, **KRITIKER),
+    "Strengere Quoten + Lernkurve": scen(**PLAN_REGELN, **KRITIKER, learn=LERNKURVE),
     "DER PLAN: strengere Quoten + Lernkurve + Web-Checkout + schneller Bau": scen(**BESTER_PLAN),
     "Der Plan, optimistischer Rand (Quoten x1,5)": scen(**dict(
         BESTER_PLAN, p1k=(0.15, 0.27, 0.45), p10k=(0.03, 0.06, 0.12), q100k=(0.08, 0.18, 0.33),
         q1m=(0.05, 0.12, 0.22))),
-    "Partner mit Vertrieb, Anteil der Gründerin 100 %": scen(**PARTNER, founder_share=1.0),
-    "Partner mit Vertrieb, Anteil der Gründerin 75 %": scen(**PARTNER, founder_share=0.75),
-    "Partner mit Vertrieb, Anteil der Gründerin 60 %": scen(**PARTNER, founder_share=0.6),
+    "Der Plan + Partner (Zusage bis 31.01.), Partner erhält 25 % der Anteile":
+        scen(**PARTNER_PLAN, founder_share=0.75),
+    "Der Plan + Partner (Zusage bis 31.01.), Partner erhält 40 % der Anteile":
+        scen(**PARTNER_PLAN, founder_share=0.6),
+    "Der Plan + Partner (Zusage bis 31.01.), Partner erhält 10 % vom Umsatz":
+        scen(**PARTNER_PLAN, partner_rev_share=0.10),
+    "Der Plan mit mehr Stunden (Schulwochen 8-22 h, Abiturzeit 3-20 h)":
+        scen(**dict(BESTER_PLAN, **MEHR_STUNDEN)),
     "Obergrenze: erste App ist ein Cal-AI-Treffer (Start 30k, Spitze 1,5 Mio. USD MRR)": scen(
-        force_first_peak=1.5e6, force_g=3.0, force_m0=30000),
-    "Der Plan mit strengem Abiturschutz (Schulwochen 6-10 h statt 8-22 h)": scen(**dict(
-        BESTER_PLAN, h_school=(6, 8, 10))),
+        **BESTER_PLAN, force_first_peak=1.5e6, force_g=3.0, force_m0=30000),
+    "Der Plan ohne Tore (weiter bis August, Vergleich)": scen(**dict(BESTER_PLAN, stopps=())),
 }
 
 
@@ -492,7 +580,7 @@ def auswerten(P: dict, n: int, seed: int = 2027) -> dict:
     q = lambda p: gewinne[min(n - 1, int(p * n))]  # noqa: E731
     meilensteine = []
     for name, tag, schwelle in MEILENSTEINE:
-        w = woche(tag)
+        w = bis_woche(tag)
         erreicht = [_bis(r["chk"], w) >= schwelle * FX for r in res]
         m = sum(erreicht)
         treffer = sum(1 for e, z in zip(erreicht, ziel) if e and z)
@@ -503,8 +591,11 @@ def auswerten(P: dict, n: int, seed: int = 2027) -> dict:
             "p_ziel_sonst": sonst / (n - m) if n > m else None})
     return {
         "p_ziel": sum(ziel) / n, "n": n, "treffer": sum(ziel),
-        "p_gewinn": sum(r["profit"] >= P["profit_target"] for r in res) / n,
-        "p_verkauf": sum(r["exit"] >= P["exit_target"] for r in res) / n,
+        "p_gewinn": sum(r["exit"] == 0 and r["profit"] >= P["profit_target"] for r in res) / n,
+        "p_verkauf": sum(r["exit"] > 0 and z for r, z in zip(res, ziel)) / n,
+        "p_verlust_3000": sum(r["profit"] < -3000 for r in res) / n,
+        "p_verlust_5000": sum(r["profit"] < -5000 for r in res) / n,
+        "p_gestoppt": sum(r["gestoppt"] for r in res) / n,
         "p_papier": sum(r["profit"] + r["exit"] + r["paper"] >= P["profit_target"] for r in res) / n,
         "gewinn_median": q(0.5), "gewinn_p10": q(0.1), "gewinn_p90": q(0.9), "gewinn_p99": q(0.99),
         "gewinn_mittel": sum(gewinne) / n,
@@ -534,8 +625,10 @@ def main() -> None:
         r = auswerten(P, args.n, seed=2027 + i)
         print(f"== {name}  ({args.n} Läufe)")
         print(f"   P(Ziel: Gewinn + Verkauf >= 720.000 EUR)  {_pz(r['p_ziel'])}  [{r['treffer']} Treffer]"
-              f"   Gewinn allein >= 720.000 {_pz(r['p_gewinn'])}   Verkaufsanteil allein >= 700.000 {_pz(r['p_verkauf'])}"
+              f"   davon ohne Verkauf {_pz(r['p_gewinn'])}   mit Verkauf {_pz(r['p_verkauf'])}"
               f"   mit Papierwert {_pz(r['p_papier'])}")
+        print(f"   Verlust > 3.000 EUR {_pz(r['p_verlust_3000'])}   > 5.000 EUR {_pz(r['p_verlust_5000'])}"
+              f"   Jagd an G3/G4 beendet {_pz(r['p_gestoppt'])}")
         print(f"   Gewinn: Median {r['gewinn_median']:,.0f}  P10 {r['gewinn_p10']:,.0f}  P90 {r['gewinn_p90']:,.0f}  "
               f"P99 {r['gewinn_p99']:,.0f}  Mittel {r['gewinn_mittel']:,.0f} EUR".replace(",", "."))
         print(f"   MRR >= 10k USD {_pz(r['p_mrr_10k'])}, >= 100k USD {_pz(r['p_mrr_100k'])}; Versuche Median "

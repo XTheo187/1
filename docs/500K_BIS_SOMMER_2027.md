@@ -4,14 +4,17 @@
 Regensburg, mit ~5.000 € – bis zum **31. August 2027** auf 500.000 €
 Nettovermögen? „Andere haben es auch geschafft.“
 
-> **Ja, andere haben es geschafft – und fast alle auf demselben Weg.**
-> Weltweit fanden sich seit 2012 rund 15–20 belegte Fälle von höchstens
-> 20-Jährigen mit ≥ 500.000 in ≤ 18 Monaten. Wer kein Publikum und keine
-> Berühmtheit mitbrachte, kam fast immer über **ein Consumer-Produkt mit
+> **Ja, einzelne haben es geschafft – und fast alle auf demselben Weg.**
+> Weltweit fanden sich seit 2012 rund 15–20 Fälle von höchstens
+> 20-Jährigen mit ≥ 500.000 in ≤ 18 Monaten – meist als Umsatz, Preisgeld
+> oder Einnahmen von Berühmtheiten, selten als Nettovermögen. Wer kein
+> Publikum mitbrachte, kam fast immer über **ein Consumer-Produkt mit
 > eingebautem Vertriebskanal**: eine KI-Abo-App, die über Kurzvideos und
 > Creator verkauft wird (Cal AI, Quittr), oder ein Roblox-Spiel. Das Geld
-> wurde aus dem laufenden Umsatz in Werbung gesteckt, und das Vermögen
-> entstand meist über einen **Verkauf**.
+> wurde aus dem laufenden Umsatz in Werbung gesteckt; ein Vermögen dieser
+> Höhe in so kurzer Zeit entstand nur über einen **Verkauf** (Summly, Blue
+> Lock: Rivals). Cal AI hatte nach 3–4 Monaten 500.000 $ Umsatz, verkauft
+> wurde nach ~19 Monaten.
 >
 > **Der Plan unten kopiert dieses Muster** Woche für Woche, mit dem Abitur
 > als fester Grenze: UG gründen, ab Dezember schnell hintereinander kleine
@@ -32,8 +35,8 @@ Nettovermögen? „Andere haben es auch geschafft.“
 >
 > **Das ist die ehrliche Zahl, keine Ausrede.** Der Weg ist echt, aber er
 > ist eine Jagd nach einem Treffer: Selbst die Gründer von Cal AI hatten
-> sechs Apps davor, sieben Jahre Programmierpraxis und einen erfahrenen
-> Mitgründer. Was den Plan trotzdem vernünftig macht:
+> sechs Apps davor, rund zehn Jahre Programmierpraxis (seit dem 7.
+> Lebensjahr) und einen erfahrenen Mitgründer. Was den Plan trotzdem vernünftig macht:
 > - der Einsatz ist klein (~3.000 € plus Zeit);
 > - der größte Hebel ist bekannt und planbar: ein Partner, der schon eine
 >   App über Creator groß gemacht hat (Abschnitt 4, Partnersuche);
@@ -55,13 +58,13 @@ verschärft hat (Abschnitt 14).
 
 ## 1. Wer es geschafft hat – und was alle gemeinsam haben
 
-| Wer | Alter | Was | Bis 500.000 | Wie belegt |
+| Wer | Alter | Was | Bis 500.000 (Umsatz, Gewinn oder Verkauf) | Wie belegt |
 |---|---|---|---|---|
 | **Cal AI** (Zach Yadegari, Henry Langmack, mit Blake Anderson, 24, und Jake Castillo, 30) | 17 | KI-Kalorienzähler: Foto vom Essen → Kalorien; Abo 29,99 $/Jahr | Umsatz nach ~3–4 Monaten (Monat 1: 28.000 $, Monat 2: 115.000 $); Gewinn wohl in ~12 Monaten; Verkauf an MyFitnessPal nach ~19 Monaten | gut: CNBC und Fortune sahen Unterlagen, Käufer bestätigt > 30 Mio. $ Jahresumsatz |
 | **Quittr** (Alex Slater, mit Connor McLaren, 25) | 19 | Abo-App gegen Pornokonsum (Streaks, Panic-Button) | Umsatz nach ~4–6 Monaten; ~3 Mio. $ Umsatz 2025 erwartet | mittel: Selbstangaben; Datenleck sensibler Nutzerdaten |
 | **Summly** (Nick D'Aloisio) | 15–17 | News-Zusammenfassung | Verkauf an Yahoo (~30 Mio. $) nach ~15–20 Monaten, mit Risikokapital | gut |
-| **Jailbreak** (Alex Balfanz mit Schulfreund) | 17–18 | Roblox-Spiel | „siebenstelliger“ Gewinn in gut 2 Jahren, geteilt | mittel |
-| **Grow a Garden** (anonym) | 16 | Roblox-Spiel, in Tagen gebaut; ein Studio stieg bei ~500 gleichzeitigen Spielern ein | Anteil des Gründers unbekannt; Spitze 21,6 Mio. gleichzeitige Spieler | Spiel belegt, Einkommen nicht |
+| **Jailbreak** (Alex Balfanz mit Schulfreund) | 17–18 | Roblox-Spiel | „siebenstelliger“ Gewinn in gut 2 Jahren, geteilt (also länger als 18 Monate) | mittel |
+| **Grow a Garden** (anonym) | 16 | Roblox-Spiel, in Tagen gebaut; ein Studio stieg bei ~500 gleichzeitigen Spielern ein | Anteil des Gründers unbekannt; Spitze ~22,3 Mio. gleichzeitige Spieler (August 2025, laut Studio) | Spiel belegt, Einkommen nicht |
 | **Blue Lock: Rivals** (anonym, mit Mitentwicklern) | 19 | Roblox-Spiel | Verkauf für > 3 Mio. $ wenige Monate nach dem Start | mittel; fremde Marke, Lizenz fraglich |
 | **Herzenskette** (Leon Michel, Deutschland) | 18–19 | personalisierter Schmuck, TikTok-Werbung bis 20.000 €/Tag | 1 Mio. € Umsatz im ersten Jahr | Selbstangabe (OMR) |
 | **Cruise Cup** (Michael Satterlee) | 18 | 3D-gedruckte Dosenhülle, Facebook-Werbung | ~570.000 $ Umsatz in 4 Monaten, danach Einbruch auf 25.000 $/Monat | Selbstangabe |
@@ -93,8 +96,8 @@ Charli D'Amelio), Lil Nas X, Fortnite-Weltmeister 2019 (3 Mio. $ bzw. je
 17 % der neuen Apps erreichen in zwei Jahren 1.000 $ Monatsumsatz, 4,6 %
 erreichen 10.000 $ (RevenueCat 2026). Von den Nicht-Spiele-Apps mit Release
 2024 kamen weltweit nur ~90 im Startjahr auf ≥ 1 Mio. $ Umsatz, im Schnitt
-1,3 Mio. $ (Appfigures). Für 500.000 € netto braucht es aber 2–5 Mio. $
-Kundenumsatz bis August (Abschnitt 2): Das schaffen weltweit vielleicht
+1,3 Mio. $ (Appfigures). Für 500.000 € netto aus Gewinn braucht es aber
+2–5 Mio. $ Kundenumsatz bis August (Abschnitt 2): Das schaffen weltweit vielleicht
 1–13 neue Apps im Jahr. Die bekannten Fälle sind Ausnahmen, keine
 Stichprobe.
 
@@ -103,7 +106,7 @@ Stichprobe.
 | Weg zum Nettovermögen | nötig bis 31.08.2027 |
 |---|---|
 | Gewinn bleibt in der UG (Eigenkapital nach ~30,7 % Steuer) | **~720.000 € Gewinn** |
-| Gewinn wird privat ausgeschüttet | ~930.000–980.000 € Gewinn |
+| Gewinn wird privat ausgeschüttet | ~965.000–980.000 € Gewinn (mit Kirchensteuer ~1 Mio. €); als UG müssen 25 % des Jahresüberschusses in die Rücklage (§ 5a Abs. 3 GmbHG), ohne Kapitalerhöhung auf 25.000 € also ~1,3 Mio. € |
 | Verkauf der App aus der UG (Asset-Deal), Geld bleibt in der UG | ~720.000 € Kaufpreis |
 | Verkauf der UG-Anteile privat (§ 17 EStG, 60 % steuerpflichtig) | ~670.000 € Kaufpreis |
 | Verkauf über eine Holding-UG (§ 8b KStG, Geld bleibt in der Holding) | ~508.000 € Kaufpreis |
@@ -112,14 +115,16 @@ Steuerlast der UG in Regensburg: Körperschaftsteuer 15 % + Soli = 15,825 %,
 Gewerbesteuer 3,5 % × 425 % = 14,875 %, zusammen **30,7 %**.
 
 **Was das für die App heißt:**
-- Bei 25–55 % Marge (nach Apple-Gebühr, KI-Kosten und Werbung) sind für
-  720.000 € Gewinn **1,8–4,2 Mio. € Kundenumsatz** in rund sieben Monaten
-  nötig. Das ist eine Kurve wie bei Cal AI: 30.000 → 100.000 → 300.000 →
+- Bei ~17–40 % Marge in der Wachstumsphase (nach 15 % Apple-Gebühr,
+  KI-Kosten und 45–70 % für Creator und Werbung) sind für 720.000 € Gewinn
+  **1,8–4,2 Mio. € Kundenumsatz** in rund sieben Monaten nötig. Das ist eine Kurve wie bei Cal AI: 30.000 → 100.000 → 300.000 →
   500.000 → 1 Mio. $ Monatsumsatz.
 - Für einen Verkauf über ~0,7 Mio. € zahlen Käufer junger Apps 1–3,5 ×
-  den Jahresgewinn. Gebraucht werden also ~200.000–350.000 €
-  annualisierter Gewinn: ~50.000–80.000 € Monatsumsatz, stabil über
-  mehrere Monate.
+  den Jahresgewinn. Gebraucht werden also ~200.000–700.000 €
+  annualisierter Gewinn (beim typischen Faktor 2: ~350.000 €), bei gut
+  einem Drittel Marge also ~50.000–160.000 € Monatsumsatz, stabil über
+  mehrere Monate. Bereits angesammelter Gewinn senkt den nötigen
+  Kaufpreis.
 - Daraus folgt die harte Zeitgrenze: **Der Treffer muss bis etwa
   Februar/März da sein.** Kommt er im Juni, bleibt keine Zeit mehr für
   Gewinn oder Verkauf.
@@ -128,36 +133,45 @@ Gewerbesteuer 3,5 % × 425 % = 14,875 %, zusammen **30,7 %**.
 
 | Phase | Zeitraum | Ziel | Stunden je Woche | Messpunkt |
 |---|---|---|---:|---|
-| **A** Gründen, Ideen testen, App 1 bauen, Partner suchen | 23.11.–20.12. | UG, Apple-Konto, 3 Ideen mit Kurzvideos getestet, App 1 im Bau, 20 Partner-Kandidaten angeschrieben | 8–15 | G0 13.12., Ideen-Tor 20.12. |
-| **B** Weihnachtsferien | 21.12.–10.01. | App 1 eingereicht, App 2 begonnen | 25–50 | G1 31.12. |
-| **C** Launch | 11.01.–07.02. | Funnel messen, erste Creator, Partner-Entscheidung | 8–15 | G2 und Partner-Tor 31.01. |
-| **D** Frühjahrsferien | 08.–14.02. | Paywall-Tests, Vorrat an Videos, Helfer auswählen | 35–45 | – |
-| **E** bis zur Prüfungszeit | 15.02.–21.03. | Treffer skalieren oder App 3 | 8–15 | **G3 28.02. (Haupttor)**, G4 31.03. |
-| **F** Abitur | 22.03.–13.06. | App läuft mit Helfern und festen Regeln | 0–5 | G5 30.04. |
-| **G** Übergang | 14.–27.06. | Android, Studienbewerbung als Rückfall | 20–40 | G6 15.06. |
+| **A** Gründen, Ideen testen, App 1 bauen, Partner suchen | 23.11.–23.12. | UG, Apple-Konto, 3 Ideen mit Kurzvideos getestet, App 1 im Bau, 20 Partner-Kandidaten angeschrieben | 10 (3–15) | G0 13.12., Ideen-Tor 20.12. |
+| **B** Weihnachtsferien | 24.12.–10.01. (Ferien bis Fr 08.01., 24.–26.12. frei) | App 1 eingereicht, App 2 begonnen | 25–50 | G1 Fr 08.01. |
+| **C** Launch | 11.01.–07.02. | Funnel messen, erste Creator, Partner-Entscheidung | 10 (3–15) | G2 und Partner-Tor 31.01. |
+| **D** Frühjahrsferien | 08.–14.02. (Ferien 08.–12.02.) | Paywall-Tests, Vorrat an Videos, Helfer auswählen | 25–50 | – |
+| **E** bis zur Prüfungszeit | 15.02.–21.03. | Treffer skalieren oder App 3 | 10 (3–15) | **G3 28.02. (Haupttor)**, G4 31.03. |
+| **F** Abitur | 22.03.–13.06. (mündliche Zusatzprüfungen bis 18.06.) | App läuft mit Helfern und festen Regeln | 0–5 | G5 30.04. |
+| **G** Übergang | 14.–27.06. | Android, Studienbewerbung als Rückfall | 15–40 | G6 15.06. |
 | **H** Vollzeit | 28.06.–31.08. | Skalieren, Verkauf vorbereiten und abschließen | 45–65 | G7 15.07., G8 31.08. |
 
-Insgesamt rund 800–1.000 Stunden, davon gut die Hälfte nach dem Zeugnis.
+**Stundenregel in Schulwochen:** 10 Stunden (Mo–Fr je 1 Stunde, Samstag
+5 Stunden), höchstens 15; in Wochen mit Schulaufgaben nur der Samstag
+(3 Stunden); nie nach 22 Uhr. Bis zum Haupttor G3 sind das rund 200–250
+Stunden. Wer danach weitermacht, kommt bis 31.08. auf rund 800 Stunden,
+gut zwei Drittel davon nach dem Zeugnis.
 
 ## 4. Woche für Woche
 
-### A – 23.11. bis 20.12.2026: gründen, Ideen testen, App 1 bauen
+### A – 23.11. bis 23.12.2026: gründen, Ideen testen, App 1 bauen
 
 **KW 48 (23.–29.11.):**
 - **UG (haftungsbeschränkt) gründen**: Online-Notartermin mit
-  Musterprotokoll, Stammkapital 1.000–2.500 €. Kosten ~255–400 €
-  (Notar ~125 € brutto plus Handelsregister).
+  Musterprotokoll, Stammkapital 1.000–2.500 €. Kosten ~375–430 €
+  (Notar ~150–200 € brutto mit Auslagen, Handelsregister ~225 €).
 - Geschäftskonto eröffnen, Stammkapital einzahlen.
 - Domain, einfache Website und Firmen-E-Mail anlegen (Apple verlangt beides
   für Organisationen), ~20–100 €.
-- Steuerberater für ein Erstgespräch auswählen (Buchhaltung kann bis zum
-  ersten Umsatz selbst laufen).
-- **Entscheidung Holding** (nur jetzt möglich, später gilt eine
-  Sperrfrist von 7 Jahren): Eine Holding-UG über der App-UG senkt den
-  nötigen Kaufpreis bei einem Anteilsverkauf von ~720.000 auf ~508.000 €,
-  kostet aber ~300–400 € Gründung und ~1.000–3.000 € im Jahr. Käufer
-  kleiner Apps kaufen meist die App (Asset-Deal), dann bringt die
-  Holding nichts. **Empfehlung: eine UG, keine Holding.**
+- Steuerberater auswählen und Kosten klären: Jahresabschluss,
+  Offenlegung und Steuererklärungen der UG kosten ~1.500–3.000 € im Jahr,
+  auch ohne Umsatz. Die laufende Buchhaltung kann bis zum ersten Umsatz
+  selbst laufen.
+- **Entscheidung Holding** (am einfachsten jetzt: erst eine Holding-UG
+  gründen, die dann die App-UG gründet – ohne Sperrfrist; später geht es
+  nur mit Aufwand, solange die App-UG noch wenig wert ist, über einen
+  Anteilstausch mit 7 Jahren Sperrfrist nach § 22 UmwStG): Eine Holding
+  senkt den nötigen Kaufpreis bei einem Anteilsverkauf von ~670.000 €
+  (privat, § 17 EStG) auf ~508.000 € (§ 8b KStG), kostet aber ~375–430 €
+  Gründung und ~1.000–3.000 € im Jahr. Käufer kleiner Apps kaufen meist
+  die App (Asset-Deal), dann bringt die Holding nichts. **Empfehlung: eine
+  UG, keine Holding.**
 - Markenkonten auf TikTok, Instagram und YouTube Shorts anlegen, klar als
   App-Marke erkennbar (Name und Logo der App).
 - **Ideensuche** nach den Regeln aus Abschnitt 6: 10 Kandidaten
@@ -189,11 +203,14 @@ Insgesamt rund 800–1.000 Stunden, davon gut die Hälfte nach dem Zeugnis.
   beantragt, 3 Ideen mit je 10–20 Videos getestet.
 
 **KW 51 (14.–20.12.):**
-- Schulaufgaben gehen vor: nur 5 Stunden.
+- Wenn Schulaufgaben anstehen, gilt die Regel: nur der Samstag (3 Stunden).
 - **Ideen-Tor 20.12.:** Weiter mit der Idee, die mindestens ein Video über
   100.000 Aufrufe (oder deutlich über dem eigenen Schnitt) und echte
   Kaufabsicht in den Kommentaren hat. Ohne Signal 3 neue Ideen testen –
   aber spätestens jetzt mit dem Bau der besten beginnen.
+
+**KW 52 (21.–23.12.):** drei Schultage, Regel für Schulwochen; ab 24.12.
+Ferien.
 
 **Partnersuche (KW 48 bis 31.01., 2–3 Stunden je Woche) – der größte
 Hebel des Plans:**
@@ -209,24 +226,26 @@ Hebel des Plans:**
 - **Angebot:** höchstens 25 % der UG, verdient über 4 Jahre mit 1 Jahr
   Mindestzeit (Vesting über eine notarielle Gesellschaftervereinbarung mit
   Rückkaufrecht; die Übertragung von UG-Anteilen braucht ohnehin den Notar,
-  § 15 GmbHG). Alternativ Umsatzbeteiligung ohne Anteile.
+  § 15 GmbHG). Alternativ eine Umsatzbeteiligung ohne Anteile, z. B.
+  10 % vom Umsatz, solange er oder sie mitarbeitet.
 - **Nicht:** Geld vorab, „Kurse“, Agenturen mit Grundgebühr, Partner ohne
   eigene belegte App.
 - **Partner-Tor 31.01.:** Wer bis dahin zugesagt hat, wird Gesellschafter
   nach dem Angebot oben. Ohne Zusage läuft der Plan allein weiter; die
   Suche geht nebenbei bis zum G3 weiter.
 
-### B – 21.12.2026 bis 10.01.2027: Weihnachtsferien
+### B – 24.12.2026 bis 10.01.2027: Weihnachtsferien (bis Fr 08.01.)
 
-- 24.–26.12. frei. Sonst 9–12 und 14–17 Uhr an der App, 1–1,5 h Schule.
+- 24.–26.12. frei. Ab 28.12. 9–12 und 14–17 Uhr an der App, 1–1,5 h
+  Schule am Tag.
 - **12 Stunden für das Sicherheitsnetz:** Bewerbungen auf duale
   Studienplätze und PiBS (Unternehmen suchen ein Jahr vorher, Abschnitt 12).
 - App 1 fertig: Onboarding mit Fragen, **harte Paywall** direkt danach
   (ohne Umschalter für die Testphase – Apple lehnt solche „Toggle-Paywalls“
   seit Januar 2026 ab), Wochen- und Jahresabo, Web-Kauf für US-Nutzer,
   Kontolöschung in der App, Datenschutzerklärung.
-- TestFlight mit 10–20 Testern; Einreichung bis Do 07.01.
-- **G1 (31.12.):** App 1 im Review oder live; App 2 begonnen (dieselbe
+- TestFlight mit 10–20 Testern; Einreichung bis Mo 04.01.
+- **G1 (Fr 08.01.):** App 1 im Review oder live; App 2 begonnen (dieselbe
   Vorlage, andere Nische).
 
 ### C – 11.01. bis 07.02.: Launch
@@ -234,9 +253,10 @@ Hebel des Plans:**
 - Täglich 1–3 Videos im Markenkonto, **ein Format**, viele Varianten.
 - Funnel messen: Aufrufe → Downloads → Onboarding → Paywall → Kauf; daraus
   der **Umsatz je 1.000 Aufrufe (RPM)**.
-- KW 03: 10–20 Nano-Creator (unter 10.000 Follower) anschreiben; KW 04:
+- KW 02: 10–20 Nano-Creator (unter 10.000 Follower) anschreiben; KW 04:
   3–5 bezahlte, gekennzeichnete Posts zu 50–150 $.
-- KW 05 (Halbjahresende 13/1): nur 6 Stunden.
+- KW 02–03 (letzte Leistungsnachweise von 13/1, Zeugnis 13/1 am Mo
+  25.01.): in Wochen mit Schulaufgaben nur der Samstag.
 - **G2 (31.01.):** Irgendeine App ≥ 1.000 $ Monatsumsatz? Messwerte je
   Test (ab ~200.000 Aufrufen): RPM größer als die Creator-Kosten je 1.000
   Aufrufe (~1–3 $), Download → Zahler ≥ 5 %, Testphase → Zahler ≥ 25 %,
@@ -244,7 +264,7 @@ Hebel des Plans:**
   Paywall-Varianten darunter liegt, wird eingestellt; App 2 startet
   spätestens 15.02.
 
-### D – 08. bis 14.02.: Frühjahrsferien
+### D – 08. bis 14.02.: Frühjahrsferien (08.–12.02.)
 
 - Version 1.1 mit Paywall-Test und Teilen-Funktion.
 - 40–60 Videos auf Vorrat.
@@ -256,22 +276,25 @@ Hebel des Plans:**
 
 - **G3 (28.02.), das Haupttor:** ≥ 5.000 $ Monatsumsatz, Wachstum ≥ 50 %
   im Monat, Werbung in ≤ 4 Wochen zurückverdient.
-  - **Verfehlt:** Die 500k-Jagd endet hier. Die App läuft als kleines
-    Projekt weiter, das Geld bleibt, das Abitur hat Vorrang.
+  - **Verfehlt:** Die 500k-Jagd endet hier. Keine neuen Versuche mehr,
+    Werkzeuge kündigen; es bleiben nur das Apple-Konto und die
+    Pflichtkosten der UG (~120–250 €/Monat). Die App läuft als kleines
+    Projekt weiter, das Abitur hat Vorrang, im Sommer ein Job
+    (Abschnitt 12).
   - **Erreicht:** Web-Anteil auf ≥ 30 %, Creator nach dem Prinzip
     „Fixpreis plus garantierte Aufrufe“, Werbung nur aus Umsatz.
 - KW 11 „Autopilot“ für das Abitur: Anleitung für den Helfer, Creator
   vorab gebucht und bezahlt, Supabase Pro (pausiert nicht), Alarme bei
   Ausfall und Ablehnung, festes Wochenbudget.
 - **G4 (31.03.):** ≥ 10.000 $ Monatsumsatz, besser ≥ 30.000 $. Darunter
-  endet die Jagd. Ab 30.000 $: Kohortendaten für Käufer ab jetzt sauber
+  endet die Jagd wie bei G3. Ab 30.000 $: Kohortendaten für Käufer ab jetzt sauber
   sammeln.
 
-### F – 22.03. bis 13.06.: Abitur
+### F – 22.03. bis 13.06.: Abitur (mündliche Zusatzprüfungen bis 18.06.)
 
 | Woche | App | Schule |
 |---|---:|---:|
-| Osterferien (KW 12–13) | 3 h: 2 × 20 min Zahlen, 1 h Gespräch mit dem Helfer | 35 h |
+| Osterferien (KW 12–13) | ~2 h: 2 × 20 min Zahlen, 1 h Gespräch mit dem Helfer | 35 h |
 | KW 14–15 | 2 h | 30 h |
 | schriftliches Abitur 21.04.–13.05. | 0–1 h, nur Notfälle | 35 h |
 | Pfingstferien 18.–28.05. | 5 h | 20 h |
@@ -285,6 +308,8 @@ Hebel des Plans:**
 
 ### G – 14. bis 27.06.: Übergang
 
+- Wer eine mündliche Zusatzprüfung hat, hält die Abiturregel bis 18.06.;
+  die Übergangsstunden gelten erst danach.
 - Studienbewerbung als Rückfallweg (z. B. TUM Informatik bis 15.07.).
 - Android-Start, wenn der geschlossene Test bestanden ist.
 - **G6 (15.06.):** ≥ 150.000 $ Monatsumsatz. Dann **Verkauf
@@ -299,9 +324,10 @@ Hebel des Plans:**
 - Erfolgreiche Creator-Formate verdoppeln, jede Woche ein Paywall-Test,
   Pauschalverträge mit den besten Creatorn, eigene Werbevideos der Creator
   als Anzeigen (Spark Ads) – nur bei Rückverdienst in ≤ 4 Wochen.
-- **G7 (15.07.):** ≥ 300.000 $ Monatsumsatz **oder** unterschriebene
-  Absichtserklärung über ≥ 0,7 Mio. € mit Abschluss bis 25.08. **oder**
-  ≥ 300.000 € aufgelaufener Gewinn. Sonst ist das Ziel verfehlt: App
+- **G7 (15.07.):** ≥ 300.000 $ Monatsumsatz **oder** eine unterschriebene
+  Absichtserklärung über einen Kaufpreis, der zusammen mit dem bisherigen
+  Gewinn ≥ 720.000 € ergibt (mit Partner: ≥ 720.000 € ÷ eigener Anteil),
+  Abschluss bis 25.08. **oder** ≥ 300.000 € aufgelaufener Gewinn. Sonst ist das Ziel verfehlt: App
   behalten, als Geschäft weiterführen, im Herbst den Ausbildungsweg
   antreten.
 - **G8 (31.08.):** Eigenkapital nach Steuerrückstellung ≥ 500.000 €
@@ -311,7 +337,8 @@ Hebel des Plans:**
 ## 5. Die Messpunkte und was sie für die Chance bedeuten
 
 Wie wahrscheinlich das Ziel ist, **wenn** ein Messpunkt erreicht bzw.
-verfehlt wird (Monatsumsatz der besten App in $, Modell „Der Plan“):
+verfehlt wird (höchster Monatsumsatz einer einzelnen App in $, gezählt
+werden nur volle Wochen bis zum Stichtag; Modell „Der Plan“):
 
 | Messpunkt | so oft erreicht | Chance auf das Ziel, wenn erreicht | … wenn verfehlt |
 |---|---:|---:|---:|
@@ -418,18 +445,18 @@ Dauer, Gebiet) und Freigabe vor Veröffentlichung.
 
 ## 8. Geld: Budget, Cashflow, Finanzierung
 
-**Die 5.000 €:**
+**Die 5.000 €** (dieselben Spannen rechnet das Modell):
 
-| Posten | Betrag |
-|---|---:|
-| UG-Gründung, Gewerbe, Register | ~300–450 € |
-| Apple, Google, Domain, Website | ~150 € |
-| Werkzeuge Dezember–August | ~850 € |
-| Rechtstexte (Generator), Steuerberater-Erstgespräch | ~300–500 € |
-| Testgerät, falls nötig (gebrauchtes iPhone, Android-Gerät) | 0–350 € |
-| **Creator- und Videotests bis G3 (28.02.)** | **höchstens 1.500–2.000 €** |
-| Reserve, nie angetastet | 1.000 € |
-| Rest (~500–1.000 €) | nur nach bestandenem G3 |
+| Posten | bis zum Haupttor G3 (28.02.) | 01.03.–31.08. |
+|---|---:|---:|
+| Start: Notar, Register, Gewerbe (~430 €), Website und Rechtstexte (~100–200 €), falls nötig ein gebrauchtes Testgerät (0–350 €) | ~450–1.200 € | – |
+| Laufende Kosten: Werkzeuge (Tabelle oben, ~100 €/Monat), Buchhaltung und Steuerberater anteilig, Konto, IHK – zusammen 200–500 €/Monat | ~600–1.500 € | läuft die Jagd weiter, genauso; nach Abbruch nur ~120–250 €/Monat, also ~700–1.500 € |
+| **Creator- und Videotests** | **200–1.200 € je App, zusammen höchstens ~1.500 €** | nur aus Umsatz |
+| **Reserve** – Tests und Werbung dürfen die Kasse nie darunter drücken | **1.000 €** | |
+
+Ohne jeden Umsatz sind bis zum G3 ~1.300–4.200 € verbraucht, bis 31.08.
+nach dem Abbruch weitere ~700–1.500 €. Die Reserve schützt vor
+Ausgaben für Tests und Werbung, nicht vor den Pflichtkosten der UG.
 
 **Cashflow – das eigentliche Nadelöhr:** Apple zahlt 5–9 Wochen nach dem
 Kauf aus, Creator und Werbung sind sofort fällig. Aus eigener Kraft
@@ -440,13 +467,15 @@ bräuchte auf dem Höhepunkt ~0,3–0,6 Mio. € Vorfinanzierung. Deshalb:
 - **Web-Checkout für US-Nutzer** (Geld nach Tagen statt Wochen);
 - Creator nach dem Posten bezahlen, Zahlungsziele von Werbekonten nutzen;
 - **je Woche höchstens den Umsatz der Vorwoche ausgeben**;
-- **keine privaten Kredite.**
+- **keine Kredite** – weder privat noch für die UG.
 
 **Finanzierung, Stand November 2026:**
 - Umsatzbasierte Finanzierung für Apps: Pollen VC und Uncapped bieten sie
   nicht mehr an; Lighter Capital und Founderpath sind für eine junge
-  deutsche UG nicht zugänglich; Silvr verlangt ≥ 10.000 € Monatsumsatz
-  über ≥ 6 Monate – frühestens im Juli.
+  deutsche UG nicht zugänglich; Silvr (seit Ende 2025 Karmen) finanziert
+  laut eigener FAQ nur in Frankreich registrierte Firmen mit mindestens
+  12 Monaten Geschäftstätigkeit. Für diese UG gibt es vor dem 31.08.2027
+  also keine Finanzierung; das Modell rechnet ohne.
 - Business Angel ab ~20.000 € Monatsumsatz: hilft im Modell kaum, weil
   die Verwässerung den eigenen Anteil am Ziel senkt. Höchstens, wenn der
   Anteil der Gründerin bei ≥ 85 % bleibt.
@@ -459,14 +488,16 @@ bräuchte auf dem Höhepunkt ~0,3–0,6 Mio. € Vorfinanzierung. Deshalb:
 | **Steuer** | 30,7 % auf den Gewinn der UG; Ausschüttung zusätzlich 26,375 % (oder Teileinkünfteverfahren); Kirchensteuer 8 % bei Mitgliedschaft | Gewinn in der UG lassen, Steuer für 2027 zurücklegen |
 | **Umsatzsteuer** | Apple und Google verkaufen im eigenen Namen (Kommissionär, EuGH C-101/24); deine Leistung an sie ist in Deutschland nicht steuerbar. Eigener Web-Checkout an EU-Kunden: ab 10.000 € Auslandsumsatz OSS | auf die Kleinunternehmerregelung verzichten; Web-Checkout zuerst nur für US-Nutzer |
 | **Apple-Gebühr** | 15 % im Small Business Program bis 1 Mio. $ Erlös nach Provision; darüber für den Rest des Jahres 30 % (EU seit 01.10.2026: 15 % bzw. 26 % beim In-App-Kauf) | Programm sofort beantragen |
-| **Familienversicherung** | Einbehaltene Gewinne der UG zählen nicht zum Gesamteinkommen; Gehalt über 590 €/Monat und Ausschüttungen über ~8.080 € schon. Wer mehr als 20 h/Woche als Geschäftsführerin mitarbeitet, kann als hauptberuflich selbstständig gelten – dann endet sie unabhängig vom Einkommen | kein Gehalt, keine Ausschüttung 2027; bis Juni unter 20 h/Woche; vor dem Vollzeitsommer bei der Kasse schriftlich klären und ~280–290 €/Monat einplanen |
+| **Familienversicherung** | Einbehaltene Gewinne der UG zählen nicht zum Gesamteinkommen; Gehalt über ~690 €/Monat (590 € plus Arbeitnehmer-Pauschbetrag) und Ausschüttungen über ~8.080 €/Jahr schon. Ob du hauptberuflich selbstständig bist, prüft die Kasse nach Stunden **und** Arbeitseinkommen (GKV-Spitzenverband, Grundsätze vom 20.03.2019): bei mehr als 30 h/Woche in der Regel schon ab einem Arbeitseinkommen über 25 % der Bezugsgröße (2027 ~1.030 €/Monat), bei 20–30 h ab 50 % (~2.065 €), bei bis zu 20 h erst ab 75 % (~3.100 €). Einbehaltene UG-Gewinne sind kein Arbeitseinkommen; ohne Gehalt spricht die Regel also eher gegen Hauptberuflichkeit, die Kasse entscheidet aber im Einzelfall. Liegt sie vor, endet die Familienversicherung unabhängig vom Einkommen | kein Gehalt, keine Ausschüttung 2027; in Schulwochen unter 20 h; die Ferienwochen mit mehr Stunden (Weihnachten, Februar, ab Mitte Juni) und den Vollzeitsommer **vor den Weihnachtsferien** schriftlich mit der Kasse klären; für den Fall der Fälle ~280–290 €/Monat einplanen |
 | **Rentenversicherung** | Geschäftsführerin mit ≥ 50 % Anteil nicht abhängig beschäftigt; Ein-Personen-GmbH mit einem Auftraggeber kann rentenversicherungspflichtig sein (ob Apple als „ein Auftraggeber“ gilt, ist offen) | Steuerberater oder DRV fragen |
 | **Schule** | keine Genehmigung nötig; Unterrichtspflicht und Prüfungen gehen vor (Art. 56 BayEUG) | Termine nachmittags oder in den Ferien |
 | **Kindergeld** | während der Schulzeit unabhängig vom Einkommen | – |
 
-Laufende Kosten der UG: Buchführung, Jahresabschluss, Offenlegung,
-IHK-Beitrag (bis 100.000 € Ertrag 85 €), Steuerberater ~2.000–6.000 €
-im Jahr – erst bezahlen, wenn Umsatz da ist.
+Laufende Kosten der UG: Jahresabschluss, Offenlegung und
+Steuererklärungen ~1.500–3.000 € im Jahr auch ohne Umsatz, mit
+laufender Buchhaltung bei Umsatz ~3.000–6.000 €; IHK-Beitrag: Grundbeitrag
+85 € (Gewerbeertrag bis 100.000 €, darüber 125/300/500 €) plus Umlage
+0,09 % des Gewerbeertrags, ohne Freibetrag für die UG.
 
 ## 10. Recht beim Wachsen
 
@@ -497,11 +528,14 @@ im Jahr – erst bezahlen, wenn Umsatz da ist.
 
 ## 11. Abitur-Schutz
 
-- **Regel:** in Schulwochen 8 Stunden, höchstens 10–15; in Wochen mit
-  Schulaufgaben nur der Samstag (3 h); keine App-Arbeit nach 22 Uhr.
-  Bis etwa 10–12 h/Woche finden die meisten Studien keinen oder kaum
-  Schaden für die Schulleistung, darüber steigt das Risiko (Übersicht
-  über 48 Studien, IZA DP 11023).
+- **Regel:** in Schulwochen 10 Stunden (Mo–Fr je 1 Stunde, Samstag
+  5 Stunden), höchstens 15; in Wochen mit Schulaufgaben nur der Samstag
+  (3 h); in der Abiturzeit 0–5 h nach der Tabelle in Phase F; keine
+  App-Arbeit nach 22 Uhr. In 42 von 48 Studien zeigt sich zumindest
+  teilweise ein negativer Zusammenhang zwischen Nebenarbeit und
+  Schulerfolg; viele finden Schaden erst ab einer Schwelle, die je nach
+  Studie zwischen über 8 und über 25 h/Woche liegt (Übersicht IZA
+  DP 11023). Je weniger Stunden in Schulwochen, desto kleiner das Risiko.
 - **Die Note ist noch beweglich:** Am 22.11.2026 sind rund 600 von 900
   Punkten offen; 18 Punkte entsprechen 0,1 Notenstufen. Sie zählt für
   NC-Studiengänge, Eignungsverfahren (z. B. TUM Informatik) und duale
@@ -555,12 +589,17 @@ möglich; Sparregel) sind 500.000 € Nettovermögen so wahrscheinlich
 | Roulette, kühnes Spiel, mit Tischlimit | ~0,65–0,7 % | 5.000 € in > 99 % der Fälle |
 | Nur Papierwert (Anteil × Bewertung bei YC oder Angel) | 1–3 % | kein Geld: nicht verkäuflich, Vesting, Anwesenheit in San Francisco |
 
+Die Zahlen für Roblox, Steam und die übrigen Wege stammen aus der
+Recherche (Basisraten, Schätzung) und sind nicht mit den Stundenregeln
+dieses Plans simuliert; mit Abiturschutz lägen sie ähnlich niedriger wie
+die App-Zahl.
+
 **Warum der App-Weg trotz kleinerer Zahl als die Wetten der Plan ist:**
-Er ist der Weg, den die realen Fälle gegangen sind; er kostet ~3.000 €
-statt 5.000 €; er ist kein Glücksspiel; und im Normalfall bleibt etwas:
-eine App, gemessene Zahlen, Fähigkeiten, Referenzen. Beides gleichzeitig
-geht nicht – die Optionswette bräuchte genau das Geld, das die Tests
-brauchen.
+Er ist der Weg, den die realen Fälle gegangen sind; im Median kostet er
+gut 2.000 € statt der ganzen 5.000 €; er ist kein Glücksspiel; und im
+Normalfall bleibt etwas: eine App, gemessene Zahlen, Fähigkeiten,
+Referenzen. Beides gleichzeitig geht nicht – die Optionswette bräuchte
+genau das Geld, das die Tests brauchen.
 
 **Die Grenze bei Wetten** (beweisbar, Ville-Ungleichung): Bei jedem Spiel
 ohne eigenen Vorteil ist die Chance, aus 5.000 € jemals 500.000 € zu
@@ -575,12 +614,18 @@ am 31.08.2027 alles verkaufen. **Nicht empfohlen.**
 
 ## 14. Die Rechnung
 
-`plan/plan_500k.py` rechnet 39 Wochen ab 30.11.2026, je Lauf 3–8 Apps
-nacheinander:
-- **Zeit:** Stunden je Woche nach Kalender (Schulwochen 8–22 h, Ferien
-  25–50 h, Abitur 0–15 h, ab 28.06. 40–70 h); Bau der ersten App 50–130 h,
-  jeder weiteren 25–70 h; App Review 0,3–3 Wochen; Test 30–80 h über
-  2–5 Wochen mit 200–1.200 € für Creator.
+`plan/plan_500k.py` rechnet 39 Wochen ab 30.11.2026, je Lauf bis zu 3–8
+Apps nacheinander, mit den Regeln dieses Plans:
+- **Zeit nach dem Wochenplan:** Schulwochen 3–13 h (Modus 10), Weihnachts-
+  und Frühjahrsferien 25–50 h, Abiturzeit nach Tabelle F (Osterzeit 1–5 h,
+  schriftlich 0–1 h, Pfingsten und Kolloquium 1–5 h), Übergang 15–40 h, ab
+  28.06. 45–65 h; je Woche zusätzlich ±20 %. Die Woche ab 21.12. zählt als
+  Schulwoche, die Frühjahrsferien liegen auf 08.–12.02.
+- **Bau und Test:** erste App 50–130 h, jede weitere 25–70 h; App Review
+  0,3–3 Wochen; Test 30–80 h über 2–5 Wochen mit 200–1.200 € für Creator.
+- **Tore:** Hat am 28.02. (G3) keine App 5.000 $ Monatsumsatz oder am
+  31.03. (G4) keine 10.000 $, endet die Jagd: keine neuen Versuche,
+  laufende Kosten sinken auf 120–250 €/Monat.
 - **Treffer:** je App eine latente Spitzen-MRR; Chance auf ≥ 1.000 $
   10–30 %, ≥ 10.000 $ 2–8 %, davon ≥ 100.000 $ 5–22 %, davon ≥ 1 Mio. $
   3–15 %, darüber Pareto. Lernkurve: die ersten drei Versuche mit 30 %,
@@ -590,12 +635,22 @@ nacheinander:
   Risiko eines Einbruchs (Kopie, Ablehnung, Plattform).
 - **Kosten:** 30–65 % vom Umsatz beim Wachstum über Creator, 55–85 % mit
   bezahlten Anzeigen, 35–60 % auf dem Plateau; Apple 15 %, über 870.000 €
-  30 %; Fixkosten 250–800 €/Monat.
+  30 %; Start 450–1.200 €, laufend 200–500 €/Monat.
 - **Cashflow:** Apple-Auszahlung nach 5–9 Wochen, 30–60 % Web-Checkout mit
-  einer Woche; Wachstum wird gedrosselt, wenn das Geld fehlt.
+  einer Woche, Creator und Werbung nach 0–3 Wochen fällig. Kein Kredit,
+  keine Finanzierung; Tests und Wachstum dürfen die Kasse nicht unter die
+  Reserve von 1.000 € drücken, sonst wird das Wachstum gedrosselt.
 - **Verkauf:** ab 16 Wochen App-Alter zum 1- bis 3,5-Fachen des
-  annualisierten Gewinns, Abschluss nach 4–14 Wochen mit 30–70 %
+  annualisierten Gewinns, aber nur, wenn er zusammen mit dem bisherigen
+  Gewinn das Ziel erreicht; Abschluss nach 4–14 Wochen mit 30–70 %
   Wahrscheinlichkeit.
+- **Partner:** sagt in einer Woche zwischen Start und 31.01. zu und
+  arbeitet ab dann mit: Trefferquoten zwischen Recherche und Gegenprüfung
+  ohne Lernkurve, höherer Startumsatz eines Treffers, günstigere Creator,
+  20–50 eigene Stunden je Woche für Bau, Test und Skalierung. Bezahlt wird
+  er mit Anteilen oder mit 10 % vom Umsatz.
+- **Prüfungen:** In jedem Lauf gilt Gewinn = Kasse − Startkapital + offene
+  Forderungen − offene Rechnungen (Test `test_kassenprobe`).
 
 | Szenario (300.000 Läufe) | Chance auf das Ziel | Gewinn im Median |
 |---|---:|---:|
@@ -641,18 +696,24 @@ nacheinander:
   keine Konten, die unabhängige Nutzer vortäuschen, keine geschönten
   Kennzahlen gegenüber Käufern (Roy Lee gab überhöhte Umsatzzahlen zu).
 - **Keine Memecoins, kein Krypto-Hebel, keine Signalgruppen oder
-  „Trading-Kurse“**, keine Anbieter ohne deutsche Erlaubnis (§ 285 StGB).
+  „Trading-Kurse“**, keine Glücksspielanbieter ohne deutsche Erlaubnis
+  (Whitelist der GGL; schon die Teilnahme ist nach § 285 StGB strafbar),
+  bei Finanz- und Kryptoprodukten nur Anbieter mit BaFin-Erlaubnis bzw.
+  EU-Zulassung.
 - **Keine fremden Marken** ohne Lizenz (Blue Lock), keine sensiblen Daten
   ohne Sicherheit (Quittr).
 - **Nicht das Abitur riskieren** – kein Prüfungstermin für die Firma.
-- Wenn der Gedanke an den „einen großen Wurf“ nicht loslässt: Hilfe und
-  Sperre gibt es kostenlos bei <https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>.
+- Wenn der Gedanke an den „einen großen Wurf“ nicht loslässt: kostenlose
+  Hilfe und Beratung gibt es bei check-dein-spiel.de. Die Spielersperre
+  (OASIS) beantragst du kostenlos online beim Regierungspräsidium
+  Darmstadt oder bei einem zugelassenen Anbieter; wie das geht:
+  <https://www.check-dein-spiel.de/hilfe-fuer-spieler/sich-sperren/>.
 
 ## 16. Nachrechnen
 
 ```
 python3 plan/plan_500k.py                      # Szenarien und Messpunkte (60.000 Läufe)
-python3 plan/plan_500k.py --n 300000           # wie im Dokument
+python3 plan/plan_500k.py --n 300000           # wie im Dokument (rund eine halbe Stunde)
 python3 plan/plan_500k.py --nur "DER PLAN"     # nur der Plan
 python3 plan/simulation.py --zeitplan --ziel 500000   # Abschnitt 12
 python3 -m unittest discover -s tests
