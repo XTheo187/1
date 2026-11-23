@@ -385,9 +385,13 @@ def simulate(rng, P):
                 else:
                     deckel = sum(g for (g, _) in rev_hist[-4:])   # nur aus Umsatz
                 # Reserve fuer Tests: mindestens 1.000 EUR und alle Pflichtkosten bis 31.08.
-                # (bis zum naechsten Tor volle Fixkosten, danach die nach einem Abbruch)
-                naechstes = next((sw + 1 for sw, _ in stopp_wochen if sw + 1 > w), w)
-                pflicht = (naechstes - w) * fixed_w + (WEEKS - naechstes) * fixed_stop_w
+                # (bis zum naechsten Tor volle Fixkosten, danach die nach einem Abbruch;
+                # ohne weiteres Tor laufen die vollen Fixkosten bis zum Ende)
+                naechstes = next((sw + 1 for sw, _ in stopp_wochen if sw + 1 > w), None)
+                if naechstes is None:
+                    pflicht = (WEEKS - w) * fixed_w
+                else:
+                    pflicht = (naechstes - w) * fixed_w + (WEEKS - naechstes) * fixed_stop_w
                 frei = cash - max(P['reserve'], pflicht) + credit0 - sum(c for (_, c) in cost_queue)
                 cost = max(0.0, min(frei, wunsch, deckel))
             if w <= g3_woche:
