@@ -704,6 +704,8 @@ SZENARIEN = {
     "Obergrenze: erste App ist ein Cal-AI-Treffer (Start 30k, Spitze 1,5 Mio. USD MRR)": scen(
         **BESTER_PLAN, force_first_peak=1.5e6, force_g=3.0, force_m0=30000),
     "Der Plan ohne Tore (weiter bis August, Vergleich)": scen(**dict(BESTER_PLAN, stopps=(), neu_stopp=())),
+    "Der Plan + Partner für 25 % + mehr Stunden (ohne Abiturschutz, Vergleich)":
+        scen(**dict(PARTNER_PLAN, **MEHR_STUNDEN), founder_share=0.75, partner_vertrag=VERTRAG_ANTEILE),
 }
 
 
