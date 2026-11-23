@@ -74,7 +74,7 @@ danach ETH Zürich) steht der Plan Tag für Tag und Woche für Woche in
 [`docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md`](docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md):
 erst bauen, dann als Einzelunternehmen gründen (eine UG passt nicht in
 5.000 €), kein Start im Abitur, Creator-Geld nur nach einem Signal. Ergebnis:
-500.000 € in keinem von 300.000 Läufen, ein Gewinn in 10 von 100, im Median
+500.000 € in keinem von 300.000 Läufen, ein Gewinn in ~6 von 100, im Median
 ~1.100 € Verlust, nie mehr als 5.000 €.
 Was bis dahin realistisch durch Arbeit drin ist – maximal rund 13.500 EUR
 netto (Median ~11.300 EUR), Obergrenze ~21.800 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)

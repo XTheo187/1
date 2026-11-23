@@ -19,16 +19,16 @@ trägst die Verantwortung. Gerechnet ist alles mit
 >
 > | | |
 > |---|---|
-> | Zeit bis 31.08. | **~⟨STD_GESAMT⟩ Stunden** verfügbar, davon ~⟨STD_ABI⟩ bis zum Ende des Abiturs (10 je Schulwoche, ~31–38 je Ferienwoche, 3–7 in Q4, 0–5 im Abitur, ab Juni 15–55). Endet die Jagd am 18.07. (der Normalfall), sind es ~⟨STD_TOR⟩ Stunden für Lernen und App |
-> | App 1 fertig | im Median am ⟨E1_MED⟩; bis 14.03. in ⟨E1_1403⟩ von 100 Läufen, sonst meist erst nach dem Abitur |
-> | App 1 im App Store | im Median ab ⟨L1_MED⟩ |
-> | Geld bis zum Schluss (einschließlich Abmeldung und Steuererklärung) | im Median **⟨MED⟩ €**, im Mittel ⟨MITTEL⟩ €, nie mehr als 5.000 € |
-> | überhaupt ein Gewinn | in **⟨PLUS⟩ von 100** Läufen, meist nur wenig; die besten 1 % der Läufe enden ab +⟨P99⟩ € |
-> | 10.000 € oder mehr | in ⟨10K⟩ von 100 Läufen |
+> | Zeit bis 31.08. | **~750 Stunden** verfügbar, davon ~200 bis zum Ende des Abiturs (10 je Schulwoche, ~31–38 je Ferienwoche, 3–7 in Q4, 0–5 im Abitur, ab Juni 15–55). Endet die Jagd am 18.07. (der Normalfall), sind es ~400 Stunden für Lernen und App |
+> | App 1 fertig | im Median am 07.06.; bis 14.03. in 26 von 100 Läufen, sonst meist erst nach dem Abitur |
+> | App 1 im App Store | im Median ab 21.06. |
+> | Geld bis zum Schluss (einschließlich Abmeldung und Steuererklärung) | im Median **−1.136 €**, im Mittel −952 €, nie mehr als 5.000 € |
+> | überhaupt ein Gewinn | in **6,2 von 100** Läufen, meist nur wenig; die besten 1 % der Läufe enden ab +2.303 € |
+> | 10.000 € oder mehr | in 0,17 von 100 Läufen |
 > | 500.000 € bis 31.08.2027 | **in keinem** von 300.000 Läufen |
 >
 > Das ist ehrlich gesagt ein **Lernprojekt mit kleiner Gewinnchance**, kein
-> Weg zu 500.000 €. Es kostet dich im Normalfall rund ⟨MED_POS⟩ € und ~⟨STD_TOR⟩
+> Weg zu 500.000 €. Es kostet dich im Normalfall rund 1.136 € und ~400
 > Stunden. Dafür hast du am Ende eine eigene App im App Store, echte
 > Programmier- und Marketingerfahrung vor dem ETH-Studium und gemessene Zahlen.
 > Die Regeln unten sorgen dafür, dass weder das Abitur noch die ETH-Zulassung
@@ -85,7 +85,7 @@ Korrekturen und was sie bewirken:
    (~21 € im Monat) und ab den Weihnachtsferien ein paar Dollar Guthaben für
    die Claude API, um die KI-Funktion zu testen.
 2. **Gegründet wird erst, wenn App 1 halb steht** (im Modell im Median am
-   ⟨GR_MED⟩, in ⟨GR_FEB⟩ von 100 Läufen erst im Februar oder später), und zwar
+   25.01., in 47 von 100 Läufen erst im Februar oder später), und zwar
    als **Einzelunternehmen**. Eine UG frisst dein ganzes Geld (Abschnitt 3).
 3. **Ganz anonym geht es nicht.** Ohne Gesicht und ohne Stimme geht es. Aber
    als Verkäufer im App Store steht der Name einer echten Person, deiner
@@ -100,7 +100,8 @@ Korrekturen und was sie bewirken:
 5. **Geld für Creator nur nach einem Signal.** Erst wenn eine App drei Wochen
    nach dem Start ohne bezahlte Werbung mindestens 300 $ MRR (Monatsumsatz in
    RevenueCat) macht, gibt es Creator-Geld, für alle Apps zusammen bis 18.07.
-   höchstens 750 €. Das spart in den vielen Läufen ohne Treffer Geld
+   höchstens 750 €. Im Modell fließt so fast nie Geld. Das ist so gut wie gar
+   kein Creator-Geld und deutlich besser als Tests gleich beim Start
    (Abschnitt 20).
 6. **Am 18.07. entscheidet eine Zahl.** Liegt keine App über 5.000 $ MRR,
    endet die Jagd: keine neue App, kein Creator-Geld. Apps, die dann schon
@@ -142,9 +143,9 @@ Abmeldung bzw. Auflösung eingerechnet)
 | | Einzelunternehmen | UG, Anschrift der Eltern | UG, gemietete Geschäftsadresse |
 |---|---:|---:|---:|
 | Formalkosten bis zum Ende | ~150–1.300 € (Gewerbe, Apple, Erstberatung, Steuererklärung) | ~4.000–9.000 € bis zur Löschung (frühestens Ende 2028) | dazu 50–130 € je Monat für die Adresse |
-| passt in 5.000 € | ja | **nein:** in ⟨UGE_TEUER⟩ von 100 Läufen lassen Pflichtkosten und Auflösung gar keine Gründung zu | **nein:** in ⟨UGA_TEUER⟩ von 100 Läufen keine Gründung |
-| überhaupt ein Gewinn | ⟨PLUS⟩ von 100 | ⟨UGE_PLUS⟩ von 100 | ⟨UGA_PLUS⟩ von 100 |
-| Geld im Median | ⟨MED⟩ € | ⟨UGE_MED⟩ € (nur Claude, weil meist gar nicht gegründet wird und dann auch keine App erscheint) | ⟨UGA_MED⟩ € (ebenso) |
+| passt in 5.000 € | ja | **nein:** in 99 von 100 Läufen lassen Pflichtkosten und Auflösung gar keine Gründung zu | **nein:** in fast allen Läufen (99,9 von 100) keine Gründung |
+| überhaupt ein Gewinn | 6,2 von 100 | 0 von 100 | 0 von 100 |
+| Geld im Median | −1.136 € | −357 € (nur Claude, weil meist gar nicht gegründet wird und dann auch keine App erscheint) | −355 € (ebenso) |
 | vor dem Umzug sauber beenden | ja, Abmeldung an einem Tag | nein: wegen des Sperrjahrs läuft die Auflösung, während du in Zürich lebst; führst du die UG von dort, wird sie auch in der Schweiz steuerpflichtig, und dir droht Wegzugsteuer auf die Anteile | wie links |
 
 **Meine Empfehlung:** das **Einzelunternehmen**. Die UG versteckt deinen
@@ -376,7 +377,7 @@ nur, was du selbst gesehen hast.
 6. Fehlermeldungen lesen üben, an deinen eigenen echten Fehlern.
 
 CS50x (10–20 Stunden je Woche) machst du nicht neben der 55-Stunden-Woche,
-sondern ab dem Tag, an dem die Jagd endet (in ~⟨WEG_A⟩ von 100 Läufen ab 19.07.).
+sondern ab dem Tag, an dem die Jagd endet (in ~99 von 100 Läufen ab 19.07.).
 Dann gehen die frei gewordenen Stunden in die ETH-Vorbereitung: etwa zur
 Hälfte Mathe nach den Empfehlungen der ETH, zur Hälfte Programmieren
 (Java-Tutorial der ETH, CS50x).
@@ -731,7 +732,7 @@ schon bezahlt.
   Onboarding und Paywall stehen als Oberfläche): **Messpunkt M2,
   Rechtsform entscheiden und gründen** (Checkliste A, ~4 h).
   - **Wann das meist ist:** Im Modell steht App 1 bis 10.01. nur in einem
-    Teil der Läufe halb. Gegründet wird im Median am ⟨GR_MED⟩, in ⟨GR_FEB⟩ von
+    Teil der Läufe halb. Gegründet wird im Median am 25.01., in 47 von
     100 Läufen erst im Februar oder später (KW 05 oder Q4).
   - **Apple vorher:** Steht schon fest, wer im App Store steht, kannst du dich
     vorher bei Apple anmelden. Development Build und TestFlight gehen dann
@@ -791,7 +792,7 @@ schon bezahlt.
 - **Gründung**, falls M2 erst jetzt erreicht ist (Checkliste A, ~4 h auf zwei
   Samstage verteilt).
 - **Ist App 1 noch nicht eingereicht:** im Rahmen der Q4-Stunden weiterbauen,
-  ohne Druck. Im Modell ist sie bis 14.03. nur in ~⟨E1_1403⟩ von 100 Läufen
+  ohne Druck. Im Modell ist sie bis 14.03. nur in ~26 von 100 Läufen
   fertig, und das ist kein Fehler.
 - **Messpunkt M3 (So 14.03.):** Ist App 1 gestartet, freigegeben oder noch im
   Bau? Davon hängt ab, was du nach dem Abitur tust.
@@ -853,7 +854,7 @@ schon bezahlt.
 |---|---|---|---|
 | **M0** So 20.12. | Grundlagen zur Hälfte, Idee gewählt, Ablauf in Expo Go? | weiter | Lernpfad in den Ferien fertig, Idee bis 28.12. |
 | **M1** Fr 08.01. | ETH-Bewerbung abgeschickt? KI-Funktion läuft in Expo Go? | weiter | ETH-Bewerbung hat Vorrang, App danach |
-| **M2** App 1 halb fertig (Kriterien in KW 01; im Median am ⟨GR_MED⟩) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen, Entscheidung bis spätestens 07.06. |
+| **M2** App 1 halb fertig (Kriterien in KW 01; im Median am 25.01.) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen, Entscheidung bis spätestens 07.06. |
 | **M3** So 14.03. | App 1 freigegeben? | gestartet bzw. zurückgehalten bis nach der letzten Prüfung | Pause bis nach der letzten Prüfung, dann fertig bauen |
 | **Signal** 3 Wochen nach jedem Start | ≥ 300 $ MRR ohne bezahlte Werbung? Fällt der Tag in die Startpause, gilt er nach deiner letzten Prüfung | Creator-Geld, für alle Apps zusammen bis 18.07. höchstens 750 € | nur eigene Videos, nächstes Format oder nächste App |
 | **Tor 1** So 18.07. | eine App am Stichtag ≥ 5.000 $ MRR? | weiter (Weg B oder C) | **Weg A:** keine neue App, keine neuen Creator; schon eingereichte Apps dürfen noch erscheinen |
@@ -876,13 +877,13 @@ App so weit wachsen kann.
 
 ## 14. Ab Juli: drei Wege
 
-### Weg A – kein Treffer (~⟨WEG_A⟩ von 100 Läufen)
+### Weg A – kein Treffer (~99 von 100 Läufen)
 
 - Ab 19.07. beginnst du keine neue App und buchst keine neuen Creator.
   Apps, die am 18.07. schon fertig gebaut oder eingereicht sind, dürfen noch
-  erscheinen (im Modell startet in ~⟨SPAET_START⟩ von 100 Läufen danach noch eine
+  erscheinen (im Modell startet in ~84 von 100 Läufen danach noch eine
   App, meist App 2 um den 19.07., oft eine App 3 um den 26.07.). Auf solchen
-  späten Starts beruhen ~⟨SPAET_GEWINN⟩ von 10 Gewinnläufen.
+  späten Starts beruhen ~3 von 10 Gewinnläufen.
 - Die Apps laufen ohne Budget weiter (zweimal je Woche 20 Minuten Zahlen und
   Support), eigene Slideshows nur, wenn du Lust hast. Die übrige Zeit gehört
   der ETH-Vorbereitung (Abschnitt 7) und der Erholung vor dem Umzug.
@@ -901,7 +902,7 @@ App so weit wachsen kann.
 - Die letzte EÜR und Einkommensteuererklärung 2027 gibst du 2028 per ELSTER
   ab, auch aus Zürich.
 
-### Weg B – Tor 1 bestanden, Tor 2 verfehlt (~⟨WEG_B⟩ von 100)
+### Weg B – Tor 1 bestanden, Tor 2 verfehlt (~0,3 von 100)
 
 - Bis 08.08. Creator nur aus dem Umsatz der letzten vier Wochen, abzüglich
   der Creator, die schon daraus bezahlt sind; jede Woche ein Paywall-Test.
@@ -910,7 +911,7 @@ App so weit wachsen kann.
 - Achte auf die Familienversicherung (Gewinn über ~590 € im Monat) und melde
   Gewinne der Krankenkasse.
 
-### Weg C – ein echter Treffer (~⟨WEG_C⟩ von 100)
+### Weg C – ein echter Treffer (~0,2 von 100)
 
 - Steuerberatung zu Deutschland und der Schweiz **vor** dem Umzug: verkaufen,
   ein Elternteil übernimmt, oder geordnet weiterführen.
@@ -1009,7 +1010,7 @@ App so weit wachsen kann.
 
 ### F – Creator (nur nach Signal)
 
-- [ ] Signal erreicht (≥ 300 $ Monatsumsatz drei Wochen nach dem Start)
+- [ ] Signal erreicht (≥ 300 $ MRR in RevenueCat drei Wochen nach dem Start)
 - [ ] Anfrage persönlich und einzeln, mit Link auf kurze
       Datenschutzhinweise für Creator (Art. 14 DSGVO)
 - [ ] Vertrag in Textform: Video, Termin, Freigabe, Kennzeichnung „Werbung“
@@ -1160,18 +1161,18 @@ meisten bringen?
 | Stufe | wann | was | Kosten |
 |---|---|---|---|
 | 0 | KW 48 bis zur Gründung | Claude Max (bezahlt), dann Pro; ab KW 53 ein paar Dollar Guthaben für die Claude API | ~21 € im Monat, bis Ende Januar ~40–70 € |
-| 1 | Gründung (im Median am ⟨GR_MED⟩) | Gewerbe, Apple, Erstberatung beim Steuerberater, Domain, Zweitnummer | ~150–450 € einmalig |
+| 1 | Gründung (im Median am 25.01.) | Gewerbe, Apple, Erstberatung beim Steuerberater, Domain, Zweitnummer | ~150–450 € einmalig |
 | 2 | ab der Gründung | Claude Pro, Domain und E-Mail, Zweitnummer, ab dem Start Supabase Pro (25 $), KI-API nach Nutzung, ggf. EAS | ~35–110 € im Monat |
 | 3 | nur nach Signal | Creator | für alle Apps zusammen bis 18.07. höchstens 750 € (mit Plattformgebühr), danach nur aus dem Umsatz der letzten vier Wochen |
 | 4 | nach dem 31.08. | Abmeldung, EÜR und Einkommensteuererklärung 2027 (selbst über ELSTER oder mit Steuerberater) | 0–800 € |
 | – | nur wenn der Gewinn über ~590 € im Monat liegt | eigene Kranken- und Pflegeversicherung | ~280 € im Monat |
 
 **Was im Modell herauskommt** (alles bis zum Schluss eingerechnet):
-- Median ⟨MED⟩ €, im Mittel ⟨MITTEL⟩ €;
-- in 9 von 10 Läufen höchstens ⟨P10_POS⟩ € Verlust;
+- Median −1.136 €, im Mittel −952 €;
+- in 9 von 10 Läufen höchstens 1.512 € Verlust;
 - mehr als 5.000 € Verlust in keinem Lauf.
 
-Creator-Geld fließt im Modell nur in ⟨TEST_P⟩ von 100 Läufen, im Schnitt aller Läufe ~⟨TEST_MITTEL⟩ €.
+Creator-Geld fließt im Modell nur in 5 von 100 Läufen, im Schnitt aller Läufe ~33 €.
 
 **Kassenregeln**
 - Jeden Sonntag: Kontostand, offene Rechnungen, erwartete Zahlungen von Apple
@@ -1230,9 +1231,58 @@ Vermögensänderung bis zum Schluss, einschließlich Abmeldung, Steuererklärung
 und gegebenenfalls eigener Krankenversicherung (vor Einkommensteuer; bis
 ~12.500 € Jahresgewinn fällt keine an).
 
-⟨VERGLEICH⟩
+| Variante | Gewinn in … von 100 | ≥ 10.000 € in … von 100 | Geld im Median | im Mittel | schlechteste 10 % ab | beste 1 % ab | gegründet | 500.000 € erreicht |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Einzelunternehmen, Creator-Geld nur nach Signal, bis 750 EUR (DEIN PLAN)** | 6,2 | 0,17 | −1.136 € | −952 € | −1.512 € | 2.303 € | 100 % | 0 |
+| UG mit gemieteter Geschäftsadresse | 0,000 | 0,000 | −355 € | −378 € | −549 € | −189 € | 0 % | 0 |
+| UG mit Anschrift der Eltern | 0,000 | 0,000 | −357 € | −404 € | −553 € | −189 € | 1 % | 0 |
+| Einzelunternehmen, ganz ohne Testgeld | 6,5 | 0,16 | −1.128 € | −940 € | −1.506 € | 2.309 € | 100 % | 0 |
+| Einzelunternehmen, Tests sofort beim Start (ohne Signalregel) | 6,8 | 0,31 | −1.645 € | −1.310 € | −2.141 € | 4.532 € | 100 % | 0 |
+| Einzelunternehmen, Signalregel mit bis zu 1.500 EUR | 6,1 | 0,18 | −1.137 € | −956 € | −1.514 € | 2.244 € | 100 % | 0 |
+| Einzelunternehmen, Tore wie bisher (28.02./31.03.) | 1,1 | 0,16 | −963 € | −848 € | −1.254 € | 58 € | 90 % | 0 |
+| Einzelunternehmen, ohne Tore | 4,2 | 0,18 | −1.271 € | −1.134 € | −1.728 € | 2.127 € | 100 % | 0 |
+| Einzelunternehmen, gründen schon im Dezember | 5,8 | 0,18 | −1.217 € | −1.030 € | −1.609 € | 2.262 € | 100 % | 0 |
+| Einzelunternehmen, ohne Startpause im Abitur | 6,7 | 0,27 | −1.122 € | −901 € | −1.505 € | 3.177 € | 100 % | 0 |
+| Einzelunternehmen, falls du schneller baust (wie mit Programmierkenntnissen) | 23,3 | 2,2 | −788 € | 136 € | −1.382 € | 19.046 € | 100 % | 0 |
+| Einzelunternehmen im strengeren Markt 2027 | 5,3 | 0,15 | −1.147 € | −991 € | −1.518 € | 1.936 € | 100 % | 0 |
+| Einzelunternehmen, falls Videos ohne Gesicht schlechter wirken (Trefferquoten -25 %) | 4,6 | 0,12 | −1.156 € | −1.020 € | −1.522 € | 1.667 € | 100 % | 0 |
 
-⟨DEUTUNG⟩
+So liest du die Tabelle:
+- **Creator-Geld:** Ob du es ausgibst, ändert im Erwartungswert wenig.
+  - **Gleich gut:** Mit Signalregel, ganz ohne Testgeld und mit bis zu
+    1.500 € liegen die Ergebnisse fast gleich: Gewinn in ~6 von 100 Läufen,
+    im Mittel ~−950 €.
+  - **Tests gleich beim Start** verdoppeln zwar die seltenen Ergebnisse ab
+    10.000 € (0,31 statt 0,17 von 100), kosten aber im Median ~500 € mehr.
+  - **Warum dann die Signalregel:** Sie gibt fast nichts aus (Creator-Geld
+    fließt in ~5 von 100 Läufen) und lässt dir trotzdem die Möglichkeit, eine
+    App mit echter Nachfrage zu schieben. Besser als „gar kein Creator-Geld“
+    ist sie im Modell aber nicht, nur gleich gut.
+  - **Annahme dahinter:** Ohne bezahlte Videos startet auch ein Treffer nur mit
+    20–70 % des Umsatzes. Das Signal kann ihn also verpassen.
+- **UG:** In keiner Form passt sie zu deinen 5.000 €. In 99 von 100 Läufen
+  lassen Pflichtkosten und Auflösung gar keine Gründung zu.
+- **Frühe Tore** (28.02.) hätten App 1 meist abgebrochen, bevor sie fertig
+  ist: Gewinn nur in ~1 von 100 Läufen.
+- **Ganz ohne Tore** ist es schlechter als mit den Sommer-Toren (4,2 statt
+  6,2 von 100). Späte Apps und weitere Ausgaben kosten mehr, als sie bringen.
+- **Gründen schon im Dezember** ist schlechter als „erst bauen, dann gründen“
+  (5,8 statt 6,2 von 100, im Mittel ~80 € mehr Verlust).
+- **Schneller bauen** ist der größte Hebel: Mit den Bauzeiten von jemandem,
+  der programmieren kann, wäre App 1 schon im Februar draußen, und der Plan
+  hätte in 23 von 100 Läufen einen Gewinn, im Mittel sogar ein kleines Plus.
+  Deshalb lohnt der Lernpfad, und deshalb soll App 1 so klein wie möglich
+  sein.
+- **Startpause im Abitur:** Sie kostet etwas (6,7 statt 6,2 von 100 Läufen mit
+  Gewinn, ≥ 10.000 € 0,27 statt 0,17 von 100). Dafür musst du im Abitur weder
+  Posts machen noch auf Bewertungen reagieren. Abitur und ETH-Zulassung sind
+  mehr wert als dieser Unterschied.
+- **Gegenproben:** Wirken Videos ohne Gesicht schlechter oder ist der Markt
+  2027 strenger, sinkt die Chance auf ~4,5–5,5 von 100, aber die Grenze von
+  5.000 € hält.
+- **Späte Starts:** In ~84 von 100 Läufen erscheint nach Tor 1 noch eine App,
+  die vorher eingereicht war. Auf solchen späten Starts beruhen ~3 von
+  10 Gewinnläufen.
 
 ---
 
