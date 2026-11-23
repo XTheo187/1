@@ -403,8 +403,9 @@ privates Abo verarbeiten.
 **Creator nach dem Signal:** Hat eine App drei Wochen nach dem Start ohne
 Werbung mindestens 300 $ Monatsumsatz, bekommt sie bis zu 750 € für Creator.
 Die zeigen sich selbst, du nicht.
-- **Preise:** UGC-Videos in Deutschland im Schnitt ~83 $ je 30 Sekunden
-  (Influee), auf dem US-Markt ~150–200 $ (Collabstr).
+- **Preise:** UGC-Videos bei Influee im Schnitt ~83 $ je 30 Sekunden in
+  Deutschland und ~93 $ in den USA; bei Collabstr wurden im Schnitt
+  ~150–200 $ je Auftrag bezahlt.
 - **Wo buchen:** TikTok One verlangt kein Mindestbudget, Collabstr nimmt eine
   Gebühr je Auftrag. Insense (650 $ Testmonat) und Billo (ab 1.000 $ Paket)
   binden zu viel Geld.
@@ -421,9 +422,12 @@ Die zeigen sich selbst, du nicht.
   Biologie) und Deutsch oder eine Fremdsprache müssen in den letzten zwei
   Jahren unterrichtet worden **und Prüfungsfächer deines Abiturs** sein.
 - **Note:** Der Schnitt dieser drei Prüfungsfächer muss mindestens 70 % des
-  Höchstwerts erreichen, rechnerisch ~10,5 Punkte. Ob die ETH nur die
-  Prüfungsergebnisse zählt, sagt sie nicht; frag bei zulassungsstelle@ethz.ch
-  nach.
+  Höchstwerts erreichen. Die Zulassungsverordnung spricht vom
+  Notendurchschnitt der Abschlussprüfungen, es zählen also deine
+  Prüfungsergebnisse, nicht die Kursnoten. Weil das ganze Punkte sind,
+  brauchst du zusammen mindestens **32 von 45 Punkten**, z. B. 11/11/10. Eine
+  Vorabprüfung gibt es nicht; bei Unklarheiten frag bei
+  zulassungsstelle@ethz.ch nach.
 - **Breite:** Vier weitere Fächer aus Physik, Chemie, Biologie, Informatik,
   weiterer Sprache, Geografie, Geschichte und Wirtschaft müssen in den
   letzten drei Jahren unterrichtet worden sein.
@@ -444,7 +448,7 @@ Die zeigen sich selbst, du nicht.
 | Schritt | Termin | Aufwand |
 |---|---|---|
 | eApply ist offen | 01.12.2026–31.03.2027, danach geht nichts mehr | – |
-| Bewerbung abschicken: Passfoto, Ausweis, Lebenslauf (Vorlage der ETH), Einverständniserklärung, Zeugnisse der letzten drei Schuljahre als PDF, Gebühr 150 CHF | **in den Weihnachtsferien (KW 53)** | ~6 h |
+| Bewerbung abschicken: Passfoto, Ausweis, Lebenslauf (Vorlage der ETH), Einverständniserklärung, Zeugnisse der letzten drei Schuljahre als PDF, Gebühr 150 CHF (nicht erstattbar; nur Kreditkarte, PostFinance, TWINT oder Google Pay, also praktisch eine Kreditkarte, notfalls die deiner Eltern) | **in den Weihnachtsferien (KW 53)** | ~6 h |
 | Antwort | ~8 Wochen nach Eingang, also etwa Anfang März | – |
 | Abiturzeugnis hochladen, Original per Post | sofort nach der Ausgabe 01.–03.07., spätestens 31.08. | ~1 h |
 | Studienbeginn | 20.09.2027 | – |
@@ -452,8 +456,13 @@ Die zeigen sich selbst, du nicht.
 **Zürich kostet** laut ETH für internationale Studierende ~28.100 CHF im
 Jahr:
 - **Schulgeld und Beiträge:** 2.264 CHF je Semester.
-- **Zimmer:** ~800–1.000 CHF im Monat, bei WOKO ab ~400 CHF.
-- **Vor dem Einzug:** bis zu drei Monatsmieten Kaution plus die erste Miete.
+- **Zimmer:** ~800–1.000 CHF im Monat (Richtwert der ETH). Die
+  Studierendenwohnungen von WOKO sind oft günstiger; sie verlangen eine
+  Aufnahmebestätigung und mindestens 6 Monate Mietdauer.
+- **Kaution:** höchstens drei Monatsmieten (gesetzliche Grenze), oft vor dem
+  Einzug fällig.
+- **AHV:** Auch nichterwerbstätige Studierende zahlen laut ETH mindestens
+  ~530 CHF im Jahr.
 - **Aufenthaltsbewilligung B:** innerhalb von 14 Tagen nach der Ankunft
   beantragen. Dafür brauchst du einen Finanzierungsnachweis über 21.000 CHF;
   ein Brief deiner Eltern über 1.750 CHF im Monat reicht.
@@ -524,7 +533,7 @@ schon bezahlt.
 |---|---|---|---|
 | Di 24.11. | 1 h | 10 min: deine Prüfungsfächer P1–P5 gegen die ETH-Bedingung prüfen (Abschnitt 9). Ist eine Bedingung nicht erfüllt, sag es mir, dann planen wir die Aufnahmeprüfung oder den Rückfall. 50 min: in PowerShell Claude Code installieren (`irm https://claude.ai/install.ps1 \| iex`), dazu Git for Windows und Node.js (LTS); mit `claude` anmelden; `/output-style learning` einschalten. Das Max-Abo nicht verlängern, sondern zum Ende auf Pro umstellen. | Prüfungsfächer geklärt, Claude Code läuft |
 | Mi 25.11. | 1 h | Expo-Tutorial „Build with AI“ mit Claude Code; Expo Go auf iPhone und iPad. | erste App in Expo Go |
-| Do 26.11. | 1 h | Gespräch mit deinen Eltern: Abschnitt 3 zeigen. Wer soll im App Store stehen, du oder ein Elternteil? Darf ihre Anschrift ins Impressum? Noch nichts entscheiden, nur verstehen. | Fragen geklärt, Entscheidung im Januar |
+| Do 26.11. | 1 h | Gespräch mit deinen Eltern: Abschnitt 3 zeigen. Wer soll im App Store stehen, du oder ein Elternteil? Darf ihre Anschrift ins Impressum? Noch nichts entscheiden, nur verstehen. Dazu klären: Hast du eine Kredit- oder Debitkarte (Visa oder Mastercard) auf deinen Namen? Apple verlangt sie bei Einzelpersonen; für die ETH-Gebühr im Dezember geht notfalls die Karte deiner Eltern. | Fragen geklärt, Karte geklärt, Entscheidung im Januar |
 | Fr 27.11. | 1 h | Missing Semester: Shell (Teil 1). | Terminal-Grundlagen |
 | Sa 28.11. | 5 h | 2 h: Expo-Tutorial „StickerSmash“ mit Erklärungen von Claude. 2 h: Ideensuche mit Claude (Vorlage „Ideen“, Abschnitt 16): 10 Kandidaten, du wählst 3. 1 h: GitHub-Konto, privates Repository `vorlage`, `CLAUDE.md` aus [`vorlagen/CLAUDE_md_fuer_die_app.md`](vorlagen/CLAUDE_md_fuer_die_app.md); solange Max noch läuft, legt Claude damit das leere Vorlagen-Projekt an. | 3 Ideen, Vorlage im Repository |
 | So 29.11. | frei | – | – |
@@ -566,8 +575,8 @@ schon bezahlt.
 
 - **ETH-Bewerbung (6 h):** Lebenslauf mit Claude nach der ETH-Vorlage,
   Zeugnisse der letzten drei Schuljahre scannen, Passfoto,
-  Einverständniserklärung, Gebühr 150 CHF (privat, nicht aus dem App-Geld).
-  **Abschicken.**
+  Einverständniserklärung, Gebühr 150 CHF per Kreditkarte (privat, nicht aus
+  dem App-Geld). **Abschicken.**
 - **App 1 (~25 h):**
   - echte KI-Funktion: Supabase-Funktion mit Claude Haiku 5.5, Schlüssel nur
     als Geheimnis, Ausgabenlimit 50 $;
@@ -725,7 +734,9 @@ App so weit wachsen kann.
   ein Elternteil übernimmt, oder geordnet weiterführen.
 - Erst jetzt lohnt sich, was vorher zu teuer war: Max oder Ultra mit einem
   Agenten für Berichte und Support-Entwürfe, ein Helfer auf Rechnung,
-  eventuell eine UG.
+  eventuell eine UG. Die App lässt sich dann von deinem Konto auf das Konto
+  der Firma übertragen (Apple „App Transfer“; Bedingungen vorher prüfen, z. B.
+  der Status der Abo-Produkte).
 - Das ETH-Studium hat Vorrang. Im Basisjahr gibt es keine Wachstumsphase,
   höchstens Wartung.
 
@@ -828,7 +839,10 @@ Familienversicherung). Vorlage: [`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.
 - [ ] Werkzeuge kündigen (Claude Pro, Supabase, Domain bis Laufzeitende)
 - [ ] Gewerbe abmelden (0–32,50 €), falls nichts weiterläuft
 - [ ] Belege vollständig für die EÜR 2027
-- [ ] Krankenkasse über das Ende des Gewerbes informieren
+- [ ] Krankenkasse über das Ende des Gewerbes informieren und schriftlich
+      klären, ob die Familienversicherung (und damit die Europäische
+      Krankenversicherungskarte für die Befreiung in Zürich) beim Studium in
+      der Schweiz bestehen bleibt
 - [ ] Review-Log, Vorlage und Zahlen aufheben
 
 ---

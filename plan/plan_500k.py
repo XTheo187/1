@@ -1001,14 +1001,15 @@ EINZEL = dict(gruendung=dict(bei=0.5, setup=(150, 250, 450), apple_dauer=(0.3, 0
               kv_grenze=dict(monatsgewinn=590.0, beitrag=280.0))
 # UG mit registertauglicher Geschäftsadresse (49-130 EUR/Monat): im App Store nur der Firmenname, im Impressum
 # und Handelsregister trotzdem dein Name. Notar ~165-205 EUR, Register 300 EUR, Gewerbe; Steuerberater für
-# Jahresabschluss und Erklärungen 500-2.000 EUR/Jahr, IHK ~130 EUR, Transparenz- und Unternehmensregister ~40 EUR,
-# Konto 0-12 EUR/Monat; Auflösung mit Sperrjahr 2.500-5.000 EUR (Löschung frühestens Ende 2028, während du
-# in Zürich lebst); D-U-N-S und Apple-Prüfung 2-8 Wochen.
-UG_ADRESSE = dict(gruendung=dict(bei=0.5, setup=(500, 560, 700), apple_dauer=(3, 5, 8), fix_vorher=(20, 22, 25),
+# Jahresabschluss und Erklärungen ~600-2.400 EUR/Jahr (Gegenprüfung: Online-Festpreis 499,95 EUR netto),
+# IHK ~130 EUR, Transparenz- und Unternehmensregister ~40 EUR, Konto ~9-12 EUR/Monat; Auflösung mit Sperrjahr
+# ~3.000-5.000 EUR (Löschung frühestens Ende 2028, während du in Zürich lebst); D-U-N-S und Apple-Prüfung
+# (Foren 2026: 3 bis über 8 Wochen).
+UG_ADRESSE = dict(gruendung=dict(bei=0.5, setup=(500, 560, 700), apple_dauer=(3, 6, 10), fix_vorher=(20, 22, 25),
                                  stunden=10.0),
-                  fixed_month=(150, 280, 450), fixed_stop=(120, 230, 380), abwicklung=(2500, 3500, 5000))
+                  fixed_month=(160, 300, 470), fixed_stop=(130, 240, 390), abwicklung=(3000, 3800, 5000))
 # UG mit der Anschrift der Eltern als Geschäftsanschrift (öffentlich im Handelsregister und in der EU-Anzeige).
-UG_ELTERN = dict(UG_ADRESSE, fixed_month=(100, 190, 320), fixed_stop=(70, 140, 250))
+UG_ELTERN = dict(UG_ADRESSE, fixed_month=(110, 210, 340), fixed_stop=(80, 150, 260))
 
 SZENARIEN = {
     "Recherche-Quoten (Regeln des Plans)": scen(**PLAN_REGELN),
