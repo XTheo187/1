@@ -528,13 +528,17 @@ nicht.
 - **Fächer:** Mathematik, eine Naturwissenschaft (Physik, Chemie oder
   Biologie) und Deutsch oder eine Fremdsprache müssen in den letzten zwei
   Jahren unterrichtet worden **und Prüfungsfächer deines Abiturs** sein.
-- **Note:** Der Schnitt dieser drei Prüfungsfächer muss mindestens 70 % des
-  Höchstwerts erreichen. Die Zulassungsverordnung spricht vom
-  Notendurchschnitt der Abschlussprüfungen, es zählen also deine
-  Prüfungsergebnisse, nicht die Kursnoten. Weil das ganze Punkte sind,
-  brauchst du zusammen mindestens **32 von 45 Punkten**, z. B. 11/11/10. Eine
-  Vorabprüfung gibt es nicht; bei Unklarheiten frag bei
-  zulassungsstelle@ethz.ch nach.
+- **Note (von der ETH am 24.11.2026 per Mail bestätigt):** Es zählen deine
+  Ergebnisse in den drei Abiturprüfungen, nicht die Kursnoten. Je Prüfung
+  gibt es höchstens 15 Punkte, 70 % davon sind 10,5. Diesen Schnitt musst du
+  in den drei Fächern erreichen. Weil Prüfungsergebnisse ganze Punkte sind,
+  brauchst du zusammen mindestens **32 von 45 Punkten**, z. B. 11/11/10.
+- **Schriftlich und mündlich im selben Fach (ebenfalls bestätigt):** Legst du
+  in einem Prüfungsfach eine schriftliche und eine mündliche Prüfung ab,
+  zählt die ETH den Durchschnitt aus beiden.
+- **Gültigkeit (ebenfalls bestätigt):** Für den Studienbeginn im Herbst 2027
+  gelten die Bedingungen unverändert. Maßgeblich ist der Eintrag „ETHZ“ für
+  Deutschland auf der Länderseite von swissuniversities.
 - **Breite:** Vier weitere Fächer aus Physik, Chemie, Biologie, Informatik,
   weiterer Sprache, Geografie, Geschichte und Wirtschaft müssen in den
   letzten drei Jahren unterrichtet worden sein.
@@ -565,11 +569,19 @@ nicht.
   gibst die Dokumentation eine Woche vorher ab. Diese zwei Wochen gehören
   ganz der Prüfung.
 - **Fehlt nach den schriftlichen Ergebnissen wenig:** In Chemie und Mathe
-  kannst du eine zusätzliche mündliche Prüfung beantragen (28.–30.06.). Frag
-  die Oberstufenkoordination, wie sie mit dem schriftlichen Ergebnis
-  verrechnet wird, und die ETH, ob sie das Gesamtergebnis zählt.
-- **Mail an die Zulassungsstelle** (zulassungsstelle@ethz.ch): Vorlage in
-  Abschnitt 16. Die Antwort legst du ab.
+  kannst du eine zusätzliche mündliche Prüfung beantragen (28.–30.06.). Die
+  ETH rechnet dann den Durchschnitt aus schriftlich und mündlich.
+  - **Beispiel:** Chemie schriftlich 9, Mathe 11, Englisch 11 ergibt
+    31 Punkte, einen zu wenig. Mit 13 Punkten in der mündlichen
+    Chemieprüfung zählt Chemie (9 + 13) / 2 = 11, zusammen 33.
+  - **Achtung:** Eine schlechtere mündliche Prüfung zieht den Schnitt genauso
+    nach unten. Beantrage sie nur, wenn dir Punkte fehlen und du dich in dem
+    Fach mündlich sicher fühlst.
+  - **Für dein Abiturzeugnis** rechnet die Schule anders als die ETH. Frag
+    die Oberstufenkoordination vor dem Antrag, wie sich die Prüfung dort
+    auswirkt.
+- **Die Antwort der ETH** vom 24.11.2026 legst du zu deinen
+  Bewerbungsunterlagen.
 - Chemie, Mathe und Englisch haben im Abitur Vorrang vor allem in diesem
   Plan.
 
