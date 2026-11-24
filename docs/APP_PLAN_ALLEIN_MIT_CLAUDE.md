@@ -168,7 +168,7 @@ Januar und Februar. Bis dahin brauchst du kein Gewerbe: Bauen und Testen
 geht ohne.
 
 Für echte Käufe, TestFlight und den App Store brauchst du ein Apple-Konto
-(99 $ im Jahr). Apple verlangt dafür kein Gewerbe, nur ein Apple-Konto mit
+(99 € im Jahr; Apple nennt 99 USD oder den Betrag in Landeswährung). Apple verlangt dafür kein Gewerbe, nur ein Apple-Konto mit
 Zwei-Faktor-Anmeldung, Volljährigkeit und deinen echten Namen. Sobald du Abos
 verkaufst, ist das in Deutschland aber ein Gewerbe, und beim Einreichen
 erklärst du dich für die EU als Händler. Bei der Anmeldung wird festgelegt,
@@ -773,10 +773,13 @@ Deshalb gehört jeder Euro, den die App nicht braucht, deinem Start in Zürich.
 **Woche mit Klausuren (3 Stunden):** nur Samstag. Das Wichtigste der Woche,
 sonst nichts.
 
-**Sonntag ist immer frei.** Einzige Ausnahme, sobald eine App im Store ist:
-20–30 Minuten Wochenauswertung und Kassenprüfung (Vorlage in Abschnitt 16).
-Posts, die am Sonntag erscheinen sollen, baust du am Samstag und planst sie
-mit den offiziellen Werkzeugen der Plattform ein.
+**Sonntag ist frei.** Ausnahmen: ab der Gründung 10 Minuten Kassenprüfung
+([`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md),
+Abschnitt 7.3), sobald eine App im Store ist, dazu 20 Minuten
+Wochenauswertung (Vorlage in Abschnitt 16). Beides zählt in die Stunden der
+Woche und entfällt in der Ruhezeit und ab einer Woche vor einem
+Prüfungstag. Posts, die am Sonntag erscheinen sollen, baust du am Samstag
+und planst sie mit den offiziellen Werkzeugen der Plattform ein.
 
 **Ferienwoche (~31–38 Stunden)**
 
@@ -828,7 +831,7 @@ schon bezahlt.
 | Mo 23.11. | 1 h | 10 min: deine Prüfungsfächer gegen die ETH-Bedingung prüfen (Abschnitt 9) – **erledigt:** Chemie P2, Mathe P4, Englisch P5 erfüllen sie. 40 min: Git for Windows und Node.js (LTS) installieren, dann in PowerShell Claude Code (`irm https://claude.ai/install.ps1 \| iex`); mit `claude` anmelden; `/output-style learning` einschalten und Claude bitten, den Lernmodus in deinen Benutzereinstellungen einzutragen (Abschnitt 7). 5 min: Expo Go auf iPhone und iPad laden. 5 min: auf claude.ai unter Abrechnung nachsehen, wann Max endet, und danach auf Pro umstellen statt Max zu verlängern. | Prüfungsfächer geklärt, Claude Code läuft |
 | Di 24.11. | 1 h | 5 min: dieses Repository auf GitHub auf privat stellen (Settings → General → Danger Zone → Change repository visibility → Private). 10 min: Mail an die ETH-Zulassungsstelle (Vorlage in Abschnitt 16), vorher aufschreiben, welche Fächer du in den Klassen 11–13 hattest. 45 min: Expo-Tutorial „Build with AI“ mit Claude Code. | Repository privat, Mail raus, erste App in Expo Go |
 | Mi 25.11. | 1 h | Missing Semester: Shell (Teil 1). | Terminal-Grundlagen |
-| Do 26.11. | 1 h | Gespräch mit deinen Eltern: Abschnitt 3 zeigen. Wer soll im App Store stehen, du oder ein Elternteil? Darf ihre Anschrift ins Impressum? Würde ein Elternteil im Sommer eine laufende App übernehmen (Abschnitt 14)? Noch nichts entscheiden, nur verstehen; die Namensfrage entscheidet ihr bis So 13.12. **Karte:** Hast du keine eigene Visa- oder Mastercard (Debit reicht, sie muss in US-Dollar zahlen können), beantragst du sie diese Woche bei deiner Bank zum Girokonto; sie kommt oft erst nach 1–2 Wochen. Du brauchst sie ab KW 53 für das Guthaben der Claude API und später für Apple (oder du meldest dich bei Apple über die Developer-App an). Für die ETH-Gebühr im Dezember geht notfalls die Karte deiner Eltern. | Fragen geklärt, Karte beantragt, Namensfrage bis 13.12., Zusage zur Übernahme im Januar |
+| Do 26.11. | 1 h | Gespräch mit deinen Eltern: Abschnitt 3 zeigen. Wer soll im App Store stehen, du oder ein Elternteil? Darf ihre Anschrift ins Impressum? Würde ein Elternteil im Sommer eine laufende App übernehmen (Abschnitt 14)? Noch nichts entscheiden, nur verstehen; die Namensfrage entscheidet ihr bis So 13.12. **Karte:** Hast du keine eigene Visa- oder Mastercard (Debit reicht, sie muss in US-Dollar zahlen können), beantragst du sie diese Woche bei deiner Bank zum Girokonto; sie kommt oft erst nach 1–2 Wochen. Du brauchst sie ab KW 50 für das Guthaben der Claude API und in KW 51 für Apple (oder du meldest dich bei Apple über die Developer-App an). Für die ETH-Gebühr im Dezember geht notfalls die Karte deiner Eltern. | Fragen geklärt, Karte beantragt, Namensfrage bis 13.12., Zusage zur Übernahme im Januar |
 | Fr 27.11. | 1 h | Missing Semester: Shell (Teil 2) und Git (Teil 1). | Terminal- und Git-Grundlagen |
 | Sa 28.11. | 5 h | 2 h: Expo-Tutorial „StickerSmash“ mit Erklärungen von Claude. 2 h: Ideen nach [`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md): etwa 20 Kandidaten sammeln (12 von Claude, deine eigenen, der Pool aus 04), K.-o.-Fragen und 60-Sekunden-Test; 5 gehen in die Prüfung. 1 h: privates Repository `vorlage` auf GitHub, `CLAUDE.md` aus [`vorlagen/CLAUDE_md_fuer_die_app.md`](vorlagen/CLAUDE_md_fuer_die_app.md), [`vorlagen/checkliste_einreichung.md`](vorlagen/checkliste_einreichung.md) als `docs/checkliste-einreichung.md` kopieren, leere `docs/review-log.md` und `docs/entscheidungen.md` anlegen; solange Max noch läuft, legt Claude damit das leere Vorlagen-Projekt an. | 5 Ideen für die Prüfung, Vorlage im Repository |
 | So 29.11. | frei | – | – |
@@ -913,11 +916,11 @@ jedes Arbeitspaket (AP1–AP22) in
   Prepaid-Nummer; am nächsten Tag bei Apple der Vertrag für bezahlte Apps,
   Bank- und Steuerdaten, Händlerangaben und das Small Business Program
   ([`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md)).
-  - **Wann das meist ist:** Im Plan für den typischen Fall am Do 07.01. Im
-    Modell wird im Median am 18.01. gegründet, in 38 von 100 Läufen erst im
-    Februar oder später.
-  - **Später Fall:** Ist M2 bis Mo 01.03. nicht erreicht, gründest du erst
-    nach deiner letzten Prüfung.
+  - **Wann das meist ist:** Im Kalender (01) frühestens am Do 07.01.,
+    typisch Mitte bis Ende Januar. Im Modell wird im Median in der Woche ab
+    Mo 18.01. gegründet, in 38 von 100 Läufen erst im Februar oder später.
+  - **Später Fall:** Ist M2 bis Mo 01.03. nicht erreicht, gründest du am Tag
+    nach deiner letzten Prüfung, parallel zum Rest-Bau.
 - **Website und Store-Eintrag (AP18–AP19),** Sicherheits-Mindestprüfung
   (AP20).
 - **Messpunkt M1 (Sa 09.01.):** ETH-Bewerbung abgeschickt, AP10–AP17 fertig.
@@ -967,7 +970,7 @@ jedes Arbeitspaket (AP1–AP22) in
   sie (Creator buchst du trotzdem erst nach deiner letzten Prüfung). Wird sie
   verfehlt, gilt die zweite Prüfung, 21 Tage nach dem ersten täglichen Post
   nach der letzten Prüfung (spätestens Di 29.06.).
-- **Gründung**, falls M2 bis Mo 01.03. erreicht ist (Checkliste A, ~4 h auf
+- **Gründung**, falls M2 bis Mo 01.03. erreicht ist (Checkliste A; in Q4 auf
   zwei Samstage verteilt). Danach erst wieder nach der letzten Prüfung.
 - **Ist App 1 noch nicht eingereicht:** im Rahmen der Q4-Stunden weiterbauen,
   ohne Druck. Im Modell ist sie bis 14.03. nur in 33 von 100 Läufen
@@ -990,9 +993,11 @@ jedes Arbeitspaket (AP1–AP22) in
   - **Eine App ist im Store oder im Review:** 0–5 Stunden je Woche (im
     schriftlichen Abitur 0–1) für Zahlen, Notfälle (Abschnitt 18) und
     Antworten an das Review, nie an Prüfungstagen und nie am Tag davor.
-    Claude Pro läuft weiter. Zweimal je Woche eine echte Anfrage aus der
-    eigenen App, damit der Gratis-Server nicht pausiert. Keine Posts, keine
-    Creator.
+    Claude Pro läuft weiter. Ist eine App live, läuft für diese Monate
+    Supabase Pro (~27 € im Monat), damit der Server nicht pausiert und du
+    keine Wachregel brauchst. Liegt eine freigegebene App nur bereit, darf das
+    Gratis-Projekt pausieren; vor dem Veröffentlichen stellst du es wieder her
+    und testest. Keine Posts, keine Creator.
 - **Support-Mails:** Du beschreibst Claude das Problem in eigenen Worten, ohne
   Namen, E-Mail-Adresse, Kaufdaten oder Fotos. Claude entwirft eine
   Antwortvorlage, die du selbst in dein Mailprogramm einsetzt.
@@ -1201,7 +1206,8 @@ Alle Schritte stehen in
       KW 51 erledigt, automatische Verlängerung ist ausgeschaltet
 - [ ] Schreiben der IHK beantwortet, Unternehmen bei der Berufsgenossenschaft
       angemeldet (ohne Beschäftigte kein Beitrag)
-- [ ] Belegtabelle angelegt (Datum, Betrag, Zweck, PDF)
+- [ ] Belegtabelle läuft seit KW 48 (Spalten nach
+      [`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.1)
 - [ ] Brief an die Krankenkasse abgeschickt, Antwort abgelegt
 - [ ] Ordner für Belege (Claude sortiert, du legst ab)
 - [ ] Du weißt, welche Post nach der Anmeldung echt ist (Abschnitt 18,
@@ -1307,7 +1313,8 @@ Sommer). Vorlage: [`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.csv).
       gestartet; Schlüssel in RevenueCat neu gesetzt; Impressum und
       Datenschutzerklärung am Tag der Übertragung umgestellt
 - [ ] Einstellen: **So 15.08.** alle Abos aus dem Verkauf genommen (App Store
-      Connect → App → Abonnements → Abo → Verfügbarkeit); Abonnenten
+      Connect → Apps → App → Monetarisierung → Abonnements → Abo-Gruppe →
+      Abo → Verfügbarkeit → aus dem Verkauf nehmen → Sichern); Abonnenten
       informiert; Server und KI laufen bis zum Dienstende weiter
 - [ ] **Do 16.09. oder Fr 17.09.** (nach dem Dienstende am Mi 15.09.,
       mindestens 31 Tage nach dem Verkaufsstopp): App entfernt, Server
@@ -1463,7 +1470,7 @@ meisten bringen?
 | Stufe | wann | was | Kosten |
 |---|---|---|---|
 | 0 | KW 48 bis zur Gründung | Claude Max (bezahlt), dann Pro; ab KW 50 ein paar Dollar Guthaben für die Claude API; in KW 51 das Apple Developer Program (nur wenn die Idee steht) | ~21 € im Monat, dazu einmal 99 € für Apple |
-| 1 | Gründung (im Median am 18.01.) | Gewerbe, Domain-Paket, Prepaid-Nummer; Beratung bei der IHK kostenlos | mit Apple zusammen 140–380 €, typisch ~200 € |
+| 1 | Gründung (im Median am 18.01.) | Gewerbe, Domain-Paket, Prepaid-Nummer; Gründungsberatung der IHK, wenn sie kostenlos ist (vorher fragen; sonst Fragen schriftlich ans Finanzamt) | mit Apple zusammen 140–380 €, typisch ~200 € |
 | 2a | von der Gründung bis zum ersten Start | Claude Pro, Domain mit Postfach, Prepaid-Nummer | 23–45 € im Monat, typisch ~28 € |
 | 2b | ab dem ersten Start | dazu KI-API nach Nutzung; Supabase und EAS im Gratis-Tarif, bis ein Signal da ist | 23–75 € im Monat, typisch ~30 € |
 | 2c | Ruhezeit im Abitur, wenn keine App im Store oder im Review ist | nur Domain und Nummer; Claude Pro ruht | 2–30 € im Monat, typisch ~5 € |
@@ -1510,7 +1517,7 @@ Läufe ~39 €. Mit Ferienjob und Übergabe steht alles zusammen in
 | App 1 ist am 14.03. nicht fertig | normal (in 2 von 3 Läufen): Ruhezeit im Abitur, nach der letzten Prüfung in zwei bis drei Wochen fertig |
 | Am 20.12. besteht keine Idee | No-Go-Regel: nicht gründen, kein Apple-Konto kaufen, weiter lernen; nach der ETH-Bewerbung fünf neue Ideen prüfen, Entscheidung bis Sa 09.01.; besteht auch dann keine, erst nach dem Abitur weiter ([`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md), Abschnitt 7) |
 | Du bekommst keinen Ferienjob | ab Ende Juni zwei Zeitarbeitsfirmen für einen festen Beginn anfragen; im Modell klappt es in 70–85 von 100 Fällen |
-| Der Gratis-Server pausiert | im Supabase-Dashboard wiederherstellen; war eine App mit Zahlern betroffen, auf Pro wechseln |
+| Der Gratis-Server pausiert | im Supabase-Dashboard wiederherstellen; war eine App im Store oder in der Prüfung betroffen, auf Pro wechseln |
 | Apple lehnt ab | Grund ins Review-Log, kleinste Änderung, neu einreichen; Ablehnungen bei der ersten App sind normal |
 | Videos bekommen kaum Aufrufe | anderes Format, nicht mehr Videos desselben Formats; nach 20 Posts eines Formats ohne einen Post ab 5.000 Aufrufen ein neues Format ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md), Abschnitt 7.4) |
 | Claude läuft im Kreis | Sitzung beenden, erst erklären lassen, dann ein kleineres Ziel |

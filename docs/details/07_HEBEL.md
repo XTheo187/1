@@ -468,7 +468,7 @@ So liest du das:
 
 | wann | was | Stunden | steht in |
 |---|---|---|---|
-| Do 26.11. | Elterngespräch: Namensfrage ansprechen und fragen, ob ein Elternteil eine laufende App im Sommer übernehmen würde | 0,5 | Hauptplan, Abschnitt 3 |
+| Do 26.11. | Elterngespräch: Namensfrage ansprechen und fragen, ob ein Elternteil eine laufende App im Sommer übernehmen würde | 1 | Hauptplan, Abschnitt 3 |
 | Sa 28.11.–Sa 19.12. | fünf Ideen prüfen mit K.-o.-Fragen, Nachfrageprüfung, Bewertungstabelle, Slideshow-Test und Ablauf-Test | 10–15 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
 | Sa 12.12. | Zwischenstand: erfüllt eine Idee alle Mindestwerte? Nur dann Apple in KW 51 | 0,2 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
 | bis So 13.12. | Namensfrage entscheiden | – | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
@@ -477,7 +477,7 @@ So liest du das:
 | Weihnachtsferien | drei Bewerbungen für den Ferienjob (befristet 19.07.–31.08. oder bis 10.09.) | 1–2 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
 | Di 29.12. | Stunden-Messpunkt nach dem Durchstich | 0,5 | [`02_BAUPLAN_APP1.md`](02_BAUPLAN_APP1.md) |
 | Januar | schriftliche Zusage des Elternteils (eine Seite); Oberstufenkoordination fragen, wann die mündlichen Prüfungen liegen | 1 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
-| bei der Gründung | Kleinunternehmer im Fragebogen, kostenlose Gründungsberatung, Frage ans Finanzamt, Small Business Program am selben Tag wie der Vertrag für bezahlte Apps | 4–6 | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
+| Dezember bis Februar | Gründung: Kleinunternehmer im Fragebogen, Gründungsberatung (wenn kostenlos), Frage ans Finanzamt, Small Business Program am selben Tag wie der Vertrag für bezahlte Apps | ~9 (davon ~3,5 am Gründungstag und bei Apple) | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
 | ab dem ersten Beleg | Belegtabelle führen | 0,5 je Monat | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
 | So 14.03. | Ruhezeit entscheiden: keine App im Store oder im Review → Claude Pro ruht bis nach der letzten Prüfung | 0,2 | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
 | spätestens Di 29.06. | zweite Signalprüfung für eine App, die vor dem Abitur gestartet ist (21 Tage nach dem ersten täglichen Post nach der letzten Prüfung) | 0,2 | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
