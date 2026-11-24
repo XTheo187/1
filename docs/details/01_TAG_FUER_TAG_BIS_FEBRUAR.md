@@ -82,7 +82,7 @@ Schulwoche, 10 Stunden. Kosten: 0 €.
 | Di 01.12. | 1 h | 15 min: Das Bewerbungsfenster der ETH ist ab heute offen. In eApply ein Konto anlegen und die Liste der Unterlagen ansehen. 45 min: Idee 1 bewerten (Bewertungstabelle in [`04_IDEENWAHL.md`](04_IDEENWAHL.md)) | das eApply-Konto steht und Idee 1 eine Punktzahl hat |
 | Mi 02.12. | 1 h | Fehlermeldungen lesen: „Bau fünf verschiedene Fehler in das Übungsprojekt ein, einen nach dem anderen. Ich lese jede Meldung und sage, was ich vermute, bevor du hilfst.“ | du bei einer Fehlermeldung Datei, Zeile und Art des Fehlers findest |
 | Do 03.12. | 1 h | Ideen 2 und 3 bewerten | alle drei Ideen eine Punktzahl haben |
-| Fr 04.12. | 1 h | Verwaltung vorbereiten: ELSTER-Benutzerkonto anlegen (mit dem Online-Ausweis sofort, sonst kommt ein Brief, der bis zu zwei Wochen braucht). Prüfen, ob du die PIN deines Personalausweises hast. Auf der Website deiner Gemeinde nachsehen, wie die Gewerbeanmeldung online geht | ELSTER beantragt ist und du weißt, wie die Gewerbeanmeldung bei euch läuft |
+| Fr 04.12. | 1 h | Verwaltung vorbereiten: ELSTER-Benutzerkonto anlegen (mit dem Online-Ausweis sofort, sonst kommt ein Brief, der bis zu zwei Wochen braucht). Prüfen, ob du die PIN deines Personalausweises hast. Auf der Website deiner Gemeinde nachsehen, wie die Gewerbeanmeldung online geht. Bei der IHK oder dem Gewerbeamt kurz nachfragen, ob die Mitgliedschaft bei Apple und Tests ohne Verkauf vor der Gewerbeanmeldung unbedenklich sind | ELSTER beantragt ist und du weißt, wie die Gewerbeanmeldung bei euch läuft |
 | Sa 05.12. | 5 h | 4 h: **AP2** (zwei Sprachen, fünf leere Bildschirme). 1 h: Konkurrenz für die drei Ideen im deutschen App Store ansehen (Suchbegriffe, Bewertungen, Sprache der Einträge) | du auf dem iPhone durch fünf Bildschirme tippen kannst und sie die Sprache wechseln |
 | So 06.12. | frei | – | – |
 
@@ -110,16 +110,16 @@ Schulwoche, 10 Stunden. Kosten: 99 $ für Apple.
 
 | Tag | Zeit | was | fertig, wenn … |
 |---|---|---|---|
-| Mo 14.12. | 1 h | **Apple Developer Program** anmelden (wer laut Entscheidung im Store steht): Apple-Developer-App auf dem iPhone, Zwei-Faktor-Anmeldung, Name genau wie im Ausweis, 99 $. Noch kein Verkauf, kein Paid Apps Agreement | die Anmeldung abgeschickt ist |
+| Mo 14.12. | 1 h | **Apple Developer Program** anmelden (wer laut Entscheidung im Store steht): Apple-Developer-App auf dem iPhone, Zwei-Faktor-Anmeldung, Name genau wie im Ausweis, 99 $ (in Euro bis etwa 99 €). Noch kein Verkauf, kein Vertrag für bezahlte Apps | die Anmeldung abgeschickt ist |
 | Di 15.12. | 1 h | **AP6:** RevenueCat-Konto, Projekt, Entitlement `pro`, Offering `default`, Produkte Woche und Monat im Test Store | die Produkte im Dashboard stehen |
 | Mi 16.12. | 1 h | **AP6:** Paywall im Dashboard aus einer Vorlage bauen, in Deutsch und Englisch | die Paywall in der Vorschau des Dashboards stimmt |
-| Do 17.12. | 1 h | **AP6:** RevenueCat in die App einbauen, Paywall nach dem Onboarding | die Paywall in der App erscheint (in Expo Go als Vorschau) |
-| Fr 18.12. | 1 h | Ideen-Entscheidung vorbereiten: die drei Bewertungen nebeneinanderlegen, offene Fragen von Claude klären lassen, eine Nacht darüber schlafen | du eine klare Reihenfolge der drei Ideen hast |
-| Sa 19.12. | 5 h | 30 min: **Ideen-Tor:** App 1 festlegen, die zweitbeste Idee für App 2 merken. 2 h: **AP3** (`SPEC.md` per Interview). 1,5 h: **AP6** Rest. 1 h: `eas-cli` installieren, `eas login`, `eas build:configure` | `SPEC.md` steht und EAS eingerichtet ist |
+| Do 17.12. | 1 h | **AP6:** alle nativen Pakete installieren und RevenueCat in die App einbauen. In Expo Go läuft es nur als Attrappe; die echte Paywall siehst du erst im Entwicklungs-Build | die App in Expo Go ohne Fehler startet |
+| Fr 18.12. | 1 h | 30 min: `eas-cli` installieren, `eas login`, `eas build:configure`; ist das Apple-Konto aktiv, die **Probe mit StickerSmash** starten (Geräte registrieren, Entwicklungs-Build). 30 min: die drei Ideen-Bewertungen nebeneinanderlegen | EAS eingerichtet ist und du eine klare Reihenfolge der drei Ideen hast |
+| Sa 19.12. | 5 h | 30 min: **Ideen-Tor:** App 1 festlegen, die zweitbeste Idee für App 2 merken. 2 h: **AP3** (`SPEC.md` per Interview). 1,5 h: **AP6** Rest. 1 h: Entwürfe ohne Gewerbe: Website-Texte, Store-Titel und Untertitel in beiden Sprachen | `SPEC.md` steht und die Probe mit StickerSmash auf dem iPhone läuft |
 | So 20.12. | frei | **Messpunkt M0** abhaken (Abschnitt 11) | – |
 
-Hängt die Apple-Anmeldung länger als drei Werktage, öffnest du einen
-Support-Fall bei Apple. Der Durchstich in KW 52 braucht das Konto.
+Kommt innerhalb von 24 Stunden nach dem Kauf keine Bestätigung von Apple,
+wendest du dich an Apple. Der Durchstich in KW 52 braucht das Konto.
 
 ---
 
@@ -129,13 +129,15 @@ Mo/Di Schule, Mi erster Ferientag, 24.–27.12. frei. ~9 Stunden.
 
 | Tag | Zeit | was | fertig, wenn … |
 |---|---|---|---|
-| Mo 21.12. | 1 h | **AP7:** iPhone und iPad registrieren (`eas device:create`), Entwicklermodus einschalten | beide Geräte im Apple-Konto stehen |
-| Di 22.12. | 1 h | **AP7:** Entwicklungs-Build starten (`eas build --profile development --platform ios`); er läuft in der Cloud, während du Schule machst | der Build gestartet ist |
-| Mi 23.12. | 7 h | 1 h: **AP7** Rest (Build auf iPhone und iPad installieren). 4 h: **AP8 Durchstich** (Testkauf → Server prüft das Abo → KI-Antwort; drei Fälle durchspielen). 2 h: **AP9** Beginn (Store-Build starten) | ein Testkauf die Eingabe freischaltet und ein Aufruf ohne Abo vom Server abgelehnt wird |
+| Mo 21.12. | 1 h | **AP7:** iPhone und iPad für das Projekt `app1` registrieren (`eas device:create`), Entwicklermodus einschalten | beide Geräte im Apple-Konto stehen |
+| Di 22.12. | 1 h | **AP7:** Entwicklungs-Build von `app1` starten (`eas build --profile development --platform ios`); er läuft in der Cloud, während du Schule machst | der Build gestartet ist |
+| Mi 23.12. | 7 h | 1 h: **AP7** Rest (Build auf iPhone und iPad installieren, die echte Paywall ansehen). 4 h: **AP8 Durchstich** (Testkauf → Server prüft das Abo → KI-Antwort; zuerst prüfen, ob die REST-API den Test-Store-Kauf meldet). 2 h: **AP9** Beginn (Store-Build mit dem iOS-Schlüssel starten) | ein Testkauf die Eingabe freischaltet und ein Aufruf ohne Abo vom Server abgelehnt wird |
 | Do 24.12.–So 27.12. | frei | – | – |
 
 Ist das Apple-Konto am 21.12. noch nicht aktiv, ziehst du AP10 (Kernfunktion)
-vor und holst AP7–AP9 nach, sobald es da ist.
+vor und holst AP7–AP9 nach, sobald es da ist. Meldet die REST-API den
+Test-Store-Kauf nicht, baust du die Abo-Prüfung trotzdem und testest sie
+nach der Gründung mit Apples Sandbox (KW 01–02).
 
 ---
 
@@ -165,7 +167,7 @@ Weihnachtsferien bis Sa 09.01. ~38 Stunden.
 | Di 05.01. | 7 h | 3 h: **AP15** (Tageslimit, Kostenbremse). 4 h: **AP16** (Name, Farben, Icon, Startbild) | der 21. Aufruf am Tag freundlich abgelehnt wird |
 | Mi 06.01. | 7 h | 1 h: **AP16** Rest. 6 h: **AP17** (Prüfliste auf iPhone und iPad, Fehler beheben) | die Prüfliste auf beiden Geräten ohne Fehler durchläuft |
 | Do 07.01. | 7 h | **Messpunkt M2** (Abschnitt 11). Wenn erreicht: 2,5 h **Gründung Teil 1** (Gewerbe online anmelden, Fragebogen in ELSTER, Domain, Zweitnummer). 4 h: **AP18** (Website mit Impressum, Datenschutz, Nutzungsbedingungen). 30 min Puffer | das Gewerbe angemeldet ist und die Website online steht |
-| Fr 08.01. | 7 h | 1 h: **Gründung Teil 2** (bei Apple: Paid Apps Agreement, Bank- und Steuerdaten, EU-Händlerangaben, Small Business Program). 6 h: **AP19** (App Store Connect: Eintrag, Abos, Preise, Angaben, Screenshots) | die Abos in App Store Connect angelegt sind |
+| Fr 08.01. | 7 h | 1 h: **Gründung Teil 2** (bei Apple: Vertrag für bezahlte Apps, Bank- und Steuerdaten, EU-Händlerangaben, Small Business Program). 6 h: **AP19** (App Store Connect: Eintrag, Abos, Preise, Angaben, Screenshots). Sobald die Produkte laden: Kauf im Store-Build mit Apples Sandbox testen | die Abos in App Store Connect angelegt sind |
 | Sa 09.01. | 3 h | **AP20** (Sicherheits-Mindestprüfung, Betriebsprojekt einrichten). **Messpunkt M1** abhaken | alle sieben Punkte bestanden sind |
 | So 10.01. | frei | – | – |
 
