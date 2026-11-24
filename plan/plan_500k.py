@@ -1267,6 +1267,13 @@ SZENARIEN = {
         scen(**_mix(PLAN_HEBEL, FERIENJOB_FRUEH)),
     "Hebel: Plan mit Hebeln + Übergabe oder Verkauf + Ferienjob (DEIN PLAN, Stand 24.11.)":
         scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH)),
+    "Hebel: wie DEIN PLAN, aber Job schon ab 05.07., wenn am 04.07. keine App 300 USD MRR zeigt (Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, dict(ferienjob=dict(FERIENJOB['ferienjob'], ab=date(2027, 7, 5)),
+                                               stopps=((date(2027, 7, 4), 300),) + TORE_SOMMER))),
+    "Hebel: wie DEIN PLAN, aber ganz ohne Creator-Geld (Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(test_cap=0.0, signal=None, kein_testgeld=True))),
+    "Hebel: Plan mit Hebeln + Übergabe oder Verkauf, ganz ohne Creator-Geld (Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, dict(test_cap=0.0, signal=None, kein_testgeld=True))),
     "Hebel: Plan mit Hebeln ohne Testgeld":
         scen(**_mix(PLAN_HEBEL, dict(test_cap=0.0, signal=None, kein_testgeld=True))),
     "Hebel: Plan mit Hebeln, Bau wie bisher angesetzt (80/140/280 h)":

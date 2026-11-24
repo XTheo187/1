@@ -8,8 +8,8 @@ Die Arbeitspakete (AP1–AP22) sind in
 
 **Das ist der Plan für den typischen Fall.** Er nutzt alle Stunden, die die
 Regeln erlauben (~160 bis Di 02.02.), und führt dann zur Einreichung am
-Di 02.02. Im Modell ist App 1 bis dahin in ⟨EINR_0202⟩ von 100 Läufen fertig
-und bis 14.03. in ⟨EINR_1403⟩ von 100. In den übrigen wird sie erst in Q4
+Di 02.02. Im Modell ist App 1 bis dahin in 14 von 100 Läufen fertig
+und bis 14.03. in 33 von 100. In den übrigen wird sie erst in Q4
 oder nach dem Abitur fertig. Das ist kein Scheitern, der Plan rechnet damit.
 
 Inhalt:
@@ -48,8 +48,8 @@ Inhalt:
 |---|---|---|
 | Ende November | Claude Pro statt Max | ~21 € im Monat |
 | KW 50 | Guthaben für die Claude API zum Testen | ~5 $ |
-| KW 51 | Apple Developer Program | 99 $ im Jahr |
-| KW 01 (bei der Gründung) | Gewerbeanmeldung, Domain, Zweitnummer, ggf. Erstberatung | siehe [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
+| KW 51 | Apple Developer Program (automatische Verlängerung gleich abschalten) | 99 € im Jahr |
+| KW 01 (bei der Gründung) | Gewerbeanmeldung, Domain-Paket, Prepaid-Nummer; die Gründungsberatung der IHK ist kostenlos | zusammen mit Apple 140–380 €, siehe [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
 
 Sonst nichts. Kein Supabase Pro, kein Expo-Abo, keine Boilerplate, kein
 Creator.
@@ -106,7 +106,7 @@ Schulwoche, 10 Stunden. Kosten: ~5 $ Guthaben für die Claude API.
 
 ## 5. KW 51 (14.12.–20.12.) – Apple, Paywall, Idee
 
-Schulwoche, 10 Stunden. Kosten: 99 $ für Apple.
+Schulwoche, 10 Stunden. Kosten: 99 € für Apple.
 
 | Tag | Zeit | was | fertig, wenn … |
 |---|---|---|---|
@@ -237,7 +237,7 @@ Hauptplan (Abschnitt 12) und in
 | **M0** | So 20.12. | Idee gewählt, `SPEC.md` steht, echte KI-Antwort in der App, Paywall erscheint? | weiter | fehlende Pakete am 23.12. zuerst |
 | **Stunden-Messpunkt** | Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant ~32)? | bis ~40: weiter wie geplant | 40–60: App 1 kleiner schneiden; über 60: Einreichung erst nach dem Abitur einplanen (Bauplan, Abschnitt 8) |
 | **M1** | Sa 09.01. | ETH-Bewerbung abgeschickt? AP10–AP17 fertig? | weiter | die ETH-Bewerbung hat Vorrang; fehlende Pakete in KW 02–04 |
-| **M2** | Do 07.01. oder später | Ist App 1 zu etwa vier Fünfteln fertig (AP10–AP17 erledigt oder fast)? | gründen | weiterbauen, Gründung an dem Samstag, an dem es so weit ist |
+| **M2** | Do 07.01. oder später | Ist App 1 mindestens halb fertig (Kernfunktion mit echter KI, Onboarding und Paywall stehen: AP10–AP12; im Kalender oben sind am 07.01. sogar AP10–AP17 erledigt)? | gründen | weiterbauen, Gründung an dem Samstag, an dem es so weit ist; ist es bis Mo 01.03. nicht so weit, erst nach der letzten Prüfung |
 | **Funktions-Stopp** | So 24.01. | – | nur noch Fehler, Texte, Einreichung | – |
 | **Einreichung** | spätestens Di 02.02. | Checkliste grün? | einreichen mit „manuell veröffentlichen“ | in Q4 mit 6–7 Stunden je Woche fertig machen; ohne Druck |
 

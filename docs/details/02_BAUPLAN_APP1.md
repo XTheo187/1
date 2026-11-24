@@ -22,8 +22,8 @@ Inhalt:
 ## 1. Der Schnitt von App 1
 
 App 1 ist absichtlich klein. Jede Stunde, die du vor dem Start sparst,
-erhöht die Chance (im Modell bringen 10 Stunden weniger Bauzeit etwa
-+0,7 Punkte Gewinnchance). Bezahlte Abkürzungen lohnen dagegen nicht: Eine
+erhöht die Chance (im Modell bringen 10 Stunden weniger Bauzeit rund einen
+Punkt Gewinnchance). Bezahlte Abkürzungen lohnen dagegen nicht: Eine
 gesparte Baustunde ist im Modell nur ~4–6 € wert. Deshalb gilt für App 1:
 
 **Drin**
@@ -124,7 +124,7 @@ glauben, ohne es gesehen zu haben; neue Funktionen nach dem Funktions-Stopp.
 Stunden sind deine eigenen Stunden: von/typisch/bis. Die typischen Werte
 ergeben zusammen ~100 Stunden. Das ist der Fall, in dem jedes Paket ohne
 längere Fehlersuche durchläuft. Das Modell rechnet vorsichtiger, mit
-⟨BAU_VON⟩/⟨BAU_TYP⟩/⟨BAU_BIS⟩ Stunden, weil Fehlersuche und Lernen am
+78/130/260 Stunden, weil Fehlersuche und Lernen am
 eigenen Code dazukommen. Keine Studie misst das für Anfänger. Deine echten
 Stunden trägst du ein und vergleichst sie am Stunden-Messpunkt (Abschnitt 8).
 
@@ -536,4 +536,4 @@ Sobald App 1 freigegeben ist (3–4 Stunden):
 
 App 2 bekommt eine andere Aufgabe, ein anderes Ergebnisformat und ein eigenes
 Aussehen. Reine Varianten lehnt Apple ab. Mit der Vorlage rechnet das Modell
-für App 2 und 3 mit ⟨NEXT_VON⟩/⟨NEXT_TYP⟩/⟨NEXT_BIS⟩ Stunden.
+für App 2 und 3 mit 33/55/110 Stunden.

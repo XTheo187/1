@@ -73,9 +73,14 @@ Programmierkenntnisse, Videos ohne Gesicht, insgesamt höchstens 5.000 €,
 danach ETH Zürich) steht der Plan Tag für Tag und Woche für Woche in
 [`docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md`](docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md):
 erst bauen, dann als Einzelunternehmen gründen (eine UG passt nicht in
-5.000 €), kein Start im Abitur, Creator-Geld nur nach einem Signal. Ergebnis:
-500.000 € in keinem von 300.000 Läufen, ein Gewinn in ~6 von 100, im Median
-~1.100 € Verlust, nie mehr als 5.000 €.
+5.000 €), kein Start im Abitur, Creator-Geld nur nach einem Signal. Dazu
+sieben Detailpläne in [`docs/details/`](docs/details/) (Tag für Tag bis zur
+Einreichung, Bauplan, Gründung und Kosten, Ideenwahl, Start und Marketing,
+Sommer und Abschluss, Hebel). Ergebnis mit den geprüften Hebeln: 500.000 € in
+keinem von 300.000 Läufen; die App allein bringt in ~9–12 von 100 Läufen einen
+Gewinn und kostet im Median ~560 €; zusammen mit einem Ferienjob ab 19.07.
+endet der Sommer in ~82 von 100 Läufen im Plus (Median ~3.200 €); nie mehr als
+5.000 € Verlust.
 Was bis dahin realistisch durch Arbeit drin ist – maximal rund 13.500 EUR
 netto (Median ~11.300 EUR), Obergrenze ~21.800 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)
 (Rechnung: `python3 plan/verdienst_2027.py`).
@@ -158,7 +163,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 160 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 180 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau
