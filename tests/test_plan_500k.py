@@ -527,10 +527,189 @@ class TestPlan500k(unittest.TestCase):
         self.assertIsNone(ohne["restwert"])
         self.assertIsNone(ohne["ferienjob"])
 
+    def test_ruhezeit_im_abitur(self):
+        """Ruhezeit: ohne App im Store und im Review ruhen die Abos und der Bau; mit wirkungslosen Werten
+        (Kosten nicht niedriger, Stunden nicht gedeckelt) ändert sie nichts."""
+        von, bis = date(2027, 3, 15), date(2027, 6, 7)
+        basis = self._deine()
+        neutral = dict(basis, fix_ruhe=dict(von=von, bis=bis, monat=(1e9, 1e9, 1e9), max_h=1e9))
+        ruhe = dict(basis, fix_ruhe=dict(von=von, bis=bis, monat=(5, 5, 5), max_h=0.0))
+        nur_kosten = dict(basis, fix_ruhe=dict(von=von, bis=bis, monat=(5, 5, 5), max_h=1e9))
+        r0 = [p.simulate(random.Random(s), basis) for s in range(120)]
+        rn = [p.simulate(random.Random(s), neutral) for s in range(120)]
+        rr = [p.simulate(random.Random(s), ruhe) for s in range(120)]
+        rk = [p.simulate(random.Random(s), nur_kosten) for s in range(120)]
+        spaeter = 0
+        for a, n, r in zip(r0, rn, rr):
+            self.assertAlmostEqual(a["ergebnis"], n["ergebnis"])
+            if a["einreichung1"] is not None and r["einreichung1"] is not None:
+                # ohne Baustunden in der Ruhezeit wird App 1 nie früher fertig
+                self.assertGreaterEqual(r["einreichung1"], a["einreichung1"])
+                spaeter += r["einreichung1"] > a["einreichung1"]
+        self.assertGreater(spaeter, 0)
+        # nur niedrigere Kosten (Stunden unverändert): im Mittel besser, in vielen Läufen spürbar
+        self.assertGreater(sum(x["ergebnis"] for x in rk), sum(x["ergebnis"] for x in r0))
+        self.assertGreater(sum(k["ergebnis"] > a["ergebnis"] + 20 for a, k in zip(r0, rk)), 30)
+        self.assertIsNone(basis["fix_ruhe"])
+
+    def test_ferienjob_chance_und_vorrang(self):
+        """Ferienjob: ohne Zusage kein Lohn; mit Vorrang (immer) läuft er ab dem Datum auch ohne Tor."""
+        ab = date(2027, 6, 14)
+        kein = dict(self._deine(), ferienjob=dict(ab=date(2027, 7, 19), netto_woche=(600, 600, 600), max_app_h=5,
+                                                  p=(0, 0, 0)))
+        immer = dict(self._deine(), ferienjob=dict(ab=ab, netto_woche=(600, 600, 600), max_app_h=10, immer=True))
+        rng = random.Random(61)
+        for _ in range(150):
+            r = p.simulate(rng, kein)
+            self.assertEqual((r["job_wochen"], r["job_netto"]), (0, 0.0))
+            self.assertAlmostEqual(r["ergebnis"], r["ergebnis_app"] + r["restwert"])
+        for _ in range(150):
+            r = p.simulate(rng, immer)
+            self.assertEqual(r["job_wochen"], p.WEEKS - p.woche_ab(ab))
+            self.assertAlmostEqual(r["job_netto"], 600.0 * r["job_wochen"])
+
+    def test_restwert_braucht_alter_und_gewinn(self):
+        """Restwert nur für Apps, die lange genug im Store sind und genug Monatsgewinn bringen."""
+        basis = dict(self._deine(), build_first=(20, 30, 40), einmal_stunden=(0, 0, 0))
+        offen = dict(basis, restwert=dict(monate=(4, 4, 4), p=(1, 1, 1)))
+        zu_jung = dict(basis, restwert=dict(monate=(4, 4, 4), p=(1, 1, 1), min_alter_w=p.WEEKS + 1))
+        zu_klein = dict(basis, restwert=dict(monate=(4, 4, 4), p=(1, 1, 1), min_monat=1e12))
+        schwelle = dict(basis, restwert=dict(monate=(4, 4, 4), p=(1, 1, 1), min_alter_w=8, min_monat=100.0))
+        mit = 0
+        for s in range(400):
+            a = p.simulate(random.Random(s), offen)
+            mit += a["restwert"] > 0
+            self.assertEqual(p.simulate(random.Random(s), zu_jung)["restwert"], 0.0)
+            self.assertEqual(p.simulate(random.Random(s), zu_klein)["restwert"], 0.0)
+            b = p.simulate(random.Random(s), schwelle)
+            self.assertIn(b["restwert"], (0.0, a["restwert"]))
+            if b["restwert"] > 0:
+                self.assertGreater(b["restwert"], 4 * 100.0)
+                self.assertLessEqual(max(l for l in b["launches"]) if len(b["launches"]) == 1 else 0, p.WEEKS - 8)
+        self.assertGreater(mit, 0)
+
+    def test_zweite_signalpruefung(self):
+        """Eine vor dem Abitur gestartete App bekommt am 28.06. eine zweite Prüfung; Testgeld fließt nie früher
+        als ohne die Regel und nie in der Startpause."""
+        zweite = date(2027, 6, 28)
+        basis = dict(self._deine(), build_first=(20, 30, 40), einmal_stunden=(0, 0, 0))
+        mit = dict(basis, signal=dict(p.SIGNAL, zweite=zweite))
+        sp0, sp1 = p.woche_ab(p.STARTPAUSE_NI[0]), p.woche_ab(p.STARTPAUSE_NI[1])
+        mehr = 0
+        for s in range(500):
+            a = p.simulate(random.Random(s), basis)
+            b = p.simulate(random.Random(s), mit)
+            for w, c in b["test_log"]:
+                if c > 0:
+                    self.assertFalse(sp0 <= w < sp1)
+            ta = sum(c for _, c in a["test_log"])
+            tb = sum(c for _, c in b["test_log"])
+            mehr += tb > ta + 1
+        self.assertGreater(mehr, 0)        # die zweite Prüfung löst in manchen Läufen zusätzlich Testgeld aus
+
+    def test_verkaufsstopp_ohne_nachfolger(self):
+        """Endet die Jagd ohne Verkauf oder Übergabe, entfallen die Erlöse nach dem Verkaufsstopp; ein später
+        Stichtag (31.08.) ändert nichts, ein früher kostet mehr."""
+        basis = dict(self._deine(), build_first=(20, 30, 40), einmal_stunden=(0, 0, 0))
+        def mit(tag):
+            return dict(basis, stilllegung=dict(verkauf_bis=tag))
+        abzug = 0
+        for s in range(300):
+            a = p.simulate(random.Random(s), basis)
+            b31 = p.simulate(random.Random(s), mit(date(2027, 8, 31)))
+            b15 = p.simulate(random.Random(s), mit(date(2027, 8, 15)))
+            b07 = p.simulate(random.Random(s), mit(date(2027, 7, 31)))
+            self.assertEqual(a["abschalt_abzug"], 0.0)
+            self.assertAlmostEqual(b31["ergebnis"], a["ergebnis"])
+            self.assertAlmostEqual(b15["ergebnis"], a["ergebnis"] - b15["abschalt_abzug"])
+            self.assertAlmostEqual(b07["ergebnis"], a["ergebnis"] - b07["abschalt_abzug"])
+            if not b15["gestoppt"]:
+                self.assertEqual(b15["abschalt_abzug"], 0.0)       # Treffer über dem Tor: keine Stilllegung
+            abzug += b15["abschalt_abzug"] > 0
+        self.assertGreater(abzug, 50)
+        # mit Nachfolger (Übergabe sicher, ohne Schwelle) entfällt der Abzug, sobald ein Restwert entsteht
+        nachfolger = dict(mit(date(2027, 7, 31)), restwert=dict(monate=(2, 2, 2), p=(1, 1, 1)))
+        for s in range(300):
+            r = p.simulate(random.Random(s), nachfolger)
+            if r["restwert"] > 0:
+                self.assertEqual(r["abschalt_abzug"], 0.0)
+
+    def test_kosten_vor_dem_ersten_start(self):
+        """Zwischen Gründung und erstem Start laufen nur die kleinen Kosten; mit gleichen Werten ändert sich nichts."""
+        basis = self._deine()
+        gleich = dict(basis, fix_vor_start=(1e9, 1e9, 1e9))
+        billig = dict(basis, fix_vor_start=(0, 0, 0))
+        ra = [p.simulate(random.Random(s), basis)["ergebnis"] for s in range(150)]
+        rb = [p.simulate(random.Random(s), billig)["ergebnis"] for s in range(150)]
+        self.assertGreater(sum(rb), sum(ra) + 150 * 20)       # im Mittel deutlich weniger Kosten
+        # ein Wert über fixed_month wirkt nicht (es gilt das Minimum), nur der Zufallsstrom verschiebt sich
+        rg = [p.simulate(random.Random(s), gleich) for s in range(150)]
+        self.assertTrue(all(r["gegruendet"] or r["zu_teuer"] or r["gruendung_woche"] is None for r in rg))
+
+    def test_frueher_jobstart_ohne_app(self):
+        """Ist am Stichtag noch keine App im Store, endet die Jagd und der Job beginnt früher."""
+        frueh = date(2027, 7, 5)
+        P = dict(self._deine(), ferienjob=dict(ab=date(2027, 7, 19), netto_woche=(600, 600, 600), max_app_h=5,
+                                               frueh_ab=frueh))
+        wf = p.woche_ab(frueh)
+        n_frueh = 0
+        for s in range(300):
+            r = p.simulate(random.Random(s), P)
+            if r["job_frueh"]:
+                n_frueh += 1
+                self.assertTrue(r["gestoppt"])
+                self.assertEqual(r["stopp_woche"], wf)
+                self.assertEqual(r["job_wochen"], p.WEEKS - wf)
+                self.assertTrue(all(l >= wf for l in r["launches"]))     # vorher war keine App im Store
+            elif r["gestoppt"]:
+                self.assertEqual(r["job_wochen"], p.WEEKS - max(r["stopp_woche"], p.woche_ab(date(2027, 7, 19))))
+                self.assertTrue(any(l < wf for l in r["launches"]))
+        self.assertGreater(n_frueh, 10)
+
+    def test_restwert_verkauf_vor_uebergabe(self):
+        """Verkauf nur ab Umsatzschwelle und Mindestalter, sonst Übergabe abzüglich der Einmalkosten."""
+        basis = dict(self._deine(), build_first=(20, 30, 40), einmal_stunden=(0, 0, 0))
+        nur_verkauf = dict(basis, restwert=dict(monate=(2, 2, 2), p=(0, 0, 0), verkauf=dict(
+            ab_umsatz_usd=300, min_alter_w=8, p=(1, 1, 1), monate=(4, 4, 4))))
+        nur_uebergabe = dict(basis, restwert=dict(monate=(2, 2, 2), p=(1, 1, 1), kosten=(200, 200, 200)))
+        ohne_kosten = dict(basis, restwert=dict(monate=(2, 2, 2), p=(1, 1, 1)))
+        verkauft = 0
+        for s in range(500):
+            v = p.simulate(random.Random(s), nur_verkauf)
+            if v["restwert"] > 0:
+                verkauft += 1
+                self.assertGreaterEqual(max(v["max_mrr"], 0), 300 * p.FX * 0.99)
+                self.assertTrue(any(l <= p.WEEKS - 8 for l in v["launches"]))
+            u = p.simulate(random.Random(s), nur_uebergabe)
+            o = p.simulate(random.Random(s), ohne_kosten)
+            self.assertAlmostEqual(u["restwert"], max(0.0, o["restwert"] - 200.0))
+        self.assertGreater(verkauft, 0)
+
+    def test_plan_mit_hebeln(self):
+        """Der Plan mit Hebeln nutzt die geprüften Werte; Restwert und Ferienjob sind getrennte Zusätze."""
+        P = p.scen(**p.PLAN_HEBEL)
+        self.assertEqual(P["build_first"], (78, 130, 260))
+        self.assertEqual(P["p_faktor"], (0.8, 0.95, 1.2))
+        self.assertEqual(P["abwicklung"], (20, 80, 500))
+        self.assertEqual(P["gruendung"]["setup"], (140, 200, 380))
+        self.assertEqual(P["gruendung"]["bei"], 0.5)
+        self.assertEqual(P["stilllegung"]["verkauf_bis"], date(2027, 8, 15))
+        self.assertEqual(P["start_cash"], 5000.0)
+        self.assertTrue(P["harte_grenze"])
+        self.assertIsNone(P["restwert"])
+        self.assertIsNone(P["ferienjob"])
+        namen = [k for k in p.SZENARIEN if k.startswith("Hebel:")]
+        self.assertGreaterEqual(len(namen), 12)
+        self.assertEqual(sum("PLAN MIT HEBELN" in k for k in namen), 1)
+        for s in range(200):
+            r = p.simulate(random.Random(s), P)
+            self.assertGreaterEqual(r["ergebnis"], -5000.0 - 1e-6)       # nie mehr als der Einsatz verloren
+            self.assertAlmostEqual(r["ergebnis"], r["ergebnis_app"])
+
     def test_bisherige_szenarien_ohne_neue_teile(self):
         """Die früheren Szenarien rechnen mit Bayern, sofortiger Gründung und ohne harte Grenze."""
         for k, P in p.SZENARIEN.items():
-            if k.startswith("Deine Angaben"):
+            if k.startswith(("Deine Angaben", "Hebel:")):
                 continue
             self.assertEqual(P["kalender"], "BY", k)
             self.assertIsNone(P.get("gruendung"), k)
