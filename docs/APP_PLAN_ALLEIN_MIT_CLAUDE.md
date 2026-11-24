@@ -369,7 +369,7 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
 | Code: App, Paywall, KI-Funktion, Server | schreibt alles in kleinen Schritten, erklärt jeden Schritt, führt die `CLAUDE.md` und das Review-Log | beschreibst, was du willst; testest auf iPhone und iPad; prüfst mit den Checklisten; entscheidest |
 | Sicherheit und Datenschutz | Entwürfe, Prüflisten, führt die Prüfungen aus | siehst dir jedes Ergebnis selbst an; verantwortest |
 | App Store | Texte, Screenshot-Entwürfe, Antworten an das Review | reichst ein, gibst frei; Verträge, Bank- und Steuerdaten nur du (bzw. das Elternteil) |
-| Ideen | Recherche, 10 Kandidaten mit Konkurrenz und Risiken, füllt die Bewertungstabelle vor | wählst 5 für die Prüfung, prüfst je Idee drei Zahlen selbst, am Ende eine |
+| Ideen | 12 Kandidaten zusätzlich zu deinen eigenen und dem Pool aus 04 (zusammen etwa 20), Konkurrenztabellen aus der öffentlichen iTunes-Suche, vorläufige Punkte für die Kriterien, die sich ohne Messung schätzen lassen; keine Umsätze, keine Rangliste | prüfst K.-o.-Fragen und 60-Sekunden-Test, wählst 5, misst Suche, Zahlungsbeleg und Videos selbst, entscheidest am Ideen-Tor |
 | Videos ohne Gesicht | Hooks, Folientexte, Bildideen, Skripte für Bildschirmaufnahmen, Auswertung | baust die Slideshows (10–20 min je Stück), nimmst Bildschirm und Hände auf, postest von Hand |
 | Creator (nach Signal) | Suche, Entwürfe für persönliche Anfragen, Briefing, Vertragsvorlage | schreibst jede Anfrage einzeln, bezahlst nach dem Posten (bzw. gibst die Zahlung auf der Plattform erst dann frei), prüfst die Kennzeichnung |
 | Kennzahlen | Auswertung aus RevenueCat und App Store Connect, Vorschläge | entscheidest |
@@ -812,7 +812,7 @@ schon bezahlt.
 | Mi 25.11. | 1 h | Missing Semester: Shell (Teil 1). | Terminal-Grundlagen |
 | Do 26.11. | 1 h | Gespräch mit deinen Eltern: Abschnitt 3 zeigen. Wer soll im App Store stehen, du oder ein Elternteil? Darf ihre Anschrift ins Impressum? Würde ein Elternteil im Sommer eine laufende App übernehmen (Abschnitt 14)? Noch nichts entscheiden, nur verstehen; die Namensfrage entscheidet ihr bis So 13.12. **Karte:** Hast du keine eigene Visa- oder Mastercard (Debit reicht, sie muss in US-Dollar zahlen können), beantragst du sie diese Woche bei deiner Bank zum Girokonto; sie kommt oft erst nach 1–2 Wochen. Du brauchst sie ab KW 53 für das Guthaben der Claude API und später für Apple (oder du meldest dich bei Apple über die Developer-App an). Für die ETH-Gebühr im Dezember geht notfalls die Karte deiner Eltern. | Fragen geklärt, Karte beantragt, Namensfrage bis 13.12., Zusage zur Übernahme im Januar |
 | Fr 27.11. | 1 h | Missing Semester: Shell (Teil 2) und Git (Teil 1). | Terminal- und Git-Grundlagen |
-| Sa 28.11. | 5 h | 2 h: Expo-Tutorial „StickerSmash“ mit Erklärungen von Claude. 2 h: Ideensuche mit Claude nach [`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md): 10 Kandidaten, davon gehen 5 in die Prüfung. 1 h: privates Repository `vorlage` auf GitHub, `CLAUDE.md` aus [`vorlagen/CLAUDE_md_fuer_die_app.md`](vorlagen/CLAUDE_md_fuer_die_app.md), [`vorlagen/checkliste_einreichung.md`](vorlagen/checkliste_einreichung.md) als `docs/checkliste-einreichung.md` kopieren, leere `docs/review-log.md` und `docs/entscheidungen.md` anlegen; solange Max noch läuft, legt Claude damit das leere Vorlagen-Projekt an. | 5 Ideen für die Prüfung, Vorlage im Repository |
+| Sa 28.11. | 5 h | 2 h: Expo-Tutorial „StickerSmash“ mit Erklärungen von Claude. 2 h: Ideen nach [`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md): etwa 20 Kandidaten sammeln (12 von Claude, deine eigenen, der Pool aus 04), K.-o.-Fragen und 60-Sekunden-Test; 5 gehen in die Prüfung. 1 h: privates Repository `vorlage` auf GitHub, `CLAUDE.md` aus [`vorlagen/CLAUDE_md_fuer_die_app.md`](vorlagen/CLAUDE_md_fuer_die_app.md), [`vorlagen/checkliste_einreichung.md`](vorlagen/checkliste_einreichung.md) als `docs/checkliste-einreichung.md` kopieren, leere `docs/review-log.md` und `docs/entscheidungen.md` anlegen; solange Max noch läuft, legt Claude damit das leere Vorlagen-Projekt an. | 5 Ideen für die Prüfung, Vorlage im Repository |
 | So 29.11. | frei | – | – |
 
 ---
@@ -850,8 +850,10 @@ jedes Arbeitspaket (AP1–AP22) in
   Gründungsberatung anfragen.
 - **Ideen-Tor (Entscheidung Sa 19.12.) und Messpunkt M0 (So 20.12.):** eine
   Idee für App 1, die zweitbeste als Reserve für App 2; `SPEC.md` steht; die
-  App zeigt eine echte KI-Antwort und die Paywall. Hat eine Klausurwoche die
-  Prüfung verschoben, liegt das Ideen-Tor spätestens am Mo 28.12.
+  App zeigt eine echte KI-Antwort. Die Paywall kommt im Durchstich am
+  Mi 23.12. dazu. In den Fällen, die 04 in Abschnitt 7 nennt (z. B. eine
+  Klausurwoche hat die Prüfung verschoben), liegt das Ideen-Tor spätestens am
+  Mo 28.12.
 - **No-Go-Regel:** Besteht keine Idee, wird nicht gegründet und kein
   Apple-Konto gekauft. Du lernst weiter, baust nur die Pakete, die keine Idee
   brauchen, und prüfst nach der ETH-Bewerbung fünf neue Ideen (Entscheidung bis
@@ -1034,7 +1036,7 @@ jedes Arbeitspaket (AP1–AP22) in
 |---|---|---|---|
 | **Namensfrage** So 13.12. | Steht fest, wer im App Store steht? | Apple-Anmeldung Mo 14.–Mi 16.12. | Apple-Anmeldung und Durchstich rutschen |
 | **Zwischenstand Ideen** Sa 12.12. | Erfüllt mindestens eine Idee alle Mindestwerte? | Apple-Anmeldung Mo 14.–Mi 16.12. | Apple erst nach dem Ideen-Tor |
-| **M0 / Ideen-Tor** Sa 19.12. / So 20.12. | Besteht eine Idee (Mindestwerte, Slideshow-Test, Ablauf-Test)? `SPEC.md`, echte KI-Antwort und Paywall in der App? | weiter | **No-Go:** nicht gründen, kein Apple-Konto; weiter lernen; fünf neue Ideen nach der ETH-Bewerbung, Entscheidung bis Sa 09.01. |
+| **M0 / Ideen-Tor** Sa 19.12. / So 20.12. | Besteht eine Idee (Mindestwerte, Slideshow-Test, Ablauf-Test)? `SPEC.md` und echte KI-Antwort in der App? | weiter; fehlt `SPEC.md` oder die KI-Antwort, holst du sie am Mi 23.12. zuerst nach | **No-Go** (keine Idee besteht): nicht gründen, kein Apple-Konto; weiter lernen; fünf neue Ideen nach der ETH-Bewerbung, Entscheidung bis Sa 09.01. |
 | **Stunden-Messpunkt** Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant ~32)? | bis ~40: weiter wie geplant | 40–60: App 1 kleiner schneiden; über 60: Einreichung erst nach dem Abitur einplanen |
 | **M1** Sa 09.01. | ETH-Bewerbung abgeschickt? AP10–AP17 fertig? | weiter | ETH-Bewerbung hat Vorrang, fehlende Pakete in KW 02–04 |
 | **M2** App 1 halb fertig (Kriterien in KW 01; im Median am 18.01.) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen. Ist M2 bis Mo 01.03. nicht erreicht, wird erst nach der letzten Prüfung gegründet |

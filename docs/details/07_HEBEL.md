@@ -128,7 +128,7 @@ Ausgangslage ist der Plan vom 23.11. mit Verkaufsstopp am 15.08.
 |---|---:|---:|---:|---:|---|---|
 | Kosten senken (Abschnitt 5) | 6,7 | −568 € | −450 € | **+624 €** | 0 €, etwa 10–16 Stunden bis 2028 | Preisseiten und Gesetz; Abschluss selbst ist eine Schätzung |
 | schneller bauen, review-fest planen (Abschnitt 8) | 3,8 | −1.164 € | −1.009 € | +65 € | 0 €, etwa 6–10 Stunden Einrichtung | Herstellerangaben ohne Zeitmessung |
-| Markt (Deutsch zuerst) und Ideenwahl | 2,7 | −1.186 € | −1.078 € | −4 € | 0 €, etwa 7–10 Stunden | Schätzung; beide Wirkungen heben sich auf |
+| Markt (Deutsch zuerst) und Ideenwahl | 2,7 | −1.186 € | −1.078 € | −4 € | 0 €, etwa 10–15 Stunden | Schätzung; beide Wirkungen heben sich auf |
 | zweite Signalprüfung am 28.06. | 2,7 | −1.185 € | −1.074 € | 0 € | 0 € | Messung der Post-Reichweite; Wirkung im Modell null |
 
 **Alle vier zusammen** (der „Plan mit Hebeln“): Gewinn in 8,8 von 100,
