@@ -240,10 +240,11 @@ Was in jedem Fall geht, damit möglichst wenig von dir sichtbar wird:
 - eine eigene Telefonnummer nur für die App, also eine Prepaid- oder
   Zweitnummer statt deiner Handynummer. Apple prüft sie mit einem Code.
 - ein Postfach für die EU-Seite bei Apple (mit Nachweis);
-- eine Projekt-E-Mail auf deiner Domain;
+- ein eigenes Projekt-Postfach als Anmeldeadresse für alle Konten (ab KW 48)
+  und eine Support-Adresse auf deiner Domain (ab der Gründung);
 - Markenkonten ohne Gesicht und ohne Stimme, **getrennt von deiner privaten
   Identität**:
-  - nur mit Projekt-E-Mail und Zweitnummer anlegen;
+  - nur mit Projekt-Postfach bzw. Support-Adresse und Zweitnummer anlegen;
   - keine Kontakte synchronisieren und bei TikTok unter Einstellungen →
     Datenschutz → „Dein Konto anderen vorschlagen“ alles ausschalten;
   - keinem privaten Kontakt folgen und das Markenkonto nicht mit deinem
@@ -355,7 +356,7 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
   kennzeichnen „Werbung“ und nutzen „Paid partnership“.
 - Kein automatisches Posten, Kommentieren oder Versenden über inoffizielle
   Werkzeuge; keine Massenanfragen an Creator.
-- Kundendaten (Fotos, Support-Mails) nur über Dienste mit Vertrag zur
+- Kundendaten (Eingaben, Support-Mails) nur über Dienste mit Vertrag zur
   Auftragsverarbeitung, nie über dein privates Claude-Abo.
 
 ---
@@ -496,19 +497,24 @@ Claude darf sie ausführen, das Ergebnis siehst du dir selbst an:
    (`supabase secrets set`). Die Datei `.env` steht in `.gitignore`.
 2. **Die Server-Funktion prüft bei jedem Aufruf selbst**, ob die
    mitgeschickte App-User-ID ein aktives Abo hat (REST-API von RevenueCat),
-   und zählt ein Tageslimit je App-User-ID. Ohne diese Prüfung wird sie
+   und zählt eine Tagesgrenze je App-User-ID (zum Start 30 Antworten je
+   Abonnent und Tag). Ohne diese Prüfung wird sie
    zum offenen Zugang, über den Fremde dein API-Budget leerziehen können.
    Genau diesen Fehler hatte in einer Untersuchung ein Drittel der
    betroffenen iOS-Apps mit KI-Funktion.
 3. **Zugriffsregeln (RLS)** auf jeder Tabelle, keine Regel `using (true)`.
    Der Security Advisor von Supabase zeigt null Fehler.
-4. **Ausgabenlimit in der Anthropic-Konsole als Notbremse:** vor dem Start
-   50 $ im Monat, danach jeden Sonntag anpassen (aktive Nutzer × 0,03 $,
-   vorsichtig × 0,18 $, davon das Dreifache).
+4. **Ausgabengrenze in der Anthropic-Konsole als Notbremse:** vor dem Start
+   nur 5–10 $ Prepaid-Guthaben ohne automatisches Nachladen; ab dem Start
+   Nachladen an, mit einem Monatslimit (zum Start 25–50 $), das du jeden
+   Sonntag anpasst (aktive Nutzer × 0,03 $, vorsichtig × 0,18 $, davon das
+   Dreifache).
 5. Repository und App nach Schlüsseln durchsuchen (`git grep`, GitHub Secret
    Scanning).
-6. **Getrennte Projekte für Test und Betrieb.** Der Agent bekommt keine
-   Zugangsdaten für den Betrieb, und Backups sind an.
+6. **Getrennte Projekte für Test und Betrieb** (das Testprojekt in einer
+   eigenen Gratis-Organisation). Claude bekommt keine Zugangsdaten für den
+   Betrieb. Im Gratis-Tarif gibt es keine Backups; das Tabellen-Schema liegt
+   deshalb als Migration im Repository.
 7. **Von außen testen:** Ein Aufruf ohne aktives Abo muss scheitern.
 8. Ein neues Supabase-Projekt gleich mit den neuen Schlüsseln anlegen, weil
    die alten Ende 2026 wegfallen.
@@ -826,24 +832,31 @@ jedes Arbeitspaket (AP1–AP22) in
 - **Bauen (~4 h je Woche):** Projekt mit dem Expo-Gerüst, zwei Sprachdateien
   und fünf leere Bildschirme (AP1–AP2), Supabase-Funktion mit echter
   KI-Antwort (AP4–AP5), RevenueCat mit fertiger Paywall (AP6).
-- **Ideenwahl (~7–10 h über drei Wochen):** fünf Ideen mit K.-o.-Fragen,
-  Nachfrageprüfung und Bewertungstabelle
+- **Ideenwahl (~10–15 h von Sa 28.11. bis Sa 19.12.):** fünf Ideen mit
+  K.-o.-Fragen, Nachfrageprüfung und Bewertungstabelle, dazu Slideshow-Test,
+  Namensprüfung und ein Ablauf-Test in Expo Go mit fünf Erwachsenen
   ([`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md)). Eigene Markenkonten
   gibt es erst ab der Gründung, wegen des Impressums.
 - **Namensfrage bis So 13.12.:** du oder ein Elternteil (Abschnitt 3).
 - **Apple Developer Program Mo 14.–Mi 16.12.** (99 €), wenn die Namensfrage
-  entschieden ist und das Ideen-Tor absehbar bestanden wird. Automatische
-  Verlängerung gleich abschalten. Kommt nach 24 Stunden keine Bestätigung,
-  wendest du dich an Apple.
+  entschieden ist und das Ideen-Tor absehbar bestanden wird: Am Sa 12.12.
+  erfüllt mindestens eine Idee alle Mindestwerte. Automatische Verlängerung
+  gleich abschalten. Kommt nach 24 Stunden keine Bestätigung, wendest du dich
+  an Apple.
 - **Verwaltung vorbereiten (~1 h):** ELSTER-Benutzerkonto anlegen (mit dem
   Online-Ausweis sofort, sonst kommt ein Brief, der bis zu zwei Wochen
   braucht); PIN des Personalausweises prüfen; nachsehen, wie deine Gemeinde
   die Gewerbeanmeldung online annimmt; Termin der kostenlosen
   Gründungsberatung anfragen.
-- **Ideen-Tor und Messpunkt M0 (So 20.12.):** eine Idee für App 1, die
-  zweitbeste für App 2; `SPEC.md` steht; die App zeigt eine echte KI-Antwort
-  und die Paywall. **No-Go-Regel:** Erreicht keine Idee die Mindestwerte, wird
-  nicht gegründet; du lernst weiter und prüfst bis Mo 28.12. neue Ideen.
+- **Ideen-Tor (Entscheidung Sa 19.12.) und Messpunkt M0 (So 20.12.):** eine
+  Idee für App 1, die zweitbeste als Reserve für App 2; `SPEC.md` steht; die
+  App zeigt eine echte KI-Antwort und die Paywall. Hat eine Klausurwoche die
+  Prüfung verschoben, liegt das Ideen-Tor spätestens am Mo 28.12.
+- **No-Go-Regel:** Besteht keine Idee, wird nicht gegründet und kein
+  Apple-Konto gekauft. Du lernst weiter, baust nur die Pakete, die keine Idee
+  brauchen, und prüfst nach der ETH-Bewerbung fünf neue Ideen (Entscheidung bis
+  Sa 09.01.). Besteht auch dann keine, gründest du nicht vor dem Abitur
+  ([`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md), Abschnitt 7).
 
 ### KW 52 (21.–27.12.), ~9 h – Durchstich
 
@@ -1020,7 +1033,8 @@ jedes Arbeitspaket (AP1–AP22) in
 | Messpunkt | Frage | Ja | Nein |
 |---|---|---|---|
 | **Namensfrage** So 13.12. | Steht fest, wer im App Store steht? | Apple-Anmeldung Mo 14.–Mi 16.12. | Apple-Anmeldung und Durchstich rutschen |
-| **M0 / Ideen-Tor** So 20.12. | Erreicht eine Idee die Mindestwerte? `SPEC.md`, echte KI-Antwort und Paywall in der App? | weiter | **No-Go:** nicht gründen, bis Mo 28.12. neue Ideen prüfen, weiter lernen |
+| **Zwischenstand Ideen** Sa 12.12. | Erfüllt mindestens eine Idee alle Mindestwerte? | Apple-Anmeldung Mo 14.–Mi 16.12. | Apple erst nach dem Ideen-Tor |
+| **M0 / Ideen-Tor** Sa 19.12. / So 20.12. | Besteht eine Idee (Mindestwerte, Slideshow-Test, Ablauf-Test)? `SPEC.md`, echte KI-Antwort und Paywall in der App? | weiter | **No-Go:** nicht gründen, kein Apple-Konto; weiter lernen; fünf neue Ideen nach der ETH-Bewerbung, Entscheidung bis Sa 09.01. |
 | **Stunden-Messpunkt** Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant ~32)? | bis ~40: weiter wie geplant | 40–60: App 1 kleiner schneiden; über 60: Einreichung erst nach dem Abitur einplanen |
 | **M1** Sa 09.01. | ETH-Bewerbung abgeschickt? AP10–AP17 fertig? | weiter | ETH-Bewerbung hat Vorrang, fehlende Pakete in KW 02–04 |
 | **M2** App 1 halb fertig (Kriterien in KW 01; im Median am 18.01.) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen. Ist M2 bis Mo 01.03. nicht erreicht, wird erst nach der letzten Prüfung gegründet |
@@ -1148,7 +1162,7 @@ Alle Schritte stehen in
       „Entwicklung und Vertrieb von Software-Apps“
 - [ ] Fragebogen zur steuerlichen Erfassung in ELSTER (Gewinn ehrlich
       schätzen, Umsatzsteuer-Identifikationsnummer mit beantragen)
-- [ ] Zweitnummer, Projekt-E-Mail, Domain, Website mit Impressum und
+- [ ] Zweitnummer, Support-Adresse auf der Domain, Website mit Impressum und
       Datenschutzerklärung
 - [ ] Apple Developer Program als Einzelperson (99 €; eigene Kreditkarte oder
       Anmeldung über die Apple-Developer-App; Zwei-Faktor-Anmeldung) ist seit
@@ -1300,22 +1314,12 @@ gib mir eine Übung, die ich selbst mache. Schreib die Lösung erst, wenn ich
 darum bitte.
 ```
 
-**Ideen (KW 48)** – der erste Schritt; die Prüfung der fünf besten Ideen
-mit K.-o.-Fragen und Bewertungstabelle steht in
-[`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md)
-```
-Suche 10 Ideen für eine iPhone-Abo-App mit einer KI-Funktion. Bedingungen:
-Menschen geben dafür schon Geld aus; der Moment, in dem die App beeindruckt,
-lässt sich ohne Gesicht zeigen (Bildschirmaufnahme oder Slideshow); keine
-Gesundheit, kein Abnehmen, keine Finanzen, kein Dating, keine Diagnose; keine
-Kopie einer bekannten App; Zielgruppe Erwachsene (keine Apps für Schüler,
-Lernen oder Hausaufgaben); reine Text-App nach dem Muster „ein Formular, ein
-Ergebnis, Verlauf auf dem Gerät“, mit Claude Code für einen Anfänger in
-~130 Stunden baubar; keine Nutzerkonten, keine Kamera; eine falsche Antwort
-darf niemanden eine Frist, Geld oder ein Recht kosten. Für jede Idee: Zielgruppe, Kernfunktion,
-Magic Moment, drei Konkurrenten mit Preis, Risiko beim App Review, Aufwand.
-Am Ende eine Rangliste mit Begründung.
-```
+**Ideen (Sa 28.11.) und Ideenprüfung (bis Sa 19.12.)** – die Vorlagen stehen in
+[`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md), Abschnitt 10: Kandidaten
+sammeln, Tabelle vorfüllen, 60-Sekunden-Test, Entscheidungsblatt und `SPEC.md`.
+Claude nennt dabei keine Umsätze und keine Rangliste: Es hat keine
+Umsatzdaten, und eine frühe Rangfolge verfälscht die Messung, die du selbst
+machst.
 
 **Slideshows (ab der Gründung)**
 ```
@@ -1475,14 +1479,14 @@ Läufe ~39 €. Mit Ferienjob und Übergabe steht alles zusammen in
 |---|---|
 | Du kommst mit den Grundlagen nicht voran | Lernmodus, kleinere Schritte, ein Thema je Woche; im Zweifel App 1 noch kleiner schneiden |
 | App 1 ist am 14.03. nicht fertig | normal (in 2 von 3 Läufen): Ruhezeit im Abitur, nach der letzten Prüfung in zwei bis drei Wochen fertig |
-| Am 20.12. erreicht keine Idee die Mindestwerte | No-Go-Regel: nicht gründen, kein Apple-Konto kaufen; bis Mo 28.12. neue Ideen prüfen, weiter lernen |
+| Am 20.12. besteht keine Idee | No-Go-Regel: nicht gründen, kein Apple-Konto kaufen, weiter lernen; nach der ETH-Bewerbung fünf neue Ideen prüfen, Entscheidung bis Sa 09.01.; besteht auch dann keine, erst nach dem Abitur weiter ([`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md), Abschnitt 7) |
 | Du bekommst keinen Ferienjob | ab Ende Juni zwei Zeitarbeitsfirmen für einen festen Beginn anfragen; im Modell klappt es in 70–85 von 100 Fällen |
 | Der Gratis-Server pausiert | im Supabase-Dashboard wiederherstellen; war eine App mit Zahlern betroffen, auf Pro wechseln |
 | Apple lehnt ab | Grund ins Review-Log, kleinste Änderung, neu einreichen; Ablehnungen bei der ersten App sind normal |
 | Videos bekommen kaum Aufrufe | anderes Format, nicht mehr Videos desselben Formats; nach 15–20 Posts ohne Signal ein neues Format |
 | Claude läuft im Kreis | Sitzung beenden, erst erklären lassen, dann ein kleineres Ziel |
 | Pro-Limit bremst in den Ferien | Arbeit über den Tag verteilen. Stoppt das Limit in der ersten Ferienwoche an mindestens zwei Tagen die Arbeit: genau einen Monat Max, danach zurück auf Pro |
-| Kosten der KI-Funktion steigen | Bild kleiner, Antworten kürzer, Tageslimit je App-User-ID senken, prüfen, ob Aufrufe ohne Abo durchkommen; Ausgabenlimit mit der Zahl der Zahler anheben |
+| Kosten der KI-Funktion steigen | Antworten kürzer (Länge über den Prompt steuern), Tagesgrenze je App-User-ID senken, prüfen, ob Aufrufe ohne Abo durchkommen; Monatslimit mit der Zahl der Zahler anheben |
 | Datenpanne oder offener Schlüssel | Schlüssel sofort sperren und neu anlegen; prüfen, welche Daten betroffen sein können; Vorfall schriftlich festhalten (Art. 33 Abs. 5 DSGVO). Lässt sich ein Risiko nicht ausschließen: **binnen 72 Stunden** beim Landesbeauftragten für den Datenschutz Niedersachsen (LfD) melden (vorläufige Meldung reicht, die Frist läuft auch am Wochenende); bei hohem Risiko die Betroffenen benachrichtigen (Art. 34) |
 | Ein Creator postet ohne Kennzeichnung | sofort korrigieren lassen; du haftest mit |
 | Gewinn liegt dauerhaft über ~590 € im Monat | Krankenkasse informieren, eigene Versicherung einplanen (~280 € im Monat) |

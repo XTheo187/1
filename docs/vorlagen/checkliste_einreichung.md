@@ -5,12 +5,14 @@
 
 - [ ] Kernfunktion auf dem echten iPhone **und iPad** geprüft, auch ohne Netz (Meldung statt Absturz)
 - [ ] Einwilligung vor dem ersten KI-Aufruf: Anbieter und Daten genannt (5.1.2(i))
-- [ ] Harte Paywall ohne Umschalter; Preis deutlicher als jede Testphase; Laufzeit, Verlängerung und Kündigung klar (3.1.2)
+- [ ] Harte Paywall ohne Umschalter und in App 1 ohne Testphase; Preis, Laufzeit, Verlängerung und Kündigung klar (3.1.2); Wochenabo vorausgewählt; keine erfundene Dringlichkeit
 - [ ] „Käufe wiederherstellen“ vorhanden (3.1.1)
 - [ ] Links zu Datenschutz und Nutzungsbedingungen auf der Paywall und in App Store Connect (5.1.1)
 - [ ] Abo-Gruppe und alle Abos angelegt und zusammen mit dieser App-Version eingereicht
 - [ ] Kein Hinweis auf Käufe außerhalb der App
-- [ ] Nur Wochen- und Monatsabo (kein Jahresabo vor Juli 2027)
+- [ ] Nur Wochenabo (6,99 €) und Monatsabo (14,99 €); kein Jahresabo ohne feststehenden Nachfolger; Apps, die nach dem 04.07. erscheinen, nur mit Wochenabo
+- [ ] Länderpreise (Österreich, Schweiz, USA, Großbritannien) gesetzt und gegen die Erlös-Spalte in App Store Connect geprüft
+- [ ] Abos haben Anzeigename und Beschreibung auf Deutsch und Englisch und einen Screenshot für das Review
 - [ ] Impressum in der App erreichbar
 - [ ] Nur fürs iPhone: in `app.json` `ios.supportsTablet: false`; trotzdem auf dem iPad testen (Apple prüft dort im Kompatibilitätsmodus)
 - [ ] Screenshots vom eigenen iPhone, fehlende Größen in Canva auf das verlangte Format gesetzt (Inhalt bleibt die echte App)
@@ -22,21 +24,24 @@
 - [ ] Keine Gesundheitsversprechen, keine Diagnose, keine fremden Marken
 - [ ] Eigene Kernfunktion, keine Variante einer bekannten App (4.3)
 - [ ] Datenschutzangaben in App Store Connect passen zur App
-- [ ] Fotos werden nach der Analyse nicht gespeichert
-- [ ] Supabase Pro aktiv (ab dem Start)
+- [ ] Eingaben werden auf dem Server nicht gespeichert, der Verlauf liegt nur auf dem Gerät
+- [ ] Review-fest: geführter Ablauf statt leerem Chat, Verlauf auf dem Gerät, Kopieren und Teilen, Knopf „Antwort melden“ als E-Mail-Link, Kontaktadresse in der App (1.2, 4.2)
+- [ ] Neue Angaben in App Store Connect beantwortet (für eine Text-Schreibhilfe: „Shared Location“ und „Dating and Relationships“ jeweils nein)
+- [ ] Review-Notizen: was die App tut, wo die KI läuft, auf welchem Bildschirm die Paywall erscheint, wie der Prüfer mit einem Sandbox-Kauf alles sieht
+- [ ] Supabase im Gratis-Tarif: die Wachregel (zweimal je Woche eine echte Anfrage aus der eigenen App) steht im Kalender; ist eine App mit zahlenden Abonnenten in den Abiturmonaten live, für diese Monate Pro
 
 ## Sicherheit (Mindestprüfung, Claude führt aus, du siehst dir das Ergebnis an)
 
 - [ ] Kein Schlüssel in der App; KI- und RevenueCat-Schlüssel nur als Supabase-Geheimnis; `.env` in `.gitignore`
-- [ ] Server-Funktion prüft bei jedem Aufruf das aktive Abo der App-User-ID über RevenueCat und zählt ein Tageslimit
+- [ ] Server-Funktion prüft bei jedem Aufruf das aktive Abo der App-User-ID über RevenueCat (Sandbox-Käufe des Prüfers nicht ablehnen) und zählt eine Tagesgrenze (Start: 30 Antworten je Abonnent und Tag)
 - [ ] RLS auf jeder Tabelle, keine Regel `using (true)`, Security Advisor ohne Fehler
-- [ ] Ausgabenlimit in der Anthropic-Konsole passend zur Nutzerzahl
+- [ ] Anthropic-Konsole: vor dem Start Guthaben ohne Nachladen; ab dem Start Nachladen mit Monatslimit passend zur Nutzerzahl
 - [ ] Repository und App nach Schlüsseln durchsucht (`git grep`, GitHub Secret Scanning)
-- [ ] Test- und Betriebsprojekt getrennt, Backups an, Claude ohne Zugang zum Betrieb
+- [ ] Test- und Betriebsprojekt getrennt (Testprojekt in eigener Gratis-Organisation), Tabellen-Schema als Migration im Repository (im Gratis-Tarif keine Backups), Claude ohne Zugang zum Betrieb
 - [ ] Von außen getestet: Aufruf ohne aktives Abo scheitert
 
 ## Zum Schluss
 
 - [ ] Eigene Messereignisse nur mit Einwilligung (§ 25 TDDDG)
-- [ ] Hinweise für das Review: was die App tut, wie man die Paywall testet
+- [ ] `docs/UEBERGABE.md` auf dem neuesten Stand
 - [ ] docs/review-log.md gelesen

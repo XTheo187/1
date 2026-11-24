@@ -5,7 +5,10 @@ Hauptverzeichnis des App-Repositorys kopieren und die Teile in eckigen
 Klammern ausfüllen.)
 
 ## Worum es geht
-- App: [Name], Zielgruppe: [wer], Kernfunktion: [Foto oder Eingabe → Ergebnis].
+- App: [Name], Zielgruppe: [wer], Kernfunktion: [geführter Ablauf mit 3–6 Fragen →
+  strukturiertes Text-Ergebnis]. Reine Text-App: keine Kamera, keine Fotos, kein
+  Mikrofon, kein Standort, keine Push-Mitteilungen, kein Tracking.
+- Beschreibung der App in `SPEC.md`; was nicht drinsteht, wird nicht gebaut.
 - Anbieter: [dein Name bzw. der des Elternteils], Einzelunternehmen. Ich bin
   Schüler, arbeite in Schulwochen ~10 Stunden je Woche, in den Ferien und im
   Sommer deutlich mehr, in Q4 höchstens 6–7 und im Abitur fast gar nicht.
@@ -14,9 +17,15 @@ Klammern ausfüllen.)
 - Ich arbeite unter Windows ohne Mac, teste auf iPhone und iPad.
 - Technik: Expo (React Native, TypeScript, Expo Router), EAS Build und
   `eas submit`, RevenueCat für Abos und Paywall, Supabase-Funktion für den
-  KI-Aufruf (Claude Haiku 5.5 über meinen eigenen API-Schlüssel).
-- Keine Nutzerkonten, keine Inhalte, die andere Nutzer sehen, nur Wochen- und
-  Monatsabo (kein Jahresabo vor Juli 2027).
+  KI-Aufruf (Claude API mit `claude-haiku-5-5` über meinen eigenen
+  API-Schlüssel), Supabase im Gratis-Tarif.
+- Zwei Sprachen von Anfang an: alle Texte in zwei Sprachdateien (Deutsch und
+  Englisch), deutsche Geräte sehen Deutsch, alle anderen Englisch.
+- Keine Nutzerkonten, keine Inhalte, die andere Nutzer sehen. Verlauf und
+  Favoriten nur auf dem Gerät; Kopieren und Teilen über das Teilen-Menü.
+- Nur Wochenabo (6,99 €, vorausgewählt) und Monatsabo (14,99 €). Keine
+  Testphase, kein Jahresabo, kein „lebenslang“. Apps, die nach dem 04.07.2027
+  erscheinen, nur mit Wochenabo.
 
 ## Wie du arbeitest
 - Ich lerne mit. Arbeite im Lernmodus: erkläre jede Entscheidung, lass mich an
@@ -51,12 +60,19 @@ Klammern ausfüllen.)
   kein KI-Aufruf.
 - Keine Tabelle ohne Zugriffsregeln (Row Level Security), keine Regel
   `using (true)`; der Security Advisor zeigt null Fehler.
-- Fotos werden nach der Analyse nicht gespeichert.
+- Eingaben werden auf dem Server nicht gespeichert; der Verlauf liegt nur auf
+  dem Gerät.
+- Nichts Wichtiges im Schlüsselbund (z. B. `expo-secure-store`) ablegen: Nach
+  einer Übertragung der App an ein anderes Apple-Konto funktioniert er nur bis
+  zum nächsten Update.
 - Vor dem ersten KI-Aufruf fragt die App um Erlaubnis und nennt den
   Anbieter (Apple 5.1.2(i)).
-- Die Paywall ist hart (kein Umschalter für eine Testphase), nennt Preis,
-  Laufzeit und Verlängerung und hat „Käufe wiederherstellen“ sowie Links zu
-  Datenschutz und Nutzungsbedingungen.
+- Die Paywall ist hart und hat keine Testphase und keinen Umschalter. Sie nennt
+  Preis, Laufzeit, Verlängerung und den Weg zur Kündigung und hat „Käufe
+  wiederherstellen“ sowie Links zu Datenschutz und Nutzungsbedingungen. Keine
+  erfundene Dringlichkeit, kein Countdown, kein Tagespreis.
+- Ein Knopf „Antwort melden“ öffnet eine E-Mail an die Support-Adresse
+  (Richtlinie 1.2); die Kontaktadresse steht in der App.
 - Kein Code, der in sozialen Netzwerken postet, kommentiert oder Nachrichten
   verschickt.
 - Keine Kundendaten in dieser Sitzung: keine Support-Mails, keine Fotos von
@@ -70,15 +86,31 @@ Klammern ausfüllen.)
 - Impressum in der App erreichbar (Einstellungen).
 
 ## Kosten
-- Tageslimit für KI-Aufrufe je App-User-ID, gezählt auf dem Server
-  (Start: [z. B. 20]).
-- Bilder vor dem Senden verkleinern, Antworten kurz halten.
-- In der Anthropic-Konsole ist ein Ausgabenlimit als Notbremse gesetzt und
-  wird jede Woche an die Nutzerzahl angepasst; bei Fehlern der API (400 bei
-  erreichtem Limit, 429 bei zu vielen Anfragen) zeigt die App eine
+- Tagesgrenze für KI-Aufrufe je App-User-ID, gezählt auf dem Server in der
+  Tabelle „nutzung“ (Start: 30 Antworten je Abonnent und Tag). Jede Anfrage
+  schreibt dort eine Zeile; das zählt auch als Aktivität, damit das
+  Gratis-Projekt nicht pausiert.
+- Antworten kurz halten: `max_tokens` 700–900, die Länge über den Prompt
+  steuern; die Abbruchgründe `max_tokens` und `refusal` sind Fehlerfälle mit
+  verständlicher Meldung.
+- Die Anfrage an die API enthält nur `model`, `max_tokens`, `system` und
+  `messages`. Die Modell-ID steht als Geheimnis in der Supabase-Funktion, damit
+  sie sich ohne App-Update tauschen lässt.
+- In der Anthropic-Konsole: vor dem Start nur 5–10 $ Guthaben ohne
+  automatisches Nachladen; ab dem Start Nachladen an mit einem Monatslimit,
+  das jede Woche an die Nutzerzahl angepasst wird. Bei Fehlern der API (400
+  bei erreichtem Limit, 429 bei zu vielen Anfragen) zeigt die App eine
   freundliche Meldung statt abzustürzen.
+- Kein bezahlter Dienst (Supabase Pro, EAS-Abo, Max) ohne meine ausdrückliche
+  Entscheidung.
 
 ## Dateien, die du pflegst
+- `SPEC.md`: die Beschreibung der App (eine Seite).
 - `docs/review-log.md`: jede Ablehnung durch Apple mit Grund und Lösung.
+- `docs/UEBERGABE.md`: Konten, wo die Schlüssel liegen, Kosten je Monat,
+  Modell-ID und wie man sie ändert, fünf Testeingaben, Schritte bei einer
+  Störung – so, dass jemand ohne Programmierkenntnisse die App betreiben kann.
+- Das Tabellen-Schema als Migration im Repository (im Gratis-Tarif gibt es
+  keine Backups).
 - `docs/checkliste-einreichung.md`: Prüfliste vor jeder Einreichung.
 - `docs/entscheidungen.md`: wichtige Entscheidungen mit einem Satz Begründung.

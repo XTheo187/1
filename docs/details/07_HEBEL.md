@@ -469,10 +469,11 @@ So liest du das:
 | wann | was | Stunden | steht in |
 |---|---|---|---|
 | Do 26.11. | Elterngespräch: Namensfrage ansprechen und fragen, ob ein Elternteil eine laufende App im Sommer übernehmen würde | 0,5 | Hauptplan, Abschnitt 3 |
-| KW 49–51 | fünf Ideen prüfen mit K.-o.-Fragen, Nachfrageprüfung und Bewertungstabelle | 7–10 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
+| Sa 28.11.–Sa 19.12. | fünf Ideen prüfen mit K.-o.-Fragen, Nachfrageprüfung, Bewertungstabelle, Slideshow-Test und Ablauf-Test | 10–15 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
+| Sa 12.12. | Zwischenstand: erfüllt eine Idee alle Mindestwerte? Nur dann Apple in KW 51 | 0,2 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
 | bis So 13.12. | Namensfrage entscheiden | – | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
-| Mo 14.–Mi 16.12. | Apple Developer Program kaufen (99 €), automatische Verlängerung abschalten – nur wenn das Ideen-Tor absehbar bestanden wird | 1 | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
-| So 20.12. | Ideen-Tor mit No-Go-Regel | 1 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
+| Mo 14.–Mi 16.12. | Apple Developer Program kaufen (99 €), automatische Verlängerung abschalten – nur wenn der Zwischenstand am Sa 12.12. passt | 1 | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
+| Sa 19.12. / So 20.12. | Ideen-Tor mit No-Go-Regel | 1 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
 | Weihnachtsferien | drei Bewerbungen für den Ferienjob (befristet 19.07.–31.08. oder bis 10.09.) | 1–2 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
 | Di 29.12. | Stunden-Messpunkt nach dem Durchstich | 0,5 | [`02_BAUPLAN_APP1.md`](02_BAUPLAN_APP1.md) |
 | Januar | schriftliche Zusage des Elternteils (eine Seite); Oberstufenkoordination fragen, wann die mündlichen Prüfungen liegen | 1 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
