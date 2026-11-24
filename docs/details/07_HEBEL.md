@@ -220,9 +220,12 @@ dieser Fälle über 5.200 €.
   (Übergabe-Mappe).
 - Das Elternteil braucht sein eigenes Apple-Konto mit allen Verträgen
   spätestens Anfang Juli, sonst gilt im August nicht der niedrige Apple-Satz.
-- Die Übergabe ist eine echte Schenkung. Das Elternteil wird Unternehmer mit
-  eigenem Impressum, eigenem Gewerbe und eigener Steuer. Ein Elternteil nur
-  als Namen einzutragen, während du das Geschäft führst, ist nicht erlaubt.
+- Die Übergabe ist eine echte Schenkung ohne Gewinnbeteiligung, schriftlich
+  und binnen drei Monaten dem Finanzamt angezeigt (§ 30 ErbStG). Das
+  Elternteil wird Unternehmer mit eigenem Impressum, eigenem Gewerbe und
+  eigener Steuer und beantragt das Small Business Program selbst (Genehmigung
+  bis Sa 31.07.). Ein Elternteil nur als Namen einzutragen, während du das
+  Geschäft führst, ist nicht erlaubt.
 
 **Wo es steht:** [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md).
 
@@ -364,7 +367,11 @@ Von der Gegenprüfung verworfen oder stark gekürzt:
   automatisches Posten über inoffizielle Werkzeuge; gekaufte Aufrufe oder
   Bewertungen; erfundene Ergebnisse; Schalter „Testphase an/aus“; erfundene
   Dringlichkeit auf der Paywall; ein Elternteil nur als Name; Gewerbe erst
-  nach den ersten Verkäufen anmelden.
+  nach den ersten Verkäufen anmelden; Bewertungen von dir, deiner Familie oder
+  Freunden oder gegen eine Gegenleistung; Creator je Aufruf bezahlen;
+  Ausgaben erfinden oder verschieben, um unter ~590 € Monatsgewinn zu
+  bleiben; Abos nach der Gewerbeabmeldung weiterlaufen lassen; in App Store
+  Connect „kein Händler“ angeben.
 
 ---
 
@@ -540,9 +547,14 @@ mit höchstens 750 € Creator-Geld, strenge Trefferquoten mit Lernkurve.
 - **Der Ferienjob zählt mit dem vollen Lohn,** obwohl ein Teil (die
   Lohnsteuer) erst 2028 zurückkommt und der Augustlohn oft erst Mitte
   September ausgezahlt wird.
-- **Nicht gerechnet:** Erstattungen an Nutzer (2–8 % des Umsatzes), eine
-  Verlängerung des Jobs bis 10.09. (bis rund +1.000 €), Einkommensteuer auf
-  einen Gewinn (bei diesen Beträgen keine).
+- **Nicht gerechnet:** Erstattungen an Nutzer (2–8 % des Umsatzes); eine
+  Verlängerung des Jobs bis 10.09. (64 Stunden, rund +930 bis +1.180 €; weil
+  das Modell den Lohn nur bis So 29.08. zählt, sind bis 10.09. insgesamt
+  80 Stunden ungezählt, rund +1.170 bis +1.480 €); Einkommensteuer: keine,
+  solange App-Gewinn (einschließlich eines Verkaufsgewinns) plus Ferienjoblohn
+  minus 1.230 € unter dem Grundfreibetrag bleiben (2026: 12.348 €, 2027 noch
+  offen) – mit Ferienjob also bis grob 9.000 € App-Gewinn. Darüber fällt
+  Steuer an, und die Lohnsteuer kommt nicht ganz zurück.
 - **Zwei Hinweise außerhalb der App,** beide ungeprüft: Auslands-BAföG für ein
   ganzes Studium in der Schweiz und ein Stipendium über einen Schulvorschlag.
   Beides kann mehr Geld bedeuten als jeder Hebel in diesem Dokument. Näheres

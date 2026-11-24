@@ -105,7 +105,7 @@ Einzelheiten in [`details/07_HEBEL.md`](details/07_HEBEL.md)):
 | Stand 23.11. | jetzt | Folge |
 |---|---|---|
 | Einnahmen bis 31.08. voll gezählt | Apple verlangt mindestens 31 Tage zwischen „Abo aus dem Verkauf nehmen“ und dem Ende des Dienstes | ohne Nachfolger: Verkaufsstopp So 15.08., Dienstende Mi 15.09. Richtig gerechnet lag der Plan vom 23.11. bei 2,7 statt 6,2 von 100 Läufen mit Gewinn |
-| Erstberatung beim Steuerberater, Abschluss für 0–800 € | kostenlose Gründungsberatung, Kleinunternehmer, Abschluss selbst über ELSTER (20–500 €) | zusammen mit den nächsten drei Zeilen: Medianverlust der App −558 € statt −1.184 € |
+| Erstberatung beim Steuerberater, Abschluss für 0–800 € | Gründungsberatung der IHK statt Steuerberater (ob kostenlos, vorher fragen), Kleinunternehmer, Abschluss selbst über ELSTER (20–500 €) | zusammen mit den nächsten drei Zeilen: Medianverlust der App −558 € statt −1.184 € |
 | Supabase Pro ab dem Start | Supabase im Gratis-Tarif, bis ein Signal da ist | ~27 € je Monat weniger nach dem Start |
 | Claude Pro durchgehend, Max in einzelnen Monaten | Ruhezeit im Abitur (Entscheidung am So 14.03.), Max höchstens einen Monat | ~40–60 € weniger, kein Bau im Abitur |
 | nach dem Ende der Jagd laufen die Abos weiter | am selben Tag alles kündigen, was Betrieb und Abschluss nicht brauchen | ~15 € je Monat weniger |
@@ -153,8 +153,9 @@ Einzelheiten in [`details/07_HEBEL.md`](details/07_HEBEL.md)):
    Abos aus dem Verkauf, der Dienst läuft bis Mi 15.09., und am Do 16.09.
    oder Fr 17.09. entfernst du die App und meldest das Gewerbe ab. Besser: Ein Elternteil sagt im Januar schriftlich zu, eine
    laufende App zu übernehmen, oder du verkaufst sie (Abschnitt 14).
-8. **Die Kosten sind halbiert.** Kleinunternehmer, kostenlose
-   Gründungsberatung, Abschluss selbst über ELSTER, Server im Gratis-Tarif,
+8. **Die Kosten sind halbiert.** Kleinunternehmer, Gründungsberatung der IHK
+   statt Steuerberater (ob kostenlos, vorher fragen), Abschluss selbst über
+   ELSTER, Server im Gratis-Tarif,
    Ruhezeit im Abitur. Die App kostet im Median rund 560 € statt rund
    1.180 € (Abschnitt 17).
 
@@ -217,15 +218,22 @@ Ist dir dein Name im App Store zu viel, gibt es zwei ehrliche Wege:
     Entwicklerteam. Geräte registrieren und die Zertifikate für EAS-Builds
     anlegen geht nur mit seiner Anmeldung und seinem Zwei-Faktor-Code. Prüft
     vorher, ob ein API-Schlüssel des Elternteils für EAS das ersetzen kann.
-  - **Rechtlich:** App und Gewinn gehören dem Elternteil. Es haftet
-    unbeschränkt, versteuert den Gewinn und meldet die Nebentätigkeit seinem
-    Arbeitgeber, falls der Arbeitsvertrag das verlangt (als Beamter:
-    genehmigen lassen). Geld, das es dir gibt, ist eine Schenkung (vom
-    Elternteil an dich bis 400.000 € steuerfrei; umgekehrt, von dir an ein
-    Elternteil, sind es 20.000 €).
+  - **Rechtlich:** App und Gewinn gehören dem Elternteil. Es entscheidet mit,
+    trägt das Risiko, zahlt die Rechnungen, haftet unbeschränkt, versteuert
+    den Gewinn und meldet die Nebentätigkeit seinem Arbeitgeber, falls der
+    Arbeitsvertrag das verlangt (als Beamter: genehmigen lassen). Du arbeitest
+    unentgeltlich mit; eine Gewinnbeteiligung vereinbart ihr nicht. Gibt es dir
+    regelmäßig Geld aus dem Gewinn, spricht das dafür, dass in Wahrheit du das
+    Geschäft führst: Dann kann das Finanzamt die Einkünfte dir zurechnen, und
+    die Krankenkasse zählt sie. Eine echte, freiwillige Schenkung ist vom
+    Elternteil an dich bis 400.000 € je Elternteil in zehn Jahren steuerfrei
+    (von dir an ein Elternteil 20.000 €) und binnen drei Monaten dem Finanzamt
+    schriftlich anzuzeigen (§ 30 ErbStG). Frag vorher in der
+    Gründungsberatung: „Wem werden die Einkünfte zugerechnet, wenn das
+    volljährige Kind unentgeltlich mitarbeitet?“
   - Das geht nur, wenn das Elternteil es wirklich will und versteht. Ein
-    „Strohmann“, hinter dem du nach außen die Firma führst, schützt keinen
-    von euch.
+    Strohmann – das Elternteil steht nur auf dem Papier, während in Wahrheit
+    du das Geschäft führst – schützt keinen von euch.
 - **Gar nicht veröffentlichen:** App 1 als Lernprojekt bauen, im Sommer mit
   einem Organisationskonto oder dem Elternteil entscheiden. Das kostet die
   meisten Chancen, weil dann der Sommer fehlt.
@@ -331,9 +339,11 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
   minus Kosten. Er muss regelmäßig unter ~590 € im Monat bleiben (Grenze
   2027, 1/7 der Bezugsgröße von 4.130 €, vorbehaltlich Bundesrat; 2026:
   565 €).
-  - **So rechnet die Kasse:** Sie schätzt deinen regelmäßigen Monatsgewinn
-    vorausschauend, maßgeblich ist am Ende der Steuerbescheid. Ein
-    einzelner starker Monat zählt nicht, ein dauerhaft höherer Gewinn schon.
+  - **So rechnet die Kasse:** Sie schätzt deinen Gewinn 2027 vorausschauend
+    und teilt ihn durch 12; maßgeblich ist am Ende der Steuerbescheid. Ein
+    starker Monat zählt deshalb mit seinem ganzen Gewinn im Jahreswert: Liegt
+    der Jahresgewinn über ~7.080 € (12 × 590 €), endet die
+    Familienversicherung, auch wenn das Geld aus einem einzigen Monat kommt.
   - **Was du tust:** Zeichnet sich ab, dass dein Gewinn 2027 zusammen über
     ~7.000 € liegt, meldest du es der Kasse.
   - **Stunden:** Sie zählen nach den Hinweisen der Krankenkassen nur
@@ -349,9 +359,15 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
 **Recht**
 - Ein Markenkonto je Plattform (ein zweites, klar erkennbares TikTok-Konto
   erst nach einem Formatnachweis, [`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md),
-  Abschnitt 7.6), klar als App erkennbar, mit Link auf das Impressum. **Keine Konten, die unabhängige Nutzer vortäuschen**, keine
-  gekauften oder gefälschten Bewertungen, keine KI-Personen, die eine
-  Erfahrung mit der App bezeugen.
+  Abschnitt 7.6). Jedes Konto trägt den Namen der App und den
+  Impressum-Link, und deine Konten liken oder kommentieren sich nie
+  gegenseitig. **Keine Konten, die unabhängige Nutzer vortäuschen**, keine
+  gekauften oder gefälschten Bewertungen und keine Bewertungen von dir, deiner
+  Familie oder Freunden (auch nicht von TestFlight-Testern) oder gegen eine
+  Gegenleistung, keine KI-Personen, die eine Erfahrung mit der App bezeugen.
+- Keine Ausgaben erfinden oder verschieben, um unter der Grenze der
+  Familienversicherung zu bleiben; in App Store Connect nie „kein Händler“
+  angeben; keine Abos nach der Gewerbeabmeldung weiterlaufen lassen.
 - Auf TikTok bei jedem Post den Schalter für kommerzielle Inhalte auf „Your
   brand“ und nur Musik aus der Commercial Music Library. Bezahlte Creator
   kennzeichnen „Werbung“ und nutzen „Paid partnership“.
@@ -401,10 +417,13 @@ Bewusst **nicht** in App 1:
 - **Fremde Tracking- und Analyse-SDKs:** Auch eigene Messereignisse
   („Paywall gesehen“) nur mit Einwilligung (§ 25 TDDDG). Ohne Einwilligung
   wertest du nur aus, was ohnehin anfällt: Downloads, Käufe, Zahl der
-  KI-Aufrufe.
-- **Fotos und Kamera:** App 1 ist eine reine Text-App. Eingaben gehen an die
-  KI-Funktion und werden nicht gespeichert; der Verlauf liegt nur auf dem
-  Gerät.
+  KI-Aufrufe und die freiwillige, sofort gezählte Antwort auf die
+  Herkunftsfrage (Checkliste D).
+- **Fotos und Kamera:** App 1 ist eine reine Text-App. Eingaben gehen über
+  deine Server-Funktion an Anthropic. Deine Funktion speichert sie nicht;
+  Anthropic löscht API-Eingaben und -Antworten nach eigener Angabe binnen
+  30 Tagen (bei Verdacht auf Verstöße bis zu 2 Jahre). Der Verlauf liegt nur
+  auf dem Gerät.
 - **Testphase:** App 1 hat keine. Das Geld kommt am ersten Tag, und die
   Signalprüfung am Tag 21 misst drei volle Wochen.
 - **Jahresabos:** Du ziehst im September um. Ein Jahresabo verpflichtet dich,
@@ -412,12 +431,18 @@ Bewusst **nicht** in App 1:
   (6,99 €, vorausgewählt) und Monatsabo (14,99 €); kein Jahresabo, solange du
   Inhaber bist (ein Nachfolger entscheidet nach der Übertragung selbst). Apps,
   die nach dem 04.07. erscheinen, bieten nur das Wochenabo an.
-- **Nutzerinhalte, die andere sehen** (Teilen, Profile): Dann bräuchtest du
-  Filter, Melden, Blockieren und veröffentlichte Kontaktdaten (Richtlinie 1.2).
+- **Nutzerinhalte, die andere sehen** (Teilen in der App, Profile): Dann
+  bräuchtest du zusätzlich Blockieren. Richtlinie 1.2 gilt aber auch für
+  KI-Apps, die Inhalte erzeugen: Filter (feste Anweisungen an das Modell,
+  Längenbegrenzung), Knopf „Antwort melden“ mit zeitnaher Antwort und
+  veröffentlichte Kontaktangaben braucht deshalb auch App 1.
 - **Minderjährige als Zielgruppe:** Die App richtet sich an Erwachsene. Keine
   Apps für Schüler, Lernen oder Hausaufgaben. Die Nutzungsbedingungen sagen
   „ab 18“, die Altersfreigabe in App Store Connect beantwortest du ehrlich.
-  Das vermeidet Fragen der Einwilligung Minderjähriger (DSGVO) und passt zu den
+  Das verringert Fragen der Einwilligung Minderjähriger (DSGVO), schließt sie
+  aber nicht aus: Laden kann die App, wer die Altersfreigabe im Store erfüllt.
+  Ob für die Einwilligung vor dem ersten KI-Aufruf bei unter 16-Jährigen
+  Art. 8 DSGVO greift, prüfst du vor der Einreichung. Die Regel passt zu den
   Nutzungsregeln der Claude API.
 
 ---
@@ -564,8 +589,15 @@ steht der Überblick.
   im App Store“).
   Solange TikTok keinen klickbaren Link anbietet (ohne
   Unternehmensverifizierung meist erst ab 1.000 Followern; mit Verifizierung
-  steht der Name des Inhabers im Profil, siehe 05, Abschnitt 5.3), schreibst du die Web-Adresse der Impressum-Seite als Text in die
-  Bio, z. B. „Impressum: deineapp.de/impressum“, nie deine Postanschrift.
+  steht der Name des Inhabers im Profil, siehe 05, Abschnitt 5.3), schreibst
+  du die Web-Adresse der Impressum-Seite als Text in die Bio, z. B.
+  „Impressum: deineapp.de/impressum“, nie deine Postanschrift. Das
+  beanstandet laut Leitfaden der Landesanstalt für Kommunikation
+  Baden-Württemberg eine Medienanstalt „gegenwärtig nicht“; für Niedersachsen,
+  Gerichte und Mitbewerber ist das nicht verbindlich (Restrisiko einer
+  Abmahnung). Bietet TikTok einen Link an, stellst du sofort um. Im Impressum
+  der Website steht: „Dieses Impressum gilt auch für unsere Profile bei
+  TikTok, Instagram und YouTube: @[Name].“
 - **Format testen:** viele Varianten eines Formats, Hook in der ersten Sekunde
   bzw. auf der ersten Folie. Claude liefert je Tag 10 Hook-Varianten und die
   Folientexte, du baust die Slideshow in Canva (etwa 14 Minuten je Post) und
@@ -1119,8 +1151,14 @@ Alle Schritte stehen in
   schriftlich befristet bis Di 31.08. (32 Arbeitstage, 256 Stunden) oder
   gleich bis Fr 10.09.
   - **Geld:** bei 14,60 € je Stunde (Mindestlohn 2027) 3.738 €, bei 15,87 €
-    4.063 €, bei 18,50 € 4.736 €. Sozialabgaben fallen nicht an. Die
-    Lohnsteuer wird zunächst einbehalten (ausgezahlt 84–88 %) und kommt 2028
+    4.063 €, bei 18,50 € 4.736 €. Sozialabgaben fallen nicht an, wenn der
+    Arbeitgeber dich als kurzfristig und nicht berufsmäßig beschäftigt meldet
+    (Schulentlassener mit Studienabsicht; höchstens 3 Monate oder
+    70 Arbeitstage im Kalenderjahr, alle kurzfristigen Jobs 2027 zusammen). Ob
+    ein Studium in der Schweiz genauso zählt, nennt keine Quelle
+    ausdrücklich: vor der Unterschrift beim Arbeitgeber oder bei der
+    Minijob-Zentrale schriftlich fragen. Die Lohnsteuer wird zunächst
+    einbehalten (ausgezahlt 84–88 %) und kommt 2028
     über die Steuererklärung zurück.
   - **Familienversicherung:** Lohn aus einer kurzfristigen Beschäftigung
     zählt nicht als regelmäßiges Einkommen. Lass es vor der Unterschrift von
@@ -1136,9 +1174,9 @@ Alle Schritte stehen in
 
   | Ausgang | wann | was geschieht |
   |---|---|---|
-  | **einstellen** | unter ~150 € Monatsgewinn | So 15.08. Abos aus dem Verkauf, Abonnenten informieren, Server und KI laufen bis Mi 15.09., am Do 16.09. oder Fr 17.09. App entfernen |
-  | **übergeben** an ein Elternteil | ab ~150 € Monatsgewinn und schriftliche Zusage aus dem Januar | das Elternteil hat seit Anfang Juli ein eigenes Apple-Konto mit allen Verträgen (Small Business Program genehmigt bis Sa 31.07.); Übertragung der App gestartet bis So 15.08.; echte Schenkung, das Elternteil wird Unternehmer mit eigenem Impressum, Gewerbe und Steuer. Das Geld danach gehört dem Elternteil |
-  | **verkaufen** | ab 300 $ Monatsumsatz und 8 Wochen im Store | Angebot auf einem Marktplatz mit ehrlichen Zahlen, sobald beides erfüllt ist; klappt in etwa einem von vier solchen Fällen und bringt netto etwa 1,7–10 Monatsgewinne (typisch rund 4); Rückfall am So 08.08. (Umschalttag) ist die Übergabe |
+  | **einstellen** | unter ~150 € Monatsgewinn | So 15.08. Abos aus dem Verkauf, Hinweis in App und Website, Abonnenten informieren, ab dann keine Posts und keine Werbung mehr für diese App; Server und KI laufen bis Mi 15.09. (vorher in RevenueCat prüfen, dass kein Abo mehr aktiv ist); am Do 16.09. oder Fr 17.09. App entfernen, Markenkonten schließen |
+  | **übergeben** an ein Elternteil | ab ~150 € Monatsgewinn und schriftliche Zusage aus dem Januar | das Elternteil hat seit Anfang Juli ein eigenes Apple-Konto mit Vertrag für bezahlte Apps, Bank-, Steuer- und Händlerangaben und genehmigtem Small Business Program (ein eigener Antrag; Genehmigung bis Sa 31.07., dann gilt der niedrige Satz ab Mo 16.08.); Übertragung der App gestartet bis So 15.08.; echte Schenkung ohne Gewinnbeteiligung, schriftlich, binnen drei Monaten dem Finanzamt angezeigt (§ 30 ErbStG); das Elternteil prüft vorher, ob es schon Kleinunternehmer ist, und wird Unternehmer mit eigenem Impressum, Gewerbe und Steuer. Das Geld danach gehört dem Elternteil; von Zürich aus arbeitest du nicht gegen Geld mit |
+  | **verkaufen** | ab 300 $ Monatsumsatz und 8 Wochen im Store | Angebot auf einem Marktplatz mit ehrlichen Zahlen, sobald beides erfüllt ist; klappt in etwa einem von vier solchen Fällen und bringt netto etwa 1,7–10 Monatsgewinne (typisch rund 4); Rückfall am So 08.08. (Umschalttag) ist die Übergabe. Vor der Unterschrift die Krankenkasse schriftlich fragen (der Verkauf eines ganzen Betriebs zählt nach den Hinweisen der Kassen nicht als regelmäßiges Einkommen) und alles Wesentliche in einem Vorgang verkaufen, den Rest gleichzeitig aufgeben; Übergangsrechnung und Steuer klärst du in der bezahlten Einzelstunde |
 
 - **Weiterlaufen lassen von Zürich aus: nein.** Mit Gewerbe in Zürich kommen
   eine Anmeldung bei der SVA, Schweizer Steuern und AHV-Beiträge hinzu, und
@@ -1160,8 +1198,8 @@ Alle Schritte stehen in
   dafür die Kündigungsklausel oder Probezeit, die du hineingeschrieben hast.
 - Danach wie Weg A. Verkaufen oder Übergeben ist hier meist die beste Wahl,
   weil die App messbaren Umsatz hat.
-- Achte auf die Familienversicherung (Gewinn über ~590 € im Monat) und melde
-  Gewinne der Krankenkasse.
+- Achte auf die Familienversicherung (Jahresgewinn 2027 über ~7.080 €, also
+  im Schnitt über ~590 € im Monat) und melde Gewinne der Krankenkasse.
 
 ### Weg C – ein echter Treffer (~0,3 von 100)
 
@@ -1188,11 +1226,16 @@ Alle Schritte stehen in
       Finanzamt. Eine bezahlte Einzelstunde beim Steuerberater nur, wenn am
       31.07. Einnahmen da sind oder Verzicht, Verkauf, Übergabe oder
       Fortführung anstehen (Festpreis vorher vereinbaren)
-- [ ] **Kleinunternehmerregelung anwenden** (kein Verzicht). Bei reinem
-      App-Store-Vertrieb zählen die Apple-Erlöse in Deutschland nicht, aber
-      Leistungen aus dem Ausland (Claude API, Apple-Gebühr, Werbung) kosten
+- [ ] **Kleinunternehmerregelung anwenden** (kein Verzicht). Die
+      Apple-Erlöse zählen nicht zur Umsatzgrenze der Kleinunternehmerregelung
+      (in Deutschland nicht umsatzsteuerbar); für EÜR, Einkommensteuer und
+      Familienversicherung zählen sie voll. Rechnungen ausländischer Anbieter
+      ohne deutsche Umsatzsteuer (z. B. Supabase Pro, Expo, Werbung; bei der
+      Claude API und der Apple-Gebühr auf der Rechnung prüfen) kosten
       Kleinunternehmer 19 % Umsatzsteuer nach § 13b, die sie nicht
-      zurückbekommen
+      zurückbekommen. Weist die Rechnung deutsche Umsatzsteuer aus, entfällt
+      § 13b. Fiele § 13b auf eine Rechnung vom Dezember 2026, fragst du das
+      Finanzamt, ob dafür eine Erklärung 2026 nötig ist
 - [ ] Finanzamt schriftlich gefragt, ob es für § 13b Voranmeldungen verlangt
       oder die Jahreserklärung genügt; Antwort abgelegt
 - [ ] Gewerbe online bei deiner Gemeinde anmelden (~20–65 €), Tätigkeit z. B.
@@ -1213,8 +1256,12 @@ Alle Schritte stehen in
 - [ ] Du weißt, welche Post nach der Anmeldung echt ist (Abschnitt 18,
       „Formularfallen“)
 
-### B – Apple (nach der Anmeldung)
+### B – Apple
 
+**Nach der Apple-Anmeldung (KW 51):**
+- [ ] iPhone und iPad registriert, Entwicklermodus an
+
+**Erst am Tag nach der Gewerbeanmeldung, nie vorher:**
 - [ ] Paid Apps Agreement, Bankverbindung, Steuerformular
 - [ ] EU-Händlerangaben: Adresse oder Postfach mit Nachweis, Zweitnummer,
       E-Mail
@@ -1222,7 +1269,6 @@ Alle Schritte stehen in
       beantragt (in den EU-Stores 15 % statt 26 %, sonst 15 % statt 30 %; der
       niedrigere Satz gilt erst ab dem 16. Tag nach Ende des
       Apple-Fiskalmonats der Genehmigung)
-- [ ] iPhone und iPad registriert, Entwicklermodus an
 
 ### C – Vor jeder Einreichung
 
@@ -1236,7 +1282,21 @@ Alle Schritte stehen in
 - [ ] Links zu Datenschutzerklärung und Nutzungsbedingungen in der App und in
       App Store Connect
 - [ ] Abo-Gruppe und Abos zusammen mit dieser Version eingereicht
-- [ ] Impressum in der App erreichbar (z. B. in den Einstellungen)
+- [ ] Impressum, Datenschutzerklärung, Nutzungsbedingungen und „Käufe
+      wiederherstellen“ ohne Abo erreichbar: als Links direkt auf der Paywall
+      (zusätzlich in den Einstellungen)
+- [ ] Richtlinie 1.2: feste Anweisungen und Längenbegrenzung als Filter,
+      Knopf „Antwort melden“ (E-Mail-Link), Kontaktadresse in der App; in den
+      Review-Notizen: Ausgaben sieht nur der Nutzer selbst, und auf welchem
+      Bildschirm die Paywall erscheint
+- [ ] Datenschutzangaben („App-Datenschutz“) in App Store Connect passen zur
+      App: Eingabetext geht an Anthropic und bleibt dort bis zu 30 Tage,
+      RevenueCat verarbeitet Kennung und Käufe – nicht „Keine Daten erfasst“
+      wählen; Apples Definition vor dem Ausfüllen lesen
+- [ ] Vor der ersten Einreichung geprüft, ob du als Anbieter der App nach
+      Art. 50 Abs. 2 KI-Verordnung KI-erzeugte Texte maschinenlesbar
+      kennzeichnen musst und wie (z. B. in geteilten Ergebnissen); die
+      Recherche hat das nicht geprüft
 - [ ] App 1 nur fürs iPhone: in `app.json` `ios.supportsTablet: false` (Expo-
       Vorlagen setzen teils `true`). Apple prüft sie trotzdem auf dem iPad,
       also dort weiter testen; iPad-Screenshots entfallen
@@ -1257,17 +1317,27 @@ Alle Schritte stehen in
 ### D – Datenschutz
 
 - [ ] Verträge zur Auftragsverarbeitung mit Anthropic (API), Supabase,
-      RevenueCat und dem Anbieter von Website und E-Mail
+      RevenueCat, Expo (wenn `expo-updates` eingebaut ist; vor dem Schritt
+      prüfen, ob Expo einen Vertrag anbietet) und dem Anbieter von Website und
+      E-Mail
 - [ ] Eingaben werden nach der Antwort nicht auf dem Server gespeichert; der
       Verlauf liegt nur auf dem Gerät
 - [ ] Eigene Messereignisse nur mit Einwilligung (§ 25 TDDDG)
 - [ ] Keine Gesundheitsdaten (Art. 9 DSGVO) erheben
-- [ ] Datenschutzerklärung nennt alle Dienste und dich als Verantwortlichen
+- [ ] Datenschutzerklärung nennt alle Dienste mit Speicherdauer (Anthropic
+      bis 30 Tage) und dich als Verantwortlichen
+- [ ] Onboarding-Frage „Woher kennst du die App?“: freiwillig mit
+      „Überspringen“, die Antwort wird sofort und ohne App-User-ID gezählt und
+      steht in der Datenschutzerklärung. Sie wird nicht auf dem Gerät
+      gespeichert, um sie später mitzuschicken; eine Zuordnung zu Zahlern nur
+      mit Einwilligung (§ 25 TDDDG) oder gar nicht. Rechtlich ungeprüft: vor
+      dem Einbau klären
 - [ ] Ein KI-Support wäre als KI erkennbar (KI-Verordnung Art. 50)
 
 ### E – Videos ohne Gesicht
 
-- [ ] Markenkonto klar als App erkennbar, Impressum-Link im Profil
+- [ ] Markenkonto klar als App erkennbar, Impressum-Link im Profil (bei
+      TikTok notfalls als Text), das Website-Impressum nennt die Profile
 - [ ] TikTok: Schalter „Your brand“, nur Commercial Music Library
 - [ ] Keine erfundenen Erfahrungen, keine KI-Personen als „Nutzer“
 - [ ] Realistische KI-Bilder gekennzeichnet
@@ -1290,8 +1360,13 @@ Alle Schritte stehen in
       Nutzungsrechte nur für den Post
 - [ ] Keine Spark-Ads-Rechte von Creatorn im Ausland, bevor § 50a EStG geklärt
       ist
-- [ ] Honorare an selbstständige Privatpersonen mitschreiben (über 1.000 € im
-      Jahr: Künstlersozialabgabe 5,0 %)
+- [ ] Alle Honorare an selbstständige Kreative im Kalenderjahr zusammenzählen
+      (Creator, auch Icon, Logo, Texte). Über 1.000 € fällt
+      Künstlersozialabgabe auf die ganze Summe an (2026: 4,9 %, 2027 laut
+      Entwurf 5,0 %), dazu die Meldung an die Künstlersozialkasse bis 31.03.
+      des Folgejahres (vor dem Schritt prüfen). Ob UGC-Creator darunter fallen,
+      klärst du vor der ersten Buchung
+      ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md), Abschnitt 10)
 - [ ] Kennzeichnung nach dem Posten selbst geprüft
 
 ### G – Kennzahlen je App und Woche
@@ -1314,11 +1389,15 @@ Sommer). Vorlage: [`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.csv).
       Datenschutzerklärung am Tag der Übertragung umgestellt
 - [ ] Einstellen: **So 15.08.** alle Abos aus dem Verkauf genommen (App Store
       Connect → Apps → App → Monetarisierung → Abonnements → Abo-Gruppe →
-      Abo → Verfügbarkeit → aus dem Verkauf nehmen → Sichern); Abonnenten
-      informiert; Server und KI laufen bis zum Dienstende weiter
+      Abo → Verfügbarkeit → aus dem Verkauf nehmen → Sichern); Hinweis in App
+      und Website; Abonnenten informiert; ab dann keine Posts und keine Werbung
+      mehr für diese App; Server und KI laufen bis zum Dienstende weiter
+- [ ] **Mi 15.09.** (letzter Tag des Dienstes): in RevenueCat geprüft, dass
+      kein Abo mehr aktiv ist (sonst Dienst für diesen Abonnenten weiter und
+      den Entwickler-Support fragen)
 - [ ] **Do 16.09. oder Fr 17.09.** (nach dem Dienstende am Mi 15.09.,
       mindestens 31 Tage nach dem Verkaufsstopp): App entfernt, Server
-      abgeschaltet
+      abgeschaltet, Markenkonten geschlossen
 - [ ] Werkzeuge gekündigt bzw. zum Laufzeitende beendet: Claude Pro (erst,
       wenn die Summen für die EÜR erstellt sind), Supabase, EAS (falls
       bezahlt), Prepaid-Zweitnummer; in der Anthropic-Konsole automatisches
@@ -1330,8 +1409,14 @@ Sommer). Vorlage: [`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.csv).
 - [ ] Gewerbe abgemeldet (0–32,50 €), falls nichts weiterläuft
 - [ ] Belege vollständig für die EÜR 2027; ELSTER-Zertifikat gesichert; ein
       Elternteil ist beim Finanzamt als Empfangsbevollmächtigter benannt
-- [ ] Deutsches Konto bleibt offen, bis die letzte Apple-Zahlung da ist
-      (spätestens November)
+- [ ] Deutsches Konto, Apple-Vertrag und Bankverbindung bleiben, bis die
+      letzte Apple-Zahlung da ist (üblich um Do 30.09.2027 und Do 28.10.2027,
+      spätestens Di 12.10.2027 bzw. Di 09.11.2027); neue Vertragsfassungen bei
+      Apple bis dahin annehmen. Zahlungen, die am Tag der Abmeldung noch offen
+      sind, als Einnahme 2027 in die EÜR
+      ([`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md), Abschnitt 8);
+      mit der Mitteilung über die Aufgabe des Betriebs das Finanzamt fragen,
+      wie sie zu erfassen sind
 - [ ] Krankenkasse über das Ende des Gewerbes informiert und schriftlich
       geklärt, ob die Familienversicherung (und damit die Europäische
       Krankenversicherungskarte für die Befreiung in Zürich) beim Studium in
@@ -1505,7 +1590,10 @@ Läufe ~39 €. Mit Ferienjob und Übergabe steht alles zusammen in
   erlaubt.
 - **Belegtabelle ab dem ersten Beleg** (Datum, Betrag, Zweck, PDF). Auf
   Rechnungen aus dem Ausland ohne deutsche Umsatzsteuer rechnest du selbst
-  19 % und meldest sie 2028 in der Umsatzsteuererklärung (§ 13b).
+  19 % und meldest sie in der Umsatzsteuer-Voranmeldung für den Monat bzw.
+  das Quartal der Rechnung (§ 18 Abs. 4a UStG), es sei denn, das Finanzamt hat
+  dir schriftlich geantwortet, dass die Jahreserklärung genügt (Checkliste A).
+  In jedem Fall stehen sie 2028 in der Umsatzsteuererklärung 2027.
 
 ---
 
@@ -1553,8 +1641,9 @@ Deine eigene Zahl ist genauer als jede Schätzung hier.
 
 Modell `plan/plan_500k.py`, 300.000 Läufe je Variante. „Geld“ ist deine
 Vermögensänderung bis zum Schluss, einschließlich Abmeldung, Steuererklärung
-und gegebenenfalls eigener Krankenversicherung (vor Einkommensteuer; bis
-~12.500 € Jahresgewinn fällt keine an).
+und gegebenenfalls eigener Krankenversicherung (vor Einkommensteuer: ohne
+Ferienjob fällt bis ~12.300 € Jahresgewinn keine an, mit Ferienjob nur bis
+grob 9.000 € App-Gewinn, weil der Lohn mitzählt).
 
 ### Stand 24.11.: Plan mit Hebeln
 
