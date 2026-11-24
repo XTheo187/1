@@ -33,7 +33,7 @@
 ## Sicherheit (Mindestprüfung, Claude führt aus, du siehst dir das Ergebnis an)
 
 - [ ] Kein Schlüssel in der App; KI- und RevenueCat-Schlüssel nur als Supabase-Geheimnis; `.env` in `.gitignore`
-- [ ] Server-Funktion prüft bei jedem Aufruf das aktive Abo der App-User-ID über RevenueCat (Sandbox-Käufe des Prüfers nicht ablehnen) und zählt eine Tagesgrenze (Start: 30 Antworten je Abonnent und Tag)
+- [ ] Server-Funktion prüft bei jedem Aufruf das aktive Abo der App-User-ID über RevenueCat (den Abo-Status darf sie einige Minuten zwischenspeichern; Sandbox-Käufe des Prüfers nicht ablehnen) und zählt eine Tagesgrenze (Start: 30 Antworten je Abonnent und Tag)
 - [ ] RLS auf jeder Tabelle, keine Regel `using (true)`, Security Advisor ohne Fehler
 - [ ] Anthropic-Konsole: vor dem Start Guthaben ohne Nachladen; ab dem Start Nachladen mit Monatslimit passend zur Nutzerzahl
 - [ ] Repository und App nach Schlüsseln durchsucht (`git grep`, GitHub Secret Scanning)

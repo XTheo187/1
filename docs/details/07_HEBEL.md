@@ -78,7 +78,7 @@ seiner Gewinnläufe verdienten ihr Geld erst im August.
 |---|---|
 | Alle Abos aus dem Verkauf nehmen | So 15.08.2027 |
 | Dienst läuft weiter (Server, KI), ohne neue Einnahmen | bis Mi 15.09.2027 |
-| App entfernen, Gewerbe abmelden | ab Mi 15.09., vor dem Umzug |
+| App entfernen, Gewerbe abmelden | Do 16.09. oder Fr 17.09., vor dem Umzug |
 
 Ziehst du früher um, rücken beide Tage vor: Dienstende spätestens am Tag vor
 dem Umzug, Verkaufsstopp 31 Tage davor.
@@ -200,7 +200,7 @@ Der Hebel wirkt doppelt:
 | Ausgang | Bedingung | wie oft klappt es | was es bringt |
 |---|---|---|---|
 | einstellen | unter ~150 € Monatsgewinn | – | nichts; Verkaufsstopp 15.08. |
-| Übergabe an ein Elternteil | ab ~150 € Monatsgewinn **und** schriftliche Zusage im Januar | in 30 / 55 / 80 von 100 solchen Fällen | 0,7 / 2 / 5 Monatsgewinne in den zwölf Monaten danach, abzüglich 150–250 € (eigenes Apple-Konto, Gewerbe des Elternteils). **Das Geld gehört dann dem Elternteil,** nicht dir. |
+| Übergabe an ein Elternteil | ab ~150 € Monatsgewinn **und** schriftliche Zusage im Januar | in 30 / 55 / 80 von 100 solchen Fällen | 0,7 / 2 / 5 Monatsgewinne in den zwölf Monaten danach, abzüglich ~120–165 € für Apple-Konto und Gewerbe des Elternteils (im Modell mit Puffer 150–250 €). **Das Geld gehört dann dem Elternteil,** nicht dir. |
 | Verkauf (z. B. über Flippa) | ab 300 $ Monatsumsatz und mindestens 8 Wochen im Store | in 10 / 25 / 45 von 100 solchen Fällen | netto 1,7 / 4,3 / 10,3 Monatsgewinne |
 
 Im Modell kommt es in 16–18 von 100 Läufen zu einer Übergabe oder einem
@@ -319,7 +319,7 @@ unnötig schlecht ausgeht.
 | App zweisprachig, Videos auf Deutsch | Reichweite ist an SIM und IP gebunden; der deutsche Markt ist kleiner (Abschlag ×0,9 auf die Trefferquote), der Englisch-Test über Shorts kostet fast nichts | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
 | Wochenabo 6,99 € vorausgewählt, Monatsabo 14,99 €, keine Testphase, kein Jahresabo | entspricht den Marktwerten 2026; darunter zu bleiben verschenkt Umsatz, ein Jahresabo ohne Nachfolger ist eine Schuld | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
 | Small Business Program sofort beantragen | sonst gelten in den Startwochen 26 % statt 15 % Apple-Anteil | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
-| Zweite Signalprüfung am 28.06. für eine App, die vor dem Abitur gestartet ist | mit höchstens 3 Posts je Woche in Q4 kann eine App die 300 $ kaum zeigen; ohne zweite Prüfung würde ein Treffer zu früh abgeschrieben | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
+| Zweite Signalprüfung (21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, spätestens Di 29.06.) für eine App, die vor dem Abitur gestartet ist | mit höchstens 3 Posts je Woche in Q4 kann eine App die 300 $ kaum zeigen; ohne zweite Prüfung würde ein Treffer zu früh abgeschrieben | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
 | Keine bezahlte Verstärkung eigener Posts | 50 € Einsatz bringen typisch 6 € zurück | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
 | Apps, die nach dem 04.07. erscheinen, nur mit Wochenabo | hält den Abschluss in jedem Fall möglich | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
 | Automatische Verlängerung der Apple-Mitgliedschaft abschalten | sonst gehen im Winter 2027/28 noch einmal 99 € ab | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
@@ -480,14 +480,14 @@ So liest du das:
 | bei der Gründung | Kleinunternehmer im Fragebogen, kostenlose Gründungsberatung, Frage ans Finanzamt, Small Business Program am selben Tag wie der Vertrag für bezahlte Apps | 4–6 | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
 | ab dem ersten Beleg | Belegtabelle führen | 0,5 je Monat | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
 | So 14.03. | Ruhezeit entscheiden: keine App im Store oder im Review → Claude Pro ruht bis nach der letzten Prüfung | 0,2 | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
-| Mo 28.06. | zweite Signalprüfung für eine App, die vor dem Abitur gestartet ist | 0,2 | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
+| spätestens Di 29.06. | zweite Signalprüfung für eine App, die vor dem Abitur gestartet ist (21 Tage nach dem ersten täglichen Post nach der letzten Prüfung) | 0,2 | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
 | Ende Juni | Rückfall für den Job: zwei Zeitarbeitsfirmen anfragen | 1 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
-| Anfang Juli | zeigt eine App ein Signal: Elternteil legt sein Apple-Konto an | 2 (Elternteil) | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
+| bis Fr 02.07. | zeigt eine App Ende Juni nennenswerten Umsatz (Richtwert ~100 $ MRR, 06 Abschnitt 4.4): Elternteil schickt Gewerbe- und Apple-Anmeldung ab | 2 (Elternteil) | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
 | So 04.07. | Stichtag: keine App im Store → Job ab Mo 05.07. | – | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
 | So 18.07. | Tor 1; am Mo 19.07. Jobbeginn und alles kündigen, was nicht gebraucht wird | 1 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
 | bis Sa 31.07. | je App entscheiden: einstellen, übergeben oder verkaufen | 1 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
 | So 15.08. | ohne Nachfolger: alle Abos aus dem Verkauf nehmen | 0,5 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
-| Mi 15.09. | Dienstende, App entfernen, Gewerbe abmelden | 2 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
+| Mi 15.09. und Do 16.09./Fr 17.09. | Dienstende; danach App entfernen, Gewerbe abmelden | 4–6 (Schätzung) | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md) |
 | Frühjahr 2028 | EÜR und Steuererklärung 2027 über ELSTER; die Lohnsteuer kommt zurück | 6–12 | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
 
 ---
@@ -512,7 +512,7 @@ B = belegt, S = Schätzung.
 | Kosten je Monat nach dem Ende der Jagd | 10 / 25 / 50 | 5 / 12 / 35 | S |
 | Abschluss (€) | 0 / 300 / 800 | 20 / 80 / 500 | S |
 | Startumsatz ohne bezahlten Test (Anteil) | 0,2 / 0,4 / 0,7 | 0,2 / 0,42 / 0,7 | S |
-| zweite Signalprüfung | – | Mo 28.06. | B |
+| zweite Signalprüfung | – | 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung (im Modell die Woche ab Mo 28.06.) | B |
 | Verkaufsstopp ohne Nachfolger | nicht gerechnet | So 15.08. | B |
 | Wert nach dem Sommer | nicht gerechnet | Übergabe: ab 150 € Monatsgewinn, Chance 0,3 / 0,55 / 0,8, 0,7 / 2 / 5 Monatsgewinne minus 150–250 €; Verkauf: ab 300 $ Monatsumsatz und 8 Wochen, Chance 0,10 / 0,25 / 0,45, 1,7 / 4,3 / 10,3 Monatsgewinne | S |
 | Ferienjob | nicht gerechnet | 560 / 600 / 690 € je Woche, sechs Wochen ab 19.07. (acht ab 05.07.), Chance 0,70 / 0,78 / 0,85 | B/S |

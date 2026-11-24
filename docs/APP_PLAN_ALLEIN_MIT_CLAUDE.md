@@ -112,7 +112,7 @@ Einzelheiten in [`details/07_HEBEL.md`](details/07_HEBEL.md)):
 | Apple-Konto bei der Gründung | Apple-Konto schon in KW 51 (Mo 14.–Mi 16.12.), wenn die Idee steht | Durchstich mit echtem Gerät und Testkauf in den Weihnachtsferien |
 | Abschluss: einstellen oder verkaufen | dazu: Übergabe an ein Elternteil, das im Januar schriftlich zugesagt hat | Gewinn aus der App in 12 statt 9 von 100 Läufen, im Mittel +469 € |
 | nach dem 18.07. nur ETH-Vorbereitung und Erholung | Ferienjob Mo 19.07.–Di 31.08. als kurzfristige Beschäftigung (ab Mo 05.07., wenn dann keine App im Store ist) | alles zusammen im Plus in 82 von 100 Läufen, Median +3.191 € |
-| eine Signalprüfung drei Wochen nach dem Start | für eine App, die vor dem Abitur startet, eine zweite am Mo 28.06. | ein Treffer wird nicht wegen zu weniger Posts in Q4 abgeschrieben |
+| eine Signalprüfung drei Wochen nach dem Start | für eine App, die vor dem Abitur startet, eine zweite: 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung (spätestens Di 29.06.) | ein Treffer wird nicht wegen zu weniger Posts in Q4 abgeschrieben |
 | Ideen-Tor mit fünf Kriterien | K.-o.-Fragen, Nachfrageprüfung, Bewertungstabelle, No-Go-Regel | erreicht keine Idee die Mindestwerte, wird nicht gegründet |
 | Preise offen | Wochenabo 6,99 € vorausgewählt, Monatsabo 14,99 €, keine Testphase, kein Jahresabo | [`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md) |
 
@@ -150,8 +150,8 @@ Einzelheiten in [`details/07_HEBEL.md`](details/07_HEBEL.md)):
    noch erscheinen.
 7. **Der Abschluss braucht Vorlauf.** Apple verlangt 31 Tage zwischen
    Verkaufsstopp und Dienstende. Ohne Nachfolger nimmst du am So 15.08. alle
-   Abos aus dem Verkauf, der Dienst läuft bis Mi 15.09., dann meldest du das
-   Gewerbe ab. Besser: Ein Elternteil sagt im Januar schriftlich zu, eine
+   Abos aus dem Verkauf, der Dienst läuft bis Mi 15.09., und am Do 16.09.
+   oder Fr 17.09. entfernst du die App und meldest das Gewerbe ab. Besser: Ein Elternteil sagt im Januar schriftlich zu, eine
    laufende App zu übernehmen, oder du verkaufst sie (Abschnitt 14).
 8. **Die Kosten sind halbiert.** Kleinunternehmer, kostenlose
    Gründungsberatung, Abschluss selbst über ELSTER, Server im Gratis-Tarif,
@@ -277,7 +277,7 @@ den Abiturterminen 2027:
 | 5. Prüfungsfach und Nachschreibtermine 19.05.–07.06. | 0–5, in der Ruhezeit 0 | bei einer Präsentationsprüfung zwei Wochen gar nichts; Mo 07.06. kann noch Prüfungstag sein |
 | nach deiner letzten Prüfung bis 04.07. | 15–40 | mögliche mündliche Nachprüfung 28.–30.06., Zeugnis 01.–03.07. |
 | 05.07. bis zum Ende der Jagd (meist So 18.07.) | Mo–Sa ~9 h, So frei | davon ~6 h je Woche für Zürich (Zimmer, Unterlagen, Mathe) |
-| danach bis zum Abschluss | Ferienjob in Vollzeit; für die Apps ~5 h je Woche | abends und samstags: Zahlen, Support, Abschluss |
+| danach bis zum Abschluss | Ferienjob in Vollzeit; für die Apps 2–5 h je Woche | an zwei Werktagen je 20 Minuten Zahlen und Support, samstags bis 3 h; im August für Übergabe, Verkauf oder Stilllegung einmalig mehr ([`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md)) |
 
 Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
 
@@ -347,8 +347,9 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
     von der Höhe. Lass es dir vor der Unterschrift schriftlich bestätigen.
 
 **Recht**
-- Ein Markenkonto je Plattform, klar als App erkennbar, mit Link auf das
-  Impressum. **Keine Konten, die unabhängige Nutzer vortäuschen**, keine
+- Ein Markenkonto je Plattform (ein zweites, klar erkennbares TikTok-Konto
+  erst nach einem Formatnachweis, [`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md),
+  Abschnitt 7.6), klar als App erkennbar, mit Link auf das Impressum. **Keine Konten, die unabhängige Nutzer vortäuschen**, keine
   gekauften oder gefälschten Bewertungen, keine KI-Personen, die eine
   Erfahrung mit der App bezeugen.
 - Auf TikTok bei jedem Post den Schalter für kommerzielle Inhalte auf „Your
@@ -370,7 +371,7 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
 | Sicherheit und Datenschutz | Entwürfe, Prüflisten, führt die Prüfungen aus | siehst dir jedes Ergebnis selbst an; verantwortest |
 | App Store | Texte, Screenshot-Entwürfe, Antworten an das Review | reichst ein, gibst frei; Verträge, Bank- und Steuerdaten nur du (bzw. das Elternteil) |
 | Ideen | 12 Kandidaten zusätzlich zu deinen eigenen und dem Pool aus 04 (zusammen etwa 20), Konkurrenztabellen aus der öffentlichen iTunes-Suche, vorläufige Punkte für die Kriterien, die sich ohne Messung schätzen lassen; keine Umsätze, keine Rangliste | prüfst K.-o.-Fragen und 60-Sekunden-Test, wählst 5, misst Suche, Zahlungsbeleg und Videos selbst, entscheidest am Ideen-Tor |
-| Videos ohne Gesicht | Hooks, Folientexte, Bildideen, Skripte für Bildschirmaufnahmen, Auswertung | baust die Slideshows (10–20 min je Stück), nimmst Bildschirm und Hände auf, postest von Hand |
+| Videos ohne Gesicht | Hooks, Folientexte, Bildideen, Skripte für Bildschirmaufnahmen, Auswertung | baust die Slideshows (etwa 14 Minuten je Post, 10–18), nimmst Bildschirm und Hände auf, postest von Hand |
 | Creator (nach Signal) | Suche, Entwürfe für persönliche Anfragen, Briefing, Vertragsvorlage | schreibst jede Anfrage einzeln, bezahlst nach dem Posten (bzw. gibst die Zahlung auf der Plattform erst dann frei), prüfst die Kennzeichnung |
 | Kennzahlen | Auswertung aus RevenueCat und App Store Connect, Vorschläge | entscheidest |
 | Verwaltung | Entwürfe für Briefe und Formulare, sortiert Belege | unterschreibst, reichst ein |
@@ -392,7 +393,7 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
 | RevenueCat | Abos, Paywall, Umsatzzahlen, Abo-Prüfung für den Server | frei bis 2.500 $ Monatsumsatz | mit dem Apple-Konto |
 | Domain, Website, E-Mail | Impressum, Datenschutz, Support | ein monatlich kündbares Paket eines deutschen Anbieters mit Postfach und Webspace, ~2–5 € im Monat | bei der Gründung |
 | Zweitnummer (Prepaid) | Telefon für Apples EU-Seite | Prepaid ohne Grundgebühr, ~10 € Startpaket | bei der Gründung |
-| Canva oder CapCut (Gratisversion) | Slideshows, Untertitel | 0 € | bei der Gründung |
+| Canva oder CapCut (Gratisversion) | Slideshows, Untertitel | 0 € | in der Vorbereitung vor der Gründung ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md), Abschnitt 4) |
 
 Bewusst **nicht** in App 1:
 - **Nutzerkonten:** Dann entfällt die Pflicht zur Kontolöschung. Die
@@ -408,9 +409,9 @@ Bewusst **nicht** in App 1:
   Signalprüfung am Tag 21 misst drei volle Wochen.
 - **Jahresabos:** Du ziehst im September um. Ein Jahresabo verpflichtet dich,
   die App bis zu zwölf Monate weiterzubetreiben. Deshalb nur Wochenabo
-  (6,99 €, vorausgewählt) und Monatsabo (14,99 €); ein Jahresabo nur mit
-  feststehendem Nachfolger. Apps, die nach dem 04.07. erscheinen, bieten nur
-  das Wochenabo an.
+  (6,99 €, vorausgewählt) und Monatsabo (14,99 €); kein Jahresabo, solange du
+  Inhaber bist (ein Nachfolger entscheidet nach der Übertragung selbst). Apps,
+  die nach dem 04.07. erscheinen, bieten nur das Wochenabo an.
 - **Nutzerinhalte, die andere sehen** (Teilen, Profile): Dann bräuchtest du
   Filter, Melden, Blockieren und veröffentlichte Kontaktdaten (Richtlinie 1.2).
 - **Minderjährige als Zielgruppe:** Die App richtet sich an Erwachsene. Keine
@@ -561,8 +562,9 @@ steht der Überblick.
   Plattform (TikTok, Instagram, YouTube Shorts), auf Deutsch, mit dem Namen
   der App und dem Link „Impressum“ zur Website. Kein Datum versprechen („bald
   im App Store“).
-  Solange TikTok keinen klickbaren Link erlaubt (meist unter 1.000
-  Followern), schreibst du die Web-Adresse der Impressum-Seite als Text in die
+  Solange TikTok keinen klickbaren Link anbietet (ohne
+  Unternehmensverifizierung meist erst ab 1.000 Followern; mit Verifizierung
+  steht der Name des Inhabers im Profil, siehe 05, Abschnitt 5.3), schreibst du die Web-Adresse der Impressum-Seite als Text in die
   Bio, z. B. „Impressum: deineapp.de/impressum“, nie deine Postanschrift.
 - **Format testen:** viele Varianten eines Formats, Hook in der ersten Sekunde
   bzw. auf der ersten Folie. Claude liefert je Tag 10 Hook-Varianten und die
@@ -570,11 +572,13 @@ steht der Überblick.
   postest von Hand vom iPhone oder planst sie mit den offiziellen Werkzeugen
   der Plattform.
 - **Sieger** ist ein Post ab 15.000 Aufrufen oder dem Zehnfachen deines
-  eigenen mittleren Posts. Bestätigt ist ein Format erst, wenn zwei von drei
-  Varianten über deinem Mittel liegen.
+  Medians (der mittlere Wert der Aufrufe nach 48 Stunden deiner letzten
+  20 Posts). Bestätigt ist ein Format erst, wenn zwei von drei Varianten über
+  deinem Median liegen.
 - **Menge:** in Q4 erst, wenn App 1 eingereicht ist, und dann höchstens 3 je
-  Woche in einem Block von 90 Minuten am Samstag; im Abitur keine Posts; nach
-  dem Abitur 2–3 am Tag.
+  Woche, gebaut in einem Block von 90 Minuten am Samstag (höchstens 9, solange
+  die App nicht im Store ist); im Abitur keine Posts; nach dem Abitur 2–3 am
+  Tag.
 - **Kein bezahltes Verstärken** eigener Posts, kein VPN, kein Zweitgerät für
   andere Länder, kein zweites Konto, bevor ein Format dreimal gewonnen hat.
 - **Bilder:** nur selbst fotografiert (ohne Personen, ohne erkennbare Orte),
@@ -598,17 +602,21 @@ steht der Überblick.
 Werbung mindestens 300 $ MRR, gibt es Geld für Creator, für alle Apps
 zusammen bis 18.07. höchstens 750 €. Die Creator zeigen sich selbst, du
 nicht.
-- **Fällt die Signal-Prüfung in die Startpause**, buchst du erst nach deiner
-  letzten Prüfung.
+- **Fällt die Signal-Prüfung in die Startpause**, siehst du am Tag nach deiner
+  letzten Prüfung nach: Liegt die App dann über 300 $ MRR, zählt das, und du
+  buchst. Sonst gilt die zweite Prüfung, 21 Tage nach dem ersten täglichen Post
+  (spätestens Di 29.06.).
 - **Ab 19.07. buchst du keine neuen Creator.** Wer bis 18.07. gebucht ist, wird
   nach dem Posten noch bezahlt.
 - **Startet App 1 erst Ende Juni,** kommen die Creator-Videos meist erst nach
   Tor 1. Das Tor misst dann im Wesentlichen ohne ihre Wirkung.
-- **Preise:** UGC-Videos bei Influee im Schnitt ~83 $ je 30 Sekunden in
-  Deutschland und ~93 $ in den USA; bei Collabstr wurden im Schnitt
-  ~150–200 $ je Auftrag bezahlt. Dein Angebot: 60–90 € fest je Video samt
-  Posting oder ein Rohvideo zum Festpreis für dein Markenkonto. Aus 750 €
-  werden so etwa 6–8 Versuche.
+- **Preise:** UGC-Videos bei Influee ab etwa 83 € (Stand April 2025); bei
+  Collabstr wurden im Schnitt ~150–200 $ je Auftrag bezahlt. Nach der
+  Gegenprüfung kostet ein Video, das der Creator selbst postet, typisch
+  90–110 € (60–150 €). Dein Angebot: 60–90 € fest je Video samt Posting oder
+  ein Rohvideo zum Festpreis für dein Markenkonto. Aus 750 € (nach Gebühren
+  und der Umsatzsteuer nach § 13b rund 630 € Leistung) werden so etwa
+  6–8 Versuche, bei 60 € je Video bis zu 10.
 - **Wen:** nur volljährige Creator mit Sitz in Deutschland, die eine
   Rechnung stellen.
 - **Wo buchen:** TikTok One verlangt kein Mindestbudget, Collabstr nimmt eine
@@ -765,6 +773,11 @@ Deshalb gehört jeder Euro, den die App nicht braucht, deinem Start in Zürich.
 **Woche mit Klausuren (3 Stunden):** nur Samstag. Das Wichtigste der Woche,
 sonst nichts.
 
+**Sonntag ist immer frei.** Einzige Ausnahme, sobald eine App im Store ist:
+20–30 Minuten Wochenauswertung und Kassenprüfung (Vorlage in Abschnitt 16).
+Posts, die am Sonntag erscheinen sollen, baust du am Samstag und planst sie
+mit den offiziellen Werkzeugen der Plattform ein.
+
 **Ferienwoche (~31–38 Stunden)**
 
 | Tag | Zeit | was |
@@ -774,7 +787,10 @@ sonst nichts.
 | täglich | 1–1,5 h | Schule |
 
 **Q4-Woche (höchstens 6–7 Stunden):** Mo–Fr frei, Sa 3 h, dazu höchstens
-zweimal 1–2 h; mit zwei oder mehr Klausuren nur der Samstag.
+zweimal 1–2 h; mit zwei oder mehr Klausuren nur der Samstag. Fertige Posts
+(höchstens 3 je Woche, am Samstag gebaut) veröffentlichst du in diesen Zeiten
+in je wenigen Minuten oder planst sie ein
+([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md), Abschnitt 6.2).
 
 **Abiturzeit:** Ist keine App im Store oder im Review, ruht alles (Ruhezeit,
 Abschnitt 4). Sonst 0–5 Stunden, im schriftlichen Abitur 0–1: zweimal
@@ -786,8 +802,10 @@ Creator.
 13–17 und 18–20 Uhr, So frei; davon ~6 Stunden für Zürich.
 
 **Woche mit Ferienjob (ab 19.07., oder ab 05.07. ohne App im Store):**
-40 Stunden Arbeit; für die Apps zweimal 20 Minuten Zahlen und Support an
-Werktagen und samstags bis zu 3 Stunden; ~6 Stunden für Zürich.
+40 Stunden Arbeit; für die Apps an zwei Werktagen je 20 Minuten Zahlen und
+Support, samstags bis zu 3 Stunden; ~6 Stunden für Zürich. Im August kommen
+einmalig die Schritte für Übergabe, Verkauf oder Stilllegung dazu
+([`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md)).
 
 ---
 
@@ -937,16 +955,18 @@ jedes Arbeitspaket (AP1–AP22) in
   Ablehnung schreibst du in `docs/review-log.md`, Claude schlägt die kleinste
   Lösung vor. Rechne mit 1–2 Ablehnungen bei der ersten App; 90 % der Prüfungen
   sind in 48 Stunden fertig.
+- **Posts seit der Einreichung:** höchstens 3 je Woche, gebaut in einem Block
+  von 90 Minuten am Samstag; höchstens 9, solange die App nicht im Store ist.
+  In Q4 übst du nur und misst einen Ausgangswert; über Formate entscheidest du
+  im Sommer.
 - **Ist sie bis Sa 13.03. freigegeben:** selbst veröffentlichen und starten.
-  Posts erst jetzt: höchstens 3 je Woche in einem Block von 90 Minuten am
-  Samstag. In Q4 übst du nur und misst einen Ausgangswert; über Formate
-  entscheidest du im Sommer.
 - **Ist sie nicht freigegeben,** bleibt sie dank der Freigabe „manuell“ bis
   nach deiner letzten Prüfung liegen.
 - **Signal in Q4:** Die Prüfung drei Wochen nach dem Start ist für eine App,
   die vor dem Abitur startet, nur ein Vorab-Blick. Wird sie bestanden, zählt
   sie (Creator buchst du trotzdem erst nach deiner letzten Prüfung). Wird sie
-  verfehlt, gilt die zweite Prüfung am Mo 28.06.
+  verfehlt, gilt die zweite Prüfung, 21 Tage nach dem ersten täglichen Post
+  nach der letzten Prüfung (spätestens Di 29.06.).
 - **Gründung**, falls M2 bis Mo 01.03. erreicht ist (Checkliste A, ~4 h auf
   zwei Samstage verteilt). Danach erst wieder nach der letzten Prüfung.
 - **Ist App 1 noch nicht eingereicht:** im Rahmen der Q4-Stunden weiterbauen,
@@ -979,13 +999,15 @@ jedes Arbeitspaket (AP1–AP22) in
 
 ### KW 23–26 (07.06.–04.07.), nach dem Abitur, 15–40 h
 
-- **Am Tag nach deiner letzten Prüfung:** Claude Pro wieder buchen; noch
-  nicht gegründet und M2 erreicht → gründen.
+- **Am Tag nach deiner letzten Prüfung:** Claude Pro wieder buchen. Noch nicht
+  gegründet → jetzt gründen, parallel zum Rest-Bau (2–3 Wochen Vorlauf bis zur
+  Einreichung, [`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md)).
 - **App 1 starten** (veröffentlichen oder fertig bauen und einreichen).
   Täglich 2–3 Posts ohne Gesicht, etwa 14 Minuten je Post
   ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md)).
 - **Signal-Prüfung** drei Wochen nach dem Start, für eine vor dem Abitur
-  gestartete App am **Mo 28.06.:** ≥ 300 $ MRR → Creator buchen (Checkliste F,
+  gestartete App 21 Tage nach dem ersten täglichen Post, spätestens am
+  **Di 29.06.:** ≥ 300 $ MRR → Creator buchen (Checkliste F,
   für alle Apps zusammen bis 18.07. höchstens 750 €); sonst nur eigene Posts
   weiter.
 - **App 2** (die zweitbeste Idee) aus deiner Vorlage, mit anderer
@@ -993,8 +1015,11 @@ jedes Arbeitspaket (AP1–AP22) in
   zweite App in 81 von 100 Läufen, im Median um den 12.07.
 - **Ende Juni:** Hast du noch keinen Ferienjob, fragst du zwei
   Zeitarbeitsfirmen für einen festen Beginn an.
-- **Zeigt eine App ein Signal:** Das Elternteil, das zugesagt hat, legt
-  Anfang Juli sein eigenes Apple-Konto an (Abschnitt 14).
+- **Zeigt eine App Ende Juni nennenswerten Umsatz** (Richtwert ~100 $ MRR;
+  genauer Auslöser in [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md),
+  Abschnitt 4.4): Das Elternteil, das zugesagt hat, schickt bis Fr 02.07.
+  Gewerbe- und Apple-Anmeldung ab; Vertrag, Bank, Steuer, Händlerangaben und
+  Small Business Program folgen, sobald das Konto frei ist (Abschnitt 14).
 - **Bis 15.07.:** Bewerbung an der Leibniz Universität Hannover (~2 h).
 - **01.–03.07.:** Abiturzeugnis in eApply hochladen, Original an die ETH.
 - **Stichtag So 04.07.:** Ist noch keine App im Store, beginnt der Ferienjob
@@ -1017,12 +1042,15 @@ jedes Arbeitspaket (AP1–AP22) in
     Betrieb und Abschluss nicht brauchen.
   - Apps, die am 18.07. schon eingereicht waren, erscheinen noch, ohne
     Creator-Geld (im Modell in 60 von 100 Läufen, eine dritte App im Median
-    um den 26.07.). Für die Apps bleiben abends und samstags etwa 5 Stunden
-    je Woche: zweimal 20 Minuten Zahlen und Support, sonst Posts nach Lust.
+    um den 26.07.). Für die Apps bleiben 2–5 Stunden je Woche: an zwei
+    Werktagen je 20 Minuten Zahlen und Support, samstags bis 3 Stunden, sonst
+    Posts nach Lust.
   - **Bis Sa 31.07.:** je App entscheiden: einstellen, übergeben oder
-    verkaufen.
+    verkaufen (für eine App, die erst nach Mo 19.07. erscheint, bis
+    Sa 07.08.).
   - **So 15.08.:** ohne Nachfolger alle Abos aus dem Verkauf nehmen.
-  - **Mi 15.09.:** Dienstende, App entfernen, Gewerbe abmelden (Checkliste H).
+  - **Mi 15.09.:** letzter Tag des Dienstes. **Do 16.09. oder Fr 17.09.:** App
+    entfernen, Server aus, Gewerbe abmelden (Checkliste H).
 - Daneben ~6 Stunden je Woche für Zürich: Zimmer, Unterlagen, Mathe nach den
   Empfehlungen der ETH (Folgen und Reihen, Induktion, komplexe Zahlen,
   Analysis, Vektorgeometrie), Java-Tutorial der ETH.
@@ -1039,26 +1067,27 @@ jedes Arbeitspaket (AP1–AP22) in
 | **M0 / Ideen-Tor** Sa 19.12. / So 20.12. | Besteht eine Idee (Mindestwerte, Slideshow-Test, Ablauf-Test)? `SPEC.md` und echte KI-Antwort in der App? | weiter; fehlt `SPEC.md` oder die KI-Antwort, holst du sie am Mi 23.12. zuerst nach | **No-Go** (keine Idee besteht): nicht gründen, kein Apple-Konto; weiter lernen; fünf neue Ideen nach der ETH-Bewerbung, Entscheidung bis Sa 09.01. |
 | **Stunden-Messpunkt** Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant ~32)? | bis ~40: weiter wie geplant | 40–60: App 1 kleiner schneiden; über 60: Einreichung erst nach dem Abitur einplanen |
 | **M1** Sa 09.01. | ETH-Bewerbung abgeschickt? AP10–AP17 fertig? | weiter | ETH-Bewerbung hat Vorrang, fehlende Pakete in KW 02–04 |
-| **M2** App 1 halb fertig (Kriterien in KW 01; im Median am 18.01.) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen. Ist M2 bis Mo 01.03. nicht erreicht, wird erst nach der letzten Prüfung gegründet |
+| **M2** App 1 halb fertig (Kriterien in KW 01; im Median am 18.01.) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen. Ist M2 bis Mo 01.03. nicht erreicht, gründest du am Tag nach deiner letzten Prüfung, parallel zum Rest-Bau |
 | **Funktions-Stopp** So 24.01. | – | nur noch Fehler, Texte, Einreichung | – |
 | **Einreichung** bis Di 02.02. | Checkliste C grün? | einreichen mit „manuell veröffentlichen“ | in Q4 mit 6–7 Stunden je Woche fertig machen, ohne Druck |
 | **M3** So 14.03. | App 1 im Store oder im Review? | 0–5 Stunden im Abitur für Zahlen und Notfälle, Claude Pro läuft weiter | **Ruhezeit:** Claude Pro ruht, kein Bau bis nach der letzten Prüfung |
-| **Signal** 3 Wochen nach jedem Start | ≥ 300 $ MRR ohne bezahlte Werbung? Fällt der Tag in die Startpause, gilt er nach deiner letzten Prüfung | Creator-Geld, für alle Apps zusammen bis 18.07. höchstens 750 € | nur eigene Posts, nächstes Format oder nächste App |
-| **Zweite Signalprüfung** Mo 28.06. (nur für eine App, die vor dem 15.03. gestartet ist) | ≥ 300 $ MRR, 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung? | wie Signal | wie Signal |
+| **Signal** 3 Wochen nach jedem Start | ≥ 300 $ MRR ohne bezahlte Werbung? Fällt der Tag in die Startpause, siehst du am Tag nach deiner letzten Prüfung nach; bestanden zählt, sonst gilt die zweite Prüfung | Creator-Geld, für alle Apps zusammen bis 18.07. höchstens 750 € | nur eigene Posts, nächstes Format oder nächste App |
+| **Zweite Signalprüfung** 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, spätestens Di 29.06. (nur für eine App, die vor dem 15.03. gestartet ist) | ≥ 300 $ MRR? | wie Signal | wie Signal |
 | **Stichtag** So 04.07. | Ist eine App im Store? | weiter bis Tor 1 | Ferienjob ab Mo 05.07., keine neue App mehr |
 | **Tor 1** So 18.07. | eine App am Stichtag ≥ 5.000 $ MRR? | weiter (Weg B oder C) | **Weg A:** keine neue App, keine neuen Creator, Ferienjob ab Mo 19.07.; schon eingereichte Apps dürfen noch erscheinen |
 | **Ausgang je App** bis Sa 31.07. | Monatsgewinn über ~150 €? Elternteil hat zugesagt? Ab 300 $ Monatsumsatz und 8 Wochen im Store? | übergeben oder verkaufen (Abschnitt 14) | einstellen |
 | **Tor 2** So 08.08. | ≥ 10.000 $? | Weg C | Weg B endet wie Weg A |
 | **Verkaufsstopp** So 15.08. | Gibt es einen Nachfolger oder Käufer? | Abos bleiben im Verkauf, Übertragung starten | alle Abos aus dem Verkauf nehmen |
-| **Dienstende** Mi 15.09. | 31 Tage seit dem Verkaufsstopp vorbei? | App entfernen, Server aus, Gewerbe abmelden (Checkliste H) | warten, bis die Frist um ist |
+| **Dienstende** Mi 15.09. | 31 Tage seit dem Verkaufsstopp vorbei? | Do 16.09. oder Fr 17.09.: App entfernen, Server aus, Gewerbe abmelden (Checkliste H) | warten, bis die Frist um ist |
 
 **Welche Zahl gilt:**
 - **Signal und Tore:** in RevenueCat die Kennzahl **MRR**, also der
   hochgerechnete Monatsumsatz der laufenden Abos, brutto vor Apples Anteil, in
   US-Dollar. Abgelesen wird am 21. Tag nach dem Start (Signal) bzw. am
   Stichtag (Tor 1 und Tor 2).
-- **Ausgang je App:** der Monatsgewinn in Euro (Apples Auszahlung minus alle
-  Kosten der letzten vier Wochen).
+- **Ausgang je App:** der Monatsgewinn in Euro: Apples Auszahlung für die
+  letzten vier Wochen minus die laufenden Kosten der App (Server, KI-API,
+  Domain). Claude Pro zählt nicht mit, weil es nach der Jagd endet.
 - **Familienversicherung:** Dafür zählt ebenfalls der Gewinn in Euro, nach
   Apples Anteil und allen Kosten.
 
@@ -1102,17 +1131,18 @@ Alle Schritte stehen in
 
   | Ausgang | wann | was geschieht |
   |---|---|---|
-  | **einstellen** | unter ~150 € Monatsgewinn | So 15.08. Abos aus dem Verkauf, Abonnenten informieren, Server und KI laufen bis Mi 15.09., dann App entfernen |
-  | **übergeben** an ein Elternteil | ab ~150 € Monatsgewinn und schriftliche Zusage aus dem Januar | das Elternteil hat seit Anfang Juli ein eigenes Apple-Konto mit allen Verträgen; Übertragung der App spätestens um den 15.08.; echte Schenkung, das Elternteil wird Unternehmer mit eigenem Impressum, Gewerbe und Steuer. Das Geld danach gehört dem Elternteil |
-  | **verkaufen** | ab 300 $ Monatsumsatz und 8 Wochen im Store | Angebot auf einem Marktplatz mit ehrlichen Zahlen, sobald beides erfüllt ist; klappt in etwa einem von vier solchen Fällen und bringt netto 2–10 Monatsgewinne; Rückfall am So 08.08. ist die Übergabe |
+  | **einstellen** | unter ~150 € Monatsgewinn | So 15.08. Abos aus dem Verkauf, Abonnenten informieren, Server und KI laufen bis Mi 15.09., am Do 16.09. oder Fr 17.09. App entfernen |
+  | **übergeben** an ein Elternteil | ab ~150 € Monatsgewinn und schriftliche Zusage aus dem Januar | das Elternteil hat seit Anfang Juli ein eigenes Apple-Konto mit allen Verträgen (Small Business Program genehmigt bis Sa 31.07.); Übertragung der App gestartet bis So 15.08.; echte Schenkung, das Elternteil wird Unternehmer mit eigenem Impressum, Gewerbe und Steuer. Das Geld danach gehört dem Elternteil |
+  | **verkaufen** | ab 300 $ Monatsumsatz und 8 Wochen im Store | Angebot auf einem Marktplatz mit ehrlichen Zahlen, sobald beides erfüllt ist; klappt in etwa einem von vier solchen Fällen und bringt netto etwa 1,7–10 Monatsgewinne (typisch rund 4); Rückfall am So 08.08. (Umschalttag) ist die Übergabe |
 
 - **Weiterlaufen lassen von Zürich aus: nein.** Mit Gewerbe in Zürich kommen
   eine Anmeldung bei der SVA, Schweizer Steuern und AHV-Beiträge hinzu, und
   dein Einkommen hebt die Befreiung von der Schweizer Krankenversicherung auf
   (rund 3.500–5.500 CHF Mehrkosten im Jahr). Das lohnt nur bei einem echten
   Treffer und nur nach Beratung zu beiden Ländern.
-- **Mi 15.09.:** Dienstende, App entfernen, Gewerbe abmelden (0–32,50 €),
-  Krankenkasse informieren (Checkliste H).
+- **Mi 15.09.:** letzter Tag des Dienstes. **Do 16.09. oder Fr 17.09.:** App
+  entfernen, Gewerbe abmelden (0–32,50 €), Krankenkasse informieren
+  (Checkliste H).
 - Die letzte EÜR und Einkommensteuererklärung 2027 gibst du 2028 per ELSTER
   ab, auch aus Zürich. Damit kommt auch die Lohnsteuer aus dem Ferienjob
   zurück.
@@ -1243,7 +1273,7 @@ Alle Schritte stehen in
 ### F – Creator (nur nach Signal)
 
 - [ ] Signal erreicht (≥ 300 $ MRR in RevenueCat drei Wochen nach dem Start
-      bzw. bei der zweiten Prüfung am Mo 28.06.)
+      bzw. bei der zweiten Prüfung, spätestens Di 29.06.)
 - [ ] Creator ist volljährig, sitzt in Deutschland und stellt eine Rechnung;
       Angebot 60–90 € fest je Video samt Posting
 - [ ] Anfrage persönlich und einzeln, mit Link auf kurze
@@ -1279,8 +1309,9 @@ Sommer). Vorlage: [`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.csv).
 - [ ] Einstellen: **So 15.08.** alle Abos aus dem Verkauf genommen (App Store
       Connect → App → Abonnements → Abo → Verfügbarkeit); Abonnenten
       informiert; Server und KI laufen bis zum Dienstende weiter
-- [ ] **Mi 15.09.** (frühestens 31 Tage nach dem Verkaufsstopp): App
-      entfernt, Server abgeschaltet
+- [ ] **Do 16.09. oder Fr 17.09.** (nach dem Dienstende am Mi 15.09.,
+      mindestens 31 Tage nach dem Verkaufsstopp): App entfernt, Server
+      abgeschaltet
 - [ ] Werkzeuge gekündigt bzw. zum Laufzeitende beendet: Claude Pro (erst,
       wenn die Summen für die EÜR erstellt sind), Supabase, EAS (falls
       bezahlt), Prepaid-Zweitnummer; in der Anthropic-Konsole automatisches
@@ -1323,15 +1354,11 @@ Claude nennt dabei keine Umsätze und keine Rangliste: Es hat keine
 Umsatzdaten, und eine frühe Rangfolge verfälscht die Messung, die du selbst
 machst.
 
-**Slideshows (ab der Gründung)**
-```
-App: [Name], Zielgruppe: [wer]. Schreibe 10 Hooks für die erste Folie einer
-TikTok-Slideshow (höchstens 8 Wörter) und für die besten 3 je 5 weitere
-Folientexte, letzte Folie mit Hinweis auf die App. Keine erfundenen
-Erfahrungen, keine Versprechen, keine KI-Personen. Schlag zu jeder Folie ein
-Bildmotiv ohne Personen vor und sag, ob ich es selbst fotografieren kann oder
-in den Gratisinhalten von Canva finde.
-```
+**Hooks und Folientexte (Vorbereitung vor der Gründung)** – die Vorlage mit je
+30 Hooks für die Formate A, B und C und den Folientexten steht in
+[`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md),
+Abschnitt 12.1. Keine erfundenen Erfahrungen, keine Versprechen, keine
+KI-Personen; Bildmotive ohne Personen.
 
 **Bau-Schritt**
 ```
@@ -1485,7 +1512,7 @@ Läufe ~39 €. Mit Ferienjob und Übergabe steht alles zusammen in
 | Du bekommst keinen Ferienjob | ab Ende Juni zwei Zeitarbeitsfirmen für einen festen Beginn anfragen; im Modell klappt es in 70–85 von 100 Fällen |
 | Der Gratis-Server pausiert | im Supabase-Dashboard wiederherstellen; war eine App mit Zahlern betroffen, auf Pro wechseln |
 | Apple lehnt ab | Grund ins Review-Log, kleinste Änderung, neu einreichen; Ablehnungen bei der ersten App sind normal |
-| Videos bekommen kaum Aufrufe | anderes Format, nicht mehr Videos desselben Formats; nach 15–20 Posts ohne Signal ein neues Format |
+| Videos bekommen kaum Aufrufe | anderes Format, nicht mehr Videos desselben Formats; nach 20 Posts eines Formats ohne einen Post ab 5.000 Aufrufen ein neues Format ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md), Abschnitt 7.4) |
 | Claude läuft im Kreis | Sitzung beenden, erst erklären lassen, dann ein kleineres Ziel |
 | Pro-Limit bremst in den Ferien | Arbeit über den Tag verteilen. Stoppt das Limit in der ersten Ferienwoche an mindestens zwei Tagen die Arbeit: genau einen Monat Max, danach zurück auf Pro |
 | Kosten der KI-Funktion steigen | Antworten kürzer (Länge über den Prompt steuern), Tagesgrenze je App-User-ID senken, prüfen, ob Aufrufe ohne Abo durchkommen; Monatslimit mit der Zahl der Zahler anheben |
