@@ -13,8 +13,8 @@ Modellzahlen.
 **Hier steht, wie du bis So 20.12. aus etwa 20 Kandidaten eine Idee für
 App 1 machst – oder feststellst, dass keine taugt.** Stand: Di 24.11.2026.
 
-**Neu gegenüber dem Hauptplan und 01** (wo sie etwas anderes sagen, gilt
-dieses Dokument):
+**Neu gegenüber 01** (01 wird an diese Entscheidungen angeglichen; der
+Hauptplan enthält sie schon, Abschnitte 12 und 13):
 - Du prüfst **fünf** Ideen, nicht drei.
 - Zwei K.-o.-Fragen kommen dazu: Haftung und der Test gegen kostenlose Wege.
 - **No-Go-Regel:** Besteht keine Idee, wird nicht gegründet und kein
@@ -42,15 +42,18 @@ Inhalt:
 - **Sie vermeidet sichere Verluste.** Sie streicht Themen, die Apple von
   einer Einzelperson nicht annimmt, Themen mit Haftung, Ideen, die gegen
   einen kostenlosen KI-Chat verlieren, und Ideen, für die niemand zahlt.
-  Jede davon würde sonst 80–280 Baustunden kosten.
+  Jede davon würde sonst die Bauzeit von App 1 kosten (78/130/260 Stunden,
+  [`07_HEBEL.md`](07_HEBEL.md), Abschnitt 14).
 - **Sie spart Geld, wenn nichts taugt.** Mit der No-Go-Regel (Abschnitt 7)
   wird dann nicht gegründet. Das spart die Gründung (140/200/380 €), die
   laufenden Kosten danach (23/28/45 € je Monat) und den Abschluss
   (20/80/500 €).
 - **Sie hält App 1 klein.** Die Form „ein Formular, ein Ergebnis, Verlauf
-  auf dem Gerät“ spart 0/10/30 Baustunden. Dem stehen 8–15 Stunden für die
-  Review-Festigkeit (Abschnitt 9) und ~12 Stunden für die Ideenwahl selbst
-  gegenüber. Unter dem Strich ist das etwa null.
+  auf dem Gerät“ spart 0/10/30 Baustunden (Gegenprüfung). Dem stehen
+  8–15 Stunden für die Review-Festigkeit (Abschnitt 9) und gut 5 Stunden
+  mehr Ideenwahl als in 01 gegenüber. Unter dem Strich kostet das typisch
+  einige Stunden (Schätzung). Der Wert liegt in den vermiedenen Verlusten,
+  nicht in gesparter Zeit.
 
 **Wozu sie nicht gut ist**
 - **Sie hebt die Trefferquote nur wenig.** Zahlen: [`07_HEBEL.md`](07_HEBEL.md).
