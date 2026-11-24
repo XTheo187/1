@@ -555,12 +555,26 @@ nicht.
   (schriftlich, Do 13.05.), Mathe P4 (schriftlich, Mi 05.05.), Englisch P5
   (mündlich oder als Präsentation, zwischen 19.05. und 07.06.). Damit sind
   Mathe, eine Naturwissenschaft und eine Fremdsprache Prüfungsfächer.
-- **Noch zu prüfen:**
-  - dass du diese drei Fächer in den letzten zwei Jahren durchgehend hattest;
-  - dass in den letzten drei Jahren vier weitere Fächer aus Physik, Biologie,
-    Informatik, weiterer Sprache (z. B. Deutsch), Erdkunde, Geschichte und
-    Wirtschaft unterrichtet wurden. Ob Politik-Wirtschaft als „Wirtschaft“
-    zählt, fragst du in der Mail mit.
+- **Der Wortlaut der Bedingung** (swissuniversities, Eintrag „ETHZ“ für
+  Deutschland, Studienjahr 2026/27; laut ETH unverändert für Herbst 2027):
+  „Unterricht in den Fächern 1. Mathematik 2. Physik oder Chemie oder
+  Biologie und 3. Unterrichtssprache oder Fremdsprache während der letzten
+  zwei Jahre vor dem Abitur. Diese drei Fächer müssen Gegenstand der
+  Abiturprüfung […] sein. Der Notendurchschnitt dieser drei Prüfungsfächer
+  zusammen muss mindestens 70% des Maximalwerts betragen. Zudem müssen vier
+  weitere Fächer aus den folgenden Disziplinen Gegenstand der
+  Gymnasialausbildung der letzten drei Jahre gewesen sein: Physik, Chemie,
+  Biologie, Informatik, eine weitere Sprache, Geografie, Geschichte,
+  Wirtschaft. […] Andernfalls: reduzierte ETH-Aufnahmeprüfung“.
+- **Noch zu prüfen (10 Minuten mit deinen Zeugnissen der Klassen 11–13):**
+  - Chemie, Mathe und Englisch hattest du in Klasse 12 und 13 durchgehend.
+  - Zähle deine weiteren Fächer aus dieser Liste: Physik, Biologie,
+    Informatik, eine weitere Sprache (Deutsch oder eine zweite Fremdsprache),
+    Erdkunde, Geschichte, Wirtschaft. Du brauchst vier. Chemie zählt hier
+    nicht noch einmal, weil es schon dein Prüfungsfach ist.
+  - Kommst du nur mit Politik-Wirtschaft oder nur mit einem Fach aus Klasse
+    11 auf vier, frag bei der Zulassungsstelle gezielt nach. Diese Frage hat
+    die ETH in ihrer Antwort nicht einzeln beantwortet.
 - **Dein Ziel:** Chemie + Mathe + Englisch zusammen mindestens 32 von
   45 Punkten in den Prüfungen, z. B. 11/11/10. Plane mit Puffer, also eher
   12/11/11.
