@@ -765,9 +765,18 @@ class TestPlan500k(unittest.TestCase):
             if "Gegenprobe" not in k:
                 self.assertEqual(P["vorlage_h"], 3.5, k)
                 self.assertEqual(P["post_deckel"], (1.5, 6.5), k)
-                self.assertEqual(P["c_organisch"], (0.15, 0.20, 0.25), k)
+                self.assertEqual(P["c_organisch"], (0.15, 0.18, 0.20), k)
+                self.assertEqual(P["c_organisch_bis_usd"], 100000.0, k)
+                self.assertFalse(P["c_organisch_aus"], k)
+                self.assertEqual(P["ohne_posts"], dict(pause=1.0, ende=0.5), k)
+                self.assertEqual(P["m0"], (300, 1000, 3000), k)
+                self.assertTrue(P["kv_bis_dienstende"], k)
+                self.assertEqual(P["exit_min_age_weeks"], p.WEEKS + 1, k)
+                if "Schnittliste" not in k:
+                    self.assertEqual(P["schnitt_mp"], (141, 1e9, 0.938), k)
         mehr = sum(p.NEBEN_PLAN.values()) - sum(p.NEBEN_NI.values())
-        self.assertAlmostEqual(mehr, 24.5)
+        self.assertAlmostEqual(mehr, 25.5)
+        self.assertAlmostEqual(p.NEBEN_PLAN[date(2027, 6, 21)], 2.0)     # Finanzierungsbrief und Zeitarbeitsanfrage
         # Hannover (2 h) in KW 28 statt KW 24, Zimmersuche 2 h in KW 24
         self.assertAlmostEqual(p.NEBEN_PLAN[date(2027, 7, 12)], p.NEBEN_NI[date(2027, 7, 12)] + 2.0)
         self.assertAlmostEqual(p.NEBEN_PLAN[date(2027, 6, 14)], 2.0)
@@ -875,16 +884,19 @@ class TestPlan500k(unittest.TestCase):
         for s in range(500):
             a, b = p.simulate(random.Random(s), ohne), p.simulate(random.Random(s), mit)
             self.assertEqual(a["art"], b["art"])
+            # die Familienversicherung richtet sich nach dem eigenen Jahresgewinn, also ohne die Erlöse ab der Übertragung
+            kv = a["kv_kosten"] - b["kv_kosten"]
             if b["art"] == "uebergabe":
                 n_u += 1
-                self.assertAlmostEqual(b["ergebnis_app"], a["ergebnis_app"] - b["nach_uebertragung"])
+                self.assertAlmostEqual(b["ergebnis_app"], a["ergebnis_app"] - b["nach_uebertragung"] + kv)
                 self.assertAlmostEqual(b["restwert"], a["restwert"])        # nicht doppelt gezählt
-                self.assertAlmostEqual(b["ergebnis"], a["ergebnis"] - b["nach_uebertragung"])
+                self.assertAlmostEqual(b["ergebnis"], a["ergebnis"] - b["nach_uebertragung"] + kv)
                 self.assertEqual(b["abschalt_abzug"], 0.0)                  # die Abos bleiben im Verkauf
             av, bv = p.simulate(random.Random(s), ohne_v), p.simulate(random.Random(s), mit_v)
             if bv["art"] == "verkauf":
                 n_v += 1
-                self.assertAlmostEqual(bv["ergebnis_app"], av["ergebnis_app"] - bv["nach_uebertragung"])
+                kv_v = av["kv_kosten"] - bv["kv_kosten"]
+                self.assertAlmostEqual(bv["ergebnis_app"], av["ergebnis_app"] - bv["nach_uebertragung"] + kv_v)
                 self.assertAlmostEqual(bv["restwert"], av["restwert"])      # Kaufpreis unverändert
                 self.assertAlmostEqual(bv["ergebnis_dein"], bv["ergebnis_app"] + bv["verkauf"] + bv["job_netto"])
         self.assertGreater(n_u, 5)
@@ -1046,10 +1058,10 @@ class TestPlan500k(unittest.TestCase):
             n = 0
             for s in range(500):
                 r = p.simulate(random.Random(s), P)
-                if r["bau2_w"] is not None:
+                if r["bau2_code_w"] is not None:
                     n += 1
                     self.assertIsNotNone(r["frei1_w"], (name, s))
-                    self.assertGreaterEqual(r["bau2_w"], r["frei1_w"], (name, s))
+                    self.assertGreaterEqual(r["bau2_code_w"], r["frei1_w"], (name, s))
             self.assertGreater(n, 100, name)
         ohne = dict(p.SZENARIEN[self.DEIN_PLAN], vorlage_h=None)
         frueher = 0
@@ -1104,7 +1116,7 @@ class TestPlan500k(unittest.TestCase):
             r = p.simulate(random.Random(s), kasse)
             if r["gegruendet"] and r["gruendung_woche"] is not None:
                 self.assertEqual(r["launches"], [], s)    # gegründet bei der Hälfte, danach keine Baustunde mehr
-            self.assertLessEqual(p.simulate(random.Random(s), konten)["attempts"], 1, s)
+            self.assertLessEqual(len(p.simulate(random.Random(s), konten)["launches"]), 1, s)
 
     def test_spaete_gruendung_erst_nach_der_letzten_pruefung(self):
         """Ist M2 bis Mo 01.03. nicht erreicht, wird nicht vor dem Abitur gegründet, sondern in der Woche ab
@@ -1146,9 +1158,9 @@ class TestPlan500k(unittest.TestCase):
         n = gleich = 0
         for s in range(400):
             r = p.simulate(random.Random(s), P)
-            if r["bau2_w"] is not None:
+            if r["bau2_code_w"] is not None:
                 n += 1
-                gleich += r["bau2_w"] == r["frei1_w"]
+                gleich += r["bau2_code_w"] == r["frei1_w"]
             self.assertLessEqual(len(p.simulate(random.Random(s), gross)["launches"]), 1, s)
         self.assertGreater(n, 100)
         self.assertGreater(gleich, n // 2)
@@ -1274,7 +1286,7 @@ class TestPlan500k(unittest.TestCase):
         self.assertGreater(n, 20)
 
     def test_umsatzabhaengige_kosten_nach_dem_plan(self):
-        """Unter 5.000 USD MRR kostet jeder Euro Umsatz nur c_organisch: Läufe mit kleinen Apps, ohne Testgeld und ohne
+        """Bis 100.000 USD MRR kostet jeder Euro Umsatz nur c_organisch: Läufe mit kleinen Apps, ohne Testgeld und ohne
         gedrosseltes Wachstum, haben mit 0 % nie weniger Gewinn als mit 50 %; im Mittel deutlich mehr."""
         basis = dict(p.SZENARIEN[self.MIT_HEBELN], signal=None, test_cap=0.0, kein_testgeld=True)
         null, halb = dict(basis, c_organisch=(0.0, 0.0, 0.0)), dict(basis, c_organisch=(0.5, 0.5, 0.5))
@@ -1288,7 +1300,7 @@ class TestPlan500k(unittest.TestCase):
                 self.assertGreaterEqual(a["profit_firma"], b["profit_firma"] - 1e-9, s)
         self.assertGreater(n, 100)
         self.assertGreater(summe / 400, 10.0)
-        self.assertEqual(p.AUFWAND_PLAN["c_organisch"], (0.15, 0.20, 0.25))
+        self.assertEqual(p.AUFWAND_PLAN["c_organisch"], (0.15, 0.18, 0.20))
 
     def test_vorbereitung_der_posts_nach_der_einreichung(self):
         """V1–V4 kosten Stunden erst nach der Einreichung von App 1: mit sehr großem Wert bleibt danach nichts für
@@ -1298,18 +1310,155 @@ class TestPlan500k(unittest.TestCase):
         for s in range(200):
             a, b = p.simulate(random.Random(s), P), p.simulate(random.Random(s), gross)
             self.assertEqual(a["einreichung1"], b["einreichung1"], s)
-            self.assertLessEqual(b["attempts"], 1, s)
+            self.assertLessEqual(len(b["launches"]), 1, s)
 
     def test_app2_im_review_vorbereiten(self):
         """Mit vorlage_vorab_h bekommt App 2 vor der Freigabe von App 1 höchstens diese Stunden (ohne Code)."""
-        P = dict(p.SZENARIEN[self.DEIN_PLAN], vorlage_vorab_h=6.0)
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        self.assertEqual(P["vorlage_vorab_h"], 6.0)
+        ohne = dict(P, vorlage_vorab_h=None)
         frueher = 0
         for s in range(400):
             r = p.simulate(random.Random(s), P)
             self.assertLessEqual(r["vorab_h"], 6.0 + 1e-9, s)
             frueher += r["bau2_w"] is not None and r["frei1_w"] is not None and r["bau2_w"] < r["frei1_w"]
-            self.assertEqual(p.simulate(random.Random(s), p.SZENARIEN[self.DEIN_PLAN])["vorab_h"], 0.0)
+            self.assertEqual(p.simulate(random.Random(s), ohne)["vorab_h"], 0.0)
         self.assertGreater(frueher, 20)
+
+    # ---- Prüfung des Modells vom 25.11.2026 (nachts): Altlasten aus dem 500k-Modell ----
+    ALTE_KOSTEN = "Hebel: DEIN PLAN mit den alten umsatzabhängigen Kosten (Werbung aus dem Umsatz wie im 500k-Modell, Gegenprobe)"
+
+    def test_gegenprobe_alte_kosten_genau_und_gepaart(self):
+        """Die Gegenprobe zieht c_organisch wie DEIN PLAN (gleicher Zufallsstrom), benutzt es aber nicht."""
+        G = p.SZENARIEN[self.ALTE_KOSTEN]
+        self.assertTrue(G["c_organisch_aus"])
+        self.assertEqual(G["c_organisch"], p.AUFWAND_PLAN["c_organisch"])
+        for s in range(200):
+            a = p.simulate(random.Random(s), dict(G, c_organisch=(0.1, 0.2, 0.3)))
+            b = p.simulate(random.Random(s), dict(G, c_organisch=(0.5, 0.6, 0.7)))
+            self.assertEqual(a, b, s)
+
+    def test_unter_100000_usd_zaehlt_nur_c_organisch(self):
+        """Bis 100.000 USD MRR je App gilt nur c_organisch, in jeder Phase: Andere c_early/c_plateau ändern einen Lauf
+        nicht, solange keine App so groß wird; mit der alten Schwelle (5.000 USD) kosten sie darüber wieder."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        teuer = {"c_early": (0.6, 0.7, 0.8), "c_plateau": (0.6, 0.7, 0.8)}
+        n = 0
+        for s in range(400):
+            a, b = p.simulate(random.Random(s), P), p.simulate(random.Random(s), dict(P, **teuer))
+            if a["max_mrr"] < 100000 * p.FX:
+                n += 1
+                self.assertEqual(a["ergebnis_dein"], b["ergebnis_dein"], s)
+        self.assertGreater(n, 390)
+        gross = dict(P, force_first_peak=20000.0, force_m0=6000.0, c_organisch_bis_usd=5000.0)
+        n_ueber = n_anders = 0
+        for s in range(150):
+            a, b = p.simulate(random.Random(s), gross), p.simulate(random.Random(s), dict(gross, **teuer))
+            if 5000 * p.FX <= a["max_mrr"] < 20000 * p.FX:
+                n_ueber += 1
+                n_anders += a["profit_firma"] > b["profit_firma"]
+        self.assertGreater(n_ueber, 20)
+        self.assertGreater(n_anders, 0.9 * n_ueber)
+
+    def test_vorbereitung_mit_winziger_kappe_wie_ohne(self):
+        """Die Vorbereitung von App 2 zieht keine Zufallszahl: Mit einer Kappe von 1e-9 h rechnet jeder Lauf wie ganz
+        ohne Vorbereitung (bis auf die Prüfgrößen der Vorbereitung)."""
+        P = dict(p.SZENARIEN[self.DEIN_PLAN], vorlage_vorab_h=None)
+        Q = dict(P, vorlage_vorab_h=1e-9)
+        for s in range(400):
+            a, b = p.simulate(random.Random(s), P), p.simulate(random.Random(s), Q)
+            for k in a:
+                if k not in ("bau2_w", "vorab_h", "offene_versuche", "attempts"):
+                    self.assertEqual(a[k], b[k], (s, k))
+
+    def test_app2_vorbereitung_bis_zur_kappe(self):
+        """Die Vorbereitung im Review erreicht oft ihre Kappe und geht nie darüber."""
+        for kappe in (6.0, 0.5):
+            P = dict(p.SZENARIEN[self.DEIN_PLAN], vorlage_vorab_h=kappe)
+            voll = 0
+            for s in range(300):
+                r = p.simulate(random.Random(s), P)
+                self.assertLessEqual(r["vorab_h"], kappe + 1e-9, s)
+                voll += abs(r["vorab_h"] - kappe) < 1e-9
+            self.assertGreater(voll, 100, kappe)
+
+    def test_v1_v4_nur_bei_app1(self):
+        """V1–V4 fallen nur nach der Einreichung von App 1 an, nicht bei jeder Einreichung."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        k, v = P["konten_je_einreichung"], P["vorb_nach_einreichung1"]
+        B = dict(P, konten_je_einreichung=k + v, vorb_nach_einreichung1=0.0)
+        n_eine = n_anders = 0
+        for s in range(400):
+            a, b = p.simulate(random.Random(s), P), p.simulate(random.Random(s), B)
+            if len(a["launches"]) <= 1 and a["attempts"] <= 1:
+                n_eine += 1
+                self.assertEqual(a["ergebnis_dein"], b["ergebnis_dein"], s)
+            n_anders += a["ergebnis_dein"] != b["ergebnis_dein"]
+        self.assertGreater(n_eine, 50)
+        self.assertGreater(n_anders, 5)
+
+    def test_vergleich_nur_ferienjob_ohne_gruendung(self):
+        """In den Vergleichen ohne App wird nie gegründet, und die App bringt und kostet nichts."""
+        for k in [k for k in p.SZENARIEN if k.startswith("Hebel: nur Ferienjob")]:
+            for s in range(100):
+                r = p.simulate(random.Random(s), p.SZENARIEN[k])
+                self.assertFalse(r["gegruendet"], (k, s))
+                self.assertEqual(r["ergebnis_app"], 0.0, (k, s))
+
+    def test_ohne_posts_sinkt_der_umsatz_in_der_pruefungszeit(self):
+        """In der Prüfungszeit gibt es keine Posts: Der Umsatz der vorher gestarteten Apps sinkt bis zum Ende der Pause;
+        ohne die Regel steigt er oft."""
+        P = dict(p.SZENARIEN[self.DEIN_PLAN], build_first=(30, 45, 60))
+        ohne = dict(P, ohne_posts=None)
+        n = steigt = 0
+        for s in range(400):
+            r = p.simulate(random.Random(s), P)
+            if r["umsatz_vor_pause"]:
+                n += 1
+                self.assertLess(r["umsatz_nach_pause"], r["umsatz_vor_pause"], s)
+            q = p.simulate(random.Random(s), ohne)
+            steigt += bool(q["umsatz_vor_pause"]) and q["umsatz_nach_pause"] > q["umsatz_vor_pause"]
+        self.assertGreater(n, 100)
+        self.assertGreater(steigt, 30)
+
+    def test_schnittliste_am_stunden_messpunkt(self):
+        """Mit der Schnittliste ist App 1 nie später eingereicht als ohne; sie greift nur bei langsamem Durchstich."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        ohne = dict(P, schnitt_mp=None, v11_h=0.0)
+        n = 0
+        for s in range(400):
+            a, b = p.simulate(random.Random(s), P), p.simulate(random.Random(s), ohne)
+            if a["einreichung1"] is not None and b["einreichung1"] is not None:
+                self.assertLessEqual(a["einreichung1"], b["einreichung1"], s)
+            n += a["schnitt"]
+            self.assertFalse(b["schnitt"], s)
+        self.assertGreater(n, 150)
+        self.assertLess(n, 350)
+
+    def test_familienversicherung_nach_dem_jahresgewinn(self):
+        """Beiträge zur Krankenversicherung gibt es nur, wenn der Gewinn des Jahres über 12 x 590 EUR liegt."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        for s in range(400):
+            r = p.simulate(random.Random(s), P)
+            if r["kv_kosten"] > 0:
+                self.assertGreater(r["profit_firma"] - r["abschalt_abzug"] - r["nach_uebertragung"], 12 * 590.0, s)
+
+    def test_tarifbetrieb_fruehe_wochen_ueber_zeitarbeit(self):
+        """Im Tarifbetrieb-Szenario zählen die zwei frühen Wochen ab 05.07. als Zeitarbeit."""
+        P = p.SZENARIEN["Hebel: DEIN PLAN, falls ein Tarifbetrieb ab 19.07. zusagt (Bewerbung nach 06, 2.3)"]
+        n = 0
+        for s in range(400):
+            r = p.simulate(random.Random(s), P)
+            if r["job_wochen"]:
+                self.assertEqual(r["job_frueh_w"], 2 if r["job_frueh"] else 0, s)
+                n += r["job_frueh_w"] > 0
+        self.assertGreater(n, 20)
+
+    def test_exit_in_den_plan_szenarien_abgeschaltet(self):
+        """Verkauft wird nur über restwert (06, 5), nie über den alten Verkauf der Firma."""
+        for k, P in p.SZENARIEN.items():
+            if k.startswith("Hebel:") and P["neben"] is p.NEBEN_PLAN:
+                self.assertEqual(P["exit_min_age_weeks"], p.WEEKS + 1, k)
 
 if __name__ == "__main__":
     unittest.main()

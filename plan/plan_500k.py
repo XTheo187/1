@@ -180,8 +180,8 @@ BASE = dict(
     apple_ab=(0, 0, 0),                # S/B: Woche ab Start, ab der das Apple-Konto aktiv ist (UG: Notar,
                                        #      Register, D-U-N-S, Pruefung); vorher keine Einreichung
     abwicklung=(0, 0, 0),              # S/B: Kosten nach dem 31.08. fuer Aufloesung bzw. Abmeldung (EUR)
-    m0_ohne_test=(1, 1, 1),            # S: Faktor auf den Startumsatz eines Treffers ohne bezahlten Test (Signal
-                                       #    damit unsicher: auch ein Treffer kann unter der Schwelle starten)
+    m0_ohne_test=(1, 1, 1),            # S: Faktor auf den Startumsatz jeder App ohne bezahlten Test (Signal damit
+                                       #    unsicher: auch ein Treffer kann unter der Schwelle starten)
     kein_testgeld=False,               # Gegenprobe: gar kein Testgeld, auch nicht aus Umsatz
     frei_ab=None,                      # Kalender NI: Montag nach der letzten eigenen Pruefung (Standard 07.06.)
     restwert=None,                     # dict(monate, p[, min_monat, min_alter_w, kosten, verkauf, stichtag,
@@ -195,7 +195,7 @@ BASE = dict(
                                        # an, wenn eine App am Messtag so viel MRR zeigt (sonst keine Uebergabe);
                                        # bleibt die Uebergabe dann aus, sind seine Kosten verloren (Geld der Familie)
     ferienjob=None,                    # dict(ab, netto_woche, max_app_h[, p, immer, frueh_ab, frueh_wenn, bis,
-                                       # vorentscheid, zeitarbeit_p]):
+                                       # vorentscheid, zeitarbeit_p, zeitarbeit_vorlauf_p, netto_woche_frueh]):
                                        # Vollzeit-Ferienjob, sobald die Jagd an einem Tor beendet ist (kurzfristige
                                        # Beschaeftigung vor dem Studium); p = Chance, den Job zu bekommen;
                                        # immer=True: Job ab dem Datum auch ohne Tor (App nur noch abends);
@@ -208,7 +208,8 @@ BASE = dict(
                                        # App im Store, gibt es den fruehen Beginn nur mit der Chance zeitarbeit_p
                                        # (kurzfristig angefragte Zeitarbeit), sonst beginnt der Job am 19.07.;
                                        # zeitarbeit_vorlauf_p: ebenso ohne Nennung des 19.07. (im Vertrag steht der
-                                       # 19.07., die zwei Wochen ab 05.07. gibt es nur ueber Zeitarbeit mit Vorlauf)
+                                       # 19.07., die zwei Wochen ab 05.07. gibt es nur ueber Zeitarbeit mit Vorlauf);
+                                       # netto_woche_frueh: Lohn der Wochen vor ab (Zeitarbeit), sonst netto_woche
     fix_vor_start=None,                # (lo, mode, hi): Kosten je Monat zwischen Gruendung und erstem Start (noch
                                        # kein Server-Tarif, keine Build-Abos); danach gilt fixed_month
     stilllegung=None,                  # dict(verkauf_bis): Endet die Jagd ohne Verkauf oder Uebergabe, gehen alle
@@ -240,6 +241,19 @@ BASE = dict(
                                        # Preis, KI-API, Erstattungen); darueber gelten c_early/c_growth weiter
     vorb_nach_einreichung1=0.0,        # Stunden fuer die Vorbereitung der Posts (V1-V4) nach der Einreichung von
                                        # App 1 (in den Wochen danach, wie konten_je_einreichung)
+    c_organisch_aus=False,             # Gegenprobe: c_organisch wird gezogen (gleicher Zufallsstrom), gilt aber nicht
+    c_organisch_bis_usd=5000.0,        # bis zu diesem MRR je App gilt c_organisch (Plan: 100.000, also immer)
+    ohne_posts=None,                   # dict(pause, ende): Wochen ohne Posts bringen keine Neukunden: in der
+                                       # Pruefungszeit (Faktor pause) und nach dem Ende der Jagd (Faktor ende) sinkt
+                                       # der Umsatz jeder vorher gestarteten App um churn_stop x Faktor je Woche;
+                                       # laufen die Posts wieder, waechst sie erneut zur Spitze
+    spitze_ohne_test=0.5,              # S: Spitze einer App ohne bezahlten Test (altes Modell); im Plan startet jede App
+                                       # so (Signalregel); an 05, 8.4 geprueft
+    schnitt_mp=None,                   # (lo, hi, faktor): Stunden-Messpunkt (02, 8): liegt build_first von App 1 im Band
+                                       # (AP1-AP9 ueber ~40 h), Schnittliste: Stunden x faktor, Rest in Version 1.1
+    v11_h=0.0,                         # Stunden fuer Version 1.1 nach dem Start von App 1 (mit schnitt_mp)
+    kv_bis_dienstende=False,           # Familienversicherung: Hochrechnung nur bis zum Dienstende, massgeblich ist der
+                                       # Jahresgewinn (Steuerbescheid)
 )
 
 
@@ -381,7 +395,9 @@ def simulate(rng, P):
     p1k = max(p1k, p10k)
     ksk = P['ksk']
     c_g, c_p, c_e = t('c_growth'), t('c_plateau') * (1 + ksk), t('c_early') * (1 + ksk)
-    c_org = t_neu('c_organisch') if P['c_organisch'] else None   # Plan: unter 5.000 USD MRR keine Werbung aus dem Umsatz
+    c_org = t_neu('c_organisch') if P['c_organisch'] else None   # Plan: keine Werbung aus dem Umsatz
+    if P['c_organisch_aus']:
+        c_org = None        # Gegenprobe: alte Sätze c_early/c_plateau genau, gleicher Zufallsstrom wie mit c_organisch
     cost_lag = int(round(t('cost_lag_weeks')))
     cost_queue = []
     lag = int(round(t('apple_lag_weeks')))
@@ -461,6 +477,12 @@ def simulate(rng, P):
     genannt_19 = False   # Vorentscheidung: App im Store oder im Review -> dem Arbeitgeber den 19.07. genannt
     post_max = 0.0       # größte Zahl an Post- und Teststunden in einer Woche (Prüfgröße)
     vorab_h = 0.0        # Stunden, die App 2 vor der Freigabe von App 1 bekommen hat (Vorbereitung ohne Code)
+    v11_rest = 0.0       # Stunden für Version 1.1 von App 1 (nach der Schnittliste am Stunden-Messpunkt)
+    bau2_code_w = None   # Woche, in der der Code von App 2 beginnt (nach der Freigabe von App 1, Prüfgröße)
+    schnitt = False      # Schnittliste am Stunden-Messpunkt angewandt (Prüfgröße)
+    job_frueh_w = 0      # Jobwochen vor FJ['ab'] (früher Beginn über Zeitarbeit)
+    umsatz_vor_pause = None   # Wochenumsatz der vorher gestarteten Apps zu Beginn der Prüfungszeit (Prüfgröße)
+    umsatz_nach_pause = None  # ... und an ihrem Ende
     FR = P['fix_ruhe']
     if FR:
         ruhe_w = (tri(rng, *FR['monat']) if FR['monat'][0] != FR['monat'][2] else FR['monat'][0]) / WPM
@@ -626,6 +648,8 @@ def simulate(rng, P):
         if FJ and job_ok and (gestoppt or FJ.get('immer')) and d >= (FJ['frueh_ab'] if job_frueh else FJ['ab']):
             # Jagd beendet (oder Job hat Vorrang): Vollzeit-Ferienjob, für die Apps bleiben wenige Stunden je Woche
             job_wochen += 1
+            if d < FJ['ab']:
+                job_frueh_w += 1              # 05.-18.07. über Zeitarbeit (06, 2.4 und 2.10)
             hours = min(hours, FJ['max_app_h'])
         if gegruendet:
             fix_basis = fixed_stop_w if gestoppt else fixed_w
@@ -707,26 +731,40 @@ def simulate(rng, P):
                     attempts += 1
                     if gestoppt:
                         bau_nach_stopp += 1
-                    if mit_partner:
+                    if attempts == 2 and P['vorlage_h'] is not None and P['vorlage_vorab_h'] and not mit_partner \
+                            and not (app1_frei or any(rv[1] == 1 and rv[0] <= 1.0 for rv in reviews)):
+                        bh = None       # Baustunden erst bei der Freigabe ziehen (Zufallsstrom wie ohne Vorbereitung)
+                    elif mit_partner:
                         bh = tri(rng, *PP['build_next'])
                     else:
                         bh = t('build_first') if attempts == 1 else t('build_next')
                         if attempts == 1:
-                            bh1 = bh
+                            SM = P['schnitt_mp']
+                            if SM and SM[0] <= bh <= SM[1]:
+                                # Stunden-Messpunkt (02, 8): Schnittliste (3 Fragen, kein eigenes Design, keine
+                                # Bewertungsabfrage, Favoriten in 1.1), der Rest kommt nach dem Start als Version 1.1
+                                bh *= SM[2]
+                                v11_rest = P['v11_h']
+                                schnitt = True
+                            bh1 = bh            # Umfang von App 1 nach dem Schnitt (für M2 und die Gründung)
                         elif attempts == 2 and P['vorlage_h']:
                             bh += P['vorlage_h']        # Vorlage ziehen, Review-Log einarbeiten (3-4 h)
                     if attempts == 2:
                         bau2_w = w
+                        if bh is not None:
+                            bau2_code_w = w
                     bau = [bh, attempts]
-                vorab = P['vorlage_h'] is not None and P['vorlage_vorab_h'] and bau[1] == 2 and not (
-                    app1_frei or any(rv[1] == 1 and rv[0] <= 1.0 for rv in reviews))
-                use = min(h_free, bau[0], max(0.0, P['vorlage_vorab_h'] - vorab_h)) if vorab else min(h_free, bau[0])
+                if bau[0] is None:
+                    if not (app1_frei or any(rv[1] == 1 and rv[0] <= 1.0 for rv in reviews)):
+                        use = min(h_free, max(0.0, P['vorlage_vorab_h'] - vorab_h))
+                        h_free -= use
+                        vorab_h += use
+                        break       # vor der Freigabe nur Vorbereitung ohne Code; der Rest der Woche geht nicht in App 2
+                    bau[0] = t('build_next') + P['vorlage_h'] - vorab_h    # jetzt ziehen, wie ohne Vorbereitung
+                    bau2_code_w = w
+                use = min(h_free, bau[0])
                 bau[0] -= use
                 h_free -= use
-                if vorab:
-                    vorab_h += use
-                    if bau[0] > 0:
-                        break       # vor der Freigabe nur Vorbereitung; der Rest der Woche geht nicht in App 2
                 if bau[0] <= 0:
                     if GR and not gegruendet and not gruenden_erlaubt(w):
                         break                       # fertig, gegründet wird erst nach der letzten Prüfung
@@ -837,7 +875,7 @@ def simulate(rng, P):
                 peak = P['force_first_peak']
             latent = peak
             if cost < 100:
-                peak *= 0.5
+                peak *= P['spitze_ohne_test']
             if erzwungen and P.get('force_m0'):
                 m0 = min(peak, P['force_m0'])
             elif mit_partner:
@@ -857,12 +895,24 @@ def simulate(rng, P):
                 apps[-1].update(latent=latent, wunsch=wunsch,
                                 signal_w=(w + SIG['wochen']) if not gestoppt else None)
             tests.append([t('test_hours'), t('test_min_weeks'), len(apps) - 1])
+            if versuch == 1 and v11_rest:
+                konten_rest += v11_rest        # Version 1.1 nach dem Start (02, Abschnitt 8)
+                v11_rest = 0.0
         for tst in list(tests):
             tst[1] -= 1.0
             if tst[0] <= 0 and tst[1] <= 0:
                 apps[tst[2]]['revealed'] = True
                 tests.remove(tst)
         # ---------------- Umsatzdynamik ----------------
+        OP = P['ohne_posts']
+        in_sig_pause = sig_pause is not None and sig_pause[0] <= w < sig_pause[1]
+        f_op = (OP['pause'] if in_sig_pause else OP['ende'] if gestoppt else 0.0) if OP else 0.0
+        if sig_pause is not None and w in (sig_pause[0], sig_pause[1]):
+            _u = sum(a['R'] for a in apps if a['launch'] < sig_pause[0])
+            if w == sig_pause[0]:
+                umsatz_vor_pause = _u
+            else:
+                umsatz_nach_pause = _u
         planned = []
         for a in apps:
             if a['launch'] == w:
@@ -884,6 +934,11 @@ def simulate(rng, P):
                     a['phase'] = 'decay'
             else:
                 Rn = R * (1 - a['decay']) ** (1 / WPM)
+            if f_op and (in_sig_pause or stopp_woche is None or a['launch'] < stopp_woche):
+                # ohne Posts keine Neukunden (05, 6.3 und 6.4; 06, 4.7): der Umsatz sinkt; danach wächst die App wieder
+                Rn = min(Rn, R * (1 - churn_stop * f_op))
+                if a['phase'] == 'plateau':
+                    a['phase'] = 'grow'
             if a['killw'] is not None and w == a['killw']:
                 Rn *= (1 - a['kdrop'])
                 a['phase'] = 'decay'
@@ -894,7 +949,7 @@ def simulate(rng, P):
         rs = rev_share if mit_partner else 0.0
 
         def rate(Rn, gm):
-            if c_org is not None and Rn * WPM < 5000 * FX:
+            if c_org is not None and Rn * WPM < P['c_organisch_bis_usd'] * FX:
                 return c_org        # Plan: keine Werbung aus dem Umsatz (06, Abschnitt 3: von 1 EUR bleiben ~0,71 EUR)
             if not gm:
                 return c_p
@@ -986,6 +1041,8 @@ def simulate(rng, P):
             kv_hist.append(wk_profit - sum(c for (ww, c) in test_log if ww == w))
             rate = sum(kv_hist[-4:]) * WPM / 4
             rest = (date(2027, 12, 31) - d).days / 30.4
+            if P['kv_bis_dienstende']:
+                rest = max(0.0, (date(2027, 9, 15) - d).days / 30.4)   # nach dem Dienstende keine Einnahmen mehr
             if rate > KV['monatsgewinn'] and (profit + rate * rest) / 12 > KV['monatsgewinn']:
                 kv_kosten += KV['beitrag'] / WPM      # eigene Kranken- und Pflegeversicherung (privat)
         cost_queue.append((w + cost_lag, cost_plan))
@@ -1090,7 +1147,10 @@ def simulate(rng, P):
                 restwert = mg_ent * tri(rng, *VK['monate'])     # Verkauf (netto nach Gebühren), Preis nach dem Stand
                 art = 'verkauf'
             elif (eltern_konto or not RW.get('anmeldung')) and rng.random() < tri(rng, *RW['p']):
-                restwert = max(0.0, monatsgewinn) * tri(rng, *RW['monate'])   # Übergabe (Geld des Elternteils)
+                # Übergabe (Geld des Elternteils); mit ohne_posts nach dem Stand am Entscheidungstag, denn der Rückgang
+                # ohne Videos steckt schon in den 0,7/2/5 Monatsgewinnen (06, 4.7)
+                mg_ueb = mg_ent if (P['ohne_posts'] and RW.get('stichtag')) else monatsgewinn
+                restwert = max(0.0, mg_ueb) * tri(rng, *RW['monate'])
                 art = 'uebergabe'
                 if 'kosten' in RW:
                     restwert = max(0.0, restwert - tri(rng, *RW['kosten']))
@@ -1117,7 +1177,13 @@ def simulate(rng, P):
         nach_modell = START + timedelta(weeks=WEEKS)          # Mo 30.08.2027, erster Tag nach dem Modell
         job_nach_w = sum(1 for k in range((FJ['bis'] - nach_modell).days + 1)
                          if (nach_modell + timedelta(days=k)).weekday() < 5) / 5.0
-    job_netto = (job_wochen + job_nach_w) * tri(rng, *FJ['netto_woche']) if FJ and job_wochen else 0.0
+    rate_job = tri(rng, *FJ['netto_woche']) if FJ and job_wochen else 0.0
+    job_netto = (job_wochen + job_nach_w) * rate_job
+    if job_frueh_w and FJ.get('netto_woche_frueh'):
+        job_netto += job_frueh_w * (tri(rng, *FJ['netto_woche_frueh']) - rate_job)   # frühe Wochen zum Zeitarbeitslohn
+    if KV and P['kv_bis_dienstende'] and profit - abschalt_abzug - nach_uebertragung <= 12 * KV['monatsgewinn']:
+        ergebnis += kv_kosten            # maßgeblich ist der Jahresgewinn (Steuerbescheid): keine Beiträge
+        kv_kosten = 0.0
     ergebnis -= abschalt_abzug + nach_uebertragung
     ergebnis_app = ergebnis
     verkauf = restwert if art == 'verkauf' else 0.0
@@ -1144,7 +1210,8 @@ def simulate(rng, P):
                 uebergabe=(restwert if art == 'uebergabe' else 0.0), nach_uebertragung=nach_uebertragung,
                 eltern_konto=eltern_konto, eltern_kosten=eltern_kosten, ergebnis_dein=ergebnis_dein,
                 abitur_h=abitur_h, job_nach_w=job_nach_w, frei1_w=frei1_w, bau2_w=bau2_w, post_max=post_max,
-                genannt_19=genannt_19, vorab_h=vorab_h)
+                genannt_19=genannt_19, vorab_h=vorab_h, schnitt=schnitt, job_frueh_w=job_frueh_w, bau2_code_w=bau2_code_w,
+                umsatz_vor_pause=umsatz_vor_pause, umsatz_nach_pause=umsatz_nach_pause)
 
 
 def scen(**kw):
@@ -1327,16 +1394,28 @@ def _mix(*teile):
 #   Gespräche zum Ferienjob in Q4 1 h, Vertrag und Anfrage an die Krankenkasse 1,25 h (06, 2.2), Zimmersuche in
 #   Zürich 2 h (KW 24) und Finanzierungsbrief 1 h (KW 25; 06, 1.2, Schätzung); die Bewerbung in Hannover (2 h) in
 #   KW 28 (06, 1.2) statt in KW 24.
-# - Umsatzabhängige Kosten nach dem Plan: unter 5.000 USD MRR keine Werbung aus dem Umsatz, nur Umsatzsteuer im Preis
-#   (0,85 x 0,16 = 0,136), KI-API (~0,01) und Erstattungen (2-8 %): 15/20/25 % vom Umsatz (06, Abschnitt 3: von 1 EUR
-#   Preis bleiben ~0,71 EUR). Darüber gelten die Sätze für bezahltes Wachstum (c_early/c_growth) weiter.
+# - Umsatzabhängige Kosten nach dem Plan: keine Werbung aus dem Umsatz (Hauptplan, Abschnitt 4; 05, 2.9), nur
+#   Umsatzsteuer im Preis 0,85 x (1 - 1/1,19) = 0,136 (05, 2.1: 6,99 EUR -> 4,99 EUR), KI-API 0,001-0,005 (Hauptplan,
+#   Abschnitt 7) und Erstattungen 2-8 % des Umsatzes, von Apple an der Auszahlung abgezogen (05, 2.8): 0,014-0,057.
+#   Zusammen 15/18/20 % vom Umsatz bis 100.000 USD MRR je App (06, Abschnitt 3: von 1 EUR Preis bleiben ~0,71 EUR).
+# - Wochen ohne Posts bringen keine Neukunden (05, 6.3: keine Posts in der Prüfungszeit; 05, 6.4: mit Ferienjob
+#   höchstens ein Post am Tag; 06, 4.7: ohne Videos fällt der Umsatz): in der Prüfungszeit sinkt der Umsatz jeder
+#   vorher gestarteten App um churn_stop je Woche, nach dem Ende der Jagd um die Hälfte davon (S).
+# - Start eines Treffers an 05, 8.4 kalibriert (S): 300/1.000/3.000 USD MRR statt 1.000/3.000/8.000 (1.000 USD MRR
+#   brauchen 1.000-3.000 Installationen im Monat; ohne Gesicht und ohne Werbung nur nach einem viralen Post).
+# - Stunden-Messpunkt (02, 8): Brauchen AP1-AP9 mehr als ~40 statt ~32 h (build_first ab 141 h), gilt die Schnittliste
+#   (3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten in 1.1): -6,2 % der Stunden, 3 h für Version 1.1
+#   nach dem Start. Zeitarbeitsanfrage am Mo 21.06. (1 h; 06, 2.4).
+# - Alter Verkauf der Firma (Exit, 1-3,5 Jahresgewinne) abgeschaltet: verkauft wird nur über restwert (06, 5).
+# - Familienversicherung nach dem Jahresgewinn (Hauptplan, Abschnitt 4): Hochrechnung nur bis zum Dienstende.
 def _nebenaufgaben_plan():
     m = dict(NEBEN_NI)
     for tag, h in ((date(2026, 11, 30), 3.75), (date(2026, 12, 7), 3.25), (date(2026, 12, 14), 6.0),
                    (date(2026, 12, 28), 2.25), (date(2027, 1, 4), 2.5),
                    (date(2027, 1, 25), 1.0),
                    (date(2027, 1, 11), 0.25), (date(2027, 1, 25), 0.25), (date(2027, 2, 15), 1.0),
-                   (date(2027, 3, 1), 1.25), (date(2027, 6, 14), 2.0), (date(2027, 6, 21), 1.0)):
+                   (date(2027, 3, 1), 1.25), (date(2027, 6, 14), 2.0), (date(2027, 6, 21), 1.0),
+                   (date(2027, 6, 21), 1.0)):
         m[tag] = m.get(tag, 0.0) + h
     # Bewerbung in Hannover (2 h aus NEBEN_NI) nach 06 in KW 28 (Do 15.07. abgeschickt) statt KW 24
     m[date(2027, 6, 14)] -= 2.0
@@ -1346,10 +1425,14 @@ def _nebenaufgaben_plan():
 
 NEBEN_PLAN = _nebenaufgaben_plan()
 GRUENDUNG_PLAN = dict(EINZEL['gruendung'], stunden=6.0, spaet=(date(2027, 3, 1), date(2027, 6, 7)))
-SIGNAL_PLAN = dict(SIGNAL, creator_nach_pause=True)
+# Creator-Geld nach dem Signal hebt die Spitze nur um 5/10/15 % (S: 4-12 Creator-Videos neben 50-110 eigenen Posts bis
+# Tor 1, 05, 6.1 und 10), statt sie auf 70-100 % der latenten Spitze zurückzuholen
+SIGNAL_PLAN = dict(SIGNAL, creator_nach_pause=True, abschlag=(0.525, 0.55, 0.575))
 AUFWAND_PLAN = dict(neben=NEBEN_PLAN, gruendung=GRUENDUNG_PLAN, pflege_h_woche=(0.4, 0.5, 0.6), signal=SIGNAL_PLAN,
                     vorlage_h=3.5, post_deckel=(1.5, 6.5), kasse_ab_gruendung=10 / 60, konten_je_einreichung=1.83,
-                    vorb_nach_einreichung1=3.5, c_organisch=(0.15, 0.20, 0.25))
+                    vorb_nach_einreichung1=3.5, c_organisch=(0.15, 0.18, 0.20), c_organisch_bis_usd=100000.0,
+                    ohne_posts=dict(pause=1.0, ende=0.5), m0=(300, 1000, 3000), schnitt_mp=(141, 1e9, 0.938), v11_h=3.0,
+                    exit_min_age_weeks=WEEKS + 1, kv_bis_dienstende=True)
 # Ausgangslage aller Hebel: Plan vom 23.11. mit den Stunden und Regeln der Detailpläne
 BASIS_HEBEL = _mix(DEINE_ANGABEN, EINZEL, AUFWAND_PLAN)
 
@@ -1361,9 +1444,11 @@ BASIS_HEBEL = _mix(DEINE_ANGABEN, EINZEL, AUFWAND_PLAN)
 HEBEL_MARKT = dict(p_faktor=(0.8, 0.95, 1.2), m0_ohne_test=(0.2, 0.42, 0.7))
 # Bau: Expo-Gerüst mit Plugin, fertige RevenueCat-Paywall, Durchstich zuerst, Arbeitsweise mit Prüfbefehl, eigene
 # Vorlage ab App 2 (S, Herstellerangaben ohne Zeitmessung): 78/130/260 statt 80/140/280 h, weitere Apps 33/55/110;
-# Lernstunden 20/28/40. Review-fest geplant (geführter Ablauf, Meldeknopf, Einwilligung): 0,4/1,2/3,0 Wochen.
+# Lernstunden 20/28/40. Review-fest geplant (geführter Ablauf, Meldeknopf, Einwilligung): 0,4/1,2/3,0 Wochen. Während
+# App 1 im Review ist, bereitest du App 2 ohne Code vor (bis 6 h: SPEC aus der Reserve-Idee, Fragenliste, Store-Texte,
+# Icon-Entwurf); den Code beginnst du erst nach der Freigabe aus der Vorlage.
 HEBEL_BAU = dict(build_first=(78, 130, 260), build_next=(33, 55, 110), einmal_stunden=(20, 28, 40),
-                 review_weeks=(0.4, 1.2, 3.0))
+                 review_weeks=(0.4, 1.2, 3.0), vorlage_vorab_h=6.0)
 # Kosten (B/S): Kleinunternehmer, Abschluss selbst über ELSTER (20/80/500 EUR statt 0/300/800), kostenlose
 # Gründungsberatung (Gründung 140/200/380), vor dem ersten Start nur Claude Pro, Domain, Nummer (23/28/45 EUR je
 # Monat), danach Supabase Free, EAS Free (23/30/75), nach dem Tor alles kündigen (5/12/35), Max höchstens für
@@ -1544,8 +1629,8 @@ SZENARIEN = {
     # ---- Gegenproben zur Prüfung vom 25.11. (abends) ----
     "Hebel: DEIN PLAN, App 2 schon während des Reviews von App 1 (ohne Vorlage nach der Freigabe, Gegenprobe)":
         scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(vorlage_h=None))),
-    "Hebel: DEIN PLAN, App 2 im Review von App 1 vorbereiten (bis 6 h ohne Code, Code erst nach der Freigabe)":
-        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(vorlage_vorab_h=6.0))),
+    "Hebel: DEIN PLAN ohne Vorbereitung von App 2 im Review (Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(vorlage_vorab_h=None))),
     "Hebel: DEIN PLAN, Posts bis zum Deckel von 10 h je Woche (Obergrenze aus 05, Gegenprobe)":
         scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(post_deckel=(1.5, 10.0)))),
     "Hebel: DEIN PLAN ohne Wochendeckel für Posts (Gegenprobe)":
@@ -1555,22 +1640,36 @@ SZENARIEN = {
                                                               zeitarbeit_vorlauf_p=(1, 1, 1))))),
     # ---- Hebel und Gegenproben zur dritten Prüfung (25.11. spät) ----
     "Hebel: DEIN PLAN mit den alten umsatzabhängigen Kosten (Werbung aus dem Umsatz wie im 500k-Modell, Gegenprobe)":
-        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(c_organisch=(0.30, 0.45, 0.65)))),
-    "Hebel: DEIN PLAN, App 1 um 15 % kleiner (in Version 1.0 nur das Nötigste)":
-        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(build_first=(66, 110, 221)))),
-    "Hebel: DEIN PLAN, App 1 um 30 % kleiner (kleinste Idee und nur das Nötigste)":
-        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(build_first=(55, 91, 182)))),
-    "Hebel: DEIN PLAN, App 1 um 15 % kleiner und App 2 im Review vorbereiten":
-        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(build_first=(66, 110, 221), vorlage_vorab_h=6.0))),
-    "Hebel: DEIN PLAN mit Ferienjob zum Tariflohn (16,70-18,50 EUR je Stunde)":
-        scen(**_mix(PLAN_HEBEL, RESTWERT, dict(ferienjob=dict(FERIENJOB_FRUEH['ferienjob'], netto_woche=(620, 670, 740))))),
-    "Hebel: nur Ferienjob zum Tariflohn ab 05.07., keine App (Vergleich)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(c_organisch_aus=True))),
+    "Hebel: DEIN PLAN, App 1 von Anfang an nach der Schnittliste aus 02, Abschnitt 8 (Favoriten usw. in 1.1)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(schnitt_mp=(0, 1e9, 0.938)))),
+    "Hebel: DEIN PLAN, App 1 um 15 % kleiner (nur mit einer kleineren Idee, nicht planbar, Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(build_first=(66, 110, 221),
+                                                                review_weeks=(0.5, 1.5, 4.0)))),
+    "Hebel: DEIN PLAN, falls ein Tarifbetrieb ab 19.07. zusagt (Bewerbung nach 06, 2.3)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, dict(ferienjob=dict(FERIENJOB_FRUEH['ferienjob'], netto_woche=(610, 660, 730),
+                                                              netto_woche_frueh=(560, 600, 690))))),
+    "Hebel: nur Ferienjob ab 05.07., falls ein Tarifbetrieb zusagt, keine App (Vergleich)":
         scen(**_mix(PLAN_HEBEL, dict(ferienjob=dict(FERIENJOB['ferienjob'], ab=date(2027, 7, 5), immer=True,
-                                                    netto_woche=(620, 670, 740)),
+                                                    netto_woche=(610, 660, 730)),
                                      n_attempts=(0, 0), extra_fix_monat=(0, 0, 0),
                                      gruendung=dict(GRUENDUNG_PLAN, bei=2.0, fix_vorher=(0, 0, 0))))),
-    "Hebel: DEIN PLAN mit der kürzeren Lernzeit aus 01 (12/18/28 statt 20/28/40 h, Gegenprobe)":
-        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(einmal_stunden=(12, 18, 28)))),
+    "Hebel: DEIN PLAN mit der kürzeren Lernzeit aus 01 (12/15/20 statt 20/28/40 h, Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(einmal_stunden=(12, 15, 20)))),
+    # ---- Gegenproben zur vierten Prüfung (Altlasten aus dem 500k-Modell) ----
+    "Hebel: DEIN PLAN, Umsatz läuft ohne Posts weiter (wie bisher, Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(ohne_posts=None))),
+    "Hebel: DEIN PLAN, nach dem Ende der Jagd gar keine Posts mehr (Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(ohne_posts=dict(pause=1.0, ende=1.0)))),
+    "Hebel: DEIN PLAN mit dem alten, schnellen Start eines Treffers (m0 1.000/3.000/8.000 USD, Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(m0=(1000, 3000, 8000)))),
+    "Hebel: DEIN PLAN mit langsamerem Wachstum eines Treffers (x1,2/1,6/2,2 je Monat, Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(g_demand=(1.2, 1.6, 2.2)))),
+    "Hebel: DEIN PLAN, Spitze ohne bezahlten Test nur um ein Viertel kleiner (statt halb, Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(spitze_ohne_test=0.75))),
+    "Hebel: DEIN PLAN, Creator-Geld wirkt wie bisher angenommen (Spitze auf 70-100 %, Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(signal=dict(PLAN_HEBEL['signal'],
+                                                                            abschlag=(0.7, 0.85, 1.0))))),
 }
 
 
