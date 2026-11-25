@@ -12,10 +12,10 @@ Ideenwahl und die Gliederung von `SPEC.md` in
 [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md). Modellzahlen stehen
 nur in [`07_HEBEL.md`](07_HEBEL.md).
 
-**Stand:** Mi 25.11.2026. Neu gegenüber der Fassung vom 24.11. (Hauptplan und
-03–07 enthalten diese Entscheidungen schon; 01 wird daran angeglichen):
+**Stand:** Mi 25.11.2026. Neu gegenüber der Fassung vom 24.11. (Hauptplan, 01
+und 03–07 enthalten diese Entscheidungen):
 - App 1 ist review-fest: geführter Ablauf und neues Paket **AP10a** (Verlauf,
-  Favoriten, Kopieren, Teilen); typisch ~113 statt ~100 Stunden (Abschnitt 4).
+  Favoriten, Kopieren, Teilen); typisch ~113 statt 99 Stunden (Abschnitt 4).
 - `SPEC.md` nach 04, Abschnitt 10.5 (AP3); Herkunftsfrage und
   Beispiel-Ergebnis im Onboarding (AP11).
 - Claude API: vor dem Start 5–10 $ ohne Nachladen, Anfrage nur mit `model`,
@@ -46,8 +46,8 @@ Inhalt:
 App 1 ist absichtlich klein. Jede Stunde, die du vor dem Start sparst, macht
 einen Start vor dem Abitur wahrscheinlicher. Bezahlte Abkürzungen lohnen
 trotzdem nicht: Eine gesparte Baustunde ist im Modell nur 4–6 € wert
-([07](07_HEBEL.md), Abschnitt 8; dort stehen auch alle übrigen Modellzahlen).
-Was Apple bei einer KI-App sehen will, ist aber von Anfang an drin
+([07](07_HEBEL.md), Abschnitt 8; alle übrigen Modellzahlen stehen ebenfalls
+nur in 07). Was Apple bei einer KI-App sehen will, ist aber von Anfang an drin
 ([04](04_IDEENWAHL.md), Abschnitt 9), denn jede Ablehnung kostet Tage.
 Deshalb gilt für App 1:
 
@@ -63,11 +63,12 @@ Deshalb gilt für App 1:
   Herkunftsfrage und Beispiel-Ergebnis; Paywall; Eingabe; Ergebnis;
   Einstellungen), dazu der Verlauf aus AP10a.
 - **Zwei Sprachen:** Deutsch und Englisch, von Anfang an. Die KI antwortet in
-  der Sprache des Geräts.
+  der Sprache der App: Deutsch auf Geräten mit Deutsch, sonst Englisch (AP2).
 - **Abo:** Wochenabo 6,99 € (vorausgewählt) und Monatsabo 14,99 €, keine
   Testphase, harte Paywall nach dem Onboarding, über RevenueCat mit der
   fertigen Paywall aus dem Dashboard (Preise und Länderpreise:
-  [05](05_START_UND_MARKETING.md), Abschnitt 2).
+  [05](05_START_UND_MARKETING.md), Abschnitt 2). Erscheint App 1 erst nach
+  So 04.07., bietet sie nur das Wochenabo an (05, Abschnitt 1.4).
 - **Server:** eine Supabase-Funktion `ki`, die das Abo prüft, zählt und die KI
   aufruft, dazu die kleine Funktion `herkunft`, die die Antworten auf
   „Woher kennst du die App?“ zählt (AP11).
@@ -169,7 +170,13 @@ persönliche Angaben. Ein Spitzname ist dort in Ordnung.
 **Nie:** einen Schlüssel in die App oder ins Repository; etwas Wichtiges im
 Schlüsselbund ablegen (nach einer Übertragung der App funktioniert er nur bis
 zum nächsten Update); Kundendaten in dein Claude-Abo; „ist behoben“ glauben,
-ohne es gesehen zu haben; neue Funktionen nach dem Funktions-Stopp.
+ohne es gesehen zu haben; neue Funktionen nach dem Funktions-Stopp;
+Funktionen vor dem Review verstecken oder nach der Freigabe per Update
+(`expo-updates`) freischalten (Updates ohne neues Review nur für reine
+Fehlerkorrekturen, [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.6); eine
+unfertige Version einreichen, um das Review zu testen; einen fertigen
+KI-Proxy-Dienst statt der eigenen Funktion mit Abo-Prüfung; eine bezahlte
+Vorlage oder einen KI-App-Baukasten.
 
 ---
 
@@ -177,13 +184,13 @@ ohne es gesehen zu haben; neue Funktionen nach dem Funktions-Stopp.
 
 Stunden sind deine eigenen Stunden: von/typisch/bis. Die typischen Werte
 ergeben zusammen ~113 Stunden. Das ist der Fall, in dem jedes Paket ohne
-längere Fehlersuche durchläuft. Gegenüber der Fassung vom 24.11. sind es
-14 Stunden mehr: AP10a (10), Beispiel-Ergebnis und Herkunftsfrage im
-Onboarding (AP11, 3) und die Übergabe-Mappe (AP20, 1). Das Modell rechnet
-vorsichtiger, mit 78/130/260 Stunden ([07](07_HEBEL.md), Abschnitt 14), weil
-Fehlersuche und Lernen am eigenen Code dazukommen. Keine Studie misst das für
-Anfänger. Deine echten Stunden trägst du ein und vergleichst sie am
-Stunden-Messpunkt (Abschnitt 8).
+längere Fehlersuche durchläuft. Gegenüber der Fassung vom 24.11. (99 Stunden,
+dort gerundet ~100) sind es 14 Stunden mehr: AP10a (10), Beispiel-Ergebnis
+und Herkunftsfrage im Onboarding (AP11, 3) und die Übergabe-Mappe (AP20, 1).
+Das Modell rechnet vorsichtiger, mit 78/130/260 Stunden ([07](07_HEBEL.md),
+Abschnitt 14), weil Fehlersuche und Lernen am eigenen Code dazukommen. Keine
+Studie misst das für Anfänger. Deine echten Stunden trägst du ein und
+vergleichst sie am Stunden-Messpunkt (Abschnitt 8).
 
 | Nr. | Paket | Stunden | fertig, wenn … |
 |---|---|---|---|
@@ -192,14 +199,14 @@ Stunden-Messpunkt (Abschnitt 8).
 | AP2 | Zwei Sprachen und fünf leere Bildschirme | 3/4/7 | du auf dem iPhone durch alle fünf Bildschirme tippen kannst und sie beim Umstellen der Gerätesprache die Sprache wechseln |
 | AP3 | Beschreibung von App 1 (`SPEC.md`) | 1/2/3 | `SPEC.md` auf einer Seite alle 16 Punkte der Gliederung aus 04, Abschnitt 10.5, enthält |
 | AP4 | Supabase: zwei Organisationen mit je einem Projekt, Funktion mit Beispielantwort, Zähltabelle | 3/5/9 | die App eine Beispielantwort vom Server zeigt, in der Tabelle ein Zähler steht und das Tabellen-Schema als Migration im Repository liegt |
-| AP5 | Claude API: Schlüssel, Limit, echte Antwort | 1/2/4 | die App eine echte KI-Antwort im festen Format zeigt, das Guthaben ohne Nachladen da ist und in der Konsole eine Grenze von höchstens 50 $ steht (gibt es keine: in `docs/konten.md` vermerkt) |
+| AP5 | Claude API: Schlüssel, Limit, echte Antwort | 1/2/4 | die App eine echte KI-Antwort im vorläufigen festen Format zeigt, das Guthaben ohne Nachladen da ist und in der Konsole eine Grenze von höchstens 50 $ steht (gibt es keine: in `docs/konten.md` vermerkt) |
 | AP6 | RevenueCat: Projekt, Test Store, Paywall, alle nativen Pakete | 3/5/9 | Projekt, Produkte und Paywall im Dashboard stehen und alle nativen Pakete installiert sind |
 | AP7 | Apple-Konto, Geräte, Entwicklungs-Build | 2/3/8 | der Entwicklungs-Build auf iPhone und iPad startet und die echte Paywall zeigt |
 | AP8 | **Durchstich:** Kauf → Abo-Prüfung → KI-Antwort | 2/4/8 | ein Testkauf die Eingabe freischaltet und ein Aufruf ohne Abo vom Server abgelehnt wird |
 | AP9 | Store-Build und TestFlight | 2/4/9 | die App über TestFlight auf deinem iPhone installiert ist und ohne Produkte nicht abstürzt |
 | **B** | **Die App** | **~55** | |
 | AP10 | Kernfunktion und Prompt | 6/10/18 | 20 Testeingaben in beiden Sprachen ein brauchbares Ergebnis im festen Format liefern |
-| AP10a | Verlauf, Favoriten, Kopieren, Teilen | 7/10/14 | jedes neue Ergebnis im Verlauf steht, dort ohne Netz lesbar und löschbar ist, sich kopieren und über das Teilen-Menü teilen lässt und Verlauf und Favoriten einen Neustart überstehen |
+| AP10a | Verlauf, Favoriten, Kopieren, Teilen | 7/10/14 | jedes neue Ergebnis im Verlauf steht, dort ohne Netz lesbar und löschbar ist, sich kopieren und über das Teilen-Menü teilen lässt und der Verlauf (und, wenn bis zum Funktions-Stopp gebaut, die Favoriten) einen Neustart übersteht; sonst steht „Favoriten in 1.1“ in `docs/entscheidungen.md` |
 | AP11 | Onboarding mit Beispiel-Ergebnis und Herkunftsfrage | 5/8/13 | die Antworten das Ergebnis sichtbar beeinflussen, beim zweiten Start nicht neu gefragt wird, vor der Paywall kein KI-Aufruf stattfindet und ein Tipp auf „TikTok“ im Testprojekt genau einen Zähler um 1 erhöht, „Überspringen“ keinen |
 | AP12 | Paywall-Feinschliff | 2/4/7 | das Wochenabo vorausgewählt ist und Preis, Laufzeit, Verlängerung, Kündigungsweg, die vier Links und die Tagesgrenze in beiden Sprachen stimmen |
 | AP13 | Einwilligung, „Antwort melden“, Fehlerfälle | 4/6/10 | ohne Netz, bei erreichter Tagesgrenze, bei abgelehnter oder abgeschnittener Antwort und bei einem Server-Fehler eine verständliche Meldung kommt |
@@ -210,7 +217,7 @@ Stunden-Messpunkt (Abschnitt 8).
 | **C** | **Einreichung** | **~26** | |
 | AP18 | Website mit Impressum, Datenschutz, Nutzungsbedingungen | 2/4/7 | die vier Seiten online sind und die Links in App und Paywall dorthin führen |
 | AP19 | App Store Connect: Eintrag, Abos, Preise, Angaben, Screenshots | 5/8/14 | alle Pflichtfelder grün sind, in de-DE, en-US und en-GB, und ein Sandbox-Kauf im Store-Build die Eingabe freischaltet |
-| AP20 | Sicherheits-Mindestprüfung, Betriebsprojekt, Übergabe-Mappe | 3/4/6 | alle acht Punkte bestanden sind, du jedes Ergebnis gesehen hast und `docs/UEBERGABE.md` ausgefüllt ist |
+| AP20 | Sicherheits-Mindestprüfung, Betriebsprojekt, Übergabe-Mappe | 3/4/6 | alle acht Punkte bestanden sind, du jedes Ergebnis gesehen hast, der Store-Build mit dem Betriebsprojekt die Proben aus Schritt 1 besteht und `docs/UEBERGABE.md` ausgefüllt ist |
 | AP21 | TestFlight mit der Familie | 2/4/7 | drei Tester die App ohne deine Hilfe bedient haben und ihre Fehler behoben sind |
 | AP22 | Einreichen und Review-Runden | 3/6/15 | die App freigegeben ist und auf „manuell veröffentlichen“ wartet |
 
@@ -292,8 +299,12 @@ Dateien.“
 
 Am Sa 19.12., gleich nach der Entscheidung am Ideen-Tor
 ([04](04_IDEENWAHL.md), Abschnitt 2); in den Fällen der Frist bis Mo 28.12.
-(04, Abschnitt 7). AP1, AP2 und AP4–AP6 hängen nicht von der Idee ab und
-laufen vorher. AP7 braucht das Apple-Konto; wann du es kaufst, steht bei AP7.
+(04, Abschnitt 7). AP1, AP2, AP4 und AP5 hängen nicht von der Idee ab und
+laufen vorher. AP6 hängt auch nicht von der Idee ab; seine nativen Pakete
+installierst du aber erst am Sa 19.12. direkt nach AP3, damit sie zu
+`SPEC.md` passen (wann das Konto entsteht: AP6, Schritt 1). Paywall und
+Aufruf folgen am Mi 23.12. (04, Abschnitt 2). AP7 braucht das Apple-Konto;
+wann du es kaufst, steht bei AP7.
 
 `SPEC.md` folgt der Gliederung in 04, Abschnitt 10.5 (16 Punkte auf einer
 Seite, darunter die Knöpfe „Kopieren“, „Teilen“ und „Antwort melden“,
@@ -336,10 +347,12 @@ nicht selbst in die Tabelle schreiben darf.“
 **Stolperstellen:**
 - Braucht ein Befehl Docker, lass dir den Weg über die Supabase-API oder den
   Editor im Dashboard zeigen.
-- Verbindest du Claude Code über den Supabase-MCP, dann nur mit dem
+- Claude Code arbeitet an Supabase nur über den Supabase-MCP und nur mit dem
   Testprojekt: An die Adresse gehört die Kennung des Testprojekts
   (`https://mcp.supabase.com/mcp?project_ref=…`). Das Betriebsprojekt hängst
-  du nie an den Agenten.
+  du nie an den Agenten. Die Supabase-CLI benutzt Claude nicht: Ihre
+  Anmeldung gilt für dein ganzes Konto, also auch für `app1-betrieb` (vor dem
+  Schritt prüfen; AP5, Schritt 2).
 - Warum zwei Organisationen: Supabase Pro kostet 25 $ je Organisation (mit
   10 $ Rechenguthaben für ein Projekt), jedes weitere Projekt darin ab 10 $.
   Wechselt später nur der Betrieb auf Pro, kostet das 25 $ statt 35 $. Im
@@ -347,7 +360,8 @@ nicht selbst in die Tabelle schreiben darf.“
   beiden sind die Plätze belegt (was das für App 2 heißt: 03, Abschnitt 3).
 - Ein Gratis-Projekt pausiert nach einer Woche ohne Aktivität. Beim
   Testprojekt ist das harmlos; für den Betrieb gilt ab der Einreichung die
-  Wachregel (AP20).
+  Wachregel (AP20). Bis dahin darf `app1-betrieb` pausieren; du startest es
+  in AP20 wieder.
 
 ### AP5 – Claude API: Schlüssel, Limit, echte Antwort (1/2/4 h)
 
@@ -364,19 +378,25 @@ nicht selbst in die Tabelle schreiben darf.“
      der Kassenprüfung von Hand nach (03, Abschnitt 3).
 2. Den Schlüssel als Geheimnis im Testprojekt hinterlegen:
    `supabase secrets set ANTHROPIC_API_KEY=…`, ebenso die Modell-ID:
-   `supabase secrets set ANTHROPIC_MODEL=claude-haiku-5-5`. Die Datei `.env`
-   steht in `.gitignore`. Ob ein geänderter Wert ohne neues Veröffentlichen
-   der Funktion greift, probierst du einmal im Testprojekt aus und notierst es
-   für `docs/UEBERGABE.md`.
+   `supabase secrets set ANTHROPIC_MODEL=claude-haiku-5-5`. Diese Befehle
+   tippst du selbst, nicht Claude (nach `supabase login`, mit `--project-ref`
+   und der Kennung des Testprojekts), und meldest die CLI danach mit
+   `supabase logout` wieder ab: Ihre Anmeldung gilt für dein ganzes Konto
+   (AP4). Die Datei `.env` steht in `.gitignore`. Ob ein geänderter Wert ohne
+   neues Veröffentlichen der Funktion greift, probierst du einmal im
+   Testprojekt aus und notierst es für `docs/UEBERGABE.md`.
 3. Die Funktion ruft die Claude API über das offizielle Anthropic-SDK auf und
    antwortet in der mitgeschickten Sprache. Die Anfrage enthält nur `model`,
    `max_tokens` (700–900), `system` und `messages`: keine weiteren Parameter,
    keine vorbefüllte Antwort. Die Länge der Antwort steuerst du über den
-   Prompt.
-4. Das feste Ergebnisformat (z. B. JSON mit festen Feldern) steht im Prompt.
-   Die Funktion prüft vor dem Zurückschicken, ob die Antwort dazu passt, und
-   meldet sonst einen Formatfehler. So zeigt die App geprüfte Felder statt
-   frei gelesenem Text.
+   Prompt. Das SDK bindest du mit fester Versionsnummer ein (nicht „latest“),
+   damit `anthropic-version` gleich bleibt. Claude zeigt dir, welcher Wert
+   gesendet wird, und du notierst ihn für `docs/UEBERGABE.md`.
+4. Das feste Ergebnisformat steht im Prompt. Bis zum Ideen-Tor nimmst du ein
+   vorläufiges Format, z. B. JSON mit den Feldern `titel` und `text`; das
+   echte Format kommt mit AP10. Die Funktion prüft vor dem Zurückschicken, ob
+   die Antwort dazu passt, und meldet sonst einen Formatfehler. So zeigt die
+   App geprüfte Felder statt frei gelesenem Text.
 5. Die Funktion prüft den Abbruchgrund: Endet eine Antwort mit `max_tokens`
    (abgeschnitten) oder `refusal` (abgelehnt), gibt sie einen eigenen
    Fehlercode zurück, und die App zeigt statt eines halben Ergebnisses eine
@@ -414,11 +434,12 @@ baust du nicht ein.
    Abschnitt 3.1), `expo-clipboard` (Kopieren) und ein Speicher für den
    Verlauf, z. B. `@react-native-async-storage/async-storage` (beide für
    AP10a). Lass Claude prüfen, ob `SPEC.md` noch ein Paket mit nativen Teilen
-   braucht. Danach reicht ein einziger Entwicklungs-Build; jeder weitere zählt
-   auf die 15 im Monat. Updates über `expo-updates` nutzt du nur, wenn der
+   braucht. Dann brauchst du für Pakete keinen weiteren Entwicklungs-Build.
+   Rechne trotzdem im ersten Monat mit 3–6 Entwicklungs- und 3–6 Store-Builds
+   ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.6); jeder Build zählt auf
+   die 15 im Monat. Updates über `expo-updates` nutzt du nur, wenn der
    Vertrag zur Auftragsverarbeitung mit Expo abgelegt ist; sonst schaltest du
-   sie vor der Einreichung ab ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 5.2,
-   Schritt 11).
+   sie vor der Einreichung ab (03, Abschnitt 5.2, Schritt 11).
 5. Die App ruft die Paywall nach dem Onboarding auf, mit `presentPaywall` bzw.
    `presentPaywallIfNeeded`.
 
@@ -443,11 +464,15 @@ fest im Code; der Test-Store-Schlüssel kommt nie ins Repository.“
 Voraussetzung: Es steht fest, wer im App Store steht (Namensfrage bis
 So 13.12., Hauptplan, Abschnitt 3), und das Apple-Konto ist aktiv. Gekauft
 wird es nur, wenn das Ideen-Tor absehbar bestanden wird (Zwischenstand am
-Sa 12.12.): dann Mo 14.–Mi 16.12., sonst nach dem Ideen-Tor, frühestens am
-Mo 21.12.; besteht keine Idee, gar nicht ([04](04_IDEENWAHL.md),
-Abschnitt 7). 99 € im Jahr, automatische Verlängerung gleich abschalten.
-Kommt innerhalb von 24 Stunden nach dem Kauf keine Bestätigung, wendest du
-dich an Apple (Ablauf: [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 4).
+Sa 12.12.) und IHK oder Gewerbeamt bestätigt haben, dass Mitgliedschaft und
+Tests ohne Verkauf vor der Gewerbeanmeldung unbedenklich sind (gefragt am
+Fr 04.12.; fehlt die Antwort am Mo 14.12., rufst du an; ohne Antwort erst
+nach dem Ideen-Tor; sagen sie etwas anderes, erst bei der Gründung;
+[03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 4.1). Dann Mo 14.–Mi 16.12.,
+sonst nach dem Ideen-Tor, frühestens am Mo 21.12.; besteht keine Idee, gar
+nicht ([04](04_IDEENWAHL.md), Abschnitt 7). 99 € im Jahr, automatische
+Verlängerung gleich abschalten. Kommt innerhalb von 24 Stunden nach dem Kauf
+keine Bestätigung, wendest du dich an Apple (Ablauf: 03, Abschnitt 4).
 
 1. `npm install -g eas-cli`, `eas login`, `eas build:configure`; `eas whoami`
    zeigt deinen neutralen Benutzernamen.
@@ -469,10 +494,13 @@ Abschnitt 4.3).
 **Stolperstellen:**
 - Bei einem neuen Konto kann es 24–72 Stunden dauern, bis ein Gerät
   angenommen ist. Der erste Build scheitert dann; einfach später wiederholen.
-- Im Free-Plan gibt es 15 iOS-Builds im Monat. Für Änderungen an der
-  Oberfläche brauchst du keinen neuen Build, nur für neue native Pakete. Jeden
-  Build trägst du in `docs/builds.md` ein und startest ihn morgens oder
-  mittags (03, Abschnitt 7.6).
+- Im Free-Plan gibt es 15 iOS-Builds im Monat. Für Änderungen am
+  JavaScript-Code (Bildschirme, Texte, Abläufe) brauchst du keinen neuen
+  Build. Einen neuen brauchst du für neue native Pakete, für Änderungen in
+  `app.json` (Icon, Startbild, Name, Bundle-ID, Plugin-Einstellungen; AP2,
+  AP16) und für eine andere Server-Adresse (AP20). Jeden Build trägst du in
+  `docs/builds.md` ein und startest ihn morgens oder mittags (03,
+  Abschnitt 7.6).
 
 ### AP8 – Durchstich: Kauf → Abo-Prüfung → KI-Antwort (2/4/8 h)
 
@@ -488,7 +516,10 @@ Das ist der wichtigste Schritt der ganzen Phase.
      Store als aktives Abo? Die Doku sagt das nicht ausdrücklich. Wenn nicht,
      lässt sich die Server-Prüfung erst mit Apples Sandbox testen, also nach
      der Gründung und dem Vertrag mit Apple. Dann baust du die Prüfung jetzt
-     und testest sie in KW 01–02.
+     und testest sie mit dem Sandbox-Kauf in AP19, Schritt 8 (in 01 am
+     Sa 30.01.). AP8 ist in diesem Fall fertig, wenn der Testkauf die Eingabe
+     freischaltet und ein Aufruf ohne Abo abgelehnt wird; den Fall „mit Abo →
+     KI-Antwort“ holst du in AP19 nach.
    - **Sandbox-Käufe nicht pauschal ablehnen:** Apples Prüfer kauft in der
      Sandbox. Lehnt der Server im Betrieb Sandbox-Käufe ab, fällt die App
      durch das Review.
@@ -552,7 +583,10 @@ auf.
 Bei einer Themenfamilie (04, Abschnitt 3) baust du zuerst nur den stärksten
 Anlass. Jeder weitere ist eine eigene Fragenliste, ein Abschnitt im Prompt und
 fünf Testfälle (3–6 Stunden, Schätzung). Er kommt nur dazu, wenn er bis zum
-Funktions-Stopp fertig ist, sonst in Version 1.1.
+Funktions-Stopp fertig ist, sonst in Version 1.1. Bei einer Themenfamilie
+zählt die Funktion `ki` zusätzlich je Anlass und Tag nur die Zahl der
+Aufrufe, ohne Text und ohne App-User-ID (eigene Tabelle mit RLS, als
+Migration); die Datenschutzerklärung nennt diese Zählung (AP18).
 
 **Prompt:** „Lies SPEC.md. Baue den geführten Ablauf und das Ergebnis.
 Schreib den System-Prompt in die Edge Function; das feste Ergebnisformat als
@@ -584,6 +618,11 @@ Meldeknopf (AP13), dann Kopieren, Teilen und Verlauf, Favoriten zuletzt.
 3. **Favoriten zuletzt:** ein Stern am Ergebnis und im Verlauf, dazu ein
    Filter „Favoriten“. Reicht die Zeit bis zum Funktions-Stopp (So 24.01.)
    nicht, kommen sie in Version 1.1 (Abschnitt 8).
+4. **Bewertungsabfrage** mit `expo-store-review`: erst, nachdem ein Zahler
+   mehrere Ergebnisse bekommen hat; jeder wird gefragt, niemandem wird etwas
+   versprochen ([05](05_START_UND_MARKETING.md), Abschnitt 3.1). Sie steckt
+   in den Stunden von AP10a und fällt bei knapper Zeit als Erstes weg, noch
+   vor den Favoriten (Abschnitt 8).
 
 **Prompt:** „Lies SPEC.md, Punkte 5 und 6. Baue am Ergebnis die Knöpfe
 Kopieren und Teilen (Teilen-Menü des iPhones, nur Text). Speichere jedes
@@ -614,19 +653,25 @@ Stunden stecken 1–2 für das Beispiel und 1/1,5/2,5 für die Herkunftsfrage.
   Antworten und „Überspringen“. Ein Tipp schickt nur den gewählten Wert an die
   Funktion `herkunft`, die einen Zähler je Tag und Antwort erhöht (Tabelle
   `herkunft` mit RLS); sie speichert keine App-User-ID, keine IP-Adresse und
-  keinen freien Text. „Überspringen“ sendet nichts.
+  keinen freien Text, nimmt nur die sechs festen Werte an, lehnt alles andere
+  ab und zählt höchstens 5.000 Antworten am Tag (05, Abschnitt 8.2).
+  „Überspringen“ sendet nichts.
 - **Datenschutz wie in 05, Abschnitt 8.2:** Die App speichert die Antwort
   nicht auf dem Gerät, um sie später mitzuschicken, und verknüpft sie nie mit
   einem Kauf (§ 25 TDDDG). Die Zählung steht in der Datenschutzerklärung
   (AP18). Rechtlich ist die Frage ungeprüft: vor dem Einbau klären
-  (Hauptplan, Checkliste D).
+  (Hauptplan, Checkliste D). Bleibt es offen oder lautet die Antwort nein,
+  lässt du die Frage weg; dann entfällt der letzte Teil des „fertig, wenn“
+  in Abschnitt 4 (der Zähler für „TikTok“), und du misst nur die
+  Hauptkennzahl (05, Abschnitt 8.1).
 
 ### AP12 – Paywall-Feinschliff (2/4/7 h)
 
 - Wochenabo 6,99 € vorausgewählt, Monatsabo 14,99 € daneben. Der Preis je
-  Zeitraum steht deutlich da, beide Preise gleich groß und deutlicher als
-  alles andere; RevenueCat setzt sie in Landeswährung ein (Länderpreise:
-  [05](05_START_UND_MARKETING.md), Abschnitt 2.1).
+  Zeitraum steht deutlich da, beide Preise gleich groß und gleich deutlich;
+  keine andere Preisangabe (z. B. ein Tagespreis) ist größer
+  ([05](05_START_UND_MARKETING.md), Abschnitt 2.6). RevenueCat setzt sie in
+  Landeswährung ein (Länderpreise: 05, Abschnitt 2.1).
 - Keine Testphase und kein Schalter dafür; nirgends „gratis“ oder „testen“
   (05, Abschnitt 2.2). Kein Countdown, kein Tagespreis, kein Rabatt beim
   Schließen.
@@ -663,9 +708,13 @@ Die Abos selbst legst du in AP19 an (05, Abschnitt 2.3).
    eine zeitnahe Antwort.
 3. **Fehlerfälle:** kein Netz, Tagesgrenze erreicht, KI lehnt ab (`refusal`),
    Antwort abgeschnitten (`max_tokens`), Antwort nicht im festen Format,
-   Grenze der API erreicht (400) oder zu viele Anfragen (429),
-   Server-Fehler, Abo abgelaufen. Jeder Fall bekommt eine verständliche
-   Meldung in beiden Sprachen und einen Weg zurück, nie ein halbes Ergebnis.
+   Guthaben aufgebraucht oder Monatsgrenze der API erreicht (je nach Fall
+   400, 402 oder 429 ohne `retry-after`, z. B. `enforced_spend_limit_reached`),
+   zu viele Anfragen (429 mit `retry-after`), Server-Fehler, Abo abgelaufen.
+   Die Funktion unterscheidet nach dem Fehlertyp der API, nicht nur nach der
+   Nummer (vor dem Schritt in der API-Doku prüfen; wo es geht, im Testprojekt
+   einmal auslösen). Jeder Fall bekommt eine verständliche Meldung in beiden
+   Sprachen und einen Weg zurück, nie ein halbes Ergebnis.
 
 ### AP14 – Einstellungen und Rechtstexte (2/3/5 h)
 
@@ -731,11 +780,12 @@ am Gründungstag nach der Gewerbeanmeldung, wenn feststeht, wer im Impressum
 steht.
 
 Beim Gegenlesen prüfst du über 03 hinaus: Die Datenschutzerklärung sagt, dass
-Verlauf und Favoriten nur auf dem Gerät liegen, und nennt bei einer
-Themenfamilie die Zählung je Anlass; die Speicherdauer bei Anthropic steht
-mit ihrer Einschränkung da (nie „wird nicht gespeichert“). Die
-Nutzungsbedingungen nennen dieselbe Tagesgrenze wie App, Paywall und Store
-(30 am Tag).
+Verlauf und Favoriten nur auf dem Gerät des Nutzers liegen (je nach Speicher
+auch in seinen eigenen Geräte-Backups; vor dem Schritt prüfen), nie auf
+deinem Server, und nennt bei einer Themenfamilie die Zählung je Anlass; die
+Speicherdauer bei Anthropic steht mit ihrer Einschränkung da (nie „wird nicht
+gespeichert“). Die Nutzungsbedingungen nennen dieselbe Tagesgrenze wie App,
+Paywall und Store (30 am Tag).
 
 ### AP19 – App Store Connect (5/8/14 h)
 
@@ -757,12 +807,13 @@ Voraussetzung: Der Vertrag für bezahlte Apps ist aktiv (nach der Gründung,
 3. In RevenueCat den App Store verbinden und die Produkte dem Entitlement und
    den Paketen zuordnen (05, Abschnitt 2.4). Das app-spezifische Shared Secret
    gleich erzeugen und in RevenueCat hinterlegen (06, Abschnitt 4.3). Der
-   Store-Build nutzt jetzt den iOS-Schlüssel, nicht mehr den
-   Test-Store-Schlüssel.
+   Store-Build nutzt wie seit AP9 den iOS-Schlüssel; jetzt laden darin die
+   echten Produkte.
 4. Datenschutzangaben („App-Datenschutz“), passend zu dem, was die App
-   wirklich tut: Der Eingabetext geht an Anthropic und bleibt dort bis zu
-   30 Tage, RevenueCat verarbeitet Kennung und Käufe. Nicht „Keine Daten
-   erfasst“ wählen; Apples Definition vor dem Ausfüllen lesen (Hauptplan,
+   wirklich tut: Der Eingabetext geht an Anthropic; Anthropic löscht ihn nach
+   eigener Angabe binnen 30 Tagen (bei Verdacht auf Verstöße bis zu 2 Jahre).
+   RevenueCat verarbeitet Kennung und Käufe. Nicht „Keine Daten erfasst“
+   wählen; Apples Definition vor dem Ausfüllen lesen (Hauptplan,
    Checkliste C).
 5. Screenshots vom eigenen iPhone, je Sprache mindestens drei; der erste nennt
    „Abo erforderlich“. Fehlende Größen setzt du in Canva auf das verlangte
@@ -776,9 +827,11 @@ Voraussetzung: Der Vertrag für bezahlte Apps ist aktiv (nach der Gründung,
    welchem Bildschirm die Paywall erscheint und wie der Prüfer mit einem
    Sandbox-Kauf alles sieht.
 7. Verfügbarkeit nach 05, Abschnitt 3.1 (alle Länder außer China und
-   Südkorea, Sonderpflichten vorher prüfen). EU-Händlerangaben und, falls
-   noch offen, Vertrag für bezahlte Apps, Bank- und Steuerdaten und Small
-   Business Program ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 6).
+   Südkorea, Sonderpflichten vorher prüfen). Kontrolle in App Store Connect:
+   EU-Händlerangaben bestätigt, Bank- und Steuerdaten vollständig, das Small
+   Business Program beantragt ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 6).
+   Fehlt etwas, holst du es jetzt nach. Der Vertrag für bezahlte Apps ist laut
+   Voraussetzung schon aktiv.
 8. **Kontrolle:** Store-Build mit dem iOS-Schlüssel, Kauf in der Sandbox:
    Kauf → `pro` aktiv → der Server antwortet; danach „Käufe wiederherstellen“
    nach Löschen und Neuinstallieren. Die drei Fälle aus AP8 bestehen auch im
@@ -786,19 +839,33 @@ Voraussetzung: Der Vertrag für bezahlte Apps ist aktiv (nach der Gründung,
 
 ### AP20 – Sicherheits-Mindestprüfung, Betrieb, Übergabe-Mappe (3/4/6 h)
 
-1. **Betriebsprojekt einrichten:** dieselben Funktionen (`ki` und `herkunft`)
-   und Tabellen aus den Migrationen im Repository, eigene Schlüssel. Die
-   Geheimnisse (KI-Schlüssel, geheimer RevenueCat-Schlüssel, Modell-ID) setzt
-   du selbst im Dashboard; Claude bekommt keinen Zugang. Der Store-Build
-   zeigt jetzt auf den Betrieb.
+1. **Betriebsprojekt einrichten:** Ist `app1-betrieb` seit AP4 pausiert,
+   startest du es zuerst im Dashboard wieder und wartest, bis es als aktiv
+   angezeigt wird. Den Betrieb richtest du nur im Supabase-Dashboard ein, nie
+   mit der CLI: dieselben Tabellen mit dem SQL aus `supabase/migrations/` im
+   SQL-Editor, dieselben Funktionen `ki` und `herkunft` im Editor für Edge
+   Functions (Code aus dem Repository einfügen; vor dem Schritt prüfen),
+   eigene Schlüssel. Die Geheimnisse (KI-Schlüssel, geheimer
+   RevenueCat-Schlüssel, Modell-ID) setzt du selbst unter Edge Functions →
+   Secrets; Claude bekommt keinen Zugang. Den Projektordner verknüpfst du nie
+   mit `app1-betrieb`.
+   - **Neuer Store-Build:** Danach baust du einen Store-Build mit Adresse und
+     Publishable-Schlüssel von `app1-betrieb` (Strich in `docs/builds.md`),
+     lädst ihn mit `eas submit` hoch und prüfst ihn in TestFlight:
+     Sandbox-Kauf → `pro` aktiv → Antwort aus `app1-betrieb` (ein neuer
+     Zähler in dessen Tabelle `nutzung`); ein Aufruf ohne Abo an
+     `app1-betrieb` scheitert; ein Tipp auf „TikTok“ zählt in `app1-betrieb`
+     (nur mit Herkunftsfrage, AP11). Eingereicht wird nur dieser Build.
 2. **Mindestprüfung:** die acht Punkte aus dem Hauptplan, Abschnitt 7 (die
    ersten sieben stehen auch im Abschnitt „Sicherheit“ von
    `docs/checkliste-einreichung.md`). Claude führt sie aus und zeigt Befehl
    und Ergebnis (Vorlage „Sicherheitsprüfung vor jedem Release“, Hauptplan,
    Abschnitt 16); du siehst dir jedes Ergebnis selbst an.
 3. **Wachregel in den Kalender:** Ab der Einreichung, solange eine App im
-   Review oder live ist, zweimal je Woche (Mo und Do) eine echte Anfrage aus
-   dem TestFlight-Build mit Sandbox-Kauf schicken oder das Projekt
+   Review oder live ist, zweimal je Woche (Mo und Do; in Q4 an den zwei
+   erlaubten kurzen Terminen Di und Do, zusammen mit dem Veröffentlichen der
+   Posts, [05](05_START_UND_MARKETING.md), Abschnitt 6.2) eine echte Anfrage
+   aus dem TestFlight-Build mit Sandbox-Kauf schicken oder das Projekt
    `app1-betrieb` im Dashboard öffnen; in Klausurwochen am Samstag und bei der
    Kassenprüfung am Sonntag. Was im Abitur gilt (Supabase Pro oder Pause),
    steht in [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5.
@@ -813,10 +880,14 @@ Voraussetzung: Der Vertrag für bezahlte Apps ist aktiv (nach der Gründung,
 
 ### AP21 – TestFlight mit der Familie (2/4/7 h)
 
-Drei Tester aus der Familie bekommen die App über TestFlight. Du siehst zu,
-ohne zu helfen, und schreibst jede Stelle auf, an der jemand zögert, auch bei
-Verlauf, Kopieren und Teilen. Die drei wichtigsten behebst du. Die Tester
-bewerten die App später nicht im Store (Hauptplan, Abschnitt 4).
+Drei Tester aus der Familie bekommen die App über TestFlight, als externe
+Tester per E-Mail-Einladung. Die erste Version braucht dafür eine kurze
+Beta-Prüfung durch Apple; lade sie deshalb mindestens drei Tage vor dem
+Termin ein (vor dem Schritt prüfen). Als Benutzer in App Store Connect legst
+du sie nicht an. Du siehst zu, ohne zu helfen, und schreibst jede Stelle auf,
+an der jemand zögert, auch bei Verlauf, Kopieren und Teilen. Die drei
+wichtigsten behebst du. Die Tester bewerten die App später nicht im Store
+(Hauptplan, Abschnitt 4).
 
 ### AP22 – Einreichen und Review-Runden (3/6/15 h)
 
@@ -844,8 +915,8 @@ Posts, Vor-Start-Prüfung, Veröffentlichen), steht in 05, Abschnitte 1 und 5.
 
 | deine Stunden für AP1–AP9 | was das heißt | was du tust |
 |---|---|---|
-| bis ~40 | im Plan | weiter wie geplant, Einreichung bis Di 02.02. ist möglich |
-| ~40–60 | langsamer, aber im Rahmen des Modells | **App 1 kleiner schneiden statt Termin schieben:** Onboarding mit 3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten erst in Version 1.1. Einreichung eher in Q4 |
+| bis ~40 | im Plan | weiter wie geplant. Jede Stunde über 32 schiebt die Einreichung; ab etwa 38 liegt sie in Q4 ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md), Abschnitt 11) |
+| ~40–60 | langsamer, aber im Rahmen des Modells | **App 1 kleiner schneiden:** Onboarding mit 3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten erst in Version 1.1. Das holt Stunden zurück; die Einreichung liegt trotzdem eher in Q4 |
 | über ~60 | fast doppelt so lang wie geplant oder mehr | Einreichung erst nach dem Abitur einplanen. Das ist kein Scheitern: weiter mit 10 h je Woche bis 31.01., in Q4 höchstens 6–7 h, kein Druck. Ist am So 14.03. keine App im Store oder im Review, ruht die App bis nach deiner letzten Prüfung (Ruhezeit, Hauptplan, Abschnitt 4) |
 
 Nie gekürzt werden: geführter Ablauf, Meldeknopf, Einwilligung, die
