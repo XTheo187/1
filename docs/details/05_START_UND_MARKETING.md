@@ -27,21 +27,23 @@ Modellzahlen stehen nur in [`07_HEBEL.md`](07_HEBEL.md).
   laufen Konten, Verträge und Zahlungen auf seinen Namen, und sein Name steht im
   Impressum.
 
-**Neue Entscheidungen seit dem Hauptplan** (sie gehen ihm vor):
+**Was sich gegenüber dem Stand vom 23.11. geändert hat.** Der Hauptplan
+enthält diese Entscheidungen schon. Wo [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md)
+oder [02](02_BAUPLAN_APP1.md) noch anders lauten, gilt dieses Dokument.
 
-| Thema | bisher | jetzt |
+| Thema | Stand 23.11. bzw. 01/02 | jetzt |
 |---|---|---|
 | Posts vor dem Start | erste Slideshows ab der Gründung | Posts erst, wenn App 1 eingereicht ist; höchstens 9, bevor sie im Store ist |
-| Posts im Sommer | 1–3 am Tag, 10–20 Minuten je Stück | erste Woche 1 am Tag, danach 2, mit Formatnachweis 3; 14 Minuten je Post (10–18) |
+| Posts im Sommer | 1–3 am Tag, 10–20 Minuten je Stück | 2 am Tag ab dem ersten Tag; 3 nur, wenn in den letzten 14 Tagen ein Post mindestens 15.000 Aufrufe hatte; 14 Minuten je Post (10–18) |
 | Sieger eines Formats | nicht festgelegt | ab 15.000 Aufrufen oder dem 10-Fachen deines Medians, bestätigt erst durch 2 von 3 Varianten |
-| Signalprüfung nach einem Start vor Mo 15.03. | gilt nach der letzten Prüfung | zweite, gültige Prüfung 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung |
+| Signalprüfung nach einem Start vor Mo 15.03. | gilt nach der letzten Prüfung | zweite, gültige Prüfung 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, spätestens Di 29.06. |
 | Testphase | Paywall ohne Umschalter | für App 1 gar keine Testphase |
-| Jahresabo | erst, wenn im Juli klar ist, wie es weitergeht | keins, auch kein „lebenslang“; Apps, die nach So 04.07. erscheinen, nur mit Wochenabo |
-| Tagesgrenze der KI-Funktion | 20 Aufrufe (Bauplan, AP15) | 30–50 Antworten je Abonnent und Tag |
-| Sprachen der Store-Seite | weitere Sprachen in der Wartezeit ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md), [02](02_BAUPLAN_APP1.md)) | de-DE, en-US und en-GB, alle schon in Version 1.0 |
+| Jahresabo | erst, wenn im Juli klar ist, wie es weitergeht | keins, solange du Inhaber bist, auch kein „lebenslang“; ein Nachfolger entscheidet nach der Übertragung selbst. Apps, die nach So 04.07. erscheinen, nur mit Wochenabo |
+| Tagesgrenze der KI-Funktion | 20 Aufrufe ([02](02_BAUPLAN_APP1.md), AP15) | zum Start 30 Antworten je Abonnent und Tag (Spanne 30–50) |
+| Sprachen der Store-Seite | weitere Sprachen in der Wartezeit ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md), Sa 30.01.; [02](02_BAUPLAN_APP1.md), AP22) | de-DE, en-US und en-GB, alle schon in Version 1.0 |
 | Klickbarer Link bei TikTok | meist erst ab 1.000 Followern | verifizierte Unternehmenskonten bekommen ihn ohne Follower-Grenze; dafür steht der Name des Inhabers im Profil |
-| Zahl der Markenkonten | eines je Plattform | ein zweites TikTok-Konto ist erlaubt, aber nur nach Formatnachweis |
-| Creator | ~83 $ je 30 Sekunden | 60–90 € fest je Video samt Posting oder ein Rohvideo zum Festpreis; nur volljährige Creator mit Rechnung |
+| Zahl der Markenkonten | eines je Plattform | ein zweites, klar erkennbares TikTok-Konto ist erlaubt, aber nur nach Formatnachweis (Abschnitt 7.6) |
+| Creator | ~83 $ je 30 Sekunden | 60–90 € fest je Video samt Posting oder ein Rohvideo zum Festpreis; nur volljährige Creator mit Sitz in Deutschland und Rechnung |
 
 Inhalt:
 1. [Vom Review bis zum ersten Messpunkt](#1-vom-review-bis-zum-ersten-messpunkt)
@@ -71,14 +73,15 @@ davon ab, ob Apple App 1 bis Sa 13.03. freigibt (Fall A) oder nicht (Fall B).
 |---|---|---|---|
 | 1 | **Einreichen** (AP22) mit „Diese Version manuell veröffentlichen“. Abo-Gruppe und beide Abos hängen an der Version (Abschnitt 2.3) | steht in AP22 | App Store Connect „Warten auf Prüfung“ zeigt |
 | 2 | **Markenkonten anlegen** (Abschnitt 5): in der Woche der Einreichung, nie vor der Gewerbeanmeldung | 1/1,5/2,5 h | jedes Profil den Link „Impressum“ zeigt |
-| 3 | **Üben:** höchstens 3 Posts je Woche und höchstens 9 Posts, solange die App nicht im Store ist. Letzte Folie: „[Name] – bald im App Store“, ohne Datum | Abschnitt 6 | die Posts in der Messtabelle stehen |
-| 4 | **Review-Runden:** Grund ins `docs/review-log.md`, kleinste Änderung, neu einreichen, wieder „manuell veröffentlichen“ wählen. Die meisten Prüfungen sind in 48 Stunden fertig. Rechne bei der ersten App mit 1–2 Ablehnungen; jede kostet meist 2–10 Tage | steht in AP22 | die Version freigegeben ist und auf deine Veröffentlichung wartet |
-| 5 | **Vor-Start-Prüfung** (Abschnitt 1.4) | 0,5/0,75/1 h | jeder Punkt abgehakt ist |
-| 6 | **Veröffentlichen:** in App Store Connect auf der Seite der Version „Diese Version veröffentlichen“ (Wortlaut vor dem Schritt prüfen). Nie zwischen Mo 15.03. und deiner letzten Prüfung | 5 min; bis die App sichtbar ist, vergehen bis zu 24 h | die App im deutschen App Store erscheint. Dieser Tag ist **Tag 0** |
-| 7 | **Starttag:** Namens-Check (Abschnitt 3), Kampagnenlinks anlegen und in die Profile setzen (Abschnitt 8.3), Profiltext und letzte Folie von „bald im App Store“ auf „im App Store“ umstellen, Link zum App Store auf die Website, Tag 21 in den Kalender | 0,5/1/1,5 h | Tag 0 und Tag 21 in `docs/entscheidungen.md` stehen |
-| 8 | **Posts** nach dem Wochenprogramm (Abschnitt 6), Zahlen in die Messtabelle | Abschnitt 6 | – |
-| 9 | **Sonntagsauswertung** (Abschnitt 12.3) | 0,5 h | die Wochenzeile steht |
-| 10 | **Tag 21: Signalprüfung** (Abschnitt 9) | 0,25 h | MRR und Entscheidung notiert sind |
+| 3 | **Featuring-Nominierung:** in App Store Connect Apple kostenlos um eine Hervorhebung zum Start bitten (Bereich und Wortlaut vor dem Schritt prüfen). Nach der Einreichung; für einen Start nach der letzten Prüfung spätestens Sa 13.03., nie in der Startpause | 15/20/30 min (Schätzung der Gegenprüfung) | die Nominierung abgeschickt und in `docs/entscheidungen.md` notiert ist |
+| 4 | **Üben:** in Q4 höchstens 3 Posts je Woche; insgesamt höchstens 9 Posts, solange die App nicht im Store ist. Letzte Folie: „[Name] – bald im App Store“, ohne Datum | Abschnitt 6 | die Posts in der Messtabelle stehen |
+| 5 | **Review-Runden:** Grund ins `docs/review-log.md`, kleinste Änderung, neu einreichen, wieder „manuell veröffentlichen“ wählen. Die meisten Prüfungen sind in 48 Stunden fertig. Rechne bei der ersten App mit 1–2 Ablehnungen; jede kostet meist 2–10 Tage | steht in AP22 | die Version freigegeben ist und auf deine Veröffentlichung wartet |
+| 6 | **Vor-Start-Prüfung** (Abschnitt 1.4) | 0,5/0,75/1 h | jeder Punkt abgehakt ist |
+| 7 | **Veröffentlichen:** in App Store Connect auf der Seite der Version „Diese Version veröffentlichen“ (Wortlaut vor dem Schritt prüfen). Nie zwischen Mo 15.03. und deiner letzten Prüfung | 5 min; bis die App sichtbar ist, vergehen bis zu 24 h | die App im deutschen App Store erscheint. Dieser Tag ist **Tag 0** |
+| 8 | **Starttag:** Namens-Check (Abschnitt 3.2), Kampagnenlinks anlegen und in die Profile setzen (Abschnitt 8.3), Profiltext und letzte Folie von „bald im App Store“ auf „im App Store“ umstellen, Link zum App Store auf die Website, Tag 21 in den Kalender | 0,5/1/1,5 h | Tag 0 und Tag 21 in `docs/entscheidungen.md` stehen |
+| 9 | **Posts** nach dem Wochenprogramm (Abschnitt 6), Zahlen in die Messtabelle | Abschnitt 6 | jeder Post eine Zeile hat und die Minuten des Tages eingetragen sind (Abschnitt 6.4) |
+| 10 | **Sonntagsauswertung** mit Kassenprüfung (Abschnitt 12.3) | 0,5 h | die Wochenzeile steht |
+| 11 | **Tag 21: Signalprüfung** (Abschnitt 9) | 0,25 h | MRR und Entscheidung notiert sind |
 
 ### 1.2 Fall A: Freigabe bis Sa 13.03.
 
@@ -87,12 +90,13 @@ davon ab, ob Apple App 1 bis Sa 13.03. freigibt (Fall A) oder nicht (Fall B).
 | spätestens Di 02.02. (in [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) typisch Sa 23.01.) | Einreichung |
 | Woche der Einreichung | Markenkonten |
 | danach jeden Samstag, in Q4 ab Sa 06.02. | Samstagsblock mit höchstens 3 Posts je Woche (Abschnitt 6.2); Antworten an das Review gehen vor |
-| am Tag der Freigabe, spätestens Sa 13.03. | Vor-Start-Prüfung, veröffentlichen, Starttag |
-| Tag 21, nur wenn er bis So 14.03. liegt (Start bis So 21.02.) | erste Signalprüfung als Vorab-Blick. Beispiele: Start Sa 13.02. → Sa 06.03.; Start Sa 20.02. → Sa 13.03. Bei einem Start ab Mo 22.02. entfällt sie |
-| So 14.03. | letzter Post. Die drei besten Posts im Profil anheften, Mitteilungen der drei Apps ausschalten, nichts einplanen. Messpunkt M3 und Entscheidung zur Ruhezeit ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.4) |
-| Mo 15.03. bis zu deiner letzten Prüfung | keine Posts, keine Kommentare. Zweimal je Woche 20 Minuten für Zahlen, Support-Mails und die Supabase-Wachregel ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5) |
-| Tag nach der letzten Prüfung (spätestens Di 08.06.) | erster täglicher Post (Abschnitt 6.4) |
-| 21 Tage danach; bei Wiederbeginn am Mo 07.06. oder Di 08.06.: **Mo 28.06.** | zweite, gültige Signalprüfung |
+| am Tag der Freigabe, spätestens Sa 13.03.; in Q4 im nächsten erlaubten Zeitfenster (Samstag oder einer der zwei kurzen Termine unter der Woche), nie am Sonntag | Vor-Start-Prüfung, veröffentlichen, Starttag |
+| Tag 21, nur wenn er bis So 14.03. liegt (Start bis So 21.02.) | erste Signalprüfung als Vorab-Blick. Beispiele: Start Sa 13.02. → Sa 06.03.; Start Sa 20.02. → Sa 13.03. Bei einem Start ab Mo 22.02. fiele sie in die Startpause; dann siehst du am Tag nach deiner letzten Prüfung nach (Abschnitt 9.2) |
+| Sa 13.03. | letzter Post |
+| So 14.03. | Die drei besten Posts im Profil anheften, Mitteilungen der drei Apps ausschalten, nichts einplanen. Messpunkt M3: Die App ist live, also läuft Claude Pro weiter ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.4), und du stellst die Organisation `app-betrieb` für die Abiturmonate auf Supabase Pro (~27 € im Monat, [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5) |
+| Mo 15.03. bis zu deiner letzten Prüfung | keine Posts, keine Kommentare. Zweimal je Woche 20 Minuten für Zahlen und Support-Mails; einer der zwei Termine ist die Sonntagsauswertung (Abschnitt 12.3). An Prüfungstagen und ab einer Woche vor jedem Prüfungstag nichts (Hauptplan, Abschnitt 4). Mit Supabase Pro brauchst du keine Wachregel |
+| Tag nach der letzten Prüfung (spätestens Di 08.06.) | erster täglicher Post (Abschnitt 6.4). Supabase zurück auf Free, außer ein Signal ist bestanden ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5). Fiel Tag 21 in die Startpause: MRR ablesen (Abschnitt 9.2) |
+| 21 Tage danach, spätestens **Di 29.06.** (Wiederbeginn Mo 07.06. → Mo 28.06.; Di 08.06. → Di 29.06.) | zweite, gültige Signalprüfung |
 | So 18.07. | Tor 1 (Hauptplan, Abschnitt 13) |
 
 - **Wozu der frühe Start gut ist:** Du misst, wie viele Downloads kaufen, und
@@ -107,15 +111,21 @@ davon ab, ob Apple App 1 bis Sa 13.03. freigibt (Fall A) oder nicht (Fall B).
 ### 1.3 Fall B: Start nach der letzten Prüfung
 
 - **App ist freigegeben und wartet** (Freigabe nach Sa 13.03.): Am Tag nach
-  deiner letzten Prüfung buchst du Claude Pro neu, startest das
-  Supabase-Projekt, machst die Vor-Start-Prüfung und veröffentlichst. Am selben
-  Tag geht der erste tägliche Post hinaus.
+  deiner letzten Prüfung buchst du Claude Pro neu, falls es geruht hat,
+  startest das Supabase-Projekt, machst die Vor-Start-Prüfung und
+  veröffentlichst. Am selben Tag geht der erste tägliche Post hinaus.
+- **App ist eingereicht, aber noch nicht freigegeben** (im Review oder
+  abgelehnt): Am Tag nach deiner letzten Prüfung beantwortest du zuerst das
+  Review (Abschnitt 1.1, Schritt 5). Die Markenkonten gibt es schon. Bis zur
+  Freigabe postest du nach Abschnitt 6.4, insgesamt aber höchstens 9 Posts,
+  solange die App nicht im Store ist. Nach der Freigabe folgen
+  Vor-Start-Prüfung und Start; Tag 0 ist der Tag, an dem die App erscheint.
 - **App ist noch nicht eingereicht:** Du baust zuerst fertig. Bis zur
   Einreichung gibt es keine Markenkonten und keine Posts; der Bau ist der
   Engpass. Ist noch nicht gegründet, gründest du am Tag nach der letzten
   Prüfung ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 5).
 
-| Start (Tag 0) | Signalprüfung (Tag 21) | Tage bis Tor 1 |
+| Start (Tag 0) | Signalprüfung (Tag 21) | Tage von Tag 21 bis Tor 1 |
 |---|---|---|
 | Do 20.05. (frühestens, nach einer Prüfung am Mi 19.05.) | Do 10.06. | 38 |
 | Di 08.06. (nach einer Prüfung am Mo 07.06.) | Di 29.06. | 19 |
@@ -125,7 +135,8 @@ davon ab, ob Apple App 1 bis Sa 13.03. freigibt (Fall A) oder nicht (Fall B).
 | ab Mo 28.06. | nach Tor 1 | – |
 
 - **Start nach So 27.06.:** Tag 21 liegt hinter Tor 1. Creator-Geld gibt es dann
-  nicht mehr, weil neue Buchungen nur bis So 18.07. erlaubt sind.
+  im Normalfall (Weg A) nicht mehr, weil neue Buchungen nur bis So 18.07.
+  erlaubt sind (Abschnitt 10, Schritt 1).
 - **Stichtag So 04.07.:** Ist dann keine App im Store, beginnt am Mo 05.07. der
   Ferienjob, und du beginnst keine neue App. Eine eingereichte App darf noch
   erscheinen. Jede App, die nach So 04.07. erscheint, bietet nur das Wochenabo
@@ -152,13 +163,20 @@ drückst.
       ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 3).
 - [ ] Die Website nennt im Impressum die drei Profile (Abschnitt 5.4), und das
       Support-Postfach ist auf dem iPhone eingerichtet.
-- [ ] Die Beschreibung im Store sagt „Abo erforderlich“ und nennt den Preis
-      (Abschnitt 3).
+- [ ] Die Beschreibung im Store sagt auf Deutsch „Abo erforderlich“ und nennt
+      den Preis, auf Englisch „Subscription required“ (Abschnitt 3.1).
 - [ ] Small Business Program: Die Bestätigungs-Mail ist da, oder du startest
       bewusst mit dem Regelsatz.
+- [ ] Erscheint die App nach So 04.07.: Das Monatspaket ist aus dem Offering
+      `default` genommen, das Monatsabo aus dem Verkauf, und Paywall und
+      Beschreibung nennen nur das Wochenabo
+      ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 3). Sonst abhaken.
 
-**Fertig, wenn** alle zehn Punkte abgehakt sind. Scheitert der Sandbox-Kauf,
-veröffentlichst du nicht.
+**Fertig, wenn** alle elf Punkte abgehakt sind. Scheitert ein Punkt,
+veröffentlichst du nicht: Du suchst den Fehler mit Claude (bei Käufen
+Abschnitt 2.3, „Wenn es hakt“) und gehst am nächsten Tag die ganze Liste noch
+einmal durch. Fiele der nächste Versuch auf Mo 15.03. oder später, wartest du
+bis zum Tag nach deiner letzten Prüfung.
 
 ---
 
@@ -170,8 +188,10 @@ veröffentlichst du nicht.
   KI-Antwort. Ohne Abo erscheint die Paywall bei jedem Start und beim Tippen auf
   die Kernfunktion wieder.
 - **Zwei Abos:** Wochenabo vorausgewählt, Monatsabo als Anker daneben.
-- **Nicht in Version 1:** Testphase, Einführungsangebot, Jahresabo,
-  „lebenslang“, Einmalkauf, Kauf außerhalb von Apple.
+- **Nicht in Version 1:** Testphase, Einführungsangebot, Einmalkauf, Kauf
+  außerhalb von Apple.
+- **Nie, solange du Inhaber bist:** Jahresabo und „lebenslang“. Ein Nachfolger
+  entscheidet nach der Übertragung selbst (Hauptplan, Abschnitt 6).
 - **Apps, die nach So 04.07. erscheinen,** bieten nur das Wochenabo an.
 
 | Land | Umsatzsteuer im Preis | Wochenabo | Auszahlung im Programm (15 %) | ohne Programm | Monatsabo | Auszahlung im Programm | ohne Programm |
@@ -242,7 +262,7 @@ ist aktiv ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 6).
 | 4 | Abopreise je Abo | Basisland Deutschland: 6,99 € und 14,99 €. Apple rechnet die übrigen Länder um. Österreich, Schweiz, USA und Großbritannien setzt du von Hand nach Abschnitt 2.1 | die fünf Länder die Preise aus 2.1 zeigen und du die Erlös-Spalte verglichen hast |
 | 5 | Lokalisierung je Abo | Anzeigename und Beschreibung in Deutsch und Englisch, z. B. „[Name] Woche“ und „Voller Zugriff, wöchentliche Abrechnung“ | beide Sprachen gespeichert sind |
 | 6 | Angaben für das Review je Abo | ein Screenshot der Paywall aus dem Entwicklungs-Build und ein Satz, auf welchem Bildschirm sie erscheint | bei keinem Abo mehr Angaben fehlen |
-| 7 | Bewusst leer lassen | kein Einführungsangebot, keine Angebotscodes, kein Jahresprodukt (auch nicht „vorbereitet“) | – |
+| 7 | Bewusst leer lassen | kein Einführungsangebot, keine Angebotscodes, kein Jahresprodukt (auch nicht „vorbereitet“) | in der Abo-Gruppe nur die beiden Abos stehen und bei keinem ein Angebot angelegt ist |
 | 8 | Kulanzfrist für fehlgeschlagene Abbuchungen | einschalten; kostet nichts. Einstellung und Wirkung sind nicht geprüft: vor dem Schritt prüfen | eingeschaltet oder bewusst gelassen |
 | 9 | Abos an die Version hängen | auf der Seite der Version im Bereich für In-App-Käufe und Abonnements beide Abos auswählen. Die ersten Abos müssen zusammen mit einer App-Version eingereicht werden | beide Abos bei der Version stehen |
 
@@ -254,8 +274,9 @@ den Produkt-IDs.
 ### 2.4 Einrichtung in RevenueCat
 
 Die Grundlage steht seit AP6 (Projekt, Entitlement `pro`, Offering `default`,
-Pakete Woche und Monat im Test Store). Paywall und Anbindung brauchen zusammen
-4–6 Stunden (AP6, AP12, AP19).
+Pakete Woche und Monat im Test Store). Die Paywall aus der Vorlage und ihre
+Platzierung brauchen nach der Gegenprüfung 4–6 Stunden; sie stecken in den
+Stunden von AP6, AP12 und AP19 ([02](02_BAUPLAN_APP1.md), Abschnitt 4).
 
 | Nr. | Schritt | fertig, wenn … |
 |---|---|---|
@@ -265,7 +286,7 @@ Pakete Woche und Monat im Test Store). Paywall und Anbindung brauchen zusammen
 | 4 | Texte je Sprache im Dashboard pflegen, nicht in `de.json`/`en.json`. Deutsche Geräte sehen Deutsch, alle anderen Englisch. Die Preise setzt RevenueCat in der Landeswährung ein | beide Sprachen vollständig sind |
 | 5 | In der App die Paywall mit `presentPaywall` oder `presentPaywallIfNeeded` zeigen: nach dem Onboarding, bei jedem Start ohne Abo und beim Tippen auf die Kernfunktion. Das geht nur im Entwicklungs-Build, nicht in Expo Go | die echte Paywall auf iPhone und iPad erscheint |
 | 6 | Store-Build mit dem iOS-Schlüssel bauen und in der Sandbox kaufen: Kauf → `pro` aktiv → der Server antwortet. Danach „Käufe wiederherstellen“ nach Löschen und Neuinstallieren testen | alle drei Fälle aus AP8 im Store-Build bestehen |
-| 7 | Rechtzeitig vor 2.500 $ erfasstem Monatsumsatz eine Karte hinterlegen ([Preise](https://www.revenuecat.com/pricing)) | – |
+| 7 | Rechtzeitig vor 2.500 $ erfasstem Monatsumsatz eine Karte hinterlegen ([Preise](https://www.revenuecat.com/pricing)); ohne Karte sperrt RevenueCat ab dieser Grenze Teile des Produkts | die Karte hinterlegt ist, spätestens wenn RevenueCat 2.000 $ erfassten Monatsumsatz zeigt (Startwert, damit bis 2.500 $ Zeit bleibt) |
 
 ### 2.5 Wo die Paywall steht und was ohne Abo erreichbar bleibt
 
@@ -303,8 +324,13 @@ Pakete Woche und Monat im Test Store). Paywall und Anbindung brauchen zusammen
 
 - **Wert:** 30–50 Antworten je App-User-ID und Tag. Du startest mit 30. Der
   Wert 20 aus AP15 ist damit ersetzt.
-- **Wo:** in der Server-Funktion `ki`, zusammen mit der gedeckelten
-  Antwortlänge. Den Abo-Status darf die Funktion einige Minuten zwischenspeichern.
+- **Wo:** in der Server-Funktion `ki`, zusammen mit `max_tokens` 700–900; die
+  Länge der Antwort steuerst du über den Prompt. Den Abo-Status darf die
+  Funktion einige Minuten zwischenspeichern.
+- **Abbruch:** Endet eine Antwort mit dem Abbruchgrund `max_tokens` oder
+  `refusal`, zeigt die App statt eines halben Ergebnisses eine Fehlermeldung
+  ([02](02_BAUPLAN_APP1.md), AP13). Auch solche Aufrufe zählen auf die
+  Tagesgrenze, weil sie API-Kosten verursachen (Vorschlag).
 - **Warum:** Die Abo-Prüfung schützt nicht gegen eine weitergegebene App-User-ID.
   Ohne Grenze kann ein Einzelner die Monatsgrenze der Claude API aufbrauchen.
   Dann bekommen alle Zahler nichts mehr, und es folgen Erstattungen.
@@ -320,12 +346,17 @@ Pakete Woche und Monat im Test Store). Paywall und Anbindung brauchen zusammen
   ([Adapty](https://adapty.io/blog/refund-rate-metrics-and-benchmarking/) nennt
   2–5 % als üblich). Harte Paywall, Wochenabo und KI-App zusammen liegen eher am
   oberen Rand.
-- **Du kannst nicht selbst erstatten.** Apple entscheidet allein und holt bei
-  einer Erstattung auch seinen Anteil zurück. In der Antwort an den Nutzer
-  verweist du auf reportaproblem.apple.com.
+- **Du kannst nicht selbst erstatten.** Apple entscheidet allein. Bei einer
+  Erstattung zieht Apple dir deine Auszahlung für diesen Kauf wieder ab; seinen
+  eigenen Anteil behält Apple dann nicht (Gegenprüfung; im Finanzbericht
+  nachsehen). In der Antwort an den Nutzer verweist du auf
+  reportaproblem.apple.com.
 - **Support:** Im Sommer beantwortest du Mails binnen 24 Stunden, im Abitur an
-  den zwei festen Terminen je Woche. Claude entwirft Antwortvorlagen; Namen,
-  Adressen und Kaufdaten kommen nie in dein Claude-Abo.
+  den zwei festen Terminen je Woche, außer an Prüfungstagen und ab einer Woche
+  vor jedem Prüfungstag. Für diese Wochen stellst du vorher im Postfach eine
+  automatische Antwort ein: ab wann du antwortest, und dass Kündigung und
+  Erstattung über Apple laufen (Vorschlag). Claude entwirft Antwortvorlagen;
+  Namen, Adressen und Kaufdaten kommen nie in dein Claude-Abo.
 - **Jeden Sonntag** siehst du die Erstattungen in RevenueCat an. Liegen sie über
   8 % des Umsatzes, prüfst du zuerst die Texte auf Paywall und Store-Seite.
 - **Rücklage** nach dem letzten Verkauf: [03](03_GRUENDUNG_UND_KONTEN.md),
@@ -340,12 +371,17 @@ ist erreicht.
 | was | ab wann | warum nicht früher |
 |---|---|---|
 | Vergleichstest auf der Paywall (Experimente in RevenueCat). Reihenfolge: Text, Aufbau der Pläne, Preis, zuletzt Gestaltung | bei 2 % Kaufquote ab rund 1.100 Installationen je Variante (erkennt nur eine Verdopplung) oder rund 9.800 (erkennt +30 %); bei 5 % ab rund 430 und 3.800 | darunter liefert der Test falsche Sieger |
-| eine große Änderung im Vorher-nachher-Vergleich, z. B. Wochenpreis 4,99 € oder ein neuer Text | wenn nach 300 Installationen weniger als 1 % zahlen; ein fester Block von zwei Wochen, nur eine Änderung | kleine Unterschiede sind bei diesen Zahlen Zufall |
-| Testphase (3 Tage gratis am Wochenabo mit Zeitstrahl) oder bezahlte erste Woche für 0,99–2,99 € | nur als Variante in einem Vergleichstest | Vorzeichen unbekannt (Abschnitt 2.2) |
+| Testphase oder bezahlte erste Woche (0,99–2,99 €) | gar nicht als Test; für App 1 ist die einmalige Entscheidung gefallen: keine (Abschnitt 2.2) | Vorzeichen unbekannt und mit den erwartbaren Installationen nicht messbar; ein Einführungsangebot gilt außerdem für alle neuen Abonnenten dieses Produkts |
 | Angebot beim Verlassen der Paywall | nur bei einem Treffer, nur mit einer regulär eingereichten Version und einem dritten Abo-Produkt | Apple hat Apps dafür nach Richtlinie 5.6 abgelehnt ([RevenueCat](https://www.revenuecat.com/blog/engineering/exit-offers-in-revenuecat-paywalls)); geschätzt +0/+2/+6 %, 4–6 Stunden |
 | eine echte Gratis-Antwort vor der Paywall | nur bei einem Treffer | 6–12 Stunden; braucht eine Geräteprüfung von Apple und eine eigene Missbrauchsgrenze |
-| Jahresabo | nur wenn eine App mindestens 1.000 $ MRR hat **und** die Übernahme von App und Server für mindestens 12 Monate schriftlich vereinbart ist | Apple verlangt die Lieferung über die ganze Laufzeit |
-| Rückgewinnungsangebote, eine eigene Produktseite je Format, Apple Ads (mindestens 300 €) | nur bei einem echten Treffer (Tor 1 bestanden) | mit kleinen Zahlen keine Aussage |
+| Jahresabo | nie, solange du Inhaber bist (Abschnitt 2.1); ein Nachfolger entscheidet nach der Übertragung selbst | Apple verlangt die Lieferung über die ganze Laufzeit |
+| Rückgewinnungsangebote, eine eigene Produktseite je Format, Apple Ads (mindestens 300 €) | nur bei einem echten Treffer (Weg C: Tor 2 am So 08.08. bestanden); Apple Ads außerdem nur nach der Kassenregel ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 1.2) | mit kleinen Zahlen keine Aussage |
+
+**Unabhängig vom Signal:** Zahlen nach 300 Installationen weniger als 1 %,
+machst du eine große Änderung im Vorher-nachher-Vergleich, z. B. Wochenpreis
+4,99 € oder ein neuer Text: ein fester Block von zwei Wochen, nur eine
+Änderung. Kleine Unterschiede sind bei diesen Zahlen Zufall. Zahlen weniger als
+0,5 %, senkst du zusätzlich auf 1 Post am Tag (Regel c in Abschnitt 7.4).
 
 Der wöchentliche Paywall-Test aus Weg B (Hauptplan, Abschnitt 14) gilt nur,
 wenn die Installationen nach dieser Tabelle reichen.
@@ -360,16 +396,18 @@ in Version 1.0 ein: Sprachen lassen sich nur verwalten, solange die Version
 bearbeitbar ist, also nicht während „Warten auf Prüfung“
 ([Apple](https://developer.apple.com/help/app-store-connect/manage-app-information/localize-app-information/)).
 
+### 3.1 Felder der Store-Seite
+
 | Feld | was hineinkommt | fertig, wenn … |
 |---|---|---|
 | **Sprachen** | Deutsch (de-DE), Englisch USA (en-US), Englisch UK (en-GB). Mehr nicht: Texte in Sprachen, die du nicht lesen kannst, lassen sich nicht prüfen. Als Hauptsprache nimmst du Englisch (USA), weil Stores ohne eigene Sprache die Hauptsprache zeigen (Empfehlung, vor dem Schritt prüfen). Beim Anlegen einer Sprache übernimmt Apple Screenshots und Felder, aber nicht Beschreibung und Schlüsselwörter | alle drei Sprachen vollständig sind |
 | **Name** (30 Zeichen) | „[Name] – [wichtigster Suchbegriff]“. Der Name selbst ist ein Wort, leicht zu schreiben, in [04](04_IDEENWAHL.md) (Namensprüfung) geprüft | der Name in allen drei Sprachen gleich beginnt |
 | **Untertitel** (30 Zeichen) | zweiter Suchbegriff und Nutzen | kein Wort aus dem Namen wiederholt wird |
 | **Schlüsselwörter** (100 Zeichen) | Kommas ohne Leerzeichen; keine Wörter aus Name oder Untertitel; keine fremden Marken (Richtlinie 2.3.7). Je Sprache neu gesucht, nicht übersetzt: die Vorschläge beim Tippen im App Store und die Zahl der Bewertungen der ersten zehn Treffer ([04](04_IDEENWAHL.md), Abschnitt 5.2). Ins Feld en-GB kommen weitere englische Begriffe; ob Apple es im deutschen Store für die Suche auswertet, ist unbestätigt | jedes Feld 90–100 Zeichen nutzt |
-| **Beschreibung** | erster Absatz: was die App tut. Zweiter Absatz, wörtlich: „Abo erforderlich: 6,99 € pro Woche oder 14,99 € pro Monat. Bis zu 30 Ergebnisse am Tag.“ Dazu: „App-Sprache: Deutsch und Englisch. Die Antworten kommen von einer KI und können Fehler enthalten.“ Kein Gesundheits-, Rechts- oder Geldversprechen | Preis und Grenze mit Paywall und Nutzungsbedingungen übereinstimmen |
+| **Beschreibung** | erster Absatz: was die App tut. Zweiter Absatz, wörtlich, auf Deutsch (de-DE): „Abo erforderlich: 6,99 € pro Woche oder 14,99 € pro Monat (Schweiz: CHF 8 bzw. CHF 16). Bis zu 30 Ergebnisse am Tag.“ Auf Englisch (en-US und en-GB): „Subscription required: weekly or monthly. The price in your currency is shown before you buy. Up to 30 results a day.“ Keinen festen Preis in Dollar oder Pfund: en-GB erscheint auch in Deutschland, Österreich und der Schweiz, en-US in allen Ländern ohne eigene Sprache. Dazu: „App-Sprache: Deutsch und Englisch. Die Antworten kommen von einer KI und können Fehler enthalten.“ Kein Gesundheits-, Rechts- oder Geldversprechen | Preis und Grenze mit Abschnitt 2.1, Paywall und Nutzungsbedingungen übereinstimmen |
 | **Screenshots** | vom eigenen iPhone, je Sprache. Die ersten drei zeigen den Moment, der beeindruckt, mit einer Zeile Text. Der erste nennt „Abo erforderlich“. Text nur auf Deutsch und Englisch, in Canva gesetzt; der Bildinhalt bleibt die echte App mit Testdaten | jede Sprache mindestens drei Screenshots in der verlangten Größe hat |
 | **Hinweise für das Review** | was die App tut, wo die KI läuft, dass Ausgaben nur der Nutzer selbst sieht, auf welchem Bildschirm die Paywall erscheint, wie der Prüfer in der Sandbox kauft ([04](04_IDEENWAHL.md), Abschnitt 9) | ein Fremder mit den Notizen jeden Bildschirm erreicht |
-| **Verfügbarkeit** | alle Länder. Ob einzelne Länder Sonderpflichten für KI-Apps oder Altersprüfungen haben, ist nicht geprüft: vor der Einreichung in App Store Connect bei der Länderauswahl nachsehen | die Auswahl bewusst getroffen ist |
+| **Verfügbarkeit** | alle Länder außer China und Südkorea; für beide nennt Apple eigene Pflichten (Hinweis der Gegenprüfung, nicht im Einzelnen geprüft). Pflichten für KI-Apps oder Altersprüfungen in einzelnen US-Bundesstaaten und anderen Ländern prüfst du vor der Einreichung bei der Länderauswahl in App Store Connect; ein Land mit unklaren Sonderpflichten nimmst du im Zweifel aus | die Auswahl mit Grund in `docs/entscheidungen.md` steht |
 
 - **Bewertungsabfrage:** Die eingebaute Abfrage von Apple (`expo-store-review`)
   erscheint erst, nachdem ein Zahler mehrere Ergebnisse bekommen hat. Jeder
@@ -384,7 +422,7 @@ bearbeitbar ist, also nicht während „Warten auf Prüfung“
   Untertitel wiederholen das Versprechen des besten Hooks (kommt mit der
   nächsten Version).
 
-### Namens-Check nach der Freigabe
+### 3.2 Namens-Check nach der Freigabe
 
 15 Minuten am Starttag, sobald die App sichtbar ist.
 
@@ -412,16 +450,18 @@ Post, keine öffentliche Seite. Sie braucht weder Gewerbe noch Apple-Konto.
 - **Wann:** frühestens nach dem Ideen-Tor (So 20.12.), spätestens vor dem
   ersten Post. V2 braucht echte Ergebnisse aus der App (AP10, laut
   [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) ab Mi 30.12.).
-- **Platz in [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md):** Der Slideshow-Test am
-  Di 15.12. (30 Minuten, [04](04_IDEENWAHL.md), Abschnitt 8) liefert die ersten
-  10 Hooks. Für den Rest nimmst du die 3 Stunden, die am Sa 30.01. für weitere
-  Store-Sprachen stehen; sie entfallen (Abschnitt 3). Bist du früher dran,
+- **Platz im Kalender:** Die ersten 10 Hooks liefert der Slideshow-Test am
+  Di 15.12. ([04](04_IDEENWAHL.md), Abschnitt 8, 30 Minuten). In
+  [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) steht an diesem Tag noch AP6; es gilt der
+  Abgleich in [04](04_IDEENWAHL.md), Abschnitt 2. Für V1–V4 nimmst du die
+  3 Stunden, die [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) am Sa 30.01. für weitere
+  Store-Sprachen vorsieht; sie entfallen (Abschnitt 3). Bist du früher dran,
   ziehst du die Vorbereitung vor.
 - **Kosten:** 0 €. Canva in der Gratisversion reicht.
 
 | Nr. | Schritt | Dauer | fertig, wenn … |
 |---|---|---|---|
-| V1 | **Hook-Liste mit Claude** (Prompt in Abschnitt 12.1): je 30 Hooks für die Formate A, B und C, dazu deine 10 aus dem Slideshow-Test. Du streichst alles, was erfunden, übertrieben oder nicht zeigbar ist, und markierst je Format die besten 5 | 0,5/1/1,5 h | `marketing/hooks.md` je Format 5 markierte Hooks mit Folientexten enthält |
+| V1 | **Hook-Liste mit Claude** (Prompt in Abschnitt 12.1): je 30 Hooks für die Formate A, B und C und je 10 Hooks für zwei bis drei weitere Formate ohne Gesicht, die Claude vorschlägt und du auswählst; dazu deine 10 aus dem Slideshow-Test. Du streichst alles, was erfunden, übertrieben oder nicht zeigbar ist, und markierst je Format die besten 5 | 0,5/1/1,5 h | `marketing/hooks.md` je Format 5 markierte Hooks mit Folientexten enthält |
 | V2 | **Drei Vorlagen in Canva** (Abschnitt 4.1). Canva-Konto mit dem Projekt-Postfach, neutraler Name, Zwei-Faktor-Anmeldung; Format 1080 × 1920 Pixel hochkant; zwei Farben und die Schrift der App | 1,5/2/2,5 h | je Format ein fertiges Deck als Bilder ohne Wasserzeichen exportiert ist |
 | V3 | **Messtabelle anlegen** (Abschnitt 4.2) | 0,3/0,5/0,75 h | beide Tabellen mit einer Probezeile im privaten App-Repository liegen |
 | V4 | **Regeln lesen** (Abschnitt 4.3) und auf eine Karte neben den PC schreiben | 0,25 h | du die fünf Regeln ohne Nachsehen aufsagen kannst |
@@ -447,7 +487,10 @@ Für TikTok blendest du sie aus, für Instagram und YouTube ein.
 - **Jedes gezeigte Ergebnis stammt echt aus der App.** Testfälle sind erfunden
   und enthalten keine Daten echter Personen.
 - **Bildschirmaufnahmen** nur im Fokus „Nicht stören“ und mit Testdaten, am
-  besten auf dem iPad (Hauptplan, Abschnitt 3).
+  besten auf dem iPad (Hauptplan, Abschnitt 3). Dort läuft App 1 nur im
+  Kompatibilitätsmodus im Format eines iPhones, weil sie nur fürs iPhone
+  gebaut ist (Hauptplan, Checkliste C): Schneide die Aufnahme in Canva auf das
+  App-Fenster zu, oder nimm am iPhone auf.
 - **Kein reiner „Lade meine App“-Post.** In A steht die App in der Mitte, als
   einer von mehreren Tipps.
 
@@ -563,6 +606,8 @@ Absenden. Die Prüfung dauert meist 1–5 Werktage.
   annimmt. Lehnt TikTok ab, bleibt es beim Text.
 - **Nach der Freigabe:** den Kampagnenlink `tiktok_bio` (Abschnitt 8.3) ins
   Profil setzen.
+- **Dauer:** 0,5/1/2 Stunden für dich (Schätzung; die Recherche nennt
+  1–2 Stunden), dazu 1–5 Werktage Wartezeit bei TikTok. Kosten: 0 €.
 - **Fertig, wenn** die Entscheidung mit Datum in `docs/entscheidungen.md` steht.
 
 ### 5.4 Impressum-Link und Profiltext
@@ -582,8 +627,9 @@ Absenden. Die Prüfung dauert meist 1–5 Werktage.
   Impressum: deineapp.de/impressum“. Kein Datum.
 - **Profiltext nach dem Start:** „Offizielle App [Name] · im App Store ·
   Impressum: deineapp.de/impressum“.
-- **Nicht ins Profil:** dein Name, dein Ort, ein Foto von dir, Zahlen über
-  Nutzer, ein Versprechen.
+- **Nicht ins Profil:** dein Name (zeigt TikTok ihn nach einer Verifizierung
+  selbst an, ist das eure Entscheidung aus Abschnitt 5.3), dein Ort, ein Foto
+  von dir, Zahlen über Nutzer, ein Versprechen.
 - **Fertig, wenn** du von jedem Profil in einem privaten Browserfenster mit
   höchstens zwei Klicks beim Impressum ankommst.
 
@@ -592,13 +638,17 @@ Absenden. Die Prüfung dauert meist 1–5 Werktage.
 | was | wo | für wen |
 |---|---|---|
 | Name der App, Icon, Profiltext, alle Posts | alle drei Profile | jeder |
+| Name des Inhabers als Verkäufer | App-Store-Seite der App, weltweit | jeder |
+| EU-Händlerangaben: Adresse oder Postfach, Zweitnummer, E-Mail | App-Store-Seite der App in der EU | jeder |
 | Name des Inhabers, Anschrift, E-Mail, Zweitnummer | Impressum, zwei Klicks vom Profil | jeder |
+| Name, Anschrift und Tätigkeit des Gewerbes | Gewerberegister der Gemeinde | jeder, auf Anfrage |
 | Name des Inhabers und Kategorie | TikTok-Profil, nur nach einer Verifizierung | jeder |
 | wem das Konto folgt und was es mit „Gefällt mir“ markiert | je nach Einstellung | folge niemandem privat, markiere nichts privat |
-| Gewerbeanmeldung | nur bei TikTok hinterlegt, nur bei einer Verifizierung | nicht öffentlich |
+| das Dokument der Gewerbeanmeldung (mit Geburtsdatum und Anschrift) | nur bei TikTok hochgeladen, nur bei einer Verifizierung | nicht öffentlich |
 
 Deutsche Videos sehen eher Bekannte, die über das Impressum Name und Anschrift
-finden. Das besprichst du vor dem ersten Post mit deinen Eltern.
+finden (Hauptplan, Abschnitt 3). Das besprichst du vor dem ersten Post mit
+deinen Eltern.
 
 ---
 
@@ -608,10 +658,10 @@ finden. Das besprichst du vor dem ersten Post mit deinen Eltern.
 
 | Phase | Posts | Minuten | was entschieden wird |
 |---|---|---|---|
-| **Q4** (Mi 03.02.–So 14.03.), nur wenn App 1 eingereicht ist | höchstens 3 je Woche; höchstens 9, solange die App nicht im Store ist | Sa 90, Di/Do/So je 2 | nichts. Du übst und misst einen Ausgangswert |
+| **Q4** (Mi 03.02.–So 14.03.), nur wenn App 1 eingereicht ist | höchstens 3 je Woche; höchstens 9, solange die App nicht im Store ist | Sa 90, dazu Sa, Di und Do je 2 zum Veröffentlichen; ab dem Start So 20 für die Auswertung (Abschnitt 12.3) | nichts. Du übst und misst einen Ausgangswert |
 | **Abitur** (Mo 15.03. bis zur letzten Prüfung) | 0 | 0 | nichts |
-| **Sommer, Woche 1** nach der letzten Prüfung | 1 am Tag | ~40 am Tag | welche Formate du weiterführst |
-| **Sommer, ab Woche 2** bis So 18.07. | 2 am Tag; 3 nur, wenn in den letzten 14 Tagen ein Post mindestens 15.000 Aufrufe hatte | ~55 am Tag (mit 3 Posts ~70), So zusätzlich 30 | Sieger, Formatende, Signal |
+| **Sommer, Woche 1** nach der letzten Prüfung | 2 am Tag; sonntags nur eingeplante (Abschnitt 6.4) | wie ab Woche 2 mit 2 Posts | nichts. Du testest 5–6 Formate an |
+| **Sommer, ab Woche 2** bis So 18.07. | 2 am Tag; 3 nur, wenn in den letzten 14 Tagen ein Post mindestens 15.000 Aufrufe hatte; sonntags nur eingeplante | Mo–Sa ~55 am Tag (mit 3 Posts ~70), Sa wahlweise ~30 mehr für Sonntagsposts, So 20 für die Auswertung | Sieger, Formatende, Signal |
 
 Für das ganze Marketing bis Tor 1 rechnet die Gegenprüfung mit 48–61 Stunden
 und mit 50/85/110 Posts. **Deckel im Sommer: 10 Stunden je Woche.** Er fällt
@@ -628,7 +678,7 @@ Download und kostet Bauzeit.
 | Sa | 15 | ohne Wasserzeichen exportieren; in TikTok als Entwurf speichern, für Instagram und YouTube einplanen (Abschnitt 6.5) |
 | Sa | 15 | Zahlen der Vorwoche in die Messtabelle |
 | Sa | 15 | Kommentare der Woche beantworten |
-| Di, Do, So | je 2 | zwischen 18 und 20 Uhr den Entwurf veröffentlichen, Schalter „Your brand“ prüfen, eigenen Kommentar anheften. Keine Kommentare lesen |
+| Sa nach dem Block, Di, Do | je 2 | zwischen 18 und 20 Uhr einen Entwurf veröffentlichen, Schalter „Your brand“ prüfen, eigenen Kommentar anheften. Keine Kommentare lesen. Di und Do sind die zwei kurzen Zeiten unter der Woche, die die Q4-Regel erlaubt (Hauptplan, Abschnitt 10); sonntags veröffentlichst du nichts |
 
 - **Wochen 1–3:** 3 Formate × 3 Hooks = 9 Posts.
 - **Danach** (nur wenn die App im Store ist): dieselben drei Formate mit neuen
@@ -637,8 +687,9 @@ Download und kostet Bauzeit.
   Slideshows gebaut, entfällt das Bauen. Der Block dauert dann rund 45 Minuten.
 - **Zeitregel:** Brauchst du zwei Wochen hintereinander mehr als 90 Minuten für
   den Block, senkst du auf 2 Posts je Woche.
-- **Klausuren:** In Wochen mit zwei oder mehr Klausuren fällt der Block aus.
-  Eine Antwort an das Review geht immer vor.
+- **Klausuren:** In Wochen mit zwei oder mehr Klausuren fällt der Block aus,
+  und unter der Woche veröffentlichst du nichts. Eine Antwort an das Review
+  geht immer vor.
 - **Kein Urteil:** In Q4 beendest du kein Format und entscheidest nichts über
   die App. Drei Posts je Format zeigen kein „bestes Format“.
 - **Fertig je Woche, wenn** drei Posts mit Zahlen in der Messtabelle stehen und
@@ -658,32 +709,41 @@ Reichweite wirkt, ist nicht belegt.
 ### 6.4 Sommer: der Tagesablauf
 
 Er beginnt am Tag nach deiner letzten Prüfung, aber nur für eine App, die
-eingereicht oder im Store ist. Die Uhrzeiten sind Startwerte; nach zwei Wochen
-prüfst du sie an deinen Zahlen.
+eingereicht oder im Store ist. Die Uhrzeiten gelten Mo–Sa und sind Startwerte;
+nach zwei Wochen prüfst du sie an deinen Zahlen.
 
 | Uhrzeit | Minuten | was |
 |---|---|---|
 | 9:00 | 28 (bei 3 Posts 42) | Posts des Tages bauen, je 14 Minuten: Bilder in Canva, Text, Musik, Schalter und Beschreibung im TikTok-Editor, als Entwurf speichern |
 | 12:00 | 2 | Post 1 veröffentlichen, eigenen Kommentar anheften |
 | 12:30 | 5 | Fragen in den Kommentaren beantworten |
-| 16:00 | 2 | Post 3, nur mit Formatnachweis |
+| 16:00 | 2 | Post 3, nur nach der Regel „Drei Posts am Tag“ unten |
 | 19:00 | 2 | Post 2 veröffentlichen, Kommentar anheften |
 | 19:10 | 8 | einen Post auf Instagram und YouTube übernehmen (Abschnitt 7.5) |
 | 19:20 | 5 | Fragen beantworten |
 | 19:30 | 5 | Zahlen eintragen: Aufrufe nach 48 Stunden, Erst-Downloads, Käufe, Antworten auf die Herkunftsfrage |
-| So | 30 | Sonntagsauswertung (Abschnitt 12.3). Die Posts für Sonntag baust du am Samstag |
+| Sa, wahlweise | ~30 | die Posts für Sonntag bauen und einplanen (siehe „Sonntag“ unten) |
+| So | 20 | nur die Wochenauswertung (Abschnitt 12.3), dazu die Kassenprüfung. Sonst ist der Sonntag frei |
 
-- **Woche 1:** ein Post am Tag. Du testest 5–6 Formate an: A, B, C und zwei bis
-  drei neue aus deiner Hook-Liste.
-- **Ab Woche 2:** zwei Posts am Tag in den Formaten, die über deinem Median
-  liegen.
+- **Woche 1:** zwei Posts am Tag. Du testest 5–6 Formate an: A, B, C und die
+  zwei bis drei weiteren aus deiner Hook-Liste (V1), je Format 2–3 Posts.
+  Entschieden wird noch nichts.
+- **Ab Woche 2:** zwei Posts am Tag. Sobald dein Median aus mindestens 9 Posts
+  steht (Abschnitt 7.3), bekommen die Formate über dem Median die meisten
+  Posts.
 - **Drei Posts am Tag** nur, wenn in den letzten 14 Tagen ein Post mindestens
   15.000 Aufrufe hatte.
+- **Sonntag:** Es erscheinen nur Posts, die du am Samstag eingeplant hast
+  (Abschnitt 6.5). Eine TikTok-Slideshow lässt sich nicht einplanen; sonntags
+  gibt es auf TikTok deshalb nur ein in TikTok Studio eingeplantes Video oder
+  keinen Post. Sonntags veröffentlichst du nichts von Hand, beantwortest keine
+  Kommentare und trägst keine Zahlen ein.
 - **Solange die App nicht im Store ist:** höchstens 9 Posts, dann Pause bis zum
   Starttag.
 - **Mit Ferienjob** (ab Mo 19.07., oder ab Mo 05.07. ohne App im Store):
-  höchstens ein Post am Tag aus dem Vorrat vom Wochenende, und nur, wenn du
-  willst (Hauptplan, Abschnitt 14, Weg A).
+  höchstens ein Post am Tag aus dem Vorrat vom Samstag, und nur, wenn du
+  willst (Hauptplan, Abschnitt 10, „Woche mit Ferienjob“, und Abschnitt 12,
+  KW 29–37).
 - **Nach dem Verkaufsstopp** (ohne Nachfolger So 15.08.,
   [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 8.1) postest du nicht mehr. Neue
   Nutzer könnten kein Abo mehr abschließen.
@@ -696,7 +756,7 @@ prüfst du sie an deinen Zahlen.
 
 | Plattform und Format | Werkzeug | Stand |
 |---|---|---|
-| TikTok, Foto-Slideshow (dein Hauptformat) | in der iPhone-App als Entwurf speichern, zur Postzeit von Hand veröffentlichen (1–2 Minuten) | Eine Planung für Fotos ist nicht belegt. Entwürfe liegen nur auf dem Gerät: App nicht löschen, nicht abmelden, Bilder zusätzlich in Canva behalten |
+| TikTok, Foto-Slideshow (dein Hauptformat) | in der TikTok-App des Geräts, von dem du postest (das iPad, wenn du TikTok privat auf dem iPhone nutzt, Abschnitt 5.1), als Entwurf speichern, zur Postzeit von Hand veröffentlichen (1–2 Minuten) | Eine Planung für Fotos ist nicht belegt. Entwürfe liegen nur auf dem Gerät: App nicht löschen, nicht abmelden, Bilder zusätzlich in Canva behalten |
 | TikTok, Video | TikTok Studio am PC: hochladen, „Planen“. 15 Minuten bis 10 Tage im Voraus, nur für Unternehmens- und Creator-Konten. Ein geplanter Post lässt sich nicht ändern, nur löschen und neu hochladen ([TikTok](https://ads.tiktok.com/business/en-US/blog/introducing-video-scheduler-now-you-can-plan-tiktoks-in-advance)) | Beim ersten Mal am eigenen Konto prüfen: Zeitfenster, Schalter „Your brand“ und Commercial Music Library am PC. Fehlt der Schalter, postest du von Hand |
 | Instagram | Planung in der Instagram-App für professionelle Konten, beim Posten unter den erweiterten Einstellungen | Vorwissen der Gegenprüfung, nicht abgerufen: am Konto prüfen. Die Meta Business Suite nimmst du nicht; sie verlangt ein persönliches Facebook-Konto mit Klarnamen |
 | YouTube | YouTube Studio → Sichtbarkeit → Planen | Frist nicht geprüft |
@@ -713,12 +773,13 @@ anbietet. Im Abitur planst du nichts ein.
 
 1. Erste Folie: genau ein Gedanke, höchstens 8 Wörter, groß, in der Schrift des
    TikTok-Editors.
-2. 6–8 Folien. Die App erscheint auf Folie 3–5 als „unsere App“, mit echtem
-   Bildschirmfoto.
+2. Format A: 6–8 Folien, die App auf Folie 3–5 als „unsere App“ mit echtem
+   Bildschirmfoto. Formate B und C: 5–6 Folien nach Abschnitt 4.1.
 3. Die letzte Folie nennt den Namen der App wörtlich.
 4. Beschreibung und Folientext enthalten die deutschen Wörter, nach denen deine
    Zielgruppe sucht. Sprache: nur Deutsch.
-5. Gepostet wird von Hand.
+5. Gepostet wird von Hand oder mit den offiziellen Werkzeugen aus
+   Abschnitt 6.5, nie über inoffizielle Werkzeuge.
 
 Diese Regeln stammen aus einem einzelnen Erfolgsbericht
 ([Tap & Swipe](https://tap-and-swipe.com/episodes/alberto-tiktok-slideshows))
@@ -727,10 +788,11 @@ und aus Anbieterseiten ohne Daten. Sie sind eine Arbeitshypothese.
 ### 7.2 Das Raster
 
 - **Ein Raster** sind 3 Formate × 3 Hooks = 9 Posts.
-- **Immer nur eine Sache ändern.** Eine Variante hat denselben Aufbau, aber
-  einen neuen Blickwinkel **und** andere Bilder. Zwischen zwei Varianten
-  desselben Decks liegen einige Tage. Fast gleiche Decks kurz hintereinander
-  können als Doppelinhalt Reichweite kosten.
+- **Varianten:** Eine Variante behält den Aufbau des Formats und bekommt einen
+  neuen Hook (Blickwinkel) **und** andere Bilder. Nur die erste Folie zu
+  tauschen reicht nicht: Fast gleiche Decks kurz hintereinander können als
+  Doppelinhalt Reichweite kosten (nicht gemessen). Zwischen zwei Varianten
+  desselben Decks liegen einige Tage (Startwert 3 Tage, Schätzung).
 - **Neue Formate** kommen aus deiner Hook-Liste und aus echten Fragen in den
   Kommentaren.
 
@@ -738,7 +800,7 @@ und aus Anbieterseiten ohne Daten. Sie sind eine Arbeitshypothese.
 
 | Stufe | Bedingung | was du tust |
 |---|---|---|
-| Kandidat | ein Post hat nach 48 Stunden mindestens **15.000 Aufrufe** oder das **10-Fache deines Medians** | in den nächsten Tagen 3 Varianten posten |
+| Kandidat | ein Post hat nach 48 Stunden mindestens **15.000 Aufrufe** oder das **10-Fache deines Medians** | in den nächsten 7–10 Tagen 3 Varianten posten, mit dem Abstand aus Abschnitt 7.2; entschieden wird 48 Stunden nach der dritten |
 | bestätigter Sieger | **2 von 3 Varianten** liegen über deinem Median | das Format bekommt die Hälfte deiner Posts, bis 3 Varianten in Folge unter dem Median liegen |
 | nicht bestätigt | höchstens 1 von 3 Varianten liegt über dem Median | es war ein Ausreißer; weiter im Raster |
 
@@ -758,7 +820,7 @@ Die Regeln gelten im Sommer. In Q4 endet kein Format.
 |---|---|---|
 | a | 20 Posts eines Formats ohne einen Post ab 5.000 Aufrufen | Format streichen, das nächste aus der Hook-Liste beginnen |
 | b | ab 50.000 Aufrufen insgesamt weniger als 0,3 Downloads je 1.000 Aufrufe | 10 Posts mit der App schon auf Folie 2–3 und dem Namen im Text; bleibt es dabei, Format streichen |
-| c | über 300 Downloads, aber weniger als 0,5 % kaufen | auf 1 Post am Tag senken und zuerst Paywall und Onboarding prüfen (Abschnitt 2.9) |
+| c | über 300 Downloads, aber weniger als 0,5 % kaufen | auf 1 Post am Tag senken und zuerst Paywall und Onboarding prüfen (Abschnitt 2.9, „Unabhängig vom Signal“) |
 | d | nach 60 Posts im Sommer unter 100.000 Aufrufen insgesamt und unter 100 Downloads | 1 Post am Tag; die übrige Zeit geht in App 2 |
 | e | mehr als 10 Stunden Marketing in einer Woche | kürzen (Ausnahme in Abschnitt 6.1) |
 
@@ -778,7 +840,7 @@ Die Tore am So 18.07. und So 08.08. bleiben, wie sie sind.
   TikTok allein (Schätzung). Das einzige Zahlenbeispiel der Recherche spricht
   eher dagegen: tägliche Reels einer kleinen App mit je rund 250 Aufrufen.
 - **Abbruch:** Liegt der Median einer Plattform nach 30 Posts unter 300
-  Aufrufen, bedienst du sie nur noch nebenbei.
+  Aufrufen, übernimmst du dort nur noch Posts ab 5.000 TikTok-Aufrufen.
 - **Sprache:** Deutsch auf allen drei Plattformen. Einen Englisch-Test gibt es
   vor Tor 1 nicht.
 
@@ -791,7 +853,10 @@ Die Tore am So 18.07. und So 08.08. bleiben, wie sie sind.
   Profiltext lautet „Offizielles Konto der App [Name]“, mit Impressum-Link. Das
   Impressum der Website nennt auch dieses Profil. „Your brand“ bei jedem Post.
 - **Grenzen:** höchstens 2 TikTok-Konten, je Konto 1–3 Posts am Tag. Die Konten
-  liken und kommentieren einander nicht. Der Deckel von 10 Stunden gilt weiter.
+  liken und kommentieren einander nicht. Der Deckel von 10 Stunden gilt weiter:
+  Die Stunden für das zweite Konto gehen von den Posts des ersten Kontos ab,
+  außer ein Post hatte in den letzten 7 Tagen mindestens 100.000 Aufrufe
+  (Abschnitt 6.1).
 - **Abbruch:** 20 Posts ohne einen Post ab 5.000 Aufrufen → Konto ruhen lassen.
 - **Ehrlich:** Dieselbe Zeit auf dem ersten Konto bringt ähnlich viele Versuche.
   Im Trefferfall schätzt die Gegenprüfung +0/+15/+50 % Aufrufe bei 3–5 Stunden
@@ -801,8 +866,8 @@ Die Tore am So 18.07. und So 08.08. bleiben, wie sie sind.
 
 1. Nach jedem Post einen eigenen Kommentar anheften: „Die App heißt [Name] – im
    App Store suchen“. Vor dem Start nur: „Die App heißt [Name]“.
-2. Fragen beantwortest du im Sommer zweimal am Tag je 5 Minuten, in Q4 am
-   Samstag.
+2. Fragen beantwortest du im Sommer Mo–Sa zweimal am Tag je 5 Minuten, in Q4
+   am Samstag.
 3. Eine gute Frage wird über „Mit Video antworten“ zum nächsten Post.
 4. Kommentare, die nach der App fragen, zählst du in der Messtabelle. Sie sind
    ein besseres Kaufsignal als Aufrufe.
@@ -810,8 +875,9 @@ Die Tore am So 18.07. und So 08.08. bleiben, wie sie sind.
    oder ein Freund die App.
 
 Die Wirkung ist nicht gemessen (geschätzt +0/+2/+10 % Downloads je 1.000
-Aufrufe). Siehst du nach vier Wochen keinen Unterschied, bleibt es bei den
-Punkten 1 und 2.
+Aufrufe). Bringen die Antworten per Video (Punkt 3) nach vier Wochen keinen
+Post über deinem Median, lässt du Punkt 3 weg. Die Punkte 1, 2, 4 und 5
+gelten immer.
 
 ---
 
@@ -823,8 +889,8 @@ Punkten 1 und 2.
 |---|---|---|
 | Aufrufe, Speichern und Teilen je Post | Analysen der Plattform | 48 Stunden nach dem Post |
 | Herkunft der Zuschauer | TikTok Studio, sinngemäß Analysen → Zuschauer → Standorte; erscheint erst bei genug Aufrufen | einmal nach etwa 10 Posts: Kommen mindestens 70 % aus Deutschland, Österreich und der Schweiz? |
-| Erst-Downloads je Tag, Quellen (App-Store-Suche, Web, Kampagnen) | App Store Connect → Analysen (Menünamen vor dem Schritt prüfen); die Zahlen kommen mit Verzögerung | täglich nachtragen, sonntags die Quellen |
-| Käufe, MRR, Erstattungen | RevenueCat, ohne Sandbox-Daten | täglich, sonntags die Summe |
+| Erst-Downloads je Tag, Quellen (App-Store-Suche, Web, Kampagnen) | App Store Connect → Analysen (Menünamen vor dem Schritt prüfen); die Zahlen kommen mit Verzögerung | Mo–Sa nachtragen, sonntags in der Auswertung die Quellen |
+| Käufe, MRR, Erstattungen | RevenueCat, ohne Sandbox-Daten | Mo–Sa, sonntags die Summe |
 | Antworten auf die Herkunftsfrage | Tabelle `herkunft` im Supabase-Betriebsprojekt | sonntags |
 
 **Die Hauptkennzahl** ist: alle Erst-Downloads eines Tages je 1.000 Aufrufe
@@ -847,14 +913,16 @@ Deshalb fragt die App selbst.
   `herkunft`. Sie erhöht einen Zähler je Tag und Antwort. Sie speichert keine
   App-User-ID, keine IP-Adresse und keinen freien Text, lehnt alles andere ab
   und zählt höchstens 5.000 Antworten am Tag. „Überspringen“ sendet nichts.
-- **Zahler:** Beim ersten KI-Aufruf schickt die App die Antwort einmal mit; die
-  Funktion `ki` erhöht dann den Zähler `zahler` zu dieser Antwort. So siehst du
-  je Plattform Downloads und Zahler.
+- **Keine Zuordnung zu Zahlern:** Die App speichert die Antwort nicht auf dem
+  Gerät, um sie später mitzuschicken, und verknüpft sie nie mit einem Kauf.
+  Eine Zuordnung wäre nur mit Einwilligung zulässig (§ 25 TDDDG; Hauptplan,
+  Checkliste D); App 1 verzichtet darauf.
 - **Aufwand:** 1/1,5/2,5 Stunden mit Claude Code, in AP11.
 - **Datenschutz:** Die Zeile dazu steht in der Datenschutzerklärung
   ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 5.2, Schritt 7). Rechtlich
-  geprüft ist die Frage nicht. Deshalb wird nichts gesendet, ohne dass der
-  Nutzer sichtbar tippt, und nichts lässt sich einer Person zuordnen.
+  geprüft ist die Frage nicht: vor dem Einbau klären (Hauptplan,
+  Checkliste D). Deshalb wird nichts gesendet, ohne dass der Nutzer sichtbar
+  tippt, und nichts lässt sich einer Person zuordnen.
 - **Grenzen:** Es ist eine Selbstauskunft, und sie erfasst nur, wer das
   Onboarding beendet. Ob die Frage Nutzer kostet, ist nicht untersucht.
 - **Fertig, wenn** ein Tipp auf „TikTok“ im Testprojekt genau einen Zähler um 1
@@ -864,12 +932,12 @@ Deshalb fragt die App selbst.
 ```
 Füge im Onboarding als letzten Schritt die Frage „Woher kennst du die App?“
 ein, mit sechs festen Antworten und „Überspringen“. Texte in de.json und
-en.json. Lege im Testprojekt eine Tabelle herkunft (tag, antwort, zahl,
-zahler) mit RLS an und eine Edge Function herkunft, die nur die sechs Werte
-annimmt, den Zähler des Tages erhöht, höchstens 5.000 Antworten am Tag zählt
-und sonst nichts speichert. Beim ersten KI-Aufruf schickt die App die Antwort
-einmal mit; die Function ki erhöht dann zahler. Plane zuerst, warte auf mein
-OK und zeig mir danach, wie ich beides von außen teste.
+en.json. Lege im Testprojekt eine Tabelle herkunft (tag, antwort, zahl) mit
+RLS an und eine Edge Function herkunft, die nur die sechs Werte annimmt, den
+Zähler des Tages erhöht, höchstens 5.000 Antworten am Tag zählt und sonst
+nichts speichert. Die App schickt nur den gewählten Wert, ohne App-User-ID,
+und speichert die Antwort nicht. Plane zuerst, warte auf mein OK und zeig mir
+danach, wie ich beides von außen teste.
 ```
 
 ### 8.3 Was Kampagnenlinks können und nicht können
@@ -886,9 +954,12 @@ Filter → Campaign.
 | drei Plattformen vergleichen, ohne Tracking in der App | bei kleinen Zahlen etwas anzeigen: Daten erscheinen erst nach Erst-Downloads von mindestens 5 Personen und frühestens nach 24 Stunden |
 | – | einzelne Posts unterscheiden. Ein Link je Post verteilt die wenigen Downloads so, dass alles leer bleibt |
 
-**Fertig, wenn** die drei Links in den Profilen stehen und du am ersten Sonntag
-nach dem Start nachgesehen hast, ob eine Kampagne erscheint. Bleibt sie leer,
-ist das normal; dann zählen die Hauptkennzahl und die Onboarding-Frage.
+**Fertig, wenn** `ig_bio` und `yt_bio` in den Profilen stehen, `tiktok_bio`
+dort, wo TikTok einen eigenen App-Link zulässt (nach einer Verifizierung als
+Download-Link, Abschnitt 5.3), und du am ersten Sonntag nach dem Start
+nachgesehen hast, ob eine Kampagne erscheint. Bietet TikTok nur ein Linkfeld,
+bleibt dort das Impressum (Abschnitt 5.4). Bleibt eine Kampagne leer, ist das
+normal; dann zählen die Hauptkennzahl und die Onboarding-Frage.
 
 ### 8.4 Realistische Größenordnungen
 
@@ -903,7 +974,7 @@ erste Zeile.
 | Downloads je 1.000 Aufrufe | 0,05 / 0,5–1,5 / 5 | Einzelfälle, keine neutrale Messung |
 | 100.000 Aufrufe | 5 / 50–150 / 500 Downloads, rund 20–70 $ MRR | daraus gerechnet |
 | Aufrufe für 300 $ MRR | 80.000 im besten bekannten Fall, 250.000 im zweiten; mit den Werten oben eher 430.000 bis 1,5 Mio. | zwei Erfolgsfälle; eigene Rechnung |
-| drei Wochen in Q4 (9 Posts) | 5.000–30.000 Aufrufe, rund 0–90 $ MRR | Schätzung; deshalb kein Urteil in Q4 |
+| drei Wochen in Q4 (9 Posts) | 5.000–30.000 Aufrufe, mit den Werten oben rund 1–20 $ MRR | Schätzung und eigene Rechnung; deshalb kein Urteil in Q4 |
 | Kaufquote (Download → Zahler) | für die Planung 1–4 %. Der oft genannte Median von 10,7 % für harte Paywalls stammt von Apps mit bezahlten, kaufbereiten Besuchern ([RevenueCat](https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026)) | Schätzung der Gegenprüfung |
 | Installationen für 1.000 $ MRR | 1.000–3.000 im Monat | Schätzung |
 | Minuten je Post | 18 / 14 / 10 | Schätzung |
@@ -941,24 +1012,29 @@ MRR nur zählt, was am Stichtag noch läuft.
 | Start | Prüfung | Gewicht |
 |---|---|---|
 | vor Mo 15.03., Tag 21 bis So 14.03. | Tag 21 | **Vorab-Blick.** Bestanden zählt. Verfehlt ist kein Urteil, weil 9 Posts die Schwelle fast nie erreichen können |
-| vor Mo 15.03., in jedem Fall | 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung; bei Wiederbeginn am Mo 07.06. oder Di 08.06.: **Mo 28.06.** | **gültige Prüfung** |
+| vor Mo 15.03., Tag 21 in der Startpause | am Tag nach deiner letzten Prüfung | Mindestens 300 $ MRR zählen als bestanden; sonst gilt die zweite Prüfung |
+| vor Mo 15.03., in jedem Fall | 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, spätestens **Di 29.06.** (Wiederbeginn Mo 07.06. → Mo 28.06.; Di 08.06. → Di 29.06.) | **gültige Prüfung** |
 | nach der letzten Prüfung | Tag 21 nach dem Start (Tabelle in Abschnitt 1.3) | gültige Prüfung |
 
-Eine Prüfung, die in die Startpause fiele, findet nicht statt. Es gilt dann nur
-die zweite.
+In der Startpause selbst prüfst du nichts. Fällt Tag 21 hinein, siehst du am
+Tag nach deiner letzten Prüfung nach (Hauptplan, Abschnitt 13). Hast du eine
+mündliche Nachprüfung (Mo 28.06.–Mi 30.06.), liest du eine Prüfung, die in die
+Woche davor fällt, erst am Tag nach der Nachprüfung ab
+([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 1.2, KW 26).
 
 ### 9.3 Was bei Ja und Nein geschieht
 
 | Ergebnis | was du tust |
 |---|---|
 | **Ja** | Creator-Geld ist frei, für alle Apps zusammen bis So 18.07. höchstens 750 € (Abschnitt 10). Du darfst es auch lassen ([07](07_HEBEL.md), Abschnitt 12). Supabase darf auf Pro wechseln ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5). Du sprichst mit dem Elternteil, das eine Übernahme zugesagt hat ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 2.3). Die Posts laufen weiter |
-| **Ja, aber vor Mo 15.03.** | Das Ergebnis zählt. Creator buchst du nur, wenn das Video bis So 14.03. erscheinen kann; sonst nach deiner letzten Prüfung. In der Startpause erscheint nichts |
-| **Nein im Vorab-Blick** | nichts. Weiter nach Abschnitt 6.2, zweite Prüfung im Sommer |
+| **Ja, aber vor Mo 15.03.** | Das Ergebnis zählt. Creator buchst du trotzdem erst am Tag nach deiner letzten Prüfung (Hauptplan, Abschnitt 12, KW 06–10); in Q4 gibt es keine Buchung und keine neue Kampagne. Supabase Pro und das Gespräch mit dem Elternteil wie bei „Ja“ |
+| **Nein im Vorab-Blick** oder am Tag nach der letzten Prüfung | nichts. Weiter nach dem Wochenprogramm (Abschnitt 6); es gilt die zweite Prüfung im Sommer |
 | **Nein in der gültigen Prüfung** | kein Creator-Geld. Die App bleibt im Store. Du senkst auf 1 Post am Tag für diese App, beginnst das nächste Format oder gibst die Zeit App 2 |
 | in jedem Fall | Tor 1 am So 18.07. bleibt hart: 5.000 $ MRR oder die Jagd endet (Hauptplan, Abschnitt 13) |
 
 **Fertig, wenn** Zahl und Entscheidung am selben Tag notiert sind. Du rechnest
-nicht nach, verschiebst die Prüfung nicht und wartest nicht „noch eine Woche“.
+nicht nach, verschiebst die Prüfung nicht (außer wegen einer Nachprüfung,
+Abschnitt 9.2) und wartest nicht „noch eine Woche“.
 
 ---
 
@@ -966,29 +1042,35 @@ nicht nach, verschiebst die Prüfung nicht und wartest nicht „noch eine Woche�
 
 Nur nach bestandener Signalprüfung. Die Creator zeigen sich selbst, du nicht.
 Zeit: 3–5 Stunden für Suche, Briefing und Vereinbarung, dazu 0,5 Stunden je
-Creator, zusammen höchstens 9 Stunden. Sie fehlen App 2.
+Creator, zusammen höchstens 9 Stunden; einmalig kommen die
+Datenschutzhinweise dazu (Schritt 3). Die Stunden fehlen App 2.
 
 | Nr. | Schritt | Einzelheiten | fertig, wenn … |
 |---|---|---|---|
-| 1 | **Deckel prüfen** | Für alle Apps zusammen bis So 18.07. höchstens **750 €**, Plattformgebühren und Umsatzsteuer nach § 13b eingerechnet. Ab Mo 19.07. keine neue Buchung. Vor jeder Ausgabe über 50 € die Kassenregel aus [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 1.2 | der freie Betrag notiert ist |
+| 1 | **Deckel prüfen** | Für alle Apps zusammen bis So 18.07. höchstens **750 €**, Plattformgebühren und Umsatzsteuer nach § 13b eingerechnet. Ab Mo 19.07. keine neue Buchung (Weg A). Hat eine App Tor 1 bestanden (Weg B), buchst du bis So 08.08. nur noch aus dem Umsatz der letzten vier Wochen, abzüglich der Creator, die schon daraus bezahlt sind (Hauptplan, Abschnitte 14 und 17). Vor jeder Ausgabe über 50 € die Kassenregel aus [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 1.2 | der freie Betrag notiert ist |
 | 2 | **Suche** | TikTok One (kein Mindestbudget), Influee oder Collabstr (rund 10 % Gebühr) mit Filter Deutschland und Deutsch, oder Creator mit 1.000–10.000 Followern, die dein Thema schon von sich aus behandeln. Nur volljährige Creator mit Sitz in Deutschland, die eine Rechnung stellen. Claude sucht und entwirft (Hauptplan, Abschnitt 16, „Creator suchen“) | eine Liste mit 10 Namen, typischen Aufrufen und Kontaktweg steht |
-| 3 | **Anfrage** | persönlich und einzeln, bezogen auf ein bestimmtes Video, mit Link auf deine Datenschutzhinweise für Creator. Du schickst jede selbst. Keine Massenanfragen | 5–8 Anfragen verschickt sind |
-| 4 | **Angebot** | **60–90 € fest** für ein Video samt Posting auf dem Konto des Creators. Oder: ein Rohvideo zum Festpreis, das du auf deinem Markenkonto postest. Keine Vergütung je Aufruf: Sie belohnt gekaufte Aufrufe | der Preis schriftlich zugesagt ist |
-| 5 | **Briefing** | eine Seite (Abschnitt 12.2) | der Creator es bestätigt hat |
-| 6 | **Vereinbarung in Textform** | Video und Länge, Termin, deine Freigabe vor dem Posten, Kennzeichnung, Honorar, Zahlung nach dem Posten gegen Rechnung, Nutzungsrecht nur für diesen Post (beim Rohvideo: für deine Markenkonten, 12 Monate, keine bezahlten Anzeigen), das Video bleibt mindestens 30 Tage online, der Creator ist volljährig | beide Seiten per Mail zugestimmt haben |
-| 7 | **Kennzeichnung prüfen** | „Werbung“ oder „Anzeige“ gleich am Anfang, dazu der TikTok-Schalter für bezahlte Partnerschaft. Ein Rohvideo auf deinem Konto bekommt zur Sicherheit den Hinweis „Anzeige“ | du es am Tag des Posts selbst gesehen hast |
-| 8 | **Zahlung** | erst nach dem Posten, per Überweisung vom App-Konto gegen Rechnung. Auf einer Plattform mit Treuhand gibst du das Geld erst nach dem Posten frei. Rechnung in die Belegtabelle | Zahlung und Beleg eingetragen sind |
-| 9 | **Messen** | Aufrufe nach 14 Tagen, Kosten je 1.000 Aufrufe, Erst-Downloads an den Tagen danach | die Zeile in der Messtabelle steht |
+| 3 | **Datenschutzhinweise für Creator** | eine eigene Seite der Website nach Art. 14 DSGVO (Hauptplan, Checkliste F): wer verantwortlich ist (Inhaber, Anschrift, E-Mail), welche Daten du über Creator verarbeitest (Name, Profil, Kontaktweg, Statistiken, Rechnung), woher sie stammen (öffentliches Profil), wozu und auf welcher Rechtsgrundlage (Anfrage, Vereinbarung, Zahlung), wie lange du sie aufbewahrst, Rechte der Creator und Beschwerde beim Landesbeauftragten für den Datenschutz Niedersachsen. Claude entwirft, du prüfst jeden Satz. Einmalig 0,5/1/1,5 h (Schätzung), 0 € | die Seite online ist und ihr Link in der Vorlage 12.2 steht |
+| 4 | **Anfrage** | persönlich und einzeln, bezogen auf ein bestimmtes Video, mit Link auf deine Datenschutzhinweise für Creator (Schritt 3). Du schickst jede selbst. Keine Massenanfragen | 5–8 Anfragen verschickt sind |
+| 5 | **Angebot** | **60–90 € fest** für ein Video samt Posting auf dem Konto des Creators. Oder: ein Rohvideo zum Festpreis, das du auf deinem Markenkonto postest. Keine Vergütung je Aufruf: Sie belohnt gekaufte Aufrufe | der Preis schriftlich zugesagt ist |
+| 6 | **Briefing** | eine Seite (Abschnitt 12.2) | der Creator es bestätigt hat |
+| 7 | **Vereinbarung in Textform** | Video und Länge, Termin, deine Freigabe vor dem Posten, Kennzeichnung, Honorar, Zahlung nach dem Posten gegen Rechnung, Nutzungsrecht nur für diesen Post (beim Rohvideo: für deine Markenkonten, 12 Monate, keine bezahlten Anzeigen), das Video bleibt mindestens 30 Tage online, der Creator ist volljährig | beide Seiten per Mail zugestimmt haben |
+| 8 | **Kennzeichnung prüfen** | „Werbung“ oder „Anzeige“ gleich am Anfang, dazu der TikTok-Schalter für bezahlte Partnerschaft. Ein Rohvideo auf deinem Konto bekommt zur Sicherheit den Hinweis „Anzeige“ | du es am Tag des Posts selbst gesehen hast |
+| 9 | **Zahlung** | erst nach dem Posten, per Überweisung vom App-Konto gegen Rechnung. Auf einer Plattform mit Treuhand gibst du das Geld erst nach dem Posten frei. Rechnung in die Belegtabelle | Zahlung und Beleg eingetragen sind |
+| 10 | **Messen** | Aufrufe nach 14 Tagen, Kosten je 1.000 Aufrufe, Erst-Downloads an den Tagen danach | die Zeile in der Messtabelle steht |
 
 - **Was 750 € kaufen:** Ein Video, das der Creator selbst postet, kostet nach
-  der Gegenprüfung 60 / 90–110 / 150 €. Das sind 4 / 6–8 / 12 Versuche.
+  der Gegenprüfung 60 / 90–110 / 150 €. Aus 750 € werden so in dieser
+  Reihenfolge 12 / 6–8 / 4 Versuche: beim niedrigsten Preis die meisten.
+  Plattformgebühr und Umsatzsteuer senken die Zahl.
   Anbieter nennen UGC-Videos ab 83 €, 20–30 % Aufschlag für das Posten und
   30–50 % für Nutzungsrechte ([Influee](https://influee.co/de/blog/ugc-price)).
   Für 30–40 € sagen fast nur sehr kleine Konten zu.
-- **Lieferzeit:** 1–2 Wochen. Nach einer Prüfung am Mo 28.06. kommen die Videos
-  um oder nach Tor 1. Tor 1 misst dann fast ohne sie.
+- **Lieferzeit:** 1–2 Wochen. Nach einer zweiten Prüfung Ende Juni (Mo 28.06.
+  oder Di 29.06.) kommen die Videos um oder nach Tor 1. Tor 1 misst dann fast
+  ohne sie.
 - **Abbruch:** nach 5 Videos ohne ein Video ab 10.000 Aufrufen. Und am
-  Mo 19.07.; wer bis So 18.07. gebucht ist, wird nach dem Posten noch bezahlt.
+  Mo 19.07., wenn keine App Tor 1 bestanden hat; wer bis So 18.07. gebucht ist,
+  wird nach dem Posten noch bezahlt.
 - **Fehlt die Kennzeichnung:** sofort korrigieren lassen. Du haftest mit.
 - **Künstlersozialabgabe:** Halte alle Honorare an selbstständige Kreative im
   Kalenderjahr zusammen unter 1.000 € (auch Icon, Logo, Texte). Dann fällt nach
@@ -997,11 +1079,9 @@ Creator, zusammen höchstens 9 Stunden. Sie fehlen App 2.
   [Haufe](https://www.haufe.de/personal/kuenstlersozialabgabe-neuer-abgabensatz-liegt-vor_48_421266.html)).
   Ob UGC-Creator darunter fallen, ist nicht belegt: vor der ersten Buchung in
   der Gründungsberatung oder bei der Künstlersozialkasse fragen.
-- **Creator oder Plattformen im Ausland:** Du schuldest 19 % Umsatzsteuer nach
-  § 13b obendrauf; aus 750 € werden rund 630 € Leistung. Nutzungsrechte von
-  Creatorn im Ausland kaufst du nicht, bevor § 50a EStG geklärt ist. Creator
-  aus den USA oder Großbritannien kommen nur in Frage, wenn mindestens ein
-  Drittel deines Umsatzes aus englischsprachigen Ländern stammt.
+- **Plattformen im Ausland:** Auf ihre Gebühren schuldest du 19 % Umsatzsteuer
+  nach § 13b obendrauf; beides zählt zum Deckel. Creator im Ausland buchst du
+  nicht (Hauptplan, Abschnitt 8, und Checkliste F).
 - **Nicht buchen:** Pakete mit Mindestumsatz (Insense, Billo), Rechte für
   bezahlte Anzeigen, minderjährige Creator, Creator ohne Rechnung.
 
@@ -1020,7 +1100,9 @@ Creator, zusammen höchstens 9 Stunden. Sie fehlen App 2.
   einander hochziehen.
 - Bewertungen im App Store von dir, Familie oder Freunden; Gegenleistungen für
   Bewertungen. Apple kann dafür das Entwicklerkonto schließen.
-- Musik außerhalb der Commercial Music Library. Fremde Videos oder Bilder.
+- Auf TikTok Musik außerhalb der Commercial Music Library, auf Instagram
+  außerhalb der Musikauswahl für Unternehmenskonten, auf YouTube außerhalb der
+  Audiomediathek. Fremde Videos oder Bilder.
 - Erfundene Ergebnisse, gestellte Verläufe, KI-Personen als „Nutzer“, Folien im
   Ton eines unbeteiligten Finders.
 - Bezahlte Creator ohne Kennzeichnung. Vergütung je Aufruf.
@@ -1074,7 +1156,8 @@ Die App kostet 6,99 € pro Woche. Schreib nie „kostenlos“ oder „gratis“
 1. Schreibe je 30 Hooks für die erste Folie einer TikTok-Slideshow (ein
    Gedanke, höchstens 8 Wörter) für drei Formate:
    A Liste („5 Sätze, die …“), B Bildschirmaufnahme („Das wurde eingegeben,
-   das kam heraus“), C Vorher/Nachher.
+   das kam heraus“), C Vorher/Nachher. Schlag außerdem zwei bis drei weitere
+   Formate vor, die ohne Gesicht und ohne Stimme gehen, mit je 10 Hooks.
 2. Schreibe für die besten 5 Hooks je Format die Texte der Folien 2 bis 7,
    je Folie höchstens 15 Wörter. In Format A ist die App einer von mehreren
    Tipps auf Folie 3, 4 oder 5 und heißt dort „unsere App [Name]“.
@@ -1109,7 +1192,7 @@ Was wir brauchen
 
 Pflicht
 - „Werbung“ oder „Anzeige“ gleich am Anfang, gut lesbar.
-- TikTok-Schalter für bezahlte Partnerschaft an.
+- TikTok-Schalter für bezahlte Partnerschaft an, wenn du selbst postest.
 - Nur Musik, die du für Werbung nutzen darfst.
 - Sag nichts, was du nicht selbst gesehen hast. Keine erfundenen Ergebnisse.
 
@@ -1124,12 +1207,25 @@ Ablauf
 - Honorar [Betrag] € fest, Zahlung binnen 7 Tagen nach dem Posten gegen
   Rechnung. Nutzung nur für diesen Post.
 - Datenschutzhinweise: [Link]
+
+Ablauf beim Rohvideo (statt der ersten drei Punkte unter „Ablauf“)
+- Entwurf an uns bis [Datum]. Wir antworten binnen 24 Stunden.
+- Lieferung bis [Datum] als Datei. Wir posten es auf unseren Markenkonten
+  mit dem Hinweis „Anzeige“.
+- Nutzung 12 Monate, nur auf diesen Konten, keine bezahlten Anzeigen.
+- Honorar [Betrag] € fest, Zahlung binnen 7 Tagen nach der Lieferung gegen
+  Rechnung.
 ```
 
 ### 12.3 Sonntagsauswertung
 
-30 Minuten, jeden Sonntag ab dem ersten Post. Die Kassenprüfung
-([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.3) kommt dazu.
+20 Minuten, jeden Sonntag, sobald die App im Store ist; dazu die
+Kassenprüfung ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.3, 10 Minuten).
+Beides entfällt ab einer Woche vor einem Prüfungstag. Vor dem Start genügen
+die 15 Minuten „Zahlen der Vorwoche“ im Samstagsblock (Abschnitt 6.2). Von
+Mo 15.03. bis zu deiner letzten Prüfung ist die Auswertung einer der zwei
+Termine je Woche aus Abschnitt 1.2. In Q4 und im Abitur wendest du in
+Schritt 3 keine Regel an (Abschnitt 6.2, „Kein Urteil“).
 
 1. Fehlende Werte in beiden Tabellen nachtragen.
 2. Claude rechnen lassen (Prompt unten).
@@ -1151,7 +1247,7 @@ Hier sind meine Tabellen posts.csv und tage.csv der letzten 4 Wochen:
 - Kaufquote (Käufe durch Erst-Downloads), nur wenn es mindestens 300
   Downloads sind;
 - MRR, Abstand zu 300 $ und zu 5.000 $; Erstattungen in Prozent des Umsatzes;
-- Antworten auf „Woher kennst du die App?“ je Auswahl, mit Zahlern;
+- Antworten auf „Woher kennst du die App?“ je Auswahl;
 - Monatsgewinn in Euro gegen die Grenze von 590 €.
 Sag mir, welche der Regeln a bis e ausgelöst ist. Nenne die drei Dinge, die
 nächste Woche am meisten bringen. Erfinde keine Zahlen; schreib „fehlt“, wo

@@ -11,7 +11,7 @@ Modell bringt, steht in [`07_HEBEL.md`](07_HEBEL.md); hier stehen keine
 Modellzahlen.
 
 **Hier steht, wie du bis So 20.12. aus etwa 20 Kandidaten eine Idee für
-App 1 machst – oder feststellst, dass keine taugt.** Stand: Di 24.11.2026.
+App 1 machst – oder feststellst, dass keine taugt.** Stand: Mi 25.11.2026.
 
 **Neu gegenüber 01** (01 wird an diese Entscheidungen angeglichen; der
 Hauptplan enthält sie schon, Abschnitte 12 und 13):
@@ -69,7 +69,8 @@ Inhalt:
   [9to5Mac](https://9to5mac.com/2026/03/04/new-report-looks-into-the-sustainability-of-the-subscription-app-market-for-2026/)
   zu den schwersten Kategorien.
 - **Die Punkte sind ungenau.** Sie beruhen auf Schätzwerten kostenloser
-  Werkzeuge. 68 und 72 Punkte sind derselbe Befund.
+  Werkzeuge. 68 und 72 Punkte unterscheiden sich kaum. Die Schwelle 70 gilt
+  trotzdem hart, damit du sie nicht nachträglich verschiebst.
 - **Belegte Nachfrage heißt Konkurrenz.** Die Tabelle verlangt zahlende
   Konkurrenten, Apple lehnt aber Apps ab, die sich von verbreiteten nicht
   unterscheiden (Richtlinie 4.3(b)). Deine App muss dasselbe Bedürfnis mit
@@ -83,54 +84,63 @@ Inhalt:
 
 | Woche | Ideenwahl | davon in 01 eingeplant |
 |---|---|---|
-| KW 48, nur Sa 28.11. | 1,5/2/2,5 h | 2 h |
+| KW 48, nur Sa 28.11. | 1,75/2,25/2,5 h | 2 h |
 | KW 49 (Mo 30.11.–So 06.12.) | 2,25/2,75/3,5 h | 2 h 45 min |
 | KW 50 (Mo 07.12.–So 13.12.) | 2/2,25/3 h | 1 h |
-| KW 51 (Mo 14.12.–So 20.12.) | 4/5/6,5 h | 1 h |
-| zusammen | ~10/12/15,5 h | 6 h 45 min |
+| KW 51 (Mo 14.12.–So 20.12.) | 4/5/7 h | 1 h |
+| zusammen | ~10/12/16 h | 6 h 45 min |
 
 Das sind typisch gut 5 Stunden mehr als in 01, weil fünf statt drei Ideen
-geprüft werden und der Ablauf-Test dazukommt. **Die Ideenwahl geht in KW 51
-vor AP6** (und am Sa 12.12. vor der Lernstunde). AP6 hängt nicht von der
-Idee ab und kann rutschen. Ohne bestandenes Ideen-Tor gibt es aber kein
-Apple-Konto und keine `SPEC.md`. **Kosten: 0 €.** Alle Werkzeuge sind
-kostenlos; der Ablauf-Test verbraucht wenige Cent aus dem API-Guthaben.
+geprüft werden und der Ablauf-Test dazukommt. Über 15 Stunden kommst du
+nur, wenn der Ablauf länger braucht als geplant (bis 4 statt 2 Stunden,
+Abschnitt 8); dann gilt die Frist bis Mo 28.12. (Abschnitt 7). **Die
+Ideenwahl geht in KW 51 vor AP6** (und am Sa 12.12. vor der Lernstunde).
+AP6 hängt nicht von der Idee ab und kann rutschen. Ohne absehbar
+bestandenes Ideen-Tor (Zwischenstand Sa 12.12.) gibt es aber kein
+Apple-Konto, und ohne bestandenes Ideen-Tor keine `SPEC.md`. **Kosten:
+0 €.** Alle Werkzeuge sind kostenlos; der Ablauf-Test verbraucht wenige Cent
+aus dem API-Guthaben.
 
 | Tag | Zeit | was | Claude bereitet vor | du prüfst selbst | fertig, wenn … |
 |---|---|---|---|---|---|
-| Sa 28.11. | 2 h | Sammeln, K.-o.-Fragen, 60-Sekunden-Test, fünf auswählen (Abschnitte 3 und 4) | 12 Kandidaten (Vorlage 10.1), Vorprüfung der K.-o.-Fragen 1–6 | K.-o.-Fragen abhaken; 60-Sekunden-Test am iPhone | fünf Ideen in `ideen\liste.md` stehen, jede mit dem Punkt, in dem sie den kostenlosen Weg schlägt |
+| Sa 28.11. | 2 h 15 min | Sammeln, K.-o.-Fragen, 60-Sekunden-Test für höchstens sechs, fünf auswählen (Abschnitte 3 und 4) | 12 Kandidaten und die Vorprüfung der K.-o.-Fragen 1–6 für alle (Vorlage 10.1) | K.-o.-Fragen abhaken; 60-Sekunden-Test am iPhone | fünf Ideen in `ideen\liste.md` mit „Auswahl“ markiert sind, jede mit dem Punkt, in dem sie den kostenlosen Weg schlägt |
+| Mo 30.11. | 30 min, nur wenn nötig | 60-Sekunden-Test für weitere Kandidaten, wenn am Sa weniger als fünf bestanden haben (Abschnitt 4) | – | Test am iPhone | fünf Ideen bestanden haben oder die 30 Minuten um sind |
 | Di 01.12. | 45 min | Vorfüllen starten (5.1); App-Store-Suche für Idee 1 (5.2) | Suchwörter, iTunes-Suche, `idee_1.md` bis `idee_5.md`, vorläufige Punkte für die Kriterien 3, 4, 6, 7, 9 (Vorlage 10.2) | Suchvorschläge, Top 10, Abo-Preise am iPhone | die fünf Tabellen vorgefüllt sind und Idee 1 Punkte bei Kriterium 2 hat |
 | Do 03.12. | 1 h | App-Store-Suche für die Ideen 2 und 3 | – | wie Di | beide Punkte bei Kriterium 2 haben |
 | Sa 05.12. | 1 h | App-Store-Suche für die Ideen 4 und 5; Top-Charts (5.3) | – | wie Di; Charts | jede Idee Punkte bei Kriterium 2 und fünf Konkurrenten hat |
 | Do 10.12. | 1 h | Zahlungsbeleg für alle fünf (5.4) | Liste der Konkurrenten mit Alter und Anbieter | Umsatzschätzung ablesen, nur die Größenklasse | jede Idee Punkte bei Kriterium 1 hat oder gestrichen ist |
-| Sa 12.12. | 1 h 15 min | TikTok (5.5) und Google Trends (5.6) für die Ideen im Rennen (höchstens drei, sonst die drei mit den meisten Punkten); Zwischenstand | rechnet die Summen | TikTok-App, Trends | diese Ideen eine vollständige Summe haben und feststeht, ob das Ideen-Tor absehbar bestanden wird (Abschnitt 7) |
+| Sa 12.12. | 1 h 15 min | TikTok (5.5) und Google Trends (5.6) für die Ideen im Rennen (höchstens drei; sind mehr im Rennen, die drei mit den meisten gemessenen Punkten bei Kriterium 1 und 2, bei Gleichstand die mit mehr Punkten bei Kriterium 1); Zwischenstand | rechnet die Summen | TikTok-App, Trends | diese Ideen eine vollständige Summe haben und feststeht, ob das Ideen-Tor absehbar bestanden wird (Abschnitt 7) |
 | Mo 14.12. | (1 h aus 01) | Apple Developer Program **nur**, wenn der Zwischenstand passt und die Namensfrage (So 13.12.) entschieden ist | – | – | angemeldet oder bewusst verschoben |
 | Di 15.12. | 1 h | Slideshow-Test (Abschnitt 8) und Namensprüfung (Abschnitt 9) für die beste Idee, je 30 min | drei Namensvorschläge, iTunes-Suche nach den Namen | Folientitel selbst schreiben; App Store, DPMAregister | 10 Folientitel und 3 Aufnahme-Ideen stehen und ein Name frei ist |
 | Mi 16.12. | 1 h | Ablauf in Expo Go bauen (Abschnitt 8) | baut Formular und Ergebnis auf dem Branch `ablauf-test` | auf dem iPhone prüfen | das Formular auf dem iPhone erscheint |
 | Do 17.12. | 1 h | Ablauf fertig bauen | behebt Fehler | selbst durchtippen | du von der ersten Frage bis zum Ergebnis kommst |
 | Do 17.12.–Sa 19.12. | 5 × 10 min | fünf Erwachsenen zeigen | – | zusehen, notieren | fünf Spalten im Testprotokoll stehen |
-| Fr 18.12. | 30 min | Entscheidungsblatt ausfüllen (Vorlage 10.4) | rechnet nach, prüft die Mindestwerte | Werte gegenlesen | das Blatt bis auf die Entscheidung ausgefüllt ist |
+| Fr 18.12. | 30 min | Entscheidungsblatt ausfüllen (Vorlage 10.4) | rechnet nach, prüft die Mindestwerte | Werte gegenlesen | das Blatt bis auf die Ablauf-Werte vom Sa 19.12. und die Entscheidung ausgefüllt ist |
 | Sa 19.12. | 30 min | **Ideen-Tor:** entscheiden; danach AP3 (`SPEC.md`, Vorlage 10.5) | – | entscheiden | die Entscheidung in `docs/entscheidungen.md` steht |
-| So 20.12. | frei | Messpunkt M0 abhaken (01, Abschnitt 11) | – | – | – |
+| So 20.12. | frei | Messpunkt M0 abhaken: Idee besteht, `SPEC.md` steht, echte KI-Antwort in der App (Hauptplan, Abschnitt 13). Die Paywall gehört nicht dazu; sie kommt am Mi 23.12. In den Fällen der Frist (Abschnitt 7) hakst du M0 erst bis Mo 28.12. ab | – | – | – |
 
 **Abgleich mit 01** (01 wird hier nicht geändert; es gilt seine Regel
 „schieben, nicht überspringen“):
 
 | Tag | in 01 | hier |
 |---|---|---|
-| Sa 28.11. | 10 Ideen, du wählst 3 | du wählst 5 |
+| Sa 28.11. | 10 Ideen, du wählst 3 (2 h) | etwa 20 Kandidaten (12 von Claude, eigene, Pool A–H), K.-o.-Fragen und 60-Sekunden-Test; du wählst 5 (2 h 15 min; die 15 Minuten fehlen beim Beginn von AP1) |
+| Mo 30.11. | AP1 fertig | nur wenn nötig 30 min 60-Sekunden-Test; AP1 rutscht um diese Zeit |
 | Di 01.12., Do 03.12. | Ideen 1–3 bewerten | App-Store-Suche; die volle Summe gibt es erst am Sa 12.12. |
 | Do 10.12. | Suchbegriffe und Namen | Zahlungsbeleg; Suchbegriffe stehen seit KW 49, Namen folgen am Di 15.12. |
 | Sa 12.12. | 1 h Lernen am eigenen Code | 1 h 15 min Ideen; die Lernstunde rutscht in die Ferien |
 | Di 15.12.–Do 17.12. | AP6 (3 h) | Slideshow-Test, Namensprüfung, Ablauf |
 | Sa 19.12. | 1,5 h AP6 Rest, 1 h Entwürfe | 2,5 h AP6; die Entwürfe rutschen in die Ferien |
-| Mi 23.12. | AP7 Rest, AP8, Beginn AP9 | 2 h AP6 Rest, AP7 Rest, AP8; AP9 beginnt am Di 29.12. |
+| So 20.12. | M0 fragt auch, ob die Paywall erscheint | M0 ohne Paywall (Hauptplan, Abschnitt 13); sie kommt am Mi 23.12. Das ist kein No-Go; ein No-Go gilt nur, wenn keine Idee besteht (Abschnitt 7) |
+| Mi 23.12. | 1 h AP7 Rest, 4 h AP8, 2 h Beginn AP9 | 2 h AP6 Rest, 1 h AP7 Rest, 4 h AP8; AP9 beginnt am Mo 28.12. |
+| Mo 28.12. | 6 h ETH, 1 h AP9 (`eas submit`, TestFlight intern) | 6 h ETH, morgens 1 h AP9: Store-Build starten (er läuft, während du die Bewerbung machst) |
+| Di 29.12. | 1 h AP9 Rest, Stunden-Messpunkt, 6 h AP10 | 3 h AP9 (`eas submit`, TestFlight), danach der Stunden-Messpunkt, 4 h AP10. Die fehlenden 2 Stunden AP10 kommen am Mi 30.12. vor AP11; alles danach rutscht um 2 Stunden |
 
 - **AP6 am Sa 19.12.:** zuerst Konto, Produkte und alle nativen Pakete
   (Schritte 1, 2 und 4 im Bauplan). Dann enthält der Entwicklungs-Build am
   Di 22.12. alles. Paywall und Aufruf folgen am Mi 23.12.
-- **Das Zeigen** kommt in KW 51 dazu: ~11 Stunden statt 10. Erlaubt sind
-  höchstens 15.
+- **Das Zeigen** kommt in KW 51 dazu: ~11 Stunden statt 10 (braucht der
+  Ablauf 4 Stunden: 13). Erlaubt sind höchstens 15.
 - **Kaufst du Apple am Mo 14.12. noch nicht,** nutzt du die Stunde für AP6.
 - **Woche mit Klausur:** nur Samstag 3 Stunden, alles rutscht um eine
   Woche. Das Ideen-Tor liegt dann spätestens am **Mo 28.12.**; den Rest der
@@ -144,18 +154,20 @@ kostenlos; der Ablauf-Test verbraucht wenige Cent aus dem API-Guthaben.
 ## 3. Woher die Ideen kommen
 
 Am Sa 28.11. sammelst du in 30 Minuten etwa 20 Kandidaten aus drei Quellen.
-Du notierst sie in `$HOME\apps\ideen\liste.md`, je Idee eine Zeile: Aufgabe
-in einem Satz, Anlass, 3–6 Formularfragen, Ergebnis. Der Ordner `ideen` ist
-kein Repository und bleibt privat.
+Sie stehen danach in `$HOME\apps\ideen\liste.md`, je Idee eine Zeile:
+Aufgabe in einem Satz, Anlass, 3–6 Formularfragen, Ergebnis. Den Ordner
+legst du vorher in PowerShell mit `mkdir $HOME\apps\ideen` an; Claude Code
+schreibt die Liste mit Vorlage 10.1. Der Ordner `ideen` ist kein Repository
+und bleibt privat.
 
 - **Eigene Ideen.** Frag dich und deine Eltern: Welche Texte schreibt ihr
   ungern, obwohl ein Termin drückt? Welche Anlässe hatte die Familie im
   letzten Jahr? Habt ihr den Anlass selbst, sind die fünf erwachsenen
   Testpersonen schon da, und du kannst beurteilen, ob ein Ergebnis gut ist.
-- **Claude.** Die Vorlage 10.1 liefert 12 weitere Kandidaten. Sie ersetzt
-  für diesen Schritt die Vorlage „Ideen“ im Hauptplan (Abschnitt 16):
-  Claude nennt keine Umsätze und keine Rangliste, weil es keine Umsatzdaten
-  hat und eine frühe Rangfolge die Messung verfälscht.
+- **Claude.** Die Vorlage 10.1 liefert 12 weitere Kandidaten. Der
+  Hauptplan (Abschnitt 16) verweist für alle Ideen-Vorlagen hierher. Claude
+  nennt keine Umsätze und keine Rangliste, weil es keine Umsatzdaten hat und
+  eine frühe Rangfolge die Messung verfälscht.
 - **Der Kandidatenpool der Recherche.** Er ist ungeprüft: Jede Richtung
   kann am Zahlungsbeleg oder am 60-Sekunden-Test scheitern. Die Reihenfolge
   ist keine Rangfolge.
@@ -167,7 +179,7 @@ kein Repository und bleibt privat.
 | C | Verkaufstexte für Kleinanzeigen und Antworten in der Preisverhandlung | Marktplätze bauen KI-Anzeigentexte teils selbst ein, und der Kern einer Anzeige sind Fotos. Kein fremder Markenname im App-Namen | zweisprachig |
 | D | Zeugnissprache allgemein erklären | nie das einzelne Zeugnis bewerten (K.-o.-Frage 6). Einmaliger Anlass | nur deutsch |
 | E | Wohnungsbewerbung: Anschreiben und Selbstvorstellung an Vermieter oder WG, ohne Rechtsfragen | Spitze August bis Oktober, also nach den Toren: bei der Saison höchstens 2 Punkte. Der Text wird einmal geschrieben und wiederverwendet | nur deutsch |
-| F | Trainer für Vorstellungs- und Gehaltsgespräch (Rollenspiel in Text mit Auswertung) | Dialog statt Formular: mehr Bauaufwand, höhere KI-Kosten | zweisprachig |
+| F | Trainer für Vorstellungs- und Gehaltsgespräch (Rollenspiel in Text mit Auswertung) | Ein Dialog statt Formular widerspricht dem festen Ablauf von App 1 (3–6 Fragen, ein Ergebnis). Nur als Reserve für App 2; dazu mehr Bauaufwand und höhere KI-Kosten | zweisprachig |
 | G | Reklamation, Kündigung, Beschwerde als feste Vorlagen | nur ohne jede Aussage zu Fristen und Rechten; K.-o.-Frage 6 streng prüfen. Im deutschen Store gibt es etablierte Kündigungs-Apps | nur deutsch |
 | H | Texte für Vereine und Ehrenamt (Einladung, Protokoll, Spendenbrief) | verhält sich wie ein Werkzeug für Firmen, die langsamste Kategorie; vermutlich schwach beim Zeigen ohne Gesicht | eher deutsch (Schätzung) |
 
@@ -196,8 +208,9 @@ kein Repository und bleibt privat.
 Statt einer engen Idee kannst du eine App mit drei bis vier verwandten
 Anlässen auf derselben Technik wählen, zum Beispiel Reden und Glückwünsche.
 - **Vorteil:** Nach dem Start zeigt die Nutzung, welcher Anlass zieht. Das
-  kann die zweite Bauzeit sparen (35–120 Stunden) und senkt das Risiko,
-  dass Apple eine zweite, ähnliche App als Variante ablehnt (4.3(a)).
+  kann die Bauzeit einer zweiten App sparen (33/55/110 Stunden,
+  [`07_HEBEL.md`](07_HEBEL.md), Abschnitt 14) und senkt das Risiko, dass
+  Apple eine zweite, ähnliche App als Variante ablehnt (4.3(a)).
 - **Gegenrisiko:** ein unscharfer Auftritt in Suche und Videos. Deshalb nur
   **eine** Familie, deren Anlässe ein Nutzer als dasselbe Thema erkennt.
 - **Bewertung:** Die Familie zählt als eine Idee; gemessen wird der
@@ -251,22 +264,24 @@ Ideen, die 1–6 bestanden haben. Claude darf vorprüfen, abhaken musst du.
       kein Abo für 6,99 € in der Woche ab.
 
 **Der 60-Sekunden-Test (Frage 7).** Du brauchst das iPhone mit Timer (App
-„Uhr“ → Timer → 1 Minute), die Notizen-App und einen kostenlosen KI-Chat,
-wie ihn deine Zielgruppe hätte, also ohne Bezahl-Abo. Dein Claude Pro zählt
-nicht.
+„Uhr“ → Timer → 1 Minute), die Notizen-App und einen kostenlosen KI-Chat
+ohne Bezahl-Abo, wie ihn deine Zielgruppe hätte: am besten den, den deine
+Eltern oder Verwandten nutzen, im Browser ohne Anmeldung oder mit dem
+Projekt-Postfach. Gib dort nur erfundene Testfälle ein. Dein Claude Pro
+zählt nicht.
 
 | Schritt | Zeit | was du tust | was du notierst |
 |---|---|---|---|
 | 1. Testfall | 2 min | einen erfundenen, typischen Fall in drei Zeilen aufschreiben: wer, welcher Anlass, drei Angaben; keine echten Namen (Vorlage 10.3) | den Testfall |
 | 2. Durchgang A: kostenloser KI-Chat | 60 s | Timer starten; den Satz tippen, den ein normaler Nutzer tippen würde, ohne Kunstgriffe; nachbessern darfst du, solange der Timer läuft | Screenshot. Hättest du den Text so verwendet? Wie oft nachgebessert? Was fehlt sichtbar (Angaben, Länge, Anrede, Format)? |
-| 3. Durchgang B: Schreibwerkzeuge des iPhones | 60 s | in der Notizen-App zwei Sätze Rohtext zum selben Fall tippen, markieren, im Menü „Schreibwerkzeuge“ eine Fassung erzeugen lassen | wie bei A |
-| 4. Durchgang C: KI-Funktion der Plattform, auf der der Text gebraucht wird (Kleinanzeigen-, Job-, Wohnungsportal) – nur, wenn es sie gibt | 60 s | denselben Fall dort probieren, nichts veröffentlichen | wie bei A |
+| 3. Durchgang B: Schreibwerkzeuge des iPhones | 60 s | in der Notizen-App zwei Sätze Rohtext zum selben Fall tippen, markieren, im Menü über dem markierten Text die Schreibfunktion von Apple Intelligence öffnen (vermutlich „Schreibtools“; Menünamen vor dem Schritt prüfen) und eine Fassung erzeugen lassen | wie bei A |
+| 4. Durchgang C: KI-Funktion der Plattform, auf der der Text gebraucht wird (Kleinanzeigen-, Job-, Wohnungsportal) – nur, wenn es sie gibt und du oder ein Elternteil dort schon ein Konto mit echten Angaben besitzt | 60 s | denselben Fall dort probieren; kein neues Konto anlegen, nichts veröffentlichen | wie bei A |
 | 5. Urteil | 2 min | den **einen Punkt** aufschreiben, den man sehen oder zählen kann und in dem die geplante App jeden Durchgang schlägt | den Punkt in einem Satz; bestanden ja oder nein |
 
 - **Zählt als Punkt:** „Nach 60 Sekunden lag kein verwendbarer Text vor.“
-  „Ich musste dreimal nachbessern, bis Namen und Anlass stimmten; das
-  Formular fragt sie vorher ab.“ „Das Ergebnis hatte 400 Wörter; gebraucht
-  wird eine Karte mit 40.“
+  „Nach 60 Sekunden und drei Nachbesserungen stimmten Namen und Anlass noch
+  nicht; das Formular fragt sie vorher ab.“ „Das Ergebnis hatte 400 Wörter;
+  gebraucht wird eine Karte mit 40.“
 - **Zählt nicht:** „schöner“, „einfacher“, „mit Vorlagen“, „mit Verlauf“,
   „auf Deutsch“. Das lässt jede Idee durch.
 - **Liefert der kostenlose Weg in 60 Sekunden einen Text, den du so
@@ -280,10 +295,17 @@ nicht.
 - **Bist du unsicher,** lässt du Claude streng urteilen (Vorlage 10.3). Mit
   dem echten Ablauf wiederholst du den Test (Abschnitt 8).
 
-**Fertig, wenn** in `liste.md` fünf Ideen stehen, die alle sieben Fragen
-bestanden haben, jede mit ihrem Punkt. Bestehen mehr als fünf, nimmst du
-die fünf mit dem dringendsten Anlass. Bestehen weniger, sammelst du mit
-Vorlage 10.1 nach und prüfst mit dem, was du hast.
+**Den Test machst du am Sa 28.11. für höchstens sechs Kandidaten** (etwa
+60 Minuten), zuerst für die mit dem dringendsten Anlass. Bestehen alle
+sechs, nimmst du die fünf mit dem dringendsten Anlass. Bestehen weniger als
+fünf, testest du am Mo 30.11. weitere aus `liste.md` (30 Minuten; AP1
+rutscht um diese Zeit). Bestehen auch dann weniger als fünf, prüfst du nur
+die bestandenen weiter (Abschnitt 5). Besteht keine, ist das ein No-Go
+(Abschnitt 7).
+
+**Fertig, wenn** in `liste.md` fünf Ideen, die alle sieben Fragen bestanden
+haben, mit „Auswahl“ markiert sind, jede mit ihrem Punkt (bestehen weniger,
+alle bestandenen).
 
 ---
 
@@ -303,7 +325,9 @@ diktierst sie Claude.
 | 5.6 | Google Trends | 5 min | du | Monat der Spitze → Kriterium 8 |
 | – | Punkte eintragen | 5 min | du; Claude rechnet | Summe |
 
-Das sind 60–65 Minuten je Idee, für fünf Ideen 5–7 Stunden.
+Das sind 60–70 Minuten je Idee, für fünf Ideen 5–6 Stunden. Weil TikTok und
+Trends nur für höchstens drei Ideen laufen, plant Abschnitt 2 dafür typisch
+5 Stunden.
 **Abbruchregel:** Sobald eine Idee einen Mindestwert verfehlt oder auch mit
 vollen Punkten in den offenen Kriterien keine 70 mehr erreicht, hörst du
 bei ihr auf.
@@ -319,7 +343,7 @@ Befehl am 24.11.2026 getestet. In Windows PowerShell schreibst du
 cd $HOME\apps
 mkdir ideen\roh
 cd ideen
-curl.exe -s -o roh\idee1_wort1.json "https://itunes.apple.com/search?term=pflanzen+giessen&country=de&entity=software&limit=25"
+curl.exe -s -o roh/idee1_wort1.json "https://itunes.apple.com/search?term=pflanzen+gie%C3%9Fen&country=de&entity=software&limit=25"
 ```
 
 - `term`: das Suchwort. Leerzeichen als `+`; Umlaute und ß kodiert
@@ -327,7 +351,10 @@ curl.exe -s -o roh\idee1_wort1.json "https://itunes.apple.com/search?term=pflanz
 - `country=de`: deutscher Store; für englische Suchwörter auch `country=us`.
 - `entity=software`: nur Apps. `limit=25`: höchstens 25 Treffer.
 - `-s -o datei`: speichert die Antwort ohne Fortschrittsanzeige in eine
-  Datei. Claude Code liest sie und zeigt sie dir als Tabelle.
+  Datei. Claude Code liest sie und zeigt sie dir als Tabelle. Den Pfad
+  schreibst du mit `/` (`roh/…`): Das funktioniert in PowerShell und in der
+  Git Bash, über die Claude Code unter Windows Befehle ausführt (vor dem
+  Schritt prüfen).
 
 | Feld | Bedeutung | wofür du es brauchst |
 |---|---|---|
@@ -396,7 +423,9 @@ passende App, ist auch das ein Ergebnis.
    „Market Intelligence Free“ und zeigt für jede App Schätzungen für
    Downloads und Umsatz des letzten Monats, in über 100 Ländern.
 2. Je Konkurrent die Schätzung für die USA und für Deutschland ablesen. Es
-   zählt der höhere Wert (Festlegung; die Recherche nennt kein Land).
+   zählt der höhere Wert (Festlegung; die Recherche nennt kein Land). Wo die
+   Schätzung im Menü steht, hat die Recherche nicht geprüft (vor dem Schritt
+   prüfen).
 3. **Nur die Größenklasse notieren:** unter 1.000 $, 1.000–5.000 $ oder ab
    5.000 $ im Monat. Dazu: kleiner Anbieter? Jünger als 24 Monate (aus 5.1)?
 4. Punkte für Kriterium 1 eintragen.
@@ -410,19 +439,25 @@ passende App, ist auch das ein Ergebnis.
 - Die Schätzungen sind bei kleinen Apps grob. Deshalb nur Klassen.
 
 **Bei einem Fehler:** Geht die Anmeldung nicht oder zeigt der Plan keine
-Schätzungen, versuchst du den Gratis-Zugang von Sensor Tower (laut
-Recherche Charts und knappe Profile; kann sich jederzeit ändern). Zeigt
-kein kostenloses Werkzeug Schätzungen, gilt Kriterium 1 als nicht gemessen:
-Du nutzt die Frist bis Mo 28.12. und schickst mir die Tabellen. Geraten
-wird nicht, auch nicht von Claude.
+Schätzungen, versuchst du die Gratisstufen von Sensor Tower (laut Recherche
+Charts und knappe Profile; kann sich jederzeit ändern) und AppMagic (laut
+Gegenprüfung). Ob sie Umsatzschätzungen zeigen, ist nicht geprüft (vor dem
+Schritt prüfen). Zeigt kein kostenloses Werkzeug Schätzungen, gilt
+Kriterium 1 als nicht gemessen: Du schickst mir die Tabellen und versuchst
+es bis Mo 28.12. noch einmal. Fehlt die Messung dann noch, verfehlt die
+Idee den Mindestwert (Abschnitt 6); besteht keine, gilt die No-Go-Regel
+(Abschnitt 7). Geraten wird nicht, auch nicht von Claude.
 
 **Fertig, wenn** jede Idee Punkte bei Kriterium 1 hat oder gestrichen ist.
 
 ### 5.5 TikTok
 
 Nur lesen, mit einem privaten Konto: nichts posten, nichts kommentieren.
-Hast du keins, siehst du an, was TikTok ohne Anmeldung zeigt. Ein
-Markenkonto gibt es erst ab der Gründung.
+Hast du keins, siehst du an, was TikTok ohne Anmeldung zeigt. Fehlen dann
+Filter, Aufrufe oder Kommentare, legst du ein privates Lesekonto mit deinen
+echten Angaben an (nicht mit dem Projekt-Postfach, das bleibt für das
+Markenkonto). Du postest und kommentierst damit nichts und machst es später
+nie zum Markenkonto. Ein Markenkonto gibt es erst ab der Gründung.
 
 1. Das Thema auf Deutsch in die Suche tippen. Vorschläge notieren.
 2. Über den Filter auf „letzte 3 Monate“ einschränken.
@@ -487,7 +522,7 @@ Faktor ist das Gewicht geteilt durch 5.
 | 5 | Ohne Gesicht zeigbar und teilbar | 15 | ×3 | 0 = abstrakt; 3 = Vorher/Nachher-Text in drei Folien; 5 = das Ergebnis löst Lachen, Ärger oder „das brauche ich“ aus, und es gibt mindestens fünf fremde Slideshows oder Bildschirmvideos zum Thema mit je über 100.000 Aufrufen in 90 Tagen (auf Deutsch: drei mit über 50.000) | 5.5 |
 | 6 | Bauaufwand | 10 | ×2 | 0 = mehr als Text rein, Text raus; 3 = zwei bis drei Bildschirme plus Verlauf, zum Beispiel ein Dialog; 5 = ein Formular, ein Ergebnis, Verlauf auf dem Gerät | Claude schlägt vor |
 | 7 | Review-Risiko | 5 | ×1 | 0 = Grauzone; 3 = harmloses Thema, aber viele ähnliche Apps; 5 = klar harmlos, eigene Funktion | Claude schlägt vor |
-| 8 | Saison | 5 | ×1 | 0 = Spitze im Januar oder erst ab September; 2 = Spitze in einem anderen Monat (Februar bis Mai, Ende Juli, August); 3 = ganzjährig; 5 = Spitze zwischen Anfang Juni und Mitte Juli | 5.6 |
+| 8 | Saison | 5 | ×1 | 0 = Spitze im Januar oder erst ab September; 2 = Spitze in einem anderen Monat (Februar bis Mai, Ende Juli, August); 5 = ganzjährig oder Spitze zwischen Anfang Juni und Mitte Juli (bei Gleichstand gewinnt ganzjährig, Regel 4) | 5.6 |
 | 9 | KI-Kosten und Fehlerfolgen | 5 | ×1 | 0 = lange Antworten oder Dialog über viele Runden; 3 = Antworten von etwa einer Bildschirmseite; 5 = kurze Antworten, ein Fehler ist harmlos und sofort sichtbar | Claude schlägt vor |
 
 Gewichte, Stufen und Schwellen sind eine Setzung (Abschnitt 1). Ein teurer
@@ -511,8 +546,9 @@ Fehler steht nicht in Kriterium 9, sondern ist K.-o.-Frage 6.
 - Eine Lücke im Store (Kriterium 2 mit 5 Punkten) kann auch fehlende
   Nachfrage sein. Deshalb gilt der Mindestwert bei Kriterium 1 immer.
 
-**Bei Gleichstand** (Abstand höchstens 5 Punkte; Setzung, weil die Punkte
-ungenau sind) gewinnt der Reihe nach:
+**Bei Gleichstand** zwischen Ideen, die alle Mindestwerte erfüllen (Abstand
+höchstens 5 Punkte; Setzung, weil die Punkte ungenau sind), gewinnt der
+Reihe nach:
 1. die kürzere Bauzeit (mehr Punkte bei Kriterium 6, sonst weniger Fragen);
 2. die Idee mit deutschem Suchvorschlag und schwachen Top 10 (Kriterium 2);
 3. die Idee, deren Anlass du oder deine Familie selbst habt;
@@ -527,9 +563,10 @@ ungenau sind) gewinnt der Reihe nach:
 
 „Gießplan“: Der Nutzer füllt vor dem Urlaub ein Formular aus (welche
 Pflanzen, wie viele Tage, Besonderheiten) und bekommt einen Zettel für den
-Nachbarn, der gießt. K.-o.-Fragen 1–6: alle Nein. 60-Sekunden-Test: Der
-kostenlose Chat brauchte zwei Nachbesserungen, bis jede Pflanze eine eigene
-Zeile hatte; bestanden.
+Nachbarn, der gießt. K.-o.-Fragen 1–6: alle Nein. 60-Sekunden-Test: Nach
+60 Sekunden und zwei Nachbesserungen hatte der kostenlose Chat noch keinen
+Zettel mit einer Zeile je Pflanze, die Schreibwerkzeuge auch nicht;
+bestanden.
 
 | Nr. | Kriterium | erfundener Messwert | Punkte | Faktor | Ergebnis |
 |---|---|---|---|---|---|
@@ -557,27 +594,38 @@ Hätte die Messung drei Apps mit je mindestens 5.000 $ gezeigt, wären es
 **Eine Idee besteht das Ideen-Tor am So 20.12., wenn**
 1. sie alle Mindestwerte aus Abschnitt 6 erfüllt,
 2. der Slideshow-Test gelingt (Abschnitt 8),
-3. der Ablauf-Test nicht am Ergebnis scheitert (Abschnitt 8).
+3. der Ablauf-Test nicht am Ergebnis scheitert und der wiederholte
+   60-Sekunden-Test den Punkt zeigt (Abschnitt 8).
 
 Dazu braucht sie einen freien Namen (Abschnitt 9). Ein belegter Name ist
 kein No-Go; dann suchst du einen anderen.
 
 **Zwischenstand am Sa 12.12. – „absehbar bestanden“:** Mindestens eine Idee
-erfüllt Punkt 1 mit allen gemessenen Werten. Dann meldest du dich zwischen
-Mo 14.12. und Mi 16.12. beim Apple Developer Program an (99 €, als
-Privatperson, automatische Verlängerung gleich abschalten; Ablauf in
-[`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md)). Sonst wartest
-du bis nach dem Ideen-Tor. Fällt die beste Idee danach noch im Ablauf-Test
-durch und gibt es keine zweite über 70, sind die 99 € schon bezahlt. Willst
-du das nicht riskieren, kaufst du erst nach dem Sa 19.12.
+erfüllt Punkt 1 mit allen gemessenen Werten. Dann meldet sich der Inhaber
+laut Namensfrage (du oder das Elternteil) zwischen Mo 14.12. und Mi 16.12.
+beim Apple Developer Program an (99 €, als Privatperson, automatische
+Verlängerung gleich abschalten; Ablauf in
+[`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 4).
+Sonst wartest du bis nach dem Ideen-Tor. Fällt die beste Idee danach noch im
+Ablauf-Test durch und erfüllt keine zweite alle Mindestwerte, sind die 99 €
+schon bezahlt. Willst du das nicht riskieren, kaufst du erst nach dem Ideen-Tor,
+frühestens am Mo 21.12.
 
-**No-Go:** Besteht am So 20.12. keine Idee, wird **nicht gegründet und kein
-Apple-Konto gekauft.**
+**Keine Idee mehr im Rennen:** Scheiden alle Ideen schon vorher aus (an den
+K.-o.-Fragen, an einem Mindestwert oder beim Zwischenstand am Sa 12.12.),
+steht das No-Go fest. Die Stunden für die Ideen gehen dann an den Lernpfad
+(Hauptplan, Abschnitt 7) und an AP6 nach 01; das No-Go schreibst du am
+Sa 19.12. auf.
+
+**No-Go:** Besteht am So 20.12. (in den Fällen der Frist am Mo 28.12.)
+keine Idee, wird **nicht gegründet und kein Apple-Konto gekauft.**
 
 **Frist bis Mo 28.12.:** Sie gilt nur, wenn eine Klausurwoche die Prüfung
-verschoben hat, eine Messung fehlt (5.4) oder die beste Idee im Ablauf-Test
-gefallen ist und die zweitbeste noch ihre Tests braucht. Eine neue Runde
-mit neuen Ideen passt nicht in diese Frist.
+verschoben hat, eine Messung fehlt (5.4), der Ablauf länger als die
+geplanten 2 Stunden braucht, an der Bedienung scheitert oder ohne echte
+KI-Antwort lief (Abschnitt 8) oder die beste Idee im Ablauf-Test gefallen
+ist und die zweitbeste noch ihre Tests braucht. Eine neue Runde mit neuen
+Ideen passt nicht in diese Frist.
 
 **Was bei einem No-Go geschieht**
 1. **Kein Geld ausgeben:** kein Apple-Konto, kein Gewerbe, keine Domain,
@@ -591,11 +639,18 @@ mit neuen Ideen passt nicht in diese Frist.
 4. **Neue Ideen prüfen:** fünf neue Ideen nach demselben Ablauf (~12 h) in
    den Weihnachtsferien, nach der ETH-Bewerbung am Mo 28.12., Entscheidung
    bis Sa 09.01. Schick mir vorher das Entscheidungsblatt; dann sehen wir,
-   woran die erste Runde gescheitert ist, und suchen gezielter.
+   woran die erste Runde gescheitert ist, und suchen gezielter. Besteht eine
+   Idee, meldet sich der Inhaber laut Namensfrage in der Woche danach bei
+   Apple an ([`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md),
+   Abschnitt 4), und du machst AP3 und AP7–AP9 in KW 02–03. Danach geht es
+   weiter wie im Bauplan; gegründet wird bei M2. Die Einreichung rückt dann
+   meist in Q4 oder hinter das Abitur (Hauptplan, Abschnitt 12).
 5. **Besteht auch dann keine:** Eine Gründung vor dem Abitur lohnt dann
-   kaum noch, weil App 1 ohnehin erst danach fertig würde. Du lernst weiter
-   und prüfst die nächsten Ideen nach deiner letzten Prüfung. Am So 04.07.
-   gilt der Stichtag: Ist dann keine App im Store, beginnt am Mo 05.07. der
+   kaum noch, weil App 1 ohnehin erst danach fertig würde. Du lernst im
+   Rahmen der Wochenstunden bis So 14.03. weiter. Ab Mo 15.03. gilt die
+   Ruhezeit: null Stunden, Claude Pro ruht (Hauptplan, Abschnitt 4). Die
+   nächsten Ideen prüfst du nach deiner letzten Prüfung. Am So 04.07. gilt
+   der Stichtag: Ist dann keine App im Store, beginnt am Mo 05.07. der
    Ferienjob, und es wird keine neue App mehr begonnen.
 6. **Ist das Apple-Konto schon gekauft:** nichts tun. Es gilt zwölf Monate
    und bleibt für die nächste Runde.
@@ -634,17 +689,23 @@ ist der Anfang deiner Hook-Sammlung
 **Voraussetzung:** AP2 (fünf Bildschirme) und AP4 (Server-Funktion) sind
 fertig, am besten auch AP5 (echte KI-Antwort). Dann reichen die geplanten
 2 Stunden. Brauchst du länger, baust du am Fr 18.12. weiter, zeigst den
-Ablauf am Wochenende und entscheidest spätestens am Mo 28.12.
+Ablauf ab Sa 19.12. (der Sonntag bleibt frei) und entscheidest spätestens am
+Mo 28.12.
 
 **Was gebaut wird** – nur **ein** Ablauf, nicht zwei:
 1. **Eingabe-Bildschirm:** das Formular der Idee mit 3–6 Fragen
    (Auswahlknöpfe, kurze Textfelder) und dem Knopf „Erstellen“.
 2. **Ergebnis-Bildschirm:** das Ergebnis im festen Format, große Schrift,
    Knopf „Kopieren“.
-3. **Woher das Ergebnis kommt:** Läuft AP5, liefert die Funktion `ki` im
-   Testprojekt eine echte Antwort mit einem vorläufigen Prompt. Läuft AP5
-   noch nicht, zeigt der Bildschirm ein festes Ergebnis mit dem sichtbaren
-   Wort „Beispiel“.
+3. **Woher das Ergebnis kommt:** Läuft AP5, liefert eine neue Funktion
+   `ablauf` im Testprojekt eine echte Antwort mit einem vorläufigen Prompt.
+   Die Funktion `ki` aus AP4 und AP5 bleibt unverändert, denn eine
+   veröffentlichte Funktion gilt für das ganze Projekt, nicht nur für den
+   Branch. Läuft AP5 noch nicht, zeigt der Bildschirm ein festes Ergebnis
+   mit dem sichtbaren Wort „Beispiel“. Dann misst der Test nur die
+   Bedienung: Die Zeile „Würde sie den Text … verwenden?“ bleibt leer, und
+   das Ideen-Tor wartet auf einen Durchgang mit echter KI-Antwort (Frist bis
+   Mo 28.12., Abschnitt 7).
 
 **Nicht gebaut wird:** Paywall, Onboarding, Verlauf, Design.
 
@@ -653,14 +714,18 @@ Ablauf am Wochenende und entscheidest spätestens am Mo 28.12.
 Lege den Branch ablauf-test an. Baue einen Test-Ablauf für diese Idee:
 [Aufgabe in einem Satz]. Auf dem Eingabe-Bildschirm steht ein Formular mit
 diesen Fragen: [Fragen mit Antworttyp]. „Erstellen“ schickt die Antworten
-an die Funktion ki im Testprojekt. Schreib dafür einen vorläufigen Prompt:
-[Ergebnisformat], höchstens [N] Wörter, in der Gerätesprache. Der
-Ergebnis-Bildschirm zeigt das Ergebnis groß und hat einen Knopf „Kopieren“.
-Keine Paywall, kein Verlauf, kein Design. Alle Texte in de.json und
-en.json. Plane zuerst und warte auf mein OK.
+an eine neue Funktion ablauf im Testprojekt; die Funktion ki bleibt
+unverändert. Schreib für ablauf einen vorläufigen Prompt: [Ergebnisformat],
+höchstens [N] Wörter, in der Gerätesprache. Der Ergebnis-Bildschirm zeigt
+das Ergebnis groß und hat einen Knopf „Kopieren“. Keine Paywall, kein
+Verlauf, kein Design. Alle Texte in de.json und en.json. Plane zuerst und
+warte auf mein OK.
 ```
 Gewinnt die Idee, sind etwa 2 dieser Stunden Vorarbeit für AP10 und AP11
-(Schätzung). Verliert sie, bleibt der Branch liegen.
+(Schätzung). Verliert sie, bleibt der Branch liegen; `ki` ist nicht
+berührt. Nach dem letzten Test lässt du Claude Code die Funktion `ablauf`
+im Testprojekt löschen, weil sie die KI ohne Abo-Prüfung aufruft. Ihr Code
+bleibt im Branch.
 
 **Wem du ihn zeigst (5 × 10 Minuten)**
 - Fünf Erwachsene, die den Anlass kennen: Eltern, Verwandte, Nachbarn.
@@ -687,13 +752,30 @@ Frag nicht „Würdest du dafür zahlen?“. Die Antwort sagt nichts.
 **Auswertung** (die Schwellen sind eine Setzung)
 - **Bestanden:** Mindestens 4 von 5 kommen ohne Hilfe zum Ergebnis, und
   mindestens 3 von 5 würden den Text verwenden.
-- **Scheitert es an der Bedienung** (alle zögern an derselben Stelle): die
-  Stelle ändern und zwei weiteren Personen zeigen.
-- **Scheitert es am Ergebnis** (kaum jemand würde den Text verwenden): Die
-  Idee fällt. Die zweitbeste bekommt beide Tests bis Mo 28.12.
+- **Scheitert es an der Bedienung** (weniger als 4 von 5 kommen ohne Hilfe
+  zum Ergebnis): Claude ändert die Stellen, an denen gezögert wurde, und du
+  zeigst den Ablauf zwei weiteren Personen. Bestanden, wenn beide ohne
+  Hilfe zum Ergebnis kommen. Kommt einer nicht durch, nimmst du die Stelle
+  als Aufgabe für AP10 in `SPEC.md` auf; an der Bedienung allein fällt die
+  Idee nicht.
+- **Scheitert es am Ergebnis** (höchstens 2 von 5 würden den Text
+  verwenden): Die Idee fällt. Die zweitbeste bekommt, wenn sie alle
+  Mindestwerte erfüllt, beide Tests bis Mo 28.12.:
+  - Sa 19.12.: statt AP3 2 Stunden mehr AP6; dann ist AP6 fertig.
+  - Mo 21.12.: Slideshow-Test und Namensprüfung (statt AP7).
+  - Di 22.12.: Claude baut ihr Formular auf dem Branch `ablauf-test`
+    (statt AP7).
+  - Mi 23.12.: zuerst 2 Stunden für Ablauf fertig, fünf Personen,
+    60-Sekunden-Test und Entscheidung; danach 2 Stunden AP3 und 3 Stunden
+    AP7.
+  - AP8 kommt dann am Mo 28.12. (1 Stunde) und Di 29.12. (3 Stunden), AP9
+    am Di 29.12. (4 Stunden). Der Stunden-Messpunkt bleibt am Abend des
+    Di 29.12. AP10 beginnt am Mi 30.12.; alles danach rutscht gegenüber
+    Abschnitt 2 um weitere 4 Stunden.
 - **Zum Schluss (10 min):** den 60-Sekunden-Test wiederholen, jetzt Ablauf
   gegen kostenlosen KI-Chat. Der Punkt, in dem die App gewinnt, muss jetzt
-  wirklich zu sehen sein.
+  wirklich zu sehen sein. Ist er nicht zu sehen, fällt die Idee wie beim
+  Scheitern am Ergebnis.
 
 **Fertig, wenn** fünf Spalten ausgefüllt sind und das Urteil auf dem
 Entscheidungsblatt steht.
@@ -711,7 +793,7 @@ Hälfte steht schon in Checkliste C des Hauptplans; neu sind die Punkte 1, 2,
 | Nr. | was in der Beschreibung steht | warum |
 |---|---|---|
 | 1 | **Geführter Ablauf** statt leerem Chatfenster: 3–6 Fragen, dann ein Ergebnis in festem Format. Die eigene Funktion ist auf dem ersten Bildschirm zu sehen | 4.2 und 4.3(b): Eine App aus Vorlage und fertiger Paywall ähnelt sonst vielen anderen KI-Apps |
-| 2 | **Eigenes der App:** Verlauf auf dem Gerät, Kopieren, Teilen-Menü; später Favoriten, Tonfall-Varianten, Vorlagen, die ohne Netz lesbar sind | 4.2 („app-like“) |
+| 2 | **Eigenes der App:** Verlauf und Favoriten auf dem Gerät (Favoriten zuletzt bauen), Kopieren, das Teilen-Menü des iPhones (kein Teilen mit anderen Nutzern in der App); nach Version 1.0 Tonfall-Varianten und Vorlagen, die ohne Netz lesbar sind | 4.2 („app-like“) |
 | 3 | **Einwilligung vor dem ersten KI-Aufruf** mit Namen des Anbieters (Anthropic) und Zweck | 5.1.2(i) |
 | 4 | **Schutz bei erzeugten Inhalten:** feste Anweisungen an das Modell, Längenbegrenzung, Knopf „Antwort melden“ als E-Mail-Link, Kontaktadresse in der App | 1.2 gilt ausdrücklich für Apps, die mit KI Inhalte erzeugen: Filter, Meldeweg mit zeitnaher Antwort, Kontakt. Das Sperren von Nutzern entfällt, weil niemand fremde Ausgaben sieht |
 | 5 | **Review-Notizen:** was die App tut, wo die KI läuft, dass Ausgaben nur dem Nutzer selbst angezeigt werden, auf welchem Bildschirm die Paywall erscheint, wie der Prüfer mit einem Sandbox-Kauf alles sieht | 2.3.1(a): Allgemeine Beschreibungen werden abgelehnt |
@@ -750,8 +832,8 @@ tippt ihn in die Suche. Er ist ein Wort, leicht zu schreiben, eindeutig.
 4. **DPMAregister** (register.dpma.de, Bereich Marken, einfache Suche):
    jeden Namen eingeben. Ein Treffer mit gleichem oder sehr ähnlichem Namen
    für Software (meist Klassen 9 und 42) heißt: anderer Name. Vor dem
-   Schritt prüfen: Adresse und Menünamen; die Recherche nennt nur das
-   Register. Bleibt Zeit, dieselbe Suche beim EUIPO (Unionsmarken).
+   Schritt prüfen: Klassen, Adresse und Menünamen; die Recherche nennt nur
+   das Register. Bleibt Zeit, dieselbe Suche beim EUIPO (Unionsmarken).
 5. **TikTok, Instagram, YouTube:** nach dem Namen suchen, nur lesen. Gibt
    es das Konto schon? Kein Konto anlegen.
 
@@ -769,15 +851,20 @@ für die zweitbeste einer notiert ist.
 
 Kopieren, Teile in eckigen Klammern ersetzen.
 
-### 10.1 Prompt: Kandidaten sammeln (Sa 28.11.)
+### 10.1 Prompt: Kandidaten sammeln (Sa 28.11., Claude Code im Ordner `ideen`)
+
+Claude Code im Ordner starten: in PowerShell `cd $HOME\apps\ideen`, dann
+`claude` (den Ordner legst du vorher an, Abschnitt 3).
 ```
 Ich suche Ideen für eine iPhone-Abo-App mit einer Text-KI-Funktion. Schlage
 12 Kandidaten vor, zusätzlich zu dieser Liste: [eigene Ideen, Richtungen A–H].
 Bedingungen:
 - Alltagsthema für erwachsene Privatleute, kein Werkzeug für Beruf oder Firma.
 - Form: ein Formular mit 3–6 Fragen, ein Ergebnis in festem Format, Verlauf
-  nur auf dem Gerät. Keine Kamera, keine Konten, keine Inhalte zwischen
-  Nutzern, keine fremden Datenquellen.
+  nur auf dem Gerät. Keine Kamera, keine Fotos, kein Mikrofon, keine Konten,
+  keine Inhalte zwischen Nutzern, keine fremden Datenquellen, keine
+  Nutzerdaten auf dem Server, nichts, was über den 15.09.2027 hinaus etwas
+  verspricht.
 - Der Nutzer hat beim Öffnen einen Anlass mit Termin.
 - Der Nutzen lässt sich in 10 Sekunden Bildschirmaufnahme ohne Gesicht zeigen.
 - Nicht: [Sperrliste aus Abschnitt 11]; nichts, bei dem eine falsche Antwort
@@ -785,19 +872,23 @@ Bedingungen:
 Je Kandidat: Aufgabe in einem Satz, Zielgruppe, die 3–6 Formularfragen, das
 Ergebnisformat, der Anlass mit Termin. Und ehrlich: Warum sollte jemand das
 nicht einfach einen kostenlosen KI-Chat fragen?
+Schreib danach alle Kandidaten (meine, A–H und deine 12) als je eine Zeile in
+liste.md und prüfe jeden streng gegen diese K.-o.-Fragen: [Fragen 1–6 aus
+Abschnitt 4]. Schreib bei jedem Zweifel „Zweifel: …“.
 Nenne keine Umsatz-, Download- oder Aufrufzahlen und keine Rangliste. Die
 messe ich selbst.
 ```
 
 ### 10.2 Prompt: Tabelle vorfüllen (Di 01.12., Claude Code im Ordner `ideen`)
 ```
-Lies liste.md (fünf Ideen). Arbeite nur in diesem Ordner.
+Lies liste.md; nimm nur die fünf Ideen, die mit „Auswahl“ markiert sind.
+Arbeite nur in diesem Ordner.
 1. Schlage je Idee 8 deutsche und 4 englische Suchwörter vor, wie Menschen
    sie im App Store tippen (1–3 Wörter).
 2. Rufe für jedes Suchwort die öffentliche iTunes-Suche ab und speichere die
-   Antwort unter roh\ (Leerzeichen als +, Umlaute kodiert; englische Wörter
+   Antwort unter roh/ (Leerzeichen als +, Umlaute kodiert; englische Wörter
    zusätzlich mit country=us; drei Sekunden Pause zwischen zwei Abrufen):
-   curl.exe -s -o roh\idee1_wort1.json "https://itunes.apple.com/search?term=SUCHWORT&country=de&entity=software&limit=25"
+   curl.exe -s -o roh/idee1_wort1.json "https://itunes.apple.com/search?term=SUCHWORT&country=de&entity=software&limit=25"
 3. Lege je Idee idee_N.md an, mit einer Tabelle je Suchwort für die ersten
    zehn Treffer: Name, Anbieter, Zahl und Schnitt der Bewertungen,
    Erstveröffentlichung, letzte Aktualisierung, Kategorie, Sprachen, Link.
@@ -817,7 +908,8 @@ keine Rangfolge, solange Felder leer sind.
 
 ### 10.3 Prompts für den 60-Sekunden-Test
 
-Testfall und Satz für den kostenlosen KI-Chat (so tippen, nicht verbessern):
+Testfall und Satz für den kostenlosen KI-Chat (den ersten Satz so tippen,
+ohne Kunstgriffe; nachbessern nur, solange der Timer läuft):
 ```
 Testfall: [wer] braucht [Ergebnis] für [Anlass] bis [wann].
 Angaben: [1], [2], [3].
@@ -866,7 +958,9 @@ Als `ideen\ideen-tor.md` anlegen; nach der Entscheidung nach
 
 **2. Beste Idee:** ____________
 - Slideshow-Test: 10 Titel und 3 Aufnahmen in 30 Minuten?   ja / nein
-- Ablauf-Test: ___ von 5 ohne Hilfe; ___ von 5 würden den Text verwenden
+- Ablauf-Test: ___ von 5 ohne Hilfe (nach einer Änderung: ___ von 2);
+  ___ von 5 würden den Text verwenden
+- 60-Sekunden-Test mit dem Ablauf: Punkt sichtbar?           ja / nein
 - Fragen Kommentare auf TikTok nach einer App oder Vorlage?  ja / nein
 - Name: __________  App Store frei? ja / nein  DPMAregister frei? ja / nein
 - Gleichstand (Abstand höchstens 5 Punkte)? Entschieden nach Regel Nr. ___
@@ -893,7 +987,8 @@ und das Entscheidungsblatt mit.
    keine vollen Namen Dritter nötig
 5. Ergebnis: festes Format (Felder, Länge), hochkant gut lesbar; Knöpfe
    „Kopieren“, „Teilen“, „Antwort melden“ (E-Mail-Link)
-6. Verlauf: nur auf dem Gerät, ohne Netz lesbar, löschbar
+6. Verlauf und Favoriten: nur auf dem Gerät, ohne Netz lesbar, löschbar
+   (Favoriten zuletzt)
 7. Onboarding: 3–5 Fragen (darunter Anlass und Termin), die Frage „Woher
    kennst du die App?“, ein festes Ergebnis mit dem Wort „Beispiel“
 8. Paywall: hart nach dem Onboarding; Wochenabo 6,99 € vorausgewählt,
@@ -903,7 +998,8 @@ und das Entscheidungsblatt mit.
 10. Daten: keine Konten, keine Nutzerdaten auf dem Server, kein Tracking
 11. Unterschied zu kostenlosen Wegen: der Punkt aus dem 60-Sekunden-Test
 12. Review-Notizen (Entwurf): was die App tut; wo die KI läuft; Ausgaben
-    sieht nur der Nutzer; auf welchem Bildschirm die Paywall erscheint
+    sieht nur der Nutzer; auf welchem Bildschirm die Paywall erscheint; wie
+    der Prüfer mit einem Sandbox-Kauf alles sieht
 13. Altersfragebogen: Shared Location nein, Dating and Relationships nein
 14. Name, Store-Titel und Untertitel in Deutsch und Englisch
 15. Nicht in Version 1.0: [Liste]
@@ -940,7 +1036,9 @@ und das Entscheidungsblatt mit.
 - **Keine echten Daten Dritter** im Ablauf-Test und in Aufnahmen.
 - **Kein unscharfes Bild, das ein eigenes Ergebnis vortäuscht,** und kein
   KI-Aufruf vor der Paywall.
-- **Nicht zwei Abläufe bauen, nicht mehr als fünf Ideen voll prüfen.**
+- **Nicht zwei Abläufe gleichzeitig bauen und nicht mehr als fünf Ideen je
+  Runde voll prüfen.** Einen zweiten Ablauf baust du nur, wenn die beste Idee
+  im Ablauf-Test fällt (Abschnitt 8).
 
 **Gesperrte Themen** (K.-o.-Frage 1)
 
@@ -952,7 +1050,7 @@ und das Entscheidungsblatt mit.
 | Glücksspiel | 5.1.1(ix) |
 | Dating, romantischer KI-Begleiter | 4.3(b): überfülltes Feld; virtuelle Begleiter mit romantischen Inhalten sind ab 18 eingestuft |
 | Wahrsagen, Astrologie, Tarot | 4.3(b): überfülltes Feld |
-| Rechtsberatung im Einzelfall: Fristen, Rechte, „was muss ich jetzt tun“ | Rechtsdienstleistungsgesetz; für Sprachmodelle ungeklärt ([beck-aktuell, 11.11.2025](https://www.beck-aktuell.de/rechtsbranche/legal-tech-digitalisierung/chatgpt-individuelle-rechtsberatung-ki-jura-rechtsdienstleistung-2025-11-11)). Laut einem [Kanzleibericht](https://www.ferner-alsdorf.de/olg-hamm-zur-ki-werbung-wer-den-chatbot-einsetzt-haftet-fuer-seine-aussagen/) steht ein Unternehmen für Aussagen seines Chatbots selbst ein (OLG Hamm, 12.05.2026; Urteil nicht gelesen) |
+| Rechtsberatung im Einzelfall: Fristen, Rechte, „was muss ich jetzt tun“ | Rechtsdienstleistungsgesetz; für Sprachmodelle ungeklärt ([beck-aktuell, 11.11.2025](https://www.beck-aktuell.de/rechtsbranche/legal-tech-digitalisierung/chatgpt-individuelle-rechtsberatung-ki-jura-rechtsdienstleistung-2025-11-11)). Laut einem [Kanzleibericht](https://www.ferner-alsdorf.de/olg-hamm-zur-ki-werbung-wer-den-chatbot-einsetzt-haftet-fuer-seine-aussagen/) steht ein Unternehmen für Aussagen seines Chatbots wettbewerbsrechtlich selbst ein (OLG Hamm, 12.05.2026, 4 UKl 3/25; Sekundärquelle, Urteil nicht gelesen) |
 | Behördenbriefe und alles mit sensiblen Daten (Steuer, Sozialleistungen, Gesundheit) | 5.1.1(ix) nennt auch Apps, die sensible Nutzerdaten verlangen |
 | Kinder, Schüler, Lernen, Hausaufgaben | Zielgruppe Erwachsene (Hauptplan, Abschnitt 6) |
 | alles mit fremden Markennamen im Titel | 4.1(c), 2.3.7 |

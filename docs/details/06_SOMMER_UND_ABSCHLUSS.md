@@ -29,8 +29,11 @@ andere Modellzahlen stehen nur in [`07_HEBEL.md`](07_HEBEL.md).
 (Abschnitt 1, „Was sich am 24.11. geändert hat“). Dieses Dokument führt seine
 Abschnitte für den Sommer Schritt für Schritt aus. Genauer als dort sind hier:
 der Messtag und die Schwelle für das Apple-Konto des Elternteils (4.4), die
-Bedingungen für die Kündigung von Claude Pro (Abschnitt 6, Schluss) und der
-Rückfall, wenn eine gestartete Übertragung hängt (4.5).
+Bedingungen für die Kündigung von Claude Pro (Abschnitt 6, Schluss), der
+Rückfall, wenn eine gestartete Übertragung hängt (4.5), was bei einem früheren
+Umzug mit vorrückt (1.4), der Termin für den Empfangsbevollmächtigten
+(Abschnitt 6, Schritt 7) und was gilt, wenn die Krankenkasse vor der
+Unterschrift unter den Jobvertrag nicht antwortet (2.2).
 
 Inhalt:
 1. [Zeitleiste von der letzten Prüfung bis zum Studienbeginn](#1-zeitleiste-von-der-letzten-prüfung-bis-zum-studienbeginn)
@@ -48,8 +51,9 @@ Inhalt:
 
 ## 1. Zeitleiste von der letzten Prüfung bis zum Studienbeginn
 
-Deine letzte Prüfung liegt spätestens am Mo 07.06. Liegt sie früher, beginnt
-alles in der ersten Zeile entsprechend früher. Die übrigen Stichtage bleiben.
+Deine letzte Prüfung liegt spätestens am Mo 07.06. Liegt sie früher, rücken
+die erste Zeile und die zweite Signalprüfung (21 Tage nach dem ersten täglichen
+Post) entsprechend vor. Die übrigen Stichtage bleiben.
 
 ### 1.1 Die Stichtage
 
@@ -57,18 +61,22 @@ alles in der ersten Zeile entsprechend früher. Die übrigen Stichtage bleiben.
 |---|---|---|
 | Tag nach der letzten Prüfung (spätestens Di 08.06.) | Claude Pro neu buchen. App 1 veröffentlichen oder fertig bauen. Falls noch nicht gegründet: gründen. Erster täglicher Post | 03, Abschnitte 5 und 7; 05 |
 | 21 Tage nach jedem Start | **Signalprüfung:** mindestens 300 $ MRR ohne bezahlte Werbung? Nur dann Creator, für alle Apps zusammen bis So 18.07. höchstens 750 € | Hauptplan, Abschnitt 13 |
-| Mo 28.06. | **Zweite Signalprüfung** für eine App, die vor Mo 15.03. gestartet ist: 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung (bei Wiederbeginn am Mo 07.06. oder Di 08.06.) | 05 |
-| Fr 25.06. | Vorentscheidung zum Jobbeginn; ohne Vertrag: Zeitarbeit anfragen | 2.2 |
+| Mo 21.06. | Ohne unterschriebenen Vertrag: zwei Zeitarbeitsfirmen für einen festen Termin anfragen | 2.2 |
+| Fr 25.06. | Vorentscheidung zum Jobbeginn (19.07. oder 05.07.) | 2.2, 2.10 |
+| Mo 28.06. | MRR je App notieren. Liegt die Zusage vor und erreicht eine App die Schwelle aus 4.4, beginnt das Elternteil mit seinen Anmeldungen | 4.4 |
+| Mo 28.06. oder Di 29.06. | **Zweite Signalprüfung** für eine App, die vor Mo 15.03. gestartet ist: 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, also Mo 28.06. bei Wiederbeginn am Mo 07.06. und spätestens Di 29.06. bei Wiederbeginn am Di 08.06. | 05 |
 | Do 01.07.–Sa 03.07. | Abiturzeugnis: in eApply hochladen, Original an die ETH; Kopie für den Arbeitgeber | Hauptplan, Abschnitt 9 |
-| Fr 02.07. | Elternteil meldet sein eigenes Apple-Konto an (nur mit Zusage und einer App, die übergeben werden könnte) | 4.4 |
+| Fr 02.07. | Elternteil hat Gewerbe- und Apple-Anmeldung abgeschickt (nur mit Zusage und wenn eine App die Schwelle aus 4.4 erreicht). Vertrag, Bank, Steuer, Händlerangaben und Small Business Program folgen, sobald Apple das Konto freischaltet | 4.4 |
 | **So 04.07.** | **Stichtag:** Ist keine App im Store, beginnt der Job am Mo 05.07., und du beginnst keine neue App. Apps, die nach heute erscheinen, bieten nur das Wochenabo an | 2.10 |
-| Do 15.07. | Bewerbung an der Leibniz Universität Hannover ist abgeschickt (Rückfall, ~2 h) | Hauptplan, Abschnitt 9 |
+| Do 15.07. | Bewerbung an der Leibniz Universität Hannover ist abgeschickt (Rückfall, ~2 h; Frist 2026, vor dem Schritt prüfen) | Hauptplan, Abschnitt 9 |
 | **So 18.07.** | **Tor 1:** eine App mit mindestens 5.000 $ MRR? Wenn nein, endet die Jagd | Hauptplan, Abschnitt 13 |
 | Mo 19.07. | Jobbeginn. Kündigungskalender einmal ganz durchgehen | 2; 03, Abschnitt 7.4 |
-| **Sa 31.07.** | **Entscheidung je App:** einstellen, übergeben oder verkaufen. Umzugstag festlegen. Steuerberater ja oder nein | 3; 03, Abschnitt 8.1 |
+| **Sa 31.07.** | **Entscheidung je App:** einstellen, übergeben oder verkaufen (für eine App, die erst nach Mo 19.07. erscheint, bis Sa 07.08.). Umzugstag festlegen. Steuerberater ja oder nein. Ziel für die Genehmigung des Small Business Program des Elternteils | 3; 4.4; 03, Abschnitt 8.1 |
 | So 08.08. | Tor 2 (10.000 $ MRR, nur nach bestandenem Tor 1). Umschalttag: Liegt für eine App im Verkauf kein Angebot mit Treuhandzahlung vor, gilt die Übergabe oder das Einstellen | 5 |
 | Mo 09.08. | Übertragung an das Elternteil beginnt | 4.5 |
-| **So 15.08.** | **Verkaufsstopp** aller Abos, für die es keinen Nachfolger gibt | 6 |
+| **So 15.08.** | **Verkaufsstopp** aller Abos, deren Übertragung an einen Nachfolger bis heute nicht gestartet ist (harte Regel) | 3, 6 |
+| Di 17.08. | Hängt eine gestartete Übertragung noch: Verkaufsstopp für diese App | 4.5 |
+| Mo 23.08. | Kontrolle der Verlängerungen. Spätestens heute Empfangsbevollmächtigten benennen und die Frage zur Schweiz an die Krankenkasse stellen | 6 |
 | Di 31.08. | letzter Arbeitstag der kurzen Job-Variante. Spätester Tag für das Abiturzeugnis bei der ETH | 2 |
 | Fr 10.09. | letzter Arbeitstag der langen Job-Variante | 2 |
 | **Mi 15.09.** | **Dienstende** | 6 |
@@ -82,21 +90,21 @@ alles in der ersten Zeile entsprechend früher. Die übrigen Stichtage bleiben.
 
 | Woche | App | Ferienjob | ETH und Umzug |
 |---|---|---|---|
-| KW 23 (Mo 07.06.–So 13.06.) | Tag nach der letzten Prüfung: Claude Pro neu, App 1 veröffentlichen (wenn freigegeben) oder fertig bauen und einreichen. 2–3 Posts am Tag. 15–40 h | Liegt der Vertrag aus dem Winter vor? Wenn nein: Rückfall am Mo 21.06. vormerken | Bewerbung in Hannover ist seit Di 01.06. möglich |
-| KW 24 (Mo 14.06.–So 20.06.) | Posten und messen. Sobald App 1 eingereicht ist: Vorlage ziehen (02, Abschnitt 9) und App 2 beginnen. **Merke:** Eine App, die nach So 20.06. startet, ist am So 15.08. noch keine 8 Wochen im Store und lässt sich nicht mehr verkaufen | Steuer-ID und Sozialversicherungsnummer liegen bereit | Zimmer suchen (WOKO verlangt die Aufnahmebestätigung und mindestens 6 Monate Mietdauer) |
-| KW 25 (Mo 21.06.–So 27.06.) | wie KW 24. **Merke:** Bei einer App, die nach So 27.06. startet, liegt die Signalprüfung nach Tor 1; Creator gibt es für sie nicht mehr | Mo 21.06.: ohne unterschriebenen Vertrag zwei Zeitarbeitsfirmen anfragen. Fr 25.06.: Vorentscheidung zum Beginn | Finanzierungsbrief der Eltern vorbereiten (1.750 CHF im Monat) |
-| KW 26 (Mo 28.06.–So 04.07.) | Mo 28.06.: zweite Signalprüfung. Di 29.06.: Signalprüfung für einen Start am Di 08.06. Do 01.07.: MRR je App notieren (für 4.4). **So 04.07.: Stichtag** | Do 01.07.–Sa 03.07.: Kopie des Abiturzeugnisses an den Arbeitgeber | Mo 28.06.–Mi 30.06.: mögliche mündliche Nachprüfung (dann ab einer Woche davor nichts an der App). Do 01.07.–Sa 03.07.: Zeugnis in eApply, Original an die ETH |
+| KW 23 (Mo 07.06.–So 13.06.) | Tag nach der letzten Prüfung: Claude Pro neu, App 1 veröffentlichen (wenn freigegeben) oder fertig bauen und einreichen. Posts: 2–3 am Tag, sobald die App im Store ist (Ablauf in 05, Abschnitt 6.4); solange sie nicht im Store ist, höchstens 9. Hat eine App 300 $ Monatsumsatz und 8 Wochen im Store: Verkaufsangebot einstellen (Abschnitt 5); das prüfst du ab jetzt jede Woche bis zum Umschalttag. 15–40 h | Liegt der Vertrag aus dem Winter vor? Wenn nein: Rückfall am Mo 21.06. vormerken | Bewerbung in Hannover ist voraussichtlich seit Di 01.06. möglich (Frist 2026, vor dem Schritt prüfen) |
+| KW 24 (Mo 14.06.–So 20.06.) | Posten und messen. Sobald App 1 freigegeben ist: Vorlage ziehen (02, Abschnitt 9) und App 2 beginnen. **Merke:** Eine App, die nach So 13.06. startet, ist am Umschalttag So 08.08. noch keine 8 Wochen im Store; ein Verkauf ist dann praktisch nicht mehr möglich, nur Übergabe oder Einstellen (Abschnitt 3) | Steuer-ID und Sozialversicherungsnummer liegen bereit | Zimmer suchen (WOKO verlangt die Aufnahmebestätigung und mindestens 6 Monate Mietdauer) |
+| KW 25 (Mo 21.06.–So 27.06.) | wie KW 24. **Merke:** Bei einer App, die nach So 27.06. startet, liegt die Signalprüfung nach Tor 1; Creator gibt es für sie nicht mehr. **Mit Nachprüfung:** ab einer Woche vor dem Prüfungstag (frühestens Mo 21.06.) keine Posts, kein Bau, keine Creator-Buchung | Mo 21.06.: ohne unterschriebenen Vertrag zwei Zeitarbeitsfirmen anfragen. Fr 25.06.: Vorentscheidung zum Beginn | Finanzierungsbrief der Eltern vorbereiten (1.750 CHF im Monat) |
+| KW 26 (Mo 28.06.–So 04.07.) | Mo 28.06.: MRR je App notieren (für 4.4). Mo 28.06. oder Di 29.06.: zweite Signalprüfung (Wiederbeginn der Posts am Mo 07.06. bzw. Di 08.06.). Di 29.06.: Signalprüfung für einen Start am Di 08.06. **Mit Nachprüfung** liest du diese Zahlen erst am Tag nach deiner letzten Nachprüfung ab (5 Minuten, nichts ändern) und notierst, dass die letzte Woche ohne Posts war; danach gilt 05, Abschnitt 9.3. **So 04.07.: Stichtag** | Do 01.07.–Sa 03.07.: Kopie des Abiturzeugnisses an den Arbeitgeber | Mo 28.06.–Mi 30.06.: mögliche mündliche Nachprüfung (dann ab einer Woche davor nichts an der App). Do 01.07.–Sa 03.07.: Zeugnis in eApply, Original an die ETH |
 | KW 27 (Mo 05.07.–So 11.07.) | **Fall A:** ~55 h, davon ~6 h für Zürich: App 2 fertig bauen und einreichen, posten. **Fall B:** keine neue App; eine schon eingereichte App darf erscheinen (nur Wochenabo); abends zweimal 20 Minuten Zahlen, Sa 3 h | Fall B: erster Arbeitstag Mo 05.07. | Fall B: Zürich-Aufgaben abends |
-| KW 28 (Mo 12.07.–So 18.07.) | Fall A: wie KW 27. Creator nur bis So 18.07. buchen. **So 18.07.: Tor 1** | – | **Do 15.07.: Hannover abgeschickt** |
-| KW 29 (Mo 19.07.–So 25.07.) | Jagd beendet (Normalfall): keine neue App, keine neuen Creator. Schon eingereichte Apps dürfen erscheinen (nur Wochenabo). Zahlen zweimal je Woche, Support binnen 24 h. Verkaufsangebot einstellen, sobald die Bedingungen erfüllt sind (Abschnitt 5) | **Mo 19.07.: erster Arbeitstag** (Fall A) | Mathe ~3–5 h je Woche |
+| KW 28 (Mo 12.07.–So 18.07.) | Fall A: wie KW 27. Creator nur bis So 18.07. buchen. In beiden Fällen Fr 16.07.: Kommt eine Übergabe oder ein Verkauf in Frage, Termin beim Steuerberater unverbindlich anfragen (4.5, Schritt 1). **So 18.07.: Tor 1** | – | **Do 15.07.: Hannover abgeschickt** |
+| KW 29 (Mo 19.07.–So 25.07.) | Jagd beendet (Normalfall): keine neue App, keine neuen Creator. Schon eingereichte Apps dürfen erscheinen (nur Wochenabo). Zahlen zweimal je Woche; Support und Fragen von Käufern binnen 24 h beantworten | **Mo 19.07.: erster Arbeitstag** (Fall A) | Mathe ~3–5 h je Woche |
 | KW 30 (Mo 26.07.–So 01.08.) | **Sa 31.07.: Entscheidung je App**, Steuerberater ja oder nein | Arbeit | **Bis Sa 31.07.: Umzugstag festlegen** (1.4) |
-| KW 31 (Mo 02.08.–So 08.08.) | Übergabe vorbereiten (4.5, Schritte 1–5) oder Stilllegung vorbereiten (6, Schritte 1–2). Sa 07.08.: Zwischensummen für die Anlage EÜR, danach Claude Pro kündigen, wenn keine App mehr im Review ist. So 08.08.: Tor 2 und Umschalttag | Arbeit | Zimmer und Kaution geklärt |
-| KW 32 (Mo 09.08.–So 15.08.) | Mo 09.08.: Übertragung an das Elternteil starten. **So 15.08.: Verkaufsstopp** für alles ohne Nachfolger, Nutzer informieren | Arbeit | – |
-| KW 33 (Mo 16.08.–So 22.08.) | Dienst läuft weiter: Wachregel für Supabase am Montag und Donnerstag, Nachladen der Claude API bleibt an | Arbeit | – |
-| KW 34 (Mo 23.08.–So 29.08.) | Mo 23.08.: Kontrolle, dass seit dem Verkaufsstopp kein Wochenabo verlängert wurde. Mi 25.08.: bei einem Verkauf Freigabe des Treuhandgeldes | Arbeit | Unterlagen für Zürich zusammenstellen |
+| KW 31 (Mo 02.08.–So 08.08.) | Übergabe vorbereiten (4.5, Schritte 1–5) oder Stilllegung vorbereiten (6, Schritte 1–2). Sa 07.08.: Zwischensummen für die Anlage EÜR; Entscheidung für eine App, die erst nach Mo 19.07. erschienen ist (Abschnitt 3). Claude Pro kündigst du heute nur, wenn weder Übergabe noch Verkauf ansteht (Abschnitt 6, Schluss). So 08.08.: Tor 2 und Umschalttag | Arbeit | Zimmer und Kaution geklärt |
+| KW 32 (Mo 09.08.–So 15.08.) | Mo 09.08.: Übertragung an das Elternteil starten. **So 15.08.: Verkaufsstopp** für alles ohne gestartete Übertragung, Nutzer informieren | Arbeit | – |
+| KW 33 (Mo 16.08.–So 22.08.) | Di 17.08.: Hängt eine gestartete Übertragung noch, Verkaufsstopp für diese App (4.5). Dienst läuft weiter: Wachregel für Supabase am Montag und Donnerstag, Nachladen der Claude API bleibt an | Arbeit | – |
+| KW 34 (Mo 23.08.–So 29.08.) | Mo 23.08.: Kontrolle, dass seit dem Verkaufsstopp kein Wochenabo verlängert wurde; spätestens heute Empfangsbevollmächtigten benennen und die Frage zur Schweiz an die Kasse stellen (6, Schritt 7). Mi 25.08.: bei einem Verkauf Freigabe des Treuhandgeldes | Arbeit | Unterlagen für Zürich zusammenstellen |
 | KW 35 (Mo 30.08.–So 05.09.) | Dienst läuft | Di 31.08.: letzter Arbeitstag (kurze Variante) | Di 31.08.: Abiturzeugnis muss bei der ETH sein |
 | KW 36 (Mo 06.09.–So 12.09.) | Di 07.09.: Claude Pro ist spätestens jetzt gekündigt | Fr 10.09.: letzter Arbeitstag (lange Variante) | packen; Ordner „Abschluss 2027“ (03, Abschnitt 8.3) |
-| KW 37 (Mo 13.09.–So 19.09.) | **Mi 15.09.: Dienstende.** Do 16.09. und Fr 17.09.: Abschnitt 6, Schritte 8–15 | – | Sa 18.09. oder So 19.09.: Umzug |
+| KW 37 (Mo 13.09.–So 19.09.) | **Mi 15.09.: Dienstende.** Do 16.09. und Fr 17.09.: Abschnitt 6, Schritte 9–14 (Schritte 15 und 16 ab Oktober, Abschnitt 7) | – | Sa 18.09. oder So 19.09.: Umzug |
 | KW 38 | – | – | **Mo 20.09.: Studienbeginn.** Aufenthaltsbewilligung binnen 14 Tagen nach der Ankunft, Befreiung von der Schweizer Krankenversicherung binnen drei Monaten (Hauptplan, Abschnitt 9) |
 
 ### 1.3 Stunden je Woche
@@ -105,13 +113,19 @@ alles in der ersten Zeile entsprechend früher. Die übrigen Stichtage bleiben.
 |---|---|---|---|
 | letzte Prüfung bis So 04.07. | 15–40 h; alles zählt hinein, auch Bewerbungen und Behördenkram | – | in den 15–40 h |
 | Mo 05.07.–So 18.07., Fall A | ~49 h (Mo–Sa 9–12, 13–17 und 18–20 Uhr, So frei) | – | ~6 h |
-| ab dem ersten Arbeitstag | 2–4 h: zweimal 20 Minuten Zahlen und Support, Sa bis 3 h | 40 h | ~6–8 h: Zimmer und Unterlagen ~3 h, Mathe ~3–5 h |
+| ab dem ersten Arbeitstag | 2–5 h: zweimal 20 Minuten Zahlen und Support, Sa bis 3 h | 40 h | ~6–8 h: Zimmer und Unterlagen ~3 h, Mathe ~3–5 h |
+| KW 31–32 (Mo 02.08.–So 15.08.) bei Übergabe oder Verkauf | zusätzlich 6–14 h für die Übertragung (4.3), bei einem Verkauf dazu 2–3 h für Vertrag und Treuhand (Abschnitt 5); abends und samstags | 40 h | Zimmer ~3 h; Mathe ruht in diesen Wochen |
 
 Mit dem Job bleiben neben der Arbeit etwa 8–12 Stunden je Woche. Die
 ETH-Vorbereitung aus dem Hauptplan (Folgen und Reihen, Induktion, komplexe
 Zahlen, Analysis, Vektorgeometrie, Java-Tutorial der ETH) wird dadurch
-kleiner. Das ist der Preis für das sichere Geld. Die Regel „nie nach 22 Uhr an
-der App“ gilt weiter, der Sonntag bleibt frei.
+kleiner. Das ist der Preis für das sichere Geld. Für Mo 09.08. planst du mit
+dem Elternteil den Abend ein (2–3 h). Die Stilllegung (Abschnitt 6, 4–6
+Stunden, Schätzung) verteilt sich auf Anfang August, So 15.08. und
+Do 16.09./Fr 17.09. Die Regel „nie nach 22 Uhr an der App“ gilt weiter. Der
+Sonntag bleibt frei bis auf Kassenprüfung und Wochenauswertung (zusammen
+30 Minuten, 03, Abschnitt 7.3) und die Stichtage So 04.07., So 18.07.,
+So 08.08. und So 15.08.
 
 ### 1.4 Wenn du früher umziehst
 
@@ -125,8 +139,20 @@ für das Entfernen der App und die Abmeldung.
 | Sa 11.09. | Fr 10.09. | Mi 08.09. | Di 10.08. | So 08.08. |
 | Sa 18.09. (Plan) | Fr 17.09. | **Mi 15.09.** | Di 17.08. | **So 15.08.** |
 
-- **Bis Sa 31.07. legst du den Umzugstag fest.** Davon hängt der Verkaufsstopp
-  ab. Mietbeginn des Zimmers und Einführungstage der ETH vor Mo 20.09. hat die
+**Mit dem Verkaufsstopp rücken alle Termine ab der Entscheidung je App vor**
+(Abschnitte 3 bis 6), um dieselbe Zahl Tage: bei Umzug Sa 11.09. um 7, bei
+Sa 04.09. um 14. Die Entscheidung fällt aber frühestens am Mo 19.07., nach
+Tor 1. Bei Umzug Sa 04.09. passt nur die kurze Job-Variante bis Di 31.08.
+
+| Umzug | Entscheidung je App | Umschalttag | Übertragung ab | harte Regel und Verkaufsstopp | Rückfall bei hängender Übertragung (4.5) |
+|---|---|---|---|---|---|
+| Sa 04.09. | Mo 19.07. | So 25.07. | Mo 26.07. | So 01.08. | Di 03.08. |
+| Sa 11.09. | Sa 24.07. | So 01.08. | Mo 02.08. | So 08.08. | Di 10.08. |
+| Sa 18.09. (Plan) | Sa 31.07. | So 08.08. | Mo 09.08. | So 15.08. | Di 17.08. |
+
+- **Bis Sa 31.07. legst du den Umzugstag fest,** bei einem Umzug vor Sa 18.09.
+  schon bis Mo 19.07. Davon hängen der Verkaufsstopp und die Tage davor ab.
+  Mietbeginn des Zimmers und Einführungstage der ETH vor Mo 20.09. hat die
   Recherche nicht geprüft: vor dem Schritt prüfen.
 - **Meldest du dich in Zürich an, dann erst nach deinem letzten Arbeitstag**
   und nach dem Dienstende. So überschneiden sich Lohn, Gewerbe und Schweizer
@@ -135,8 +161,8 @@ für das Entfernen der App und die Abmeldung.
   Beratung zu Deutschland und der Schweiz, weil du den Dienst dann nach dem
   Umzug betreibst.
 
-**Fertig, wenn** der Umzugstag und die beiden Tage daraus in deinem Kalender
-stehen.
+**Fertig, wenn** der Umzugstag und die Tage daraus (Dienstende, Verkaufsstopp
+und die Tage der zweiten Tabelle) in deinem Kalender stehen.
 
 ---
 
@@ -173,18 +199,27 @@ Wie oft es mit dem Job klappt und was er im Modell ausmacht, steht in
 | Januar | Sozialversicherungsnummer bei der Rentenversicherung kostenlos anfordern, Steuer-ID heraussuchen (2.7) | 15 min | beide Nummern bei deinen Unterlagen liegen |
 | Januar | Oberstufenkoordination fragen, **wann** die P5-Prüfungen liegen und wann der Plan aushängt. Nicht um Verlegung bitten. Im selben Gespräch die Frage aus Abschnitt 8 stellen | 5 min | der Zeitraum in deinem Kalender steht |
 | Mi 03.02.–So 14.03. (Q4) | nur Rückfragen beantworten und Gespräche führen; zählt in die 6–7 Wochenstunden | 0–2 h | – |
-| vor der Unterschrift | Anfrage an die Krankenkasse durch das Elternteil (2.6). Frage an den Arbeitgeber zur Meldung (2.5). Vertrag gegen 2.5 prüfen | 1–1,5 h | die schriftliche Antwort der Kasse abgelegt ist und der Vertrag alle Punkte aus 2.5 enthält |
-| Mo 15.03. bis zur letzten Prüfung | nichts, außer einen fertig geprüften Vertrag zu unterschreiben | – | – |
+| vor der Unterschrift | Anfrage an die Krankenkasse durch das Elternteil (2.6), abgeschickt spätestens So 14.03., auch wenn noch kein Vertrag vorliegt. Frage an den Arbeitgeber zur Meldung (2.5). Vertrag gegen 2.5 prüfen | 1–1,5 h | die schriftliche Antwort der Kasse abgelegt ist und der Vertrag alle Punkte aus 2.5 enthält |
+| Mo 15.03. bis zur letzten Prüfung | nichts, außer einen fertig geprüften Vertrag zu unterschreiben (kommt er erst jetzt: „Wenn es hakt“ unten) | – | – |
 | **Mo 21.06.** | **Rückfall:** Ohne unterschriebenen Vertrag fragst du zwei Zeitarbeitsfirmen an, für einen festen Termin (Fr 25.06. entscheidet, welchen) | 1 h | zwei Anfragen raus sind und ein Gesprächstermin steht |
-| **Fr 25.06.** | **Vorentscheidung:** Ist App 1 im Store oder im Review? Dann gilt Mo 19.07. Sonst gilt Mo 05.07. (2.10) | 10 min | das Datum dem Arbeitgeber oder der Zeitarbeitsfirma genannt ist |
-| Do 01.07.–Sa 03.07. | Kopie des Abiturzeugnisses an den Arbeitgeber | 10 min | – |
-| So 04.07. | Stichtag (2.10) | – | – |
-| Mo 05.07. oder Mo 19.07. | erster Arbeitstag | – | – |
+| **Fr 25.06.** | **Vorentscheidung:** Ist eine App im Store oder im Review? Dann gilt Mo 19.07. Sonst gilt Mo 05.07. (2.10) | 10 min | das Datum dem Arbeitgeber oder der Zeitarbeitsfirma genannt ist |
+| Do 01.07.–Sa 03.07. | Kopie des Abiturzeugnisses an den Arbeitgeber | 10 min | die Kopie beim Arbeitgeber eingegangen ist |
+| So 04.07. | Stichtag (2.10) | 5 min | Fall A oder Fall B in `docs/entscheidungen.md` steht |
+| Mo 05.07. oder Mo 19.07. | erster Arbeitstag | – | Personalfragebogen und Unterlagen aus 2.7 abgegeben sind |
 
-**Wenn es hakt:** Hast du am Fr 02.07. weder Vertrag noch Zusage einer
-Zeitarbeitsfirma, fragst du zwei weitere an und gehst zu ihrer Sprechzeit hin.
-Zeitarbeitsfirmen stellen oft binnen Tagen ein (Erfahrungswert der Recherche,
-nicht belegt).
+**Wenn es hakt**
+- **Hast du am Fr 02.07. weder Vertrag noch Zusage einer Zeitarbeitsfirma,**
+  fragst du zwei weitere an und gehst zu ihrer Sprechzeit hin.
+  Zeitarbeitsfirmen stellen oft binnen Tagen ein (Erfahrungswert der
+  Recherche, nicht belegt).
+- **Kommt der Vertrag zwischen Mo 15.03. und deiner letzten Prüfung:** Du sagst
+  per Mail zu, am Tag nach deiner letzten Prüfung zu unterschreiben. Dann
+  prüfst du ihn in 30 Minuten gegen 2.5 und unterschreibst.
+- **Hat die Kasse bis zur Unterschrift auch nach der Nachfrage (2.6) nicht
+  geantwortet:** Du unterschreibst nur, wenn der Vertrag alle Punkte aus 2.5
+  enthält und der Arbeitgeber schriftlich bestätigt hat, dass er dich als
+  kurzfristig Beschäftigten meldet (2.5). Das Elternteil legt Anfrage und
+  Nachfrage ab.
 
 ### 2.3 Wo du dich bewirbst
 
@@ -214,9 +249,9 @@ suche eine von Anfang an befristete kurzfristige Beschäftigung.
 ```
 
 - Passt dem Betrieb nur ein Ende am Di 31.08., nimmst du das.
-- Frag im Gespräch: „Wäre ein Beginn am 05.07. möglich, wenn ich es bis zum
-  25.06. zusage?“ Ein offenes Startdatum sagt kaum ein Betrieb zu. Dann bleibt
-  es beim 19.07.
+- Im Vertrag steht ein fester Beginn am Mo 19.07. Den frühen Beginn ab
+  Mo 05.07. deckst du nur über eine Zeitarbeitsfirma, die du am Mo 21.06. für
+  einen festen Termin anfragst (2.10).
 - Lohnangaben für den Sommer 2027 übernimmst du nur aus der Anzeige oder dem
   Vertrag.
 
@@ -309,10 +344,10 @@ vom [Datum]) erwartet 2027 einen Verlust oder einen Gewinn unter 590 € im
 Monat.
 
 Er möchte vom [19.07.2027] bis zum [10.09.2027] in Vollzeit arbeiten. Der
-Vertrag ist von Anfang an schriftlich befristet ([40] Arbeitstage) und wird
-als kurzfristige Beschäftigung gemeldet. Der Lohn beträgt für die gesamte
-Zeit voraussichtlich [4.700–5.900] € brutto. Weitere Beschäftigungen hat er
-2027 nicht.
+Vertrag [ist/wird] von Anfang an schriftlich befristet ([40] Arbeitstage) und
+wird als kurzfristige Beschäftigung gemeldet. Der Lohn beträgt für die gesamte
+Zeit voraussichtlich [4.700–5.900] € brutto. Weitere Beschäftigungen 2027:
+[keine / befristete kurzfristige Beschäftigung vom … bis … bei …].
 
 Bitte bestätigen Sie mir schriftlich,
 1. dass dieser Lohn nicht als regelmäßiges Einkommen zählt und die
@@ -380,9 +415,9 @@ die Lohnsteuer 2028 zurückkommt. Ausgezahlt werden zunächst 84–88 %.
   Konto ist.
 - **Erstattung:** Die Lohnsteuerbescheinigung 2027 steht bis Ende Februar 2028
   in Mein ELSTER zum Abruf. Du trägst sie in die Anlage N ein (03,
-  Abschnitt 8.2). Das Geld kommt im Frühjahr 2028 auf ein deutsches oder
-  anderes SEPA-Konto, das du offen lässt. Den Ausdruck des Arbeitgebers hebst
-  du auf.
+  Abschnitt 8.2). Das Geld kommt nach dem Bescheid, voraussichtlich im
+  Frühjahr oder Sommer 2028 (Schätzung), auf ein deutsches oder anderes
+  SEPA-Konto, das du offen lässt. Den Ausdruck des Arbeitgebers hebst du auf.
 - **Ohne Erklärung ist das Geld verloren.** Die Erinnerung steht in der
   Checkliste (Abschnitt 10).
 - Der Verlust aus dem Gewerbe wird mit dem Lohn verrechnet. Steuer spart das
@@ -400,12 +435,18 @@ Mo 19.07.
   Wochenabo an (Abschnitt 3). Du betreust sie abends: zweimal 20 Minuten Zahlen
   je Woche, samstags 3 Stunden.
 - **Praktisch entscheidest du am Fr 25.06.,** weil der Arbeitgeber einen festen
-  Termin braucht: Ist App 1 dann im Store oder im Review, nennst du den 19.07.
-  Sonst nennst du den 05.07.
-- **Steht im Vertrag aus dem Winter schon der 19.07.** und lässt er sich nicht
-  vorziehen, deckst du die zwei Wochen ab Mo 05.07. über eine Zeitarbeitsfirma
-  oder lässt sie aus. Zwei kurzfristige Jobs im Jahr werden zusammengezählt:
-  10 + 40 Arbeitstage bleiben unter 70.
+  Termin braucht: Ist dann eine App im Store oder im Review, nennst du den
+  19.07. Sonst nennst du den 05.07.
+- **Weicht der Stand am So 04.07. von der Vorentscheidung ab:** Hast du den
+  19.07. genannt und ist am 04.07. keine App im Store, gilt Fall B: keine neue
+  App. Du fragst am Mo 05.07. zwei Zeitarbeitsfirmen für einen Einsatz bis
+  Fr 16.07. an; klappt das nicht, gehören die zwei Wochen Zürich, Mathe und der
+  eingereichten App. Hast du den 05.07. zugesagt und ist am 04.07. doch eine
+  App im Store, hältst du die Zusage ein und betreust die App abends (zweimal
+  20 Minuten Zahlen je Woche, samstags 3 Stunden).
+- **Steht im Vertrag aus dem Winter der 19.07.,** deckst du die zwei Wochen ab
+  Mo 05.07. über eine Zeitarbeitsfirma oder lässt sie aus. Zwei kurzfristige
+  Jobs im Jahr werden zusammengezählt: 10 + 40 Arbeitstage bleiben unter 70.
 - **Was daneben Platz finden muss:** die Bewerbung in Hannover bis Do 15.07.
   (~2 h) und die Zürich-Aufgaben.
 - **Was es kostet:** In Fall A nähme dir der frühe Beginn die zwei Wochen mit
@@ -470,20 +511,21 @@ nicht belegt).
 | Lage der App | Ausgang | Stichtage | Abschnitt |
 |---|---|---|---|
 | unter ~150 € Monatsgewinn | **einstellen** | Entscheidung Sa 31.07.; Verkaufsstopp So 15.08.; Dienstende Mi 15.09. | 6 |
-| ab ~150 € Monatsgewinn **und** schriftliche Zusage vom Januar **und** Konto des Elternteils ist bereit | **Übergabe an das Elternteil** | Konto bis Fr 02.07.; Entscheidung Sa 31.07.; Übertragung ab Mo 09.08.; abgeschlossen bis So 15.08. | 4 |
+| ab ~150 € Monatsgewinn **und** schriftliche Zusage vom Januar **und** Konto des Elternteils ist bereit | **Übergabe an das Elternteil** | Anmeldung des Kontos bis Fr 02.07.; Entscheidung Sa 31.07.; Übertragung ab Mo 09.08., gestartet spätestens So 15.08. | 4 |
 | ab ~150 € Monatsgewinn, aber keine Zusage | einstellen; ist die nächste Zeile erfüllt, Verkaufsversuch | wie Zeile 1 | 6, 5 |
 | ab 300 $ Monatsumsatz **und** mindestens 8 Wochen im Store | **zuerst Verkaufsversuch,** Übergabe als Rückfall | Angebot, sobald beides erfüllt und das Abitur vorbei ist; Umschalttag So 08.08.; Geld auf dem Treuhandkonto und Übertragung gestartet bis So 15.08. | 5 |
 | Tor 1 bestanden (mindestens 5.000 $ MRR am So 18.07.) | Weg B oder C des Hauptplans: Beratung zu Deutschland und der Schweiz, dann verkaufen, übergeben oder geordnet weiterführen | Tor 2 So 08.08. | Hauptplan, Abschnitt 14 |
 
-**Die harte Regel am So 15.08.:** Für jede App, die an diesem Tag weder beim
-Elternteil liegt noch einen Käufer mit bezahltem Treuhandkonto und gestarteter
-Übertragung hat, nimmst du alle Abos aus dem Verkauf.
+**Die harte Regel am So 15.08.:** Für jede App, deren Übertragung an diesem Tag
+weder an das Elternteil noch an einen Käufer mit bezahltem Treuhandkonto
+gestartet ist, nimmst du alle Abos aus dem Verkauf. Hängt eine gestartete
+Übertragung, gilt der Rückfall aus 4.5 (Di 17.08.).
 
 **Was nach dem Startdatum noch geht**
 
 | Start der App | Signalprüfung | 8 Wochen im Store am | was noch geht |
 |---|---|---|---|
-| vor Mo 15.03. | zweite Prüfung Mo 28.06. | schon erreicht | alle drei Ausgänge; Verkaufsangebot ab dem Tag nach der letzten Prüfung, wenn 300 $ erreicht sind |
+| vor Mo 15.03. | zweite Prüfung Mo 28.06. oder Di 29.06. | schon erreicht | alle drei Ausgänge; Verkaufsangebot ab dem Tag nach der letzten Prüfung, wenn 300 $ erreicht sind |
 | Di 08.06. | Di 29.06. | Di 03.08. | alle drei; für den Verkauf bleiben bis zum Umschalttag nur fünf Tage |
 | Mo 14.06. | Mo 05.07. | Mo 09.08. | Übergabe oder einstellen; ein Verkauf ist praktisch nicht mehr möglich |
 | Mo 21.06. oder später | Mo 12.07. oder später | Mo 16.08. oder später | Übergabe oder einstellen |
@@ -500,13 +542,16 @@ wichtig.
   `default` nehmen; in App Store Connect das Monatsabo aus dem Verkauf nehmen,
   damit es niemand in den iOS-Einstellungen wählen kann. Ob das Folgen für eine
   schon freigegebene Version hat, ist nicht geprüft: vor dem Schritt prüfen.
-- Ein Monatsabo bekommt eine späte App nur, wenn ihr Nachfolger feststeht.
+- Auch mit feststehendem Nachfolger bekommt eine späte App kein Monatsabo; der
+  Nachfolger kann es nach der Übertragung selbst anlegen.
 
 **Für eine App, die erst nach Mo 19.07. erscheint,** entscheidest du am
-Sa 07.08. mit den Zahlen bis dahin.
+Sa 07.08. mit den Zahlen bis dahin. Die Termine für eine Übergabe dieser App
+stehen in 4.5.
 
-**Fertig, wenn** am Sa 31.07. für jede App Datum, Monatsumsatz, Monatsgewinn,
-Alter und der Ausgang in `docs/entscheidungen.md` stehen.
+**Fertig, wenn** am Sa 31.07. (für eine App, die erst nach Mo 19.07. erscheint,
+am Sa 07.08.) für jede App Datum, Monatsumsatz, Monatsgewinn, Alter und der
+Ausgang in `docs/entscheidungen.md` stehen.
 
 ---
 
@@ -537,7 +582,7 @@ Modell ausmacht und wie oft sie gelingt, steht in
 | laufende Leistungen | Bezieht es Arbeitslosengeld oder Elterngeld? | zuständige Stelle |
 | bestehendes Kleinunternehmen | Die Kleinunternehmerregelung gilt je Person für alle Tätigkeiten zusammen | eigene Unterlagen, Finanzamt |
 | Öffentlichkeit und Haftung | Voller Name im App Store, Name und Anschrift im Impressum, unbeschränkte Haftung | 03, Abschnitt 2.1 |
-| Steuer | Der Gewinn wird mit seinem Steuersatz versteuert (grob 30–42 %). Ob kleine Nebeneinkünfte bei Arbeitnehmern frei bleiben, klärt die Einzelstunde beim Steuerberater | 4.6 |
+| Steuer | Der Gewinn wird mit seinem Steuersatz versteuert (grob 30–42 %). Ob kleine Nebeneinkünfte bei Arbeitnehmern frei bleiben, klärt die Einzelstunde beim Steuerberater | 4.6, Frage 6 |
 | Zeit | einmalig 6–10 Stunden, danach 1–3 Stunden je Monat, einmal im Jahr die Steuererklärung mit Anlage G und Anlage EÜR | – |
 
 **Fertig, wenn** jeder Punkt auf der Zusage mit Datum abgehakt ist.
@@ -553,12 +598,12 @@ einmalig 3–4 Stunden und danach 5 Minuten je Woche. Mit der Mappe dauert eine
 | eigene Behälter je App | eigenes RevenueCat-Projekt, eigenes Expo-Projekt, eigenes privates GitHub-Repository, eigenes Betriebsprojekt bei Supabase, eigener Schlüssel für die Claude API mit Monatsgrenze | Was getrennt ist, lässt sich einzeln übertragen |
 | Supabase | Der Free-Tarif erlaubt zwei aktive Projekte je Person. Für App 2 pausierst du das Testprojekt oder nutzt es für beide Apps. Ein drittes aktives Projekt kostet 25 $ im Monat, oder du pausierst das Projekt einer eingestellten App | Grenze des Free-Tarifs |
 | Domain | eigene Domain je App erst, wenn die App ein Signal zeigt; vorher Unterseiten deiner ersten Domain, die sich später umleiten lassen | je Domain ~10–15 € im Jahr |
-| Abo-Produkt-IDs | mit dem Namen der App davor, z. B. `deineapp.woche` und `deineapp.monat` | Apple lehnt die Übertragung ab, wenn eine Produkt-ID im Konto des Empfängers schon vorkommt |
+| Abo-Produkt-IDs | mit Marke und App in der Kennung wie in 03, Abschnitt 3, z. B. `com.marke.app1.woche` und `com.marke.app1.monat` | Apple lehnt die Übertragung ab, wenn eine Produkt-ID im Konto des Empfängers schon vorkommt |
 | nichts, was die Übertragung erschwert | kein „Mit Apple anmelden“, kein iCloud, keine Schlüsselbund-Gruppen. Nichts Wichtiges im Schlüsselbund ablegen (z. B. Zähler oder Geräte-ID über `expo-secure-store`) | Der Schlüsselbund funktioniert nach einer Übertragung nur bis zum nächsten Update |
 | Rechtstexte | Impressum, Datenschutz und Nutzungsbedingungen als Webseiten verlinken, nicht fest in die App schreiben (so steht es in AP14) | Ein Inhaberwechsel braucht dann kein App-Update |
 | app-spezifisches Shared Secret | schon beim Start in App Store Connect erzeugen und in RevenueCat hinterlegen | Für Abos ist es bei einer Übertragung Pflicht ([Apple](https://developer.apple.com/help/app-store-connect/transfer-an-app/overview-of-app-transfer/)) |
 | KI-Modell tauschbar | Die Modell-ID `claude-haiku-5-5` steht nur als Geheimnis in der Server-Funktion. Die Anfrage enthält nur Modell, Höchstlänge, Systemtext und Nachrichten. Die Funktion prüft, warum eine Antwort endet, und zeigt bei Ablehnung oder Abschneiden eine verständliche Meldung | Anthropic schaltet Modelle mit mindestens 60 Tagen Vorwarnung per E-Mail ab; für dieses Modell nicht vor Do 07.10.2027 ([Anthropic](https://platform.claude.com/docs/en/about-claude/model-deprecations)). Der Tausch dauert dann 0,5–2 Stunden im Dashboard statt eines App-Updates |
-| `UEBERGABE.md` je App | Konten und wo die Schlüssel liegen; Kosten je Monat; Modell-ID, frühestes Abschaltdatum und der Weg zum Ändern (Supabase-Dashboard → Edge Functions → Secrets → Wert ändern); der fest gesetzte Wert `anthropic-version`; fünf Testeingaben; Schritte bei einer Störung | Das Elternteil oder ein Käufer programmiert nicht |
+| `UEBERGABE.md` je App | Konten und wo die Schlüssel liegen; Kosten je Monat; Modell-ID, frühestes Abschaltdatum und der Weg zum Ändern (Supabase-Dashboard → Edge Functions → Secrets → Wert ändern); der fest gesetzte Wert `anthropic-version`; fünf Testeingaben; Schritte bei einer Störung; wie ein neuer Build mit dem Apple-Team des neuen Inhabers entsteht (EAS-Anmeldung mit seinem Zwei-Faktor-Code, 03, Abschnitt 2.2) | Das Elternteil oder ein Käufer programmiert nicht |
 | Zahlen | jede Woche die Zahlen aus RevenueCat und App Store Connect als CSV ablegen | Beleg für Käufer und Elternteil. Nie in ein öffentliches Repository |
 | Konten | alle mit dem Projekt-Postfach anlegen | Das Postfach lässt sich übergeben |
 
@@ -570,18 +615,24 @@ Tabelle abgehakt sind und der wöchentliche Export in deiner Wochenzeile steht.
 
 ### 4.4 Anmeldungen des Elternteils bis Fr 02.07.
 
-**Wann sich das lohnt:** Die Zusage liegt vor, und am Do 01.07. zeigt eine App
-im Store mindestens ~100 $ MRR (Richtwert der Recherche; die Gegenprüfung
-nennt keine Schwelle). Ohne diese Zahl entscheidet das Elternteil, ob es die
-~120–165 € trotzdem riskiert. Wird später nichts übertragen, ist das Geld weg,
+**Wann sich das lohnt:** Die Zusage liegt vor, und am Mo 28.06. zeigt eine App
+im Store mindestens ~100 $ MRR (Richtwert der Recherche, Schätzung; die
+Übergabe selbst gibt es erst ab ~150 € Monatsgewinn, Abschnitt 3). Hast du eine
+Nachprüfung, liest du die Zahl am Tag nach deiner letzten Nachprüfung ab
+(1.2, KW 26). Dann beginnt das Elternteil am selben Tag: Gewerbe- und
+Apple-Anmeldung sind bis Fr 02.07. abgeschickt. Vertrag, Bank, Steuer,
+Händlerangaben und Antrag zum Small Business Program folgen, sobald Apple das
+Konto freischaltet. Ziel: Genehmigung bis Sa 31.07. Erreicht keine App die
+Schwelle, entfällt die Anmeldung; das Elternteil kann die ~120–165 € aber
+bewusst trotzdem riskieren. Wird später nichts übertragen, ist das Geld weg,
 und das Elternteil meldet sein Gewerbe wieder ab.
 
 | Nr. | Schritt | Dauer | Kosten | fertig, wenn … |
 |---|---|---|---|---|
-| 1 | Gewerbe anmelden wie in 03, Abschnitt 5, Schritt 3, danach der Fragebogen in ELSTER (Kleinunternehmerregelung anwenden) | 1,5–3,5 h | 20–65 € | die Bestätigung der Gemeinde abgelegt ist |
-| 2 | Apple Developer Program als Einzelperson über die Apple-Developer-App, mit eigener Apple-ID und Zwei-Faktor-Anmeldung | 0,5 h, dann Wartezeit | 99 € | die Mitgliedschaft aktiv ist. Dein Apple-Jahr geht nicht über |
-| 3 | In App Store Connect: Vertrag für bezahlte Apps, eigenes Bankkonto, Steuerdaten, Händlerangaben mit eigener Telefonnummer (03, Abschnitt 6.1) | 0,7–2 h | 0 € | der Vertrag aktiv und der Händlerstatus bestätigt ist |
-| 4 | Small Business Program am selben Tag beantragen. Die Frage nach verbundenen Entwicklerkonten ehrlich beantworten; Apples Erklärung dazu vorher lesen | 0,3 h | 0 € | die Bestätigungs-Mail abgelegt ist |
+| 1 | Bis Fr 02.07. abschicken: Gewerbe anmelden wie in 03, Abschnitt 5, Schritt 3, danach der Fragebogen in ELSTER (Kleinunternehmerregelung anwenden) | 1,5–3,5 h | 20–65 € | die Bestätigung der Gemeinde abgelegt ist |
+| 2 | Bis Fr 02.07. abschicken: Apple Developer Program als Einzelperson über die Apple-Developer-App, mit eigener Apple-ID und Zwei-Faktor-Anmeldung | 0,5 h, dann Wartezeit | 99 € | die Mitgliedschaft aktiv ist. Dein Apple-Jahr geht nicht über |
+| 3 | Sobald Apple das Konto freischaltet, in App Store Connect: Vertrag für bezahlte Apps, eigenes Bankkonto, Steuerdaten, Händlerangaben mit eigener Telefonnummer (03, Abschnitt 6.1) | 0,7–2 h | 0 € | der Vertrag aktiv und der Händlerstatus bestätigt ist |
+| 4 | Am selben Tag wie Schritt 3 das Small Business Program beantragen. Die Frage nach verbundenen Entwicklerkonten ehrlich beantworten; Apples Erklärung dazu vorher lesen | 0,3 h | 0 € | die Bestätigungs-Mail der Genehmigung abgelegt ist, Ziel bis Sa 31.07. |
 
 - **Warum Fr 02.07.:** Wird der Antrag im Apple-Fiskalmonat Juli genehmigt (bis
   Sa 31.07.), gelten die 15 % ab Mo 16.08. Die Erlöse der App werden beiden
@@ -598,34 +649,41 @@ und das Elternteil meldet sein Gewerbe wieder ab.
 
 ### 4.5 Die Übertragung Schritt für Schritt
 
-Vorbereitung von Sa 31.07. bis So 08.08., Übertragung ab Mo 09.08., Abschluss
-bis So 15.08.
+Vorbereitung von Sa 31.07. bis So 08.08., Übertragung ab Mo 09.08., gestartet
+spätestens So 15.08. Für eine App, die erst nach Mo 19.07. erscheint und am
+Sa 07.08. für die Übergabe entschieden wird, gelten die Schritte 1–5 bis
+Fr 13.08., Schritt 6 spätestens So 15.08. und die Schritte 11–12 bis So 22.08.
 
 | Nr. | wann | Schritt | wer | fertig, wenn … |
 |---|---|---|---|---|
-| 1 | bis Fr 06.08. | Einzelstunde beim Steuerberater mit Festpreis (4.6) | beide | die Antworten notiert sind |
+| 1 | Termin unverbindlich anfragen bis Fr 16.07., Stunde bis Fr 06.08. | Einzelstunde beim Steuerberater mit Festpreis (4.6). Den Preis vorher schriftlich vereinbaren und die Kassenregel aus 03, Abschnitt 1.2 anwenden. Richtwert der Recherche, nicht geprüft: Nach § 21 StBVV kostet eine Erstberatung höchstens 190 € netto (226 € brutto), aber nur für Verbraucher. Bekommt ihr bis Fr 06.08. keinen Termin, schickt ihr die Fragen 1–4 und 6 aus 4.6 schriftlich über Mein ELSTER ans Finanzamt; die Übertragung beginnt trotzdem am Mo 09.08. | beide | die Antworten oder die abgeschickte Anfrage abgelegt sind |
 | 2 | bis So 08.08. | Schenkungsvertrag unterschreiben (4.6) | beide | er bei den Unterlagen liegt |
 | 3 | bis So 08.08. | Apples Bedingungen prüfen ([Apple](https://developer.apple.com/help/app-store-connect/transfer-an-app/app-transfer-criteria)): mindestens eine veröffentlichte Version; keine Version in der Prüfung; jedes Abo-Produkt genehmigt, bereit zum Einreichen, vom Entwickler aus dem Verkauf genommen oder abgelehnt; keine Produkt-ID kommt im Konto des Elternteils vor; beide Konten haben die aktuellen Verträge angenommen; TestFlight-Tests sind beendet | du | jeder Punkt in `UEBERGABE.md` abgehakt ist |
 | 4 | bis So 08.08. | Elternteil: eigenes Konto für die Claude API mit Guthaben, Nachladen an, Monatsgrenze 25–50 $; eigener Schlüssel. Verträge zur Auftragsverarbeitung im eigenen Namen (03, Abschnitt 5, Schritt 11) | Elternteil | Schlüssel und Verträge vorliegen |
 | 5 | bis So 08.08. | Impressum und Datenschutzerklärung mit Namen, Anschrift, Telefon und E-Mail des Elternteils als Entwurf | du | die zwei Seiten als Dateien bereitliegen |
 | 6 | Mo 09.08. | Übertragung in App Store Connect starten. Du brauchst Apple-ID und Team-ID des Elternteils. Den Menüweg nennt die Recherche nicht: vor dem Schritt auf [Apples Seite](https://developer.apple.com/help/app-store-connect/transfer-an-app/overview-of-app-transfer/) nachlesen | du | App Store Connect die Übertragung als gestartet zeigt |
 | 7 | Mo 09.08. | Übertragung im eigenen App Store Connect annehmen | Elternteil | die App im Konto des Elternteils steht. Wie lange Apple braucht, ist nicht belegt |
-| 8 | am selben Tag | In RevenueCat **drei Schlüssel** aus dem Konto des Elternteils neu setzen: In-App-Purchase-Schlüssel, App-Store-Connect-API-Schlüssel, app-spezifisches Shared Secret. Dazu die Adresse für Apples Server-Benachrichtigungen prüfen. SDK-Schlüssel und Bundle-ID bleiben, ein App-Update ist nicht nötig ([RevenueCat](https://www.revenuecat.com/docs/revenuecat-support/common-tickets/update-after-developer-account-transfer)) | beide | ein Sandbox-Kauf im Store-Build klappt und in RevenueCat erscheint |
+| 8 | am selben Tag | In RevenueCat **drei Schlüssel** aus dem Konto des Elternteils neu setzen: In-App-Purchase-Schlüssel, App-Store-Connect-API-Schlüssel, app-spezifisches Shared Secret. Dazu die Adresse für Apples Server-Benachrichtigungen prüfen. SDK-Schlüssel und Bundle-ID bleiben, ein App-Update ist nicht nötig ([RevenueCat](https://www.revenuecat.com/docs/revenuecat-support/common-tickets/update-after-developer-account-transfer)) | beide | RevenueCat die neuen Zugangsdaten als gültig anzeigt und die nächste echte Verlängerung oder ein Kauf nach der Übertragung im Dashboard erscheint. Ein Sandbox-Test geht nur mit einem neuen Testbuild unter dem Apple-Team des Elternteils (Weg vor dem Schritt prüfen) |
 | 9 | am selben Tag | Schlüssel der Claude API des Elternteils als Geheimnis in Supabase setzen, fünf Testeingaben schicken | beide | alle fünf Antworten kommen und der Verbrauch im Konto des Elternteils erscheint |
 | 10 | am selben Tag | **Impressum und Datenschutzerklärung umstellen.** Im App Store steht jetzt der Name des Elternteils als Verkäufer | du | Name und Anschrift auf Website, in den Händlerangaben und im App Store übereinstimmen |
-| 11 | bis So 15.08. | Inhaber der übrigen Konten wechseln: RevenueCat-Projekt (eigener Vorgang mit eigener Anleitung), Supabase, Domain-Paket, GitHub-Repository, Expo-Projekt, Markenkonten. Wie jeder Anbieter den Inhaber wechselt, ist nicht geprüft: vor dem Schritt prüfen | beide | in `UEBERGABE.md` je Konto der neue Inhaber steht |
+| 11 | bis So 15.08. | Inhaber der übrigen Konten wechseln: RevenueCat-Projekt (eigener Vorgang mit eigener Anleitung), Supabase, Domain-Paket, GitHub-Repository, Expo-Projekt. Die Markenkonten nur, wenn die Nutzungsbedingungen der Plattform eine Übertragung erlauben (vor dem Schritt prüfen); sonst schließt du sie spätestens am Do 16.09. (Abschnitt 6, Schritt 11). Wie jeder Anbieter den Inhaber wechselt, ist nicht geprüft: vor dem Schritt prüfen | beide | in `UEBERGABE.md` je Konto der neue Inhaber steht |
 | 12 | bis So 15.08. | Deine eigenen Zugänge und Kopien von Nutzerdaten löschen: alte Schlüssel sperren, Support-Postfach übergeben | du | es in `UEBERGABE.md` abgehakt ist |
-| 13 | nach der Übertragung | Dein Abschluss: Abschnitt 6, Schritte 11–15. Gibt es daneben Apps, die du einstellst, wartest du mit der Abmeldung bis zu deren Dienstende | du | – |
+| 13 | nach der Übertragung | Dein Abschluss: Abschnitt 6, Schritt 7 und Schritte 12–16. Gibt es daneben Apps, die du einstellst, wartest du mit der Abmeldung bis zu deren Dienstende | du | die Bestätigung der Abmeldung abgelegt ist |
 
 **Wenn es hakt**
 - **Apple nennt beim Start ein Hindernis:** Du behebst es am selben Tag (meist
   TestFlight oder eine Version in der Prüfung) und startest neu.
 - **Die Übertragung ist am Fr 13.08. nicht durch:** Ihr schreibt am selben Tag
   dem Entwickler-Support.
-- **Sie ist am So 15.08. nicht durch:** Es gilt die harte Regel aus
-  Abschnitt 3. Du nimmst die Abos aus dem Verkauf. Ob App Store Connect das
-  während einer laufenden Übertragung zulässt, ist nicht geprüft; deshalb
-  beginnst du am Mo 09.08. und nicht später.
+- **Sie ist am So 15.08. nicht gestartet:** Es gilt die harte Regel aus
+  Abschnitt 3. Du nimmst die Abos aus dem Verkauf.
+- **Die gestartete Übertragung ist am Di 17.08. nicht durch:** Du nimmst am
+  selben Tag alle Abos dieser App aus dem Verkauf (Dienstende dann Fr 17.09.,
+  Tabelle 1.4; App entfernen und Abmeldung am selben Tag) und schreibst es dem
+  Entwickler-Support. Ob App Store Connect das während einer laufenden
+  Übertragung zulässt, ist nicht geprüft; deshalb beginnst du am Mo 09.08. und
+  nicht später. Kommt die Übertragung danach doch noch durch, entscheidet das
+  Elternteil, ob es die Abos wieder in den Verkauf nimmt.
 - **Wem Apple Verkäufe vor dem Übertragungstag auszahlt,** nennt die Recherche
   nicht: vor dem Schritt auf Apples Seite nachlesen. Dein Bankkonto und dein
   Vertrag bei Apple bleiben in jedem Fall offen, bis die letzte Zahlung da ist.
@@ -654,9 +712,12 @@ bis So 15.08.
   5. Nur bei einem echten Treffer: Wäre ein Verkauf an das Elternteil zum
      marktüblichen Preis statt einer Schenkung besser? Die Gegenprüfung nennt
      das als Frage, nicht als Empfehlung.
+  6. Bleiben bei meinem Elternteil als Arbeitnehmer Nebeneinkünfte bis 410 € im
+     Jahr steuerfrei (§ 46 Abs. 3 EStG; Hinweis der Gegenprüfung, nicht
+     geprüft)?
 
 **Fertig, wenn** der Vertrag unterschrieben ist und die Antworten auf die
-Fragen 1–4 abgelegt sind.
+Fragen 1–4 und 6 abgelegt sind.
 
 ### 4.7 Was das Elternteil danach monatlich tut
 
@@ -665,8 +726,8 @@ Supabase Pro, solange zahlende Abonnenten da sind.
 
 | wie oft | was |
 |---|---|
-| zweimal je Woche | Supabase-Wachregel (03, Abschnitt 7.5), oder Supabase Pro buchen und darauf verzichten |
-| einmal je Woche | Support-Postfach lesen und binnen 24 Stunden antworten; bei Erstattungen auf reportaproblem.apple.com verweisen |
+| zweimal je Woche | Supabase-Wachregel (03, Abschnitt 7.5), solange keine zahlenden Abonnenten da sind; mit zahlenden Abonnenten läuft stattdessen Supabase Pro (25 $ im Monat) |
+| täglich (Benachrichtigung auf dem Handy, 2–5 Minuten) | Support-Postfach lesen und binnen 24 Stunden antworten; bei Erstattungen auf reportaproblem.apple.com verweisen |
 | einmal je Monat | Zahlen in RevenueCat ansehen. Verbrauch und Monatsgrenze der Claude API prüfen; das Nachladen bleibt an. Belege ablegen (03, Abschnitt 7.1) |
 | wenn Apple schreibt | geänderte Verträge in App Store Connect annehmen; sonst stoppen die Auszahlungen |
 | alle drei Monate | Abschaltseite von Anthropic ansehen; bei einer Warn-Mail die Modell-ID nach `UEBERGABE.md` tauschen und die fünf Testeingaben schicken |
@@ -680,8 +741,9 @@ Supabase Pro, solange zahlende Abonnenten da sind.
   Die Gegenprüfung setzt für die zwölf Monate nach der Übergabe 0,7/2/5
   Monatsgewinne an.
 - **In Euro:** bei 300 € Monatsgewinn rund 70/460/1.360 € nach den Einmalkosten,
-  bei 150 € rund −50/+140/+590 €. Unter ~150 € Monatsgewinn lohnt die Übergabe
-  nicht.
+  bei 150 € rund −35/+160/+610 € (beide Beispiele mit ~140 € Einmalkosten für
+  Apple-Konto und Gewerbe des Elternteils). Unter ~150 € Monatsgewinn lohnt die
+  Übergabe nicht.
 - **Das Geld gehört dem Elternteil,** nicht dir.
 - **Deine Rolle danach:** keine. Ob gelegentliche unbezahlte Hilfe aus Zürich
   als Erwerbstätigkeit gilt, ist nicht geklärt. Bevor du hilfst, fragt ihr die
@@ -695,7 +757,7 @@ Supabase Pro, solange zahlende Abonnenten da sind.
 - ab 300 $ Monatsumsatz **und** mindestens 8 Wochen im Store (Abschnitt 3);
 - sobald beides erfüllt und das Abitur vorbei ist. Mehr Wochen am Markt helfen
   mehr als alles andere. Warte nicht bis Tor 1.
-- Darunter lohnt es nicht: Das Angebot kostet Geld und 12–20 Stunden, und
+- Darunter lohnt es nicht: Das Angebot kostet Geld und 15–29 Stunden, und
   Angebote ohne belegten Umsatz finden keinen Käufer.
 
 **Wo**
@@ -719,7 +781,7 @@ Marktplatz und Käufer erfahren deinen vollen Namen.
 | Marketing: welche Kanäle, wie viele Posts, **seit wann gestoppt** | Messtabelle je Post |
 | bezahlte Werbung oder Rabatte, mit Zeitraum und Betrag | Belege |
 | Grund des Verkaufs: Studium im Ausland ab September 2027 | – |
-| was übergeht: App, Abo-Produkte, RevenueCat-Projekt, Supabase-Projekt, Domain, Repository, Markenkonten, `UEBERGABE.md` | – |
+| was übergeht: App, Abo-Produkte, RevenueCat-Projekt, Supabase-Projekt, Domain, Repository, `UEBERGABE.md`; die Markenkonten nur, wenn die Nutzungsbedingungen der Plattform eine Übertragung erlauben (vor dem Schritt prüfen), sonst schließt du sie am Do 16.09. | – |
 | was nicht übergeht: dein Apple-Konto, dein Konto für die Claude API (der Käufer setzt seinen eigenen Schlüssel) | – |
 | Technik und Risiken: Expo, Supabase-Funktion, Modell-ID mit frühestem Abschaltdatum, Aufwand je Monat | `UEBERGABE.md` |
 
@@ -737,21 +799,22 @@ Marktplatz und Käufer erfahren deinen vollen Namen.
   [`07_HEBEL.md`](07_HEBEL.md), Abschnitt 6. Eine Verkaufsquote veröffentlicht
   kein Marktplatz.
 
-**Zeitbedarf:** 12–20 Stunden: Angebot 3–4, Fragen von Käufern 4–8, Vertrag und
-Treuhand 2–3, Übergabe 4–6. Die Zeiten bis zum Abschluss, die Marktplätze
-nennen (Median 15 Tage, sonst 27–39 Tage), sind nicht prüfbar und gelten nur
-für Angebote, die überhaupt verkauft wurden.
+**Zeitbedarf** (Schätzung): Angebot 3–4, Fragen von Käufern 4–8, Vertrag und
+Treuhand 2–3, Übertragung 6–14 (wie 4.3), zusammen 15–29 Stunden. Die Zeiten
+bis zum Abschluss, die Marktplätze nennen (Median 15 Tage, sonst 27–39 Tage),
+sind nicht prüfbar und gelten nur für Angebote, die überhaupt verkauft wurden.
 
 **Ablauf und Stichtage**
 
 | wann | was | fertig, wenn … |
 |---|---|---|
 | sobald die Bedingungen erfüllt sind | Preisseite lesen, Verkäuferkonto mit Ausweisprüfung, Angebot einstellen | das Angebot online ist |
-| laufend | Fragen von Käufern binnen 24 Stunden beantworten; Zahlen nur über die Nachweise des Marktplatzes zeigen | – |
-| vor der Unterschrift | Brief an die Krankenkasse und Einzelstunde beim Steuerberater (unten) | beide Antworten abgelegt sind |
+| am Tag, an dem das Angebot online geht | Brief an die Krankenkasse durch das Elternteil (Aufbau wie die Vorlage in 2.6, Inhalt unten bei „Steuer und Krankenkasse“). Termin beim Steuerberater mit Festpreis unverbindlich anfragen | der Brief abgeschickt und die Anfrage beim Steuerberater raus ist |
+| laufend | Fragen von Käufern binnen 24 Stunden beantworten; Zahlen nur über die Nachweise des Marktplatzes zeigen | keine Frage länger als 24 Stunden offen ist |
+| vor der Unterschrift | Einzelstunde beim Steuerberater (unten). Fehlt die Antwort der Kasse noch, unterschreibst du nur, wenn du alles Wesentliche in einem Vorgang verkaufst (dafür führt die Anlage der Hinweise „nein“), und legst Brief und Nachfrage ab | die Antwort des Steuerberaters und die der Kasse (oder Brief und Nachfrage) abgelegt sind |
 | **So 08.08.** | **Umschalttag:** Liegt kein Angebot mit Zahlung über die Treuhand des Marktplatzes vor, nimmst du das Angebot heraus. Mit Zusage folgt die Übergabe ab Mo 09.08., sonst der Verkaufsstopp am So 15.08. | die Entscheidung in `docs/entscheidungen.md` steht |
-| nach Geldeingang auf dem Treuhandkonto, spätestens So 15.08. | Übertragung an den Käufer starten: Abschnitt 4.5, Schritte 3 und 6–12, mit dem Käufer statt des Elternteils. Der Käufer setzt seine eigenen Schlüssel | die App im Konto des Käufers steht |
-| 7–14 Tage | Einweisung per Mail; sie endet vor dem Umzug | – |
+| nach Geldeingang auf dem Treuhandkonto, spätestens So 15.08. | Übertragung an den Käufer starten: Abschnitt 4.5, Schritte 3 und 6–12, mit dem Käufer statt des Elternteils. Der Käufer setzt seine eigenen Schlüssel | die App im Konto des Käufers steht (bis Di 17.08., sonst 4.5, „Wenn es hakt“) |
+| 7–14 Tage | Einweisung per Mail; sie endet vor dem Umzug | der Käufer sie schriftlich als beendet bestätigt hat, spätestens Fr 17.09. |
 | bis etwa Mi 25.08. | Freigabe des Treuhandgeldes nach der Prüfphase des Käufers | das Geld auf deinem Konto ist |
 
 **Vertragspunkte**
@@ -766,12 +829,14 @@ für Angebote, die überhaupt verkauft wurden.
   gleichzeitig auf. Dann ist es der Verkauf des ganzen Betriebs.
 
 **Steuer und Krankenkasse**
-- **Brief an die Krankenkasse vor der Unterschrift.** Die Anlage der
-  Grundsätzlichen Hinweise vom 29.09.2022 führt „Veräußerungsgewinn aus dem
-  Verkauf eines ganzen Betriebs/Teilbetriebs“ mit „nein“, also nicht als
-  regelmäßiges Einkommen. Der Brief nennt diese Stelle und bittet um
-  schriftliche Bestätigung. Frag dazu, ob die Kasse den Gewinn aus einer
-  Betriebsaufgabe genauso behandelt. Das Elternteil stellt die Anfrage.
+- **Brief an die Krankenkasse am Tag, an dem das Angebot online geht,** damit
+  die Antwort vor der Unterschrift da ist (2.6 rechnet mit drei Wochen bis zur
+  Nachfrage). Die Anlage der Grundsätzlichen Hinweise vom 29.09.2022 führt
+  „Veräußerungsgewinn aus dem Verkauf eines ganzen Betriebs/Teilbetriebs“ mit
+  „nein“, also nicht als regelmäßiges Einkommen. Der Brief nennt diese Stelle
+  und bittet um schriftliche Bestätigung. Frag dazu, ob die Kasse den Gewinn
+  aus einer Betriebsaufgabe genauso behandelt. Das Elternteil stellt die
+  Anfrage.
 - **Achtung:** Verkaufst du nur eine von mehreren Apps und läuft das Gewerbe
   weiter, ist der Erlös laufender Gewinn und zählt für die Grenze von ~590 €
   im Monat.
@@ -796,26 +861,28 @@ removed from sale and service is stopped.“
 ([Apple](https://developer.apple.com/help/app-store-connect/manage-subscriptions/set-availability-for-an-auto-renewable-subscription/))
 Wer ein Abo aus dem Verkauf nimmt, stoppt neue Abschlüsse und Verlängerungen.
 Danach muss der Dienst noch mindestens 31 Tage laufen. Die Kurzfassung steht in
-03, Abschnitt 8.1; hier stehen alle Schritte. Zeit zusammen: 4–6 Stunden.
-Kosten: 0–32,50 € für die Abmeldung und die laufenden Kosten bis Mi 15.09.
+03, Abschnitt 8.1; hier stehen alle Schritte. Zeit zusammen: 4–6 Stunden
+(Schätzung). Kosten: 0–32,50 € für die Abmeldung und die laufenden Kosten bis
+Mi 15.09.
 
 | Nr. | wann | Schritt | fertig, wenn … |
 |---|---|---|---|
 | 1 | Mo 02.08.–Fr 06.08. | Apples Seite zum Verkaufsstopp lesen. Hinweistexte in Deutsch und Englisch schreiben (unten). Mit einem Testbuild proben, dass ein Update über `expo-updates` den Hinweis in die App bringt | der Hinweis im Testbuild erscheint |
-| 2 | Sa 07.08. | Monatsgrenze der Claude API so setzen, dass bis Mi 15.09. kein großes Guthaben übrig bleibt. Guthaben verfällt nach einem Jahr und wird nicht erstattet. Das Nachladen bleibt an | die Grenze in der Konsole steht |
+| 2 | Sa 07.08. | Nachladebetrag der Claude API auf den kleinsten Wert stellen (z. B. 5–10 $), damit bis Mi 15.09. kaum Guthaben übrig bleibt. Die Monatsgrenze bleibt so hoch, dass alle Abonnenten bis zum Dienstende Antworten bekommen; das Nachladen bleibt an. Ob die Konsole beides anbietet, vor dem Schritt prüfen. Guthaben verfällt nach einem Jahr und wird nicht erstattet | Nachladebetrag und Grenze in deiner Wochenzeile notiert sind |
 | 3 | **So 15.08.** | **Jedes Abo jeder App aus dem Verkauf nehmen:** App Store Connect → Apps → App → Monetarisierung → Abonnements → Abo-Gruppe → Abo → Verfügbarkeit → aus dem Verkauf nehmen → Sichern. Für das Wochenabo und das Monatsabo einzeln | jedes Abo als aus dem Verkauf genommen angezeigt wird |
 | 4 | So 15.08. | **Nutzer informieren:** Update mit dem Hinweis ausliefern; Hinweis auf die Startseite der Website. Wer kein Abo hat, sieht statt der Paywall den Hinweis | der Hinweis in der Store-Version und auf der Website steht |
-| 5 | So 15.08.–Mi 15.09. | **Dienst läuft weiter:** Server, KI-Funktion, Support binnen 24 Stunden, Supabase-Wachregel am Montag und Donnerstag, Nachladen an. Impressum und Datenschutzerklärung bleiben online | – |
+| 5 | So 15.08.–Mi 15.09. | **Dienst läuft weiter:** Server, KI-Funktion, Support binnen 24 Stunden, Supabase-Wachregel am Montag und Donnerstag, Nachladen an. Impressum und Datenschutzerklärung bleiben online | in der Wochenzeile je Woche zwei Wachdaten stehen und keine Mail älter als 24 Stunden unbeantwortet ist |
 | 6 | Mo 23.08. | **Kontrolle:** In RevenueCat darf seit So 15.08. kein Wochenabo verlängert worden sein | die Liste der Verlängerungen seit So 15.08. leer ist |
-| 7 | **Mi 15.09.** | **Dienstende.** Vorher in RevenueCat prüfen: kein aktives Abo mehr | die Zahl der aktiven Abos null ist |
-| 8 | Do 16.09. | App aus dem Store entfernen (in App Store Connect bei Preisen und Verfügbarkeit; den genauen Menüweg vor dem Schritt prüfen) | die App im App Store nicht mehr zu finden ist |
-| 9 | Do 16.09. | Claude API: Nachladen aus, Schlüssel der App sperren. Supabase: Zähltabelle löschen, Projekte pausieren, einen gebuchten Pro-Tarif zurückstufen. Aus RevenueCat vorher die Zahlen exportieren | die Konsole „Nachladen aus“ zeigt und der Export im Ordner „Abschluss 2027“ liegt |
-| 10 | Do 16.09. | Markenkonten schließen | die Konten nicht mehr aufrufbar sind |
-| 11 | Do 16.09. oder Fr 17.09. | **Gewerbe abmelden** bei der Gemeinde, online oder im Rathaus, mit Ausweis. Als Tag der Aufgabe trägst du das Dienstende ein, wenn das Finanzamt dir nichts anderes geantwortet hat. Ob die Berufsgenossenschaft eine eigene Mitteilung will, prüfst du vor dem Schritt | die Bestätigung der Abmeldung abgelegt ist (0–32,50 €) |
-| 12 | am selben Tag | **Finanzamt:** über Mein ELSTER die Aufgabe des Betriebs mitteilen und ein Elternteil als Empfangsbevollmächtigten benennen (03, Abschnitt 8.4) | die Bestätigung des Finanzamts da ist |
-| 13 | am selben Tag | **Krankenkasse:** Ende des Gewerbes melden. Falls noch offen: schriftlich fragen, ob die Familienversicherung beim Studium in der Schweiz bleibt | die Antwort abgelegt ist |
-| 14 | bis zur letzten Zahlung | **Apple:** Vertrag und Bankkonto offen lassen. Verkäufe aus dem Fiskalmonat August zahlt Apple üblich um Do 30.09., spätestens Di 12.10.; aus September üblich um Do 28.10., spätestens Di 09.11. ([Apple](https://developer.apple.com/help/app-store-connect/getting-paid/overview-of-receiving-payments/)). Etwa 10 % des letzten Monatsumsatzes für Erstattungen zurückhalten | die letzte Zahlung in der Belegtabelle steht |
-| 15 | danach | Domain-Paket kündigen, wenn App und Markenkonten weg sind und die letzte Zahlung da ist. Prepaid-Nummer auslaufen lassen. Finanzberichte von Apple bis Mo 15.11. herunterladen; die Mitgliedschaft endet um Di 14.12.2027 von selbst, weil die Verlängerung seit dem Kauf aus ist | die Kündigungsbestätigung und die Berichte abgelegt sind |
+| 7 | spätestens Mo 23.08. | **Finanzamt:** über Mein ELSTER ein Elternteil als Empfangsbevollmächtigten benennen (03, Abschnitt 8.4). **Krankenkasse:** Ist die Frage noch offen, ob die Familienversicherung beim Studium in der Schweiz bleibt, stellt das Elternteil sie jetzt schriftlich (Vorlage 2.6, Punkt 3) | die Bestätigung des Finanzamts und die Antwort der Kasse bis Fr 17.09. abgelegt sind |
+| 8 | **Mi 15.09.** | **Dienstende.** Vorher in RevenueCat prüfen: kein aktives Abo mehr | die Zahl der aktiven Abos null ist |
+| 9 | Do 16.09. | App aus dem Store entfernen (in App Store Connect bei Preisen und Verfügbarkeit; den genauen Menüweg vor dem Schritt prüfen) | die App im App Store nicht mehr zu finden ist |
+| 10 | Do 16.09. | Claude API: Nachladen aus, Schlüssel der App sperren. Supabase: Zähltabelle löschen, Projekte pausieren, einen gebuchten Pro-Tarif zurückstufen. Aus RevenueCat vorher die Zahlen exportieren | die Konsole „Nachladen aus“ zeigt und der Export im Ordner „Abschluss 2027“ liegt |
+| 11 | Do 16.09. | Markenkonten schließen | die Konten nicht mehr aufrufbar sind |
+| 12 | Do 16.09. oder Fr 17.09. | **Gewerbe abmelden** bei der Gemeinde, online oder im Rathaus, mit Ausweis. Als Tag der Aufgabe trägst du das Dienstende ein, wenn das Finanzamt dir nichts anderes geantwortet hat. Ob die Berufsgenossenschaft eine eigene Mitteilung will, prüfst du vor dem Schritt | die Bestätigung der Abmeldung abgelegt ist (0–32,50 €) |
+| 13 | am selben Tag | **Finanzamt:** über Mein ELSTER die Aufgabe des Betriebs mitteilen | die Sendebestätigung abgelegt ist |
+| 14 | am selben Tag | **Krankenkasse:** Ende des Gewerbes melden. Fehlt die Antwort zur Schweiz aus Schritt 7 noch, fragt das Elternteil nach | die Meldung abgelegt ist |
+| 15 | bis zur letzten Zahlung | **Apple:** Vertrag und Bankkonto offen lassen. Verkäufe aus dem Fiskalmonat August zahlt Apple üblich um Do 30.09., spätestens Di 12.10.; aus September üblich um Do 28.10., spätestens Di 09.11.2027 ([Apple](https://developer.apple.com/help/app-store-connect/getting-paid/overview-of-receiving-payments/)). Etwa 10 % des letzten Monatsumsatzes für Erstattungen zurückhalten | die letzte Zahlung in der Belegtabelle steht |
+| 16 | danach | Domain-Paket kündigen, wenn App und Markenkonten weg sind und die letzte Zahlung da ist. Prepaid-Nummer auslaufen lassen. Finanzberichte von Apple bis Mo 15.11.2027 herunterladen; die Mitgliedschaft endet um Di 14.12.2027 von selbst, weil die Verlängerung seit dem Kauf aus ist | die Kündigungsbestätigung und die Berichte abgelegt sind |
 
 **Hinweistext für die App und die Website**
 
@@ -852,8 +919,12 @@ period. The app works until 15 September 2027. Questions:
   Store-Build nach.
 
 Claude Pro kündigst du, sobald die Zwischensummen für die Anlage EÜR erstellt
-sind und keine App mehr im Review ist: Ziel Sa 07.08., spätestens Di 07.09.
-(03, Abschnitt 7.4).
+sind, keine App mehr im Review ist, jede Übertragung durch ist und das Update
+mit dem Hinweis vom So 15.08. ausgeliefert ist. Bei Abrechnungstag am 8. heißt
+das: kündigen bis Di 07.09. (Laufzeit bis Mi 08.09.). Nur wenn weder Übergabe
+noch Verkauf ansteht und das Hinweis-Update am Fr 06.08. fertig vorbereitet ist
+(Befehl und Schritte in `UEBERGABE.md`), kündigst du schon bis Sa 07.08.
+(Laufzeit bis So 08.08.; Kündigungskalender in 03, Abschnitt 7.4).
 
 ---
 
@@ -884,7 +955,7 @@ Fallstudie für Bewerbungen um ein Praktikum.
 - **Kein Weiterbetrieb von Zürich aus ohne Beratung zu beiden Ländern.** Die
   Befreiung von der Schweizer Krankenversicherung mit der Europäischen
   Krankenversicherungskarte gibt es im Kanton Zürich nur für nicht
-  erwerbstätige Studierende
+  erwerbstätige Studenten
   ([Gesundheitsdirektion Zürich](https://www.zh.ch/content/dam/zhweb/bilder-dokumente/themen/gesundheit/praemienverbilligung-krankenversicherung/allgemeine_informationen_deutsch.pdf)).
   Sie entfällt mit jeder beitragspflichtigen Tätigkeit, auch bei kleinstem
   Verdienst.
@@ -927,8 +998,10 @@ darauf verlasst, lest ihr bei der zuständigen Stelle nach.
 - Das Apple-Konto selbst verkaufen oder verleihen. Übertragen lässt sich nur
   eine einzelne App.
 - Vor einem Verkauf Umsatz mit Werbung oder Rabatten hochziehen und das
-  verschweigen, Kündigungen weglassen, Bewertungen kaufen. Werbung und Rabatte
-  sind erlaubt, wenn sie mit Zeitraum und Betrag im Angebot stehen.
+  verschweigen, Kündigungen weglassen, Bewertungen kaufen. Creator-Videos und
+  Rabatte, die du nach den Regeln des Plans hattest, gehören mit Zeitraum und
+  Betrag ins Angebot. Bezahlte Verstärkung bleibt verboten (Hauptplan,
+  Abschnitt 8).
 - Eine App ohne Umsatz für mehrere tausend Dollar anbieten. Solche Preise
   werden gefordert, nicht gezahlt; die Einstellgebühr ist verloren.
 - Das deutsche Gewerbe behalten, während du in Zürich wohnst.
@@ -938,8 +1011,10 @@ darauf verlasst, lest ihr bei der zuständigen Stelle nach.
   verkaufen.
 
 **Abos**
-- Ein Jahresabo oder „lebenslang“ ohne Nachfolger: Du müsstest zwölf Monate
-  liefern oder erstatten, und wer das Ende schon plant, täuscht die Käufer.
+- Ein Jahresabo oder „lebenslang“, solange du Inhaber bist: Du müsstest zwölf
+  Monate liefern oder erstatten, und wer das Ende schon plant, täuscht die
+  Käufer. Ob ein Nachfolger nach der Übertragung eines anlegt, entscheidet er
+  selbst.
 - Ein Jahresprodukt „vorbereiten“ und mit einreichen: Abonnenten könnten es in
   den iOS-Einstellungen wählen.
 - Ein Monatsabo in einer App, die nach So 04.07. erscheint.
@@ -964,8 +1039,8 @@ darauf verlasst, lest ihr bei der zuständigen Stelle nach.
   geht nicht.
 - **Länger als 3 Monate oder 70 Arbeitstage,** ein zweiter kurzfristiger Job,
   der die Grenze sprengt, oder ein Vertrag als Werkstudent.
-- **Ein Vertrag mit offenem Startdatum** oder ohne Kündigungsklausel. Den Job am
-  Sonntag für Montag absagen.
+- **Ein Vertrag mit offenem Startdatum** oder ohne Kündigungsklausel oder
+  Probezeit. Den Job am Sonntag für Montag absagen.
 - **Im August verlängern,** ohne vorher die Minijob-Zentrale zu fragen.
 - **Eine Pauschalsteuer von 25 % übernehmen.**
 - **Ein Ferienjob in der Schweiz** vor Semesterbeginn: Jedes Einkommen dort hebt
@@ -981,8 +1056,9 @@ Weitere Verbote zu Konten, Steuer und Kosten stehen in 03, Abschnitt 9.
 
 ## 10. Checkliste H ergänzt
 
-Ersetzt Checkliste H des Hauptplans. Die Punkte zu Finanzamt, Unterlagen und
-Erklärungen stehen ausführlich in 03, Abschnitt 10.
+Ergänzt Checkliste H des Hauptplans; deren Punkte bleiben gültig. Die Punkte
+zu Finanzamt, Unterlagen und Erklärungen stehen ausführlich in 03,
+Abschnitt 10.
 
 **Winter und Frühjahr**
 - [ ] **Bewerbungen** (Sa 02.01., spätestens Sa 30.01.) – fertig, wenn drei
@@ -994,28 +1070,34 @@ Erklärungen stehen ausführlich in 03, Abschnitt 10.
       gestellt ist
 - [ ] **Zusage des Elternteils** (bis So 31.01.) – fertig, wenn die Seite
       unterschrieben ist oder „keine Übergabe“ entschieden ist
-- [ ] **Übergabe-Mappe** (ab dem ersten Build, je App) – fertig, wenn
+- [ ] **Übergabe-Mappe** (je App ab dem ersten Build, fertig bis zu ihrer
+      Einreichung; für App 1 geplant bis Di 02.02.) – fertig, wenn
       `UEBERGABE.md` im Repository liegt und der Export jede Woche läuft
-- [ ] **Krankenkasse zum Ferienjob** (vor der Unterschrift) – fertig, wenn die
-      schriftliche Antwort abgelegt ist
-- [ ] **Arbeitsvertrag** (vor der Unterschrift) – fertig, wenn Befristung,
-      Kündigungsklausel oder Probezeit und Stundenlohn drinstehen
-- [ ] **Auslands-BAföG** (Frühjahr, ungeprüft) – fertig, wenn ihr beim
-      Auslandsamt nachgelesen und entschieden habt, ob ihr den Antrag stellt
+- [ ] **Krankenkasse zum Ferienjob** (Anfrage spätestens So 14.03., auch ohne
+      Vertrag) – fertig, wenn die schriftliche Antwort vor der Unterschrift
+      abgelegt ist; sonst 2.2, „Wenn es hakt“
+- [ ] **Arbeitsvertrag** (unterschrieben spätestens Mo 21.06., sonst Rückfall
+      Zeitarbeit) – fertig, wenn Befristung, Kündigungsklausel oder Probezeit
+      und Stundenlohn drinstehen
+- [ ] **Auslands-BAföG** (nach der Antwort der ETH, etwa Anfang März;
+      ungeprüft) – fertig, wenn ihr beim Auslandsamt nachgelesen und
+      entschieden habt, ob ihr den Antrag stellt
 
 **Juni und Juli**
 - [ ] **Rückfall Zeitarbeit** (Mo 21.06.) – fertig, wenn zwei Anfragen raus
       sind; entfällt mit unterschriebenem Vertrag
 - [ ] **Vorentscheidung Jobbeginn** (Fr 25.06.) – fertig, wenn der Arbeitgeber
       das Datum kennt
-- [ ] **Zweite Signalprüfung** (Mo 28.06.) – fertig, wenn MRR und Entscheidung
-      notiert sind; entfällt ohne Start vor Mo 15.03.
+- [ ] **Zweite Signalprüfung** (Mo 28.06. oder Di 29.06.) – fertig, wenn MRR
+      und Entscheidung notiert sind; entfällt ohne Start vor Mo 15.03.
 - [ ] **Abiturzeugnis** (Do 01.07.–Sa 03.07.) – fertig, wenn es in eApply
       hochgeladen, das Original an die ETH abgeschickt und die Kopie beim
       Arbeitgeber ist
-- [ ] **Apple-Konto des Elternteils** (Fr 02.07.) – fertig, wenn Mitgliedschaft,
-      Vertrag, Händlerstatus und Antrag zum Small Business Program stehen;
-      entfällt ohne Zusage oder ohne App mit Einnahmen
+- [ ] **Apple-Konto des Elternteils** (Anmeldung bis Fr 02.07., Genehmigung bis
+      Sa 31.07.) – fertig, wenn Mitgliedschaft, Vertrag, Händlerstatus und die
+      Genehmigung des Small Business Program vorliegen; sonst 4.4, „Wenn der
+      Termin verpasst ist“; entfällt ohne Zusage oder wenn keine App die
+      Schwelle aus 4.4 erreicht
 - [ ] **Stichtag** (So 04.07.) – fertig, wenn Fall A oder Fall B in
       `docs/entscheidungen.md` steht
 - [ ] **Wochenabo-Regel** (ab So 04.07.) – fertig, wenn jede später
@@ -1025,28 +1107,40 @@ Erklärungen stehen ausführlich in 03, Abschnitt 10.
       notiert sind
 - [ ] **Ende der Jagd** (Mo 19.07.) – fertig, wenn der Kündigungskalender einmal
       ganz durchgegangen ist
-- [ ] **Entscheidung je App** (Sa 31.07.) – fertig, wenn Monatsumsatz,
-      Monatsgewinn, Alter und Ausgang je App notiert sind
-- [ ] **Umzugstag** (Sa 31.07.) – fertig, wenn Umzug, Dienstende und
-      Verkaufsstopp im Kalender stehen
+- [ ] **Ferienjob begonnen** (Mo 05.07. oder Mo 19.07.) – fertig, wenn
+      Personalfragebogen und Unterlagen aus 2.7 abgegeben sind
+- [ ] **Apple-Verlängerung** (Mo 19.07.) – fertig, wenn in deiner Mitgliedschaft
+      „automatische Verlängerung aus“ steht
+- [ ] **Entscheidung je App** (Sa 31.07.; für eine App, die erst nach Mo 19.07.
+      erscheint, Sa 07.08.) – fertig, wenn Monatsumsatz, Monatsgewinn, Alter und
+      Ausgang je App notiert sind
+- [ ] **Umzugstag** (Sa 31.07.; bei einem Umzug vor Sa 18.09. bis Mo 19.07.) –
+      fertig, wenn Umzug, Dienstende und Verkaufsstopp im Kalender stehen
 - [ ] **Steuerberater ja oder nein** (Sa 31.07.) – fertig, wenn die Entscheidung
       notiert und bei Ja ein Termin mit Festpreis vereinbart ist
 
 **August**
 - [ ] **Zwischensummen für die Anlage EÜR** (Sa 07.08.) – fertig, wenn die
-      Summen stehen und Claude Pro gekündigt ist (spätestens Di 07.09.)
+      Summen stehen
+- [ ] **Claude Pro gekündigt** (bis Sa 07.08. oder bis Di 07.09., Abschnitt 6,
+      Schluss) – fertig, wenn unter Abrechnung das Enddatum steht
 - [ ] **Hinweis geprobt** (bis Fr 06.08.) – fertig, wenn er im Testbuild
       erscheint; entfällt, wenn jede App einen Nachfolger hat
 - [ ] **Umschalttag** (So 08.08.) – fertig, wenn für jede App im Verkauf
-      feststeht: Treuhandzahlung da, Übergabe oder Einstellen
-- [ ] **Übertragung** (Mo 09.08.–So 15.08.) – fertig, wenn die App im Konto des
-      Elternteils oder Käufers steht, die drei Schlüssel in RevenueCat neu
-      gesetzt sind und Impressum und Datenschutzerklärung den neuen Inhaber
-      nennen
-- [ ] **Verkaufsstopp** (So 15.08.) – fertig, wenn jedes Abo ohne Nachfolger aus
-      dem Verkauf genommen ist und der Hinweis in App und Website steht
+      feststeht: angenommenes Angebot mit Zahlung über die Treuhand (Geld bis
+      So 15.08.), Übergabe oder Einstellen
+- [ ] **Übertragung** (gestartet Mo 09.08.–So 15.08.) – fertig, wenn die App bis
+      Di 17.08. im Konto des Elternteils oder Käufers steht, die drei Schlüssel
+      in RevenueCat neu gesetzt sind und Impressum und Datenschutzerklärung den
+      neuen Inhaber nennen; sonst Verkaufsstopp am Di 17.08. (4.5)
+- [ ] **Verkaufsstopp** (So 15.08.) – fertig, wenn jedes Abo ohne gestartete
+      Übertragung aus dem Verkauf genommen ist und der Hinweis in App und
+      Website steht
 - [ ] **Kontrolle** (Mo 23.08.) – fertig, wenn seit So 15.08. kein Wochenabo
       verlängert wurde
+- [ ] **Empfangsbevollmächtigter und Frage zur Schweiz** (spätestens
+      Mo 23.08.) – fertig, wenn die Benennung beim Finanzamt und die Frage an
+      die Kasse abgeschickt sind
 - [ ] **Treuhandgeld** (bis Mi 25.08., nur bei Verkauf) – fertig, wenn es auf
       deinem Konto ist
 
@@ -1059,12 +1153,14 @@ Erklärungen stehen ausführlich in 03, Abschnitt 10.
 - [ ] **App, Server, Markenkonten** (Do 16.09.) – fertig, wenn die App aus dem
       Store entfernt ist, das Nachladen aus ist, die Zähltabelle gelöscht ist
       und die Markenkonten geschlossen sind
+- [ ] **Prepaid-Nummer, Supabase, EAS** (Do 16.09.) – fertig, wenn bezahlte
+      Tarife zurückgestuft sind und die Nummer nicht mehr aufgeladen wird
 - [ ] **Gewerbeabmeldung** (Do 16.09. oder Fr 17.09.) – fertig, wenn die
       Bestätigung abgelegt ist
-- [ ] **Finanzamt und Krankenkasse** (am selben Tag) – fertig, wenn der
-      Empfangsbevollmächtigte bestätigt ist und die Antwort der Kasse zur
-      Schweiz vorliegt
-- [ ] **Ordner „Abschluss 2027“** (vor dem Umzug) – fertig, wenn er vollständig
+- [ ] **Finanzamt und Krankenkasse** (Do 16.09. oder Fr 17.09.) – fertig, wenn
+      der Empfangsbevollmächtigte bestätigt ist, die Antwort der Kasse zur
+      Schweiz vorliegt und beiden die Aufgabe des Betriebs mitgeteilt ist
+- [ ] **Ordner „Abschluss 2027“** (bis Fr 17.09.) – fertig, wenn er vollständig
       ist und eine Kopie bei deinen Eltern liegt
 - [ ] **Anmeldung in Zürich** (nach dem letzten Arbeitstag und dem Dienstende) –
       fertig, wenn die Aufenthaltsbewilligung binnen 14 Tagen nach der Ankunft
@@ -1079,5 +1175,5 @@ Erklärungen stehen ausführlich in 03, Abschnitt 10.
       vollständig und das Domain-Paket gekündigt ist
 - [ ] **Erklärungen für 2027 mit Anlage N** (Februar oder März 2028) – fertig,
       wenn ELSTER die Abgabe bestätigt
-- [ ] **Erstattung der Lohnsteuer** (Frühjahr 2028) – fertig, wenn sie auf dem
-      Konto ist
+- [ ] **Erstattung der Lohnsteuer** (nach dem Bescheid, voraussichtlich
+      Frühjahr oder Sommer 2028) – fertig, wenn sie auf dem Konto ist

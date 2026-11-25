@@ -11,29 +11,23 @@ Markenkonten in [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md).
 Gewinnchancen und andere Modellzahlen stehen nur in [`07_HEBEL.md`](07_HEBEL.md).
 
 **So liest du das Dokument** (Stand Di 24.11.2026)
-- Alle Beträge sind brutto. „von/typisch/bis“ sind Richtwerte aus Recherche und
-  Gegenprüfung, keine Zusagen.
+- Alle Beträge sind brutto. Bei Euro-Beträgen sind „von/typisch/bis“
+  Richtwerte aus Recherche und Gegenprüfung, keine Zusagen. Die Stunden je
+  Schritt sind Schätzungen; zusammen ergeben sie ~3,5 Stunden am Gründungstag
+  und bei Apple und ~9 Stunden mit allen Nebenschritten von Dezember bis
+  Februar (Abschnitt 5.1).
 - **„Vor dem Schritt prüfen“** heißt: Die Angabe ist nicht belegt. Du siehst an
   der genannten Stelle nach, bevor du handelst.
 - Menünamen von Websites ändern sich. Findest du einen Punkt nicht, lass Claude
   die aktuelle Hilfe-Seite des Anbieters lesen.
 - Das Dokument ersetzt keine Steuer- oder Rechtsberatung.
 - Wird ein Elternteil Inhaber (Abschnitt 2), macht es jeden Schritt, der eine
-  Unterschrift, ein Konto oder eine Zahlung braucht.
+  Unterschrift, ein Konto oder eine Zahlung braucht. Nur dein Claude-Pro-Abo
+  bleibt dein eigenes (Abschnitt 2.2).
 
-**Neue Entscheidungen seit dem Hauptplan** (sie gehen ihm vor):
-
-| Thema | im Hauptplan | jetzt |
-|---|---|---|
-| Namensfrage | Entscheidung im Januar | bis So 13.12. |
-| Apple Developer Program | spätestens bei der Gründung, „99 $“ | in KW 51 als Privatperson, 99 € (Richtwert 99–118 €); die Gewerbeanmeldung bleibt bei M2 |
-| Verlängerung bei Apple | ausschalten, wenn nichts mehr verkauft wird | gleich nach dem Kauf ausschalten |
-| Beratung | Erstberatung beim Steuerberater | kostenlose Gründungsberatung, sonst Fragen schriftlich ans Finanzamt; Steuerberater nur unter Bedingungen (Abschnitt 8) |
-| Supabase | Pro ab dem Start | Free, bis ein Signal da ist oder ein Limit erreicht wird |
-| Claude Pro im Abitur | läuft durch | Ruhezeit, Entscheidung am So 14.03. |
-| Apples Anteil | 30 % oder 15 % | in den EU-Stores 26 % Regelsatz, 15 % im Small Business Program |
-| Ende ohne Nachfolger | Abschluss bis Di 31.08. | Verkaufsstopp So 15.08., Dienstende Mi 15.09. |
-| Rücklage für den Abschluss | ~800 € | 500 € |
+**Stand der Entscheidungen:** Dieses Dokument folgt dem Hauptplan vom 24.11.
+(Abschnitt 1, „Was sich am 24.11. geändert hat“) und ergänzt ihn um die
+einzelnen Schritte.
 
 Inhalt:
 1. [Überblick: was wann fällig ist und was es kostet](#1-überblick-was-wann-fällig-ist-und-was-es-kostet)
@@ -56,22 +50,24 @@ Inhalt:
 | wann | was | Kosten | Abschnitt |
 |---|---|---|---|
 | KW 48 (Mo 23.11.–So 29.11.) | Claude Code läuft (erledigt). Plan-Repository privat (Di 24.11.). Gespräch mit den Eltern, Karte beantragen (Do 26.11.). Projekt-Postfach und Passwortmanager (Sa 28.11.). Claude Max läuft aus, danach Claude Pro monatlich | ~21 € (erste Abbuchung von Pro, um den 27.11.) | 2, 3 |
-| KW 49 (Mo 30.11.–So 06.12.) | Expo-Konto (Mo 30.11.). Am Fr 04.12.: ELSTER-Konto beantragen, Weg der Gewerbeanmeldung deiner Gemeinde nachsehen, bei IHK oder Gewerbeamt nachfragen, Termin der Gründungsberatung anfragen | 0 € | 3, 4, 5 |
+| KW 49 (Mo 30.11.–So 06.12.) | Expo-Konto (Mo 30.11.). Am Fr 04.12.: ELSTER-Konto beantragen, Weg der Gewerbeanmeldung deiner Gemeinde nachsehen, bei IHK oder Gewerbeamt nachfragen, Termin der Gründungsberatung anfragen; soll ein Elternteil Inhaber werden, die Frage 10 ans Finanzamt | 0 € | 2, 3, 4, 5 |
 | KW 50 (Mo 07.12.–So 13.12.) | Supabase mit zwei Organisationen und zwei Projekten (Mo 07.12.). Entscheidung zur Namensfrage (Fr 11.12., Frist So 13.12.). Konto für die Claude API mit Guthaben und Grenze (Sa 12.12.). Bankkonto für die App beantragen | 5–9 € (Guthaben 5–10 $) | 2, 3 |
-| KW 51 (Mo 14.12.–So 20.12.) | Apple Developer Program (Mo 14.12.–Mi 16.12.), Verlängerung gleich aus. RevenueCat-Konto (Di 15.12.). EAS einrichten, Geräte registrieren (Fr 18.12.). Ideen-Tor M0 (So 20.12.) | 99–118 € | 3, 4 |
-| KW 52 bis KW 01 (Mo 21.12.–So 10.01.) | Gründungsberatung (Termin bis Mi 06.01.). Entwürfe fertig machen: Website-Texte, Brief an die Krankenkasse, Zusage des Elternteils. Frühestens am Do 07.01.: M2 und Gründung | ~21 € (Pro, um den 27.12.) | 5 |
-| **M2, typisch um Mo 25.01.** (frühestens Do 07.01.) | **Gründungstag:** Gewerbe anmelden, Fragebogen in ELSTER, Domain-Paket, Prepaid-Nummer, Website online. **Am nächsten Arbeitstag bei Apple:** Vertrag für bezahlte Apps, Bank- und Steuerdaten, Händlerangaben, Small Business Program | 41/101/262 € (Gründung ohne Apple) | 5, 6 |
+| KW 51 (Mo 14.12.–So 20.12.) | Apple Developer Program (Mo 14.12.–Mi 16.12.), Verlängerung gleich aus. RevenueCat-Konto (Sa 19.12. mit AP6; Mo 14.12., wenn du Apple dann nicht kaufst). EAS einrichten, Geräte registrieren (Fr 18.12.). Ideen-Tor M0 (So 20.12.) | 99–118 € | 3, 4 |
+| KW 52 bis KW 01 (Mo 21.12.–So 10.01.) | Gründungsberatung (Termin bis Mi 06.01.; kostet sie Geld oder klärt sie keine Steuerfragen: die Fragen 5 und 8 vor der Gründung telefonisch ans Finanzamt). Entwürfe fertig machen: Website-Texte, Brief an die Krankenkasse, Zusage des Elternteils. Frühestens am Do 07.01.: M2 und Gründung | ~21 € (Pro, um den 27.12.) | 5 |
+| **M2, typisch Mitte bis Ende Januar** (frühestens Do 07.01.; in Schulwochen am Samstag, z. B. Sa 30.01.; in Q4 auf zwei Samstage verteilt) | **Gründungstag:** Gewerbe anmelden, Fragebogen in ELSTER, Domain-Paket, Prepaid-Nummer, Website online. **Am nächsten Arbeitstag bei Apple:** Vertrag für bezahlte Apps, Bank- und Steuerdaten, Händlerangaben, Small Business Program | 41/101/262 € (Gründung ohne Apple) | 5, 6 |
 | bis 7 Tage nach der Gewerbeanmeldung | Berufsgenossenschaft, Brief an die Krankenkasse, Verträge zur Auftragsverarbeitung | 0 € | 5 |
 | in den Wochen danach | IHK-Schreiben beantworten. Sobald die Steuernummer da ist: Anfrage ans Finanzamt zu § 13b | 0 € | 5 |
 | So 31.01. | Schriftliche Zusage des Elternteils liegt vor, oder ihr habt bewusst darauf verzichtet | 0 € | 2 |
 | Sa 30.01. und Sa 27.02. | Stichtage für das Small Business Program bei einem Start vor Mo 15.03. | – | 6 |
 | Mo 01.03. | Ist M2 bis heute nicht erreicht, gründest du erst am Tag nach deiner letzten Prüfung | – | 5 |
-| **So 14.03.** | Entscheidung zur Ruhezeit: Claude Pro kündigen oder weiterlaufen lassen. Ist eine App mit zahlenden Abonnenten im Store: Supabase Pro für die Abiturmonate | 0 € oder ~27 € je Monat | 7 |
+| **So 14.03.** | Entscheidung zur Ruhezeit: Claude Pro kündigen oder weiterlaufen lassen. Ist eine App im Store oder im Review: Supabase Pro für die Abiturmonate | 0 € oder ~27 € je Monat | 7 |
 | Sa 01.05. | Bis heute muss das Small Business Program genehmigt sein, damit 15 % ab Mo 17.05. gelten (Start gleich nach dem Abitur) | – | 6 |
 | Tag nach der letzten Prüfung (z. B. Di 08.06.) | Claude Pro neu buchen. Falls noch nicht gegründet: jetzt gründen | ~21 € | 5, 7 |
-| bis Fr 02.07. | Nur mit Zusage und einer App, die übergeben werden soll: Das Elternteil meldet sein eigenes Apple-Konto an | 99 € und 20–65 € (wer zahlt, steht in der Zusage) | 2 |
+| bis Fr 02.07. | Nur mit Zusage und ~100 $ MRR am Do 01.07.: Das Elternteil meldet Gewerbe und eigenes Apple-Konto an ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.4) | 99 € und 20–65 € (wer zahlt, steht in der Zusage) | 2 |
+| **So 04.07.** | Stichtag: Ist keine App im Store, beginnt am Mo 05.07. der Ferienjob. Ist auch keine eingereicht, gehst du am Mo 05.07. den Kündigungskalender durch wie am Ende der Jagd (Abschnitt 7.4) und meldest ein schon angemeldetes Gewerbe ab (Finanzamt und Krankenkasse informieren) | 0–32,50 € | 7, 8 |
 | So 18.07. und Mo 19.07. | Tor 1. Endet die Jagd, kündigst du am Mo 19.07. alles, was Betrieb und Abschluss nicht brauchen | – | 7 |
-| Sa 31.07. | Prüfen: Gibt es Einnahmen, oder stehen Verzicht, Verkauf, Übergabe oder Fortführung an? Nur dann eine bezahlte Einzelstunde beim Steuerberater | 0 € oder Festpreis | 8 |
+| Sa 31.07. | Entscheidung je App: einstellen, übergeben oder verkaufen (für eine App, die erst nach Mo 19.07. erscheint, bis Sa 07.08.; [06](06_SOMMER_UND_ABSCHLUSS.md)). Prüfen: Gibt es Einnahmen, oder stehen Verzicht, Verkauf, Übergabe oder Fortführung an? Nur dann eine bezahlte Einzelstunde beim Steuerberater | 0 € oder Festpreis | 8 |
+| So 08.08. und Mo 09.08. | Umschalttag: Liegt für eine App im Verkauf kein Angebot mit Treuhandzahlung vor, gilt die Übergabe oder das Einstellen. Ab Mo 09.08. Übertragung an das Elternteil, gestartet bis So 15.08. ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.5) | – | 8 |
 | **So 15.08.** | Ohne Nachfolger: alle Abos aus dem Verkauf nehmen | 0 € | 8 |
 | **Mi 15.09.** | Dienstende. Danach App entfernen, Server und Nachladen aus, Gewerbe abmelden, Krankenkasse und Finanzamt informieren, alles vor dem Umzug | 0–32,50 € | 8 |
 | bis Di 12.10.2027, spätestens Di 09.11.2027 | Letzte Zahlungen von Apple gehen ein. Bankkonto so lange offen lassen | – | 8 |
@@ -119,7 +115,7 @@ ist schon bezahlt und nicht mitgezählt.
 
 | Posten | Bedingung | Betrag |
 |---|---|---|
-| ein Monat Claude Max statt Pro | nur wenn das Pro-Limit in der ersten Ferienwoche an mindestens zwei Tagen die Arbeit stoppt | +85–95 € (Schätzung, der Euro-Preis ist nicht belegt) |
+| ein Monat Claude Max statt Pro | nur wenn das Pro-Limit in den ersten sieben Ferientagen (Mi 23.12.–Di 29.12.) an mindestens zwei Arbeitstagen die Arbeit stoppt | +85–95 € (Schätzung, der Euro-Preis ist nicht belegt) |
 | Creator | nur nach bestandener Signalprüfung | für alle Apps zusammen bis So 18.07. höchstens 750 € |
 | Verkaufsangebot auf einem Marktplatz | nur ab 300 $ Monatsumsatz und 8 Wochen im Store | Einstellgebühr ab 29 USD (Preisseite vorher lesen), dazu eine Erfolgsgebühr vom Erlös |
 | Apple-Konto und Gewerbe des Elternteils | nur bei einer Übergabe | ~120–165 € |
@@ -135,9 +131,14 @@ Mi 15.09. und **500 €** für den Abschluss noch gedeckt? Wenn nein, gibst du d
 Geld nicht aus. Die übrigen Geldregeln (kein Kredit, Geld für Zürich getrennt)
 stehen im Hauptplan, Abschnitt 4.
 
-**Wenn das Ideen-Tor nicht bestanden wird** (So 20.12., spätestens Mo 28.12.):
-kein Apple-Konto, keine Gründung. Ausgegeben sind dann rund 30–50 € für Claude
-Pro und das API-Guthaben.
+**Wenn das Ideen-Tor nicht bestanden wird** (Sa 19.12./So 20.12., spätestens
+Mo 28.12.): keine Gründung und kein Apple-Konto, solange keine Idee der zweiten
+Runde besteht (Entscheidung bis Sa 09.01., [04](04_IDEENWAHL.md),
+Abschnitt 7). Besteht auch dann keine, gründest du nicht vor dem Abitur. Bis
+dahin sind rund 30 € (bis 20.12.) bis 50 € (bis 28.12.) für Claude Pro und das
+API-Guthaben ausgegeben. Hast du das Apple-Konto nach dem Zwischenstand am
+Sa 12.12. schon gekauft, kommen 99–118 € dazu; es gilt zwölf Monate und bleibt
+für die nächste Runde.
 
 ---
 
@@ -154,6 +155,10 @@ Abschnitt 3; hier steht nur, was du für die Entscheidung brauchst.
 | Fr 11.12. | Entscheidung: Wer ist Inhaber? Darf die Anschrift der Eltern ins Impressum? | 1 h | in `docs/entscheidungen.md` Datum, Inhaber und Anschrift stehen und das betroffene Elternteil es gelesen hat |
 | So 13.12. | Frist | – | – |
 | bis So 31.01. | schriftliche Zusage für eine mögliche Übergabe (Abschnitt 2.3) | 1 h | die Seite unterschrieben bei deinen Unterlagen liegt, oder in `docs/entscheidungen.md` „keine Übergabe“ steht |
+
+Darf die Anschrift deiner Eltern nicht ins Impressum, gibt es keine
+Veröffentlichung: Dann gilt der dritte Weg (Lernprojekt, Abschnitt 2.2), und
+du kaufst kein Apple-Konto.
 
 Habt ihr am So 13.12. nicht entschieden, wartet die Apple-Anmeldung, und die
 Pakete AP7–AP9 rutschen in den Januar. Melde dich nicht „vorläufig“ selbst an:
@@ -177,30 +182,34 @@ Der Verkäufername hängt am Konto.
 |---|---|---|
 | Wessen Name wird öffentlich? | dein voller Name | sein voller Name; bei gleichem Nachnamen und gleicher Anschrift bleibt vor allem dein Vorname verborgen |
 | Wem gehören App und Gewinn, wer haftet? | dir; du haftest unbeschränkt | dem Elternteil; es haftet unbeschränkt und versteuert den Gewinn mit seinem Steuersatz |
-| Auf wen laufen Verträge und Rechnungen? | auf dich | von Anfang an auf das Elternteil und sein Konto: Apple, Claude, Claude API, Server, Domain |
+| Auf wen laufen Verträge und Rechnungen? | auf dich | von Anfang an auf das Elternteil und sein Konto: Apple, Claude API, Server, Domain. Dein Claude-Pro-Abo bleibt dein eigenes Konto (nie teilen); wer es bezahlt, schreibt ihr auf. Ob das Elternteil diese Kosten tragen und absetzen kann, gehört zu Frage 10 (Abschnitt 5, Schritt 1) |
 | Familienversicherung | die Grenze von ~590 € Gewinn im Monat gilt für dich | betrifft dich nicht; das Elternteil prüft seine eigene Lage |
 | Technik | du machst alles selbst | Geräte registrieren und Zertifikate für EAS gehen nur mit seiner Anmeldung und seinem Zwei-Faktor-Code. Prüft vorher, ob ein API-Schlüssel des Elternteils für EAS das ersetzt |
-| Umzug im September | Verkaufsstopp So 15.08., Dienstende Mi 15.09., Abmeldung | kein Stichtag durch den Umzug; die App kann beim Elternteil weiterlaufen. Du arbeitest von Zürich aus nicht gegen Geld mit |
-| Steuererklärung | du, einmal für 2027 | das Elternteil, jedes Jahr mit Anlage G und Anlage EÜR, solange die App läuft; später die Abmeldung |
+| Umzug im September | Verkaufsstopp So 15.08., Dienstende Mi 15.09., Abmeldung | kein Stichtag durch den Umzug; die App kann beim Elternteil weiterlaufen. Du arbeitest von Zürich aus nicht mit. Ob auch gelegentliche unbezahlte Hilfe als Erwerbstätigkeit zählt, ist nicht geklärt: vorher die SVA Zürich schriftlich fragen ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.7) |
+| Steuererklärung | du, einmal für 2027 | das Elternteil, jedes Jahr mit Anlage G, Anlage EÜR und der Umsatzsteuererklärung für § 13b, solange die App läuft; später die Abmeldung |
 | Zeit des Elternteils | Zustimmung zur Anschrift | ~4 h zur Gründung, danach 1–2 h je Monat |
 
 **Regel:** Der Normalfall bist du. Ein Elternteil wird nur Inhaber, wenn alle
 vier Punkte stimmen:
 1. Es will das Geschäft wirklich führen: Es entscheidet mit, trägt das Risiko
-   und zahlt die Rechnungen. Du arbeitest unentgeltlich mit.
+   und zahlt die Rechnungen. Du arbeitest unentgeltlich mit. Seine
+   Entscheidungen hält es kurz in `docs/entscheidungen.md` fest.
 2. Sein Arbeitgeber weiß Bescheid, falls der Arbeitsvertrag das verlangt. Als
    Beamter braucht es eine Genehmigung.
-3. Kein Hindernis in seiner eigenen Lage: eigene Familienversicherung,
-   Arbeitslosengeld, Elterngeld oder ein schon bestehendes Kleinunternehmen
-   (die Kleinunternehmerregelung gilt je Person für alle Tätigkeiten zusammen).
+3. Kein Hindernis in seiner eigenen Lage: eigene Familienversicherung oder
+   freiwillige gesetzliche Versicherung, Arbeitslosengeld, Elterngeld oder ein
+   schon bestehendes Kleinunternehmen (die Kleinunternehmerregelung gilt je
+   Person für alle Tätigkeiten zusammen).
 4. Es ist bereit, bei Apple-Schritten mit seinem Code zu helfen und die
    jährliche Steuererklärung zu machen.
 
 Die Steuer ist kein Grund für diese Variante. Der Gedanke „das Elternteil setzt
 den Anlaufverlust ab“ hat die Gegenprüfung nicht bestanden: Führst in Wahrheit
 du das Geschäft, ist es ein Strohmann, und das Finanzamt kann den Verlust
-streichen. Wollt ihr die Variante trotzdem, stellt in der Beratung
-(Abschnitt 5, Schritt 1) wörtlich die Frage 10.
+streichen. Wollt ihr die Variante trotzdem, stellt ihr die Frage 10
+(Abschnitt 5, Schritt 1) schon am Fr 04.12. dem Finanzamt, telefonisch mit
+Name und Datum notiert oder schriftlich. Die Gründungsberatung käme dafür zu
+spät. Liegt bis Fr 11.12. keine klare Antwort vor, bist du Inhaber.
 
 Der dritte Weg aus dem Hauptplan bleibt: App 1 als Lernprojekt bauen und gar
 nicht veröffentlichen. Dann gibt es weder Apple-Konto noch Gründung.
@@ -208,9 +217,11 @@ nicht veröffentlichen. Dann gibt es weder Apple-Konto noch Gründung.
 ### 2.3 Schriftliche Zusage für eine mögliche Übergabe
 
 Bist du Inhaber, endet dein Geschäft vor dem Umzug. Eine App, die dann Geld
-verdient, kann nur ein Elternteil weiterführen. Ob das klappt, hängt fast nur
-daran, ob es vorher zugesagt hat. Deshalb schreibt ihr bis So 31.01. eine Seite.
-Claude entwirft sie, ihr ändert und unterschreibt beide.
+verdient, kann nur ein Käufer oder ein Elternteil weiterführen. Ein Verkauf
+kommt erst ab 300 $ Monatsumsatz und 8 Wochen im Store in Frage. Ob die
+Übergabe klappt, hängt fast nur daran, ob das Elternteil vorher zugesagt hat.
+Deshalb schreibt ihr bis So 31.01. eine Seite. Claude entwirft sie, ihr ändert
+und unterschreibt beide.
 
 Inhalt der Seite:
 1. **Wer und wann:** Name des Elternteils, Datum, beide Unterschriften.
@@ -221,17 +232,25 @@ Inhalt der Seite:
    zusammen rund 120–165 €.
 4. **Wie viel Zeit:** einmalig 6–10 Stunden, danach 1–3 Stunden je Monat
    (Support-Postfach, Zahlen, Vertragsänderungen bei Apple annehmen), dazu
-   einmal im Jahr Anlage G und Anlage EÜR.
+   einmal im Jahr Anlage G, Anlage EÜR und die Umsatzsteuererklärung für
+   § 13b.
 5. **Was es bedeutet:** Die Übergabe ist eine echte Schenkung ohne vereinbarte
    Gewinnbeteiligung. Das Elternteil wird Unternehmer mit eigenem Namen im App
    Store, eigenem Impressum, Gewerbe und Steuer und haftet unbeschränkt. Für
    Schenkungen vom Kind an ein Elternteil gilt ein Freibetrag von 20.000 €.
-6. **Hindernisse geprüft:** die vier Punkte aus Abschnitt 2.2, jeder mit Datum
-   abgehakt.
-7. **Termine:** Bis Fr 02.07. meldet das Elternteil sein eigenes Apple-Konto an
-   und erledigt dort Vertrag für bezahlte Apps, Bank- und Steuerdaten,
-   Händlerangaben und Small Business Program. Nur dann gilt der niedrige Satz,
-   wenn im August übertragen wird (Abschnitt 6.2).
+6. **Hindernisse geprüft:** die Punkte aus
+   [06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.2 (Arbeitgeber oder
+   Dienstherr, eigene Versicherung einschließlich freiwilliger gesetzlicher
+   Versicherung, Arbeitslosengeld oder Elterngeld, bestehendes
+   Kleinunternehmen, Öffentlichkeit und Haftung, Steuer, Zeit), jeder mit
+   Datum abgehakt.
+7. **Termine:** Liegt die Zusage vor und zeigt am Do 01.07. eine App
+   mindestens ~100 $ MRR ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.4),
+   meldet das Elternteil bis Fr 02.07. zuerst sein Gewerbe an (mit Fragebogen
+   in ELSTER) und dann sein eigenes Apple-Konto. Vertrag für bezahlte Apps,
+   Bank- und Steuerdaten, Händlerangaben und Small Business Program folgen,
+   sobald das Konto aktiv ist. Nur wenn das Programm bis Sa 31.07. genehmigt
+   ist, gilt der niedrige Satz ab Mo 16.08. (Abschnitt 6.2).
 8. **Rücktritt:** Die Seite ist eine Absichtserklärung. Sagt das Elternteil vor
    der Übertragung nein, gilt der Plan ohne Nachfolger (Verkaufsstopp
    So 15.08.).
@@ -247,16 +266,22 @@ Bedingungen
 
 **Regeln für alle Konten**
 - **Eine Login-Adresse:** das Projekt-Postfach vom Sa 28.11. (neutraler Name bei
-  einem E-Mail-Anbieter). Ausnahmen sind die Konten, die du schon hast: dein
-  Claude-Abo und GitHub. Die Adresse `support@…` auf der eigenen Domain kommt
+  einem E-Mail-Anbieter). Ausnahmen: dein Claude-Abo und GitHub (die hast du
+  schon), ELSTER (deine private Adresse; das Konto dient auch deiner privaten
+  Steuererklärung und läuft bis 2028) und das Apple Developer Program
+  (Apple-ID des Inhabers). Die Adresse `support@…` auf der eigenen Domain kommt
   erst bei der Gründung und ist nur für Kunden, Impressum und Händlerangaben
   da. Login-Adressen wechselst du später nicht.
 - **Nicht „Mit GitHub anmelden“ oder „Mit Google anmelden“.** Jedes Konto
   bekommt ein eigenes langes Passwort aus dem Passwortmanager.
-- **Zwei-Faktor-Anmeldung überall,** mit einer Authenticator-App, nicht per SMS
-  an die Prepaid-Nummer (die kann verfallen). Die Wiederherstellungscodes
-  druckst du aus und legst sie zu deinen Unterlagen. Zuerst sicherst du das
-  Projekt-Postfach selbst.
+- **Zwei-Faktor-Anmeldung überall,** wo der Dienst sie anbietet, mit einer
+  Authenticator-App, nie per SMS an die Prepaid-Nummer (die kann verfallen).
+  Ob es die Authenticator-App gibt, prüfst du beim Anlegen. Ausnahmen: Die
+  Apple-ID nutzt Apples Zwei-Faktor-Anmeldung mit den Geräten des Inhabers
+  (vertrauenswürdige Nummer: seine eigene Handynummer, nicht die
+  Prepaid-Nummer), ELSTER die Zertifikatsdatei oder den Ausweis. Die
+  Wiederherstellungscodes druckst du aus und legst sie zu deinen Unterlagen.
+  Zuerst sicherst du das Projekt-Postfach selbst.
 - **Neutrale Namen:** Benutzer-, Organisations- und Projektnamen enthalten
   weder deinen Namen noch deinen Wohnort.
 - **Kein Zahlungsmittel hinterlegen,** wo der Gratis-Tarif keins verlangt
@@ -265,21 +290,28 @@ Bedingungen
   Login-Adresse, Art der Zwei-Faktor-Anmeldung, Tarif, Abbuchungstag und
   Kündigungsweg. Keine Passwörter, keine Schlüssel.
 
-| Nr. | Konto | wann (laut [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md)) | Login-Adresse | Kosten | fertig, wenn … |
+| Nr. | Konto | wann (laut [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) und [04](04_IDEENWAHL.md)) | Login-Adresse | Kosten | fertig, wenn … |
 |---|---|---|---|---|---|
-| 1 | Projekt-Postfach, Passwortmanager | Sa 28.11. | – | 0 € | du dich mit Zwei-Faktor-Anmeldung anmeldest und eine Test-Mail ankommt |
+| 1 | Projekt-Postfach, Passwortmanager | Sa 28.11. | – | 0 € | du dich mit Zwei-Faktor-Anmeldung anmeldest, eine Test-Mail ankommt und die Wiederherstellungscodes ausgedruckt sind |
 | 2 | Claude (Abo) | KW 48 | deine bisherige | ~21 € im Monat | unter Abrechnung „Pro“ mit monatlicher Zahlung steht |
-| 3 | GitHub | Di 24.11. und Fr 27.11. | deine bisherige | 0 € | alle Repositories „Private“ zeigen und die Zwei-Faktor-Anmeldung an ist |
-| 4 | Expo mit EAS | Mo 30.11., EAS am Fr 18.12. | Projekt-Postfach | 0 € | `eas whoami` deinen neutralen Benutzernamen zeigt |
+| 3 | GitHub | Di 24.11. und Fr 27.11. | deine bisherige | 0 € | alle Repositories „Private“ zeigen, die Zwei-Faktor-Anmeldung an ist und „Keep my email addresses private“ eingeschaltet ist |
+| 4 | Expo mit EAS | Mo 30.11., EAS am Fr 18.12. | Projekt-Postfach | 0 € | du dich auf expo.dev mit dem Projekt-Postfach anmeldest und dort dein neutraler Benutzername steht (am Fr 18.12. nach `eas login` zusätzlich `eas whoami`) |
 | 5 | ELSTER | Fr 04.12. | deine private Adresse (du brauchst das Konto noch 2028) | 0 € | du dich in Mein ELSTER anmelden kannst und der Zugang gesichert ist (Zertifikatsdatei mit Passwort oder Ausweis mit PIN) |
 | 6 | Supabase | Mo 07.12. | Projekt-Postfach | 0 € | zwei Organisationen mit je einem Projekt in einer EU-Region stehen, beide im Free-Tarif |
-| 7 | Claude API (Konsole) | Sa 12.12. | Projekt-Postfach | 5–10 $ Guthaben | Guthaben da ist, das Nachladen aus ist und eine Grenze von höchstens 50 $ steht |
+| 7 | Claude API (Konsole) | Sa 12.12. | Projekt-Postfach | 5–10 $ Guthaben | Guthaben da ist, das Nachladen aus ist und eine Grenze von höchstens 50 $ steht (gibt es keine: in `docs/konten.md` vermerkt) |
 | 8 | Apple Developer Program | Mo 14.12.–Mi 16.12. | Apple-ID des Inhabers | 99–118 € | siehe Abschnitt 4 |
-| 9 | RevenueCat | Di 15.12. | Projekt-Postfach | 0 € | Projekt, Entitlement und Offering im Dashboard stehen (AP6) |
+| 9 | RevenueCat | Sa 19.12. mit AP6 (Mo 14.12., wenn du Apple dann nicht kaufst) | Projekt-Postfach | 0 € | Projekt, Entitlement und Offering im Dashboard stehen (AP6) |
 | 10 | Bankkonto für die App | bis Do 31.12. | – | 0 € | siehe Abschnitt 5, Schritt 2 |
 
-Jedes Konto dauert 10–20 Minuten. Die Zeit dafür ist in
-[01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) schon eingeplant, außer für das Bankkonto.
+Die Konten 1–7 und 9 dauern je etwa 10–20 Minuten (Schätzung), das
+Apple-Konto 0,5–1,5 Stunden (Abschnitt 4.2), das Bankkonto 0,5–1,5 Stunden
+(Abschnitt 5.1). In [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) eingeplant sind die
+Konten 1–3 und 5–9; das Expo-Konto legst du am Mo 30.11. in der Stunde für
+AP1 an. Nicht eingeplant sind Bankkonto, Gründungsberatung und die Zusage des
+Elternteils (zusammen ~4 Stunden, Schätzung); den Brief an die Krankenkasse
+plant 01 am Do 14.01. Diese Stunden zählen in deine Wochenstunden, und die
+Bau-Pakete rutschen entsprechend ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md),
+Abschnitt 1).
 
 **Claude (Abo)**
 - Auf claude.ai unter Einstellungen → Abrechnung nachsehen, wann Max endet. Max
@@ -340,7 +372,14 @@ Jedes Konto dauert 10–20 Minuten. Die Zeit dafür ist in
   erstattet, deshalb klein kaufen.
 - Ausgabengrenze: höchstens 50 $ im Monat. Ob die Konsole eine Monatsgrenze je
   Arbeitsbereich und eine Warn-Mail bei niedrigem Stand anbietet, ist nicht
-  belegt: vor dem Schritt unter „Limits“ und „Billing“ nachsehen.
+  belegt: vor dem Schritt unter „Limits“ und „Billing“ nachsehen. Gibt es
+  keine Monatsgrenze, bleibt das automatische Nachladen auch nach dem Start
+  aus. Dann lädst du bei der Kassenprüfung am Sonntag von Hand so viel nach,
+  dass das Guthaben mindestens den Wert aus dem Hauptplan, Abschnitt 7,
+  erreicht (aktive Nutzer × 0,03 $, vorsichtig × 0,18 $, davon das
+  Dreifache), und vor Wochen ohne Kassenprüfung (Abschnitt 7.3) so viel, dass
+  es bis zur nächsten reicht. Die Tagesgrenze je Abonnent begrenzt den
+  Verbrauch. Vor dem Start ist das Guthaben ohne Nachladen selbst die Grenze.
 - Schlüssel erzeugen und sofort als Geheimnis im Supabase-Testprojekt
   hinterlegen (AP5). Er steht nie in der App und nie im Repository.
 - Modell `claude-haiku-5-5`: 0,10 $ je Million Eingabe-Token, 0,50 $ je Million
@@ -350,8 +389,9 @@ Jedes Konto dauert 10–20 Minuten. Die Zeit dafür ist in
   mindestens 60 Tage vorher per E-Mail
   ([Abschaltdaten](https://platform.claude.com/docs/en/about-claude/model-deprecations)).
 - **Ab dem Start:** Nachladen an, mit kleinem Betrag, und eine Monatsgrenze von
-  25–50 $. In der Server-Funktion gilt die Tagesgrenze je Abonnent (30–50
-  Antworten). **Nach dem Dienstende:** Nachladen wieder aus.
+  25–50 $ (ohne Monatsgrenze: siehe oben). In der Server-Funktion gilt die
+  Tagesgrenze je Abonnent (30–50 Antworten). **Nach dem Dienstende:** Nachladen
+  wieder aus.
 
 **RevenueCat**
 - Konto mit dem Projekt-Postfach. Kostenlos bis 2.500 $ erfasstem Monatsumsatz,
@@ -383,11 +423,11 @@ wird vor der Gründung nichts.
 | Voraussetzung | erfüllt, wenn … |
 |---|---|
 | Namensfrage entschieden | in `docs/entscheidungen.md` steht, wer Inhaber ist (Frist So 13.12.) |
-| Ideen-Tor absehbar bestanden | beim Zwischenstand am Sa 12.12. mindestens eine Idee alle Mindestwerte mit den bisher gemessenen Werten erfüllt ([04](04_IDEENWAHL.md), Abschnitt 7). Sonst wartest du bis nach dem Ideen-Tor (So 20.12., spätestens Mo 28.12.). Besteht keine Idee, kaufst du kein Apple-Konto |
+| Ideen-Tor absehbar bestanden | beim Zwischenstand am Sa 12.12. mindestens eine Idee alle Mindestwerte mit den bisher gemessenen Werten erfüllt ([04](04_IDEENWAHL.md), Abschnitt 7). Sonst wartest du bis nach dem Ideen-Tor (So 20.12., spätestens Mo 28.12.). Besteht keine Idee, kaufst du kein Apple-Konto, bis eine Idee besteht (zweite Runde mit Entscheidung bis Sa 09.01., [04](04_IDEENWAHL.md), Abschnitt 7) |
 | volljährig, eigener Name | der Inhaber ist 18 oder älter und meldet sich mit seinem Namen genau wie im Ausweis an |
 | Apple-ID mit Zwei-Faktor-Anmeldung | auf dem iPhone unter Einstellungen → [Name] → „Anmelden & Sicherheit“ die Zwei-Faktor-Authentifizierung an ist |
 | Zahlungsweg | du meldest dich in der Apple-Developer-App an (Zahlung über die Apple-ID) oder zahlst mit deiner **eigenen** Kreditkarte; mit einer fremden Karte drohen Verzögerung und Ausweiskopie |
-| Nachfrage erledigt | IHK oder Gewerbeamt haben dir am Fr 04.12. gesagt, dass Mitgliedschaft und Tests ohne Verkauf vor der Gewerbeanmeldung unbedenklich sind, und du hast Name und Datum notiert. Sagen sie etwas anderes, wartet die Apple-Anmeldung bis zur Gründung |
+| Nachfrage erledigt | IHK oder Gewerbeamt haben dir bis So 13.12. (gefragt am Fr 04.12.) bestätigt, dass Mitgliedschaft und Tests ohne Verkauf vor der Gewerbeanmeldung unbedenklich sind, und du hast Name und Datum notiert. Fehlt die Antwort am Mo 14.12., rufst du an; ohne Antwort kaufst du erst nach dem Ideen-Tor. Sagen sie etwas anderes, wartet die Apple-Anmeldung bis zur Gründung |
 
 ### 4.2 Schritte
 
@@ -401,7 +441,7 @@ die Anmeldung; die Namen der Knöpfe hat die Recherche nicht geprüft.
 | 3 | Art der Mitgliedschaft: **Einzelperson**, nicht Organisation. Eine D-U-N-S-Nummer brauchst du nicht | „Einzelperson“ gewählt ist |
 | 4 | Lizenzvertrag lesen und annehmen. Claude erklärt dir Stellen, die du nicht verstehst; annehmen musst du selbst | der Vertrag angenommen ist |
 | 5 | Preis ansehen und kaufen. Apple nennt 99 USD oder den Betrag in Landeswährung; er wird vor dem Kauf angezeigt | die Kaufbestätigung als PDF in deinem Belege-Ordner liegt |
-| 6 | Automatische Verlängerung ausschalten (Abschnitt 4.4) | bei der Mitgliedschaft „läuft ab am …“ steht |
+| 6 | Automatische Verlängerung ausschalten (Abschnitt 4.4): beim Kauf in der App gleich danach, beim Kauf über die Website am Tag der Bestätigung (nach Schritt 7) | bei der Mitgliedschaft „läuft ab am …“ steht |
 | 7 | Auf die Bestätigung der Mitgliedschaft warten | developer.apple.com unter „Account“ die aktive Mitgliedschaft zeigt |
 | 8 | Geräte registrieren und Probe-Build (Abschnitt 4.5) | StickerSmash als Entwicklungs-Build auf dem iPhone startet |
 
@@ -465,7 +505,16 @@ Gewerbeanmeldung (Abschnitte 5 und 6).
 
 **Wann:** an dem Tag, an dem M2 erreicht ist (Kriterien im Hauptplan, KW 01, und
 in [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md), Abschnitt 11). Frühestens Do 07.01.,
-typisch um Mo 25.01. In Schulwochen ist der Gründungstag der Samstag danach.
+typisch Mitte bis Ende Januar.
+- **An einem Ferientag mit 7 Stunden** (z. B. Do 07.01.) passen die
+  Schritte 3–7 an einen Tag, wie in 01.
+- **In Schulwochen** ist der Gründungstag der Samstag, an dem M2 erreicht ist,
+  oder der nächste Samstag (5 Stunden). Dann machst du die Schritte 3–6
+  (typisch 2,5 Stunden) und lädst die fertigen Website-Entwürfe hoch; was an
+  der Website fehlt, folgt an den nächsten Tagen innerhalb deiner
+  Wochenstunden.
+- **In Q4 und in Klausurwochen** (Samstag höchstens 3 Stunden) verteilst du
+  die Schritte 3–7 auf zwei Samstage (Hauptplan, Abschnitt 12, KW 06–10).
 
 **Später Fall:** Erreichst du M2 erst nach Mo 01.03., gründest du nicht mehr vor
 dem Abitur. Bis Mo 15.03. würde bei Apple nichts mehr fertig, und in der
@@ -487,7 +536,7 @@ und Testen davor ist Vorbereitung.
 | 4 | Fragebogen zur steuerlichen Erfassung | Gründungstag (Frist: ein Monat) | 1/1,25/2 | 0 € |
 | 5 | Domain, Postfach, Webspace | Gründungstag | 0,3/0,5/1 | 2–5 € je Monat |
 | 6 | Prepaid-Nummer | Gründungstag | 0,2/0,25/0,7 | 0–15 € |
-| 7 | Website mit Impressum und Datenschutz | Gründungstag | 2/4/7 (zählt als AP18 zum Bauplan) | 0 € |
+| 7 | Website mit Impressum und Datenschutz | Entwurf vorher, online am Gründungstag | 2/4/7 (zählt als AP18 zum Bauplan) | 0 € |
 | 8 | Apple: Vertrag, Bank, Steuer, Händlerangaben, Small Business Program | am nächsten Arbeitstag | 0,7/1/2 | 0 € |
 | 9 | Berufsgenossenschaft | binnen 7 Tagen | 0,2/0,3/0,5 | 0 € |
 | 10 | Meldung an die Krankenkasse | binnen 7 Tagen | 0,5/1/1,5 | Porto |
@@ -497,16 +546,17 @@ und Testen davor ist Vorbereitung.
 | 14 | Markenkonten | am Gründungstag oder in der Woche der Einreichung | siehe [05](05_START_UND_MARKETING.md) | 0 € |
 
 Die Schritte 3–6 dauern typisch 2,5 Stunden, Schritt 8 eine Stunde. Hauptplan
-und Bauplan nennen dafür mit Puffer ~4–5 Stunden. Die Schritte 9–13 verteilen
-sich auf die Wochen danach (~2,5 Stunden), die Schritte 1 und 2 liegen davor
-(~3 Stunden). Zusammen sind es ohne die Website rund 9 Stunden von Dezember
-bis Februar. Alles zählt in deine Wochenstunden.
+(~4 h) und Bauplan (~4–5 h) rechnen dafür mit Puffer. Die Schritte 9–13
+verteilen sich auf die Wochen danach (~2,5 Stunden), die Schritte 1 und 2
+liegen davor (~3 Stunden). Zusammen sind es ohne die Website rund 9 Stunden
+von Dezember bis Februar. Alles zählt in deine Wochenstunden.
 
 **Was vor M2 schon fertig liegt** (alles ohne Gewerbe erlaubt): ELSTER-Zugang,
-Bankkonto, Antworten aus der Beratung, Website-Texte als Entwurf, Brief an die
-Krankenkasse als Entwurf, Store-Texte in beiden Sprachen, Screenshots,
-Steuer-Identifikationsnummer und IBAN griffbereit. Dann bleiben am Gründungstag
-nur Klicks.
+Bankkonto, Antworten aus der Beratung, Website-Texte und -Seiten als Entwurf
+(noch nicht online), Brief an die Krankenkasse als Entwurf, Store-Texte in
+beiden Sprachen, Screenshots, Steuer-Identifikationsnummer und IBAN
+griffbereit. Dann bleiben am Gründungstag vor allem Klicks und das Hochladen
+der Website.
 
 ### 5.2 Die Schritte im Einzelnen
 
@@ -520,9 +570,14 @@ nur Klicks.
   IHK Hannover nennt einen Beratungstermin für 60 € zuzüglich Umsatzsteuer
   (71,40 €), ohne klar zu sagen, für welche Leistung. Andere IHKs beraten
   ausdrücklich kostenfrei.
-- **Kostet der Termin Geld oder klärt er keine Steuerfragen:** Du nimmst ihn
-  nur für die Fragen 1–4 oder lässt ihn weg. Die Steuerfragen 5–9 gehen dann
-  schriftlich ans Finanzamt (Schritt 13).
+- **Kostet der Termin Geld:** Du buchst ihn nicht. Die Fragen 1–4 stellst du
+  kostenlos per Mail oder Telefon (1–3 an IHK oder Gewerbeamt, 4 an die VBG).
+- **Klärt der kostenlose Termin keine Steuerfragen:** Du nimmst ihn für die
+  Fragen 1–4.
+- **In beiden Fällen** stellst du die Fragen 5 und 8 vor der Gründung
+  telefonisch beim Finanzamt (Name und Datum notieren; bis dahin gilt
+  Schritt 4, wie er hier steht). Die Fragen 6, 7 und 9 gehen mit Schritt 13
+  schriftlich ans Finanzamt.
 - **Fragenliste** (ausdrucken, Antworten mit Datum und Name notieren):
   1. Passt die Tätigkeit „Entwicklung und Vertrieb von Software-Apps“? Kreuze
      ich Nebenerwerb an?
@@ -531,8 +586,8 @@ nur Klicks.
   3. Bin ich ohne Handelsregister bis 5.200 € Gewerbeertrag beitragsfrei, und
      was antworte ich auf Ihr Schreiben?
   4. Ist die VBG meine Berufsgenossenschaft?
-  5. Wo kreuze ich die Kleinunternehmerregelung an? Zählen die Erlöse von Apple
-     zum Gesamtumsatz?
+  5. Wo kreuze ich die Kleinunternehmerregelung an? Welche Umsatzgrenze gilt
+     im Gründungsjahr, und zählen die Erlöse von Apple zum Gesamtumsatz?
   6. Welche Formulare brauche ich für Rechnungen aus dem Ausland ohne deutsche
      Umsatzsteuer (§ 13b)? Verlangt das Finanzamt dafür Voranmeldungen?
   7. Muss ich eine Zusammenfassende Meldung abgeben?
@@ -541,9 +596,11 @@ nur Klicks.
   9. Ich melde das Gewerbe im September vor dem Umzug in die Schweiz ab. Wie
      sieht die letzte Abrechnung aus, und wie behandle ich Zahlungen von Apple,
      die erst im Oktober oder November kommen?
-  10. Nur wenn ein Elternteil Inhaber wird: „Wem werden die Einkünfte
-      zugerechnet, wenn das volljährige Kind unentgeltlich mitarbeitet, und
-      wird ein Anlaufverlust anerkannt?“
+  10. Nur wenn ein Elternteil Inhaber werden soll (bis Fr 11.12. beim
+      Finanzamt, Abschnitt 2.2): „Wem werden die Einkünfte zugerechnet, wenn
+      das volljährige Kind unentgeltlich mitarbeitet, und wird ein
+      Anlaufverlust anerkannt? Darf das Elternteil das Claude-Abo bezahlen,
+      mit dem das Kind baut, und als Betriebsausgabe absetzen?“
 - **Fertig, wenn** zu jeder Frage eine Antwort oder „offen, geht ans Finanzamt“
   in `docs/entscheidungen.md` steht.
 
@@ -601,7 +658,10 @@ nur Klicks.
     für 2028 nichts, weil das Gewerbe im September 2027 endet. Künstlich
     niedrig zu schätzen ist falsch und unnötig.
   - Kleinunternehmerregelung: **anwenden, kein Verzicht**
-    ([§ 19 UStG](https://dejure.org/gesetze/UStG/19.html)).
+    ([§ 19 UStG](https://dejure.org/gesetze/UStG/19.html)). Sie gilt bis
+    25.000 € Umsatz im Vorjahr und 100.000 € im laufenden Jahr. Was im
+    Gründungsjahr gilt und ob Apples Erlöse mitzählen, klärt Frage 5 (vor dem
+    Schritt prüfen).
   - Umsatzsteuer-Identifikationsnummer: **beantragen** (kostenlos). Du gibst
     sie an, wenn ein Anbieter aus dem Ausland oder Apple danach fragt, und sie
     gehört dann ins Impressum.
@@ -643,10 +703,18 @@ nur Klicks.
 - **Was:** eine Prepaid-Karte ohne Grundgebühr. Beispiele aus der Recherche,
   Preise nicht an Preisseiten geprüft: ALDI TALK im Basistarif (Starter-Set
   9,99 € mit 10 € Guthaben), Vodafone CallYa Classic, netzclub.
+- **Wohin:** als zweite SIM oder eSIM in dein iPhone (Dual-SIM). Ob dein
+  iPhone-Modell und der Anbieter das können, prüfst du vor dem Kauf. Für
+  iMessage und FaceTime meldest du die Nummer nicht an (Einstellungen →
+  Nachrichten bzw. FaceTime → „Senden & Empfangen“; Menünamen vor dem Schritt
+  prüfen), damit sie nicht mit deiner privaten Apple-ID verknüpft wird.
 - **Aktivierung** mit Ausweisprüfung. Die Ausweisdaten sind nicht öffentlich.
 - **Wofür:** Händlerangaben bei Apple (Apple prüft die Nummer mit einem Code,
   und sie steht öffentlich auf der EU-Seite der App), Impressum, Markenkonten.
-  Es können echte Anrufe kommen; sprich eine neutrale Mailbox-Ansage auf.
+  Nie für Zwei-Faktor-Codes. Es können echte Anrufe kommen. Nimm keine eigene
+  Ansage auf: Lass die Standardansage des Anbieters (ohne deine Stimme) oder
+  schalte die Mailbox ab, und antworte auf Anrufe per SMS oder per E-Mail von
+  `support@…`.
 - **Aktivitätsfenster:** Beim Anbieter nachlesen, wie lange die Karte ohne
   Aufladung gültig bleibt, und das Datum in den Kündigungskalender eintragen.
 - **Wenn es hakt:** Scheitert die Ausweisprüfung per Video, gehst du mit dem
@@ -665,7 +733,7 @@ Die Website geht erst nach der Gewerbeanmeldung online.
 |---|---|---|
 | Start | Name der App, ein Satz zur Aufgabe, „Abo erforderlich“ mit den Preisen, Support-Adresse, Links zu den drei anderen Seiten. Der Link zum App Store kommt erst nach der Freigabe; vorher kündigst du nichts an | die Seite ohne Cookies und ohne fremde Schriften lädt |
 | Impressum | Vor- und Nachname des Inhabers, ladungsfähige Anschrift, E-Mail, Zweitnummer, USt-IdNr., sobald du sie hast. Maßstab: [§ 5 DDG](https://www.gesetze-im-internet.de/ddg/__5.html) und das [Merkblatt der IHK](https://www.ihk.de/karlsruhe/fachthemen/recht/internetrecht/impressumspflichten-6266634) | Name und Anschrift mit Gewerbeanmeldung und Apple-Konto übereinstimmen |
-| Datenschutzerklärung | Verantwortlicher mit Name, Anschrift, E-Mail. Was verarbeitet wird: Eingabetext (geht über deine Server-Funktion an Anthropic und wird nicht gespeichert), anonyme App-User-ID und Abo-Status (RevenueCat), Tageszähler (Supabase), Antworten aus dem Onboarding (liegen auf dem Gerät und gehen mit der Anfrage mit), die anonym gezählte Antwort auf „Woher kennst du die App?“, Support-Mails, Zugriffsprotokoll des Webspace. Empfänger und Länder außerhalb der EU. Rechtsgrundlagen, Speicherdauer, Rechte der Nutzer, Beschwerde beim Landesbeauftragten für den Datenschutz Niedersachsen. Kein Tracking, keine Konten | jeder Dienst aus Schritt 11 genannt ist und nichts drinsteht, was die App nicht tut |
+| Datenschutzerklärung | Verantwortlicher mit Name, Anschrift, E-Mail. Was verarbeitet wird: Eingabetext (geht über deine Server-Funktion an Anthropic; deine Funktion speichert ihn nicht; Anthropic löscht API-Eingaben und -Antworten nach eigener Angabe binnen 30 Tagen, bei Verdacht auf Verstöße bis zu 2 Jahre: vor dem Schritt in den Bedingungen der API nachlesen und genau so hineinschreiben), pseudonyme App-User-ID (eine Zufallskennung ohne Namen; RevenueCat nennt sie „anonym“) und Abo-Status (RevenueCat), Tageszähler (Supabase), Antworten aus dem Onboarding (liegen auf dem Gerät und gehen mit der Anfrage mit), die anonym gezählte Antwort auf „Woher kennst du die App?“, Support-Mails, Zugriffsprotokoll des Webspace. Empfänger und Länder außerhalb der EU. Rechtsgrundlagen, Speicherdauer, Rechte der Nutzer, Beschwerde beim Landesbeauftragten für den Datenschutz Niedersachsen. Kein Tracking, keine Konten | jeder Dienst aus Schritt 11 genannt ist und nichts drinsteht, was die App nicht tut |
 | Nutzungsbedingungen | Ab 18. Abo über Apple mit Preis, Laufzeit, Verlängerung, Kündigung in den Apple-Einstellungen und Erstattung über Apple. Antworten kommen von einer KI und können falsch sein; keine Beratung. Tagesgrenze. Einstellung des Dienstes mit mindestens 31 Tagen Vorlauf | Preise und Tagesgrenze mit App und Store übereinstimmen |
 
 Die Texte sind Entwürfe. Du liest jeden Satz gegen das, was die App wirklich
@@ -705,10 +773,11 @@ Elternteil] familienversichert. Seit dem [Datum] habe ich ein Gewerbe
 angemeldet (Einzelunternehmen, Entwicklung und Vertrieb von Software-Apps).
 Die Gewerbeanmeldung liegt bei.
 
-Arbeitszeit: in Schulwochen 3–10 Stunden je Woche, von Februar bis Mitte März
-höchstens 7, während der Abiturprüfungen 0–5, in den Ferien bis zu 38 und
-zwischen Schulende (Juli 2027) und Studienbeginn (20.09.2027) bis zu
-50 Stunden je Woche. Ich schreibe meine Stunden täglich auf.
+Arbeitszeit: in Schulwochen 3–10 Stunden je Woche, in den Weihnachtsferien
+bis zu 38, von Februar bis Mitte März höchstens 7, während der
+Abiturprüfungen 0–5, nach der letzten Prüfung (Juni 2027) 15–40 und vom
+05.07. bis zum Studienbeginn (20.09.2027) bis zu 50 Stunden je Woche. Ich
+schreibe meine Stunden täglich auf.
 
 Einkommen: Bisher gibt es keine Einnahmen. Für 2027 erwarte ich einen Gewinn
 von unter 590 € im Monat. Ich habe keine Angestellten. Das Gewerbe endet
@@ -732,7 +801,13 @@ Mit freundlichen Grüßen
 ```
 
 - **Wenn es hakt:** Kommt nach drei Wochen keine Antwort, fragt das Elternteil
-  nach. Sagt die Kasse nein, gilt der Hauptplan, Abschnitt 18.
+  nach. Sagt die Kasse nein, fragt ihr schriftlich nach dem Grund und nach dem
+  Monatsbeitrag einer eigenen Versicherung. Vor der nächsten Ausgabe prüfst du
+  mit der Kassenregel (Abschnitt 1.2), ob dieser Beitrag (Richtwert ~280 € im
+  Monat) bis September zusätzlich gedeckt ist. Wenn nicht, gibst du nichts
+  mehr aus, meldest das Gewerbe wieder ab und baust App 1 als Lernprojekt
+  fertig. Ist schon eine App im Store, nimmst du vorher ihre Abos aus dem
+  Verkauf und hältst den Dienst noch 31 Tage aufrecht (Abschnitt 8.1).
 - **Fertig, wenn** die schriftliche Antwort der Kasse abgelegt ist.
 
 **Schritt 11 – Verträge zur Auftragsverarbeitung**
@@ -741,9 +816,9 @@ Mit freundlichen Grüßen
 |---|---|---|---|
 | Anthropic (Claude API) | Eingabetexte | Vertrag für die API | von der Recherche nicht geprüft: vor der Einreichung in den Geschäftsbedingungen der API nachlesen und die Fassung ablegen |
 | Supabase | App-User-ID und Tageszähler; die Funktion leitet Eingaben durch | ist Teil der Nutzungsbedingungen, mit EU-Standardvertragsklauseln; Vertragspartner ist eine Firma in Singapur ([Vertrag](https://supabase.com/legal/dpa)) | belegt. Dass er ausdrücklich im Free-Tarif gilt, steht nicht wörtlich da. Fassung ablegen |
-| RevenueCat | anonyme App-User-ID, Käufe | Vertrag von RevenueCat | nicht geprüft: vor der Einreichung nachlesen und ablegen |
+| RevenueCat | pseudonyme App-User-ID, Käufe | Vertrag von RevenueCat | nicht geprüft: vor der Einreichung nachlesen und ablegen |
 | Anbieter von Website und Postfach | Support-Mails, Zugriffsprotokoll | im Kundenmenü abschließen | Schritt 5 |
-| Expo (Updates über `expo-updates`) | technische Abrufe der App | – | nicht geprüft: nachsehen, ob Expo einen solchen Vertrag anbietet, und Expo in der Datenschutzerklärung nennen |
+| Expo (Updates über `expo-updates`) | technische Abrufe der App | – | nicht geprüft: nachsehen, ob Expo einen solchen Vertrag anbietet. Wenn ja: abschließen, ablegen und Expo in der Datenschutzerklärung nennen. Wenn nein: Updates über `expo-updates` vor der Einreichung abschalten; Korrekturen und der Hinweis beim Verkaufsstopp ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 6) kommen dann nur mit einem neuen Build |
 | dein Claude-Abo | nichts | **kein** Vertrag | deshalb nie Kundendaten in dein Abo |
 
 **Fertig, wenn** je Zeile eine abgelegte Fassung oder ein Vermerk in
@@ -779,14 +854,17 @@ Umsatzsteuer (Server, KI-Schnittstelle, Build-Dienst), voraussichtlich unter
    genügt die Umsatzsteuererklärung für 2027? Falls Voranmeldungen nötig sind:
    für welchen Zeitraum, und können Sie mich davon befreien (§ 18 Abs. 2 UStG)?
 2. Bestätigen Sie bitte, dass ich keine Zusammenfassende Meldung abgeben muss.
-3. Im Dezember 2026 hatte ich erste vorbereitende Ausgaben von rund [130] €
-   (Entwicklerkonto bei Apple, Software), aber keine Einnahmen. Muss ich für
-   2026 eine Erklärung abgeben, und ist für diese Rechnungen etwas nach § 13b
-   zu erklären?
+3. Im November und Dezember 2026 hatte ich erste vorbereitende Ausgaben von
+   rund [150] € (Entwicklerkonto bei Apple, Claude Pro, Guthaben für die
+   Claude API), aber keine Einnahmen. Muss ich für 2026 eine Erklärung
+   abgeben, und ist für diese Rechnungen etwas nach § 13b zu erklären?
 4. Ich ziehe im September 2027 zum Studium in die Schweiz und melde das
    Gewerbe vorher ab. Letzte Zahlungen von Apple für Verkäufe bis August gehen
    erst im Oktober oder November 2027 ein. Wie erfasse ich sie, und wie
    benenne ich einen Empfangsbevollmächtigten im Inland?
+[5. Nur bei einer Gründung vor dem Abitur: Vom 06.04. bis zum 07.06.2027 habe
+   ich Abiturprüfungen. Falls Voranmeldungen nötig sind: Kann ich die für März
+   bis Mai gesammelt nach meiner letzten Prüfung abgeben?]
 
 Mit freundlichen Grüßen
 [Vorname Nachname]
@@ -912,14 +990,16 @@ Beispielzeilen (Beträge sind Beispiele, Kurs 1 $ = 0,90 €):
 | nr | datum | anbieter | zweck | betrag_original | betrag_eur | art | dt_ust | par13b | ust_13b_eur |
 |---|---|---|---|---|---:|---|---|---|---:|
 | 3 | 12.12.2026 | Anthropic | API-Guthaben | 10,00 $ | 9,00 | 2026 | nein | Finanzamt fragen | – |
-| 7 | 25.01.2027 | Gemeinde | Gewerbeanmeldung | 40,00 € | 40,00 | Ausgabe | nein | nein | – |
-| 8 | 25.01.2027 | Hosting-Anbieter, Deutschland | Domain-Paket Januar | 4,00 € | 4,00 | Ausgabe | ja | nein | – |
-| 9 | 27.01.2027 | Anthropic | Claude Pro | laut Rechnung | 21,42 | Ausgabe | laut Rechnung | nur wenn keine deutsche Umsatzsteuer draufsteht | – |
+| 7 | 30.01.2027 | Gemeinde | Gewerbeanmeldung | 40,00 € | 40,00 | Ausgabe | nein | nein | – |
+| 8 | 30.01.2027 | Hosting-Anbieter, Deutschland | Domain-Paket Januar | 4,00 € | 4,00 | Ausgabe | ja | nein | – |
+| 9 | 27.02.2027 | Anthropic | Claude Pro | laut Rechnung | 21,42 | Ausgabe | laut Rechnung | nur wenn keine deutsche Umsatzsteuer draufsteht | – |
 | 21 | 10.06.2027 | Anthropic | API-Guthaben | 25,00 $ | 22,50 | Ausgabe | nein | ja | 4,28 |
 | 30 | 05.08.2027 | Apple | Auszahlung Fiskalmonat Juni | 38,20 € | 38,20 | Einnahme | nein | nein | – |
 
 - **Jeden Monat 20–30 Minuten,** am ersten Samstag: Rechnungen aus Kundenmenüs
   und Mails als PDF laden, benennen, eintragen, mit dem Kontoauszug abgleichen.
+  In der Ruhezeit und ab einer Woche vor einem Prüfungstag nicht; was liegen
+  bleibt, trägst du am Tag nach der letzten Prüfung nach (Abschnitt 7.3).
 - **Ausgaben aus 2026** stehen in der Tabelle, weil sie zur 5.000-€-Grenze
   zählen. Nach Einschätzung der Gegenprüfung lösen sie keine Erklärung für 2026
   aus und sind dann steuerlich verloren; bei dir kostet das nichts. Das
@@ -952,27 +1032,40 @@ Monat EAS Starter):
 | API-Guthaben, dreimal (10 $ + 25 $ + 25 $) | 60 $ | 54,00 | 10,26 | 64,26 |
 | EAS Starter, ein Monat | 19 $ | 17,10 | 3,25 | 20,35 |
 | Supabase Pro, ein Monat | 25 $ | 22,50 | 4,28 | 26,78 |
-| **Summe** | | **93,60** | **17,78** | |
+| **Summe** | | **93,60** | **17,78** | **111,38** |
+
+Die Summen sind aus 93,60 € gerechnet (19 % davon sind 17,78 €); die
+gerundeten Zeilen ergeben je einen Cent mehr.
 
 - **Wo du es erklärst:** in der Umsatzsteuererklärung für 2027, in den Zeilen
   für Leistungen, bei denen der Empfänger die Steuer schuldet. Du zahlst die
   17,78 € aus dem Beispiel dann ans Finanzamt. Richtwert für das ganze Jahr:
   15–60 €.
-- **Voranmeldungen:** Nach dem Wortlaut des Gesetzes sind sie für Zeiträume mit
-  solcher Steuer vorgesehen; das Finanzamt kann davon befreien. Deshalb fragst
-  du schriftlich (Abschnitt 5, Schritt 13). Rechne mit 0–6 kurzen
-  Voranmeldungen von je 10–15 Minuten.
+- **Voranmeldungen:** Nach dem Wortlaut des Gesetzes gibst du für jeden Monat
+  oder jedes Quartal mit einer solchen Rechnung eine Voranmeldung ab, fällig
+  am 10. Tag nach dem Ende des Zeitraums, außer das Finanzamt bestätigt dir
+  schriftlich, dass die Jahreserklärung genügt. Es kann dich auch davon
+  befreien. Deshalb fragst du gleich nach der Steuernummer (Abschnitt 5,
+  Schritt 13). Rechne mit 0–6 kurzen Voranmeldungen von je 10–15 Minuten.
 - **Bündeln:** Kaufe Auslandsleistungen möglichst im selben Monat, z. B. das
   API-Guthaben in dem Monat, in dem ohnehin eine andere Auslandsrechnung
-  anfällt. Dann sind weniger Zeiträume betroffen.
+  anfällt. Dann sind weniger Zeiträume betroffen. In den Abiturmonaten kaufst
+  du keine Auslandsleistung außer Supabase Pro (Abschnitt 7.5) und dem
+  Nachladen der Claude API für eine App im Store.
 - **Keine Zusammenfassende Meldung** für Kleinunternehmer
   ([§ 18a UStG](https://dejure.org/gesetze/UStG/18a.html)); das Finanzamt
   bestätigt es dir.
 
 ### 7.3 Kassenprüfung am Sonntag
 
-Zehn Minuten, jeden Sonntag. In der Ruhezeit ohne App im Store reicht einmal im
-Monat.
+Zehn Minuten, jeden Sonntag ab der Gründung; sie zählen in deine
+Wochenstunden. In der Ruhezeit und ab einer Woche vor jedem deiner
+Prüfungstage entfällt sie. Vorher, am Sa 13.03., trägst du alle Belege ein und
+lädst die Prepaid-Karte so auf, dass sie bis nach deiner letzten Prüfung
+gültig bleibt. Post von Behörden öffnet in dieser Zeit ein Elternteil und
+notiert die Frist. Was erst nach deiner letzten Prüfung fällig ist, erledigst
+du am Tag danach. Liegt eine Frist davor, bittest du mit einer kurzen Mail um
+Aufschub bis nach dem Abitur (nie in der Woche vor einem Prüfungstag).
 
 1. Kontostand des App-Kontos.
 2. Summe aller Ausgaben seit KW 48 aus der Belegtabelle und der Abstand zu
@@ -983,8 +1076,11 @@ Monat.
 6. Monatsgewinn für die Familienversicherung: Einnahmen minus Kosten, Grenze
    ~590 €.
 7. Claude-Konsole: Verbrauch, Guthaben, Monatsgrenze. Ab dem Start passt du
-   die Grenze an die Zahl der Abonnenten an (Hauptplan, Abschnitt 7).
-8. Supabase: Hat die Wachregel diese Woche zweimal gegriffen (Abschnitt 7.5)?
+   die Grenze (ohne Monatsgrenze: das Guthaben, Abschnitt 3) an die Zahl der
+   Abonnenten an (Hauptplan, Abschnitt 7).
+8. Supabase: das Projekt `app1-betrieb` im Dashboard öffnen (das zählt als
+   Aktivität) und nachsehen, ob die Wachregel diese Woche zweimal gegriffen hat
+   (Abschnitt 7.5).
 9. EAS-Strichliste: Stand des Monats (Abschnitt 7.6).
 
 **Fertig, wenn** die neun Zahlen in deiner Wochenzeile stehen.
@@ -998,8 +1094,8 @@ vorher.
 |---|---|---|---|
 | Claude Max | schon bezahlt | nicht verlängern; danach Pro monatlich | unter Abrechnung kein Max mehr steht |
 | **Claude Pro** | um den 27. jedes Monats | **So 14.03.:** Ist keine App im Store oder im Review, kündigst du (letzte Abbuchung um Sa 27.02., Laufzeit bis um Sa 27.03.). In der Ruhezeit baust du nicht. Ist eine App im Store oder im Review, läuft Pro weiter. **Tag nach der letzten Prüfung** (z. B. Di 08.06.): neu buchen; der neue Abrechnungstag ist dann der 8. **Ab Mo 19.07.** (Ende der Jagd): kündigen, sobald keine App mehr im Review ist und die Zwischensummen für die Anlage EÜR erstellt sind; Ziel bis Sa 07.08., sonst bis Di 07.09. | unter Abrechnung das Enddatum steht |
-| Claude Max für einen Monat | – | nur wenn das Pro-Limit in der ersten Ferienwoche an mindestens zwei Tagen die Arbeit stoppt; am selben Tag die Rückstufung auf Pro zum nächsten Abrechnungstag eintragen | nach einem Monat wieder „Pro“ steht |
-| Claude API | Guthaben, kein Abo | vor dem Start Nachladen aus; ab dem Start an mit Monatsgrenze 25–50 $; nach dem Dienstende (Mi 15.09.) wieder aus | die Konsole „Nachladen aus“ zeigt |
+| Claude Max für einen Monat | – | nur wenn das Pro-Limit in den ersten sieben Ferientagen (Mi 23.12.–Di 29.12.) an mindestens zwei Arbeitstagen die Arbeit stoppt; am selben Tag die Rückstufung auf Pro zum nächsten Abrechnungstag eintragen | nach einem Monat wieder „Pro“ steht |
+| Claude API | Guthaben, kein Abo | vor dem Start Nachladen aus; ab dem Start an mit Monatsgrenze 25–50 $ (gibt es keine Monatsgrenze: aus lassen, Abschnitt 3); nach dem Dienstende (Mi 15.09.) wieder aus | die Konsole „Nachladen aus“ zeigt |
 | Apple Developer Program | einmal im Jahr | Verlängerung gleich nach dem Kauf aus; Erinnerung Mo 15.11.2027 | Abschnitt 4.4 |
 | EAS | Free; Starter 19 $ im Monat plus Nutzung | Starter nur als einzelner Monat vor einer Frist, mit Ausgabengrenze; gleich nach der Einreichung zurück auf Free | das Konto „Free“ zeigt |
 | Supabase | Free; Pro 25 $ im Monat je Organisation | Pro nur nach Abschnitt 7.5; nach dem Dienstende zurückstufen, Zähltabelle löschen, Projekte pausieren | beide Organisationen „Free“ zeigen |
@@ -1009,9 +1105,9 @@ vorher.
 | Projekt-Postfach, ELSTER | 0 € | behalten, bis die Bescheide für 2027 da sind | – |
 
 **Am Mo 19.07., wenn die Jagd endet:** Geh die Tabelle einmal ganz durch und
-kündige alles, was Betrieb und Abschluss nicht brauchen. Braucht eine App in
-der Ruhezeit doch eine dringende Korrektur, buchst du Pro am selben Tag für
-einen Monat.
+kündige alles, was Betrieb und Abschluss nicht brauchen. Braucht eine App
+nach der Kündigung von Claude Pro (bis zum Dienstende Mi 15.09.) doch eine
+dringende Korrektur, buchst du Pro am selben Tag für einen Monat.
 
 ### 7.5 Supabase-Wachregel
 
@@ -1020,27 +1116,34 @@ antwortet die KI-Funktion nicht, bis du es im Dashboard wieder startest. Ein
 Prüfer von Apple oder ein zahlender Abonnent stünde vor einer toten App.
 
 - **Solange eine App in der Prüfung oder im Store ist:** zweimal je Woche, am
-  Montag und am Donnerstag, eine echte Anfrage aus deiner eigenen App schicken
-  oder das Dashboard öffnen. Zwei Minuten.
+  Montag und am Donnerstag, eine echte Anfrage aus deinem TestFlight-Build mit
+  einem Sandbox-Kauf schicken (der Server nimmt Sandbox-Käufe an,
+  [02](02_BAUPLAN_APP1.md), AP8) oder im Supabase-Dashboard das Projekt
+  `app1-betrieb` öffnen. Zwei Minuten. Aus der Store-Version kommt ohne
+  eigenes Abo keine Antwort. In Wochen, in denen du nur am Samstag arbeitest
+  (Klausurwochen), treten der Samstag und die Kassenprüfung am Sonntag
+  (Abschnitt 7.3, Punkt 8) an die Stelle von Montag und Donnerstag; so liegen
+  nie sieben Tage ohne Aktivität dazwischen.
 - **Warn-Mail von Supabase:** am selben Tag bearbeiten.
 - **Ist das Projekt im laufenden Betrieb einmal pausiert worden:** sofort
   wieder starten und auf Pro wechseln.
-- **App mit zahlenden Abonnenten in den Abiturmonaten:** Am So 14.03. stellst du
-  die Organisation `app-betrieb` auf Pro (~27 € im Monat mit § 13b) und am Tag
-  nach der letzten Prüfung zurück. Dasselbe tust du, wenn eine App ohne
-  Abonnenten im Store oder in der Prüfung ist und du im Abitur nicht zweimal je
-  Woche nachsehen willst.
+- **Im Abitur:** Ab einer Woche vor jedem deiner Prüfungstage machst du gar
+  nichts an der App (Hauptplan, Abschnitt 4); dann entfällt die Wachregel. Ist
+  am So 14.03. eine App im Store oder im Review, stellst du deshalb an diesem
+  Tag die Organisation `app-betrieb` auf Pro (~27 € im Monat mit § 13b) und am
+  Tag nach der letzten Prüfung zurück. Nur eine freigegebene, noch nicht
+  veröffentlichte App darf pausieren (siehe unten).
 - **Sonst wechselst du nur auf Pro,** wenn die Signalprüfung bestanden ist oder
   mehr als ~300.000 der 500.000 Funktionsaufrufe im Monat anfallen.
 - **Wartet eine freigegebene App auf die Veröffentlichung** und ruft sie
   niemand auf, darf das Projekt pausieren. Du startest es vor der
-  Veröffentlichung wieder.
+  Veröffentlichung wieder und testest es mit einer Anfrage.
 - Das Testprojekt pausiert regelmäßig. Das ist harmlos.
 - Jeder KI-Aufruf schreibt eine Zeile in die Zähltabelle. Ein Skript, das nur
   die Pause umgehen soll, baust du nicht.
 
 **Fertig je Woche, wenn** in deiner Wochenzeile zwei Daten mit „Antwort kam“
-stehen.
+oder „Dashboard geöffnet“ stehen.
 
 ### 7.6 EAS-Strichliste
 
@@ -1060,8 +1163,9 @@ Wartezeiten von über 90 Minuten zu Spitzenzeiten
   ist.
 - **Starter für einen Monat** (~20–21 € mit § 13b) nur, wenn vor einer Frist ein
   Build zweimal länger als 60 Minuten wartet oder die 15 nicht reichen.
-- **Updates ohne neuen Build** nur für reine Korrekturen am JavaScript-Code und
-  erst nach einem Probelauf mit einem Testbuild.
+- **Updates ohne neuen Build** nur für reine Korrekturen am JavaScript-Code,
+  erst nach einem Probelauf mit einem Testbuild und nur, wenn der Vertrag zur
+  Auftragsverarbeitung mit Expo abgelegt ist (Abschnitt 5, Schritt 11).
 
 **Fertig, wenn** die Zahl der Striche mit der Zahl im Expo-Dashboard
 übereinstimmt.
@@ -1081,7 +1185,7 @@ Ende des Dienstes
 | Sa 31.07. | Prüfen, ob eine bezahlte Einzelstunde beim Steuerberater nötig ist: nur wenn Einnahmen da sind oder Verzicht, Verkauf, Übergabe oder Fortführung anstehen. Festpreis vorher vereinbaren | die Entscheidung in `docs/entscheidungen.md` steht |
 | **So 15.08.** | Jedes Abo aus dem Verkauf nehmen: App Store Connect → Apps → App → Monetarisierung → Abonnements → Abo-Gruppe → Abo → Verfügbarkeit → aus dem Verkauf nehmen → Sichern. Das stoppt neue Abschlüsse und Verlängerungen. Nur die App zu entfernen reicht nicht. Am selben Tag die Abonnenten informieren (Hinweis in der App und auf der Website) | jedes Abo als aus dem Verkauf genommen angezeigt wird |
 | So 15.08.–Mi 15.09. | Server, KI-Funktion und Support laufen weiter. Wachregel und Nachladen bleiben an | – |
-| **Mi 15.09.** | Dienstende | – |
+| **Mi 15.09.** | Dienstende. Vorher in RevenueCat prüfen, dass kein Abo mehr aktiv ist | die Zahl der aktiven Abos null ist |
 | Do 16.09. und Fr 17.09. | App aus dem Store entfernen. Nachladen der Claude API aus. Zähltabelle löschen, Supabase-Projekte pausieren. Markenkonten schließen. Gewerbe bei der Gemeinde abmelden (0–32,50 €). Dem Finanzamt die Aufgabe des Betriebs mitteilen und den Empfangsbevollmächtigten benennen. Der Krankenkasse das Ende melden und schriftlich fragen, ob die Familienversicherung beim Studium in der Schweiz bleibt | die Bestätigung der Abmeldung abgelegt ist |
 
 - **Ziehst du früher um,** rückt beides vor: Dienstende spätestens am Tag vor
@@ -1104,7 +1208,7 @@ prüfen). Zeit: 6–12 Stunden.
 | Formular | wofür | Hinweis |
 |---|---|---|
 | Einkommensteuererklärung 2027, Hauptvordruck | Rahmen | – |
-| Anlage G | Gewinn oder Verlust aus dem Gewerbe | einen Verlust eintragen; das kostet nichts und hilft nur, falls du später wieder deutsche Einkünfte hast |
+| Anlage G | Gewinn oder Verlust aus dem Gewerbe | das Ergebnis der Anlage EÜR eintragen; ein Verlust wird festgestellt, kostet nichts und hilft nur, falls du später wieder deutsche Einkünfte hast |
 | Anlage EÜR | Einnahmen und Ausgaben 2027 aus der Belegtabelle | Zahlungen von Apple, die am Tag der Abmeldung noch offen sind, als Einnahme erfassen; wie genau, sagt dir das Finanzamt (Abschnitt 5, Schritt 13) |
 | Anlage WA-ESt | Wegzug in die Schweiz im Jahr 2027 | – |
 | Anlage N | Lohn aus dem Ferienjob | so kommt die einbehaltene Lohnsteuer zurück |
@@ -1116,22 +1220,27 @@ prüfen). Zeit: 6–12 Stunden.
 Finanzamt nachfragt und du die Antwort nicht selbst geben kannst. Immer mit
 Festpreis.
 
-### 8.3 Unterlagen, die du vor dem Umzug sicherst
+### 8.3 Ordner „Abschluss 2027“
 
-- Belegtabelle (fertig bis Di 30.11.2027) und alle Beleg-PDFs.
-- Finanzberichte von Apple je Fiskalmonat und ein Export aus RevenueCat. Lade
-  sie vor dem Ende der Apple-Mitgliedschaft herunter (Erinnerung
-  Mo 15.11.2027).
+**Vor dem Umzug:**
 - Gewerbeanmeldung und Gewerbeabmeldung, Kopie des Fragebogens, Steuernummer
   und USt-IdNr.
 - Antworten von Finanzamt, Krankenkasse, IHK und Berufsgenossenschaft.
-- Kontoauszüge des App-Kontos, Lohnsteuerbescheinigung des Ferienjobs.
+- Belegtabelle, Beleg-PDFs und Kontoauszüge des App-Kontos bis zum Umzug.
 - ELSTER-Zugang, an zwei Orten gesichert.
 - Deine Zeiterfassung als Nachweis der Stunden.
 - Code, Vorlage, Review-Log und Zahlen im privaten Repository.
 
-**Fertig, wenn** ein Ordner „Abschluss 2027“ alle Punkte enthält und eine Kopie
-bei deinen Eltern liegt.
+**Nach dem Umzug ergänzen** (die Eltern legen Post ab):
+- letzte Kontoauszüge des App-Kontos, nach der letzten Zahlung von Apple
+  (spätestens Di 09.11.2027);
+- Finanzberichte von Apple je Fiskalmonat und ein Export aus RevenueCat, vor
+  dem Ende der Apple-Mitgliedschaft (Erinnerung Mo 15.11.2027);
+- Belegtabelle 2027 fertig (bis Di 30.11.2027);
+- Lohnsteuerbescheinigung des Ferienjobs, sobald der Arbeitgeber sie schickt.
+
+**Fertig, wenn** der Ordner alle Punkte enthält und eine Kopie bei deinen
+Eltern liegt.
 
 ### 8.4 Empfangsbevollmächtigter
 
@@ -1157,7 +1266,8 @@ Apple zahlt binnen 45 Tagen nach dem Ende des Fiskalmonats
   Monatsumsatzes zurück.
 - Bankkonto und den Vertrag bei Apple lässt du offen, bis die letzte Zahlung da
   ist, mindestens bis Di 09.11.2027.
-- Die Zahlung der Umsatzsteuer nach § 13b kommt 2028 mit der Erklärung.
+- Die Umsatzsteuer nach § 13b zahlst du 2028 mit der Erklärung, oder schon mit
+  jeder Voranmeldung, falls das Finanzamt sie verlangt (Abschnitt 7.2).
 
 **Fertig, wenn** die letzte Zahlung in der Belegtabelle steht und das Konto
 danach geschlossen oder privat weitergeführt wird.
@@ -1189,10 +1299,13 @@ danach geschlossen oder privat weitergeführt wird.
   statt die Abos aus dem Verkauf zu nehmen.
 - Ein Jahresabo oder „lebenslang“ verkaufen, obwohl das Ende feststeht.
 - Zahlende Nutzer ohne Hinweis mit versteckten Grenzen abspeisen.
-- Das deutsche Gewerbe behalten, während du in Zürich wohnst, oder dort „nur
-  passiv“ weiter Geld bekommen.
-- Das Apple-Konto verleihen, verkaufen oder das eines anderen benutzen.
-  Übertragen lässt sich nur eine einzelne App.
+- Das deutsche Gewerbe behalten, während du in Zürich wohnst, oder dort aus
+  einer laufenden App „nur passiv“ weiter Geld bekommen. Die letzten
+  Auszahlungen von Apple für Verkäufe bis zum Verkaufsstopp sind davon nicht
+  betroffen; sie gehören in die letzte EÜR (Abschnitt 8.2).
+- Das Apple-Konto verleihen oder verkaufen oder dich mit der Apple-ID eines
+  anderen anmelden. Erlaubt ist, dass der Inhaber dich als Nutzer in App Store
+  Connect einlädt. Übertragen lässt sich nur eine einzelne App.
 - Die App erst dem Elternteil schenken, damit es sie gleich verkauft.
 - Auf „Rechnungen“ für Register- oder Branchenbucheinträge zahlen.
 
@@ -1223,37 +1336,42 @@ danach geschlossen oder privat weitergeführt wird.
 ## 10. Checkliste zum Abhaken
 
 **Vor der Gründung**
-- [ ] **Projekt-Postfach und Passwortmanager** (Sa 28.11.) – fertig, wenn die
-      Zwei-Faktor-Anmeldung an ist und die Wiederherstellungscodes ausgedruckt
-      sind
+- [ ] **Projekt-Postfach und Passwortmanager** (Sa 28.11.) – fertig, wenn du
+      dich mit Zwei-Faktor-Anmeldung anmeldest, eine Test-Mail ankommt und die
+      Wiederherstellungscodes ausgedruckt sind
 - [ ] **Claude Pro monatlich** (Ende November) – fertig, wenn unter Abrechnung
       „Pro“ mit monatlicher Zahlung steht und der Abrechnungstag im Kalender ist
-- [ ] **GitHub** (Fr 27.11.) – fertig, wenn alle Repositories privat sind und
-      die private E-Mail-Einstellung an ist
+- [ ] **GitHub** (Fr 27.11.) – fertig, wenn alle Repositories „Private“ zeigen,
+      die Zwei-Faktor-Anmeldung an ist und „Keep my email addresses private“
+      eingeschaltet ist
 - [ ] **Karte** (beantragt am Do 26.11.) – fertig, wenn eine eigene Visa oder
       Mastercard da ist, die in US-Dollar zahlt
-- [ ] **Expo** (Mo 30.11.) – fertig, wenn `eas whoami` den neutralen Namen zeigt
+- [ ] **Expo** (Mo 30.11.) – fertig, wenn du dich auf expo.dev mit dem
+      Projekt-Postfach anmeldest und dort der neutrale Name steht
 - [ ] **ELSTER** (Fr 04.12.) – fertig, wenn die Anmeldung klappt und der Zugang
       gesichert ist
-- [ ] **Nachfrage bei IHK oder Gewerbeamt** (Fr 04.12.) – fertig, wenn Antwort,
-      Name und Datum notiert sind und der Termin der Beratung angefragt ist
+- [ ] **Nachfrage bei IHK oder Gewerbeamt** (Fr 04.12., Antwort bis So 13.12.) –
+      fertig, wenn Antwort, Name und Datum notiert sind und der Termin der
+      Beratung angefragt ist
 - [ ] **Supabase** (Mo 07.12.) – fertig, wenn zwei Free-Organisationen mit je
       einem Projekt in der EU stehen
 - [ ] **Namensfrage** (Fr 11.12., Frist So 13.12.) – fertig, wenn Inhaber und
       Anschrift in `docs/entscheidungen.md` stehen
 - [ ] **Claude API** (Sa 12.12.) – fertig, wenn 5–10 $ Guthaben da sind, das
-      Nachladen aus ist und eine Grenze von höchstens 50 $ steht
+      Nachladen aus ist und eine Grenze von höchstens 50 $ steht (gibt es keine:
+      in `docs/konten.md` vermerkt)
 - [ ] **Apple Developer Program** (Mo 14.12.–Mi 16.12., sonst nach dem
       Ideen-Tor) – fertig, wenn die Mitgliedschaft aktiv ist und „läuft ab am …“
       zeigt
-- [ ] **RevenueCat** (Di 15.12.) – fertig, wenn Projekt, Entitlement und
-      Offering stehen
+- [ ] **RevenueCat** (Sa 19.12.; Mo 14.12., wenn du Apple dann nicht kaufst) –
+      fertig, wenn Projekt, Entitlement und Offering stehen
 - [ ] **Geräte** (Fr 18.12.) – fertig, wenn StickerSmash als Entwicklungs-Build
       auf dem iPhone startet
 - [ ] **Bankkonto für die App** (bis Do 31.12.) – fertig, wenn IBAN und Karte da
       sind und die geschäftliche Nutzung schriftlich erlaubt ist
-- [ ] **Gründungsberatung** (bis Mi 06.01.) – fertig, wenn jede der zehn Fragen
-      beantwortet oder als offen markiert ist
+- [ ] **Gründungsberatung oder Fragen an IHK, VBG und Finanzamt** (bis
+      Mi 06.01.) – fertig, wenn jede Frage der Liste beantwortet oder als offen
+      markiert ist
 - [ ] **`docs/konten.md`** – fertig, wenn jedes Konto mit Tarif, Abbuchungstag
       und Kündigungsweg drinsteht
 
@@ -1281,19 +1399,26 @@ danach geschlossen oder privat weitergeführt wird.
       je Anbieter eine Fassung oder ein Vermerk abgelegt ist
 - [ ] **IHK-Schreiben** – fertig, wenn deine Antwort und der Bescheid abgelegt
       sind
-- [ ] **Anfrage ans Finanzamt** – fertig, wenn die Antwort zu den vier Fragen
-      abgelegt ist
+- [ ] **Anfrage ans Finanzamt** – fertig, wenn die Antwort zu allen Fragen der
+      Vorlage abgelegt ist
 - [ ] **Zusage des Elternteils** (bis So 31.01.) – fertig, wenn die Seite
       unterschrieben ist oder „keine Übergabe“ entschieden ist
 
 **Laufend**
+- [ ] **Kündigungskalender** (ab KW 48, bei jedem neuen Abo ergänzt) – fertig,
+      wenn jede Zeile aus Abschnitt 7.4 mit Datum und Erinnerung im Kalender
+      steht
 - [ ] **Belegtabelle** (monatlich) – fertig, wenn jede Abbuchung eine Zeile und
       ein PDF hat
-- [ ] **Kassenprüfung** (sonntags) – fertig, wenn die neun Zahlen notiert sind
+- [ ] **Kassenprüfung** (sonntags ab der Gründung; Ausnahmen in Abschnitt 7.3) –
+      fertig, wenn die neun Zahlen notiert sind
 - [ ] **Ruhezeit** (So 14.03.) – fertig, wenn Claude Pro gekündigt ist oder der
       Grund fürs Weiterlaufen notiert ist
-- [ ] **Supabase-Wachregel** (Mo und Do) – fertig, wenn zwei Daten mit „Antwort
-      kam“ in der Wochenzeile stehen
+- [ ] **Supabase im Abitur** (So 14.03.) – fertig, wenn Pro gebucht ist oder
+      notiert ist, warum keine App im Store oder im Review ist
+- [ ] **Supabase-Wachregel** (Mo und Do, in Klausurwochen Sa und So) – fertig,
+      wenn zwei Daten mit „Antwort kam“ oder „Dashboard geöffnet“ in der
+      Wochenzeile stehen
 - [ ] **EAS-Strichliste** – fertig, wenn sie mit dem Expo-Dashboard
       übereinstimmt
 - [ ] **Ende der Jagd** (Mo 19.07.) – fertig, wenn der Kündigungskalender einmal
@@ -1302,10 +1427,13 @@ danach geschlossen oder privat weitergeführt wird.
 **Abschluss**
 - [ ] **Steuerberater ja oder nein** (Sa 31.07.) – fertig, wenn die Entscheidung
       notiert ist
+- [ ] **Claude Pro gekündigt** (Ziel Sa 07.08., spätestens Di 07.09.) – fertig,
+      wenn unter Abrechnung das Enddatum steht
 - [ ] **Verkaufsstopp** (So 15.08.) – fertig, wenn jedes Abo aus dem Verkauf
       genommen ist und die Abonnenten informiert sind
-- [ ] **Dienstende** (Mi 15.09.) – fertig, wenn App entfernt, Nachladen aus und
-      Zähltabelle gelöscht sind
+- [ ] **Dienstende** (Mi 15.09., danach Do 16.09.) – fertig, wenn am Mi 15.09.
+      kein Abo mehr aktiv war und App entfernt, Nachladen aus und Zähltabelle
+      gelöscht sind
 - [ ] **Gewerbeabmeldung** (Do 16.09. oder Fr 17.09.) – fertig, wenn die
       Bestätigung abgelegt ist
 - [ ] **Finanzamt und Krankenkasse** – fertig, wenn der
@@ -1313,7 +1441,12 @@ danach geschlossen oder privat weitergeführt wird.
       Schweiz vorliegt
 - [ ] **Letzte Zahlung von Apple** (bis Di 09.11.2027) – fertig, wenn sie in der
       Belegtabelle steht
-- [ ] **Unterlagen** (Mo 15.11.2027) – fertig, wenn der Ordner „Abschluss 2027“
-      vollständig ist und eine Kopie bei deinen Eltern liegt
+- [ ] **Domain-Paket gekündigt** (nach der letzten Zahlung von Apple) – fertig,
+      wenn die Kündigungsbestätigung abgelegt ist
+- [ ] **Belegtabelle 2027** (Di 30.11.2027) – fertig, wenn jede Abbuchung und
+      jede Zahlung von Apple eine Zeile und einen Beleg hat
+- [ ] **Unterlagen** (vor dem Umzug, ergänzt bis Di 30.11.2027) – fertig, wenn
+      der Ordner „Abschluss 2027“ vollständig ist (Abschnitt 8.3) und eine
+      Kopie bei deinen Eltern liegt
 - [ ] **Erklärungen für 2027** (Februar oder März 2028) – fertig, wenn ELSTER
       die Abgabe bestätigt und die Umsatzsteuer nach § 13b bezahlt ist
