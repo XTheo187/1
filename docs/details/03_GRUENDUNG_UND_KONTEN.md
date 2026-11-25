@@ -954,8 +954,9 @@ Was das für dich heißt:
   Regelsatz. Eine Genehmigung bis Sa 26.06. wirkt ab Mo 12.07.
 - **Verschiebe nie einen Start wegen dieser Frist.** Ohne Treffer geht es um
   wenige Euro.
-- **Konto eines Elternteils für eine Übergabe:** Anmeldung bis Fr 02.07., damit
-  die Genehmigung im Fiskalmonat Juli liegt und der Satz ab Mo 16.08. gilt.
+- **Konto eines Elternteils für eine Übergabe:** Gewerbe- und Apple-Anmeldung
+  bis Fr 02.07. (Abschnitt 2.3, Punkt 7), damit die Genehmigung im Fiskalmonat
+  Juli liegt und der Satz ab Mo 16.08. gilt.
 
 ---
 
