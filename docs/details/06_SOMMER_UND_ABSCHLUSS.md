@@ -91,8 +91,8 @@ Post) entsprechend vor. Die übrigen Stichtage bleiben.
 | Woche | App | Ferienjob | ETH und Umzug |
 |---|---|---|---|
 | KW 23 (Mo 07.06.–So 13.06.) | Tag nach der letzten Prüfung: Claude Pro neu, App 1 veröffentlichen (wenn freigegeben) oder fertig bauen und einreichen. Posts: 2–3 am Tag, sobald die App im Store ist (Ablauf in 05, Abschnitt 6.4); solange sie nicht im Store ist, höchstens 9. Hat eine App 300 $ Monatsumsatz und 8 Wochen im Store: Verkaufsangebot einstellen (Abschnitt 5); das prüfst du ab jetzt jede Woche bis zum Umschalttag. 15–40 h | Liegt der Vertrag aus dem Winter vor? Wenn nein: Rückfall am Mo 21.06. vormerken | Bewerbung in Hannover ist voraussichtlich seit Di 01.06. möglich (Frist 2026, vor dem Schritt prüfen) |
-| KW 24 (Mo 14.06.–So 20.06.) | Posten und messen. Sobald App 1 freigegeben ist: Vorlage ziehen (02, Abschnitt 9) und App 2 beginnen. **Merke:** Eine App, die nach So 13.06. startet, ist am Umschalttag So 08.08. noch keine 8 Wochen im Store; ein Verkauf ist dann praktisch nicht mehr möglich, nur Übergabe oder Einstellen (Abschnitt 3) | Steuer-ID und Sozialversicherungsnummer liegen bereit | Zimmer suchen (WOKO verlangt die Aufnahmebestätigung und mindestens 6 Monate Mietdauer) |
-| KW 25 (Mo 21.06.–So 27.06.) | wie KW 24. **Merke:** Bei einer App, die nach So 27.06. startet, liegt die Signalprüfung nach Tor 1; Creator gibt es für sie nicht mehr. **Mit Nachprüfung:** ab einer Woche vor dem Prüfungstag (frühestens Mo 21.06.) keine Posts, kein Bau, keine Creator-Buchung | Mo 21.06.: ohne unterschriebenen Vertrag zwei Zeitarbeitsfirmen anfragen. Fr 25.06.: Vorentscheidung zum Beginn | Finanzierungsbrief der Eltern vorbereiten (1.750 CHF im Monat) |
+| KW 24 (Mo 14.06.–So 20.06.) | Posten und messen. Sobald App 1 freigegeben ist: Vorlage ziehen (02, Abschnitt 9) und App 2 beginnen. **Merke:** Eine App, die nach So 13.06. startet, ist am Umschalttag So 08.08. noch keine 8 Wochen im Store; ein Verkauf ist dann praktisch nicht mehr möglich, nur Übergabe oder Einstellen (Abschnitt 3) | Steuer-ID und Sozialversicherungsnummer liegen bereit | Zimmer suchen (~2 h, Schätzung, aus den 15–40 h; WOKO verlangt die Aufnahmebestätigung und mindestens 6 Monate Mietdauer) |
+| KW 25 (Mo 21.06.–So 27.06.) | wie KW 24. **Merke:** Bei einer App, die nach So 27.06. startet, liegt die Signalprüfung nach Tor 1; Creator gibt es für sie nicht mehr. **Mit Nachprüfung:** ab einer Woche vor dem Prüfungstag (frühestens Mo 21.06.) keine Posts, kein Bau, keine Creator-Buchung | Mo 21.06.: ohne unterschriebenen Vertrag zwei Zeitarbeitsfirmen anfragen. Fr 25.06.: Vorentscheidung zum Beginn | Finanzierungsbrief der Eltern vorbereiten (1.750 CHF im Monat; ~1 h, Schätzung, aus den 15–40 h) |
 | KW 26 (Mo 28.06.–So 04.07.) | Mo 28.06.: MRR je App notieren (für 4.4). Mo 28.06. oder Di 29.06.: zweite Signalprüfung (Wiederbeginn der Posts am Mo 07.06. bzw. Di 08.06.). Di 29.06.: Signalprüfung für einen Start am Di 08.06. **Mit Nachprüfung** liest du diese Zahlen erst am Tag nach deiner letzten Nachprüfung ab (5 Minuten, nichts ändern) und notierst, dass die letzte Woche ohne Posts war; danach gilt 05, Abschnitt 9.3. **So 04.07.: Stichtag** | Do 01.07.–Sa 03.07.: Kopie des Abiturzeugnisses an den Arbeitgeber | Mo 28.06.–Mi 30.06.: mögliche mündliche Nachprüfung (dann ab einer Woche davor nichts an der App). Do 01.07.–Sa 03.07.: Zeugnis in eApply, Original an die ETH |
 | KW 27 (Mo 05.07.–So 11.07.) | **Fall A:** ~55 h, davon ~6 h für Zürich: App 2 fertig bauen und einreichen, posten. **Fall B:** keine neue App; eine schon eingereichte App darf erscheinen (nur Wochenabo); abends zweimal 20 Minuten Zahlen, Sa 3 h | Fall B: erster Arbeitstag Mo 05.07. | Fall B: Zürich-Aufgaben abends |
 | KW 28 (Mo 12.07.–So 18.07.) | Fall A: wie KW 27. Creator nur bis So 18.07. buchen. In beiden Fällen Fr 16.07.: Kommt eine Übergabe oder ein Verkauf in Frage, Termin beim Steuerberater unverbindlich anfragen (4.5, Schritt 1). **So 18.07.: Tor 1** | – | **Do 15.07.: Hannover abgeschickt** |
@@ -111,7 +111,7 @@ Post) entsprechend vor. Die übrigen Stichtage bleiben.
 
 | Zeitraum | App | Job | Zürich und Mathe |
 |---|---|---|---|
-| letzte Prüfung bis So 04.07. | 15–40 h; alles zählt hinein, auch Bewerbungen und Behördenkram | – | in den 15–40 h |
+| letzte Prüfung bis So 04.07. | 15–40 h; alles zählt hinein, auch Bewerbungen und Behördenkram | – | in den 15–40 h: Zimmer suchen ~2 h in KW 24, Finanzierungsbrief ~1 h in KW 25 (Schätzung) |
 | Mo 05.07.–So 18.07., Fall A | ~49 h (Mo–Sa 9–12, 13–17 und 18–20 Uhr, So frei) | – | ~6 h |
 | ab dem ersten Arbeitstag | 2–5 h: zweimal 20 Minuten Zahlen und Support, Sa bis 3 h | 40 h | ~6–8 h: Zimmer und Unterlagen ~3 h, Mathe ~3–5 h |
 | KW 31–32 (Mo 02.08.–So 15.08.) bei Übergabe oder Verkauf | zusätzlich 6–14 h für die Übertragung (4.3), bei einem Verkauf dazu 2–3 h für Vertrag und Treuhand (Abschnitt 5); abends und samstags | 40 h | Zimmer ~3 h; Mathe ruht in diesen Wochen |
@@ -195,7 +195,7 @@ Wie oft es mit dem Job klappt und was er im Modell ausmacht, steht in
 
 | wann | was | Dauer | fertig, wenn … |
 |---|---|---|---|
-| Sa 02.01. (spätestens Sa 30.01.) | Lebenslauf und Anschreiben mit Claude (30 Minuten). **Drei Bewerbungen** mit festem Zeitraum (2.3, 2.4). Wenn du magst, zwei weitere an Softwarefirmen (~1 h). Die Zeit zählt in deine Wochenstunden; was in [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) an diesem Tag steht, rutscht um 1–2 Stunden | 1/1,5/2 h | drei Bewerbungen abgeschickt sind und Firma, Datum und Ansprechpartner in deinen Notizen stehen |
+| Sa 02.01. (spätestens Sa 30.01.) | Lebenslauf und Anschreiben mit Claude (30 Minuten). **Drei Bewerbungen** mit festem Zeitraum (2.3, 2.4). Wenn du magst, zwei weitere an Softwarefirmen (~1 h). Die Zeit zählt in deine Wochenstunden; [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) plant dafür 1 h 30 min ein. Brauchst du länger oder schickst du die zwei weiteren, rutscht der Rest des Tages | 1/1,5/2 h | drei Bewerbungen abgeschickt sind und Firma, Datum und Ansprechpartner in deinen Notizen stehen |
 | Januar | Sozialversicherungsnummer bei der Rentenversicherung kostenlos anfordern, Steuer-ID heraussuchen (2.7) | 15 min | beide Nummern bei deinen Unterlagen liegen |
 | Januar | Oberstufenkoordination fragen, **wann** die P5-Prüfungen liegen und wann der Plan aushängt. Nicht um Verlegung bitten. Im selben Gespräch die Frage aus Abschnitt 8 stellen | 5 min | der Zeitraum in deinem Kalender steht |
 | Mi 03.02.–So 14.03. (Q4) | nur Rückfragen beantworten und Gespräche führen; zählt in die 6–7 Wochenstunden | 0–2 h | – |
@@ -441,9 +441,11 @@ Mo 19.07.
   19.07. genannt und ist am 04.07. keine App im Store, gilt Fall B: keine neue
   App. Du fragst am Mo 05.07. zwei Zeitarbeitsfirmen für einen Einsatz bis
   Fr 16.07. an; klappt das nicht, gehören die zwei Wochen Zürich, Mathe und der
-  eingereichten App. Hast du den 05.07. zugesagt und ist am 04.07. doch eine
-  App im Store, hältst du die Zusage ein und betreust die App abends (zweimal
-  20 Minuten Zahlen je Woche, samstags 3 Stunden).
+  eingereichten App. Ob eine Zeitarbeitsfirma dich so kurzfristig nimmt,
+  ist unsicher; plane den Lohn dieser zwei Wochen nicht fest ein. Hast du
+  den 05.07. zugesagt und ist am 04.07. doch eine App im Store, hältst du
+  die Zusage ein und betreust die App abends (zweimal 20 Minuten Zahlen je
+  Woche, samstags 3 Stunden).
 - **Steht im Vertrag aus dem Winter der 19.07.,** deckst du die zwei Wochen ab
   Mo 05.07. über eine Zeitarbeitsfirma oder lässt sie aus. Zwei kurzfristige
   Jobs im Jahr werden zusammengezählt: 10 + 40 Arbeitstage bleiben unter 70.

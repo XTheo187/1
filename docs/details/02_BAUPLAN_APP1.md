@@ -173,7 +173,8 @@ zum nächsten Update); Kundendaten in dein Claude-Abo; „ist behoben“ glauben
 ohne es gesehen zu haben; neue Funktionen nach dem Funktions-Stopp;
 Funktionen vor dem Review verstecken oder nach der Freigabe per Update
 (`expo-updates`) freischalten (Updates ohne neues Review nur für reine
-Fehlerkorrekturen, [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.6); eine
+Fehlerkorrekturen und den Hinweis beim Verkaufsstopp,
+[03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.6); eine
 unfertige Version einreichen, um das Review zu testen; einen fertigen
 KI-Proxy-Dienst statt der eigenen Funktion mit Abo-Prüfung; eine bezahlte
 Vorlage oder einen KI-App-Baukasten.
@@ -439,7 +440,9 @@ baust du nicht ein.
    ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.6); jeder Build zählt auf
    die 15 im Monat. Updates über `expo-updates` nutzt du nur, wenn der
    Vertrag zur Auftragsverarbeitung mit Expo abgelegt ist; sonst schaltest du
-   sie vor der Einreichung ab (03, Abschnitt 5.2, Schritt 11).
+   sie vor der Einreichung ab, und Korrekturen und der Hinweis beim
+   Verkaufsstopp ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 6, Schritt 1)
+   kommen nur mit einem neuen Build (03, Abschnitt 5.2, Schritt 11).
 5. Die App ruft die Paywall nach dem Onboarding auf, mit `presentPaywall` bzw.
    `presentPaywallIfNeeded`.
 
@@ -856,8 +859,8 @@ Voraussetzung: Der Vertrag für bezahlte Apps ist aktiv (nach der Gründung,
      Zähler in dessen Tabelle `nutzung`); ein Aufruf ohne Abo an
      `app1-betrieb` scheitert; ein Tipp auf „TikTok“ zählt in `app1-betrieb`
      (nur mit Herkunftsfrage, AP11). Eingereicht wird nur dieser Build.
-2. **Mindestprüfung:** die acht Punkte aus dem Hauptplan, Abschnitt 7 (die
-   ersten sieben stehen auch im Abschnitt „Sicherheit“ von
+2. **Mindestprüfung:** die acht Punkte aus dem Hauptplan, Abschnitt 7 (alle
+   acht stehen auch im Abschnitt „Sicherheit“ von
    `docs/checkliste-einreichung.md`). Claude führt sie aus und zeigt Befehl
    und Ergebnis (Vorlage „Sicherheitsprüfung vor jedem Release“, Hauptplan,
    Abschnitt 16); du siehst dir jedes Ergebnis selbst an.

@@ -13,8 +13,8 @@ Modellzahlen.
 **Hier steht, wie du bis So 20.12. aus etwa 20 Kandidaten eine Idee für
 App 1 machst – oder feststellst, dass keine taugt.** Stand: Mi 25.11.2026.
 
-**Neu gegenüber 01** (01 wird an diese Entscheidungen angeglichen; der
-Hauptplan enthält sie schon, Abschnitte 12 und 13):
+**Neu gegenüber der ersten Fassung von 01** (01 und der Hauptplan enthalten
+sie inzwischen; Hauptplan, Abschnitte 12 und 13):
 - Du prüfst **fünf** Ideen, nicht drei.
 - Zwei K.-o.-Fragen kommen dazu: Haftung und der Test gegen kostenlose Wege.
 - **No-Go-Regel:** Besteht keine Idee, wird nicht gegründet und kein
@@ -51,9 +51,9 @@ Inhalt:
 - **Sie hält App 1 klein.** Die Form „ein Formular, ein Ergebnis, Verlauf
   auf dem Gerät“ spart 0/10/30 Baustunden (Gegenprüfung). Dem stehen
   8–15 Stunden für die Review-Festigkeit (Abschnitt 9) und gut 5 Stunden
-  mehr Ideenwahl als in 01 gegenüber. Unter dem Strich kostet das typisch
-  einige Stunden (Schätzung). Der Wert liegt in den vermiedenen Verlusten,
-  nicht in gesparter Zeit.
+  mehr Ideenwahl als mit drei Ideen ohne Ablauf-Test gegenüber. Unter dem
+  Strich kostet das typisch einige Stunden (Schätzung). Der Wert liegt in
+  den vermiedenen Verlusten, nicht in gesparter Zeit.
 
 **Wozu sie nicht gut ist**
 - **Sie hebt die Trefferquote nur wenig.** Zahlen: [`07_HEBEL.md`](07_HEBEL.md).
@@ -84,14 +84,14 @@ Inhalt:
 
 | Woche | Ideenwahl | davon in 01 eingeplant |
 |---|---|---|
-| KW 48, nur Sa 28.11. | 1,75/2,25/2,5 h | 2 h |
+| KW 48, nur Sa 28.11. | 1,75/2,25/2,5 h | 2 h 15 min |
 | KW 49 (Mo 30.11.–So 06.12.) | 2,25/2,75/3,5 h | 2 h 45 min |
-| KW 50 (Mo 07.12.–So 13.12.) | 2/2,25/3 h | 1 h |
-| KW 51 (Mo 14.12.–So 20.12.) | 4/5/7 h | 1 h |
-| zusammen | ~10/12/16 h | 6 h 45 min |
+| KW 50 (Mo 07.12.–So 13.12.) | 2/2,25/3 h | 2 h 15 min |
+| KW 51 (Mo 14.12.–So 20.12.) | 4/5/7 h | 4 h 50 min |
+| zusammen | ~10/12/16 h | 12 h 05 min |
 
-Das sind typisch gut 5 Stunden mehr als in 01, weil fünf statt drei Ideen
-geprüft werden und der Ablauf-Test dazukommt. Über 15 Stunden kommst du
+01 plant die Tage unten genau so ein. Gegenüber drei Ideen ohne Ablauf-Test
+sind das typisch gut 5 Stunden mehr. Über 15 Stunden kommst du
 nur, wenn der Ablauf länger braucht als geplant (bis 4 statt 2 Stunden,
 Abschnitt 8); dann gilt die Frist bis Mo 28.12. (Abschnitt 7). **Die
 Ideenwahl geht in KW 51 vor AP6** (und am Sa 12.12. vor der Lernstunde).
@@ -110,7 +110,7 @@ aus dem API-Guthaben.
 | Sa 05.12. | 1 h | App-Store-Suche für die Ideen 4 und 5; Top-Charts (5.3) | – | wie Di; Charts | jede Idee Punkte bei Kriterium 2 und fünf Konkurrenten hat |
 | Do 10.12. | 1 h | Zahlungsbeleg für alle fünf (5.4) | Liste der Konkurrenten mit Alter und Anbieter | Umsatzschätzung ablesen, nur die Größenklasse | jede Idee Punkte bei Kriterium 1 hat oder gestrichen ist |
 | Sa 12.12. | 1 h 15 min | TikTok (5.5) und Google Trends (5.6) für die Ideen im Rennen (höchstens drei; sind mehr im Rennen, die drei mit den meisten gemessenen Punkten bei Kriterium 1 und 2, bei Gleichstand die mit mehr Punkten bei Kriterium 1); Zwischenstand | rechnet die Summen | TikTok-App, Trends | diese Ideen eine vollständige Summe haben und feststeht, ob das Ideen-Tor absehbar bestanden wird (Abschnitt 7) |
-| Mo 14.12. | (1 h aus 01) | Apple Developer Program **nur**, wenn der Zwischenstand passt und die Namensfrage (So 13.12.) entschieden ist | – | – | angemeldet oder bewusst verschoben |
+| Mo 14.12. | (1 h aus 01) | Apple Developer Program **nur**, wenn der Zwischenstand passt, die Namensfrage (So 13.12.) entschieden ist und IHK oder Gewerbeamt bestätigt haben, dass Mitgliedschaft und Tests ohne Verkauf vor der Gewerbeanmeldung unbedenklich sind ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 4.1) | – | – | angemeldet oder bewusst verschoben |
 | Di 15.12. | 1 h | Slideshow-Test (Abschnitt 8) und Namensprüfung (Abschnitt 9) für die beste Idee, je 30 min | drei Namensvorschläge, iTunes-Suche nach den Namen | Folientitel selbst schreiben; App Store, DPMAregister | 10 Folientitel und 3 Aufnahme-Ideen stehen und ein Name frei ist |
 | Mi 16.12. | 1 h | Ablauf in Expo Go bauen (Abschnitt 8) | baut Formular und Ergebnis auf dem Branch `ablauf-test` | auf dem iPhone prüfen | das Formular auf dem iPhone erscheint |
 | Do 17.12. | 1 h | Ablauf fertig bauen | behebt Fehler | selbst durchtippen | du von der ersten Frage bis zum Ergebnis kommst |
@@ -119,22 +119,10 @@ aus dem API-Guthaben.
 | Sa 19.12. | 30 min | **Ideen-Tor:** entscheiden; danach AP3 (`SPEC.md`, Vorlage 10.5) | – | entscheiden | die Entscheidung in `docs/entscheidungen.md` steht |
 | So 20.12. | frei | Messpunkt M0 abhaken: Idee besteht, `SPEC.md` steht, echte KI-Antwort in der App (Hauptplan, Abschnitt 13). Die Paywall gehört nicht dazu; sie kommt am Mi 23.12. In den Fällen der Frist (Abschnitt 7) hakst du M0 erst bis Mo 28.12. ab | – | – | – |
 
-**Abgleich mit 01** (01 wird hier nicht geändert; es gilt seine Regel
-„schieben, nicht überspringen“):
-
-| Tag | in 01 | hier |
-|---|---|---|
-| Sa 28.11. | 10 Ideen, du wählst 3 (2 h) | etwa 20 Kandidaten (12 von Claude, eigene, Pool A–H), K.-o.-Fragen und 60-Sekunden-Test; du wählst 5 (2 h 15 min; die 15 Minuten fehlen beim Beginn von AP1) |
-| Mo 30.11. | AP1 fertig | nur wenn nötig 30 min 60-Sekunden-Test; AP1 rutscht um diese Zeit |
-| Di 01.12., Do 03.12. | Ideen 1–3 bewerten | App-Store-Suche; die volle Summe gibt es erst am Sa 12.12. |
-| Do 10.12. | Suchbegriffe und Namen | Zahlungsbeleg; Suchbegriffe stehen seit KW 49, Namen folgen am Di 15.12. |
-| Sa 12.12. | 1 h Lernen am eigenen Code | 1 h 15 min Ideen; die Lernstunde rutscht in die Ferien |
-| Di 15.12.–Do 17.12. | AP6 (3 h) | Slideshow-Test, Namensprüfung, Ablauf |
-| Sa 19.12. | 1,5 h AP6 Rest, 1 h Entwürfe | 2,5 h AP6; die Entwürfe rutschen in die Ferien |
-| So 20.12. | M0 fragt auch, ob die Paywall erscheint | M0 ohne Paywall (Hauptplan, Abschnitt 13); sie kommt am Mi 23.12. Das ist kein No-Go; ein No-Go gilt nur, wenn keine Idee besteht (Abschnitt 7) |
-| Mi 23.12. | 1 h AP7 Rest, 4 h AP8, 2 h Beginn AP9 | 2 h AP6 Rest, 1 h AP7 Rest, 4 h AP8; AP9 beginnt am Mo 28.12. |
-| Mo 28.12. | 6 h ETH, 1 h AP9 (`eas submit`, TestFlight intern) | 6 h ETH, morgens 1 h AP9: Store-Build starten (er läuft, während du die Bewerbung machst) |
-| Di 29.12. | 1 h AP9 Rest, Stunden-Messpunkt, 6 h AP10 | 3 h AP9 (`eas submit`, TestFlight), danach der Stunden-Messpunkt, 4 h AP10. Die fehlenden 2 Stunden AP10 kommen am Mi 30.12. vor AP11; alles danach rutscht um 2 Stunden |
+**Abgleich mit 01:** 01 übernimmt diesen Tagesplan. Dafür rücken dort die
+Lernstunde vom Sa 12.12. auf den Sa 09.01., die Entwürfe ohne Gewerbe auf den
+Mi 06.01. und AP9 auf Mo 28.12. und Di 29.12.; AP10 läuft von Di 29.12. bis
+Do 31.12.
 
 - **AP6 am Sa 19.12.:** zuerst Konto, Produkte und alle nativen Pakete
   (Schritte 1, 2 und 4 im Bauplan). Dann enthält der Entwicklungs-Build am
@@ -601,12 +589,15 @@ Dazu braucht sie einen freien Namen (Abschnitt 9). Ein belegter Name ist
 kein No-Go; dann suchst du einen anderen.
 
 **Zwischenstand am Sa 12.12. – „absehbar bestanden“:** Mindestens eine Idee
-erfüllt Punkt 1 mit allen gemessenen Werten. Dann meldet sich der Inhaber
-laut Namensfrage (du oder das Elternteil) zwischen Mo 14.12. und Mi 16.12.
-beim Apple Developer Program an (99 €, als Privatperson, automatische
-Verlängerung gleich abschalten; Ablauf in
+erfüllt Punkt 1 mit allen gemessenen Werten. Haben dazu IHK oder Gewerbeamt
+bestätigt, dass Mitgliedschaft und Tests ohne Verkauf vor der
+Gewerbeanmeldung unbedenklich sind, meldet sich der Inhaber laut Namensfrage
+(du oder das Elternteil) zwischen Mo 14.12. und Mi 16.12. beim Apple
+Developer Program an (99 €, als Privatperson, automatische Verlängerung
+gleich abschalten; Voraussetzungen und Ablauf in
 [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 4).
-Sonst wartest du bis nach dem Ideen-Tor. Fällt die beste Idee danach noch im
+Sonst wartest du bis nach dem Ideen-Tor; sagen IHK oder Gewerbeamt etwas
+anderes, bis zur Gründung. Fällt die beste Idee danach noch im
 Ablauf-Test durch und erfüllt keine zweite alle Mindestwerte, sind die 99 €
 schon bezahlt. Willst du das nicht riskieren, kaufst du erst nach dem Ideen-Tor,
 frühestens am Mo 21.12.
@@ -770,8 +761,8 @@ Frag nicht „Würdest du dafür zahlen?“. Die Antwort sagt nichts.
     AP7.
   - AP8 kommt dann am Mo 28.12. (1 Stunde) und Di 29.12. (3 Stunden), AP9
     am Di 29.12. (4 Stunden). Der Stunden-Messpunkt bleibt am Abend des
-    Di 29.12. AP10 beginnt am Mi 30.12.; alles danach rutscht gegenüber
-    Abschnitt 2 um weitere 4 Stunden.
+    Di 29.12. Die Reste aus Phase A und AP10 rücken auf den Mi 30.12.; alles
+    danach rutscht gegenüber 01 um knapp 4 Stunden.
 - **Zum Schluss (10 min):** den 60-Sekunden-Test wiederholen, jetzt Ablauf
   gegen kostenlosen KI-Chat. Der Punkt, in dem die App gewinnt, muss jetzt
   wirklich zu sehen sein. Ist er nicht zu sehen, fällt die Idee wie beim
