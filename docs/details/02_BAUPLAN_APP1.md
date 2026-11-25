@@ -22,8 +22,9 @@ nur in [`07_HEBEL.md`](07_HEBEL.md).
   `max_tokens`, `system` und `messages`, Modell-ID als Geheimnis (AP5).
 - Supabase im Gratis-Tarif mit Migrationen und Wachregel (AP4, AP20);
   Tagesgrenze zum Start 30 statt 20 (AP15).
-- Keine Testphase, feste Preise, drei Store-Sprachen schon in Version 1.0
-  (AP12, AP19, AP22); Übergabe-Mappe von Anfang an (AP1, AP20).
+- Keine Testphase, Wochenabo 6,99 € vorausgewählt, Monatsabo 14,99 €, drei
+  Store-Sprachen schon in Version 1.0 (AP12, AP19, AP22); Übergabe-Mappe von
+  Anfang an (AP1, AP20).
 - Gründung ~3,5 bzw. ~9 Stunden (Abschnitt 4); Schwellen am
   Stunden-Messpunkt wie im Hauptplan (Abschnitt 8).
 
@@ -58,9 +59,9 @@ Deshalb gilt für App 1:
 - **Eigenes der App:** Verlauf und Favoriten nur auf dem Gerät, Kopieren und
   das Teilen-Menü des iPhones (AP10a). Bei knapper Zeit zuerst geführter
   Ablauf und Meldeknopf, Favoriten zuletzt.
-- **Sechs Bildschirme:** Onboarding (3–5 Fragen, die Herkunftsfrage, ein
-  Beispiel-Ergebnis), Paywall, Eingabe, Ergebnis, Verlauf, Einstellungen.
-  Fünf davon legt AP2 als leere Hüllen an, den Verlauf AP10a.
+- **Bildschirme:** die fünf aus AP2 (Onboarding mit 3–5 Fragen,
+  Herkunftsfrage und Beispiel-Ergebnis; Paywall; Eingabe; Ergebnis;
+  Einstellungen), dazu der Verlauf aus AP10a.
 - **Zwei Sprachen:** Deutsch und Englisch, von Anfang an. Die KI antwortet in
   der Sprache des Geräts.
 - **Abo:** Wochenabo 6,99 € (vorausgewählt) und Monatsabo 14,99 €, keine
