@@ -184,21 +184,34 @@ BASE = dict(
                                        #    damit unsicher: auch ein Treffer kann unter der Schwelle starten)
     kein_testgeld=False,               # Gegenprobe: gar kein Testgeld, auch nicht aus Umsatz
     frei_ab=None,                      # Kalender NI: Montag nach der letzten eigenen Pruefung (Standard 07.06.)
-    restwert=None,                     # dict(monate, p[, min_monat, min_alter_w, kosten, verkauf]): Wert laufender
-                                       # Apps nach dem 31.08.: Monatsgewinn der letzten 4 Wochen x Monate, mit
-                                       # Wahrscheinlichkeit p (Uebergabe an ein Elternteil, abzueglich kosten);
-                                       # verkauf=dict(ab_umsatz_usd, min_alter_w, p, monate): zuerst Verkaufsversuch
-    ferienjob=None,                    # dict(ab, netto_woche, max_app_h[, p, immer]): Vollzeit-Ferienjob, sobald
-                                       # die Jagd an einem Tor beendet ist (kurzfristige Beschaeftigung vor dem
-                                       # Studium); p = Chance, den Job zu bekommen; immer=True: Job ab dem Datum
-                                       # auch ohne Tor (App nur noch abends)
+    restwert=None,                     # dict(monate, p[, min_monat, min_alter_w, kosten, verkauf, stichtag,
+                                       # uebertragung, anmeldung]): Wert laufender Apps nach dem 31.08.:
+                                       # Monatsgewinn der letzten 4 Wochen x Monate, mit Wahrscheinlichkeit p
+                                       # (Uebergabe an ein Elternteil, abzueglich kosten);
+                                       # verkauf=dict(ab_umsatz_usd, min_alter_w, p, monate): zuerst Verkaufsversuch;
+                                       # stichtag: entschieden wird mit dem Stand bis zu diesem Tag (nicht mit den
+                                       # Augustzahlen); uebertragung: ab diesem Tag gehoeren die Erloese dem
+                                       # Nachfolger; anmeldung=dict(am, ab_mrr_usd): das Elternteil meldet sich nur
+                                       # an, wenn eine App am Messtag so viel MRR zeigt (sonst keine Uebergabe);
+                                       # bleibt die Uebergabe dann aus, sind seine Kosten verloren (Geld der Familie)
+    ferienjob=None,                    # dict(ab, netto_woche, max_app_h[, p, immer, frueh_ab, frueh_wenn, bis]):
+                                       # Vollzeit-Ferienjob, sobald die Jagd an einem Tor beendet ist (kurzfristige
+                                       # Beschaeftigung vor dem Studium); p = Chance, den Job zu bekommen;
+                                       # immer=True: Job ab dem Datum auch ohne Tor (App nur noch abends);
+                                       # frueh_ab: Stichtag am Vortag (ohne App im Store endet die Jagd dort, mit
+                                       # oder ohne Job; der Job beginnt dann schon an diesem Tag); frueh_wenn=
+                                       # 'eingereicht': nur ohne App im Store und ohne App im Review; bis: letzter
+                                       # Arbeitstag nach dem Ende des Modells (Lohn fuer die Werktage ab 30.08.)
     fix_vor_start=None,                # (lo, mode, hi): Kosten je Monat zwischen Gruendung und erstem Start (noch
                                        # kein Server-Tarif, keine Build-Abos); danach gilt fixed_month
     stilllegung=None,                  # dict(verkauf_bis): Endet die Jagd ohne Verkauf oder Uebergabe, gehen alle
                                        # Abos an diesem Tag aus dem Verkauf (Apple: mindestens 31 Tage zwischen
                                        # Verkaufsstopp und Dienstende); Erloese danach entfallen
-    fix_ruhe=None,                     # dict(von, bis, monat, max_h): Ruhezeit (Abitur) ohne App im Store und ohne
-                                       # App im Review: Abos pausiert (Kosten je Monat), hoechstens max_h je Woche
+    fix_ruhe=None,                     # dict(von, bis, monat, max_h[, kosten_ab, nur_betrieb, monat_live]):
+                                       # Ruhezeit (Abitur) ohne App im Store und ohne App im Review: Abos pausiert
+                                       # (Kosten je Monat ab kosten_ab), hoechstens max_h je Woche; nur_betrieb:
+                                       # mit App im Store oder im Review in diesen Wochen weder Bau noch Tests;
+                                       # monat_live: dann mindestens diese Kosten je Monat (Supabase Pro)
     kv_grenze=None,                    # dict(monatsgewinn, beitrag): Einzelunternehmen; Gewinn ueber der Grenze
                                        # beendet die Familienversicherung (eigene Beitraege, privat)
     harte_grenze=False,                # Plan: freiwillige Ausgaben nur, solange danach alle Pflichtkosten bis
@@ -407,12 +420,18 @@ def simulate(rng, P):
     job_wochen = 0
     job_ok = rng.random() < tri(rng, *FJ['p']) if FJ and 'p' in FJ else True
     VS = P['fix_vor_start']
-    vor_start_w = (tri(rng, *VS) / WPM + extra_w) if VS else None
+    vor_start_w = ((tri(rng, *VS) if VS[0] != VS[2] else VS[0]) / WPM + extra_w) if VS else None
     job_frueh = False
+    stichtag_stopp = False
+    RW = P['restwert']
+    rw_stand = None      # (Monatsgewinn, (Umsatz der besten App, ihre Startwoche)) am Entscheidungstag
+    eltern_konto = False  # Elternteil hat sich nach dem Messtag angemeldet (eigenes Gewerbe und Apple-Konto)
+    abitur_h = 0.0       # Stunden für Bau und Tests in den Wochen der Ruhezeit (nur mit fix_ruhe, Prüfgröße)
     FR = P['fix_ruhe']
     if FR:
         ruhe_w = (tri(rng, *FR['monat']) if FR['monat'][0] != FR['monat'][2] else FR['monat'][0]) / WPM
         ruhe = (woche_ab(FR['von']), woche_ab(FR['bis']))
+        ruhe_kosten_ab = woche_ab(FR.get('kosten_ab', FR['von']))
     KV = P.get('kv_grenze')
     kv_kosten = 0.0
     kv_hist = []
@@ -536,11 +555,14 @@ def simulate(rng, P):
                     bau = None
                     attempts -= 1           # abgebrochener Bau zaehlt nicht als Versuch
                 n_max = attempts            # keine neuen Versuche
-        if FJ and job_ok and FJ.get('frueh_ab') and not gestoppt and not apps and w == woche_ab(FJ['frueh_ab']):
-            # an diesem Stichtag noch keine App im Store: Job beginnt früher, die Jagd endet
+        if FJ and FJ.get('frueh_ab') and not gestoppt and not apps and w == woche_ab(FJ['frueh_ab']) \
+                and not (FJ.get('frueh_wenn') == 'eingereicht' and reviews):
+            # Stichtag (Vortag): noch keine App im Store -> die Jagd endet (keine neue App mehr), mit oder ohne Job;
+            # eine eingereichte App darf noch erscheinen. Mit Job beginnt er schon an diesem Tag.
             gestoppt = True
             stopp_woche = w
-            job_frueh = True
+            stichtag_stopp = True
+            job_frueh = job_ok
             if bau is not None:
                 bau = None
                 attempts -= 1
@@ -555,8 +577,12 @@ def simulate(rng, P):
                 fix_basis = min(fix_basis, vor_start_w)      # vor dem ersten Start: nur Claude, Domain, Nummer
         else:
             fix_basis = 0.0 if gestoppt else gr_vorher_w + extra_w   # nur Werkzeuge (Claude)
-        if in_ruhe:
-            fix_basis = min(fix_basis, ruhe_w)
+        if in_ruhe and w >= ruhe_kosten_ab:
+            fix_basis = min(fix_basis, ruhe_w)      # Abos pausiert (Claude Pro erst nach dem bezahlten Monat)
+        elif FR and FR.get('monat_live') and ruhe[0] <= w < ruhe[1] and gegruendet \
+                and (apps or any(rv[0] > 0 for rv in reviews)):
+            # App im Store oder im Review: Server auf dem bezahlten Tarif (die Wachregel geht im Abitur nicht)
+            fix_basis = max(fix_basis, FR['monat_live'] / WPM + extra_w)
         if gestoppt and agent_laeuft:
             # Treffer nach dem Tor: Abo für den Agenten läuft weiter
             fix_basis += ag_extra_w if agent_aktiv else extra_w
@@ -595,6 +621,11 @@ def simulate(rng, P):
         if focus:
             # Gruender skaliert den Treffer, keine neuen Apps
             h_free = 0.0
+        if FR and FR.get('nur_betrieb') and ruhe[0] <= w < ruhe[1] and not in_ruhe:
+            # Abitur mit App im Store oder im Review: nur Zahlen, Notfälle, Antworten an das Review;
+            # kein Bau, keine Posts (die Stunden fließen weder in Tests noch in die nächste App)
+            h_free = 0.0
+        h_start = h_free
         if not focus:
             # 1. Testarbeit (Videos, Creator) für gestartete Apps hat Vorrang
             for tst in tests:
@@ -633,6 +664,8 @@ def simulate(rng, P):
                     bau = None
                 else:
                     break
+        if FR and ruhe[0] <= w < ruhe[1]:
+            abitur_h += h_start - h_free         # Stunden für Bau und Tests in den Abiturwochen (Prüfgröße)
         # Review-Zeit laeuft kalendarisch
         fertig = []
         in_pause = startpause is not None and startpause[0] <= w < startpause[1]
@@ -668,12 +701,19 @@ def simulate(rng, P):
                         a['signal_w'] = startpause[1]   # in der Startpause erst ab dem Ende der Pause buchen
                         continue
                     a['signal_w'] = None
+                    bestanden = a.pop('bestanden', False)
+                    if SIG.get('creator_nach_pause') and not bestanden and startpause and w < startpause[0] \
+                            and not gestoppt and a['R'] * WPM >= SIG['schwelle_usd'] * FX:
+                        # vor der Startpause bestanden: zählt, Creator aber erst nach der letzten Prüfung
+                        a['signal_w'] = startpause[1]
+                        a['bestanden'] = True
+                        continue
                     zweite = SIG.get('zweite')      # zweite Prüfung für Apps, die vor der Startpause starteten
-                    if zweite and startpause and a['launch'] < startpause[0] and w < woche_ab(zweite) \
-                            and a['R'] * WPM < SIG['schwelle_usd'] * FX:
+                    if zweite and not bestanden and startpause and a['launch'] < startpause[0] \
+                            and w < woche_ab(zweite) and a['R'] * WPM < SIG['schwelle_usd'] * FX:
                         a['signal_w'] = woche_ab(zweite)   # vor dem Abitur zu wenige Posts für ein Urteil
                         continue
-                    if not gestoppt and a['phase'] != 'decay' and a['R'] * WPM >= SIG['schwelle_usd'] * FX:
+                    if not gestoppt and a['phase'] != 'decay' and (bestanden or a['R'] * WPM >= SIG['schwelle_usd'] * FX):
                         cost = testgeld(a['wunsch'])
                         if cost >= 100:
                             if w <= g3_woche:
@@ -873,6 +913,14 @@ def simulate(rng, P):
         max_mrr = max(max_mrr, mrr_eur)
         best_mrr = max(best_mrr, max((a['R'] for a in apps), default=0.0) * WPM)
         chk[w] = best_mrr
+        if RW:
+            AN = RW.get('anmeldung')
+            if AN and w == woche_ab(AN['am']) - 1:
+                # Messtag (Mo 28.06.): Stand am Ende der Vorwoche; nur dann meldet sich das Elternteil an
+                eltern_konto = max((a['R'] for a in apps), default=0.0) * WPM >= AN['ab_mrr_usd'] * FX
+            if RW.get('stichtag') and w == bis_woche(RW['stichtag']):
+                rw_stand = (sum(profit_hist[-4:]) * WPM / 4,
+                            max(((a['R'], a['launch']) for a in apps), default=(0.0, WEEKS)))
         if P['angel']:
             weeks_over_20k = weeks_over_20k + 1 if mrr_eur >= P['angel_trigger_mrr'] else 0
             if angel_state is None and weeks_over_20k >= 4:
@@ -929,35 +977,61 @@ def simulate(rng, P):
     abw_eff = abw if gegruendet else 0.0      # ohne Gründung nichts aufzulösen
     ergebnis = s0 * (ekp - angel_teil) + min(0.0, eigenkapital) - einsatz - abw_eff - kv_kosten
     # Wert nach dem 31.08.: Verkauf oder Übergabe laufender Apps (Monatsgewinn der letzten 4 Wochen x Monate)
-    RW = P['restwert']
     restwert = 0.0
+    art = None           # 'verkauf' | 'uebergabe' | None
     if RW and apps and exit_value == 0:
         monatsgewinn = sum(profit_hist[-4:]) * WPM / 4
         # Käufer und Nachfolger wollen Daten: beste App seit mindestens min_alter_w Wochen im Store,
         # Monatsgewinn über min_monat
         beste = max(apps, key=lambda a: a['R'])
-        alter = WEEKS - beste['launch']
-        if monatsgewinn > RW.get('min_monat', 0.0) and alter >= RW.get('min_alter_w', 0):
+        if RW.get('stichtag'):
+            # entschieden wird mit dem Stand am Entscheidungstag, nicht mit den Zahlen aus dem August
+            mg_ent, (R_best, l_best) = rw_stand if rw_stand else (0.0, (0.0, WEEKS))
+            alter = woche_ab(RW['stichtag']) + 1 - l_best        # Wochen im Store bis zum Umschalttag
+        else:
+            mg_ent, R_best, l_best = monatsgewinn, beste['R'], beste['launch']
+            alter = WEEKS - l_best
+        if mg_ent > RW.get('min_monat', 0.0) and alter >= RW.get('min_alter_w', 0):
             VK = RW.get('verkauf')
-            if VK and alter >= VK['min_alter_w'] and beste['R'] * WPM >= VK['ab_umsatz_usd'] * FX \
+            if VK and alter >= VK['min_alter_w'] and R_best * WPM >= VK['ab_umsatz_usd'] * FX \
                     and rng.random() < tri(rng, *VK['p']):
-                restwert = monatsgewinn * tri(rng, *VK['monate'])       # Verkauf (netto nach Gebühren)
-            elif rng.random() < tri(rng, *RW['p']):
-                restwert = monatsgewinn * tri(rng, *RW['monate'])       # Übergabe (Geld der Familie)
+                restwert = mg_ent * tri(rng, *VK['monate'])     # Verkauf (netto nach Gebühren), Preis nach dem Stand
+                art = 'verkauf'
+            elif (eltern_konto or not RW.get('anmeldung')) and rng.random() < tri(rng, *RW['p']):
+                restwert = max(0.0, monatsgewinn) * tri(rng, *RW['monate'])   # Übergabe (Geld des Elternteils)
+                art = 'uebergabe'
                 if 'kosten' in RW:
                     restwert = max(0.0, restwert - tri(rng, *RW['kosten']))
+    # Ab der Übertragung gehören die Erlöse dem Nachfolger (Elternteil oder Käufer), nicht mehr dir
+    nach_uebertragung = 0.0
+    if art and RW.get('uebertragung'):
+        nach_uebertragung = sum(deckung_hist[woche_ab(RW['uebertragung']):])
+        if art == 'uebergabe':
+            restwert += nach_uebertragung      # bleibt in der Familie, gehört aber dem Elternteil
+    # Angemeldet, aber nichts übernommen: die Kosten des Elternteils sind verloren (Geld der Familie)
+    eltern_kosten = 0.0
+    if RW and RW.get('anmeldung') and eltern_konto and art != 'uebergabe':
+        eltern_kosten = tri(rng, *RW['kosten'])
     # Stilllegung ohne Nachfolger: Ab dem Verkaufsstopp gibt es weder Neuabschlüsse noch Verlängerungen; es
     # entfällt das Ergebnis dieser Wochen vor Fixkosten (Erlös minus Werbung und andere umsatzabhängige Kosten)
     abschalt_abzug = 0.0
     ST = P['stilllegung']
-    if ST and gestoppt and apps and restwert == 0 and exit_value == 0:
+    if ST and gestoppt and apps and art is None and exit_value == 0:
         ab_w = woche_ab(ST['verkauf_bis']) + 1       # erste Woche, die nach dem Verkaufsstopp beginnt
         abschalt_abzug = sum(deckung_hist[ab_w:])
-    # Ferienjob nach dem Ende der Jagd (netto, kurzfristige Beschäftigung vor dem Studium)
-    job_netto = job_wochen * tri(rng, *FJ['netto_woche']) if FJ and job_wochen else 0.0
-    ergebnis -= abschalt_abzug
+    # Ferienjob nach dem Ende der Jagd (netto, kurzfristige Beschäftigung vor dem Studium); läuft er bis zum Ende des
+    # Modells, zählen auch die Werktage danach bis zum letzten Arbeitstag (z. B. Fr 10.09.)
+    job_nach_w = 0.0
+    if FJ and job_wochen and FJ.get('bis'):
+        nach_modell = START + timedelta(weeks=WEEKS)          # Mo 30.08.2027, erster Tag nach dem Modell
+        job_nach_w = sum(1 for k in range((FJ['bis'] - nach_modell).days + 1)
+                         if (nach_modell + timedelta(days=k)).weekday() < 5) / 5.0
+    job_netto = (job_wochen + job_nach_w) * tri(rng, *FJ['netto_woche']) if FJ and job_wochen else 0.0
+    ergebnis -= abschalt_abzug + nach_uebertragung
     ergebnis_app = ergebnis
-    ergebnis += restwert + job_netto
+    verkauf = restwert if art == 'verkauf' else 0.0
+    ergebnis_dein = ergebnis_app + verkauf + job_netto         # dein Geld: App, Verkaufspreis, Lohn
+    ergebnis += restwert + job_netto - eltern_kosten            # mit dem Geld des Elternteils (Übergabe)
     g3 = bis_woche(P["test_cap_bis"])
     return dict(launch1=(apps[0]['launch'] if apps else 99), profit=profit * share,
                 exit=exit_value * share, paper=paper * share, attempts=attempts,
@@ -974,7 +1048,11 @@ def simulate(rng, P):
                 partner_woche=pw, abwicklung=abw_eff, apple_ab=apple_ab,
                 gegruendet=gegruendet, gruendung_woche=gruendung_woche, zu_teuer=zu_teuer, kv_kosten=kv_kosten,
                 einreichung1=einreichung1, restwert=restwert, job_netto=job_netto, job_wochen=job_wochen,
-                ergebnis_app=ergebnis_app, abschalt_abzug=abschalt_abzug, job_frueh=job_frueh)
+                ergebnis_app=ergebnis_app, abschalt_abzug=abschalt_abzug, job_frueh=job_frueh,
+                stichtag_stopp=stichtag_stopp, art=art, verkauf=verkauf,
+                uebergabe=(restwert if art == 'uebergabe' else 0.0), nach_uebertragung=nach_uebertragung,
+                eltern_konto=eltern_konto, eltern_kosten=eltern_kosten, ergebnis_dein=ergebnis_dein,
+                abitur_h=abitur_h, job_nach_w=job_nach_w)
 
 
 def scen(**kw):
@@ -1136,10 +1214,37 @@ def _mix(*teile):
     return out
 
 
+# Pflicht, kein Hebel: Stunden und Regeln, die die Detailpläne verlangen (Prüfung des Modells, 25.11.). Nebenaufgaben
+# vor und bei der Gründung, die nicht in den Bau fließen: Ideenwahl ab Mo 30.11. typisch 10 h (04, Abschnitt 2: KW 49
+# 2,75 h, KW 50 2,25 h, KW 51 5 h; der Sa 28.11. liegt vor dem Start des Modells), Verwaltung und ELSTER 1 h,
+# Entscheidung mit den Eltern 1 h (Fr 11.12.), Apple Developer Program 1 h (Mo 14.12.), Bankkonto 0,75 h und
+# Bewerbungen für den Ferienjob 1,5 h (Weihnachtsferien), Gründungsberatung 2,5 h (bis Mi 06.01.), Vorbereitung fürs
+# Marketing 3,5 h (05, Abschnitt 4), Zusage des Elternteils und Frage an die Oberstufenkoordination 1 h (Januar).
+# Die Gründung selbst kostet 6 statt 4 h (03, Abschnitt 5.1; zusammen mit Bankkonto und Beratung rund 9 h).
+# Kassenprüfung, Wochenauswertung und Support-Postfach: 0,4/0,5/0,6 h je Woche, solange eine App läuft (S).
+# Ein Signal vor dem Abitur zählt, Creator bucht der Plan aber erst nach der letzten Prüfung.
+def _nebenaufgaben_plan():
+    m = dict(NEBEN_NI)
+    for tag, h in ((date(2026, 11, 30), 3.75), (date(2026, 12, 7), 3.25), (date(2026, 12, 14), 6.0),
+                   (date(2026, 12, 28), 2.25), (date(2027, 1, 4), 2.5), (date(2027, 1, 18), 3.5),
+                   (date(2027, 1, 25), 1.0)):
+        m[tag] = m.get(tag, 0.0) + h
+    return m
+
+
+NEBEN_PLAN = _nebenaufgaben_plan()
+GRUENDUNG_PLAN = dict(EINZEL['gruendung'], stunden=6.0)
+SIGNAL_PLAN = dict(SIGNAL, creator_nach_pause=True)
+AUFWAND_PLAN = dict(neben=NEBEN_PLAN, gruendung=GRUENDUNG_PLAN, pflege_h_woche=(0.4, 0.5, 0.6), signal=SIGNAL_PLAN)
+# Ausgangslage aller Hebel: Plan vom 23.11. mit den Stunden und Regeln der Detailpläne
+BASIS_HEBEL = _mix(DEINE_ANGABEN, EINZEL, AUFWAND_PLAN)
+
 # Markt: App zweisprachig, Videos auf Deutsch (Reichweite ist an SIM und IP gebunden): DACH-Abschlag auf die
 # Trefferquoten x0,8/0,9/1,0 (S). Ideenwahl mit K.-o.-Fragen und Nachfrageprüfung: x1,0/1,05/1,2 für die ganze
-# Hebelklasse (S, kein Messbeleg). Zusammen x0,8/0,95/1,2.
-HEBEL_MARKT = dict(p_faktor=(0.8, 0.95, 1.2))
+# Hebelklasse (S, kein Messbeleg). Zusammen x0,8/0,95/1,2. Slideshow-Filter der Ideenwahl (04, Abschnitt 8;
+# Gegenprüfung idee-nische): Startumsatz ohne Test 0,40 -> 0,42 (S); Format-Raster und Wiederverwendung mit 0
+# angesetzt. Die Stunden für die zweite Sprache stecken in den Arbeitspaketen von 02 (Gegenprobe unten).
+HEBEL_MARKT = dict(p_faktor=(0.8, 0.95, 1.2), m0_ohne_test=(0.2, 0.42, 0.7))
 # Bau: Expo-Gerüst mit Plugin, fertige RevenueCat-Paywall, Durchstich zuerst, Arbeitsweise mit Prüfbefehl, eigene
 # Vorlage ab App 2 (S, Herstellerangaben ohne Zeitmessung): 78/130/260 statt 80/140/280 h, weitere Apps 33/55/110;
 # Lernstunden 20/28/40. Review-fest geplant (geführter Ablauf, Meldeknopf, Einwilligung): 0,4/1,2/3,0 Wochen.
@@ -1151,13 +1256,17 @@ HEBEL_BAU = dict(build_first=(78, 130, 260), build_next=(33, 55, 110), einmal_st
 # einen einzelnen Monat (0/0/12 statt 0/10/70).
 HEBEL_KOSTEN = dict(fix_vor_start=(23, 28, 45), fixed_month=(23, 30, 75), fixed_stop=(5, 12, 35),
                     abwicklung=(20, 80, 500), extra_fix_monat=(0, 0, 12),
-                    gruendung=dict(EINZEL['gruendung'], setup=(140, 200, 380)))
+                    gruendung=dict(GRUENDUNG_PLAN, setup=(140, 200, 380)))
 # Ruhezeit im Abitur (15.03.-06.06.): Ist keine App im Store oder im Review, ruht Claude Pro (2/5/30 EUR je Monat
-# für Domain, Nummer und einen Notfall-Monat) und es wird nicht gebaut.
-HEBEL_RUHE = dict(fix_ruhe=dict(von=date(2027, 3, 15), bis=date(2027, 6, 7), monat=(2, 5, 30), max_h=0.0))
-# Signal: zweite, gültige Prüfung am 28.06. (drei Wochen nach Wiederbeginn der täglichen Posts) für Apps, die vor
-# dem Abitur gestartet sind; Format-Raster und Wiederverwendung heben den Startumsatz ohne Test kaum (0,42, S).
-HEBEL_SIGNAL = dict(signal=dict(SIGNAL, zweite=date(2027, 6, 28)), m0_ohne_test=(0.2, 0.42, 0.7))
+# für Domain, Nummer und einen Notfall-Monat; Claude Pro ist bis ~27.03. bezahlt, die Ersparnis beginnt am 29.03.)
+# und es wird nicht gebaut. Ist eine App im Store oder im Review, gibt es in diesen Wochen nur Betrieb (Zahlen,
+# Notfälle, Antworten an das Review), keinen Bau und keine Posts; dann läuft Supabase Pro (zusammen mit Claude Pro,
+# Domain und Nummer mindestens ~50 EUR je Monat).
+HEBEL_RUHE = dict(fix_ruhe=dict(von=date(2027, 3, 15), kosten_ab=date(2027, 3, 29), bis=date(2027, 6, 7),
+                                monat=(2, 5, 30), max_h=0.0, nur_betrieb=True, monat_live=50.0))
+# Signal: zweite, gültige Prüfung Ende Juni (Modellwoche ab 28.06.; drei Wochen nach Wiederbeginn der täglichen
+# Posts) für Apps, die vor dem Abitur gestartet sind.
+HEBEL_SIGNAL = dict(signal=dict(SIGNAL_PLAN, zweite=date(2027, 6, 28)))
 # Pflicht, kein Hebel (B): Apple verlangt mindestens 31 Tage zwischen Verkaufsstopp und Dienstende ("A minimum of
 # 31 days is required from the date subscription is removed from sale and service is stopped"). Endet die Jagd
 # ohne Nachfolger, gehen alle Abos am So 15.08. aus dem Verkauf; der Dienst läuft bis Mi 15.09. (vor dem Umzug).
@@ -1165,20 +1274,28 @@ HEBEL_SIGNAL = dict(signal=dict(SIGNAL, zweite=date(2027, 6, 28)), m0_ohne_test=
 STILLLEGUNG = dict(stilllegung=dict(verkauf_bis=date(2027, 8, 15)))
 # Wert nach dem 31.08. (S): ab 150 EUR Monatsgewinn. Verkauf (ab 300 USD Monatsumsatz, App mindestens 8 Wochen
 # im Store): Abschluss in 10/25/45 von 100 Fällen, netto 1,7/4,3/10,3 Monatsgewinne. Sonst Übergabe an ein
-# Elternteil, das vorab zugesagt hat: 30/55/80 von 100, 0,7/2/5 Monatsgewinne für die Familie, abzüglich
-# 150-250 EUR (eigenes Apple-Konto, Gewerbe des Elternteils).
-RESTWERT = dict(restwert=dict(min_monat=150.0, p=(0.3, 0.55, 0.8), monate=(0.7, 2.0, 5.0), kosten=(150, 200, 250),
+# Elternteil, das vorab zugesagt hat: Chance, dass ein vorhandener Wert rechtzeitig realisiert wird, 25/40/60 von 100
+# (Gegenprüfung; ohne Zusage 10/25/45), 0,7/2/5 Monatsgewinne, abzüglich 120-165 EUR (Gewerbe 20-65 EUR und
+# Apple-Konto 99 EUR des Elternteils). Entschieden wird mit dem Stand bis Sa 07.08. (Monatsgewinn der vier Wochen bis
+# 01.08., Alter bis zum Umschalttag So 08.08.); ab der Übertragung (Mo 09.08.) gehören die Erlöse dem Nachfolger.
+# Das Elternteil meldet sich nur an, wenn am Mo 28.06. eine App mindestens ~100 USD MRR zeigt (06, Abschnitt 4.4);
+# ohne diese Anmeldung keine Übergabe, und bleibt die Übergabe aus, sind seine Kosten verloren.
+RESTWERT = dict(restwert=dict(min_monat=150.0, p=(0.25, 0.4, 0.6), monate=(0.7, 2.0, 5.0), kosten=(120, 140, 165),
+                              stichtag=date(2027, 8, 7), uebertragung=date(2027, 8, 9),
+                              anmeldung=dict(am=date(2027, 6, 28), ab_mrr_usd=100),
                               verkauf=dict(ab_umsatz_usd=300, min_alter_w=8, p=(0.10, 0.25, 0.45),
                                            monate=(1.7, 4.3, 10.3))))
 # Ferienjob (B/S): kurzfristige Beschäftigung ab Mo 19.07., wenn die Jagd am 18.07. endet: 40 h je Woche zu
 # 14,60 EUR (Mindestlohn 2027) bis ~17,30 EUR, nach Fahrtkosten 560/600/690 EUR je Woche endgültig (Lohnsteuer
-# kommt 2028 zurück); Chance auf einen Job über die ganze Zeit 70-85 von 100 (S). Gezählt werden die 6 vollen
-# Wochen bis 29.08. Früher Start: Ist am 04.07. noch keine App im Store, beginnt der Job am 05.07.
+# kommt 2028 zurück); Chance auf einen Job über die ganze Zeit 70-85 von 100 (S). Befristet bis Fr 10.09. (lange
+# Variante aus 06, Abschnitt 2: 40 Arbeitstage ab 19.07.); gezählt werden die 6 vollen Wochen bis 29.08. und die
+# 10 Werktage danach. Stichtag: Ist am 04.07. noch keine App im Store, endet die Jagd (keine neue App mehr, mit
+# oder ohne Job); mit Job beginnt er am 05.07.
 FERIENJOB = dict(ferienjob=dict(ab=date(2027, 7, 19), netto_woche=(560, 600, 690), max_app_h=5,
-                                p=(0.70, 0.78, 0.85)))
+                                p=(0.70, 0.78, 0.85), bis=date(2027, 9, 10)))
 FERIENJOB_FRUEH = dict(ferienjob=dict(FERIENJOB['ferienjob'], frueh_ab=date(2027, 7, 5)))
-# DEIN PLAN mit den Hebeln (Stand 24.11.2026)
-PLAN_HEBEL = _mix(DEINE_ANGABEN, EINZEL, HEBEL_MARKT, HEBEL_BAU, HEBEL_KOSTEN, HEBEL_RUHE, HEBEL_SIGNAL, STILLLEGUNG)
+# Plan mit den Hebeln (Stand 25.11.2026); DEIN PLAN = PLAN_HEBEL + RESTWERT + FERIENJOB_FRUEH
+PLAN_HEBEL = _mix(BASIS_HEBEL, HEBEL_MARKT, HEBEL_BAU, HEBEL_KOSTEN, HEBEL_RUHE, HEBEL_SIGNAL, STILLLEGUNG)
 
 SZENARIEN = {
     "Recherche-Quoten (Regeln des Plans)": scen(**PLAN_REGELN),
@@ -1245,14 +1362,16 @@ SZENARIEN = {
     # ---- Hebel (docs/details/07_HEBEL.md): Ausgangslage ist der Plan vom 23.11. mit Verkaufsstopp ----
     "Hebel: Plan vom 23.11. mit Verkaufsstopp am 15.08. (Pflicht, bisher nicht gerechnet)":
         scen(**_mix(DEINE_ANGABEN, EINZEL, STILLLEGUNG)),
+    "Hebel: Plan vom 23.11. mit Verkaufsstopp und allen Nebenaufgaben der Detailpläne (Ausgangslage)":
+        scen(**_mix(BASIS_HEBEL, STILLLEGUNG)),
     "Hebel: nur Kosten senken (mit Ruhezeit im Abitur)":
-        scen(**_mix(DEINE_ANGABEN, EINZEL, STILLLEGUNG, HEBEL_KOSTEN, HEBEL_RUHE)),
+        scen(**_mix(BASIS_HEBEL, STILLLEGUNG, HEBEL_KOSTEN, HEBEL_RUHE)),
     "Hebel: nur schneller bauen und review-fest planen":
-        scen(**_mix(DEINE_ANGABEN, EINZEL, STILLLEGUNG, HEBEL_BAU)),
+        scen(**_mix(BASIS_HEBEL, STILLLEGUNG, HEBEL_BAU)),
     "Hebel: nur Markt (Deutsch zuerst) und Ideenwahl":
-        scen(**_mix(DEINE_ANGABEN, EINZEL, STILLLEGUNG, HEBEL_MARKT)),
-    "Hebel: nur zweite Signalprüfung am 28.06.":
-        scen(**_mix(DEINE_ANGABEN, EINZEL, STILLLEGUNG, HEBEL_SIGNAL)),
+        scen(**_mix(BASIS_HEBEL, STILLLEGUNG, HEBEL_MARKT)),
+    "Hebel: nur zweite Signalprüfung Ende Juni":
+        scen(**_mix(BASIS_HEBEL, STILLLEGUNG, HEBEL_SIGNAL)),
     "Hebel: PLAN MIT HEBELN (Kosten, Bau, Markt, Signal; Verkaufsstopp 15.08.)": scen(**PLAN_HEBEL),
     "Hebel: Plan mit Hebeln, Verkaufsstopp schon am 31.07. (Dienstende 31.08.)":
         scen(**_mix(PLAN_HEBEL, dict(stilllegung=dict(verkauf_bis=date(2027, 7, 31))))),
@@ -1265,7 +1384,7 @@ SZENARIEN = {
     "Hebel: Plan mit Hebeln + Ferienjob ab 19.07.": scen(**_mix(PLAN_HEBEL, FERIENJOB)),
     "Hebel: Plan mit Hebeln + Ferienjob ab 19.07., ab 05.07. ohne App im Store":
         scen(**_mix(PLAN_HEBEL, FERIENJOB_FRUEH)),
-    "Hebel: Plan mit Hebeln + Übergabe oder Verkauf + Ferienjob (DEIN PLAN, Stand 24.11.)":
+    "Hebel: Plan mit Hebeln + Übergabe oder Verkauf + Ferienjob (DEIN PLAN, Stand 25.11.)":
         scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH)),
     "Hebel: wie DEIN PLAN, aber Job schon ab 05.07., wenn am 04.07. keine App 300 USD MRR zeigt (Gegenprobe)":
         scen(**_mix(PLAN_HEBEL, RESTWERT, dict(ferienjob=dict(FERIENJOB['ferienjob'], ab=date(2027, 7, 5)),
@@ -1281,6 +1400,25 @@ SZENARIEN = {
                                      einmal_stunden=(20, 30, 40)))),
     "Hebel: Plan mit Hebeln im strengeren Markt 2027":
         scen(**_mix(PLAN_HEBEL, MARKT_2027, dict(p_faktor=(0.52, 0.8, 1.2), review_weeks=(0.4, 1.2, 4.0)))),
+    "Hebel: DEIN PLAN, aber Stichtag 04.07. nur, wenn noch keine App eingereicht ist (Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, dict(ferienjob=dict(FERIENJOB_FRUEH['ferienjob'],
+                                                              frueh_wenn='eingereicht')))),
+    "Hebel: DEIN PLAN ohne Stichtag 04.07. (Job erst ab 19.07., Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB)),
+    "Hebel: DEIN PLAN mit kurzem Job bis Di 31.08. (Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, dict(ferienjob=dict(FERIENJOB_FRUEH['ferienjob'],
+                                                              bis=date(2027, 8, 31))))),
+    "Hebel: DEIN PLAN ohne Startpause (eine freigegebene App erscheint auch im Abitur, ohne Arbeit daran)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(startpause=None))),
+    "Hebel: nur Ferienjob ab 05.07., keine App, keine Gründung (Vergleich)":
+        scen(**_mix(PLAN_HEBEL, dict(ferienjob=dict(FERIENJOB['ferienjob'], ab=date(2027, 7, 5), immer=True),
+                                     n_attempts=(0, 0), extra_fix_monat=(0, 0, 0),
+                                     gruendung=dict(GRUENDUNG_PLAN, bei=2.0, fix_vorher=(0, 0, 0))))),
+    "Hebel: Plan mit Hebeln, falls die zweite Sprache zusätzlich Stunden kostet (+3/+6/+12 h, Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, dict(build_first=(81, 136, 272), build_next=(34, 57, 114)))),
+    "Hebel: DEIN PLAN, falls die zweite Sprache zusätzlich Stunden kostet (Gegenprobe)":
+        scen(**_mix(PLAN_HEBEL, RESTWERT, FERIENJOB_FRUEH, dict(build_first=(81, 136, 272),
+                                                                build_next=(34, 57, 114)))),
 }
 
 

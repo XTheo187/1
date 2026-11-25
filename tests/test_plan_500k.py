@@ -474,27 +474,31 @@ class TestPlan500k(unittest.TestCase):
                 self.assertFalse(P["angel"], k)
 
     def test_alte_szenarien_lauf_fuer_lauf_gleich(self):
-        """Die bisherigen Szenarien rechnen mit dem neuen Code Lauf für Lauf wie im Stand 7cb0468."""
+        """Die bisherigen Szenarien rechnen mit dem neuen Code Lauf für Lauf wie in den Ständen 7cb0468 (alle
+        damaligen Szenarien) und e2b0430 (die Szenarien „Deine Angaben“, Ausgangslage der Hebel in 07)."""
         import importlib.util
         import subprocess
         import tempfile
         root = Path(__file__).resolve().parents[1]
-        try:
-            alt_code = subprocess.run(["git", "-C", str(root), "show", "7cb0468:plan/plan_500k.py"],
-                                      capture_output=True, text=True, check=True).stdout
-        except (OSError, subprocess.CalledProcessError):
-            self.skipTest("git oder Stand 7cb0468 nicht verfügbar")
-        with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as f:
-            f.write(alt_code)
-        spec = importlib.util.spec_from_file_location("plan_alt", f.name)
-        alt = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(alt)
-        for name, P_alt in alt.SZENARIEN.items():
-            r1, r2 = random.Random(5), random.Random(5)
-            for _ in range(15):
-                a, b = alt.simulate(r1, P_alt), p.simulate(r2, p.SZENARIEN[name])
-                for k in a:
-                    self.assertEqual(a[k], b[k], (name, k))
+        for stand, praefix in (("7cb0468", ""), ("e2b0430", "Deine Angaben")):
+            try:
+                alt_code = subprocess.run(["git", "-C", str(root), "show", f"{stand}:plan/plan_500k.py"],
+                                          capture_output=True, text=True, check=True).stdout
+            except (OSError, subprocess.CalledProcessError):
+                self.skipTest(f"git oder Stand {stand} nicht verfügbar")
+            with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as f:
+                f.write(alt_code)
+            spec = importlib.util.spec_from_file_location(f"plan_alt_{stand}", f.name)
+            alt = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(alt)
+            for name, P_alt in alt.SZENARIEN.items():
+                if not name.startswith(praefix):
+                    continue
+                r1, r2 = random.Random(5), random.Random(5)
+                for _ in range(15):
+                    a, b = alt.simulate(r1, P_alt), p.simulate(r2, p.SZENARIEN[name])
+                    for k in a:
+                        self.assertEqual(a[k], b[k], (stand, name, k))
 
     def test_frueher_frei_nach_der_letzten_pruefung(self):
         """Liegt die Prüfung im 5. Fach früh, beginnen die freien Wochen früher (Standard: 07.06.)."""
@@ -642,9 +646,9 @@ class TestPlan500k(unittest.TestCase):
         ra = [p.simulate(random.Random(s), basis)["ergebnis"] for s in range(150)]
         rb = [p.simulate(random.Random(s), billig)["ergebnis"] for s in range(150)]
         self.assertGreater(sum(rb), sum(ra) + 150 * 20)       # im Mittel deutlich weniger Kosten
-        # ein Wert über fixed_month wirkt nicht (es gilt das Minimum), nur der Zufallsstrom verschiebt sich
-        rg = [p.simulate(random.Random(s), gleich) for s in range(150)]
-        self.assertTrue(all(r["gegruendet"] or r["zu_teuer"] or r["gruendung_woche"] is None for r in rg))
+        # ein Wert über fixed_month wirkt nicht (es gilt das Minimum); gleiche Werte ziehen keine Zufallszahl
+        rg = [p.simulate(random.Random(s), gleich)["ergebnis"] for s in range(150)]
+        self.assertEqual(rg, ra)
 
     def test_frueher_jobstart_ohne_app(self):
         """Ist am Stichtag noch keine App im Store, endet die Jagd und der Job beginnt früher."""
@@ -715,6 +719,231 @@ class TestPlan500k(unittest.TestCase):
             self.assertIsNone(P.get("gruendung"), k)
             self.assertFalse(P["harte_grenze"], k)
             self.assertEqual(P["abwicklung"], (0, 0, 0), k)
+
+    # ---- Prüfung des Modells vom 25.11.2026 ----
+    DEIN_PLAN = "Hebel: Plan mit Hebeln + Übergabe oder Verkauf + Ferienjob (DEIN PLAN, Stand 25.11.)"
+    MIT_HEBELN = "Hebel: PLAN MIT HEBELN (Kosten, Bau, Markt, Signal; Verkaufsstopp 15.08.)"
+
+    def test_hebel_szenarien_kasse_und_grenze(self):
+        """Alle Hebel-Szenarien: nie mehr als der Einsatz verloren, kein Nachschuss, Kasse nie im Minus,
+        Kassenprobe stimmt, und die Ergebnisse setzen sich richtig zusammen."""
+        for k, P in p.SZENARIEN.items():
+            if not k.startswith("Hebel:"):
+                continue
+            rng = random.Random(43)
+            for _ in range(100):
+                r = p.simulate(rng, P)
+                self.assertGreaterEqual(r["ergebnis_app"], -P["start_cash"] - 1e-6, k)
+                self.assertEqual(r["nachschuss"], 0.0, k)
+                self.assertGreaterEqual(r["min_kasse"], 0.0, k)
+                probe = (r["cash"] - P["start_cash"] - r["nachschuss"] - r["angel_geld"] + r["forderungen"]
+                         - r["offene_kosten"])
+                self.assertAlmostEqual(r["profit_firma"], probe, delta=1e-6 * max(1.0, abs(probe)))
+                self.assertAlmostEqual(r["ergebnis_dein"], r["ergebnis_app"] + r["verkauf"] + r["job_netto"])
+                self.assertAlmostEqual(r["ergebnis"], r["ergebnis_app"] + r["restwert"] + r["job_netto"]
+                                       - r["eltern_kosten"])
+
+    def test_neue_nebenaufgaben_nur_in_hebel_szenarien(self):
+        """Die Stunden der Detailpläne gelten in allen Hebel-Szenarien außer der alten Ausgangslage."""
+        alt = "Hebel: Plan vom 23.11. mit Verkaufsstopp am 15.08. (Pflicht, bisher nicht gerechnet)"
+        for k, P in p.SZENARIEN.items():
+            if not k.startswith("Hebel:") or k == alt:
+                continue
+            self.assertIs(P["neben"], p.NEBEN_PLAN, k)
+            self.assertEqual(P["gruendung"]["stunden"], 6.0, k)
+            self.assertEqual(P["pflege_h_woche"], (0.4, 0.5, 0.6), k)
+            if P["signal"]:
+                self.assertTrue(P["signal"].get("creator_nach_pause"), k)
+        mehr = sum(p.NEBEN_PLAN.values()) - sum(p.NEBEN_NI.values())
+        self.assertAlmostEqual(mehr, 22.25)
+        self.assertIs(p.SZENARIEN[alt]["neben"], p.NEBEN_NI)
+
+    def test_creator_nie_vor_ende_der_startpause(self):
+        """Ein Signal vor dem Abitur zählt, Creator-Geld fließt aber erst nach der letzten Prüfung."""
+        for name in (self.MIT_HEBELN, self.DEIN_PLAN):
+            P = dict(p.SZENARIEN[name], build_first=(30, 45, 60), einmal_stunden=(0, 0, 0))
+            ende = p.woche_ab(P["startpause"][1])
+            vor_pause = 0
+            for s in range(600):
+                r = p.simulate(random.Random(s), P)
+                vor_pause += any(l < p.woche_ab(P["startpause"][0]) for l in r["launches"])
+                for w, c in r["test_log"]:
+                    if c > 0:
+                        self.assertGreaterEqual(w, ende, (name, s, w))
+            self.assertGreater(vor_pause, 100)
+
+    def test_ruhe_wirkt_nicht_mit_app_im_store(self):
+        """Ist App 1 vor dem 15.03. im Store, ändert die Ruhezeit (ohne nur_betrieb) nichts."""
+        basis = dict(p.SZENARIEN[self.MIT_HEBELN], fix_ruhe=None, build_first=(30, 45, 60))
+        mit = dict(basis, fix_ruhe=dict(von=date(2027, 3, 15), bis=date(2027, 6, 7), monat=(5, 5, 5), max_h=0.0))
+        von = p.woche_ab(date(2027, 3, 15))
+        n = 0
+        for s in range(600):
+            a = p.simulate(random.Random(s), basis)
+            b = p.simulate(random.Random(s), mit)
+            if a["launches"] and a["launches"][0] < von:
+                n += 1
+                self.assertAlmostEqual(a["ergebnis"], b["ergebnis"])
+        self.assertGreater(n, 100)
+
+    def test_im_abitur_nur_betrieb(self):
+        """Mit App im Store oder im Review gibt es in den Abiturwochen weder Bau noch Tests; ohne die Regel
+        flössen die Abiturstunden in die nächste App."""
+        P = dict(p.SZENARIEN[self.MIT_HEBELN], build_first=(30, 45, 60))
+        ohne = dict(P, fix_ruhe=dict(P["fix_ruhe"], nur_betrieb=False))
+        genutzt = 0
+        for s in range(400):
+            self.assertEqual(p.simulate(random.Random(s), P)["abitur_h"], 0.0)
+            genutzt += p.simulate(random.Random(s), ohne)["abitur_h"] > 0
+        self.assertGreater(genutzt, 50)
+
+    def test_job_nie_bei_laufender_jagd(self):
+        """Der Lohn zählt nur nach dem Ende der Jagd, ab dem 05.07. (Stichtag) oder dem 19.07."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        for s in range(800):
+            r = p.simulate(random.Random(s), P)
+            if r["job_wochen"] > 0:
+                self.assertTrue(r["gestoppt"])
+                ab = p.woche_ab(date(2027, 7, 5) if r["job_frueh"] else date(2027, 7, 19))
+                self.assertEqual(r["job_wochen"], p.WEEKS - max(r["stopp_woche"], ab))
+
+    def test_stichtag_auch_ohne_job(self):
+        """Ist am 04.07. keine App im Store, endet die Jagd auch dann, wenn kein Job zustande kommt."""
+        frueh = date(2027, 7, 5)
+        P = dict(p.SZENARIEN[self.MIT_HEBELN], ferienjob=dict(ab=date(2027, 7, 19), netto_woche=(600, 600, 600),
+                                                              max_app_h=5, p=(0, 0, 0), frueh_ab=frueh))
+        wf = p.woche_ab(frueh)
+        n = 0
+        for s in range(400):
+            r = p.simulate(random.Random(s), P)
+            self.assertEqual(r["job_wochen"], 0)
+            self.assertFalse(r["job_frueh"])
+            if r["stichtag_stopp"]:
+                n += 1
+                self.assertTrue(r["gestoppt"])
+                self.assertEqual(r["stopp_woche"], wf)
+                self.assertTrue(all(l >= wf for l in r["launches"]))
+                # nach dem Stichtag erscheint höchstens, was schon eingereicht war
+                self.assertLessEqual(len(r["launches"]), r["attempts"])
+        self.assertGreater(n, 50)
+
+    def test_zweite_pruefung_nur_in_der_woche_ab_2806(self):
+        """Die zweite Signalprüfung ändert vor der Woche ab 28.06. nichts; die erste Abweichung ist eine Zahlung
+        genau in dieser Woche."""
+        basis = p.SZENARIEN["Hebel: Plan vom 23.11. mit Verkaufsstopp und allen Nebenaufgaben der Detailpläne "
+                            "(Ausgangslage)"]
+        basis = dict(basis, build_first=(30, 45, 60))
+        mit = dict(basis, signal=dict(basis["signal"], zweite=date(2027, 6, 28)))
+        w2 = p.woche_ab(date(2027, 6, 28))
+        n = 0
+        for s in range(1500):
+            a = p.simulate(random.Random(s), basis)["test_log"]
+            b = p.simulate(random.Random(s), mit)["test_log"]
+            for x, y in zip(a + [None], b):
+                if x != y:
+                    n += 1
+                    self.assertEqual(y[0], w2, (s, x, y))
+                    break
+        self.assertGreater(n, 0)
+
+    def test_erloese_nach_der_uebertragung_gehoeren_dem_nachfolger(self):
+        """Ab der Übertragung zählen die Erlöse nicht mehr für dich; bei einer Übergabe bleiben sie als Geld des
+        Elternteils in der Familie, beim Verkauf gehören sie dem Käufer."""
+        rw = dict(p.RESTWERT["restwert"], p=(1, 1, 1), anmeldung=None)
+        rw_v = dict(rw, verkauf=dict(rw["verkauf"], p=(1, 1, 1)))
+        P = dict(p.SZENARIEN[self.MIT_HEBELN], build_first=(30, 45, 60))
+        ohne = dict(P, restwert=dict(rw, uebertragung=None))
+        mit = dict(P, restwert=rw)
+        ohne_v, mit_v = dict(P, restwert=dict(rw_v, uebertragung=None)), dict(P, restwert=rw_v)
+        n_u = n_v = 0
+        for s in range(500):
+            a, b = p.simulate(random.Random(s), ohne), p.simulate(random.Random(s), mit)
+            self.assertEqual(a["art"], b["art"])
+            if b["art"] == "uebergabe":
+                n_u += 1
+                self.assertAlmostEqual(b["ergebnis_app"], a["ergebnis_app"] - b["nach_uebertragung"])
+                self.assertAlmostEqual(b["restwert"], a["restwert"] + b["nach_uebertragung"])
+                self.assertAlmostEqual(b["ergebnis"], a["ergebnis"])        # die Familie hat gleich viel
+                self.assertEqual(b["abschalt_abzug"], 0.0)                  # die Abos bleiben im Verkauf
+            av, bv = p.simulate(random.Random(s), ohne_v), p.simulate(random.Random(s), mit_v)
+            if bv["art"] == "verkauf":
+                n_v += 1
+                self.assertAlmostEqual(bv["ergebnis_app"], av["ergebnis_app"] - bv["nach_uebertragung"])
+                self.assertAlmostEqual(bv["restwert"], av["restwert"])      # Kaufpreis unverändert
+                self.assertAlmostEqual(bv["ergebnis_dein"], bv["ergebnis_app"] + bv["verkauf"] + bv["job_netto"])
+        self.assertGreater(n_u, 5)
+        self.assertGreater(n_v, 5)
+
+    def test_entscheidung_mit_dem_stand_am_stichtag(self):
+        """Übergabe und Verkauf hängen am Stand bis Sa 07.08.: Apps, die danach erscheinen oder bis zum
+        Umschalttag keine acht Wochen im Store sind, werden nicht verkauft."""
+        rw = dict(p.RESTWERT["restwert"], p=(1, 1, 1), anmeldung=None, verkauf=dict(
+            p.RESTWERT["restwert"]["verkauf"], p=(1, 1, 1)))
+        P = dict(p.SZENARIEN[self.MIT_HEBELN], build_first=(30, 45, 60), restwert=rw)
+        grenze = p.woche_ab(date(2027, 8, 7)) + 1 - 8
+        n = 0
+        for s in range(600):
+            r = p.simulate(random.Random(s), P)
+            if r["art"] == "verkauf":
+                n += 1
+                self.assertTrue(any(l <= grenze for l in r["launches"]), s)
+            if r["art"] is not None:
+                self.assertTrue(any(l <= p.bis_woche(date(2027, 8, 7)) for l in r["launches"]), s)
+        self.assertGreater(n, 5)
+
+    def test_anmeldung_des_elternteils(self):
+        """Übergabe nur, wenn sich das Elternteil nach dem Messtag (Mo 28.06., ~100 USD MRR) angemeldet hat;
+        bleibt die Übergabe aus, sind seine Kosten verloren (Geld der Familie, nicht deines)."""
+        rw = dict(p.RESTWERT["restwert"], p=(1, 1, 1))
+        P = dict(p.SZENARIEN[self.MIT_HEBELN], build_first=(30, 45, 60), restwert=rw)
+        n_k = n_u = 0
+        for s in range(600):
+            r = p.simulate(random.Random(s), P)
+            if r["art"] == "uebergabe":
+                n_u += 1
+                self.assertTrue(r["eltern_konto"])
+                self.assertEqual(r["eltern_kosten"], 0.0)
+            if r["eltern_konto"] and r["art"] != "uebergabe":
+                n_k += 1
+                self.assertGreaterEqual(r["eltern_kosten"], 120.0)
+                self.assertLessEqual(r["eltern_kosten"], 165.0)
+            if not r["eltern_konto"]:
+                self.assertEqual(r["eltern_kosten"], 0.0)
+            self.assertAlmostEqual(r["ergebnis_dein"], r["ergebnis_app"] + r["verkauf"] + r["job_netto"])
+        self.assertGreater(n_u, 5)
+        self.assertGreater(n_k, 5)
+
+
+    def test_lohn_bis_zum_letzten_arbeitstag(self):
+        """Läuft der Job bis zum Ende des Modells, zählen die Werktage bis zum letzten Arbeitstag mit
+        (Fr 10.09.: 10 Werktage, Di 31.08.: 2)."""
+        basis = dict(p.SZENARIEN[self.MIT_HEBELN], ferienjob=dict(ab=date(2027, 7, 19), netto_woche=(600, 600, 600),
+                                                                   max_app_h=5, frueh_ab=date(2027, 7, 5)))
+        for bis, extra in ((None, 0.0), (date(2027, 8, 31), 0.4), (date(2027, 9, 10), 2.0)):
+            P = dict(basis, ferienjob=dict(basis["ferienjob"], bis=bis)) if bis else basis
+            for s in range(150):
+                r = p.simulate(random.Random(s), P)
+                if r["job_wochen"]:
+                    self.assertAlmostEqual(r["job_nach_w"], extra)
+                    self.assertAlmostEqual(r["job_netto"], 600.0 * (r["job_wochen"] + extra))
+                else:
+                    self.assertEqual(r["job_netto"], 0.0)
+
+    def test_stichtag_nur_ohne_eingereichte_app(self):
+        """Mit frueh_wenn='eingereicht' endet die Jagd am Stichtag nur, wenn auch keine App im Review ist; das
+        sind nie mehr Läufe als mit der Regel „keine App im Store“."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        E = dict(P, ferienjob=dict(P["ferienjob"], frueh_wenn="eingereicht"))
+        n_p = n_e = 0
+        for s in range(400):
+            a, b = p.simulate(random.Random(s), P), p.simulate(random.Random(s), E)
+            n_p += a["stichtag_stopp"]
+            n_e += b["stichtag_stopp"]
+            if b["stichtag_stopp"]:
+                self.assertTrue(a["stichtag_stopp"])
+                self.assertEqual(b["launches"], [])
+        self.assertGreater(n_p, n_e)
+        self.assertGreater(n_e, 0)
 
 if __name__ == "__main__":
     unittest.main()
