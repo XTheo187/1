@@ -761,11 +761,16 @@ class TestPlan500k(unittest.TestCase):
             self.assertEqual(P["kasse_ab_gruendung"], 10 / 60, k)
             self.assertEqual(P["konten_je_einreichung"], 1.83, k)
             self.assertEqual(P["gruendung"]["spaet"], (date(2027, 3, 1), date(2027, 6, 7)), k)
+            self.assertEqual(P["vorb_nach_einreichung1"], 3.5, k)
             if "Gegenprobe" not in k:
                 self.assertEqual(P["vorlage_h"], 3.5, k)
-                self.assertEqual(P["post_deckel"], (1.5, 10.0), k)
+                self.assertEqual(P["post_deckel"], (1.5, 6.5), k)
+                self.assertEqual(P["c_organisch"], (0.15, 0.20, 0.25), k)
         mehr = sum(p.NEBEN_PLAN.values()) - sum(p.NEBEN_NI.values())
-        self.assertAlmostEqual(mehr, 28.0)
+        self.assertAlmostEqual(mehr, 24.5)
+        # Hannover (2 h) in KW 28 statt KW 24, Zimmersuche 2 h in KW 24
+        self.assertAlmostEqual(p.NEBEN_PLAN[date(2027, 7, 12)], p.NEBEN_NI[date(2027, 7, 12)] + 2.0)
+        self.assertAlmostEqual(p.NEBEN_PLAN[date(2027, 6, 14)], 2.0)
         self.assertIs(p.SZENARIEN[alt]["neben"], p.NEBEN_NI)
 
     def test_creator_nie_vor_ende_der_startpause(self):
@@ -1061,7 +1066,7 @@ class TestPlan500k(unittest.TestCase):
         ohne = dict(P, post_deckel=None)
         ueber = 0
         for s in range(300):
-            self.assertLessEqual(p.simulate(random.Random(s), P)["post_max"], 10.0 + 1e-9)
+            self.assertLessEqual(p.simulate(random.Random(s), P)["post_max"], P["post_deckel"][1] + 1e-9)
             self.assertLessEqual(p.simulate(random.Random(s), eng)["post_max"], 1.5 + 1e-9)
             ueber += p.simulate(random.Random(s), ohne)["post_max"] > 10.0
         self.assertGreater(ueber, 50)
@@ -1070,8 +1075,9 @@ class TestPlan500k(unittest.TestCase):
         """War am Fr 25.06. (Stand Ende der Woche) eine App im Store oder im Review und ist am 04.07. keine im
         Store, beginnt der Job nur mit der kurzfristigen Zeitarbeit am 05.07., sonst am 19.07."""
         P = p.SZENARIEN[self.DEIN_PLAN]
-        nie = dict(P, ferienjob=dict(P["ferienjob"], zeitarbeit_p=(0, 0, 0), p=(1, 1, 1)))
-        immer = dict(P, ferienjob=dict(P["ferienjob"], zeitarbeit_p=(1, 1, 1), p=(1, 1, 1)))
+        nie = dict(P, ferienjob=dict(P["ferienjob"], zeitarbeit_p=(0, 0, 0), zeitarbeit_vorlauf_p=(1, 1, 1), p=(1, 1, 1)))
+        immer = dict(P, ferienjob=dict(P["ferienjob"], zeitarbeit_p=(1, 1, 1), zeitarbeit_vorlauf_p=(1, 1, 1),
+                                       p=(1, 1, 1)))
         n_g = n_o = 0
         for s in range(600):
             a, b = p.simulate(random.Random(s), nie), p.simulate(random.Random(s), immer)
@@ -1112,6 +1118,198 @@ class TestPlan500k(unittest.TestCase):
                 self.assertFalse(a < r["gruendung_woche"] < b, (s, r["gruendung_woche"]))
                 spaet += r["gruendung_woche"] == b
         self.assertGreater(spaet, 5)
+
+    # ---- Prüfung des Modells vom 25.11.2026 (spät) ----
+    GEGENPROBE_ZEITARBEIT = "Hebel: DEIN PLAN, falls die Zeitarbeit ab 05.07. immer klappt (Gegenprobe)"
+
+    def test_wochendeckel_vor_und_nach_der_pruefungszeit(self):
+        """Vor dem 15.03. gilt der erste Wert des Deckels, ab dem 15.03. der zweite, auch ohne Startpause
+        (Grenze aus signal_pause). Mit (1,5; 0) gibt es Posts nur in Q4."""
+        for name in (self.DEIN_PLAN, self.OHNE_STARTPAUSE):
+            P = dict(p.SZENARIEN[name], post_deckel=(1.5, 0.0))
+            grenze = p.woche_ab((P["signal_pause"] or P["startpause"])[0])
+            n_q4 = 0
+            for s in range(400):
+                r = p.simulate(random.Random(s), P)
+                if any(l < grenze for l in r["launches"]):
+                    self.assertLessEqual(r["post_max"], 1.5 + 1e-9, (name, s))
+                    n_q4 += r["post_max"] > 0
+                else:
+                    self.assertEqual(r["post_max"], 0.0, (name, s))
+            self.assertGreater(n_q4, 5, name)
+
+    def test_app2_in_der_freigabewoche_und_mit_vorlage(self):
+        """App 2 beginnt meist schon in der Woche, in der App 1 freigegeben wird; die Vorlage kostet Stunden
+        (mit 5.000 Vorlagenstunden erscheint App 2 nie)."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        gross = dict(P, vorlage_h=5000.0)
+        n = gleich = 0
+        for s in range(400):
+            r = p.simulate(random.Random(s), P)
+            if r["bau2_w"] is not None:
+                n += 1
+                gleich += r["bau2_w"] == r["frei1_w"]
+            self.assertLessEqual(len(p.simulate(random.Random(s), gross)["launches"]), 1, s)
+        self.assertGreater(n, 100)
+        self.assertGreater(gleich, n // 2)
+
+    def test_vorentscheidung_mit_dem_stand_vom_2706(self):
+        """genannt_19 heißt: App 1 war bis So 27.06. (Ende der Woche mit dem Fr 25.06.) eingereicht."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        w = p.woche_ab(date(2027, 6, 25))
+        n_w = n_w1 = 0
+        for s in range(600):
+            r = p.simulate(random.Random(s), P)
+            e = r["einreichung1"]
+            if e is None:
+                self.assertFalse(r["genannt_19"], s)
+            elif e == int(e):                      # Apple-Konto schon aktiv: eingereicht in Woche e
+                self.assertEqual(r["genannt_19"], e <= w, (s, e))
+                n_w += e == w
+                n_w1 += e == w + 1
+        self.assertGreater(n_w, 5)
+        self.assertGreater(n_w1, 5)
+        fj = p.FERIENJOB_FRUEH["ferienjob"]
+        self.assertEqual(fj["vorentscheid"], date(2027, 6, 25))
+        self.assertEqual(fj["zeitarbeit_p"], (0.3, 0.5, 0.7))
+        self.assertEqual(fj["zeitarbeit_vorlauf_p"], (0.5, 0.7, 0.85))
+
+    def test_zeitarbeit_mit_vorlauf_ohne_nennung(self):
+        """Ohne Nennung des 19.07. gibt es den frühen Beginn nur über Zeitarbeit mit Vorlauf (06, 2.4)."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        nie = dict(P, ferienjob=dict(P["ferienjob"], zeitarbeit_vorlauf_p=(0, 0, 0), zeitarbeit_p=(1, 1, 1), p=(1, 1, 1)))
+        n = 0
+        for s in range(600):
+            r = p.simulate(random.Random(s), nie)
+            if r["stichtag_stopp"]:
+                if r["genannt_19"]:
+                    self.assertTrue(r["job_frueh"], s)
+                else:
+                    n += 1
+                    self.assertFalse(r["job_frueh"], s)
+        self.assertGreater(n, 20)
+
+    def test_kasse_erst_ab_der_gruendung_und_nur_bis_zum_start(self):
+        """Die Kassenprüfung ändert vor der Gründung nichts (gleiche Gründungswoche); nach dem ersten Start steckt
+        sie in pflege_h_woche (mit Gründung erst bei fertiger App 1 erscheint App 2 trotz 1.000 h Kasse)."""
+        P = p.SZENARIEN[self.MIT_HEBELN]
+        kasse = dict(P, kasse_ab_gruendung=1000.0)
+        n_g = 0
+        for s in range(300):
+            a, b = p.simulate(random.Random(s), P), p.simulate(random.Random(s), kasse)
+            self.assertEqual(b["gruendung_woche"], a["gruendung_woche"], s)
+            n_g += b["gegruendet"]
+        self.assertGreater(n_g, 250)
+        fertig = dict(kasse, gruendung=dict(P["gruendung"], bei=1.0, spaet=None))
+        n2 = sum(len(p.simulate(random.Random(s), fertig)["launches"]) >= 2 for s in range(300))
+        self.assertGreater(n2, 10)
+
+    def test_nebenaufgaben_nur_an_montagen(self):
+        """nebenstunden() liest die Liste nur mit dem Montag der Woche: andere Tage fielen still weg."""
+        for liste in (p.NEBEN_NI, p.NEBEN_PLAN):
+            self.assertEqual([d for d in liste if d.weekday() != 0], [])
+
+    def test_gruendung_in_der_woche_ab_0103_noch_erlaubt(self):
+        """M2 bis So 28.02. erreicht: Gründung in der Woche ab Mo 01.03. ist noch erlaubt (03, Zeile Mo 01.03.)."""
+        P = p.SZENARIEN[self.MIT_HEBELN]
+        w = p.woche_ab(date(2027, 3, 1))
+        n = sum(p.simulate(random.Random(s), P)["gruendung_woche"] == w for s in range(800))
+        self.assertGreater(n, 3)
+
+    def test_spaete_gruendung_am_tag_nach_der_letzten_pruefung(self):
+        """Im späten Fall wird in der Woche ab 07.06. gegründet, auch wenn App 1 noch nicht zur Hälfte steht; später
+        wird nie gegründet."""
+        P = p.SZENARIEN[self.MIT_HEBELN]
+        b = p.woche_ab(date(2027, 6, 7))
+        for s in range(800):
+            r = p.simulate(random.Random(s), P)
+            if r["gegruendet"] and r["gruendung_woche"] is not None:
+                self.assertLessEqual(r["gruendung_woche"], b, s)
+
+    def test_verkauf_nur_mit_acht_vollen_wochen(self):
+        """Eine einzige App, keine Schwellen, Verkauf sicher: verkauft wird genau dann, wenn sie bis So 13.06. (Woche
+        ab 07.06.) startet. Ein Start in der Woche ab 14.06. ist am So 08.08. keine acht vollen Wochen im Store."""
+        rw = dict(p.RESTWERT["restwert"], min_monat=-1e12, anmeldung=None,
+                  verkauf=dict(p.RESTWERT["restwert"]["verkauf"], ab_umsatz_usd=0, p=(1, 1, 1)))
+        P = dict(p.SZENARIEN[self.MIT_HEBELN], n_attempts=(1, 1), restwert=rw)
+        grenze = p.woche_ab(date(2027, 6, 7))
+        stand = p.bis_woche(date(2027, 8, 7))
+        n = {}
+        for s in range(600):
+            r = p.simulate(random.Random(s), P)
+            if r["launches"] and r["launches"][0] <= stand and r["exit"] == 0:
+                w = r["launches"][0]
+                self.assertEqual(r["art"] == "verkauf", w <= grenze, (s, w, r["art"]))
+                n[w] = n.get(w, 0) + 1
+        self.assertGreater(n.get(grenze, 0), 5)
+        self.assertGreater(n.get(grenze + 1, 0), 5)
+
+    def test_zweite_pruefung_auch_ohne_startpause(self):
+        """Ohne Startpause gilt die zweite Signalprüfung (Woche ab 28.06.) weiter für Apps mit Start vor dem 15.03.
+        (Prüfungszeit aus signal_pause); die erste Abweichung ist eine Zahlung genau in dieser Woche."""
+        mit = dict(p.SZENARIEN[self.OHNE_STARTPAUSE], build_first=(30, 45, 60))
+        ohne = dict(mit, signal=dict(mit["signal"], zweite=None))
+        w2 = p.woche_ab(date(2027, 6, 28))
+        n = 0
+        for s in range(1500):
+            a = p.simulate(random.Random(s), ohne)["test_log"]
+            b = p.simulate(random.Random(s), mit)["test_log"]
+            for x, y in zip(a + [None], b):
+                if x != y:
+                    n += 1
+                    self.assertEqual(y[0], w2, (s, x, y))
+                    break
+        self.assertGreater(n, 0)
+
+    def test_gegenprobe_zeitarbeit_bleibt_gepaart(self):
+        """Die Gegenprobe „Zeitarbeit klappt immer“ zieht dieselben Zufallszahlen wie DEIN PLAN: gleiche Starts und
+        Spitzen in jedem Lauf, nur der Jobbeginn ändert sich."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        G = p.SZENARIEN[self.GEGENPROBE_ZEITARBEIT]
+        n = 0
+        for s in range(600):
+            a, b = p.simulate(random.Random(s), P), p.simulate(random.Random(s), G)
+            self.assertEqual((a["launches"], a["peaks"]), (b["launches"], b["peaks"]), s)
+            n += a["job_frueh"] != b["job_frueh"]
+        self.assertGreater(n, 20)
+
+    def test_umsatzabhaengige_kosten_nach_dem_plan(self):
+        """Unter 5.000 USD MRR kostet jeder Euro Umsatz nur c_organisch: Läufe mit kleinen Apps, ohne Testgeld und ohne
+        gedrosseltes Wachstum, haben mit 0 % nie weniger Gewinn als mit 50 %; im Mittel deutlich mehr."""
+        basis = dict(p.SZENARIEN[self.MIT_HEBELN], signal=None, test_cap=0.0, kein_testgeld=True)
+        null, halb = dict(basis, c_organisch=(0.0, 0.0, 0.0)), dict(basis, c_organisch=(0.5, 0.5, 0.5))
+        n = 0
+        summe = 0.0
+        for s in range(400):
+            a, b = p.simulate(random.Random(s), null), p.simulate(random.Random(s), halb)
+            summe += a["profit_firma"] - b["profit_firma"]
+            if a["launches"] and a["max_mrr"] < 5000 * p.FX and not a["squeeze"] and not b["squeeze"]:
+                n += 1
+                self.assertGreaterEqual(a["profit_firma"], b["profit_firma"] - 1e-9, s)
+        self.assertGreater(n, 100)
+        self.assertGreater(summe / 400, 10.0)
+        self.assertEqual(p.AUFWAND_PLAN["c_organisch"], (0.15, 0.20, 0.25))
+
+    def test_vorbereitung_der_posts_nach_der_einreichung(self):
+        """V1–V4 kosten Stunden erst nach der Einreichung von App 1: mit sehr großem Wert bleibt danach nichts für
+        App 2, vorher ändert sich nichts."""
+        P = p.SZENARIEN[self.DEIN_PLAN]
+        gross = dict(P, vorb_nach_einreichung1=1000.0)
+        for s in range(200):
+            a, b = p.simulate(random.Random(s), P), p.simulate(random.Random(s), gross)
+            self.assertEqual(a["einreichung1"], b["einreichung1"], s)
+            self.assertLessEqual(b["attempts"], 1, s)
+
+    def test_app2_im_review_vorbereiten(self):
+        """Mit vorlage_vorab_h bekommt App 2 vor der Freigabe von App 1 höchstens diese Stunden (ohne Code)."""
+        P = dict(p.SZENARIEN[self.DEIN_PLAN], vorlage_vorab_h=6.0)
+        frueher = 0
+        for s in range(400):
+            r = p.simulate(random.Random(s), P)
+            self.assertLessEqual(r["vorab_h"], 6.0 + 1e-9, s)
+            frueher += r["bau2_w"] is not None and r["frei1_w"] is not None and r["bau2_w"] < r["frei1_w"]
+            self.assertEqual(p.simulate(random.Random(s), p.SZENARIEN[self.DEIN_PLAN])["vorab_h"], 0.0)
+        self.assertGreater(frueher, 20)
 
 if __name__ == "__main__":
     unittest.main()
