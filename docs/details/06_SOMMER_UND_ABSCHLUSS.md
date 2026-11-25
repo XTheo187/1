@@ -20,22 +20,17 @@ andere Modellzahlen stehen nur in [`07_HEBEL.md`](07_HEBEL.md).
   Hilfe-Seite des Anbieters lesen.
 - Das Dokument ersetzt keine Steuer- oder Rechtsberatung.
 - Ist von Anfang an ein Elternteil Inhaber (03, Abschnitt 2), gibt es keinen
-  Stichtag durch den Umzug. Dann gelten für dich nur die Abschnitte 1, 2, 7
-  und 8.
+  Stichtag durch den Umzug. Dann gelten für dich Abschnitt 2 (in der Vorlage
+  2.6 entfällt der Satz zum Gewerbe), 8 und 9, aus Abschnitt 1 die Termine zu
+  Job, ETH und Umzug, aus Abschnitt 7 die Erklärung 2027 mit Anlage N und aus
+  4.7 der Punkt „Deine Rolle danach“.
 
-**Neue Entscheidungen seit dem Hauptplan** (sie gehen ihm vor):
-
-| Thema | im Hauptplan | jetzt |
-|---|---|---|
-| Zeit nach Tor 1 | ETH-Vorbereitung und Erholung | Ferienjob in Vollzeit ab Mo 19.07.; für App, Zürich und Mathe bleiben ~8–12 Stunden je Woche |
-| Stichtag vor Tor 1 | keiner | So 04.07.: Ist keine App im Store, beginnt der Job am Mo 05.07., und du beginnst keine neue App |
-| Ende ohne Nachfolger | Abschluss bis Di 31.08. | Verkaufsstopp So 15.08., Dienstende Mi 15.09., Abmeldung am Do 16.09. oder Fr 17.09. |
-| Einstellen | Server bis zum Ende der letzten bezahlten Laufzeit | mindestens 31 Tage zwischen Verkaufsstopp und Dienstende (Pflicht von Apple) |
-| Verkaufen, weiterlaufen lassen | ohne Schwellen | feste Schwellen und die Übergabe an ein Elternteil als eigener Ausgang (Abschnitt 3) |
-| späte Apps | dürfen nach dem 18.07. noch erscheinen | dürfen erscheinen, aber nach So 04.07. nur mit Wochenabo |
-| Jahresabo | „erst, wenn im Juli klar ist, wie es weitergeht“ | keines, solange du Inhaber bist |
-| Signalprüfung | 21 Tage nach dem Start | dazu eine zweite am Mo 28.06. für eine App, die vor Mo 15.03. gestartet ist |
-| Rücklage für den Abschluss | ~800 € | 500 € (wie in 03) |
+**Verhältnis zum Hauptplan:** Der Hauptplan steht auf dem Stand vom 24.11.
+(Abschnitt 1, „Was sich am 24.11. geändert hat“). Dieses Dokument führt seine
+Abschnitte für den Sommer Schritt für Schritt aus. Genauer als dort sind hier:
+der Messtag und die Schwelle für das Apple-Konto des Elternteils (4.4), die
+Bedingungen für die Kündigung von Claude Pro (Abschnitt 6, Schluss) und der
+Rückfall, wenn eine gestartete Übertragung hängt (4.5).
 
 Inhalt:
 1. [Zeitleiste von der letzten Prüfung bis zum Studienbeginn](#1-zeitleiste-von-der-letzten-prüfung-bis-zum-studienbeginn)
