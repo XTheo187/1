@@ -14,10 +14,10 @@ stehen nur in [`07_HEBEL.md`](07_HEBEL.md).
 Regeln erlauben (~163 bis Di 02.02.), und rechnet mit den typischen Stunden
 aus 02 (113 für App 1), 04 (~12 für die Ideen) und 03 (~9 für die Gründung).
 **Damit liegt die Einreichung am Di 02.02., dem letzten Tag vor Q4.** Als
-Puffer bleibt nur der Rest dieses Tages, gut 6 Stunden. Braucht ein Paket
-länger als typisch oder hat eine Woche im Januar eine Klausur (3 statt
-10 Stunden), reichst du in Q4 ein, mit höchstens 6–7 Stunden je Woche
-(Abschnitt 10). Im Modell ist App 1 bis Di 02.02. in 14 von 100 Läufen
+Puffer bleibt nur der Rest dieses Tages, gut 6 Stunden. Brauchen die Pakete
+zusammen mehr als diese 6 Stunden länger als typisch oder hat eine Woche im
+Januar eine Klausur (3 statt 10 Stunden), reichst du in Q4 ein, mit
+höchstens 6–7 Stunden je Woche (Abschnitt 10). Im Modell ist App 1 bis Di 02.02. in 14 von 100 Läufen
 fertig und bis So 14.03. in 33 von 100 ([07](07_HEBEL.md), Abschnitte 8 und
 11). In den übrigen wird sie erst in Q4 oder nach dem Abitur fertig. Das ist
 kein Scheitern, der Plan rechnet damit.
@@ -80,11 +80,11 @@ Inhalt:
 |---|---:|---|
 | App 1 bauen (AP1–AP22 und AP10a, ohne die Review-Runden) | 111 | [02](02_BAUPLAN_APP1.md), Abschnitt 4 |
 | Ideenwahl | 12 | [04](04_IDEENWAHL.md), Abschnitt 2 |
-| Namensfrage, Apple, Gründung, Meldungen, Zusage des Elternteils | 14 | [03](03_GRUENDUNG_UND_KONTEN.md); davon ~9 für die Gründungsschritte 1–13 (03, Abschnitt 5.1) |
+| Elterngespräch, Namensfrage, Apple, Gründung, Meldungen, Zusage des Elternteils | 14 | [03](03_GRUENDUNG_UND_KONTEN.md); davon ~9 für die Gründungsschritte 1–13 (03, Abschnitt 5.1) |
 | Lernen: Tutorials, Übungen, Lernen am eigenen Code | 8 | Hauptplan, Abschnitt 7 |
 | ETH-Bewerbung | 6,5 | Hauptplan, Abschnitt 9 |
 | Markenkonten und Vorbereitung der Posts | 5,5 | [05](05_START_UND_MARKETING.md), Abschnitte 4 und 5 |
-| Einrichten: Repository, Expo Go, Konten | 2 | 03, Abschnitt 3 |
+| Einrichten: Claude Code, Repository, Expo Go, Konten | 2 | 03, Abschnitt 3 |
 | Ferienjob: Bewerbungen, Unterlagen | 2 | [06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 2 |
 | Messpunkte, Wochenrückblicke, Kassenprüfung | 2 | Abschnitt 11 |
 | Puffer am Di 02.02. | 0,5 | Abschnitt 10 |
@@ -229,7 +229,7 @@ Tag. Kosten: 0 €.
 | Tag | Zeit | was | fertig, wenn … |
 |---|---|---|---|
 | Mo 28.12. | 7 h | Morgens 1 h: **AP9:** Store-Build starten (`eas build --profile production --platform ios`, mit dem iOS-Schlüssel von RevenueCat, nie mit dem Test-Store-Schlüssel); er läuft, während du die Bewerbung machst. 6 h: **ETH-Bewerbung** in eApply: Lebenslauf nach der ETH-Vorlage (Claude hilft), Zeugnisse der letzten drei Schuljahre als PDF, Passfoto, Ausweis, Einverständniserklärung, Gebühr 150 CHF per Karte, **abschicken** | die Bewerbung abgeschickt ist, du die Bestätigung abgelegt hast und der Store-Build fertig ist |
-| Di 29.12. | 7 h | 3 h: **AP9:** `eas submit --platform ios`, in App Store Connect als internen Test freigeben, TestFlight installieren, die App daraus starten. 2 h 10 min: Reste aus Phase A: AP1, Schritt 6 (`docs/UEBERGABE.md` mit den Überschriften aus 06, Abschnitt 4.3, und der Ablauf `/einreichen`) und AP4 (Tabellen-Schema vollständig als Migration im Repository). 15 min: **Stunden-Messpunkt** (Abschnitt 11). 1 h 35 min: **AP10:** geführter Ablauf und Ergebnis nach `SPEC.md`, mit der Vorarbeit vom Branch `ablauf-test` | die App aus TestFlight startet und ohne Produkte nicht abstürzt und deine Stunden für AP1–AP9 notiert sind |
+| Di 29.12. | 7 h | 3 h: **AP9:** `eas submit --platform ios`, in App Store Connect als internen Test freigeben, TestFlight installieren, die App daraus starten. 2 h 10 min: Reste aus Phase A: AP1, Schritt 6 (`docs/UEBERGABE.md` mit den Überschriften aus 06, Abschnitt 4.3, und der Ablauf `/einreichen`) und was von AP1 sonst offen ist, dazu AP4 (Tabellen-Schema vollständig als Migration im Repository). 15 min: **Stunden-Messpunkt** (Abschnitt 11). 1 h 35 min: **AP10:** geführter Ablauf und Ergebnis nach `SPEC.md`, mit der Vorarbeit vom Branch `ablauf-test` | die App aus TestFlight startet und ohne Produkte nicht abstürzt und deine Stunden für AP1–AP9 notiert sind |
 | Mi 30.12. | 7 h | 45 min: **Bankkonto für die App** (03, Abschnitt 5, Schritt 2): auf den Namen des Inhabers, ohne Grundgebühr, geschäftliche Nutzung schriftlich erlaubt, Karte zahlt in US-Dollar. 6 h 15 min: **AP10:** Prompt in der Server-Funktion, 20 Testeingaben in `docs/testfaelle.md` mit Skript | der Kontoantrag abgeschickt ist (die IBAN brauchst du am Do 07.01.) und die ersten Testeingaben ein Ergebnis im festen Format liefern |
 | Do 31.12. | 7 h | 2 h 10 min: **AP10** Rest. 4 h 50 min: **AP11** (Onboarding mit 3–5 Fragen und Beispiel-Ergebnis) | alle 20 Testeingaben in beiden Sprachen ein brauchbares Ergebnis im festen Format liefern |
 | Fr 01.01. | frei | – | – |
@@ -245,7 +245,7 @@ So 10.01. Kosten: Gründung ohne Apple 41/101/262 € (03, Abschnitt 1.1).
 
 | Tag | Zeit | was | fertig, wenn … |
 |---|---|---|---|
-| Mo 04.01. | 7 h | 3 h 10 min: **AP11** Rest: Herkunftsfrage „Woher kennst du die App?“ mit der Funktion `herkunft` (05, Abschnitt 8.2); vor der Paywall kein KI-Aufruf. 3 h 50 min: **AP12** (Paywall-Feinschliff: Wochenabo 6,99 € vorausgewählt, Monatsabo 14,99 €, keine Testphase, Pflichtzeile, vier Links, „bis zu 30 Ergebnisse am Tag“) | ein Tipp auf „TikTok“ im Testprojekt genau einen Zähler um 1 erhöht, „Überspringen“ keinen, und beim zweiten Start nicht neu gefragt wird |
+| Mo 04.01. | 7 h | 3 h 10 min: **AP11** Rest: Herkunftsfrage „Woher kennst du die App?“ mit der Funktion `herkunft` (05, Abschnitt 8.2); vor der Paywall kein KI-Aufruf. 3 h 50 min: **AP12** (Paywall-Feinschliff: Wochenabo 6,99 € vorausgewählt, Monatsabo 14,99 €, keine Testphase, Pflichtzeile, vier Links, „bis zu 30 Ergebnisse am Tag“) | die Antworten das Ergebnis sichtbar beeinflussen, beim zweiten Start nicht neu gefragt wird und ein Tipp auf „TikTok“ im Testprojekt genau einen Zähler um 1 erhöht, „Überspringen“ keinen |
 | Di 05.01. | 7 h | 2 h 30 min: **Gründungsberatung** (03, Abschnitt 5, Schritt 1; Termin vom Fr 04.12., bis Mi 06.01.): Fragenliste ausdrucken, Antworten mit Datum und Name in `docs/entscheidungen.md`. Kostet der Termin Geld: nicht buchen; die Fragen 1–4 kostenlos per Mail oder Telefon, die Fragen 5 und 8 telefonisch ans Finanzamt. 4 h 30 min: **AP12** abschließen (10 min), danach **AP13** (Einwilligung vor dem ersten KI-Aufruf, „Antwort melden“ als E-Mail-Link, Fehlerfälle) | zu jeder Frage eine Antwort oder „offen, geht ans Finanzamt“ steht und auf der Paywall Preis, Laufzeit, Verlängerung, Kündigungsweg, die vier Links und die Tagesgrenze in beiden Sprachen stimmen (damit stehen AP10–AP12, M2) |
 | Mi 06.01. | 7 h | 1 h: **Entwürfe ohne Gewerbe** (AP18, Teil 1): Website-Texte für Start, Impressum, Datenschutz und Nutzungsbedingungen (03, Abschnitt 5.2, Schritt 7), Store-Titel und Untertitel aus `SPEC.md`, Brief an die Krankenkasse als Entwurf. 1 h 40 min: **AP13** Rest. 4 h 20 min: **AP10a:** zuerst Kopieren und Teilen am Ergebnis, dann der Verlauf nur auf dem Gerät | ohne Netz, bei erreichter Tagesgrenze, bei abgelehnter oder abgeschnittener Antwort und bei einem Server-Fehler eine verständliche Meldung kommt |
 | Do 07.01. | 7 h | **Messpunkt M2** (Abschnitt 11). Ist M2 erreicht, dann 2 h 30 min: **Gründung Teil 1** (03, Abschnitt 5, Schritte 3–6: Gewerbe online anmelden, Fragebogen in ELSTER mit Kleinunternehmerregelung, Domain-Paket mit Vertrag zur Auftragsverarbeitung, Prepaid-Nummer). 3 h: **AP18** Rest: Website mit Impressum, Datenschutz und Nutzungsbedingungen online, Links in App und Paywall. 1 h 30 min: **AP10a** (Verlauf) | das Gewerbe angemeldet ist und die vier Seiten online sind |
@@ -319,14 +319,16 @@ Mo/Di Halbjahresferien (je 7 Stunden), ab Mi 03.02. Q4. Zusammen
 |---|---|---|---|
 | Mo 01.02. | 7 h | 30 min: IHK-Schreiben beantworten und Anfrage ans Finanzamt zu § 13b (03, Abschnitt 5, Schritte 12 und 13), falls Schreiben und Steuernummer da sind; sonst, sobald sie kommen. 3 h 15 min: **AP20** Rest: die Mindestprüfung mit allen acht Punkten aus dem Hauptplan, Abschnitt 7 (Claude zeigt Befehl und Ergebnis, du siehst dir jedes selbst an), Wachregel in den Kalender, `docs/UEBERGABE.md` ausfüllen; der Store-Build zeigt jetzt auf den Betrieb. 3 h 15 min: **AP22:** Checkliste `docs/checkliste-einreichung.md` mit `/einreichen` durchgehen: kein Platzhalter (auch nicht in „Antwort melden“), Verträge zur Auftragsverarbeitung abgelegt, `docs/review-log.md` gelesen | alle acht Punkte bestanden sind, `docs/UEBERGABE.md` ausgefüllt ist und die Checkliste bis auf das Einreichen grün ist |
 | Di 02.02. | 7 h | 45 min: **AP22: einreichen** mit „Diese Version manuell veröffentlichen“; Abo-Gruppe und beide Abos hängen an dieser Version. **Spätester Einreichungstag vor Q4.** Dann 1 h 30 min: **Markenkonten** (05, Abschnitt 5, mit Link „Impressum“). 20 min: Featuring-Nominierung (05, Abschnitt 1.1, Schritt 3). 3 h 45 min: **Vorbereitung der Posts** V1–V4 (05, Abschnitt 4: Hook-Liste, drei Canva-Vorlagen, Messtabelle, Regeln). 40 min: Puffer. Ist App 1 noch nicht eingereicht: alles dafür | App Store Connect „Warten auf Prüfung“ zeigt, jedes Profil den Link „Impressum“ zeigt und `marketing/hooks.md` je Format 5 markierte Hooks enthält |
-| Mi 03.02.–Fr 05.02. | höchstens 1 h | Q4: nur eine Antwort an das Review (AP22). Am Do 04.02. die Wachregel: eine echte Anfrage aus dem TestFlight-Build oder das Projekt `app1-betrieb` im Dashboard öffnen (2 min, 03, Abschnitt 7.5) | – |
+| Mi 03.02.–Fr 05.02. | höchstens 1 h | Q4: nur eine Antwort an das Review (AP22). Am Do 04.02. die Wachregel: eine echte Anfrage aus dem TestFlight-Build mit einem Sandbox-Kauf schicken oder das Projekt `app1-betrieb` im Dashboard öffnen (2 min, 03, Abschnitt 7.5) | – |
 | Sa 06.02. | 3 h | Bis 1 h: Antwort an das Review oder Fehlerbehebung (AP22). 1 h 30 min: der erste Samstagsblock (05, Abschnitt 6.2): drei Posts aus den Vorlagen bauen, als Entwurf speichern oder einplanen; letzte Folie „[Name] – bald im App Store“. 30 min: Stunden und Stand aufschreiben, Plan für Q4 | drei Posts in der Messtabelle stehen |
 | So 07.02. | 10 min | Kassenprüfung; nachsehen, ob die Wachregel gegriffen hat | – |
 
 **Ab jetzt gilt die Q4-Regel:** höchstens 6–7 Stunden je Woche, mit zwei oder
 mehr Klausuren nur Samstag 3 Stunden. Posts gibt es ab der Einreichung
 höchstens 3 je Woche, gebaut im 90-Minuten-Block am Samstag, und höchstens 9,
-solange die App nicht im Store ist (05, Abschnitt 6.2). Die eigene Vorlage für
+solange die App nicht im Store ist (05, Abschnitt 6.2). Solange eine App im
+Review oder live ist, gilt die Wachregel: am Montag und am Donnerstag je
+2 Minuten (03, Abschnitt 7.5). Die eigene Vorlage für
 App 2 (02, Abschnitt 9, 3–4 Stunden) entsteht erst nach der Freigabe von
 App 1. Wie es ab hier weitergeht, steht im Hauptplan (Abschnitt 12) und in
 [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md).
