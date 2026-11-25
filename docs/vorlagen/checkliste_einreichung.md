@@ -10,7 +10,7 @@
 - [ ] Links zu Datenschutz und Nutzungsbedingungen auf der Paywall und in App Store Connect (5.1.1)
 - [ ] Abo-Gruppe und alle Abos angelegt und zusammen mit dieser App-Version eingereicht
 - [ ] Kein Hinweis auf Käufe außerhalb der App
-- [ ] Nur Wochenabo (6,99 €) und Monatsabo (14,99 €); kein Jahresabo ohne feststehenden Nachfolger; Apps, die nach dem 04.07. erscheinen, nur mit Wochenabo
+- [ ] Nur Wochenabo (6,99 €) und Monatsabo (14,99 €); kein Jahresabo, solange du Inhaber bist (ein Nachfolger entscheidet nach der Übertragung selbst); Apps, die nach dem 04.07. erscheinen, nur mit Wochenabo
 - [ ] Länderpreise (Österreich, Schweiz, USA, Großbritannien) gesetzt und gegen die Erlös-Spalte in App Store Connect geprüft
 - [ ] Abos haben Anzeigename und Beschreibung auf Deutsch und Englisch und einen Screenshot für das Review
 - [ ] Impressum in der App erreichbar
@@ -28,7 +28,7 @@
 - [ ] Review-fest: geführter Ablauf statt leerem Chat, Verlauf auf dem Gerät, Kopieren und Teilen, Knopf „Antwort melden“ als E-Mail-Link, Kontaktadresse in der App (1.2, 4.2)
 - [ ] Neue Angaben in App Store Connect beantwortet (für eine Text-Schreibhilfe: „Shared Location“ und „Dating and Relationships“ jeweils nein)
 - [ ] Review-Notizen: was die App tut, wo die KI läuft, auf welchem Bildschirm die Paywall erscheint, wie der Prüfer mit einem Sandbox-Kauf alles sieht
-- [ ] Supabase im Gratis-Tarif: die Wachregel (zweimal je Woche eine echte Anfrage aus der eigenen App) steht im Kalender; ist eine App mit zahlenden Abonnenten in den Abiturmonaten live, für diese Monate Pro
+- [ ] Supabase im Gratis-Tarif: die Wachregel (zweimal je Woche eine echte Anfrage aus der eigenen App) steht im Kalender; ist in den Abiturmonaten eine App im Store oder im Review, für diese Monate Pro (liegt eine freigegebene App nur bereit, darf das Gratis-Projekt pausieren; vor dem Veröffentlichen wiederherstellen und testen)
 
 ## Sicherheit (Mindestprüfung, Claude führt aus, du siehst dir das Ergebnis an)
 

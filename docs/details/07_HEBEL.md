@@ -80,8 +80,12 @@ seiner Gewinnläufe verdienten ihr Geld erst im August.
 | Dienst läuft weiter (Server, KI), ohne neue Einnahmen | bis Mi 15.09.2027 |
 | App entfernen, Gewerbe abmelden | Do 16.09. oder Fr 17.09., vor dem Umzug |
 
-Ziehst du früher um, rücken beide Tage vor: Dienstende spätestens am Tag vor
-dem Umzug, Verkaufsstopp 31 Tage davor.
+Ziehst du früher um, liegt das Dienstende spätestens am Tag vor dem Umzug und
+der Verkaufsstopp 31 Tage davor. Mit dem Verkaufsstopp rücken alle Termine ab
+der Entscheidung je App um dieselbe Zahl Tage vor; die Entscheidung fällt aber
+frühestens am Mo 19.07. Den Umzugstag legst du bis Sa 31.07. fest, bei einem
+Umzug vor Sa 18.09. schon bis Mo 19.07. Die Tage dazu stehen in
+[`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 1.4.
 
 **Wie viel der Stichtag ausmacht** (Plan mit Hebeln, ohne Nachfolger):
 
@@ -128,7 +132,7 @@ Ausgangslage ist der Plan vom 23.11. mit Verkaufsstopp am 15.08.
 |---|---:|---:|---:|---:|---|---|
 | Kosten senken (Abschnitt 5) | 6,7 | −568 € | −450 € | **+624 €** | 0 €, etwa 10–16 Stunden bis 2028 | Preisseiten und Gesetz; Abschluss selbst ist eine Schätzung |
 | schneller bauen, review-fest planen (Abschnitt 8) | 3,8 | −1.164 € | −1.009 € | +65 € | 0 €, etwa 6–10 Stunden Einrichtung | Herstellerangaben ohne Zeitmessung |
-| Markt (Deutsch zuerst) und Ideenwahl | 2,7 | −1.186 € | −1.078 € | −4 € | 0 €, etwa 10–15 Stunden | Schätzung; beide Wirkungen heben sich auf |
+| Markt (Deutsch zuerst) und Ideenwahl | 2,7 | −1.186 € | −1.078 € | −4 € | 0 €, etwa 10–16 Stunden, typisch 12 | Schätzung; beide Wirkungen heben sich auf |
 | zweite Signalprüfung am 28.06. | 2,7 | −1.185 € | −1.074 € | 0 € | 0 € | Messung der Post-Reichweite; Wirkung im Modell null |
 
 **Alle vier zusammen** (der „Plan mit Hebeln“): Gewinn in 8,8 von 100,
@@ -218,22 +222,27 @@ dieser Fälle über 5.200 €.
   eigene Versicherung, laufende Leistungen).
 - Jede App von Anfang an so bauen, dass man sie übergeben kann
   (Übergabe-Mappe).
-- Das Elternteil braucht sein eigenes Apple-Konto mit allen Verträgen
-  spätestens Anfang Juli, sonst gilt im August nicht der niedrige Apple-Satz.
+- Zeigt eine App Ende Juni nennenswerten Umsatz (Richtwert ~100 $ MRR, Messtag
+  in 06, Abschnitt 4.4), schickt das Elternteil bis Fr 02.07. Gewerbe- und
+  Apple-Anmeldung ab. Vertrag, Bank, Steuer, Händlerangaben und Small Business
+  Program folgen, sobald das Konto frei ist. Ziel ist die Genehmigung des Small
+  Business Program bis Sa 31.07.; sonst gilt im August nicht der niedrige
+  Apple-Satz.
 - Die Übergabe ist eine echte Schenkung ohne Gewinnbeteiligung, schriftlich
   und binnen drei Monaten dem Finanzamt angezeigt (§ 30 ErbStG). Das
   Elternteil wird Unternehmer mit eigenem Impressum, eigenem Gewerbe und
-  eigener Steuer und beantragt das Small Business Program selbst (Genehmigung
-  bis Sa 31.07.). Ein Elternteil nur als Namen einzutragen, während du das
-  Geschäft führst, ist nicht erlaubt.
+  eigener Steuer und beantragt das Small Business Program selbst. Ein
+  Elternteil nur als Namen einzutragen, während du das Geschäft führst, ist
+  nicht erlaubt.
 
 **Wo es steht:** [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md).
 
 **Verworfen:** Weiterführen von Zürich aus (rund 3.500–5.500 CHF Mehrkosten im
 Jahr, vor allem Krankenversicherung; lohnt erst bei einem echten Treffer und
-nur nach Beratung zu beiden Ländern). Jahresabos und „lebenslang“ ohne
-Nachfolger (du müsstest zwölf Monate liefern oder erstatten). Ein Elternteil
-von Anfang an als Inhaber nur wegen der Steuer (hält nicht).
+nur nach Beratung zu beiden Ländern). Jahresabos und „lebenslang“, solange du
+Inhaber bist (du müsstest zwölf Monate liefern oder erstatten); ein Nachfolger
+entscheidet nach der Übertragung selbst. Ein Elternteil von Anfang an als
+Inhaber nur wegen der Steuer (hält nicht).
 
 ---
 
@@ -319,7 +328,7 @@ unnötig schlecht ausgeht.
 |---|---|---|
 | **No-Go-Regel am Ideen-Tor:** Erreicht keine Idee die Mindestwerte, wird nicht gegründet und kein Apple-Konto gekauft | spart in diesem Fall alle Kosten; die Ideenwahl selbst hebt die Trefferquote nur um etwa 5 % | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
 | K.-o.-Fragen zur Haftung und der Test gegen kostenlose Alternativen | als Einzelunternehmer haftest du persönlich; eine App, die ein kostenloser KI-Chat ersetzt, zahlt niemand | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
-| App zweisprachig, Videos auf Deutsch | Reichweite ist an SIM und IP gebunden; der deutsche Markt ist kleiner (Abschlag ×0,9 auf die Trefferquote), der Englisch-Test über Shorts kostet fast nichts | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
+| App zweisprachig, Videos auf allen drei Plattformen auf Deutsch, kein Englisch-Test vor Tor 1 | Reichweite ist an SIM und IP gebunden; der deutsche Markt ist kleiner (Abschlag ×0,9 auf die Trefferquote); ein Englisch-Test mit wenigen Posts misst nichts und kostet Zeit | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
 | Wochenabo 6,99 € vorausgewählt, Monatsabo 14,99 €, keine Testphase, kein Jahresabo | entspricht den Marktwerten 2026; darunter zu bleiben verschenkt Umsatz, ein Jahresabo ohne Nachfolger ist eine Schuld | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
 | Small Business Program sofort beantragen | sonst gelten in den Startwochen 26 % statt 15 % Apple-Anteil | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
 | Zweite Signalprüfung (21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, spätestens Di 29.06.) für eine App, die vor dem Abitur gestartet ist | mit höchstens 3 Posts je Woche in Q4 kann eine App die 300 $ kaum zeigen; ohne zweite Prüfung würde ein Treffer zu früh abgeschrieben | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md) |
@@ -476,7 +485,7 @@ So liest du das:
 | wann | was | Stunden | steht in |
 |---|---|---|---|
 | Do 26.11. | Elterngespräch: Namensfrage ansprechen und fragen, ob ein Elternteil eine laufende App im Sommer übernehmen würde | 1 | Hauptplan, Abschnitt 3 |
-| Sa 28.11.–Sa 19.12. | fünf Ideen prüfen mit K.-o.-Fragen, Nachfrageprüfung, Bewertungstabelle, Slideshow-Test und Ablauf-Test | 10–15 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
+| Sa 28.11.–Sa 19.12. | fünf Ideen prüfen mit K.-o.-Fragen, Nachfrageprüfung, Bewertungstabelle, Slideshow-Test und Ablauf-Test | 10–16, typisch 12 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
 | Sa 12.12. | Zwischenstand: erfüllt eine Idee alle Mindestwerte? Nur dann Apple in KW 51 | 0,2 | [`04_IDEENWAHL.md`](04_IDEENWAHL.md) |
 | bis So 13.12. | Namensfrage entscheiden | – | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |
 | Mo 14.–Mi 16.12. | Apple Developer Program kaufen (99 €), automatische Verlängerung abschalten – nur wenn der Zwischenstand am Sa 12.12. passt | 1 | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md) |

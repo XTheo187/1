@@ -94,7 +94,7 @@ davon ab, ob Apple App 1 bis Sa 13.03. freigibt (Fall A) oder nicht (Fall B).
 | Tag 21, nur wenn er bis So 14.03. liegt (Start bis So 21.02.) | erste Signalprüfung als Vorab-Blick. Beispiele: Start Sa 13.02. → Sa 06.03.; Start Sa 20.02. → Sa 13.03. Bei einem Start ab Mo 22.02. fiele sie in die Startpause; dann siehst du am Tag nach deiner letzten Prüfung nach (Abschnitt 9.2) |
 | Sa 13.03. | letzter Post |
 | So 14.03. | Die drei besten Posts im Profil anheften, Mitteilungen der drei Apps ausschalten, nichts einplanen. Messpunkt M3: Die App ist live, also läuft Claude Pro weiter ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.4), und du stellst die Organisation `app-betrieb` für die Abiturmonate auf Supabase Pro (~27 € im Monat, [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5) |
-| Mo 15.03. bis zu deiner letzten Prüfung | keine Posts, keine Kommentare. Zweimal je Woche 20 Minuten für Zahlen und Support-Mails; einer der zwei Termine ist die Sonntagsauswertung (Abschnitt 12.3). An Prüfungstagen und ab einer Woche vor jedem Prüfungstag nichts (Hauptplan, Abschnitt 4). Mit Supabase Pro brauchst du keine Wachregel |
+| Mo 15.03. bis zu deiner letzten Prüfung | keine Posts, keine Kommentare. Zweimal je Woche 20 Minuten für Zahlen und Support-Mails; einer der zwei Termine ist die Sonntagsauswertung (Abschnitt 12.3). Für Zahlen, Support und Notfälle gelten zusammen die 0–5 Stunden je Woche (im schriftlichen Abitur 0–1); an Prüfungstagen und ab einer Woche vor jedem Prüfungstag nichts (Hauptplan, Abschnitt 4). Mit Supabase Pro brauchst du keine Wachregel ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5) |
 | Tag nach der letzten Prüfung (spätestens Di 08.06.) | erster täglicher Post (Abschnitt 6.4). Supabase zurück auf Free, außer ein Signal ist bestanden ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5). Fiel Tag 21 in die Startpause: MRR ablesen (Abschnitt 9.2) |
 | 21 Tage danach, spätestens **Di 29.06.** (Wiederbeginn Mo 07.06. → Mo 28.06.; Di 08.06. → Di 29.06.) | zweite, gültige Signalprüfung |
 | So 18.07. | Tor 1 (Hauptplan, Abschnitt 13) |
@@ -1018,9 +1018,9 @@ MRR nur zählt, was am Stichtag noch läuft.
 
 In der Startpause selbst prüfst du nichts. Fällt Tag 21 hinein, siehst du am
 Tag nach deiner letzten Prüfung nach (Hauptplan, Abschnitt 13). Hast du eine
-mündliche Nachprüfung (Mo 28.06.–Mi 30.06.), liest du eine Prüfung, die in die
-Woche davor fällt, erst am Tag nach der Nachprüfung ab
-([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 1.2, KW 26).
+mündliche Nachprüfung (Mo 28.06.–Mi 30.06.), liest du eine Prüfung, die auf
+ihren Tag oder in die Woche davor fällt, erst am Tag nach deiner letzten
+Nachprüfung ab ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 1.2, KW 26).
 
 ### 9.3 Was bei Ja und Nein geschieht
 
@@ -1033,8 +1033,12 @@ Woche davor fällt, erst am Tag nach der Nachprüfung ab
 | in jedem Fall | Tor 1 am So 18.07. bleibt hart: 5.000 $ MRR oder die Jagd endet (Hauptplan, Abschnitt 13) |
 
 **Fertig, wenn** Zahl und Entscheidung am selben Tag notiert sind. Du rechnest
-nicht nach, verschiebst die Prüfung nicht (außer wegen einer Nachprüfung,
-Abschnitt 9.2) und wartest nicht „noch eine Woche“.
+nicht nach, verschiebst die Prüfung nicht und wartest nicht „noch eine Woche“.
+Ausnahme ist eine Nachprüfung: Fällt die Prüfung auf ihren Tag oder in die
+Woche davor, liest du die Zahl am Tag nach deiner letzten Nachprüfung ab. Hast
+du in den 21 Tagen wegen einer Nachprüfung eine Woche lang nicht gepostet,
+notierst du das dazu (Abschnitt 9.2; [06](06_SOMMER_UND_ABSCHLUSS.md),
+Abschnitt 1.2, KW 26).
 
 ---
 

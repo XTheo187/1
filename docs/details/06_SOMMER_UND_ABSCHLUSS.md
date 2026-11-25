@@ -66,7 +66,7 @@ Post) entsprechend vor. Die übrigen Stichtage bleiben.
 | Mo 28.06. | MRR je App notieren. Liegt die Zusage vor und erreicht eine App die Schwelle aus 4.4, beginnt das Elternteil mit seinen Anmeldungen | 4.4 |
 | Mo 28.06. oder Di 29.06. | **Zweite Signalprüfung** für eine App, die vor Mo 15.03. gestartet ist: 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, also Mo 28.06. bei Wiederbeginn am Mo 07.06. und spätestens Di 29.06. bei Wiederbeginn am Di 08.06. | 05 |
 | Do 01.07.–Sa 03.07. | Abiturzeugnis: in eApply hochladen, Original an die ETH; Kopie für den Arbeitgeber | Hauptplan, Abschnitt 9 |
-| Fr 02.07. | Elternteil hat Gewerbe- und Apple-Anmeldung abgeschickt (nur mit Zusage und wenn eine App die Schwelle aus 4.4 erreicht). Vertrag, Bank, Steuer, Händlerangaben und Small Business Program folgen, sobald Apple das Konto freischaltet | 4.4 |
+| Fr 02.07. | Elternteil hat Gewerbe- und Apple-Anmeldung abgeschickt (nur mit Zusage und ~100 $ MRR am Mo 28.06., 4.4). Vertrag, Bank, Steuer, Händlerangaben und Small Business Program folgen, sobald Apple das Konto freischaltet | 4.4 |
 | **So 04.07.** | **Stichtag:** Ist keine App im Store, beginnt der Job am Mo 05.07., und du beginnst keine neue App. Apps, die nach heute erscheinen, bieten nur das Wochenabo an | 2.10 |
 | Do 15.07. | Bewerbung an der Leibniz Universität Hannover ist abgeschickt (Rückfall, ~2 h; Frist 2026, vor dem Schritt prüfen) | Hauptplan, Abschnitt 9 |
 | **So 18.07.** | **Tor 1:** eine App mit mindestens 5.000 $ MRR? Wenn nein, endet die Jagd | Hauptplan, Abschnitt 13 |
@@ -583,7 +583,7 @@ Modell ausmacht und wie oft sie gelingt, steht in
 | bestehendes Kleinunternehmen | Die Kleinunternehmerregelung gilt je Person für alle Tätigkeiten zusammen | eigene Unterlagen, Finanzamt |
 | Öffentlichkeit und Haftung | Voller Name im App Store, Name und Anschrift im Impressum, unbeschränkte Haftung | 03, Abschnitt 2.1 |
 | Steuer | Der Gewinn wird mit seinem Steuersatz versteuert (grob 30–42 %). Ob kleine Nebeneinkünfte bei Arbeitnehmern frei bleiben, klärt die Einzelstunde beim Steuerberater | 4.6, Frage 6 |
-| Zeit | einmalig 6–10 Stunden, danach 1–3 Stunden je Monat, einmal im Jahr die Steuererklärung mit Anlage G und Anlage EÜR | – |
+| Zeit | einmalig 6–10 Stunden, danach 1–3 Stunden je Monat, einmal im Jahr die Steuererklärung mit Anlage G, Anlage EÜR und Umsatzsteuererklärung für § 13b | – |
 
 **Fertig, wenn** jeder Punkt auf der Zusage mit Datum abgehakt ist.
 
@@ -867,10 +867,10 @@ Mi 15.09.
 
 | Nr. | wann | Schritt | fertig, wenn … |
 |---|---|---|---|
-| 1 | Mo 02.08.–Fr 06.08. | Apples Seite zum Verkaufsstopp lesen. Hinweistexte in Deutsch und Englisch schreiben (unten). Mit einem Testbuild proben, dass ein Update über `expo-updates` den Hinweis in die App bringt | der Hinweis im Testbuild erscheint |
+| 1 | Mo 02.08.–Fr 06.08. | Apples Seite zum Verkaufsstopp lesen. Hinweistexte in Deutsch und Englisch schreiben (unten). Ist der Vertrag zur Auftragsverarbeitung mit Expo abgelegt (03, Abschnitt 5, Schritt 11): mit einem Testbuild proben, dass ein Update über `expo-updates` den Hinweis in die App bringt. Sonst ist `expo-updates` abgeschaltet: den Hinweis in einen neuen Build einbauen, im Testbuild prüfen und mit „Diese Version manuell veröffentlichen“ so einreichen, dass er vor So 15.08. durchs Review ist | der Hinweis im Testbuild erscheint und, ohne `expo-updates`, die Version mit dem Hinweis freigegeben ist und auf „manuell veröffentlichen“ wartet |
 | 2 | Sa 07.08. | Nachladebetrag der Claude API auf den kleinsten Wert stellen (z. B. 5–10 $), damit bis Mi 15.09. kaum Guthaben übrig bleibt. Die Monatsgrenze bleibt so hoch, dass alle Abonnenten bis zum Dienstende Antworten bekommen; das Nachladen bleibt an. Ob die Konsole beides anbietet, vor dem Schritt prüfen. Guthaben verfällt nach einem Jahr und wird nicht erstattet | Nachladebetrag und Grenze in deiner Wochenzeile notiert sind |
 | 3 | **So 15.08.** | **Jedes Abo jeder App aus dem Verkauf nehmen:** App Store Connect → Apps → App → Monetarisierung → Abonnements → Abo-Gruppe → Abo → Verfügbarkeit → aus dem Verkauf nehmen → Sichern. Für das Wochenabo und das Monatsabo einzeln | jedes Abo als aus dem Verkauf genommen angezeigt wird |
-| 4 | So 15.08. | **Nutzer informieren:** Update mit dem Hinweis ausliefern; Hinweis auf die Startseite der Website. Wer kein Abo hat, sieht statt der Paywall den Hinweis | der Hinweis in der Store-Version und auf der Website steht |
+| 4 | So 15.08. | **Nutzer informieren:** Update mit dem Hinweis ausliefern (ohne `expo-updates`: die freigegebene Version aus Schritt 1 veröffentlichen); Hinweis auf die Startseite der Website. Wer kein Abo hat, sieht statt der Paywall den Hinweis | der Hinweis in der Store-Version und auf der Website steht |
 | 5 | So 15.08.–Mi 15.09. | **Dienst läuft weiter:** Server, KI-Funktion, Support binnen 24 Stunden, Supabase-Wachregel am Montag und Donnerstag, Nachladen an. Impressum und Datenschutzerklärung bleiben online | in der Wochenzeile je Woche zwei Wachdaten stehen und keine Mail älter als 24 Stunden unbeantwortet ist |
 | 6 | Mo 23.08. | **Kontrolle:** In RevenueCat darf seit So 15.08. kein Wochenabo verlängert worden sein | die Liste der Verlängerungen seit So 15.08. leer ist |
 | 7 | spätestens Mo 23.08. | **Finanzamt:** über Mein ELSTER ein Elternteil als Empfangsbevollmächtigten benennen (03, Abschnitt 8.4). **Krankenkasse:** Ist die Frage noch offen, ob die Familienversicherung beim Studium in der Schweiz bleibt, stellt das Elternteil sie jetzt schriftlich (Vorlage 2.6, Punkt 3) | die Bestätigung des Finanzamts und die Antwort der Kasse bis Fr 17.09. abgelegt sind |
@@ -923,8 +923,9 @@ sind, keine App mehr im Review ist, jede Übertragung durch ist und das Update
 mit dem Hinweis vom So 15.08. ausgeliefert ist. Bei Abrechnungstag am 8. heißt
 das: kündigen bis Di 07.09. (Laufzeit bis Mi 08.09.). Nur wenn weder Übergabe
 noch Verkauf ansteht und das Hinweis-Update am Fr 06.08. fertig vorbereitet ist
-(Befehl und Schritte in `UEBERGABE.md`), kündigst du schon bis Sa 07.08.
-(Laufzeit bis So 08.08.; Kündigungskalender in 03, Abschnitt 7.4).
+(Befehl und Schritte in `UEBERGABE.md`; ohne `expo-updates`: die Version aus
+Schritt 1 ist freigegeben), kündigst du schon bis Sa 07.08. (Laufzeit bis
+So 08.08.; Kündigungskalender in 03, Abschnitt 7.4).
 
 ---
 
@@ -1125,7 +1126,9 @@ Abschnitt 10.
 - [ ] **Claude Pro gekündigt** (bis Sa 07.08. oder bis Di 07.09., Abschnitt 6,
       Schluss) – fertig, wenn unter Abrechnung das Enddatum steht
 - [ ] **Hinweis geprobt** (bis Fr 06.08.) – fertig, wenn er im Testbuild
-      erscheint; entfällt, wenn jede App einen Nachfolger hat
+      erscheint und, ohne `expo-updates`, die Version mit dem Hinweis vor
+      So 15.08. freigegeben ist (Abschnitt 6, Schritt 1); entfällt, wenn jede
+      App einen Nachfolger hat
 - [ ] **Umschalttag** (So 08.08.) – fertig, wenn für jede App im Verkauf
       feststeht: angenommenes Angebot mit Zahlung über die Treuhand (Geld bis
       So 15.08.), Übergabe oder Einstellen

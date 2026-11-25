@@ -63,12 +63,13 @@ Inhalt:
 | **So 14.03.** | Entscheidung zur Ruhezeit: Claude Pro kündigen oder weiterlaufen lassen. Ist eine App im Store oder im Review: Supabase Pro für die Abiturmonate | 0 € oder ~27 € je Monat | 7 |
 | Sa 01.05. | Bis heute muss das Small Business Program genehmigt sein, damit 15 % ab Mo 17.05. gelten (Start gleich nach dem Abitur) | – | 6 |
 | Tag nach der letzten Prüfung (z. B. Di 08.06.) | Claude Pro neu buchen. Falls noch nicht gegründet: jetzt gründen | ~21 € | 5, 7 |
-| bis Fr 02.07. | Nur mit Zusage und ~100 $ MRR am Do 01.07.: Das Elternteil meldet Gewerbe und eigenes Apple-Konto an ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.4) | 99 € und 20–65 € (wer zahlt, steht in der Zusage) | 2 |
+| bis Fr 02.07. | Nur mit Zusage und ~100 $ MRR am Mo 28.06. (mit Nachprüfung: am Tag nach der letzten Nachprüfung): Das Elternteil schickt Gewerbe- und Apple-Anmeldung ab ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.4) | 99 € und 20–65 € (wer zahlt, steht in der Zusage) | 2 |
 | **So 04.07.** | Stichtag: Ist keine App im Store, beginnt am Mo 05.07. der Ferienjob. Ist auch keine eingereicht, gehst du am Mo 05.07. den Kündigungskalender durch wie am Ende der Jagd (Abschnitt 7.4) und meldest ein schon angemeldetes Gewerbe ab (Finanzamt und Krankenkasse informieren) | 0–32,50 € | 7, 8 |
 | So 18.07. und Mo 19.07. | Tor 1. Endet die Jagd, kündigst du am Mo 19.07. alles, was Betrieb und Abschluss nicht brauchen | – | 7 |
 | Sa 31.07. | Entscheidung je App: einstellen, übergeben oder verkaufen (für eine App, die erst nach Mo 19.07. erscheint, bis Sa 07.08.; [06](06_SOMMER_UND_ABSCHLUSS.md)). Prüfen: Gibt es Einnahmen, oder stehen Verzicht, Verkauf, Übergabe oder Fortführung an? Nur dann eine bezahlte Einzelstunde beim Steuerberater | 0 € oder Festpreis | 8 |
 | So 08.08. und Mo 09.08. | Umschalttag: Liegt für eine App im Verkauf kein Angebot mit Treuhandzahlung vor, gilt die Übergabe oder das Einstellen. Ab Mo 09.08. Übertragung an das Elternteil, gestartet bis So 15.08. ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.5) | – | 8 |
 | **So 15.08.** | Ohne Nachfolger: alle Abos aus dem Verkauf nehmen | 0 € | 8 |
+| Mo 23.08. | Spätestens heute: ein Elternteil beim Finanzamt als Empfangsbevollmächtigten benennen. Ist bei der Krankenkasse die Frage zur Schweiz noch offen, stellt das Elternteil sie jetzt schriftlich | 0 € | 8 |
 | **Mi 15.09.** | Dienstende. Danach App entfernen, Server und Nachladen aus, Gewerbe abmelden, Krankenkasse und Finanzamt informieren, alles vor dem Umzug | 0–32,50 € | 8 |
 | bis Di 12.10.2027, spätestens Di 09.11.2027 | Letzte Zahlungen von Apple gehen ein. Bankkonto so lange offen lassen | – | 8 |
 | Mo 15.11.2027 | Erinnerung: Die Apple-Mitgliedschaft endet um Di 14.12.2027. Finanzberichte herunterladen | – | 8 |
@@ -230,10 +231,11 @@ Inhalt der Seite:
 3. **Wer zahlt die Einmalkosten:** eigenes Apple-Jahr des Elternteils (99 €;
    dein Apple-Jahr geht nicht über) und seine Gewerbeanmeldung (20–65 €),
    zusammen rund 120–165 €.
-4. **Wie viel Zeit:** einmalig 6–10 Stunden, danach 1–3 Stunden je Monat
-   (Support-Postfach, Zahlen, Vertragsänderungen bei Apple annehmen), dazu
-   einmal im Jahr Anlage G, Anlage EÜR und die Umsatzsteuererklärung für
-   § 13b.
+4. **Wie viel Zeit:** einmalig 6–10 Stunden, danach 1–3 Stunden je Monat:
+   das Support-Postfach täglich lesen und binnen 24 Stunden antworten
+   (2–5 Minuten am Tag), Zahlen ansehen, Vertragsänderungen bei Apple
+   annehmen ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.7). Dazu einmal im
+   Jahr Anlage G, Anlage EÜR und die Umsatzsteuererklärung für § 13b.
 5. **Was es bedeutet:** Die Übergabe ist eine echte Schenkung ohne vereinbarte
    Gewinnbeteiligung. Das Elternteil wird Unternehmer mit eigenem Namen im App
    Store, eigenem Impressum, Gewerbe und Steuer und haftet unbeschränkt. Für
@@ -244,10 +246,11 @@ Inhalt der Seite:
    Versicherung, Arbeitslosengeld oder Elterngeld, bestehendes
    Kleinunternehmen, Öffentlichkeit und Haftung, Steuer, Zeit), jeder mit
    Datum abgehakt.
-7. **Termine:** Liegt die Zusage vor und zeigt am Do 01.07. eine App
-   mindestens ~100 $ MRR ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.4),
-   meldet das Elternteil bis Fr 02.07. zuerst sein Gewerbe an (mit Fragebogen
-   in ELSTER) und dann sein eigenes Apple-Konto. Vertrag für bezahlte Apps,
+7. **Termine:** Liegt die Zusage vor und zeigt am Mo 28.06. eine App
+   mindestens ~100 $ MRR (hast du eine Nachprüfung: am Tag nach der letzten
+   Nachprüfung; [06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.4), meldet das
+   Elternteil bis Fr 02.07. zuerst sein Gewerbe an (mit Fragebogen in ELSTER)
+   und dann sein eigenes Apple-Konto. Vertrag für bezahlte Apps,
    Bank- und Steuerdaten, Händlerangaben und Small Business Program folgen,
    sobald das Konto aktiv ist. Nur wenn das Programm bis Sa 31.07. genehmigt
    ist, gilt der niedrige Satz ab Mo 16.08. (Abschnitt 6.2).
@@ -1094,7 +1097,7 @@ vorher.
 | Abo | Abbuchung | was du wann tust | fertig, wenn … |
 |---|---|---|---|
 | Claude Max | schon bezahlt | nicht verlängern; danach Pro monatlich | unter Abrechnung kein Max mehr steht |
-| **Claude Pro** | um den 27. jedes Monats | **So 14.03.:** Ist keine App im Store oder im Review, kündigst du (letzte Abbuchung um Sa 27.02., Laufzeit bis um Sa 27.03.). In der Ruhezeit baust du nicht. Ist eine App im Store oder im Review, läuft Pro weiter. **Tag nach der letzten Prüfung** (z. B. Di 08.06.): neu buchen; der neue Abrechnungstag ist dann der 8. **Ab Mo 19.07.** (Ende der Jagd): kündigen, sobald keine App mehr im Review ist und die Zwischensummen für die Anlage EÜR erstellt sind; Ziel bis Sa 07.08., sonst bis Di 07.09. | unter Abrechnung das Enddatum steht |
+| **Claude Pro** | um den 27. jedes Monats | **So 14.03.:** Ist keine App im Store oder im Review, kündigst du (letzte Abbuchung um Sa 27.02., Laufzeit bis um Sa 27.03.). In der Ruhezeit baust du nicht. Ist eine App im Store oder im Review, läuft Pro weiter. **Tag nach der letzten Prüfung** (z. B. Di 08.06.): neu buchen; der neue Abrechnungstag ist dann der 8. **Ab Mo 19.07.** (Ende der Jagd): kündigen, sobald die Zwischensummen für die Anlage EÜR erstellt sind, keine App mehr im Review ist, jede Übertragung durch ist und das Hinweis-Update vom So 15.08. ausgeliefert ist; also kündigen bis Di 07.09. (Laufzeit bis Mi 08.09.). Schon bis Sa 07.08. (Laufzeit bis So 08.08.) nur, wenn weder Übergabe noch Verkauf ansteht und das Hinweis-Update am Fr 06.08. fertig vorbereitet ist ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 6, Schluss) | unter Abrechnung das Enddatum steht |
 | Claude Max für einen Monat | – | nur wenn das Pro-Limit in den ersten sieben Ferientagen (Mi 23.12.–Di 29.12.) an mindestens zwei Arbeitstagen die Arbeit stoppt; am selben Tag die Rückstufung auf Pro zum nächsten Abrechnungstag eintragen | nach einem Monat wieder „Pro“ steht |
 | Claude API | Guthaben, kein Abo | vor dem Start Nachladen aus; ab dem Start an mit Monatsgrenze 25–50 $ (gibt es keine Monatsgrenze: aus lassen, Abschnitt 3); nach dem Dienstende (Mi 15.09.) wieder aus | die Konsole „Nachladen aus“ zeigt |
 | Apple Developer Program | einmal im Jahr | Verlängerung gleich nach dem Kauf aus; Erinnerung Mo 15.11.2027 | Abschnitt 4.4 |
@@ -1186,11 +1189,17 @@ Ende des Dienstes
 | Sa 31.07. | Prüfen, ob eine bezahlte Einzelstunde beim Steuerberater nötig ist: nur wenn Einnahmen da sind oder Verzicht, Verkauf, Übergabe oder Fortführung anstehen. Festpreis vorher vereinbaren | die Entscheidung in `docs/entscheidungen.md` steht |
 | **So 15.08.** | Jedes Abo aus dem Verkauf nehmen: App Store Connect → Apps → App → Monetarisierung → Abonnements → Abo-Gruppe → Abo → Verfügbarkeit → aus dem Verkauf nehmen → Sichern. Das stoppt neue Abschlüsse und Verlängerungen. Nur die App zu entfernen reicht nicht. Am selben Tag die Abonnenten informieren (Hinweis in der App und auf der Website) | jedes Abo als aus dem Verkauf genommen angezeigt wird |
 | So 15.08.–Mi 15.09. | Server, KI-Funktion und Support laufen weiter. Wachregel und Nachladen bleiben an | – |
+| spätestens Mo 23.08. | Dem Finanzamt über Mein ELSTER ein Elternteil als Empfangsbevollmächtigten benennen (Abschnitt 8.4). Ist noch offen, ob die Familienversicherung beim Studium in der Schweiz bleibt, fragt das Elternteil die Krankenkasse jetzt schriftlich ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 6, Schritt 7) | die Bestätigung des Finanzamts und die Antwort der Kasse bis Fr 17.09. abgelegt sind |
 | **Mi 15.09.** | Dienstende. Vorher in RevenueCat prüfen, dass kein Abo mehr aktiv ist | die Zahl der aktiven Abos null ist |
-| Do 16.09. und Fr 17.09. | App aus dem Store entfernen. Nachladen der Claude API aus. Zähltabelle löschen, Supabase-Projekte pausieren. Markenkonten schließen. Gewerbe bei der Gemeinde abmelden (0–32,50 €). Dem Finanzamt die Aufgabe des Betriebs mitteilen und den Empfangsbevollmächtigten benennen. Der Krankenkasse das Ende melden und schriftlich fragen, ob die Familienversicherung beim Studium in der Schweiz bleibt | die Bestätigung der Abmeldung abgelegt ist |
+| Do 16.09. und Fr 17.09. | App aus dem Store entfernen. Nachladen der Claude API aus. Zähltabelle löschen, Supabase-Projekte pausieren. Markenkonten schließen. Gewerbe bei der Gemeinde abmelden (0–32,50 €). Dem Finanzamt die Aufgabe des Betriebs mitteilen. Der Krankenkasse das Ende melden; fehlt ihre Antwort zur Schweiz noch, fragt das Elternteil nach | die Bestätigung der Abmeldung abgelegt ist |
 
-- **Ziehst du früher um,** rückt beides vor: Dienstende spätestens am Tag vor
-  dem Umzug, Verkaufsstopp 31 Tage davor.
+- **Ziehst du früher um,** rücken alle Termine ab der Entscheidung je App um
+  dieselbe Zahl Tage vor, auch Umschalttag und Übertragung: bei Umzug
+  Sa 11.09. um 7 Tage, bei Sa 04.09. um 14. Das Dienstende liegt spätestens
+  am Tag vor dem Umzug, der Verkaufsstopp 31 Tage davor. Die Entscheidung je
+  App fällt aber frühestens am Mo 19.07. Den Umzugstag legst du bis Sa 31.07.
+  fest, bei einem Umzug vor Sa 18.09. schon bis Mo 19.07.
+  ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 1.4).
 - **Verkauf bis Di 31.08. mit Dienst bis Fr 01.10.** geht nur nach einer
   Beratung, weil du den Dienst dann nach dem Umzug betreibst.
 - **Mit Nachfolger** (Übergabe an ein Elternteil oder Verkauf) gibt es keinen
@@ -1246,8 +1255,9 @@ Eltern liegt.
 ### 8.4 Empfangsbevollmächtigter
 
 Die Schweiz gehört nicht zur EU. Post vom Finanzamt soll nach dem Umzug nicht
-ins Leere gehen. Du benennst vor dem Umzug ein Elternteil als
-Empfangsbevollmächtigten. Wie das Finanzamt das haben will, fragst du in
+ins Leere gehen. Du benennst spätestens am Mo 23.08. (Abschnitt 8.1) ein
+Elternteil als Empfangsbevollmächtigten, damit die Bestätigung vor dem Umzug
+da ist. Wie das Finanzamt das haben will, fragst du in
 Abschnitt 5, Schritt 13 (von der Gegenprüfung nicht an einer Primärquelle
 geprüft). **Fertig, wenn** das Finanzamt die Benennung bestätigt hat.
 
@@ -1428,8 +1438,9 @@ danach geschlossen oder privat weitergeführt wird.
 **Abschluss**
 - [ ] **Steuerberater ja oder nein** (Sa 31.07.) – fertig, wenn die Entscheidung
       notiert ist
-- [ ] **Claude Pro gekündigt** (Ziel Sa 07.08., spätestens Di 07.09.) – fertig,
-      wenn unter Abrechnung das Enddatum steht
+- [ ] **Claude Pro gekündigt** (bis Di 07.09.; schon bis Sa 07.08. nur ohne
+      Übergabe oder Verkauf, Abschnitt 7.4) – fertig, wenn unter Abrechnung
+      das Enddatum steht
 - [ ] **Verkaufsstopp** (So 15.08.) – fertig, wenn jedes Abo aus dem Verkauf
       genommen ist und die Abonnenten informiert sind
 - [ ] **Dienstende** (Mi 15.09., danach Do 16.09.) – fertig, wenn am Mi 15.09.
@@ -1437,9 +1448,9 @@ danach geschlossen oder privat weitergeführt wird.
       gelöscht sind
 - [ ] **Gewerbeabmeldung** (Do 16.09. oder Fr 17.09.) – fertig, wenn die
       Bestätigung abgelegt ist
-- [ ] **Finanzamt und Krankenkasse** – fertig, wenn der
-      Empfangsbevollmächtigte bestätigt ist und die Antwort der Kasse zur
-      Schweiz vorliegt
+- [ ] **Finanzamt und Krankenkasse** (Benennung und Frage spätestens
+      Mo 23.08.) – fertig, wenn der Empfangsbevollmächtigte bestätigt ist und
+      die Antwort der Kasse zur Schweiz vorliegt
 - [ ] **Letzte Zahlung von Apple** (bis Di 09.11.2027) – fertig, wenn sie in der
       Belegtabelle steht
 - [ ] **Domain-Paket gekündigt** (nach der letzten Zahlung von Apple) – fertig,
