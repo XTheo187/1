@@ -752,13 +752,14 @@ Frag nicht „Würdest du dafür zahlen?“. Die Antwort sagt nichts.
 - **Scheitert es am Ergebnis** (höchstens 2 von 5 würden den Text
   verwenden): Die Idee fällt. Die zweitbeste bekommt, wenn sie alle
   Mindestwerte erfüllt, beide Tests bis Mo 28.12.:
-  - Sa 19.12.: statt AP3 2 Stunden mehr AP6; dann ist AP6 fertig.
-  - Mo 21.12.: Slideshow-Test und Namensprüfung (statt AP7).
+  - Sa 19.12.: statt AP3 2 Stunden mehr AP6; dann fehlen von AP6 nur die
+    Profile in `eas.json`.
+  - Mo 21.12.: Slideshow-Test und Namensprüfung (statt AP6 und AP7).
   - Di 22.12.: Claude baut ihr Formular auf dem Branch `ablauf-test`
     (statt AP7).
   - Mi 23.12.: zuerst 2 Stunden für Ablauf fertig, fünf Personen,
     60-Sekunden-Test und Entscheidung; danach 2 Stunden AP3 und 3 Stunden
-    AP7.
+    für die Profile aus AP6 und AP7.
   - AP8 kommt dann am Mo 28.12. (1 Stunde) und Di 29.12. (3 Stunden), AP9
     am Di 29.12. (4 Stunden). Der Stunden-Messpunkt bleibt am Abend des
     Di 29.12. Die Reste aus Phase A und AP10 rücken auf den Mi 30.12.; alles
