@@ -7,13 +7,13 @@
 - [ ] Einwilligung vor dem ersten KI-Aufruf: Anbieter und Daten genannt (5.1.2(i))
 - [ ] Harte Paywall ohne Umschalter und in App 1 ohne Testphase; Preis, Laufzeit, Verlängerung und Kündigung klar (3.1.2); Wochenabo vorausgewählt; keine erfundene Dringlichkeit
 - [ ] „Käufe wiederherstellen“ vorhanden (3.1.1)
-- [ ] Links zu Datenschutz und Nutzungsbedingungen auf der Paywall und in App Store Connect (5.1.1)
+- [ ] Auf der Paywall vier Links, alle ohne Abo erreichbar: Nutzungsbedingungen, Datenschutz, Impressum, „Käufe wiederherstellen“; Datenschutz und Nutzungsbedingungen auch in App Store Connect (5.1.1)
 - [ ] Abo-Gruppe und alle Abos angelegt und zusammen mit dieser App-Version eingereicht
 - [ ] Kein Hinweis auf Käufe außerhalb der App
 - [ ] Nur Wochenabo (6,99 €) und Monatsabo (14,99 €); kein Jahresabo, solange du Inhaber bist (ein Nachfolger entscheidet nach der Übertragung selbst); Apps, die nach dem 04.07. erscheinen, nur mit Wochenabo
 - [ ] Länderpreise (Österreich, Schweiz, USA, Großbritannien) gesetzt und gegen die Erlös-Spalte in App Store Connect geprüft
 - [ ] Abos haben Anzeigename und Beschreibung auf Deutsch und Englisch und einen Screenshot für das Review
-- [ ] Impressum in der App erreichbar
+- [ ] Impressum, Datenschutz und Nutzungsbedingungen zusätzlich in den Einstellungen erreichbar
 - [ ] Nur fürs iPhone: in `app.json` `ios.supportsTablet: false`; trotzdem auf dem iPad testen (Apple prüft dort im Kompatibilitätsmodus)
 - [ ] Screenshots vom eigenen iPhone, fehlende Größen in Canva auf das verlangte Format gesetzt (Inhalt bleibt die echte App)
 - [ ] Exportkontrolle: nur Standardverschlüsselung, `ios.config.usesNonExemptEncryption: false`
@@ -27,7 +27,7 @@
 - [ ] Eingaben werden auf dem Server nicht gespeichert, der Verlauf liegt nur auf dem Gerät
 - [ ] Review-fest: geführter Ablauf statt leerem Chat, Verlauf auf dem Gerät, Kopieren und Teilen, Knopf „Antwort melden“ als E-Mail-Link, Kontaktadresse in der App (1.2, 4.2)
 - [ ] Neue Angaben in App Store Connect beantwortet (für eine Text-Schreibhilfe: „Shared Location“ und „Dating and Relationships“ jeweils nein)
-- [ ] Review-Notizen: was die App tut, wo die KI läuft, auf welchem Bildschirm die Paywall erscheint, wie der Prüfer mit einem Sandbox-Kauf alles sieht
+- [ ] Review-Notizen: was die App tut, wo die KI läuft, dass Ausgaben nur der Nutzer selbst sieht, auf welchem Bildschirm die Paywall erscheint, wie der Prüfer mit einem Sandbox-Kauf alles sieht
 - [ ] Supabase im Gratis-Tarif: die Wachregel (zweimal je Woche eine echte Anfrage aus der eigenen App) steht im Kalender; ist in den Abiturmonaten eine App im Store oder im Review, für diese Monate Pro (liegt eine freigegebene App nur bereit, darf das Gratis-Projekt pausieren; vor dem Veröffentlichen wiederherstellen und testen)
 
 ## Sicherheit (Mindestprüfung, Claude führt aus, du siehst dir das Ergebnis an)
@@ -39,6 +39,7 @@
 - [ ] Repository und App nach Schlüsseln durchsucht (`git grep`, GitHub Secret Scanning)
 - [ ] Test- und Betriebsprojekt getrennt (Testprojekt in eigener Gratis-Organisation), Tabellen-Schema als Migration im Repository (im Gratis-Tarif keine Backups), Claude ohne Zugang zum Betrieb
 - [ ] Von außen getestet: Aufruf ohne aktives Abo scheitert
+- [ ] Beide Supabase-Projekte mit den neuen Schlüsseln (Publishable und Secret) angelegt; die alten fallen Ende 2026 weg
 
 ## Zum Schluss
 

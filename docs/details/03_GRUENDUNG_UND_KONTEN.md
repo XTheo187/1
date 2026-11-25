@@ -51,13 +51,13 @@ Inhalt:
 |---|---|---|---|
 | KW 48 (Mo 23.11.–So 29.11.) | Claude Code läuft (erledigt). Plan-Repository privat (Di 24.11.). Gespräch mit den Eltern, Karte beantragen (Do 26.11.). Projekt-Postfach und Passwortmanager (Sa 28.11.). Claude Max läuft aus, danach Claude Pro monatlich | ~21 € (erste Abbuchung von Pro, um den 27.11.) | 2, 3 |
 | KW 49 (Mo 30.11.–So 06.12.) | Expo-Konto (Mo 30.11.). Am Fr 04.12.: ELSTER-Konto beantragen, Weg der Gewerbeanmeldung deiner Gemeinde nachsehen, bei IHK oder Gewerbeamt nachfragen, Termin der Gründungsberatung anfragen; soll ein Elternteil Inhaber werden, die Frage 10 ans Finanzamt | 0 € | 2, 3, 4, 5 |
-| KW 50 (Mo 07.12.–So 13.12.) | Supabase mit zwei Organisationen und zwei Projekten (Mo 07.12.). Entscheidung zur Namensfrage (Fr 11.12., Frist So 13.12.). Konto für die Claude API mit Guthaben und Grenze (Sa 12.12.). Bankkonto für die App beantragen | 5–9 € (Guthaben 5–10 $) | 2, 3 |
+| KW 50 (Mo 07.12.–So 13.12.) | Supabase mit zwei Organisationen und zwei Projekten (Mo 07.12.). Entscheidung zur Namensfrage (Fr 11.12., Frist So 13.12.). Konto für die Claude API mit Guthaben und Grenze (Sa 12.12.) | 5–9 € (Guthaben 5–10 $) | 2, 3 |
 | KW 51 (Mo 14.12.–So 20.12.) | Apple Developer Program (Mo 14.12.–Mi 16.12.), Verlängerung gleich aus. RevenueCat-Konto (Sa 19.12. mit AP6; Mo 14.12., wenn du Apple dann nicht kaufst). EAS einrichten, Geräte registrieren (Fr 18.12.). Ideen-Tor M0 (So 20.12.) | 99–118 € | 3, 4 |
-| KW 52 bis KW 01 (Mo 21.12.–So 10.01.) | Gründungsberatung (Termin bis Mi 06.01.; kostet sie Geld oder klärt sie keine Steuerfragen: die Fragen 5 und 8 vor der Gründung telefonisch ans Finanzamt). Entwürfe fertig machen: Website-Texte, Brief an die Krankenkasse, Zusage des Elternteils. Frühestens am Do 07.01.: M2 und Gründung | ~21 € (Pro, um den 27.12.) | 5 |
+| KW 52 bis KW 01 (Mo 21.12.–So 10.01.) | Bankkonto für die App beantragen (Mi 30.12., Frist Do 31.12.). Gründungsberatung (Di 05.01., Termin bis Mi 06.01.; kostet sie Geld oder klärt sie keine Steuerfragen: die Fragen 5 und 8 vor der Gründung telefonisch ans Finanzamt). Entwürfe fertig machen (Mi 06.01.): Website-Texte, Brief an die Krankenkasse. Frühestens am Do 07.01.: M2 und Gründung | ~21 € (Pro, um den 27.12.) | 5 |
 | **M2, typisch Mitte bis Ende Januar** (frühestens Do 07.01.; in Schulwochen am Samstag, z. B. Sa 30.01.; in Q4 auf zwei Samstage verteilt) | **Gründungstag:** Gewerbe anmelden, Fragebogen in ELSTER, Domain-Paket, Prepaid-Nummer, Website online. **Am nächsten Arbeitstag bei Apple:** Vertrag für bezahlte Apps, Bank- und Steuerdaten, Händlerangaben, Small Business Program | 41/101/262 € (Gründung ohne Apple) | 5, 6 |
 | bis 7 Tage nach der Gewerbeanmeldung | Berufsgenossenschaft, Brief an die Krankenkasse, Verträge zur Auftragsverarbeitung | 0 € | 5 |
 | in den Wochen danach | IHK-Schreiben beantworten. Sobald die Steuernummer da ist: Anfrage ans Finanzamt zu § 13b | 0 € | 5 |
-| So 31.01. | Schriftliche Zusage des Elternteils liegt vor, oder ihr habt bewusst darauf verzichtet | 0 € | 2 |
+| So 31.01. | Schriftliche Zusage des Elternteils liegt vor (in 01 am Sa 16.01.), oder ihr habt bewusst darauf verzichtet | 0 € | 2 |
 | Sa 30.01. und Sa 27.02. | Stichtage für das Small Business Program bei einem Start vor Mo 15.03. | – | 6 |
 | Mo 01.03. | Ist M2 bis heute nicht erreicht, gründest du erst am Tag nach deiner letzten Prüfung | – | 5 |
 | **So 14.03.** | Entscheidung zur Ruhezeit: Claude Pro kündigen oder weiterlaufen lassen. Ist eine App im Store oder im Review: Supabase Pro für die Abiturmonate | 0 € oder ~27 € je Monat | 7 |
@@ -308,13 +308,12 @@ Bedingungen
 
 Die Konten 1–7 und 9 dauern je etwa 10–20 Minuten (Schätzung), das
 Apple-Konto 0,5–1,5 Stunden (Abschnitt 4.2), das Bankkonto 0,5–1,5 Stunden
-(Abschnitt 5.1). In [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) eingeplant sind die
-Konten 1–3 und 5–9; das Expo-Konto legst du am Mo 30.11. in der Stunde für
-AP1 an. Nicht eingeplant sind Bankkonto, Gründungsberatung und die Zusage des
-Elternteils (zusammen ~4 Stunden, Schätzung); den Brief an die Krankenkasse
-plant 01 am Do 14.01. Diese Stunden zählen in deine Wochenstunden, und die
-Bau-Pakete rutschen entsprechend ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md),
-Abschnitt 1).
+(Abschnitt 5.1). In [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) eingeplant sind
+alle zehn Konten; das Expo-Konto legst du am Mo 30.11. in 10 Minuten vor AP1
+an, das Bankkonto am Mi 30.12. Dort stehen auch die Gründungsberatung
+(Di 05.01.), der Brief an die Krankenkasse (Entwurf Mi 06.01., abgeschickt
+Fr 08.01.) und die Zusage des Elternteils (Sa 16.01.). Diese Stunden zählen
+in deine Wochenstunden ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md), Abschnitt 1).
 
 **Claude (Abo)**
 - Auf claude.ai unter Einstellungen → Abrechnung nachsehen, wann Max endet. Max
@@ -548,11 +547,12 @@ und Testen davor ist Vorbereitung.
 | 13 | Anfrage ans Finanzamt | sobald die Steuernummer da ist | 0,2/0,3/0,5 | 0 € |
 | 14 | Markenkonten | am Gründungstag oder in der Woche der Einreichung | siehe [05](05_START_UND_MARKETING.md) | 0 € |
 
-Die Schritte 3–6 dauern typisch 2,5 Stunden, Schritt 8 eine Stunde. Hauptplan
-(~4 h) und Bauplan (~4–5 h) rechnen dafür mit Puffer. Die Schritte 9–13
+Die Schritte 3–6 dauern typisch 2,5 Stunden, Schritt 8 eine Stunde. Der
+Hauptplan (~4 h) rechnet dafür mit Puffer, der Bauplan mit denselben
+~3,5 Stunden ([02](02_BAUPLAN_APP1.md), Abschnitt 4). Die Schritte 9–13
 verteilen sich auf die Wochen danach (~2,5 Stunden), die Schritte 1 und 2
 liegen davor (~3 Stunden). Zusammen sind es ohne die Website rund 9 Stunden
-von Dezember bis Februar. Alles zählt in deine Wochenstunden.
+von Dezember bis Februar, wie im Bauplan. Alles zählt in deine Wochenstunden.
 
 **Was vor M2 schon fertig liegt** (alles ohne Gewerbe erlaubt): ELSTER-Zugang,
 Bankkonto, Antworten aus der Beratung, Website-Texte und -Seiten als Entwurf
@@ -1002,6 +1002,9 @@ Beispielzeilen (Beträge sind Beispiele, Kurs 1 $ = 0,90 €):
 
 - **Jeden Monat 20–30 Minuten,** am ersten Samstag: Rechnungen aus Kundenmenüs
   und Mails als PDF laden, benennen, eintragen, mit dem Kontoauszug abgleichen.
+  Ausnahmen in [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md): Am Sa 05.12. entfällt
+  die Pflege, weil bis dahin kein neuer Beleg dazukommt; im Januar liegt sie
+  am Sa 09.01., damit die erste Kassenprüfung am So 10.01. alle Ausgaben sieht.
   In der Ruhezeit und ab einer Woche vor einem Prüfungstag nicht; was liegen
   bleibt, trägst du am Tag nach der letzten Prüfung nach (Abschnitt 7.3).
 - **Ausgaben aus 2026** stehen in der Tabelle, weil sie zur 5.000-€-Grenze
@@ -1084,7 +1087,8 @@ Aufschub bis nach dem Abitur (nie in der Woche vor einem Prüfungstag).
    Abonnenten an (Hauptplan, Abschnitt 7).
 8. Supabase: das Projekt `app1-betrieb` im Dashboard öffnen (das zählt als
    Aktivität) und nachsehen, ob die Wachregel diese Woche zweimal gegriffen hat
-   (Abschnitt 7.5).
+   (Abschnitt 7.5). Läuft die Organisation `app-betrieb` auf Pro, entfällt die
+   Wachregel; dann notierst du hier nur „Pro“.
 9. EAS-Strichliste: Stand des Monats (Abschnitt 7.6).
 
 **Fertig, wenn** die neun Zahlen in deiner Wochenzeile stehen.
@@ -1097,7 +1101,7 @@ vorher.
 | Abo | Abbuchung | was du wann tust | fertig, wenn … |
 |---|---|---|---|
 | Claude Max | schon bezahlt | nicht verlängern; danach Pro monatlich | unter Abrechnung kein Max mehr steht |
-| **Claude Pro** | um den 27. jedes Monats | **So 14.03.:** Ist keine App im Store oder im Review, kündigst du (letzte Abbuchung um Sa 27.02., Laufzeit bis um Sa 27.03.). In der Ruhezeit baust du nicht. Ist eine App im Store oder im Review, läuft Pro weiter. **Tag nach der letzten Prüfung** (z. B. Di 08.06.): neu buchen; der neue Abrechnungstag ist dann der 8. **Ab Mo 19.07.** (Ende der Jagd): kündigen, sobald die Zwischensummen für die Anlage EÜR erstellt sind, keine App mehr im Review ist, jede Übertragung durch ist und das Hinweis-Update vom So 15.08. ausgeliefert ist; also kündigen bis Di 07.09. (Laufzeit bis Mi 08.09.). Schon bis Sa 07.08. (Laufzeit bis So 08.08.) nur, wenn weder Übergabe noch Verkauf ansteht und das Hinweis-Update am Fr 06.08. fertig vorbereitet ist ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 6, Schluss) | unter Abrechnung das Enddatum steht |
+| **Claude Pro** | um den 27. jedes Monats | **So 14.03.:** Ist keine App im Store oder im Review, kündigst du (letzte Abbuchung um Sa 27.02., Laufzeit bis um Sa 27.03.). In der Ruhezeit baust du nicht. Ist eine App im Store oder im Review, läuft Pro weiter. **Tag nach der letzten Prüfung** (z. B. Di 08.06.): neu buchen; der neue Abrechnungstag ist dann der 8. **Ab Mo 19.07.** (Ende der Jagd): kündigen, sobald die Zwischensummen für die Anlage EÜR erstellt sind, keine App mehr im Review ist, jede Übertragung durch ist und das Hinweis-Update vom So 15.08. ausgeliefert ist; also kündigen bis Di 07.09. (Laufzeit bis Mi 08.09.). Schon bis Sa 07.08. (Laufzeit bis So 08.08.) nur, wenn weder Übergabe noch Verkauf ansteht und das Hinweis-Update am Fr 06.08. fertig vorbereitet ist (ohne `expo-updates`: die Version mit dem Hinweis ist freigegeben; [06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 6, Schluss) | unter Abrechnung das Enddatum steht |
 | Claude Max für einen Monat | – | nur wenn das Pro-Limit in den ersten sieben Ferientagen (Mi 23.12.–Di 29.12.) an mindestens zwei Arbeitstagen die Arbeit stoppt; am selben Tag die Rückstufung auf Pro zum nächsten Abrechnungstag eintragen | nach einem Monat wieder „Pro“ steht |
 | Claude API | Guthaben, kein Abo | vor dem Start Nachladen aus; ab dem Start an mit Monatsgrenze 25–50 $ (gibt es keine Monatsgrenze: aus lassen, Abschnitt 3); nach dem Dienstende (Mi 15.09.) wieder aus | die Konsole „Nachladen aus“ zeigt |
 | Apple Developer Program | einmal im Jahr | Verlängerung gleich nach dem Kauf aus; Erinnerung Mo 15.11.2027 | Abschnitt 4.4 |
@@ -1124,10 +1128,13 @@ Prüfer von Apple oder ein zahlender Abonnent stünde vor einer toten App.
   einem Sandbox-Kauf schicken (der Server nimmt Sandbox-Käufe an,
   [02](02_BAUPLAN_APP1.md), AP8) oder im Supabase-Dashboard das Projekt
   `app1-betrieb` öffnen. Zwei Minuten. Aus der Store-Version kommt ohne
-  eigenes Abo keine Antwort. In Wochen, in denen du nur am Samstag arbeitest
+  eigenes Abo keine Antwort. In Q4 (Mi 03.02.–So 14.03.) sind es Dienstag und
+  Donnerstag: die zwei kurzen Zeiten, in denen du auch die Posts
+  veröffentlichst (Hauptplan, Abschnitt 10; [05](05_START_UND_MARKETING.md),
+  Abschnitt 6.2). In Wochen, in denen du nur am Samstag arbeitest
   (Klausurwochen), treten der Samstag und die Kassenprüfung am Sonntag
-  (Abschnitt 7.3, Punkt 8) an die Stelle von Montag und Donnerstag; so liegen
-  nie sieben Tage ohne Aktivität dazwischen.
+  (Abschnitt 7.3, Punkt 8) an die Stelle der zwei Wochentage; so liegen nie
+  sieben Tage ohne Aktivität dazwischen.
 - **Warn-Mail von Supabase:** am selben Tag bearbeiten.
 - **Ist das Projekt im laufenden Betrieb einmal pausiert worden:** sofort
   wieder starten und auf Pro wechseln.
@@ -1147,7 +1154,8 @@ Prüfer von Apple oder ein zahlender Abonnent stünde vor einer toten App.
   die Pause umgehen soll, baust du nicht.
 
 **Fertig je Woche, wenn** in deiner Wochenzeile zwei Daten mit „Antwort kam“
-oder „Dashboard geöffnet“ stehen.
+oder „Dashboard geöffnet“ stehen (entfällt, solange die Organisation
+`app-betrieb` auf Pro läuft).
 
 ### 7.6 EAS-Strichliste
 
@@ -1167,9 +1175,11 @@ Wartezeiten von über 90 Minuten zu Spitzenzeiten
   ist.
 - **Starter für einen Monat** (~20–21 € mit § 13b) nur, wenn vor einer Frist ein
   Build zweimal länger als 60 Minuten wartet oder die 15 nicht reichen.
-- **Updates ohne neuen Build** nur für reine Korrekturen am JavaScript-Code,
-  erst nach einem Probelauf mit einem Testbuild und nur, wenn der Vertrag zur
-  Auftragsverarbeitung mit Expo abgelegt ist (Abschnitt 5, Schritt 11).
+- **Updates ohne neuen Build** nur für reine Korrekturen am JavaScript-Code
+  und den Hinweis beim Verkaufsstopp ([06](06_SOMMER_UND_ABSCHLUSS.md),
+  Abschnitt 6, Schritt 1), erst nach einem Probelauf mit einem Testbuild und
+  nur, wenn der Vertrag zur Auftragsverarbeitung mit Expo abgelegt ist
+  (Abschnitt 5, Schritt 11).
 
 **Fertig, wenn** die Zahl der Striche mit der Zahl im Expo-Dashboard
 übereinstimmt.
@@ -1308,7 +1318,8 @@ danach geschlossen oder privat weitergeführt wird.
 - Ausgaben erfinden oder verschieben, um unter ~590 € Monatsgewinn zu bleiben.
 - Abos nach der Gewerbeabmeldung weiterlaufen lassen. Nur die App entfernen
   statt die Abos aus dem Verkauf zu nehmen.
-- Ein Jahresabo oder „lebenslang“ verkaufen, obwohl das Ende feststeht.
+- Ein Jahresabo oder „lebenslang“ verkaufen, solange du Inhaber bist (ein
+  Nachfolger entscheidet nach der Übertragung selbst).
 - Zahlende Nutzer ohne Hinweis mit versteckten Grenzen abspeisen.
 - Das deutsche Gewerbe behalten, während du in Zürich wohnst, oder dort aus
   einer laufenden App „nur passiv“ weiter Geld bekommen. Die letzten
@@ -1376,8 +1387,8 @@ danach geschlossen oder privat weitergeführt wird.
       zeigt
 - [ ] **RevenueCat** (Sa 19.12.; Mo 14.12., wenn du Apple dann nicht kaufst) –
       fertig, wenn Projekt, Entitlement und Offering stehen
-- [ ] **Geräte** (Fr 18.12.) – fertig, wenn StickerSmash als Entwicklungs-Build
-      auf dem iPhone startet
+- [ ] **Geräte** (Fr 18.12., Probe-Build am Sa 19.12. morgens) – fertig, wenn
+      StickerSmash als Entwicklungs-Build auf dem iPhone startet
 - [ ] **Bankkonto für die App** (bis Do 31.12.) – fertig, wenn IBAN und Karte da
       sind und die geschäftliche Nutzung schriftlich erlaubt ist
 - [ ] **Gründungsberatung oder Fragen an IHK, VBG und Finanzamt** (bis
@@ -1427,9 +1438,9 @@ danach geschlossen oder privat weitergeführt wird.
       Grund fürs Weiterlaufen notiert ist
 - [ ] **Supabase im Abitur** (So 14.03.) – fertig, wenn Pro gebucht ist oder
       notiert ist, warum keine App im Store oder im Review ist
-- [ ] **Supabase-Wachregel** (Mo und Do, in Klausurwochen Sa und So) – fertig,
-      wenn zwei Daten mit „Antwort kam“ oder „Dashboard geöffnet“ in der
-      Wochenzeile stehen
+- [ ] **Supabase-Wachregel** (Mo und Do, in Q4 Di und Do, in Klausurwochen Sa
+      und So; entfällt auf Pro) – fertig, wenn zwei Daten mit „Antwort kam“
+      oder „Dashboard geöffnet“ in der Wochenzeile stehen
 - [ ] **EAS-Strichliste** – fertig, wenn sie mit dem Expo-Dashboard
       übereinstimmt
 - [ ] **Ende der Jagd** (Mo 19.07.) – fertig, wenn der Kündigungskalender einmal

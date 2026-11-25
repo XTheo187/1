@@ -69,8 +69,9 @@ Klammern ausfüllen.)
   Anbieter (Apple 5.1.2(i)).
 - Die Paywall ist hart und hat keine Testphase und keinen Umschalter. Sie nennt
   Preis, Laufzeit, Verlängerung und den Weg zur Kündigung und hat „Käufe
-  wiederherstellen“ sowie Links zu Datenschutz und Nutzungsbedingungen. Keine
-  erfundene Dringlichkeit, kein Countdown, kein Tagespreis.
+  wiederherstellen“ sowie Links zu Nutzungsbedingungen, Datenschutz und
+  Impressum, alle ohne Abo erreichbar. Keine erfundene Dringlichkeit, kein
+  Countdown, kein Tagespreis.
 - Ein Knopf „Antwort melden“ öffnet eine E-Mail an die Support-Adresse
   (Richtlinie 1.2); die Kontaktadresse steht in der App.
 - Kein Code, der in sozialen Netzwerken postet, kommentiert oder Nachrichten
@@ -98,9 +99,13 @@ Klammern ausfüllen.)
   sie sich ohne App-Update tauschen lässt.
 - In der Anthropic-Konsole: vor dem Start nur 5–10 $ Guthaben ohne
   automatisches Nachladen; ab dem Start Nachladen an mit einem Monatslimit,
-  das jede Woche an die Nutzerzahl angepasst wird. Bei Fehlern der API (400
-  bei erreichtem Limit, 429 bei zu vielen Anfragen) zeigt die App eine
-  freundliche Meldung statt abzustürzen.
+  das jede Woche an die Nutzerzahl angepasst wird. Bei Fehlern der API zeigt
+  die App eine freundliche Meldung statt abzustürzen. Die Server-Funktion
+  unterscheidet nach dem Fehlertyp der API, nicht nur nach der Nummer:
+  Guthaben aufgebraucht oder Monatsgrenze erreicht (je nach Fall 400, 402 oder
+  429 ohne `retry-after`, z. B. `enforced_spend_limit_reached`) und zu viele
+  Anfragen (429 mit `retry-after`) bekommen je eine eigene Meldung (vor dem
+  Bau in der API-Doku prüfen).
 - Kein bezahlter Dienst (Supabase Pro, EAS-Abo, Max) ohne meine ausdrückliche
   Entscheidung.
 

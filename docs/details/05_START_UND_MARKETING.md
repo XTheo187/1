@@ -28,10 +28,11 @@ Modellzahlen stehen nur in [`07_HEBEL.md`](07_HEBEL.md).
   Impressum.
 
 **Was sich gegenüber dem Stand vom 23.11. geändert hat.** Der Hauptplan
-enthält diese Entscheidungen schon. Wo [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md)
-oder [02](02_BAUPLAN_APP1.md) noch anders lauten, gilt dieses Dokument.
+enthält diese Entscheidungen schon, [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) und
+[02](02_BAUPLAN_APP1.md) sind inzwischen daran angeglichen. Wo 01 oder 02
+noch anders lauten, gilt dieses Dokument.
 
-| Thema | Stand 23.11. bzw. 01/02 | jetzt |
+| Thema | Stand 23.11. | jetzt |
 |---|---|---|
 | Posts vor dem Start | erste Slideshows ab der Gründung | Posts erst, wenn App 1 eingereicht ist; höchstens 9, bevor sie im Store ist |
 | Posts im Sommer | 1–3 am Tag, 10–20 Minuten je Stück | 2 am Tag ab dem ersten Tag; 3 nur, wenn in den letzten 14 Tagen ein Post mindestens 15.000 Aufrufe hatte; 14 Minuten je Post (10–18) |
@@ -39,8 +40,8 @@ oder [02](02_BAUPLAN_APP1.md) noch anders lauten, gilt dieses Dokument.
 | Signalprüfung nach einem Start vor Mo 15.03. | gilt nach der letzten Prüfung | zweite, gültige Prüfung 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, spätestens Di 29.06. |
 | Testphase | Paywall ohne Umschalter | für App 1 gar keine Testphase |
 | Jahresabo | erst, wenn im Juli klar ist, wie es weitergeht | keins, solange du Inhaber bist, auch kein „lebenslang“; ein Nachfolger entscheidet nach der Übertragung selbst. Apps, die nach So 04.07. erscheinen, nur mit Wochenabo |
-| Tagesgrenze der KI-Funktion | 20 Aufrufe ([02](02_BAUPLAN_APP1.md), AP15) | zum Start 30 Antworten je Abonnent und Tag (Spanne 30–50) |
-| Sprachen der Store-Seite | weitere Sprachen in der Wartezeit ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md), Sa 30.01.; [02](02_BAUPLAN_APP1.md), AP22) | de-DE, en-US und en-GB, alle schon in Version 1.0 |
+| Tagesgrenze der KI-Funktion | 20 Aufrufe | zum Start 30 Antworten je Abonnent und Tag (Spanne 30–50) |
+| Sprachen der Store-Seite | weitere Sprachen in der Wartezeit | de-DE, en-US und en-GB, alle schon in Version 1.0 |
 | Klickbarer Link bei TikTok | meist erst ab 1.000 Followern | verifizierte Unternehmenskonten bekommen ihn ohne Follower-Grenze; dafür steht der Name des Inhabers im Profil |
 | Zahl der Markenkonten | eines je Plattform | ein zweites, klar erkennbares TikTok-Konto ist erlaubt, aber nur nach Formatnachweis (Abschnitt 7.6) |
 | Creator | ~83 $ je 30 Sekunden | 60–90 € fest je Video samt Posting oder ein Rohvideo zum Festpreis; nur volljährige Creator mit Sitz in Deutschland und Rechnung |
@@ -87,7 +88,7 @@ davon ab, ob Apple App 1 bis Sa 13.03. freigibt (Fall A) oder nicht (Fall B).
 
 | wann | was |
 |---|---|
-| spätestens Di 02.02. (in [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) typisch Sa 23.01.) | Einreichung |
+| spätestens Di 02.02. (in [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) typisch genau dann; mit den 10 Minuten Lernen je Sitzung frühestens um Sa 06.02., also in Q4) | Einreichung |
 | Woche der Einreichung | Markenkonten |
 | danach jeden Samstag, in Q4 ab Sa 06.02. | Samstagsblock mit höchstens 3 Posts je Woche (Abschnitt 6.2); Antworten an das Review gehen vor |
 | am Tag der Freigabe, spätestens Sa 13.03.; in Q4 im nächsten erlaubten Zeitfenster (Samstag oder einer der zwei kurzen Termine unter der Woche), nie am Sonntag | Vor-Start-Prüfung, veröffentlichen, Starttag |
@@ -322,8 +323,8 @@ Stunden von AP6, AP12 und AP19 ([02](02_BAUPLAN_APP1.md), Abschnitt 4).
 
 ### 2.7 Tagesgrenze je Abonnent
 
-- **Wert:** 30–50 Antworten je App-User-ID und Tag. Du startest mit 30. Der
-  Wert 20 aus AP15 ist damit ersetzt.
+- **Wert:** 30–50 Antworten je App-User-ID und Tag. Du startest mit 30
+  ([02](02_BAUPLAN_APP1.md), AP15).
 - **Wo:** in der Server-Funktion `ki`, zusammen mit `max_tokens` 700–900; die
   Länge der Antwort steuerst du über den Prompt. Den Abo-Status darf die
   Funktion einige Minuten zwischenspeichern.
@@ -390,10 +391,11 @@ wenn die Installationen nach dieser Tabelle reichen.
 
 ## 3. Store-Seite
 
-Teil von AP19. Die Texte entwirfst du schon vor der Gründung
-([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md), Sa 19.12.). Alle drei Sprachen trägst du
-in Version 1.0 ein: Sprachen lassen sich nur verwalten, solange die Version
-bearbeitbar ist, also nicht während „Warten auf Prüfung“
+Teil von AP19 ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md): Sa 23.01.–Sa 30.01.).
+Store-Titel und Untertitel stehen schon in `SPEC.md` (AP3, Sa 19.12.); die
+Entwürfe ohne Gewerbe schreibst du am Mi 06.01., vor der Gründung. Alle drei
+Sprachen trägst du in Version 1.0 ein: Sprachen lassen sich nur verwalten,
+solange die Version bearbeitbar ist, also nicht während „Warten auf Prüfung“
 ([Apple](https://developer.apple.com/help/app-store-connect/manage-app-information/localize-app-information/)).
 
 ### 3.1 Felder der Store-Seite
@@ -449,14 +451,11 @@ Post, keine öffentliche Seite. Sie braucht weder Gewerbe noch Apple-Konto.
 
 - **Wann:** frühestens nach dem Ideen-Tor (So 20.12.), spätestens vor dem
   ersten Post. V2 braucht echte Ergebnisse aus der App (AP10, laut
-  [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) ab Mi 30.12.).
+  [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) Di 29.12.–Do 31.12.).
 - **Platz im Kalender:** Die ersten 10 Hooks liefert der Slideshow-Test am
-  Di 15.12. ([04](04_IDEENWAHL.md), Abschnitt 8, 30 Minuten). In
-  [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) steht an diesem Tag noch AP6; es gilt der
-  Abgleich in [04](04_IDEENWAHL.md), Abschnitt 2. Für V1–V4 nimmst du die
-  3 Stunden, die [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) am Sa 30.01. für weitere
-  Store-Sprachen vorsieht; sie entfallen (Abschnitt 3). Bist du früher dran,
-  ziehst du die Vorbereitung vor.
+  Di 15.12. ([04](04_IDEENWAHL.md), Abschnitt 8, 30 Minuten). V1–V4 plant
+  [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) am Di 02.02. nach der Einreichung,
+  zusammen 3 h 45 min. Bist du früher dran, ziehst du die Vorbereitung vor.
 - **Kosten:** 0 €. Canva in der Gratisversion reicht.
 
 | Nr. | Schritt | Dauer | fertig, wenn … |
@@ -545,8 +544,9 @@ Zwei Tabellen im privaten App-Repository (`marketing/posts.csv` und
 
 ### 5.1 Wann und womit
 
-- **Wann:** in der Woche, in der du App 1 einreichst, frühestens am
-  Gründungstag ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md): Mo 25.01.–Do 28.01.).
+- **Wann:** in der Woche, in der du App 1 einreichst, nie vor der
+  Gewerbeanmeldung ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md): Di 02.02., nach der
+  Einreichung).
   Reichst du erst nach So 14.03. ein, legst du die Konten nach deiner letzten
   Prüfung an. Ein Konto ohne eingereichte App bringt keine Downloads.
 - **Voraussetzungen:** Gewerbe angemeldet, Website mit Impressum online,
@@ -683,13 +683,16 @@ Download und kostet Bauzeit.
 - **Wochen 1–3:** 3 Formate × 3 Hooks = 9 Posts.
 - **Danach** (nur wenn die App im Store ist): dieselben drei Formate mit neuen
   Hooks und anderen Bildern.
-- **Vorrat:** Hast du nach [01](01_TAG_FUER_TAG_BIS_FEBRUAR.md) schon 10–15
-  Slideshows gebaut, entfällt das Bauen. Der Block dauert dann rund 45 Minuten.
 - **Zeitregel:** Brauchst du zwei Wochen hintereinander mehr als 90 Minuten für
   den Block, senkst du auf 2 Posts je Woche.
 - **Klausuren:** In Wochen mit zwei oder mehr Klausuren fällt der Block aus,
   und unter der Woche veröffentlichst du nichts. Eine Antwort an das Review
   geht immer vor.
+- **Wachregel:** Solange App 1 im Review oder im Store ist, erledigst du sie
+  am Di und Do in derselben kurzen Zeit (je 2 Minuten,
+  [03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5; [02](02_BAUPLAN_APP1.md),
+  AP20). In Wochen nur mit Samstag nimmst du dafür den Samstag und die
+  Kassenprüfung am Sonntag.
 - **Kein Urteil:** In Q4 beendest du kein Format und entscheidest nichts über
   die App. Drei Posts je Format zeigen kein „bestes Format“.
 - **Fertig je Woche, wenn** drei Posts mit Zahlen in der Messtabelle stehen und
@@ -723,7 +726,7 @@ nach zwei Wochen prüfst du sie an deinen Zahlen.
 | 19:20 | 5 | Fragen beantworten |
 | 19:30 | 5 | Zahlen eintragen: Aufrufe nach 48 Stunden, Erst-Downloads, Käufe, Antworten auf die Herkunftsfrage |
 | Sa, wahlweise | ~30 | die Posts für Sonntag bauen und einplanen (siehe „Sonntag“ unten) |
-| So | 20 | nur die Wochenauswertung (Abschnitt 12.3), dazu die Kassenprüfung. Sonst ist der Sonntag frei |
+| So | 20 | nur die Wochenauswertung (Abschnitt 12.3), dazu die Kassenprüfung. Ausnahme sind die Stichtage So 04.07. (ist eine App im Store?), So 18.07. (Tor 1), So 08.08. (Tor 2 und Umschalttag) und So 15.08. (Verkaufsstopp) mit ihren Aufgaben ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 1.3). Sonst ist der Sonntag frei |
 
 - **Woche 1:** zwei Posts am Tag. Du testest 5–6 Formate an: A, B, C und die
   zwei bis drei weiteren aus deiner Hook-Liste (V1), je Format 2–3 Posts.
