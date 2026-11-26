@@ -49,6 +49,57 @@ Der Einstieg ist nicht das Geschäft, sondern der Weg hinein: Nach einer
 gelieferten Maßnahme sind Sie keine Kaltansprache mehr. `standortcheck plan`
 rechnet beide Wege gegeneinander.
 
+## Der größere Plan: Millionär mit mindestens 50 %
+
+Das Webgeschäft ist der Einstieg, nicht das Ziel. Wie man aus der 13. Klasse
+heraus mit mindestens 50 % Wahrscheinlichkeit 1 Mio. EUR Nettovermögen
+erreicht – und warum das nicht bis Sommer 2027, sondern bis Sommer 2065 mit
+~51 % (knapp) geht, und wie robust das ist –, steht in
+[`docs/MILLIONENPLAN.md`](docs/MILLIONENPLAN.md).
+Wer trotzdem 500.000 EUR bis 31.08.2027 will: der Weg der realen Fälle
+(KI-Abo-Apps, über Kurzvideos und Creator verkauft, aus dem Umsatz skaliert,
+Verkauf im Sommer), Woche für Woche mit Messpunkten und Abiturschutz – und
+die ehrliche Chance dazu: allein mit Abiturschutz praktisch null (etwa 1 zu
+einer Million; bis zum Haupttor startet meist nur eine App, und ein Treffer
+wächst in der Abiturzeit kaum), mit einem erfahrenen Vertriebspartner ~0,12 %
+(etwa 1 zu 800), falls sich bis 31.01. einer findet. Wer allein geht und
+möglichst viel an Claude abgibt: Am meisten bringt die sparsame, gestaffelte
+Abgabe (Claude Pro, Agent erst bei einem Treffer), mehr Abgabe ab Start
+verschlechtert das Ergebnis:
+[`docs/500K_BIS_SOMMER_2027.md`](docs/500K_BIS_SOMMER_2027.md)
+(Rechnung: `python3 plan/plan_500k.py`). Diese Rechnungen nahmen Bayern und
+Programmierkenntnisse an. **Mit den echten Angaben** (Niedersachsen, keine
+Programmierkenntnisse, Videos ohne Gesicht, insgesamt höchstens 5.000 €,
+danach ETH Zürich) steht der Plan Tag für Tag und Woche für Woche in
+[`docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md`](docs/APP_PLAN_ALLEIN_MIT_CLAUDE.md):
+erst bauen, dann als Einzelunternehmen gründen (eine UG passt nicht in
+5.000 €), kein Start im Abitur, Creator-Geld nur nach einem Signal. Dazu
+sieben Detailpläne in [`docs/details/`](docs/details/) (Tag für Tag bis zur
+Einreichung, Bauplan, Gründung und Kosten, Ideenwahl, Start und Marketing,
+Sommer und Abschluss, Hebel). Ergebnis mit den geprüften Hebeln (Modell nach
+vier Prüfungen, Stand 25.11., je 300.000 Läufe;
+[`docs/details/07_HEBEL.md`](docs/details/07_HEBEL.md)): 500.000 € erreicht
+keiner von 300.000 Läufen. Die App ist ein Lernprojekt: Sie bringt in 3,7 von
+100 Läufen einen Gewinn, dann meist nur ein paar hundert Euro, und kostet im
+Median 567 €. Je nach Annahmen liegt diese Chance grob zwischen 1 und 8 von
+100 Läufen; eine fünfte Prüfung spricht eher für 3,3 (Abschnitt 15 in 07). Das Geld kommt aus dem Ferienjob ab 19.07. (ab 05.07., wenn am
+04.07. keine App im Store ist): Damit ist dein Geld in 78,5 von 100 Läufen im
+Plus, im Median mit +4.344 €, im Mittel mit +3.518 €. Eine Übergabe an ein
+Elternteil zählt dabei nicht mit, dieses Geld gehört dem Elternteil. Mehr als
+5.000 € Verlust gibt es in keinem Lauf. Zum Vergleich: Nur der Ferienjob ab
+05.07., ohne App, brächte im Mittel +4.778 € und im Median +6.031 €, also rund
+1.260 € bzw. 1.690 € mehr. Dafür bekommst du meist eine eigene App im Store,
+Erfahrung vor dem Studium und eine kleine Chance auf mehr.
+Was bis dahin realistisch durch Arbeit drin ist – maximal rund 13.500 EUR
+netto (Median ~11.300 EUR), Obergrenze ~21.800 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)
+(Rechnung: `python3 plan/verdienst_2027.py`).
+Und ob ein Hebel mehr bringt – Mitarbeiter, Vermittlung, Vermietung, Handel,
+Produkte, Provision: bis 31.08.2027 schlägt keiner den Job-Weg im Median, sie
+verbreitern nur den oberen Rand. [`docs/HEBEL_BIS_SOMMER_2027.md`](docs/HEBEL_BIS_SOMMER_2027.md)
+(Rechnung: `python3 plan/hebel_2027.py`).
+Die Rechnung dahinter: `python3 plan/simulation.py` (Monte-Carlo, belegte
+Spannweiten; frühere Fassungen dreimal gegengeprüft, Quellen zweimal geprüft und verlinkt).
+
 ## Installation
 
 Kein Fremdpaket, keine Abhängigkeit, keine laufenden Kosten. Nur Python 3.9+.
@@ -121,7 +172,7 @@ zwischen Abfragen und bricht bei Überlastmeldungen ab.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s tests -v     # 68 Tests, kein Netzzugriff nötig
+python3 -m unittest discover -s tests -v     # 180 Tests, kein Netzzugriff nötig
 ```
 
 ## Aufbau
