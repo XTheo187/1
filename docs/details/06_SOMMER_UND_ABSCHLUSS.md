@@ -61,7 +61,7 @@ Post) entsprechend vor. Die übrigen Stichtage bleiben.
 |---|---|---|
 | Tag nach der letzten Prüfung (spätestens Di 08.06.) | Claude Pro neu buchen. App 1 veröffentlichen oder fertig bauen. Falls noch nicht gegründet: gründen. Erster täglicher Post | 03, Abschnitte 5 und 7; 05 |
 | 21 Tage nach jedem Start | **Signalprüfung:** mindestens 300 $ MRR ohne bezahlte Werbung? Nur dann Creator, für alle Apps zusammen bis So 18.07. höchstens 750 € | Hauptplan, Abschnitt 13 |
-| Mo 21.06. | Ohne unterschriebenen Vertrag: zwei Zeitarbeitsfirmen für einen festen Termin anfragen | 2.2 |
+| Mo 21.06. | In jedem Fall zwei Zeitarbeitsfirmen für einen festen Termin anfragen (1 h): ohne unterschriebenen Vertrag für den ganzen Sommer, mit Vertrag ab 19.07. für Mo 05.07.–Fr 16.07. Fertig, wenn zwei Anfragen raus sind und ein Gesprächstermin steht | 2.2, 2.4 |
 | Fr 25.06. | Vorentscheidung zum Jobbeginn (19.07. oder 05.07.) | 2.2, 2.10 |
 | Mo 28.06. | MRR je App notieren. Liegt die Zusage vor und erreicht eine App die Schwelle aus 4.4, beginnt das Elternteil mit seinen Anmeldungen | 4.4 |
 | Mo 28.06. oder Di 29.06. | **Zweite Signalprüfung** für eine App, die vor Mo 15.03. gestartet ist: 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, also Mo 28.06. bei Wiederbeginn am Mo 07.06. und spätestens Di 29.06. bei Wiederbeginn am Di 08.06. | 05 |
@@ -90,9 +90,9 @@ Post) entsprechend vor. Die übrigen Stichtage bleiben.
 
 | Woche | App | Ferienjob | ETH und Umzug |
 |---|---|---|---|
-| KW 23 (Mo 07.06.–So 13.06.) | Tag nach der letzten Prüfung: Claude Pro neu, App 1 veröffentlichen (wenn freigegeben) oder fertig bauen und einreichen. Posts: 2–3 am Tag, sobald die App im Store ist (Ablauf in 05, Abschnitt 6.4); solange sie nicht im Store ist, höchstens 9. Hat eine App 300 $ Monatsumsatz und 8 Wochen im Store: Verkaufsangebot einstellen (Abschnitt 5); das prüfst du ab jetzt jede Woche bis zum Umschalttag. 15–40 h | Liegt der Vertrag aus dem Winter vor? Wenn nein: Rückfall am Mo 21.06. vormerken | Bewerbung in Hannover ist voraussichtlich seit Di 01.06. möglich (Frist 2026, vor dem Schritt prüfen) |
-| KW 24 (Mo 14.06.–So 20.06.) | Posten und messen. Sobald App 1 freigegeben ist: Vorlage ziehen (02, Abschnitt 9) und App 2 beginnen. **Merke:** Eine App, die nach So 13.06. startet, ist am Umschalttag So 08.08. noch keine 8 Wochen im Store; ein Verkauf ist dann praktisch nicht mehr möglich, nur Übergabe oder Einstellen (Abschnitt 3) | Steuer-ID und Sozialversicherungsnummer liegen bereit | Zimmer suchen (~2 h, Schätzung, aus den 15–40 h; WOKO verlangt die Aufnahmebestätigung und mindestens 6 Monate Mietdauer) |
-| KW 25 (Mo 21.06.–So 27.06.) | wie KW 24. **Merke:** Bei einer App, die nach So 27.06. startet, liegt die Signalprüfung nach Tor 1; Creator gibt es für sie nicht mehr. **Mit Nachprüfung:** ab einer Woche vor dem Prüfungstag (frühestens Mo 21.06.) keine Posts, kein Bau, keine Creator-Buchung | Mo 21.06.: ohne unterschriebenen Vertrag zwei Zeitarbeitsfirmen anfragen. Fr 25.06.: Vorentscheidung zum Beginn | Finanzierungsbrief der Eltern vorbereiten (1.750 CHF im Monat; ~1 h, Schätzung, aus den 15–40 h) |
+| KW 23 (Mo 07.06.–So 13.06.) | Tag nach der letzten Prüfung: Claude Pro neu, App 1 veröffentlichen (wenn freigegeben) oder fertig bauen und einreichen. Posts: 2–3 am Tag, sobald die App im Store ist (Ablauf in 05, Abschnitt 6.4); solange sie nicht im Store ist, höchstens 9. Hat eine App 300 $ Monatsumsatz und 8 Wochen im Store: Verkaufsangebot einstellen (Abschnitt 5); das prüfst du ab jetzt jede Woche bis zum Umschalttag. 15–40 h | Liegt der Vertrag aus dem Winter vor? Davon hängt ab, wofür du am Mo 21.06. zwei Zeitarbeitsfirmen anfragst (vormerken): ohne Vertrag für den ganzen Sommer, mit Vertrag für Mo 05.07.–Fr 16.07. | Bewerbung in Hannover ist voraussichtlich seit Di 01.06. möglich (Frist 2026, vor dem Schritt prüfen) |
+| KW 24 (Mo 14.06.–So 20.06.) | Posten und messen. Solange App 1 im Review ist: App 2 ohne Code vorbereiten, höchstens ~6 h (`SPEC.md` nach 04, Abschnitt 10.5, aus der Reserve-Idee vom Ideen-Tor, die Fragenliste, die Store-Texte und ein Icon-Entwurf in Canva); eine Antwort an das Review geht vor. Sobald App 1 freigegeben ist: zuerst das Review-Log von App 1 in die `CLAUDE.md` und in die `SPEC.md` von App 2 einarbeiten, dann Vorlage ziehen (02, Abschnitt 9) und den Code von App 2 beginnen. **Merke:** Eine App, die nach So 13.06. startet, ist am Umschalttag So 08.08. noch keine 8 Wochen im Store; ein Verkauf ist dann praktisch nicht mehr möglich, nur Übergabe oder Einstellen (Abschnitt 3) | Steuer-ID und Sozialversicherungsnummer liegen bereit | Zimmer suchen (~2 h, Schätzung, aus den 15–40 h; WOKO verlangt die Aufnahmebestätigung und mindestens 6 Monate Mietdauer) |
+| KW 25 (Mo 21.06.–So 27.06.) | wie KW 24. **Merke:** Bei einer App, die nach So 27.06. startet, liegt die Signalprüfung nach Tor 1; Creator gibt es für sie nicht mehr. **Mit Nachprüfung:** ab einer Woche vor dem Prüfungstag (frühestens Mo 21.06.) keine Posts, kein Bau, keine Vorbereitung von App 2, keine Creator-Buchung | Mo 21.06.: in jedem Fall zwei Zeitarbeitsfirmen anfragen (1 h, aus den 15–40 h): ohne unterschriebenen Vertrag für den ganzen Sommer, mit Vertrag für Mo 05.07.–Fr 16.07. Fr 25.06.: Vorentscheidung, welcher Termin gilt | Finanzierungsbrief der Eltern vorbereiten (1.750 CHF im Monat; ~1 h, Schätzung, aus den 15–40 h) |
 | KW 26 (Mo 28.06.–So 04.07.) | Mo 28.06.: MRR je App notieren (für 4.4). Mo 28.06. oder Di 29.06.: zweite Signalprüfung (Wiederbeginn der Posts am Mo 07.06. bzw. Di 08.06.). Di 29.06.: Signalprüfung für einen Start am Di 08.06. **Mit Nachprüfung** liest du diese Zahlen erst am Tag nach deiner letzten Nachprüfung ab (5 Minuten, nichts ändern) und notierst, dass die letzte Woche ohne Posts war; danach gilt 05, Abschnitt 9.3. **So 04.07.: Stichtag** | Do 01.07.–Sa 03.07.: Kopie des Abiturzeugnisses an den Arbeitgeber | Mo 28.06.–Mi 30.06.: mögliche mündliche Nachprüfung (dann ab einer Woche davor nichts an der App). Do 01.07.–Sa 03.07.: Zeugnis in eApply, Original an die ETH |
 | KW 27 (Mo 05.07.–So 11.07.) | **Fall A:** ~55 h, davon ~6 h für Zürich: App 2 fertig bauen und einreichen, posten. **Fall B:** keine neue App; eine schon eingereichte App darf erscheinen (nur Wochenabo); abends zweimal 20 Minuten Zahlen, Sa 3 h | Fall B: erster Arbeitstag Mo 05.07. | Fall B: Zürich-Aufgaben abends |
 | KW 28 (Mo 12.07.–So 18.07.) | Fall A: wie KW 27. Creator nur bis So 18.07. buchen. In beiden Fällen Fr 16.07.: Kommt eine Übergabe oder ein Verkauf in Frage, Termin beim Steuerberater unverbindlich anfragen (4.5, Schritt 1). **So 18.07.: Tor 1** | – | **Do 15.07.: Hannover abgeschickt** |
@@ -111,9 +111,9 @@ Post) entsprechend vor. Die übrigen Stichtage bleiben.
 
 | Zeitraum | App | Job | Zürich und Mathe |
 |---|---|---|---|
-| letzte Prüfung bis So 04.07. | 15–40 h; alles zählt hinein, auch Bewerbungen und Behördenkram | – | in den 15–40 h: Zimmer suchen ~2 h in KW 24, Finanzierungsbrief ~1 h in KW 25 (Schätzung) |
-| Mo 05.07.–So 18.07., Fall A | ~49 h (Mo–Sa 9–12, 13–17 und 18–20 Uhr, So frei) | – | ~6 h |
-| ab dem ersten Arbeitstag | 2–5 h: zweimal 20 Minuten Zahlen und Support, Sa bis 3 h | 40 h | ~6–8 h: Zimmer und Unterlagen ~3 h, Mathe ~3–5 h |
+| letzte Prüfung bis So 04.07. | 15–40 h; alles zählt hinein, auch Bewerbungen und Behördenkram | in den 15–40 h: Zeitarbeit anfragen 1 h am Mo 21.06. (KW 25) | in den 15–40 h: Zimmer suchen ~2 h in KW 24, Finanzierungsbrief ~1 h in KW 25 (Schätzung) |
+| Mo 05.07.–So 18.07., Fall A | ~49 h, in KW 28 ~47 h (Mo–Sa 9–12, 13–17 und 18–20 Uhr, So frei) | – | ~6 h; in KW 28 dazu ~2 h für die Bewerbung in Hannover (Do 15.07.) |
+| ab dem ersten Arbeitstag | 2–5 h: zweimal 20 Minuten Zahlen und Support, Sa bis 3 h | 40 h | ~6–8 h: Zimmer und Unterlagen ~3 h, Mathe ~3–5 h; in Fall B in KW 28 davon ~2 h für die Bewerbung in Hannover, Mathe dann ~1–3 h |
 | KW 31–32 (Mo 02.08.–So 15.08.) bei Übergabe oder Verkauf | zusätzlich 6–14 h für die Übertragung (4.3), bei einem Verkauf dazu 2–3 h für Vertrag und Treuhand (Abschnitt 5); abends und samstags | 40 h | Zimmer ~3 h; Mathe ruht in diesen Wochen |
 
 Mit dem Job bleiben neben der Arbeit etwa 8–12 Stunden je Woche. Die
@@ -201,17 +201,19 @@ Wie oft es mit dem Job klappt und was er im Modell ausmacht, steht in
 | Mi 03.02.–So 14.03. (Q4) | nur Rückfragen beantworten und Gespräche führen; zählt in die 6–7 Wochenstunden | 0–2 h | – |
 | vor der Unterschrift | Anfrage an die Krankenkasse durch das Elternteil (2.6), abgeschickt spätestens So 14.03., auch wenn noch kein Vertrag vorliegt. Frage an den Arbeitgeber zur Meldung (2.5). Vertrag gegen 2.5 prüfen | 1–1,5 h | die schriftliche Antwort der Kasse abgelegt ist und der Vertrag alle Punkte aus 2.5 enthält |
 | Mo 15.03. bis zur letzten Prüfung | nichts, außer einen fertig geprüften Vertrag zu unterschreiben (kommt er erst jetzt: „Wenn es hakt“ unten) | – | – |
-| **Mo 21.06.** | **Rückfall:** Ohne unterschriebenen Vertrag fragst du zwei Zeitarbeitsfirmen an, für einen festen Termin (Fr 25.06. entscheidet, welchen) | 1 h | zwei Anfragen raus sind und ein Gesprächstermin steht |
-| **Fr 25.06.** | **Vorentscheidung:** Ist eine App im Store oder im Review? Dann gilt Mo 19.07. Sonst gilt Mo 05.07. (2.10) | 10 min | das Datum dem Arbeitgeber oder der Zeitarbeitsfirma genannt ist |
+| **Mo 21.06.** | **Zeitarbeit, in jedem Fall:** Ein Vertrag aus dem Winter beginnt am 19.07. (2.4); die zwei Wochen ab Mo 05.07. gibt es nur über eine Zeitarbeitsfirma. Du fragst deshalb zwei Zeitarbeitsfirmen an, für einen festen Termin: ohne unterschriebenen Vertrag für den ganzen Sommer, mit Vertrag ab 19.07. für Mo 05.07.–Fr 16.07. Welcher Termin gilt, entscheidest du am Fr 25.06. | 1 h | zwei Anfragen für den passenden Zeitraum raus sind und ein Gesprächstermin steht |
+| **Fr 25.06.** | **Vorentscheidung:** Ist eine App im Store oder im Review? Dann gilt Mo 19.07. Sonst gilt Mo 05.07. (2.10). Ohne Vertrag nennst du der Zeitarbeitsfirma dieses Datum als Beginn. Mit Vertrag ab 19.07. sagst du ihr für Mo 05.07.–Fr 16.07. zu (bei Mo 05.07.) oder ab (bei Mo 19.07.) | 10 min | die Zeitarbeitsfirma das Datum oder deine Absage hat |
 | Do 01.07.–Sa 03.07. | Kopie des Abiturzeugnisses an den Arbeitgeber | 10 min | die Kopie beim Arbeitgeber eingegangen ist |
 | So 04.07. | Stichtag (2.10) | 5 min | Fall A oder Fall B in `docs/entscheidungen.md` steht |
 | Mo 05.07. oder Mo 19.07. | erster Arbeitstag | – | Personalfragebogen und Unterlagen aus 2.7 abgegeben sind |
 
 **Wenn es hakt**
-- **Hast du am Fr 02.07. weder Vertrag noch Zusage einer Zeitarbeitsfirma,**
-  fragst du zwei weitere an und gehst zu ihrer Sprechzeit hin.
+- **Brauchst du die Zeitarbeit und hast am Fr 02.07. noch keine Zusage**
+  (ohne Vertrag immer; mit Vertrag ab 19.07., wenn am Fr 25.06. der 05.07.
+  gilt), fragst du zwei weitere Firmen an und gehst zu ihrer Sprechzeit hin.
   Zeitarbeitsfirmen stellen oft binnen Tagen ein (Erfahrungswert der
-  Recherche, nicht belegt).
+  Recherche, nicht belegt). Klappt es mit Vertrag nicht, gehören die zwei
+  Wochen ab Mo 05.07. Zürich, Mathe und der eingereichten App (2.10).
 - **Kommt der Vertrag zwischen Mo 15.03. und deiner letzten Prüfung:** Du sagst
   per Mail zu, am Tag nach deiner letzten Prüfung zu unterschreiben. Dann
   prüfst du ihn in 30 Minuten gegen 2.5 und unterschreibst.
@@ -227,7 +229,7 @@ Wie oft es mit dem Job klappt und was er im Modell ausmacht, steht in
 |---|---|---|---|
 | 1 | Betriebe mit Tariflohn in deiner Region: Post und Paketdienste (Sortierung, Zustellung), Logistikstandorte, Industrie und Produktion mit Ferienprogramm | einzelne Anzeigen 2026 nannten 16,70–18,50 €/h; für 2027 gilt nur, was in der Anzeige steht | Vor der Bewerbung klären, ob bei Zustell-Jobs ein Führerschein Klasse B verlangt wird. Industrieplätze gehen oft früh und an Kinder von Beschäftigten, manche Betriebe wollen 8 Wochen (Erfahrungswerte, nicht belegt). Deshalb bewirbst du dich im Winter |
 | 2 | Softwarefirma, Agentur oder IT-Abteilung: Testen, Support, einfache Zuarbeit | ähnlich | gleicher rechtlicher Rahmen, dazu Lernwert für das Studium; schwerer zu bekommen |
-| 3 (Rückfall ab Mo 21.06.) | zwei Zeitarbeitsfirmen | Tarif Entgeltgruppe 1: 15,87 €/h ab 01.04.2027 ([DGB](https://www.dgb.de/service/weiterer-service/tarifmeldungen/tarifmeldung/tarifeinigung-in-der-leiharbeit-mehr-geld-in-3-stufen-bis-2027), [IG Metall](https://www.igmetall.de/tarif/tarifrunden/leiharbeit/tarifrunde-leiharbeit-2025)) | Eine Fundstelle nennt bei Entgeltgruppe 1 eine Zulage, die bis 30.06.2027 befristet ist: vor der Unterschrift prüfen, welcher Stundenlohn im Vertrag steht |
+| 3 (am Mo 21.06., in jedem Fall) | zwei Zeitarbeitsfirmen: ohne Vertrag für den ganzen Sommer, mit Vertrag ab 19.07. für Mo 05.07.–Fr 16.07. | Tarif Entgeltgruppe 1: 15,87 €/h ab 01.04.2027 ([DGB](https://www.dgb.de/service/weiterer-service/tarifmeldungen/tarifmeldung/tarifeinigung-in-der-leiharbeit-mehr-geld-in-3-stufen-bis-2027), [IG Metall](https://www.igmetall.de/tarif/tarifrunden/leiharbeit/tarifrunde-leiharbeit-2025)) | Eine Fundstelle nennt bei Entgeltgruppe 1 eine Zulage, die bis 30.06.2027 befristet ist: vor der Unterschrift prüfen, welcher Stundenlohn im Vertrag steht |
 | Untergrenze überall | – | Mindestlohn 14,60 €/h ab 01.01.2027 ([Bundesregierung](https://www.bundesregierung.de/breg-de/aktuelles/mindestlohn-steigt-2391010)) | – |
 
 **Wähle nicht nur nach dem Stundenlohn:**
@@ -249,9 +251,11 @@ suche eine von Anfang an befristete kurzfristige Beschäftigung.
 ```
 
 - Passt dem Betrieb nur ein Ende am Di 31.08., nimmst du das.
-- Im Vertrag steht ein fester Beginn am Mo 19.07. Den frühen Beginn ab
-  Mo 05.07. deckst du nur über eine Zeitarbeitsfirma, die du am Mo 21.06. für
-  einen festen Termin anfragst (2.10).
+- Im Vertrag steht ein fester Beginn am Mo 19.07. Die zwei Wochen ab
+  Mo 05.07. gibt es nur über eine Zeitarbeitsfirma. Deshalb fragst du am
+  Mo 21.06. in jedem Fall zwei Zeitarbeitsfirmen für einen festen Termin an,
+  mit Vertrag für Mo 05.07.–Fr 16.07. (2.2). Ob dieser Termin gilt,
+  entscheidest du am Fr 25.06. (2.10).
 - Lohnangaben für den Sommer 2027 übernimmst du nur aus der Anzeige oder dem
   Vertrag.
 
@@ -434,21 +438,24 @@ Mo 19.07.
 - **Eine eingereichte App darf noch erscheinen.** Sie bietet dann nur das
   Wochenabo an (Abschnitt 3). Du betreust sie abends: zweimal 20 Minuten Zahlen
   je Woche, samstags 3 Stunden.
-- **Praktisch entscheidest du am Fr 25.06.,** weil der Arbeitgeber einen festen
-  Termin braucht: Ist dann eine App im Store oder im Review, nennst du den
-  19.07. Sonst nennst du den 05.07.
-- **Weicht der Stand am So 04.07. von der Vorentscheidung ab:** Hast du den
-  19.07. genannt und ist am 04.07. keine App im Store, gilt Fall B: keine neue
-  App. Du fragst am Mo 05.07. zwei Zeitarbeitsfirmen für einen Einsatz bis
-  Fr 16.07. an; klappt das nicht, gehören die zwei Wochen Zürich, Mathe und der
+- **Praktisch entscheidest du am Fr 25.06.,** weil die Zeitarbeitsfirma einen
+  festen Termin braucht (angefragt am Mo 21.06., in jedem Fall, 2.2): Ist dann
+  eine App im Store oder im Review, gilt der 19.07. Sonst gilt der 05.07.
+- **Weicht der Stand am So 04.07. von der Vorentscheidung ab:** Galt am
+  Fr 25.06. der 19.07. und ist am 04.07. keine App im Store, gilt Fall B: keine
+  neue App. Du fragst am Mo 05.07. die Zeitarbeitsfirmen vom Mo 21.06., ob du
+  sofort beginnen kannst (mit Vertrag ab 19.07. für einen Einsatz bis
+  Fr 16.07.); klappt das nicht, gehören die zwei Wochen Zürich, Mathe und der
   eingereichten App. Ob eine Zeitarbeitsfirma dich so kurzfristig nimmt,
   ist unsicher; plane den Lohn dieser zwei Wochen nicht fest ein. Hast du
   den 05.07. zugesagt und ist am 04.07. doch eine App im Store, hältst du
   die Zusage ein und betreust die App abends (zweimal 20 Minuten Zahlen je
   Woche, samstags 3 Stunden).
 - **Steht im Vertrag aus dem Winter der 19.07.,** deckst du die zwei Wochen ab
-  Mo 05.07. über eine Zeitarbeitsfirma oder lässt sie aus. Zwei kurzfristige
-  Jobs im Jahr werden zusammengezählt: 10 + 40 Arbeitstage bleiben unter 70.
+  Mo 05.07. über die Zeitarbeitsfirma, die du am Mo 21.06. für
+  Mo 05.07.–Fr 16.07. angefragt hast. Klappt das nicht, gehören sie Zürich,
+  Mathe und der eingereichten App. Zwei kurzfristige Jobs im Jahr werden
+  zusammengezählt: 10 + 40 Arbeitstage bleiben unter 70.
 - **Was daneben Platz finden muss:** die Bewerbung in Hannover bis Do 15.07.
   (~2 h) und die Zürich-Aufgaben.
 - **Was es kostet:** In Fall A nähme dir der frühe Beginn die zwei Wochen mit
@@ -1079,18 +1086,20 @@ Abschnitt 10.
 - [ ] **Krankenkasse zum Ferienjob** (Anfrage spätestens So 14.03., auch ohne
       Vertrag) – fertig, wenn die schriftliche Antwort vor der Unterschrift
       abgelegt ist; sonst 2.2, „Wenn es hakt“
-- [ ] **Arbeitsvertrag** (unterschrieben spätestens Mo 21.06., sonst Rückfall
-      Zeitarbeit) – fertig, wenn Befristung, Kündigungsklausel oder Probezeit
-      und Stundenlohn drinstehen
+- [ ] **Arbeitsvertrag** (unterschrieben spätestens Mo 21.06., sonst Zeitarbeit
+      für den ganzen Sommer) – fertig, wenn Befristung, Kündigungsklausel oder
+      Probezeit und Stundenlohn drinstehen
 - [ ] **Auslands-BAföG** (nach der Antwort der ETH, etwa Anfang März;
       ungeprüft) – fertig, wenn ihr beim Auslandsamt nachgelesen und
       entschieden habt, ob ihr den Antrag stellt
 
 **Juni und Juli**
-- [ ] **Rückfall Zeitarbeit** (Mo 21.06.) – fertig, wenn zwei Anfragen raus
-      sind; entfällt mit unterschriebenem Vertrag
-- [ ] **Vorentscheidung Jobbeginn** (Fr 25.06.) – fertig, wenn der Arbeitgeber
-      das Datum kennt
+- [ ] **Zeitarbeit anfragen** (Mo 21.06., 1 h, in jedem Fall: ohne
+      unterschriebenen Vertrag für den ganzen Sommer, mit Vertrag ab 19.07. für
+      Mo 05.07.–Fr 16.07.) – fertig, wenn zwei Anfragen raus sind und ein
+      Gesprächstermin steht
+- [ ] **Vorentscheidung Jobbeginn** (Fr 25.06.) – fertig, wenn die
+      Zeitarbeitsfirma das Datum oder deine Absage hat
 - [ ] **Zweite Signalprüfung** (Mo 28.06. oder Di 29.06.) – fertig, wenn MRR
       und Entscheidung notiert sind; entfällt ohne Start vor Mo 15.03.
 - [ ] **Abiturzeugnis** (Do 01.07.–Sa 03.07.) – fertig, wenn es in eApply

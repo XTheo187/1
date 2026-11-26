@@ -45,11 +45,10 @@ Inhalt:
 
 App 1 ist absichtlich klein. Jede Stunde, die du vor dem Start sparst, macht
 einen Start vor dem Abitur wahrscheinlicher. Bezahlte Abkürzungen lohnen
-trotzdem nicht: Eine gesparte Baustunde ist im Modell nur 4–6 € wert
-([07](07_HEBEL.md), Abschnitt 8; alle übrigen Modellzahlen stehen ebenfalls
-nur in 07). Was Apple bei einer KI-App sehen will, ist aber von Anfang an drin
-([04](04_IDEENWAHL.md), Abschnitt 9), denn jede Ablehnung kostet Tage.
-Deshalb gilt für App 1:
+trotzdem nicht (was eine gesparte Baustunde im Modell wert ist, steht in
+[07](07_HEBEL.md), Abschnitt 8). Was Apple bei einer KI-App sehen will, ist
+aber von Anfang an drin ([04](04_IDEENWAHL.md), Abschnitt 9), denn jede
+Ablehnung kostet Tage. Deshalb gilt für App 1:
 
 **Drin**
 - **Eine Aufgabe im geführten Ablauf:** 3–6 Fragen (Auswahlknöpfe, kurze
@@ -189,9 +188,10 @@ längere Fehlersuche durchläuft. Gegenüber der Fassung vom 24.11. (99 Stunden,
 dort gerundet ~100) sind es 14 Stunden mehr: AP10a (10), Beispiel-Ergebnis
 und Herkunftsfrage im Onboarding (AP11, 3) und die Übergabe-Mappe (AP20, 1).
 Das Modell rechnet vorsichtiger, mit 78/130/260 Stunden ([07](07_HEBEL.md),
-Abschnitt 14), weil Fehlersuche und Lernen am eigenen Code dazukommen. Keine
-Studie misst das für Anfänger. Deine echten Stunden trägst du ein und
-vergleichst sie am Stunden-Messpunkt (Abschnitt 8).
+Abschnitt 14), weil Fehlersuche dazukommt; das Lernen (Lernpfad, Hauptplan,
+Abschnitt 7) rechnet es getrennt. Keine Studie misst das für Anfänger. Deine
+echten Stunden trägst du ein und vergleichst sie am Stunden-Messpunkt
+(Abschnitt 8).
 
 | Nr. | Paket | Stunden | fertig, wenn … |
 |---|---|---|---|
@@ -223,8 +223,9 @@ vergleichst sie am Stunden-Messpunkt (Abschnitt 8).
 | AP22 | Einreichen und Review-Runden | 3/6/15 | die App freigegeben ist und auf „manuell veröffentlichen“ wartet |
 
 **Nicht in diesen Stunden:** die Ideenwahl bis So 20.12. (typisch 12 Stunden,
-10–16; [04](04_IDEENWAHL.md), Abschnitt 2), der Lernpfad (Hauptplan,
-Abschnitt 7) und die Gründung. Die Gründung steht in
+10–16; [04](04_IDEENWAHL.md), Abschnitt 2), der Lernpfad mit den 10 Minuten
+Lernen am Ende jeder Sitzung (Abschnitt 3; Hauptplan, Abschnitt 7) und die
+Gründung. Die Gründung steht in
 [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 5: am
 Gründungstag und bei Apple ~3,5 Stunden, mit allen Nebenschritten
 (Bankkonto, Gründungsberatung, Berufsgenossenschaft, Brief an die
@@ -918,9 +919,13 @@ Posts, Vor-Start-Prüfung, Veröffentlichen), steht in 05, Abschnitte 1 und 5.
 
 | deine Stunden für AP1–AP9 | was das heißt | was du tust |
 |---|---|---|
-| bis ~40 | im Plan | weiter wie geplant. Jede Stunde über 32 schiebt die Einreichung; ab etwa 38 liegt sie in Q4 ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md), Abschnitt 11) |
-| ~40–60 | langsamer, aber im Rahmen des Modells | **App 1 kleiner schneiden:** Onboarding mit 3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten erst in Version 1.1. Das holt Stunden zurück; die Einreichung liegt trotzdem eher in Q4 |
-| über ~60 | fast doppelt so lang wie geplant oder mehr | Einreichung erst nach dem Abitur einplanen. Das ist kein Scheitern: weiter mit 10 h je Woche bis 31.01., in Q4 höchstens 6–7 h, kein Druck. Ist am So 14.03. keine App im Store oder im Review, ruht die App bis nach deiner letzten Prüfung (Ruhezeit, Hauptplan, Abschnitt 4) |
+| bis ~40 | im Plan | weiter wie geplant. Jede Stunde über 32 schiebt die Einreichung; ab etwa 38 liegt sie in Q4, mit den 10 Minuten Lernen je Sitzung (Abschnitt 3) auch darunter ([01](01_TAG_FUER_TAG_BIS_FEBRUAR.md), Abschnitte 1 und 11) |
+| ~40–60 | langsamer, aber im Rahmen des Modells | **Schnittliste, App 1 kleiner schneiden:** Onboarding mit 3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten erst in Version 1.1. Das spart ~7 der 113 Stunden; nach dem Start kommen ~3 Stunden für Version 1.1 dazu. Die Einreichung liegt trotzdem eher in Q4 |
+| über ~60 | fast doppelt so lang wie geplant oder mehr | **Dieselbe Schnittliste** und Einreichung erst nach dem Abitur einplanen. Das ist kein Scheitern: weiter mit 10 h je Woche bis 31.01., in Q4 höchstens 6–7 h, kein Druck. Ist am So 14.03. keine App im Store oder im Review, ruht die App bis nach deiner letzten Prüfung (Ruhezeit, Hauptplan, Abschnitt 4) |
+
+Mehr als diese Liste (~7 h) lässt sich nicht kürzen, ohne Verlauf, Kopieren
+oder Teilen (Richtlinie 4.2), die zweite Sprache oder den iPad-Test
+anzufassen.
 
 Nie gekürzt werden: geführter Ablauf, Meldeknopf, Einwilligung, die
 Pflichtteile der Paywall und die Mindestprüfung.
@@ -943,8 +948,21 @@ dieser Stunden ohne Druck weiter (Hauptplan, Abschnitt 12).
 
 ## 9. Nach App 1: deine eigene Vorlage
 
-Sobald App 1 freigegeben ist, nicht früher (3–4 Stunden):
-1. Zuerst die Lehren aus dem Review-Log in die `CLAUDE.md` übernehmen.
+Sobald App 1 freigegeben ist, nicht früher (3–4 Stunden), machst du aus App 1
+deine Vorlage.
+
+**Vorher, solange App 1 im Review ist: App 2 ohne Code vorbereiten,
+höchstens ~6 Stunden.** Dazu gehören `SPEC.md` nach [04](04_IDEENWAHL.md),
+Abschnitt 10.5, aus der Reserve-Idee vom Ideen-Tor, die Fragenliste für den
+geführten Ablauf, die Store-Texte und ein Icon-Entwurf in Canva. Code entsteht
+dabei noch keiner. Eine Antwort an das Review geht immer vor. In der
+Prüfungszeit bereitest du nichts vor: Die 0–5 Stunden sind dann nur für
+Zahlen, Notfälle und Antworten an das Review (Hauptplan, Abschnitt 4). Den
+Code von App 2 beginnst du erst nach der Freigabe von App 1, aus der Vorlage.
+
+**Nach der Freigabe, in dieser Reihenfolge:**
+1. Zuerst die Lehren aus dem Review-Log von App 1 in die `CLAUDE.md` und in die
+   `SPEC.md` von App 2 einarbeiten.
 2. Aus App 1 die Vorlage machen, im privaten Repository `vorlage` (das leere
    Vorlagen-Projekt vom Sa 28.11. ersetzt du damit): Onboarding als
    Datenliste mit Herkunftsfrage, Paywall-Aufruf, Verlauf und Favoriten,

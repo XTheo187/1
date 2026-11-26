@@ -102,15 +102,18 @@ Inhalt:
 Die Zeilen sind gerundet; zusammen sind es 163,5 Stunden wie im Kalender.
 
 Eigene Lernzeit steht hier mit ~7,5 Stunden, bis So 20.12. gut 5½. Der
-Hauptplan sieht bis Ende Januar 25–40 Stunden vor, bis So 20.12. etwa die
-Hälfte (Abschnitte 5 und 7). Die 10 Minuten Lernen am Ende jeder Sitzung
-(02, Abschnitt 3) haben im Kalender keine eigene Zeit, und die typischen
-Stunden aus 02 enthalten sie nicht (02, Abschnitt 4). 111 Baustunden in
-Sitzungen von höchstens 90 Minuten (Hauptplan, Abschnitt 7) sind mindestens
-74 Sitzungen, also mindestens ~12 Stunden mehr bis zur Einreichung, mehr als
-der Puffer am Di 02.02. Du reichst dann frühestens um Sa 06.02. ein
-(Abschnitt 10). Lass die 10 Minuten trotzdem nicht weg und trag sie als
-Bauzeit ein. Mehr eigene Lernstunden schieben die Einreichung weiter.
+Hauptplan sieht für den Lernpfad ~15–40 Stunden vor; dieser Kalender plant
+das untere Ende: die eigene Lernzeit und die 10 Minuten je Sitzung
+(Hauptplan, Abschnitte 5, 7 und 12). Die 10 Minuten Lernen am Ende jeder
+Sitzung (02, Abschnitt 3) haben im Kalender keine eigene Zeit, und die
+typischen Stunden aus 02 enthalten sie nicht (02, Abschnitt 4). 111
+Baustunden in Sitzungen von höchstens 90 Minuten (Hauptplan, Abschnitt 7)
+sind mindestens 74 Sitzungen, also mindestens ~12 Stunden mehr bis zur
+Einreichung, mehr als der Puffer am Di 02.02. Du reichst dann frühestens um
+Sa 06.02. ein (Abschnitt 10). Lass die 10 Minuten trotzdem nicht weg und trag
+sie als Lernzeit ein, nicht als Bauzeit: Am Stunden-Messpunkt zählen nur
+Baustunden (Abschnitt 11). Mehr eigene Lernstunden schieben die Einreichung
+weiter.
 
 **Was in dieser Zeit Geld kostet**
 
@@ -371,9 +374,16 @@ Projekt `app1-betrieb` im Dashboard öffnen, je 2 Minuten. In Q4 erledigst du
 sie in den zwei kurzen Zeiten am Di und Do, in denen du auch die Posts
 veröffentlichst (05, Abschnitt 6.2; 02, AP20); in Wochen nur mit Samstag am
 Samstag und bei der Kassenprüfung am Sonntag. So liegen nie sieben Tage ohne
-Aktivität dazwischen. Die eigene Vorlage für
-App 2 (02, Abschnitt 9, 3–4 Stunden) entsteht erst nach der Freigabe von
-App 1. Wie es ab hier weitergeht, steht im Hauptplan (Abschnitt 12) und in
+Aktivität dazwischen. Solange App 1 im Review ist, darfst du in den
+Q4-Stunden App 2 ohne Code vorbereiten, höchstens ~6 Stunden: `SPEC.md` nach
+04, Abschnitt 10.5, aus der Reserve-Idee vom Ideen-Tor, die Fragenliste, die
+Store-Texte und ein Icon-Entwurf in Canva. Eine Antwort an das Review geht
+vor, und in der Prüfungszeit bereitest du nichts vor (02, Abschnitt 9). Die
+eigene Vorlage für App 2 (02, Abschnitt 9, 3–4 Stunden) entsteht erst nach
+der Freigabe von App 1. Dann arbeitest du zuerst die Lehren aus dem
+Review-Log von App 1 in die `CLAUDE.md` und in die `SPEC.md` von App 2 ein;
+erst danach beginnt der Code von App 2, aus der Vorlage. Wie es ab hier
+weitergeht, steht im Hauptplan (Abschnitt 12) und in
 [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md).
 
 **Ist App 1 am Di 02.02. nicht eingereicht,** baust du in Q4 im Rahmen der
@@ -397,7 +407,7 @@ letzten Prüfung liegen.
 | Namensfrage | So 13.12. | Steht fest, wer im App Store steht, und darf die Anschrift ins Impressum? | Apple-Anmeldung Mo 14.–Mi 16.12., wenn auch der Zwischenstand passt und IHK oder Gewerbeamt zugestimmt haben (03, Abschnitt 4.1) | Apple-Anmeldung verschiebt sich; AP7–AP9 rutschen in den Januar. Darf die Anschrift nicht ins Impressum: keine Veröffentlichung, kein Apple-Konto (03, Abschnitt 2) |
 | Zwischenstand Ideen | Sa 12.12. | Erfüllt mindestens eine Idee alle Mindestwerte mit den bisher gemessenen Werten (04, Abschnitt 7)? | Apple-Anmeldung Mo 14.–Mi 16.12., wenn die Namensfrage entschieden ist und IHK oder Gewerbeamt zugestimmt haben | Apple erst nach dem Ideen-Tor, frühestens Mo 21.12.; am Mo 14.12. AP6 mit dem RevenueCat-Konto. Ist keine Idee mehr im Rennen, steht das No-Go fest |
 | **M0 / Ideen-Tor** | Sa 19.12. / So 20.12. | Besteht eine Idee (Mindestwerte, Slideshow-Test, Ablauf-Test)? `SPEC.md` und echte KI-Antwort in der App? Die Paywall gehört nicht dazu; sie kommt am Mi 23.12. | weiter; fehlt `SPEC.md` oder die KI-Antwort, am Mi 23.12. zuerst | **No-Go** (keine Idee besteht, 04, Abschnitt 7): nicht gründen, kein Apple-Konto, keine Domain, keine Markenkonten; weiter lernen und nur AP1, AP2, AP4, AP5 und AP6 im Test Store bauen; fünf neue Ideen nach der ETH-Bewerbung am Mo 28.12., Entscheidung bis Sa 09.01. Ist das Apple-Konto schon gekauft: nichts tun, es gilt zwölf Monate. Besteht auch am Sa 09.01. keine Idee: keine Gründung vor dem Abitur, weiter lernen bis So 14.03., ab Mo 15.03. Ruhezeit (04, Abschnitt 7, Punkte 5 und 6). In den Fällen der Frist (04, Abschnitt 7) liegt das Ideen-Tor spätestens am Mo 28.12. |
-| **Stunden-Messpunkt** | Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant 32)? | bis ~40: weiter wie geplant. Jede Stunde über 32 schiebt die Einreichung; ab etwa 38 liegt sie in Q4, mit den 10 Minuten Lernen je Sitzung auch darunter (Abschnitt 1) | 40–60: App 1 kleiner schneiden (Onboarding mit 3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten erst in Version 1.1), Einreichung eher in Q4; über 60: Einreichung erst nach dem Abitur einplanen (02, Abschnitt 8) |
+| **Stunden-Messpunkt** | Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant 32)? | bis ~40: weiter wie geplant. Jede Stunde über 32 schiebt die Einreichung; ab etwa 38 liegt sie in Q4, mit den 10 Minuten Lernen je Sitzung auch darunter (Abschnitt 1) | 40–60: **Schnittliste,** App 1 kleiner schneiden (Onboarding mit 3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten erst in Version 1.1; das spart ~7 der 113 Stunden, nach dem Start kommen ~3 Stunden für Version 1.1 dazu), Einreichung eher in Q4; über 60: dieselbe Schnittliste und Einreichung erst nach dem Abitur einplanen. Mehr als diese Liste (~7 h) lässt sich nicht kürzen, ohne Verlauf, Kopieren oder Teilen (Richtlinie 4.2), die zweite Sprache oder den iPad-Test anzufassen (02, Abschnitt 8) |
 | **M1** | Sa 09.01. | ETH-Bewerbung abgeschickt? AP10–AP17 und AP10a fertig? | weiter | die ETH-Bewerbung hat Vorrang; fehlende Pakete in KW 02–04. Im Kalender oben fehlen am Sa 09.01. noch AP15–AP17 und die Favoriten; sie folgen bis Sa 23.01. |
 | **M2** | Do 07.01. oder später | Ist App 1 mindestens halb fertig: Kernfunktion mit echter KI, Onboarding und Paywall stehen (AP10, AP11 und AP12; AP10a nicht nötig)? Rechtsform entschieden? | gründen (Checkliste A, 03, Abschnitt 5); im Kalender oben stehen AP10, AP11 und AP12 am Di 05.01., gegründet wird am Do 07.01. | weiterbauen; gegründet wird an dem Samstag, an dem M2 erreicht ist: die Schritte 3–6 und das Hochladen der fertigen Website-Entwürfe, in Q4 und in Klausurwochen auf zwei Samstage verteilt (03, Abschnitt 5). Ist M2 bis Mo 01.03. nicht erreicht: Gründung am Tag nach deiner letzten Prüfung, parallel zum Rest-Bau |
 | **Funktions-Stopp** | So 24.01. | – | nur noch Fehler, Texte, Einreichung; was fehlt, z. B. die Favoriten, kommt in Version 1.1 | – |
