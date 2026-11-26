@@ -50,7 +50,7 @@ Messpunkten und Checklisten. Die einzelnen Schritte stehen hier:
 | Datei | Inhalt |
 |---|---|
 | [`details/01_TAG_FUER_TAG_BIS_FEBRUAR.md`](details/01_TAG_FUER_TAG_BIS_FEBRUAR.md) | jeder Tag vom 23.11. bis zur Einreichung von App 1 |
-| [`details/02_BAUPLAN_APP1.md`](details/02_BAUPLAN_APP1.md) | App 1 in 22 Arbeitspaketen mit Stunden und „fertig, wenn …“ |
+| [`details/02_BAUPLAN_APP1.md`](details/02_BAUPLAN_APP1.md) | App 1 in 23 Arbeitspaketen (AP1–AP22 und AP10a) mit Stunden und „fertig, wenn …“ |
 | [`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md) | Namensfrage, Apple-Konto, Gewerbe, Steuer, Krankenkasse, Kosten Monat für Monat |
 | [`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md) | fünf Ideen prüfen, eine bauen: K.-o.-Fragen, Nachfrageprüfung, Bewertungstabelle |
 | [`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md) | Preis, Paywall, Store-Seite, Posts ohne Gesicht, Signalprüfung, Creator |
@@ -175,7 +175,11 @@ verkaufst, ist das in Deutschland aber ein Gewerbe, und beim Einreichen
 erklärst du dich für die EU als Händler. Bei der Anmeldung wird festgelegt,
 wessen Name als Verkäufer im Store steht. Deshalb entscheidet ihr die
 **Namensfrage bis So 13.12.** und legst du das Apple-Konto erst danach an:
-Mo 14.–Mi 16.12., wenn deine Idee das Ideen-Tor absehbar besteht. Die 99 €
+Mo 14.–Mi 16.12., wenn deine Idee das Ideen-Tor absehbar besteht und IHK
+oder Gewerbeamt bestätigt haben, dass Mitgliedschaft und Tests ohne Verkauf
+vor der Gewerbeanmeldung unbedenklich sind (gefragt am Fr 04.12.,
+[`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md),
+Abschnitt 4.1). Die 99 €
 (Apple nennt 99 USD oder den Betrag in Landeswährung) gelten 12 Monate ab
 diesem Tag. So läuft der Durchstich mit echtem Gerät schon in den
 Weihnachtsferien. Die Gewerbeanmeldung bleibt bei M2.
@@ -283,13 +287,13 @@ den Abiturterminen 2027:
 |---|---|---|
 | Schulwochen bis Di 22.12. und 11.–29.01. (Q3) | **10** (Mo–Fr je 1 h, Sa 5 h, So frei), höchstens 15 | Woche mit Klausuren: nur Samstag 3 h |
 | Weihnachtsferien Mi 23.12.–Sa 09.01. | 21.–27.12.: ~9; 28.12.–03.01.: ~31; 04.–09.01.: ~38 | Mo–Fr 9–12 und 13–17 Uhr (7 h), Sa 3 h; 24.–27.12. und 01.01. frei; dazu 1–1,5 h Schule am Tag |
-| Halbjahresferien Mo 01.–Di 02.02. | ~19 in dieser Woche | Mo/Di je ~7 h, ab Mi 03.02. die Q4-Regel |
+| Halbjahresferien Mo 01.–Di 02.02. | ~18 in dieser Woche | Mo/Di je ~7 h, ab Mi 03.02. die Q4-Regel |
 | Q4, Mi 03.02.–So 14.03. | **höchstens 6–7**, in Wochen mit zwei oder mehr Klausuren nur Sa 3 h | Q4-Noten zählen fürs Abitur; keine neue Kampagne |
 | 15.03.–05.04. (letzte Q4-Tage bis Do 18.03., Osterferien) | 0–5, in der Ruhezeit 0 | Abiturvorbereitung |
 | schriftliches Abitur 06.04.–13.05. | 0–1, in der Ruhezeit 0 | an Prüfungstagen und ab einer Woche davor gar nichts |
 | 5. Prüfungsfach und Nachschreibtermine 19.05.–07.06. | 0–5, in der Ruhezeit 0 | bei einer Präsentationsprüfung zwei Wochen gar nichts; Mo 07.06. kann noch Prüfungstag sein |
 | nach deiner letzten Prüfung bis 04.07. | 15–40 | mögliche mündliche Nachprüfung 28.–30.06., Zeugnis 01.–03.07. |
-| 05.07. bis zum Ende der Jagd (meist So 18.07.) | Mo–Sa ~9 h, So frei | davon ~6 h je Woche für Zürich (Zimmer, Unterlagen, Mathe) |
+| 05.07. bis zum Ende der Jagd (meist So 18.07.) | Mo–Sa ~9 h, So frei bis auf die Ausnahmen in Abschnitt 10 | davon ~6 h je Woche für Zürich (Zimmer, Unterlagen, Mathe) |
 | danach bis zum Abschluss | Ferienjob in Vollzeit; für die Apps 2–5 h je Woche | an zwei Werktagen je 20 Minuten Zahlen und Support, samstags bis 3 h; im August für Übergabe, Verkauf oder Stilllegung einmalig mehr ([`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md)) |
 
 Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
@@ -387,7 +391,7 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
 
 | Aufgabe | Claude | du |
 |---|---|---|
-| Grundlagen | erklärt im Lernmodus, stellt dir Übungen, lässt dich Stellen selbst schreiben | lernst ~25–40 Stunden bis Ende Januar (bis 20.12. etwa die Hälfte); fragst nach, bis du es einem Mitschüler erklären kannst |
+| Grundlagen | erklärt im Lernmodus, stellt dir Übungen, lässt dich Stellen selbst schreiben | lernst nach dem Lernpfad ~15–40 Stunden (Abschnitt 7); 01 plant das untere Ende (eigene Lernzeit ~7,5 h und 10 Minuten am Ende jeder Sitzung), mehr Lernen schiebt die Einreichung; fragst nach, bis du es einem Mitschüler erklären kannst |
 | Code: App, Paywall, KI-Funktion, Server | schreibt alles in kleinen Schritten, erklärt jeden Schritt, führt die `CLAUDE.md` und das Review-Log | beschreibst, was du willst; testest auf iPhone und iPad; prüfst mit den Checklisten; entscheidest |
 | Sicherheit und Datenschutz | Entwürfe, Prüflisten, führt die Prüfungen aus | siehst dir jedes Ergebnis selbst an; verantwortest |
 | App Store | Texte, Screenshot-Entwürfe, Antworten an das Review | reichst ein, gibst frei; Verträge, Bank- und Steuerdaten nur du (bzw. das Elternteil) |
@@ -410,11 +414,11 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
 | Expo Go auf iPhone und iPad | Oberfläche testen; Käufe sind dort nur Attrappen | 0 € | KW 48 |
 | Supabase | Server-Funktion für den KI-Aufruf | 0 € im Gratis-Tarif; Pro (25 $/Monat) erst bei einem Signal, an einem Limit oder für die Abiturmonate, wenn eine App im Store oder im Review ist | KW 50 |
 | Claude API (Haiku 5.5) | KI-Funktion der App, getrennt vom Abo | zum Testen 5–10 $ Prepaid-Guthaben ohne Nachladen (Karte nötig); im Betrieb typisch ~30 $ je 1.000 aktive Nutzer im Monat; ab dem Start Nachladen an mit Monatslimit 25–50 $ | ab KW 50 |
-| Apple Developer Program (Einzelperson) | Entwicklungs-Build auf dem eigenen Gerät, TestFlight, App Store | 99 €/Jahr (99 USD oder Betrag in Landeswährung); zahlst du per Kreditkarte, muss es deine eigene sein (sonst Verzögerung und Ausweiskopie), oder du meldest dich in der Apple-Developer-App an; **automatische Verlängerung gleich abschalten**; ohne D-U-N-S, Konto meist nach wenigen Tagen aktiv, nach 24 Stunden ohne Bestätigung bei Apple nachfragen | KW 51 (Mo 14.–Mi 16.12.), wenn die Namensfrage entschieden ist und das Ideen-Tor absehbar bestanden wird (Zwischenstand Sa 12.12.); sonst nach dem Ideen-Tor, frühestens Mo 21.12. |
-| RevenueCat | Abos, Paywall, Umsatzzahlen, Abo-Prüfung für den Server | frei bis 2.500 $ Monatsumsatz | mit dem Apple-Konto |
+| Apple Developer Program (Einzelperson) | Entwicklungs-Build auf dem eigenen Gerät, TestFlight, App Store | 99 €/Jahr (99 USD oder Betrag in Landeswährung); zahlst du per Kreditkarte, muss es deine eigene sein (sonst Verzögerung und Ausweiskopie), oder du meldest dich in der Apple-Developer-App an; **automatische Verlängerung gleich abschalten**; ohne D-U-N-S, Konto meist nach wenigen Tagen aktiv, nach 24 Stunden ohne Bestätigung bei Apple nachfragen | KW 51 (Mo 14.–Mi 16.12.), wenn die Namensfrage entschieden ist, das Ideen-Tor absehbar bestanden wird (Zwischenstand Sa 12.12.) und IHK oder Gewerbeamt bestätigt haben, dass Mitgliedschaft und Tests ohne Verkauf vor der Gewerbeanmeldung unbedenklich sind (03, Abschnitt 4.1); sonst nach dem Ideen-Tor, frühestens Mo 21.12.; sagen IHK oder Gewerbeamt etwas anderes, wartet Apple bis zur Gründung |
+| RevenueCat | Abos, Paywall, Umsatzzahlen, Abo-Prüfung für den Server | frei bis 2.500 $ Monatsumsatz | Sa 19.12. mit AP6 (Mo 14.12., wenn du Apple dann nicht kaufst) |
 | Domain, Website, E-Mail | Impressum, Datenschutz, Support | ein monatlich kündbares Paket eines deutschen Anbieters mit Postfach und Webspace, ~2–5 € im Monat | bei der Gründung |
 | Zweitnummer (Prepaid) | Telefon für Apples EU-Seite | Prepaid ohne Grundgebühr, ~10 € Startpaket | bei der Gründung |
-| Canva oder CapCut (Gratisversion) | Slideshows, Untertitel | 0 € | in der Vorbereitung vor der Gründung ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md), Abschnitt 4) |
+| Canva oder CapCut (Gratisversion) | Icon und Startbild, Slideshows, Untertitel | 0 € | ab AP16 (Icon und Startbild, in 01 Fr 15.01.) und für die Vorbereitung der Posts ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md), Abschnitt 4; in 01 Di 02.02.) |
 
 Bewusst **nicht** in App 1:
 - **Nutzerkonten:** Dann entfällt die Pflicht zur Kontolöschung. Die
@@ -472,7 +476,7 @@ Bewusst **nicht** in App 1:
 Deshalb lernst du zuerst die Grundlagen, arbeitest im Lernmodus und glaubst
 nur, was du selbst gesehen hast.
 
-**Lernpfad (~25–40 Stunden, KW 48 bis Ende Januar; bis 20.12. etwa die Hälfte, danach ~3–4 h je Woche neben dem Bau)**
+**Lernpfad (~15–40 Stunden; 01 plant das untere Ende: eigene Lernzeit ~7,5 h und 10 Minuten je Sitzung; mehr Lernen schiebt die Einreichung)**
 1. Expo-Tutorial „Build with AI“ (für Menschen ohne Programmierhintergrund,
    ~1 h, mit Claude Code, iPhone mit Expo Go).
 2. Expo-Standard-Tutorial „StickerSmash“ (~2 h).
@@ -482,6 +486,20 @@ nur, was du selbst gesehen hast.
    ersten Abschnitte von freeCodeCamp).
 5. Expo- und EAS-Doku zu Development Builds und `eas submit` (~3–5 h).
 6. Fehlermeldungen lesen üben, an deinen eigenen echten Fehlern.
+
+**Was 01 davon plant:** eigene Lernzeit ~7,5 Stunden, bis So 20.12. gut 5½,
+ab Mo 30.11. ~3. Das sind Punkt 1 (Di 24.11.) und Punkt 2 (Sa 28.11.), aus
+Punkt 3 je eine Übungsstunde zu Shell und Git (Mi 25.11. und Fr 27.11.),
+Punkt 6 (Mi 02.12.) und zweimal 1 Stunde Lernen am eigenen Code (Sa 02.01.
+und Sa 09.01.). Dazu kommen 10 Minuten Lernen am Ende jeder Sitzung
+([`details/02_BAUPLAN_APP1.md`](details/02_BAUPLAN_APP1.md), Abschnitt 3),
+bis zur Einreichung mindestens ~12 Stunden. Zusammen sind das ~20 Stunden,
+ab Mo 30.11. ~15. Du trägst die 10 Minuten als Lernzeit ein, nicht als
+Bauzeit. Die Punkte 4 und 5 und der Rest von Punkt 3 kommen nur dazu, wenn du
+mehr lernen willst; jede Stunde mehr schiebt die Einreichung
+([`details/01_TAG_FUER_TAG_BIS_FEBRUAR.md`](details/01_TAG_FUER_TAG_BIS_FEBRUAR.md),
+Abschnitt 1). Das Modell rechnet vorsichtiger, mit mehr Lernstunden
+([`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 1).
 
 CS50x (10–20 Stunden je Woche) machst du nicht neben der 55-Stunden-Woche,
 sondern ab dem Tag, an dem die Jagd endet (in ~99 von 100 Läufen ab 19.07.).
@@ -587,8 +605,9 @@ steht der Überblick.
   18.07. mindestens einen solchen Post zu haben, liegt bei etwa 30 von 100.
 
 **Dein Ablauf**
-- **Vor der Gründung** nur Vorbereitung (3–4 Stunden): Hook-Liste, drei
-  Vorlagen in Canva, Messtabelle. Kein Konto.
+- **Vorbereitung** (3–4 Stunden): Hook-Liste, drei Vorlagen in Canva,
+  Messtabelle. Das darfst du schon vor der Gründung; 01 legt es auf den
+  Di 02.02., nach der Einreichung. Vor der Gründung kein Konto.
 - **Ab der Gründung, in der Woche der Einreichung:** ein Markenkonto je
   Plattform (TikTok, Instagram, YouTube Shorts), auf Deutsch, mit dem Namen
   der App und dem Link „Impressum“ zur Website. Kein Datum versprechen („bald
@@ -617,7 +636,8 @@ steht der Überblick.
 - **Menge:** in Q4 erst, wenn App 1 eingereicht ist, und dann höchstens 3 je
   Woche, gebaut in einem Block von 90 Minuten am Samstag (höchstens 9, solange
   die App nicht im Store ist); im Abitur keine Posts; nach dem Abitur 2–3 am
-  Tag.
+  Tag bis zum Ende der Jagd, danach höchstens einer am Tag, und nur, wenn du
+  willst (05, Abschnitt 6.4).
 - **Kein bezahltes Verstärken** eigener Posts, kein VPN, kein Zweitgerät für
   andere Länder, kein zweites Konto, bevor ein Format dreimal gewonnen hat.
 - **Bilder:** nur selbst fotografiert (ohne Personen, ohne erkennbare Orte),
@@ -644,7 +664,8 @@ nicht.
 - **Fällt die Signal-Prüfung in die Startpause**, siehst du am Tag nach deiner
   letzten Prüfung nach: Liegt die App dann über 300 $ MRR, zählt das, und du
   buchst. Sonst gilt die zweite Prüfung, 21 Tage nach dem ersten täglichen Post
-  (spätestens Di 29.06.).
+  (spätestens Di 29.06.; mit mündlicher Nachprüfung am Tag nach der letzten
+  Nachprüfung, Abschnitt 13).
 - **Ab 19.07. buchst du keine neuen Creator.** Wer bis 18.07. gebucht ist, wird
   nach dem Posten noch bezahlt.
 - **Startet App 1 erst Ende Juni,** kommen die Creator-Videos meist erst nach
@@ -806,7 +827,7 @@ Deshalb gehört jeder Euro, den die App nicht braucht, deinem Start in Zürich.
 | Tag | Zeit | was |
 |---|---|---|
 | Mo–Fr | 1 h, z. B. 18–19 Uhr | 30 min Claudes Ergebnis prüfen und testen, 30 min kleine Sitzung oder Lernen |
-| Sa | 5 h, z. B. 10–13 und 14–16 Uhr | 3 h Bau-Sitzung, 2 h Lernen bzw. ab der Gründung Slideshows auf Vorrat |
+| Sa | 5 h, z. B. 10–13 und 14–16 Uhr | 3 h Bau-Sitzung, 2 h Lernen oder Bau (Slideshows erst ab der Einreichung, 05, Abschnitt 6.2) |
 | So | frei | – |
 
 **Woche mit Klausuren (3 Stunden):** nur Samstag. Das Wichtigste der Woche,
@@ -846,12 +867,17 @@ Sonntagsauswertung) und sonntags 10 Minuten Kassenprüfung, zusammen unter
 und nie ab einer Woche davor. Keine Posts, keine Creator.
 
 **Sommerwoche ab 05.07. bis zum Ende der Jagd (~55 Stunden):** Mo–Sa 9–12,
-13–17 und 18–20 Uhr, So frei; davon ~6 Stunden für Zürich.
+13–17 und 18–20 Uhr, So frei bis auf die Ausnahmen oben; davon ~6 Stunden
+für Zürich.
 
 **Woche mit Ferienjob (ab 19.07., oder ab 05.07. ohne App im Store):**
 40 Stunden Arbeit; für die Apps an zwei Werktagen je 20 Minuten Zahlen und
-Support, samstags bis zu 3 Stunden; ~6 Stunden für Zürich. Im August kommen
-einmalig die Schritte für Übergabe, Verkauf oder Stilllegung dazu
+Support, samstags bis zu 3 Stunden; ~6 Stunden für Zürich. Posts höchstens
+einer am Tag aus dem Vorrat vom Samstag, und nur, wenn du willst
+([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md),
+Abschnitt 6.4). Ohne Posts kommen kaum neue Zahler, und der Umsatz fällt
+(06, Abschnitt 4.7). Im August kommen einmalig die Schritte für Übergabe,
+Verkauf oder Stilllegung dazu
 ([`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md)).
 
 ---
@@ -869,6 +895,7 @@ schon bezahlt.
   ETH ist raus.
 - Eine Karte ist beantragt, falls du keine hast.
 - Fünf Ideen für die Prüfung sind gewählt.
+- Das Projekt-Postfach für alle Konten ist eingerichtet.
 
 | Tag | Zeit | was | Ergebnis |
 |---|---|---|---|
@@ -877,7 +904,7 @@ schon bezahlt.
 | Mi 25.11. | 1 h | Missing Semester: Shell (Teil 1). | Terminal-Grundlagen |
 | Do 26.11. | 1 h | Gespräch mit deinen Eltern: Abschnitt 3 zeigen. Wer soll im App Store stehen, du oder ein Elternteil? Darf ihre Anschrift ins Impressum? Würde ein Elternteil im Sommer eine laufende App übernehmen (Abschnitt 14)? Noch nichts entscheiden, nur verstehen; die Namensfrage entscheidet ihr bis So 13.12. **Karte:** Hast du keine eigene Visa- oder Mastercard (Debit reicht, sie muss in US-Dollar zahlen können), beantragst du sie diese Woche bei deiner Bank zum Girokonto; sie kommt oft erst nach 1–2 Wochen. Du brauchst sie ab KW 50 für das Guthaben der Claude API und in KW 51 für Apple (oder du meldest dich bei Apple über die Developer-App an). Für die ETH-Gebühr im Dezember geht notfalls die Karte deiner Eltern. | Fragen geklärt, Karte beantragt, Namensfrage bis 13.12., Zusage zur Übernahme im Januar |
 | Fr 27.11. | 1 h | Missing Semester: Shell (Teil 2) und Git (Teil 1). | Terminal- und Git-Grundlagen |
-| Sa 28.11. | 5 h | 2 h: Expo-Tutorial „StickerSmash“ mit Erklärungen von Claude. 2 h 15 min: Ideen nach [`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md): etwa 20 Kandidaten sammeln (12 von Claude, deine eigenen, der Pool aus 04), K.-o.-Fragen und 60-Sekunden-Test für höchstens sechs; 5 gehen in die Prüfung. Bestehen weniger als fünf den Test, folgt am Mo 30.11. ein Nachtest mit weiteren Kandidaten (30 min). 45 min: privates Repository `vorlage` auf GitHub, `CLAUDE.md` aus [`vorlagen/CLAUDE_md_fuer_die_app.md`](vorlagen/CLAUDE_md_fuer_die_app.md), [`vorlagen/checkliste_einreichung.md`](vorlagen/checkliste_einreichung.md) als `docs/checkliste-einreichung.md` kopieren, leere `docs/review-log.md` und `docs/entscheidungen.md` anlegen; solange Max noch läuft, legt Claude damit das leere Vorlagen-Projekt an. | 5 Ideen für die Prüfung markiert, jede mit dem Punkt, in dem sie den kostenlosen Weg schlägt (sonst Nachtest Mo 30.11.); Vorlage im Repository |
+| Sa 28.11. | 5 h | 2 h: Expo-Tutorial „StickerSmash“ mit Erklärungen von Claude. 2 h 15 min: Ideen nach [`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md): etwa 20 Kandidaten sammeln (12 von Claude, deine eigenen, der Pool aus 04), K.-o.-Fragen und 60-Sekunden-Test für höchstens sechs; 5 gehen in die Prüfung. Bestehen weniger als fünf den Test, folgt am Mo 30.11. ein Nachtest mit weiteren Kandidaten (30 min). 30 min: Projekt-Postfach bei einem E-Mail-Anbieter (neutraler Name, nicht dein eigener) mit Zwei-Faktor-Anmeldung und einen Passwortmanager einrichten, Wiederherstellungscodes ausdrucken ([`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md), Abschnitt 3). 15 min: Beginn AP1: privates Repository `vorlage` auf GitHub, `CLAUDE.md` aus [`vorlagen/CLAUDE_md_fuer_die_app.md`](vorlagen/CLAUDE_md_fuer_die_app.md), [`vorlagen/checkliste_einreichung.md`](vorlagen/checkliste_einreichung.md) als `docs/checkliste-einreichung.md` kopieren, leere `docs/review-log.md` und `docs/entscheidungen.md` anlegen; solange Max noch läuft, legt Claude damit das leere Vorlagen-Projekt an. | 5 Ideen für die Prüfung markiert, jede mit dem Punkt, in dem sie den kostenlosen Weg schlägt (sonst Nachtest Mo 30.11.); im Projekt-Postfach kommt eine Test-Mail an; Vorlage im Repository |
 | So 29.11. | frei | – | – |
 
 ---
@@ -886,33 +913,45 @@ schon bezahlt.
 
 Bis zur Einreichung von App 1 steht jeder Tag in
 [`details/01_TAG_FUER_TAG_BIS_FEBRUAR.md`](details/01_TAG_FUER_TAG_BIS_FEBRUAR.md),
-jedes Arbeitspaket (AP1–AP22) in
+jedes Arbeitspaket (AP1–AP22 und AP10a) in
 [`details/02_BAUPLAN_APP1.md`](details/02_BAUPLAN_APP1.md). Hier steht der
 Überblick. Rutscht etwas, überspringst du nichts, sondern schiebst.
 
 ### Phase 1 – Grundlagen, Projekt und Idee (KW 49–51, 30.11.–20.12.), Schulwochen, 10 h (mit Klausuren 3 h)
 
-- **Lernen am eigenen Projekt (~3–4 h je Woche):** Missing Semester (Shell,
-  Git, Fehlersuche), JavaScript und TypeScript lesen, Expo- und EAS-Doku.
-- **Bauen (~4 h je Woche):** Projekt mit dem Expo-Gerüst, zwei Sprachdateien
+- **Lernen (in 01 ~1 h in diesen drei Wochen):** Fehlermeldungen lesen am
+  Mi 02.12., dazu 10 Minuten am Ende jeder Sitzung. Die Stunde „Lernen am
+  eigenen Code“ vom Sa 12.12. rutscht für die Ideen auf den Sa 09.01. Mehr
+  Lernen (Lernpfad, Abschnitt 7) schiebt die Einreichung.
+- **Bauen (~5–7 h je Woche):** Projekt mit dem Expo-Gerüst, zwei Sprachdateien
   und fünf leere Bildschirme (AP1–AP2), Supabase-Funktion mit echter
-  KI-Antwort (AP4–AP5), RevenueCat mit fertiger Paywall (AP6).
+  KI-Antwort (AP4–AP5), `SPEC.md` (AP3) und das RevenueCat-Konto mit allen
+  nativen Paketen (AP6), beides am Sa 19.12., noch ohne Paywall.
 - **Ideenwahl (~10–16 h, typisch 12 h, von Sa 28.11. bis Sa 19.12.):** fünf Ideen mit
   K.-o.-Fragen, Nachfrageprüfung und Bewertungstabelle, dazu Slideshow-Test,
   Namensprüfung und ein Ablauf-Test in Expo Go mit fünf Erwachsenen
-  ([`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md)). Eigene Markenkonten
-  gibt es erst ab der Gründung, wegen des Impressums.
+  ([`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md)); für den Ablauf-Test
+  kommen in KW 51 fünfmal 10 Minuten dazu, zusammen 10 h 50 min (01,
+  Abschnitt 5; erlaubt sind höchstens 15). Eigene Markenkonten gibt es erst
+  ab der Gründung, wegen des Impressums.
 - **Namensfrage bis So 13.12.:** du oder ein Elternteil (Abschnitt 3).
 - **Apple Developer Program Mo 14.–Mi 16.12.** (99 €), wenn die Namensfrage
-  entschieden ist und das Ideen-Tor absehbar bestanden wird: Am Sa 12.12.
-  erfüllt mindestens eine Idee alle Mindestwerte. Automatische Verlängerung
+  entschieden ist, das Ideen-Tor absehbar bestanden wird (am Sa 12.12.
+  erfüllt mindestens eine Idee alle Mindestwerte) und IHK oder Gewerbeamt
+  bestätigt haben, dass Mitgliedschaft und Tests ohne Verkauf vor der
+  Gewerbeanmeldung unbedenklich sind (03, Abschnitt 4.1). Fehlt eine dieser
+  Bedingungen, kaufst du erst nach dem Ideen-Tor, frühestens Mo 21.12., und
+  legst am Mo 14.12. das RevenueCat-Konto an (AP6); sagen IHK oder Gewerbeamt
+  etwas anderes, wartet Apple bis zur Gründung. Automatische Verlängerung
   gleich abschalten. Kommt nach 24 Stunden keine Bestätigung, wendest du dich
   an Apple.
-- **Verwaltung vorbereiten (~1 h):** ELSTER-Benutzerkonto anlegen (mit dem
-  Online-Ausweis sofort, sonst kommt ein Brief, der bis zu zwei Wochen
-  braucht); PIN des Personalausweises prüfen; nachsehen, wie deine Gemeinde
-  die Gewerbeanmeldung online annimmt; Termin der kostenlosen
-  Gründungsberatung anfragen.
+- **Verwaltung vorbereiten (~1 h, in 01 Fr 04.12.):** ELSTER-Benutzerkonto
+  anlegen (mit dem Online-Ausweis sofort, sonst kommt ein Brief, der bis zu
+  zwei Wochen braucht); PIN des Personalausweises prüfen; nachsehen, wie deine
+  Gemeinde die Gewerbeanmeldung online annimmt; bei der IHK oder dem
+  Gewerbeamt fragen, ob Mitgliedschaft bei Apple und Tests ohne Verkauf vor
+  der Gewerbeanmeldung unbedenklich sind (Antwort bis So 13.12.); Termin der
+  kostenlosen Gründungsberatung anfragen.
 - **Ideen-Tor (Entscheidung Sa 19.12.) und Messpunkt M0 (So 20.12.):** eine
   Idee für App 1, die zweitbeste als Reserve für App 2; `SPEC.md` steht; die
   App zeigt eine echte KI-Antwort. Die Paywall kommt im Durchstich am
@@ -928,7 +967,8 @@ jedes Arbeitspaket (AP1–AP22) in
 ### KW 52 (21.–27.12.), ~9 h – Durchstich
 
 - Mo/Di je 1 h, Mi 23.12. (erster Ferientag) 7 h; 24.–27.12. frei.
-- **Durchstich (AP7–AP8):** Entwicklungs-Build auf iPhone und iPad, Testkauf
+- **Durchstich (AP7–AP8, dazu der Rest von AP6):** Paywall aus dem Dashboard
+  mit vier Links (Mi 23.12.), Entwicklungs-Build auf iPhone und iPad, Testkauf
   im RevenueCat Test Store, die Server-Funktion prüft das Abo und liefert die
   KI-Antwort. Alles mit hässlicher Platzhalter-Oberfläche: erst das Riskante,
   dann das Schöne.
@@ -939,25 +979,31 @@ jedes Arbeitspaket (AP1–AP22) in
   ETH-Vorlage, Zeugnisse der letzten drei Schuljahre scannen, Passfoto,
   Einverständniserklärung, Gebühr 150 CHF per Kreditkarte (privat, nicht aus
   dem App-Geld). **Abschicken.**
-- **Store-Build und TestFlight (AP9),** dann am **Di 29.12. der
-  Stunden-Messpunkt:** Wie viele Stunden haben AP1–AP9 gebraucht (geplant
-  ~32)? Bis ~40 weiter wie geplant; 40–60: App 1 kleiner schneiden; über 60:
-  Einreichung erst nach dem Abitur einplanen.
-- **App 1:** Kernfunktion mit Prompt und 20 Testfällen (AP10), Onboarding
-  (AP11), Einwilligung, „Antwort melden“ und Fehlerfälle (AP13).
+- **Store-Build und TestFlight (AP9, Mo 28.12. und Di 29.12.),** dann am
+  **Di 29.12. der Stunden-Messpunkt** (Abschnitt 13): Wie viele Baustunden
+  haben AP1–AP9 gebraucht (geplant ~32)? Bis ~40 weiter wie geplant; jede
+  Stunde über 32 schiebt die Einreichung, ab etwa 38 liegt sie in Q4, mit den
+  10 Minuten Lernen je Sitzung auch darunter. Über ~40 gilt die Schnittliste:
+  bei 40–60 liegt die Einreichung eher in Q4, über 60 planst du sie erst nach
+  dem Abitur ein.
+- **App 1:** Kernfunktion mit Prompt und 20 Testfällen (AP10, Di 29.12. bis
+  Do 31.12.), dann der Beginn des Onboardings (AP11, Do 31.12.).
 - **Ferienjob:** drei Bewerbungen für Mo 19.07.–Di 31.08. oder bis Fr 10.09.
-  (1–2 h, [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md)).
+  (Sa 02.01., 1–2 h, [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md)).
 
 ### KW 01 (04.–10.01.), Ferien, ~38 h (der 06.01. ist in Niedersachsen kein Feiertag)
 
-- **App 1:** Paywall-Feinschliff (AP12; harte Paywall ohne Umschalter,
-  Wochen- und Monatsabo, „Käufe wiederherstellen“, Links zu Datenschutz und
-  Nutzungsbedingungen), Einstellungen (AP14), Tageslimit und Kostenbremse
-  (AP15), Aussehen und Name (AP16), Tests auf iPhone und iPad (AP17).
+- **App 1:** Rest des Onboardings (AP11), Paywall-Feinschliff (AP12; harte
+  Paywall ohne Umschalter, Wochen- und Monatsabo, vier Links:
+  Nutzungsbedingungen, Datenschutz, Impressum, „Käufe wiederherstellen“),
+  Einwilligung, „Antwort melden“ und Fehlerfälle (AP13), Verlauf, Kopieren
+  und Teilen (AP10a; die Favoriten kommen erst am Sa 23.01.), Einstellungen
+  und Rechtstexte (AP14).
 - **Messpunkt M2 – gründen, sobald App 1 etwa halb steht** (Kernfunktion
-  läuft mit echter KI, Onboarding und Paywall stehen). Dann Checkliste A in
-  zwei Teilen (~4 h): Gewerbe, Fragebogen in ELSTER, Domain-Paket,
-  Prepaid-Nummer; am nächsten Tag bei Apple der Vertrag für bezahlte Apps,
+  läuft mit echter KI, Onboarding und Paywall stehen: AP10, AP11 und AP12;
+  AP10a ist dafür nicht nötig). Dann Checkliste A in zwei Teilen (~4 h):
+  Gewerbe, Fragebogen in ELSTER, Domain-Paket, Prepaid-Nummer; am nächsten
+  Tag bei Apple der Vertrag für bezahlte Apps,
   Bank- und Steuerdaten, Händlerangaben und das Small Business Program
   ([`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md)).
   - **Wann das meist ist:** Im Kalender (01) frühestens am Do 07.01.,
@@ -965,36 +1011,52 @@ jedes Arbeitspaket (AP1–AP22) in
     Mo 18.01. gegründet, in 38 von 100 Läufen erst im Februar oder später.
   - **Später Fall:** Ist M2 bis Mo 01.03. nicht erreicht, gründest du am Tag
     nach deiner letzten Prüfung, parallel zum Rest-Bau.
-- **Website und Store-Eintrag (AP18–AP19),** Sicherheits-Mindestprüfung
-  (AP20).
-- **Messpunkt M1 (Sa 09.01.):** ETH-Bewerbung abgeschickt, AP10–AP17 fertig.
+- **Website (AP18):** Entwürfe ohne Gewerbe am Mi 06.01., online nach der
+  Gründung (in 01 Do 07.01.).
+- **Messpunkt M1 (Sa 09.01.):** ETH-Bewerbung abgeschickt, AP10–AP17 und
+  AP10a fertig? Im typischen Kalender (01) fehlen dann noch AP15–AP17 und die
+  Favoriten; sie folgen bis Sa 23.01.
 
 ### KW 02–04 (11.–31.01.), Schulwochen, 10 h (Q3-Ende, mit Klausuren 3 h)
 
 - **Gründung**, falls noch nicht geschehen.
-- **Brief an die Krankenkasse**, sobald das Gewerbe angemeldet ist (Vorlage
-  in Abschnitt 16): Schüler mit Gewerbe; deine echten Stunden (Schulwochen
-  3–10, Q4 höchstens 7, Ferien bis 38, nach der Schule bis ~50 je Woche);
-  erwarteter Gewinn unter 590 € im Monat, keine Angestellten; Bitte um
-  schriftliche Bestätigung.
+- **Brief an die Krankenkasse**, sobald das Gewerbe angemeldet ist (in 01 am
+  Fr 08.01.; Vorlage in Abschnitt 16): Schüler mit Gewerbe; deine echten
+  Stunden (Schulwochen 3–10, Q4 höchstens 7, Ferien bis 38, nach der Schule
+  bis ~50 je Woche); erwarteter Gewinn unter 590 € im Monat, keine
+  Angestellten; Bitte um schriftliche Bestätigung.
 - **Zusage des Elternteils** für eine mögliche Übergabe im Sommer, eine
   Seite schriftlich (Abschnitt 14). **Oberstufenkoordination fragen,** wann
   die mündlichen Prüfungen liegen.
-- **TestFlight mit der Familie (AP21),** Sandbox-Kauf im Store-Build, Fehler
-  beheben.
-- **Funktions-Stopp So 24.01.:** danach nur noch Fehler, Texte, Einreichung.
+- **App 1 fertig bauen:** Tageslimit und Kostenbremse (AP15), Aussehen mit
+  Icon, Startbild und Name (AP16), iPad und Gerätetests (AP17), zuletzt die
+  Favoriten (Rest von AP10a, Sa 23.01.).
+- **Funktions-Stopp So 24.01.:** danach nur noch Fehler, Texte, Einreichung;
+  was fehlt, z. B. die Favoriten, kommt in Version 1.1.
+- **Store-Eintrag (AP19, Sa 23.01. bis Sa 30.01.):** Abo-Gruppe mit beiden
+  Abos, Preise, Datenschutzangaben, Store-Seite in de-DE, en-US und en-GB,
+  zum Schluss ein Sandbox-Kauf im Store-Build.
+- **TestFlight mit der Familie (AP21):** Store-Build am Mo 25.01., die drei
+  Tester am Sa 30.01., Fehler beheben.
+- **Betriebsprojekt einrichten (Beginn von AP20, Sa 30.01.);** der Rest von
+  AP20 mit der Sicherheits-Mindestprüfung folgt am Mo 01.02.
 - **Fr 29.01. Halbjahreszeugnis:** Lade es in eApply nach, falls die ETH es
   verlangt.
 
-### KW 05 (01.–07.02.), Halbjahresferien Mo/Di, ~19 h
+### KW 05 (01.–07.02.), Halbjahresferien Mo/Di, ~18 h
 
 - Mo/Di je ~7 h, ab Mi 03.02. gilt die Q4-Regel (Sa 3 h, höchstens zweimal
-  1–2 h).
+  1–2 h); 01 plant Mi–Fr zusammen höchstens 1 h, dazu So 10 min
+  Kassenprüfung.
+- **Mo 01.02.: Rest von AP20:** Betriebsprojekt fertig einrichten, neuer
+  Store-Build damit, Sicherheits-Mindestprüfung mit allen acht Punkten
+  (Abschnitt 7).
 - **Einreichen bis Di 02.02. (AP22),** sobald Checkliste C steht, mit „Diese
   Version manuell veröffentlichen“ (Abschnitt 4). Abo-Gruppe und Abos
   zusammen mit dieser Version einreichen.
 - **Markenkonten** in der Woche der Einreichung anlegen, mit Link
-  „Impressum“ ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md)).
+  „Impressum“ ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md));
+  in 01 am Di 02.02., danach die Vorbereitung der Posts.
 
 ### KW 06–10 (08.02.–14.03.), Q4, höchstens 6–7 h
 
@@ -1013,7 +1075,11 @@ jedes Arbeitspaket (AP1–AP22) in
   die vor dem Abitur startet, nur ein Vorab-Blick. Wird sie bestanden, zählt
   sie (Creator buchst du trotzdem erst nach deiner letzten Prüfung). Wird sie
   verfehlt, gilt die zweite Prüfung, 21 Tage nach dem ersten täglichen Post
-  nach der letzten Prüfung (spätestens Di 29.06.).
+  nach der letzten Prüfung (spätestens Di 29.06.; mit mündlicher Nachprüfung
+  am Tag nach der letzten Nachprüfung, Abschnitt 13).
+- **App 2 ohne Code vorbereiten:** Solange App 1 im Review ist, darfst du in
+  den Q4-Stunden damit beginnen, höchstens ~6 Stunden für alles (was dazu
+  gehört, steht in KW 23–26). Eine Antwort an das Review geht vor.
 - **Gründung**, falls M2 bis Mo 01.03. erreicht ist (Checkliste A; in Q4 auf
   zwei Samstage verteilt). Danach erst wieder nach der letzten Prüfung.
 - **Ist App 1 noch nicht eingereicht:** im Rahmen der Q4-Stunden weiterbauen,
@@ -1060,12 +1126,41 @@ jedes Arbeitspaket (AP1–AP22) in
   gestartete App 21 Tage nach dem ersten täglichen Post, spätestens am
   **Di 29.06.:** ≥ 300 $ MRR → Creator buchen (Checkliste F,
   für alle Apps zusammen bis 18.07. höchstens 750 €); sonst nur eigene Posts
-  weiter.
-- **App 2** (die zweitbeste Idee) aus deiner Vorlage, mit anderer
-  Kernfunktion. Reine Varianten lehnt Apple ab. Im Modell erscheint eine
+  weiter. **Mit mündlicher Nachprüfung** (Mo 28.06.–Mi 30.06.) machst du ab
+  einer Woche davor gar nichts an der App, auch keine Posts (06,
+  Abschnitt 1.2, KW 25). Eine Signalprüfung, die auf ihren Tag oder in die
+  Woche davor fällt, liest du erst am Tag nach deiner letzten Nachprüfung ab,
+  spätestens am Do 01.07.
+  ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md),
+  Abschnitt 9.2).
+- **App 2** (die zweitbeste Idee, die Reserve vom Ideen-Tor): Solange App 1
+  im Review ist, darfst du App 2 ohne Code vorbereiten, höchstens ~6 Stunden:
+  `SPEC.md` nach [`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md),
+  Abschnitt 10.5, die Fragenliste für den geführten Ablauf, die Store-Texte
+  und ein Icon-Entwurf in Canva. Eine Antwort an das Review geht vor, und in
+  der Prüfungszeit bereitest du nichts vor. Den Code beginnst du erst nach
+  der Freigabe von App 1, aus der Vorlage
+  ([`details/02_BAUPLAN_APP1.md`](details/02_BAUPLAN_APP1.md), Abschnitt 9).
+  Nach der Freigabe arbeitest du zuerst das Review-Log von App 1 in die
+  `CLAUDE.md` und in die `SPEC.md` von App 2 ein. App 2 bekommt eine andere
+  Kernfunktion; reine Varianten lehnt Apple ab. Im Modell erscheint eine
   zweite App in 81 von 100 Läufen, im Median um den 12.07.
-- **Ende Juni:** Hast du noch keinen Ferienjob, fragst du zwei
-  Zeitarbeitsfirmen für einen festen Beginn an.
+- **Zürich, aus den 15–40 h:** Zimmer suchen ab KW 24 (~2 h),
+  Finanzierungsbrief der Eltern in KW 25 (~1 h, 1.750 CHF im Monat; beides
+  Schätzungen, [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md),
+  Abschnitt 1.2).
+- **Mo 21.06., in jedem Fall: Zeitarbeit anfragen (1 h).** Ein Vertrag aus
+  dem Winter beginnt am 19.07. (06, Abschnitt 2.4); die zwei Wochen ab
+  Mo 05.07. gibt es nur über eine Zeitarbeitsfirma. Du fragst deshalb zwei
+  Zeitarbeitsfirmen für einen festen Termin an: ohne unterschriebenen Vertrag
+  für den ganzen Sommer, mit Vertrag ab 19.07. für Mo 05.07.–Fr 16.07. Fertig,
+  wenn zwei Anfragen raus sind und ein Gesprächstermin steht.
+- **Fr 25.06.: Vorentscheidung zum Jobbeginn** (06, Abschnitte 2.2 und 2.10):
+  Ist eine App im Store oder im Review, gilt Mo 19.07., sonst Mo 05.07. Ohne
+  Vertrag nennst du der Zeitarbeitsfirma dieses Datum als Beginn; mit Vertrag
+  ab 19.07. sagst du ihr für Mo 05.07.–Fr 16.07. zu (bei Mo 05.07.) oder ab
+  (bei Mo 19.07.). Fertig, wenn die Zeitarbeitsfirma das Datum oder deine
+  Absage hat.
 - **Zeigt eine App Ende Juni nennenswerten Umsatz** (Richtwert ~100 $ MRR;
   genauer Auslöser in [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md),
   Abschnitt 4.4): Das Elternteil, das zugesagt hat, schickt bis Fr 02.07.
@@ -1075,15 +1170,19 @@ jedes Arbeitspaket (AP1–AP22) in
 - **01.–03.07.:** Abiturzeugnis in eApply hochladen, Original an die ETH.
 - **Stichtag So 04.07.:** Ist noch keine App im Store, beginnt der Ferienjob
   am Mo 05.07., und du beginnst keine neue App mehr. Eine eingereichte App
-  darf noch erscheinen. Im Modell trifft das in 20 von 100 Läufen zu.
+  darf noch erscheinen. Im Modell trifft das in 20 von 100 Läufen zu. Galt am
+  Fr 25.06. der 19.07., fragst du am Mo 05.07. die Zeitarbeitsfirmen vom
+  Mo 21.06., ob du sofort beginnen kannst. Das ist unsicher; plane den Lohn
+  dieser zwei Wochen nicht fest ein (06, Abschnitt 2.10). Hast du den 05.07.
+  zugesagt und ist doch eine App im Store, hältst du die Zusage ein und
+  betreust die App abends.
 
 ### KW 27–28 (05.–18.07.), Sommer, ~55 h (davon ~6 h für Zürich)
 
 - Posts, Auswertung, App 2 fertig, eingereicht und gestartet. Apps, die nach
   dem 04.07. erscheinen, bieten nur das Wochenabo an. Bleibt Zeit, beginnt
   App 3; sie muss bis 18.07. eingereicht sein.
-- Zimmer in Zürich suchen (WOKO braucht die Zulassung), Finanzierungsbrief
-  der Eltern.
+- Zimmer in Zürich weiter suchen (WOKO braucht die Zulassung).
 - **Tor 1 (So 18.07.):** Abschnitt 13.
 
 ### KW 29–37 (19.07.–15.09.), Ferienjob und Abschluss
@@ -1094,11 +1193,14 @@ jedes Arbeitspaket (AP1–AP22) in
   - Apps, die am 18.07. schon eingereicht waren, erscheinen noch, ohne
     Creator-Geld (im Modell in 60 von 100 Läufen, eine dritte App im Median
     um den 26.07.). Für die Apps bleiben 2–5 Stunden je Woche: an zwei
-    Werktagen je 20 Minuten Zahlen und Support, samstags bis 3 Stunden, sonst
-    Posts nach Lust.
+    Werktagen je 20 Minuten Zahlen und Support, samstags bis 3 Stunden. Posts
+    höchstens einer am Tag, und nur, wenn du willst
+    ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md),
+    Abschnitt 6.4).
   - **Bis Sa 31.07.:** je App entscheiden: einstellen, übergeben oder
     verkaufen (für eine App, die erst nach Mo 19.07. erscheint, bis
-    Sa 07.08.).
+    Sa 07.08.), und den Umzugstag festlegen (bei einem Umzug vor Sa 18.09.
+    schon bis Mo 19.07.; dann rücken die Tage unten vor, Abschnitt 14).
   - **So 15.08.:** ohne Nachfolger alle Abos aus dem Verkauf nehmen.
   - **Mi 15.09.:** letzter Tag des Dienstes. **Do 16.09. oder Fr 17.09.:** App
     entfernen, Server aus, Gewerbe abmelden (Checkliste H).
@@ -1113,18 +1215,20 @@ jedes Arbeitspaket (AP1–AP22) in
 
 | Messpunkt | Frage | Ja | Nein |
 |---|---|---|---|
-| **Namensfrage** So 13.12. | Steht fest, wer im App Store steht? | Apple-Anmeldung Mo 14.–Mi 16.12. | Apple-Anmeldung und Durchstich rutschen |
-| **Zwischenstand Ideen** Sa 12.12. | Erfüllt mindestens eine Idee alle Mindestwerte? | Apple-Anmeldung Mo 14.–Mi 16.12. | Apple erst nach dem Ideen-Tor |
+| **Namensfrage** So 13.12. | Steht fest, wer im App Store steht? | Apple-Anmeldung Mo 14.–Mi 16.12., wenn auch der Zwischenstand passt und IHK oder Gewerbeamt zugestimmt haben (03, Abschnitt 4.1) | Apple-Anmeldung und Durchstich rutschen |
+| **Zwischenstand Ideen** Sa 12.12. | Erfüllt mindestens eine Idee alle Mindestwerte? | Apple-Anmeldung Mo 14.–Mi 16.12., wenn die Namensfrage entschieden ist und IHK oder Gewerbeamt zugestimmt haben | Apple erst nach dem Ideen-Tor, frühestens Mo 21.12.; am Mo 14.12. das RevenueCat-Konto (AP6) |
 | **M0 / Ideen-Tor** Sa 19.12. / So 20.12. | Besteht eine Idee (Mindestwerte, Slideshow-Test, Ablauf-Test)? `SPEC.md` und echte KI-Antwort in der App? | weiter; fehlt `SPEC.md` oder die KI-Antwort, holst du sie am Mi 23.12. zuerst nach | **No-Go** (keine Idee besteht): nicht gründen, kein Apple-Konto; weiter lernen; fünf neue Ideen nach der ETH-Bewerbung, Entscheidung bis Sa 09.01. |
-| **Stunden-Messpunkt** Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant ~32)? | bis ~40: weiter wie geplant | 40–60: App 1 kleiner schneiden; über 60: Einreichung erst nach dem Abitur einplanen |
-| **M1** Sa 09.01. | ETH-Bewerbung abgeschickt? AP10–AP17 fertig? | weiter | ETH-Bewerbung hat Vorrang, fehlende Pakete in KW 02–04 |
+| **Stunden-Messpunkt** Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant ~32; nur Baustunden, die 10 Minuten Lernen je Sitzung zählen als Lernzeit)? | bis ~40: weiter wie geplant. Jede Stunde über 32 schiebt die Einreichung; ab etwa 38 liegt sie in Q4, mit den 10 Minuten Lernen je Sitzung auch darunter (01, Abschnitt 1) | über ~40 gilt die **Schnittliste**, bei 40–60 und ebenso über 60: Onboarding mit 3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten erst in Version 1.1. Das spart ~7 der 113 Stunden; nach dem Start kommen ~3 Stunden für Version 1.1 dazu. Bei 40–60 liegt die Einreichung eher in Q4; über 60 planst du sie erst nach dem Abitur ein. Mehr lässt sich nicht kürzen, ohne Verlauf, Kopieren oder Teilen (Richtlinie 4.2), die zweite Sprache oder den iPad-Test anzufassen. Nie gekürzt werden geführter Ablauf, Meldeknopf, Einwilligung, die Pflichtteile der Paywall und die Mindestprüfung (02, Abschnitt 8) |
+| **M1** Sa 09.01. | ETH-Bewerbung abgeschickt? AP10–AP17 und AP10a fertig? | weiter | ETH-Bewerbung hat Vorrang, fehlende Pakete in KW 02–04. Im typischen Kalender (01) fehlen am Sa 09.01. noch AP15–AP17 und die Favoriten; sie folgen bis Sa 23.01. |
 | **M2** App 1 halb fertig (Kriterien in KW 01; im Median am 18.01.) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen. Ist M2 bis Mo 01.03. nicht erreicht, gründest du am Tag nach deiner letzten Prüfung, parallel zum Rest-Bau |
 | **Funktions-Stopp** So 24.01. | – | nur noch Fehler, Texte, Einreichung | – |
 | **Einreichung** bis Di 02.02. | Checkliste C grün? | einreichen mit „manuell veröffentlichen“ | in Q4 mit 6–7 Stunden je Woche fertig machen, ohne Druck |
 | **M3** So 14.03. | App 1 im Store oder im Review? | 0–5 Stunden im Abitur für Zahlen und Notfälle, Claude Pro läuft weiter | **Ruhezeit:** Claude Pro ruht, kein Bau bis nach der letzten Prüfung |
-| **Signal** 3 Wochen nach jedem Start | ≥ 300 $ MRR ohne bezahlte Werbung? Fällt der Tag in die Startpause, siehst du am Tag nach deiner letzten Prüfung nach; bestanden zählt, sonst gilt die zweite Prüfung | Creator-Geld, für alle Apps zusammen bis 18.07. höchstens 750 € | nur eigene Posts, nächstes Format oder nächste App |
-| **Zweite Signalprüfung** 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, spätestens Di 29.06. (nur für eine App, die vor dem 15.03. gestartet ist) | ≥ 300 $ MRR? | wie Signal | wie Signal |
-| **Stichtag** So 04.07. | Ist eine App im Store? | weiter bis Tor 1 | Ferienjob ab Mo 05.07., keine neue App mehr |
+| **Signal** 3 Wochen nach jedem Start | ≥ 300 $ MRR ohne bezahlte Werbung? Fällt der Tag in die Startpause, siehst du am Tag nach deiner letzten Prüfung nach; bestanden zählt, sonst gilt die zweite Prüfung. Fällt er auf den Tag einer mündlichen Nachprüfung oder in die Woche davor, liest du am Tag nach deiner letzten Nachprüfung ab (05, Abschnitt 9.2) | Creator-Geld, für alle Apps zusammen bis 18.07. höchstens 750 € | nur eigene Posts, nächstes Format oder nächste App |
+| **Zweite Signalprüfung** 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung, spätestens Di 29.06. (nur für eine App, die vor dem 15.03. gestartet ist); mit mündlicher Nachprüfung am Tag nach der letzten Nachprüfung, spätestens Do 01.07. | ≥ 300 $ MRR? | wie Signal | wie Signal |
+| **Zeitarbeit** Mo 21.06., in jedem Fall | Liegt ein unterschriebener Vertrag aus dem Winter vor (Beginn 19.07.)? | zwei Zeitarbeitsfirmen anfragen, fester Termin Mo 05.07.–Fr 16.07. (1 h) | zwei Zeitarbeitsfirmen anfragen, fester Termin für den ganzen Sommer (1 h) |
+| **Vorentscheidung Jobbeginn** Fr 25.06. | Ist eine App im Store oder im Review? | Jobbeginn Mo 19.07.: ohne Vertrag nennst du der Zeitarbeitsfirma dieses Datum, mit Vertrag sagst du ihr für Mo 05.07.–Fr 16.07. ab | Jobbeginn Mo 05.07.: ohne Vertrag nennst du der Zeitarbeitsfirma dieses Datum, mit Vertrag sagst du ihr für Mo 05.07.–Fr 16.07. zu (06, Abschnitte 2.2 und 2.10) |
+| **Stichtag** So 04.07. | Ist eine App im Store? | weiter bis Tor 1; hast du am Fr 25.06. den 05.07. zugesagt, hältst du die Zusage ein und betreust die App abends | Ferienjob ab Mo 05.07., keine neue App mehr. Galt am Fr 25.06. der 19.07., fragst du am Mo 05.07. die Zeitarbeitsfirmen vom Mo 21.06., ob du sofort beginnen kannst; das ist unsicher (06, Abschnitt 2.10) |
 | **Tor 1** So 18.07. | eine App am Stichtag ≥ 5.000 $ MRR? | weiter (Weg B oder C) | **Weg A:** keine neue App, keine neuen Creator, Ferienjob ab Mo 19.07.; schon eingereichte Apps dürfen noch erscheinen |
 | **Ausgang je App** bis Sa 31.07. | Monatsgewinn über ~150 €? Elternteil hat zugesagt? Ab 300 $ Monatsumsatz und 8 Wochen im Store? | übergeben oder verkaufen (Abschnitt 14) | einstellen |
 | **Tor 2** So 08.08. | ≥ 10.000 $? | Weg C | Weg B endet wie Weg A |
@@ -1157,8 +1261,9 @@ Gewerbe vor dem Umzug. Ohne Nachfolger heißt das: **Verkaufsstopp So 15.08.,
 Dienstende Mi 15.09.** Ziehst du früher um, liegt das Dienstende spätestens
 am Tag vor dem Umzug und der Verkaufsstopp 31 Tage davor. Mit dem
 Verkaufsstopp rücken alle Termine ab der Entscheidung je App um dieselbe Zahl
-Tage vor; die Entscheidung fällt aber frühestens am Mo 19.07. Den Umzugstag
-legst du bis Sa 31.07. fest, bei einem Umzug vor Sa 18.09. schon bis
+Tage vor, auch Umschalttag und Übertragung (bei Umzug Sa 11.09. um 7, bei
+Sa 04.09. um 14); die Entscheidung fällt aber frühestens am Mo 19.07. Den
+Umzugstag legst du bis Sa 31.07. fest, bei einem Umzug vor Sa 18.09. schon bis
 Mo 19.07. Alle Schritte stehen in
 [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md)
 (früherer Umzug: Abschnitt 1.4).
@@ -1187,7 +1292,13 @@ Mo 19.07. Alle Schritte stehen in
 - **Keine neue App, keine neuen Creator.** Apps, die am 18.07. schon fertig
   gebaut oder eingereicht sind, dürfen noch erscheinen, nur mit Wochenabo.
 - **Am selben Tag kündigst du,** was Betrieb und Abschluss nicht brauchen.
-  Claude Pro erst, wenn die Summen für die EÜR erstellt sind.
+  Claude Pro erst, wenn die Zwischensummen für die Anlage EÜR erstellt sind,
+  keine App mehr im Review ist, jede Übertragung durch ist und das
+  Hinweis-Update vom So 15.08. ausgeliefert ist; bei Abrechnungstag am 8. also
+  bis Di 07.09. Steht weder Übergabe noch Verkauf an und ist das
+  Hinweis-Update am Fr 06.08. fertig vorbereitet, kündigst du schon bis
+  Sa 07.08. ([`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md),
+  Abschnitt 6, Schluss).
 - **Bis Sa 31.07. entscheidest du je App:**
 
   | Ausgang | wann | was geschieht |
@@ -1308,7 +1419,8 @@ Mo 19.07. Alle Schritte stehen in
       Review-Notizen: Ausgaben sieht nur der Nutzer selbst, und auf welchem
       Bildschirm die Paywall erscheint
 - [ ] Datenschutzangaben („App-Datenschutz“) in App Store Connect passen zur
-      App: Eingabetext geht an Anthropic und bleibt dort bis zu 30 Tage,
+      App: Eingabetext geht an Anthropic, das ihn nach eigener Angabe binnen
+      30 Tagen löscht (bei Verdacht auf Verstöße bis zu 2 Jahre),
       RevenueCat verarbeitet Kennung und Käufe – nicht „Keine Daten erfasst“
       wählen; Apples Definition vor dem Ausfüllen lesen
 - [ ] Vor der ersten Einreichung geprüft, ob du als Anbieter der App nach
@@ -1343,7 +1455,8 @@ Mo 19.07. Alle Schritte stehen in
 - [ ] Eigene Messereignisse nur mit Einwilligung (§ 25 TDDDG)
 - [ ] Keine Gesundheitsdaten (Art. 9 DSGVO) erheben
 - [ ] Datenschutzerklärung nennt alle Dienste mit Speicherdauer (Anthropic
-      bis 30 Tage) und dich als Verantwortlichen
+      nach eigener Angabe binnen 30 Tagen, bei Verdacht auf Verstöße bis zu
+      2 Jahre) und dich als Verantwortlichen
 - [ ] Onboarding-Frage „Woher kennst du die App?“: freiwillig mit
       „Überspringen“, die Antwort wird sofort und ohne App-User-ID gezählt und
       steht in der Datenschutzerklärung. Sie wird nicht auf dem Gerät
@@ -1367,7 +1480,8 @@ Mo 19.07. Alle Schritte stehen in
 ### F – Creator (nur nach Signal)
 
 - [ ] Signal erreicht (≥ 300 $ MRR in RevenueCat drei Wochen nach dem Start
-      bzw. bei der zweiten Prüfung, spätestens Di 29.06.)
+      bzw. bei der zweiten Prüfung, spätestens Di 29.06.; mit mündlicher
+      Nachprüfung am Tag nach der letzten Nachprüfung, Abschnitt 13)
 - [ ] Creator ist volljährig, sitzt in Deutschland und stellt eine Rechnung;
       Angebot 60–90 € fest je Video samt Posting
 - [ ] Anfrage persönlich und einzeln, mit Link auf kurze
@@ -1401,7 +1515,9 @@ Sommer). Vorlage: [`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.csv).
 - [ ] Mo 19.07. (Ende der Jagd): Ferienjob begonnen; gekündigt, was Betrieb
       und Abschluss nicht brauchen
 - [ ] Bis Sa 31.07.: Entscheidung je App: einstellen, übergeben oder
-      verkaufen (Abschnitt 14)
+      verkaufen (Abschnitt 14); Umzugstag festgelegt (bei einem Umzug vor
+      Sa 18.09. schon bis Mo 19.07.; dann rücken die Tage unten vor,
+      Abschnitt 14)
 - [ ] Übergeben oder verkaufen: Übertragung der App spätestens um den 15.08.
       gestartet; Schlüssel in RevenueCat neu gesetzt; Impressum und
       Datenschutzerklärung am Tag der Übertragung umgestellt
@@ -1417,7 +1533,11 @@ Sommer). Vorlage: [`vorlagen/kennzahlen.csv`](vorlagen/kennzahlen.csv).
       mindestens 31 Tage nach dem Verkaufsstopp): App entfernt, Server
       abgeschaltet, Markenkonten geschlossen
 - [ ] Werkzeuge gekündigt bzw. zum Laufzeitende beendet: Claude Pro (erst,
-      wenn die Summen für die EÜR erstellt sind), Supabase, EAS (falls
+      wenn die Zwischensummen für die Anlage EÜR erstellt sind, keine App mehr
+      im Review ist, jede Übertragung durch ist und das Hinweis-Update vom
+      So 15.08. ausgeliefert ist, bei Abrechnungstag am 8. also bis Di 07.09.;
+      ohne Übergabe und Verkauf und mit fertig vorbereitetem Hinweis-Update
+      schon bis Sa 07.08., 06, Abschnitt 6, Schluss), Supabase, EAS (falls
       bezahlt), Prepaid-Zweitnummer; in der Anthropic-Konsole automatisches
       Aufladen aus; Domain und E-Mail erst, wenn App, Abos und Markenkonten
       beendet sind
@@ -1621,10 +1741,10 @@ Läufe ~39 €. Mit Ferienjob und Übergabe steht alles zusammen in
 
 | Problem | was du tust |
 |---|---|
-| Du kommst mit den Grundlagen nicht voran | Lernmodus, kleinere Schritte, ein Thema je Woche; im Zweifel App 1 noch kleiner schneiden |
+| Du kommst mit den Grundlagen nicht voran | Lernmodus, kleinere Schritte, ein Thema je Woche; im Zweifel App 1 nach der Schnittliste kleiner schneiden (Abschnitt 13, Stunden-Messpunkt); mehr lässt sich nicht kürzen |
 | App 1 ist am 14.03. nicht fertig | normal (in 2 von 3 Läufen): Ruhezeit im Abitur, nach der letzten Prüfung in zwei bis drei Wochen fertig |
 | Am 20.12. besteht keine Idee | No-Go-Regel: nicht gründen, kein Apple-Konto kaufen, weiter lernen; nach der ETH-Bewerbung fünf neue Ideen prüfen, Entscheidung bis Sa 09.01.; besteht auch dann keine, erst nach dem Abitur weiter ([`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md), Abschnitt 7) |
-| Du bekommst keinen Ferienjob | ab Ende Juni zwei Zeitarbeitsfirmen für einen festen Beginn anfragen; im Modell klappt es in 70–85 von 100 Fällen |
+| Du bekommst keinen Ferienjob | am Mo 21.06. fragst du ohnehin zwei Zeitarbeitsfirmen für einen festen Termin an (Abschnitt 12, KW 23–26); hast du am Fr 02.07. noch keine Zusage, fragst du zwei weitere an und gehst zu ihrer Sprechzeit hin (06, Abschnitt 2.2); im Modell klappt es in 70–85 von 100 Fällen |
 | Der Gratis-Server pausiert | im Supabase-Dashboard wiederherstellen; war eine App im Store oder in der Prüfung betroffen, auf Pro wechseln |
 | Apple lehnt ab | Grund ins Review-Log, kleinste Änderung, neu einreichen; Ablehnungen bei der ersten App sind normal |
 | Videos bekommen kaum Aufrufe | anderes Format, nicht mehr Videos desselben Formats; nach 20 Posts eines Formats ohne einen Post ab 5.000 Aufrufen ein neues Format ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md), Abschnitt 7.4) |
