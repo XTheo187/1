@@ -10,7 +10,7 @@ Bewerbungen für den Ferienjob in
 [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md). Modellzahlen
 stehen nur in [`07_HEBEL.md`](07_HEBEL.md).
 
-**Das ist der Plan für den typischen Fall.** Er nutzt alle Stunden, die die
+**Das ist der Plan für den besten Fall.** Er nutzt alle Stunden, die die
 Regeln erlauben (~163 bis Di 02.02.), und rechnet mit den typischen Stunden
 aus 02 (113 für App 1), 04 (~12 für die Ideen) und 03 (~9 für die Gründung).
 **Damit liegt die Einreichung am Di 02.02., dem letzten Tag vor Q4.** Als
@@ -20,11 +20,16 @@ nicht enthalten; mit ihnen kommen mindestens ~12 Stunden dazu, und du reichst
 frühestens um Sa 06.02. ein (Abschnitt 1). Dasselbe gilt, wenn die Pakete
 zusammen mehr als diese knapp 6 Stunden länger brauchen als typisch oder
 eine Woche im Januar eine Klausur hat (3 statt 10 Stunden): Dann reichst du
-in Q4 ein, mit höchstens 6–7 Stunden je Woche (Abschnitt 10). Im Modell ist
-App 1 bis Di 02.02. in 14 von 100 Läufen fertig und bis So 14.03. in 33 von
-100 ([07](07_HEBEL.md), Abschnitte 8 und 11). In den übrigen wird sie erst
-in Q4 oder nach dem Abitur fertig. Das ist kein Scheitern, der Plan rechnet
-damit.
+in Q4 ein, mit höchstens 6–7 Stunden je Woche (Abschnitt 10). Dieser
+Kalender ist der Weg, wenn alles so lange dauert wie in 02 geschätzt. Das
+Modell rechnet vorsichtiger: 78/130/260 Stunden für App 1 (02: typisch 113)
+und 20/28/40 Stunden Lernen ab Mo 30.11. (dieser Kalender plant das untere
+Ende, Abschnitt 1). Im Modell ist App 1 bis Di 02.02. nur in 0,6 von 100
+Läufen eingereicht, bis So 14.03. in 14,7 und bis So 04.07. in 92,3. Im
+Median reichst du sie erst in der Woche ab Mo 14.06. ein, nach dem Abitur. In
+den übrigen 7,7 von 100 Läufen endet die Jagd am Stichtag So 04.07. ohne
+Einreichung ([07](07_HEBEL.md), Abschnitte 1 und 11). Dass App 1 meist erst
+nach dem Abitur kommt, ist kein Scheitern, der Plan rechnet damit.
 
 **Stand:** Mi 25.11.2026. Neu gegenüber der Fassung vom Di 24.11. (Hauptplan
 und 02–07 enthalten diese Entscheidungen schon):
@@ -39,7 +44,10 @@ und 02–07 enthalten diese Entscheidungen schon):
 - Verwaltung aus 03 mit Tag und Dauer, auch Belegtabelle und
   Kündigungskalender; Builds mit Tag und Uhrzeit; Bewerbungen für den
   Ferienjob, Markenkonten und Vorbereitung der Posts erst bei der Einreichung.
-- Einreichung im typischen Fall am Di 02.02. statt Sa 23.01.
+- Einreichung im besten Fall am Di 02.02. statt Sa 23.01.
+- Modellzahlen oben nach den vier Prüfungen vom 25.11. ([07](07_HEBEL.md),
+  Abschnitt 2.2). Vorher stand hier „bis Di 02.02. in 14 von 100 Läufen
+  fertig“; das war zu günstig.
 
 Inhalt:
 1. [Regeln für diesen Kalender](#1-regeln-für-diesen-kalender)

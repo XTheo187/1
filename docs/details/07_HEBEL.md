@@ -10,7 +10,8 @@ Detailplänen (Verweise jeweils am Hebel).
 Szenarien „Hebel: …“, je 300.000 Läufe; die Ranglisten in Abschnitt 4 mit je
 100.000 gepaarten Läufen. Alle Zahlen sind neu: Vier Prüfungen haben das
 Modell am 25.11. korrigiert (Abschnitt 2.2). Die Zahlen vom 24.11. waren zu
-günstig.
+günstig. Eine fünfte Prüfung des Codes hat danach drei kleine Abweichungen
+gefunden; sie sind noch nicht eingearbeitet und stehen in Abschnitt 15.
 
 Inhalt:
 1. [Das Ergebnis in Kürze](#1-das-ergebnis-in-kürze)
@@ -77,7 +78,9 @@ Läufen im Plus, im Median mit +4.340 €, im Mittel mit +3.525 €.
   3 von 10.000 Läufen.
 - **Die Zahl ist empfindlich.** Mit anderen Annahmen, die niemand messen kann,
   liegt die Gewinnchance der App grob zwischen 1 und 8 von 100 (Abschnitt 12).
-  Lies 3,7 als Größenordnung, nicht als genaue Zahl.
+  Lies 3,7 als Größenordnung, nicht als genaue Zahl. Drei kleine, noch nicht
+  eingearbeitete Abweichungen aus der fünften Prüfung sprechen eher für 3,3
+  (Abschnitt 15).
 
 **Was Chance oder Geld erhöht** (gepaarte Rangliste gegen DEIN PLAN mit 3,64
 von 100, Abschnitt 4.1):
@@ -533,7 +536,7 @@ So 18.07. (Weg A in 100,0 von 100 Läufen) oder schon am Stichtag So 04.07.
 | Lohn | 14,60 €/h (Mindestlohn 2027) bis 18,50 €/h: für 320 Stunden endgültig **4.672,00 € / 5.078,40 € / 5.920,00 €**, zunächst ausgezahlt 84–88 % davon (06, Abschnitt 2.8) |
 | Familienversicherung | Lohn aus einer kurzfristigen Beschäftigung zählt nicht als regelmäßiges Einkommen; vor der Unterschrift bei der Krankenkasse schriftlich bestätigen lassen (06, Abschnitt 2.6) |
 | Chance, einen Job über die ganze Zeit zu bekommen | 70 / 78 / 85 von 100 (Schätzung der Gegenprüfung) |
-| früher Beginn | Ist am So 04.07. keine App im Store, endet die Jagd. Die zwei Wochen ab Mo 05.07. gibt es nur über eine Zeitarbeitsfirma: mit Vorlauf (Anfrage Mo 21.06.) mit einer Chance von 50 / 70 / 85 von 100, kurzfristig (wenn du am Fr 25.06. den 19.07. genannt hast) mit 30 / 50 / 70 von 100 (Schätzungen; 06 nennt keine Zahl). 10 Arbeitstage bringen zusätzlich 1.168,00 € / 1.269,60 € / 1.480,00 € |
+| früher Beginn | Ist am So 04.07. keine App im Store, endet die Jagd. Die zwei Wochen ab Mo 05.07. gibt es nur über eine Zeitarbeitsfirma, angefragt am Mo 21.06. in jedem Fall (unten). Galt am Fr 25.06. der 05.07., klappt es mit einer Chance von 50 / 70 / 85 von 100 (mit Vorlauf). Galt der 19.07., fragst du am Mo 05.07. kurzfristig nach, mit 30 / 50 / 70 von 100 (Schätzungen; 06 nennt keine Zahl). 10 Arbeitstage bringen zusätzlich 1.168,00 € / 1.269,60 € / 1.480,00 € |
 
 Im Modell zählen 560 / 600 / 690 € je Woche nach Fahrtkosten, ab Mo 19.07.
 (früh ab Mo 05.07.) bis Fr 10.09.: die sechs vollen Wochen bis So 29.08. und
@@ -546,11 +549,10 @@ die 10 Werktage danach.
   dann endet die Jagd. In 17,0 von 100 beginnt der Job am Mo 05.07., in 20,5
   nicht.
 - **Vorentscheidung:** In 81,9 von 100 Läufen ist am Fr 25.06. eine App im
-  Store oder im Review (im Modell der Stand am So 27.06.); dann nennst du den
-  19.07. In 19,4 von 100 Läufen ist am
-  So 04.07. trotzdem keine App im Store. Dann gibt es die zwei Wochen nur über
-  kurzfristig angefragte Zeitarbeit; in 12,0 von 100 Läufen gibt es dann
-  keinen frühen Beginn.
+  Store oder im Review (im Modell der Stand am So 27.06.); dann gilt der
+  19.07. In 19,4 von 100 Läufen ist am So 04.07. trotzdem keine App im Store.
+  Dann gibt es die zwei Wochen nur über kurzfristig angefragte Zeitarbeit; in
+  12,0 von 100 Läufen gibt es dann keinen frühen Beginn.
 
 **Was die Einzelheiten ausmachen** (gepaart, gegen DEIN PLAN):
 - Job nur bis Di 31.08. statt Fr 10.09.: dein Geld im Mittel −767 €, im Median
@@ -566,8 +568,12 @@ die 10 Werktage danach.
   bis 2.4; in 01 sind 1 h 30 min eingeplant).
 - Am Mo 21.06. in jedem Fall zwei Zeitarbeitsfirmen für einen festen Termin
   anfragen (1 Stunde): ohne unterschriebenen Vertrag für den ganzen Sommer,
-  mit Vertrag ab 19.07. für Mo 05.07.–Fr 16.07. (06, Abschnitte 2.2 und 2.4).
-- Am Fr 25.06. die Vorentscheidung treffen und das Datum nennen (06,
+  mit Vertrag ab 19.07. für Mo 05.07.–Fr 16.07. Welcher Termin gilt,
+  entscheidest du am Fr 25.06. (06, Abschnitte 2.2 und 2.4).
+- Am Fr 25.06. die Vorentscheidung treffen: Ist eine App im Store oder im
+  Review, gilt Mo 19.07., sonst Mo 05.07. Ohne Vertrag nennst du der
+  Zeitarbeitsfirma dieses Datum als Beginn. Mit Vertrag ab 19.07. sagst du ihr
+  für Mo 05.07.–Fr 16.07. zu, wenn der 05.07. gilt, sonst ab (06,
   Abschnitte 2.2 und 2.10).
 - Eine Kündigungsklausel oder Probezeit in den Vertrag, falls doch ein Treffer
   kommt (06, Abschnitt 2.11).
@@ -875,8 +881,9 @@ Mit Übergabe oder Verkauf, aber ganz ohne Creator-Geld: Gewinn aus der App in
   05.07. im Mittel 4.778 €, im Median 6.031 €. Dein Plan bringt im Mittel
   3.518 €, im Median 4.344 €. Der Unterschied von 1.260 € im Mittel (im
   Median rund 1.690 €) ist der Preis für das Lernprojekt samt der kleinen
-  Chance auf mehr. Mit Tariflohn wäre der Unterschied noch größer (1.339 € im
-  Mittel).
+  Chance auf mehr. Mit Tariflohn ist der Unterschied im Mittel etwa gleich
+  groß, rund 1.260 € (gerechnet 1.339 €; der Vergleich ohne App ist dort um
+  rund 78 € zu günstig, Abschnitt 15).
 - **Die Hebel halten auch im schlechteren Fall:** Mit den alten Bauzeiten oder
   im strengeren Markt sinkt die Chance der App auf 2,91 bzw. 2,56 von 100; der
   Medianverlust bleibt bei 573 € bzw. 578 €.
@@ -902,9 +909,9 @@ Mit Übergabe oder Verkauf, aber ganz ohne Creator-Geld: Gewinn aus der App in
 | ab KW 48, am ersten Samstag jedes Monats | Belegtabelle führen | 20–30 Minuten je Monat | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.1 |
 | ab der Gründung, jeden Sonntag | Kassenprüfung; ab dem Start mit Wochenauswertung und Support | 10 Minuten je Woche, ab dem Start 0,4–0,6 Stunden | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.3 |
 | So 14.03. | Ruhezeit entscheiden: keine App im Store oder im Review → Claude Pro ruht bis nach der letzten Prüfung | 0,2 | [`03_GRUENDUNG_UND_KONTEN.md`](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.4 |
-| solange App 1 im Review ist (typisch Mitte bis Ende Juni; nicht in der Prüfungszeit) | **App 2 ohne Code vorbereiten:** `SPEC.md` aus der Reserve-Idee, Fragenliste, Store-Texte, Icon-Entwurf. Den Code beginnst du erst nach der Freigabe aus der Vorlage | bis 6 | [`02_BAUPLAN_APP1.md`](02_BAUPLAN_APP1.md), Abschnitt 9 |
+| solange App 1 im Review ist (typisch Mitte bis Ende Juni; nicht in der Prüfungszeit) | **App 2 ohne Code vorbereiten:** `SPEC.md` aus der Reserve-Idee, Fragenliste, Store-Texte, Icon-Entwurf. Den Code beginnst du erst nach der Freigabe aus der Vorlage | bis 6 | [`02_BAUPLAN_APP1.md`](02_BAUPLAN_APP1.md), Abschnitt 9; [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 1.2 (KW 24) |
 | vor der ersten Creator-Buchung | **Entscheidung zum Creator-Geld:** ganz weglassen (im Modell besser, Abschnitt 4.1) oder nach den Regeln aus 05 nutzen | – | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md), Abschnitt 10 |
-| Mo 21.06. | **Zeitarbeitsanfrage für alle:** zwei Zeitarbeitsfirmen für einen festen Termin anfragen – ohne unterschriebenen Vertrag für den ganzen Sommer, mit Vertrag ab 19.07. für Mo 05.07.–Fr 16.07. | 1 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md), Abschnitte 2.2 und 2.4 |
+| Mo 21.06. | **Zeitarbeitsanfrage, in jedem Fall:** zwei Zeitarbeitsfirmen für einen festen Termin anfragen – ohne unterschriebenen Vertrag für den ganzen Sommer, mit Vertrag ab 19.07. für Mo 05.07.–Fr 16.07. Welcher Termin gilt, entscheidest du am Fr 25.06. | 1 | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md), Abschnitte 2.2 und 2.4 |
 | Fr 25.06. | Vorentscheidung: App im Store oder im Review → Beginn Mo 19.07., sonst Mo 05.07. | 10 Minuten | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md), Abschnitte 2.2 und 2.10 |
 | Mo 28.06., spätestens Di 29.06. | MRR je App notieren (für die Anmeldung des Elternteils); zweite Signalprüfung für eine App, die vor dem Abitur gestartet ist (21 Tage nach dem ersten täglichen Post nach der letzten Prüfung; mit Nachprüfung am Tag nach der letzten Nachprüfung) | 0,2 | [`05_START_UND_MARKETING.md`](05_START_UND_MARKETING.md), Abschnitt 9.2; 06, Abschnitt 4.4 |
 | bis Fr 02.07. | zeigt eine App am Mo 28.06. ~100 $ MRR und liegt die Zusage vor: Elternteil schickt Gewerbe- und Apple-Anmeldung ab | 2–4 (Elternteil) | [`06_SOMMER_UND_ABSCHLUSS.md`](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 4.4 |
@@ -930,7 +937,7 @@ B = belegt, S = Schätzung, P = Regel aus den Plänen.
 | Startumsatz ohne bezahlten Test (Anteil) | 0,2 / 0,4 / 0,7 | 0,2 / 0,42 / 0,7 (Slideshow-Filter der Ideenwahl) | S |
 | Bauzeit App 1 (Stunden) | 80 / 140 / 280 | 78 / 130 / 260 | S |
 | Bauzeit weitere Apps | 35 / 60 / 120 | 33 / 55 / 110 | S |
-| Lernstunden ab Mo 30.11. | 20 / 30 / 40 | 20 / 28 / 40 | S; Hauptplan, Abschnitt 7 (01 plant weniger, Abschnitt 15) |
+| Lernstunden ab Mo 30.11. | 20 / 30 / 40 | 20 / 28 / 40, vorsichtig gerechnet; die Gegenprobe mit 12 / 15 / 20 steht in Abschnitt 12.2 | S; Hauptplan, Abschnitt 7: Lernpfad ~15–40 Stunden, 01 plant das untere Ende |
 | Review in Wochen | 0,5 / 1,5 / 4,0 | 0,4 / 1,2 / 3,0 | S |
 | App 2 vorbereiten, solange App 1 im Review ist | – | bis 6 Stunden, ohne Code | S; Code erst nach der Freigabe (02, Abschnitt 9) |
 | Gründung (€) | 150 / 250 / 450 | 140 / 200 / 380 | B/S; 03, Abschnitt 1.2 |
@@ -1031,7 +1038,9 @@ auf mindestens 1.000 $ MRR 0,10 / 0,18 / 0,30) mit Lernkurve (×0,3 / 0,6 / 0,85
   niedrigeren Quoten und einer Lernkurve.
 - **Bewusst nicht oder vereinfacht gerechnet.** Die Wirkungen haben die
   Prüfungen am 25.11. mit 5.000 bis 20.000 Läufen auf Zwischenständen des
-  Modells geschätzt:
+  Modells geschätzt. Die letzten drei Zeilen hat die fünfte Prüfung gefunden
+  (Code von Commit 280b3eb, 5.000 gepaarte Läufe, Wirkung für DEIN PLAN); sie
+  sind noch nicht eingearbeitet:
 
   | Punkt | im Modell | Wirkung |
   |---|---|---|
@@ -1043,7 +1052,23 @@ auf mindestens 1.000 $ MRR 0,10 / 0,18 / 0,30) mit Lernkurve (×0,3 / 0,6 / 0,85
   | Länderpreise (Schweiz, USA) und das reine Wochenabo nach dem 04.07. | nur die deutschen Preise, beide Abos | nicht nachgerechnet; die Pläne nennen dafür keine Zahl |
   | Einkommensteuer | keine | fiele in 3 von 5.000 Läufen an, im Mittel rund 2 €. In den übrigen Läufen bleibt das zu versteuernde Einkommen (Gewinn aus dem Gewerbe mit Verkaufserlös plus Lohn, minus 1.230 € Arbeitnehmer-Pauschbetrag und weitere Abzüge) unter dem Grundfreibetrag (2026: 12.348 €, der Wert für 2027 ist offen) |
   | zweite Ideenrunde nach einem No-Go (~12 Stunden, 04, Abschnitt 7) und eine mündliche Nachprüfung (Mo 28.06.–Mi 30.06.) | nicht gerechnet | – (die Pläne nennen keine Wahrscheinlichkeit) |
-  | Lernzeit: 01 plant ~7,5 Stunden eigene Lernzeit, der Hauptplan 25–40 Stunden | Hauptplan: 20 / 28 / 40 Stunden ab 30.11. | mit der Lernzeit aus 01: 4,65 statt 3,70 von 100, dein Geld im Mittel 3.470 € statt 3.518 € (Abschnitt 12.2) |
+  | Lernzeit: Der Hauptplan nennt für den Lernpfad ~15–40 Stunden; 01 plant das untere Ende (eigene Lernzeit ~7,5 Stunden und 10 Minuten je Sitzung) | vorsichtig 20 / 28 / 40 Stunden ab 30.11. | mit 12 / 15 / 20 Stunden: 4,65 statt 3,70 von 100, dein Geld im Mittel 3.470 € statt 3.518 € (Abschnitt 12.2) |
+  | Umsatz nach dem Ende der Jagd: 05, Abschnitt 6.4 kürzt die Posts nur mit Ferienjob (höchstens ein Post am Tag) und nach dem Verkaufsstopp | der halbe Rückgang aus Abschnitt 14.2 gilt auch in Läufen ohne Job | ohne den Rückgang in diesen Läufen +0,30 Punkte und +5,5 € im Mittel; in PLAN MIT HEBELN, das keinen Job hat, +1,80 Punkte |
+  | Start in Q4 mit höchstens 3 Posts je Woche (05, Abschnitte 6.1 und 8.4: 9 Posts in drei Wochen bringen rund 1–20 $ MRR) | eine App startet in Q4 so stark wie im Sommer | mit einem Viertel des Startumsatzes (Faktor 0,25) −0,56 Punkte und −16 € im Mittel; dass ein Start in Q4 auch langsamer wächst, ist darin noch nicht enthalten |
+  | Nein in der gültigen Signalprüfung (05, Abschnitt 9.3: danach 1 Post am Tag für diese App) | nicht eigens geregelt; der Umsatz der App wächst weiter | −0,12 Punkte und −7 € im Mittel |
+
+  Zusammen machen die drei neuen Zeilen etwa −0,4 Punkte aus: Die
+  Gewinnchance der App läge eher bei 3,3 als bei 3,7 von 100. Das liegt
+  innerhalb der Spanne, die die Gegenproben zeigen (Abschnitt 12.1).
+- **Der Vergleich „nur Ferienjob, falls ein Betrieb mit Tariflohn zusagt“**
+  (Abschnitt 12.2) ist nach der fünften Prüfung um rund 78 € im Mittel zu
+  günstig. Dort zählen die zwei frühen Wochen ab Mo 05.07. zum Tariflohn, in
+  DEIN PLAN mit Tariflohn dagegen zum Zeitarbeitslohn (Abschnitt 14.3; 06,
+  Abschnitt 2.8). Ohne diesen Fehler läge sein Abstand zu DEIN PLAN mit
+  Tariflohn im Mittel bei rund 1.260 € statt 1.339 €.
+- **Creator-Geld weglassen** bringt bei sonst gleichen Entscheidungen
+  +1,08 Punkte und +16 € im Mittel (fünfte Prüfung; in der Rangliste,
+  Abschnitt 4.1, +0,94 Punkte und +18 €).
 
 - **Der Wert nach dem Sommer** gehört bei einer Übergabe dem Elternteil. In
   „dein Geld“ steht nur ein Verkaufspreis; die Übergabe zählt nur „mit dem

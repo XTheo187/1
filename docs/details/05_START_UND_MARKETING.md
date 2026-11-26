@@ -1029,7 +1029,7 @@ Nachprüfung ab ([06](06_SOMMER_UND_ABSCHLUSS.md), Abschnitt 1.2, KW 26).
 
 | Ergebnis | was du tust |
 |---|---|
-| **Ja** | Creator-Geld ist frei, für alle Apps zusammen bis So 18.07. höchstens 750 € (Abschnitt 10). Du darfst es auch lassen ([07](07_HEBEL.md), Abschnitt 12). Supabase darf auf Pro wechseln ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5). Du sprichst mit dem Elternteil, das eine Übernahme zugesagt hat ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 2.3). Die Posts laufen weiter |
+| **Ja** | Creator-Geld ist frei, für alle Apps zusammen bis So 18.07. höchstens 750 € (Abschnitt 10). Du darfst es auch lassen; im Modell ist Weglassen sogar besser ([07](07_HEBEL.md), Abschnitte 4 und 12). Supabase darf auf Pro wechseln ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 7.5). Du sprichst mit dem Elternteil, das eine Übernahme zugesagt hat ([03](03_GRUENDUNG_UND_KONTEN.md), Abschnitt 2.3). Die Posts laufen weiter |
 | **Ja, aber vor Mo 15.03.** | Das Ergebnis zählt. Creator buchst du trotzdem erst am Tag nach deiner letzten Prüfung (Hauptplan, Abschnitt 12, KW 06–10); in Q4 gibt es keine Buchung und keine neue Kampagne. Supabase Pro und das Gespräch mit dem Elternteil wie bei „Ja“ |
 | **Nein im Vorab-Blick** oder am Tag nach der letzten Prüfung | nichts. Weiter nach dem Wochenprogramm (Abschnitt 6); es gilt die zweite Prüfung im Sommer |
 | **Nein in der gültigen Prüfung** | kein Creator-Geld. Die App bleibt im Store. Du senkst auf 1 Post am Tag für diese App, beginnst das nächste Format oder gibst die Zeit App 2 |
@@ -1048,6 +1048,10 @@ Abschnitt 1.2, KW 26).
 ## 10. Creator nach dem Signal
 
 Nur nach bestandener Signalprüfung. Die Creator zeigen sich selbst, du nicht.
+Vorher entscheidest du, ob du Creator-Geld überhaupt nutzt. Im Modell ist die
+Gewinnchance der App ganz ohne Creator-Geld höher, bei gleich viel Geld
+([07](07_HEBEL.md), Abschnitte 4 und 12). Lässt du es weg, gilt dieser
+Abschnitt nicht.
 Zeit: 3–5 Stunden für Suche, Briefing und Vereinbarung, dazu 0,5 Stunden je
 Creator, zusammen höchstens 9 Stunden; einmalig kommen die
 Datenschutzhinweise dazu (Schritt 3). Die Stunden fehlen App 2.

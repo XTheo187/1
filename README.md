@@ -76,11 +76,20 @@ erst bauen, dann als Einzelunternehmen gründen (eine UG passt nicht in
 5.000 €), kein Start im Abitur, Creator-Geld nur nach einem Signal. Dazu
 sieben Detailpläne in [`docs/details/`](docs/details/) (Tag für Tag bis zur
 Einreichung, Bauplan, Gründung und Kosten, Ideenwahl, Start und Marketing,
-Sommer und Abschluss, Hebel). Ergebnis mit den geprüften Hebeln: 500.000 € in
-keinem von 300.000 Läufen; die App allein bringt in ~9–12 von 100 Läufen einen
-Gewinn und kostet im Median ~560 €; zusammen mit einem Ferienjob ab 19.07.
-endet der Sommer in ~82 von 100 Läufen im Plus (Median ~3.200 €); nie mehr als
-5.000 € Verlust.
+Sommer und Abschluss, Hebel). Ergebnis mit den geprüften Hebeln (Modell nach
+vier Prüfungen, Stand 25.11., je 300.000 Läufe;
+[`docs/details/07_HEBEL.md`](docs/details/07_HEBEL.md)): 500.000 € erreicht
+keiner von 300.000 Läufen. Die App ist ein Lernprojekt: Sie bringt in 3,7 von
+100 Läufen einen Gewinn, dann meist nur ein paar hundert Euro, und kostet im
+Median 567 €. Je nach Annahmen liegt diese Chance grob zwischen 1 und 8 von
+100 Läufen; eine fünfte Prüfung spricht eher für 3,3 (Abschnitt 15 in 07). Das Geld kommt aus dem Ferienjob ab 19.07. (ab 05.07., wenn am
+04.07. keine App im Store ist): Damit ist dein Geld in 78,5 von 100 Läufen im
+Plus, im Median mit +4.344 €, im Mittel mit +3.518 €. Eine Übergabe an ein
+Elternteil zählt dabei nicht mit, dieses Geld gehört dem Elternteil. Mehr als
+5.000 € Verlust gibt es in keinem Lauf. Zum Vergleich: Nur der Ferienjob ab
+05.07., ohne App, brächte im Mittel +4.778 € und im Median +6.031 €, also rund
+1.260 € bzw. 1.690 € mehr. Dafür bekommst du meist eine eigene App im Store,
+Erfahrung vor dem Studium und eine kleine Chance auf mehr.
 Was bis dahin realistisch durch Arbeit drin ist – maximal rund 13.500 EUR
 netto (Median ~11.300 EUR), Obergrenze ~21.800 EUR: [`docs/VERDIENST_BIS_SOMMER_2027.md`](docs/VERDIENST_BIS_SOMMER_2027.md)
 (Rechnung: `python3 plan/verdienst_2027.py`).

@@ -25,8 +25,8 @@ andere Modellzahlen stehen nur in [`07_HEBEL.md`](07_HEBEL.md).
   Job, ETH und Umzug, aus Abschnitt 7 die Erklärung 2027 mit Anlage N und aus
   4.7 der Punkt „Deine Rolle danach“.
 
-**Verhältnis zum Hauptplan:** Der Hauptplan steht auf dem Stand vom 24.11.
-(Abschnitt 1, „Was sich am 24.11. geändert hat“). Dieses Dokument führt seine
+**Verhältnis zum Hauptplan:** Der Hauptplan steht auf dem Stand vom 25.11.
+(Abschnitt 1, „Was sich am 25.11. geändert hat“). Dieses Dokument führt seine
 Abschnitte für den Sommer Schritt für Schritt aus. Genauer als dort sind hier:
 der Messtag und die Schwelle für das Apple-Konto des Elternteils (4.4), die
 Bedingungen für die Kündigung von Claude Pro (Abschnitt 6, Schluss), der
@@ -170,9 +170,10 @@ und die Tage der zweiten Tabelle) in deinem Kalender stehen.
 
 ### 2.1 Warum
 
-- **Sicheres Geld, sobald die Jagd endet.** Im Normalfall endet sie am
-  So 18.07. Die Wochen danach bringen der App nur noch wenig. 256 Stunden
-  Arbeit bringen dagegen sicher 3.700–4.700 €.
+- **Sicheres Geld, sobald die Jagd endet.** Meist endet sie am So 18.07.,
+  sonst schon am Stichtag So 04.07. Die Wochen danach bringen der App nur
+  noch wenig. Bekommst du den Job, bringen 320 Stunden bis Fr 10.09.
+  4.672–5.920 € (256 Stunden bis Di 31.08.: 3.738–4.736 €, Abschnitt 2.8).
 - **Keine Sozialabgaben.** Eine kurzfristige Beschäftigung ist für dich frei
   von Beiträgen zur Kranken-, Renten-, Arbeitslosen- und Pflegeversicherung.
   Abiturienten mit Studienabsicht gelten dabei als nicht berufsmäßig

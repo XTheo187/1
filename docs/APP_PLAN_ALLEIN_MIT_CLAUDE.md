@@ -16,33 +16,55 @@ trägst die Verantwortung. Gerechnet ist alles mit
 [`plan/plan_500k.py`](../plan/plan_500k.py), Szenarien „Deine Angaben“ und
 „Hebel“.
 
-**Stand 24.11.2026.** Die Zahlen sind neu gerechnet: mit den geprüften Hebeln
-(Kosten, Bau, Nachfolger, Ferienjob) und mit einer Pflicht von Apple, die der
-Stand vom 23.11. nicht enthielt (Abschnitt 1 und
-[`details/07_HEBEL.md`](details/07_HEBEL.md)).
+**Stand 25.11.2026 (spät).** Die Zahl vom 24.11. (Gewinn aus der App in 9 bis
+12 von 100 Läufen) war zu günstig. Am 25.11. haben vier unabhängige Prüfungen
+die Stunden und Regeln der Detailpläne ins Modell gebracht und drei Altlasten
+aus dem alten 500k-Modell entfernt: zu hohe Kosten vom Umsatz (Werbung, die es
+im Plan nicht gibt), einen Umsatz, der ohne Posts einfach weiterwuchs, und
+einen zu schnellen Start eines Treffers. Alle Modellzahlen hier sind deshalb
+neu (Modell im Stand von Commit 280b3eb; Abschnitt 1 und
+[`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 2).
 
-> **Worauf du dich einlässt** (Modell, 300.000 Läufe je Variante):
+> **Worauf du dich einlässt** (DEIN PLAN, Modell vom 25.11., 300.000 Läufe je
+> Variante):
 >
 > | | |
 > |---|---|
-> | Zeit bis 31.08. | **~750 Stunden** verfügbar, davon ~180 bis zum 14.03. (10 je Schulwoche, ~31–38 je Ferienwoche, 3–7 in Q4). Im Abitur ruht die App, solange keine im Store ist. Ab Juni 15–55 je Woche. Endet die Jagd am 18.07. (der Normalfall), sind es ~400 Stunden für Lernen und App |
-> | App 1 fertig | bis Di 02.02. in 14 von 100 Läufen, bis So 14.03. in 33 von 100, sonst erst nach dem Abitur (Median 07.06.) |
-> | App 1 im App Store | vor dem 15.03. in 24 von 100 Läufen, sonst im Median ab 21.06. |
-> | Geld nur aus der App (einschließlich Abmeldung und Steuererklärung) | im Median **−558 €**, im Mittel −393 €; mehr als 1.000 € Verlust in 1 von 100 Läufen, nie mehr als 5.000 € |
-> | ein Gewinn aus der App | in **9 von 100** Läufen; in 12 von 100, wenn ein Elternteil eine laufende App im Sommer übernehmen würde |
-> | alles zusammen, mit Ferienjob ab 19.07. | im Plus in **82 von 100** Läufen, im Median **+3.191 €** |
-> | 10.000 € oder mehr | in 1,8 von 100 Läufen (nur aus der App: 0,25) |
+> | Zeit bis 31.08. | **~750 Stunden** verfügbar, davon ~180 bis zum 14.03. (10 je Schulwoche, ~31–38 je Ferienwoche, 3–7 in Q4). Ist am 14.03. keine App im Store oder im Review, ruht die App im Abitur. Ab Juni 15–55 je Woche. Endet die Jagd am So 18.07. (in 62,5 von 100 Läufen), sind es bis dahin ~400 Stunden; ~60 davon brauchen Ideenwahl, Verwaltung, Bewerbungen, Gründung und Zürich, ~340 bleiben für Lernen und App. Endet sie schon am Stichtag So 04.07. (in 37,5 von 100), bleiben ~250 |
+> | App 1 eingereicht | bis Di 02.02. in 0,6 von 100 Läufen, bis So 14.03. in 14,7, bis So 04.07. in 92,3. Typisch reichst du sie erst nach dem Abitur ein (im Median in der Woche ab Mo 14.06.); das ist kein Scheitern, der Plan rechnet damit. In 7,7 von 100 Läufen nie, weil die Jagd am Stichtag endet. Der Kalender in [01](details/01_TAG_FUER_TAG_BIS_FEBRUAR.md) mit der Einreichung am Di 02.02. ist der **beste Fall**: Er rechnet mit den typischen 113 Baustunden aus 02 und wenig eigener Lernzeit, das Modell vorsichtiger mit 78/130/260 Stunden Bau, 20/28/40 Stunden Lernen und allen Nebenaufgaben |
+> | App 1 im App Store | bis So 14.03. in 9,3 von 100 Läufen, bis So 04.07. in 62,5, überhaupt in 92,3; im Median ab der Woche ab Mo 28.06. |
+> | Geld nur aus der App (einschließlich Abmeldung und Steuererklärung) | im Median **−567 €**, im Mittel −533 €; in 90 von 100 Läufen höchstens 786 € Verlust, mehr als 1.000 € Verlust in 0,5 von 100, nie mehr als 5.000 € |
+> | Gewinn aus der App | in **3,7 von 100** Läufen, also in etwa 4 von 100. Dann meist nur ein paar hundert Euro: Mehr als 409 € bringt die App nur in 1 von 100 Läufen |
+> | dein Geld (App, Verkaufspreis, Lohn) mit Ferienjob ab 19.07., ab 05.07. ohne App im Store | im Plus in **78,5 von 100** Läufen, im Median **+4.344 €**, im Mittel +3.518 €. Das Geld kommt aus dem Lohn (Lohn in 77,7 von 100 Läufen); Verlust machst du nur in Läufen ohne Job (21,5 von 100). Nicht dabei ist eine Übergabe an ein Elternteil: Dieses Geld gehört dem Elternteil (mit ihm im Plus in 78,7 von 100 Läufen, Median +4.340 €) |
+> | 10.000 € oder mehr | dein Geld in 0,03 von 100 Läufen (rund 3 von 10.000), nur aus der App in 1 von 300.000 Läufen |
 > | 500.000 € bis 31.08.2027 | **in keinem** von 300.000 Läufen |
+> | zum Vergleich: nur Ferienjob ab 05.07., keine App | im Plus in 77,5 von 100 Läufen, im Median +6.031 €, im Mittel +4.778 €: rein nach Geld im Mittel rund 1.260 € und im Median rund 1.690 € mehr als dein Plan |
 >
 > Das ist ehrlich gesagt ein **Lernprojekt mit kleiner Gewinnchance**, kein
-> Weg zu 500.000 €. Die App kostet dich im Normalfall rund 560 € und ~400
-> Stunden. Sicheres Geld bringt nicht die App, sondern der Ferienjob, den du
-> beginnst, sobald die Jagd endet. Rein nach Geld gerechnet wäre „nur
-> Ferienjob, keine App“ sogar etwas besser (im Mittel rund 700 €). Dafür hast
-> du am Ende eine eigene App im App Store, echte Programmier- und
-> Marketingerfahrung vor dem ETH-Studium und gemessene Zahlen. Die Regeln
+> Weg zu 500.000 €. Gewinn aus der App gibt es in etwa 4 von 100 Läufen, und
+> dann meist nur ein paar hundert Euro. Die Jagd endet praktisch immer
+> spätestens am So 18.07. (Weg A; nur 2 von 300.000 Läufen enden anders), in
+> 37,5 von 100 Läufen schon am Stichtag So 04.07. Die App kostet dich im
+> Median rund 570 € und ~250–340 Stunden. Dein Geld kommt aus dem Ferienjob:
+> Rein nach Geld wäre „nur Ferienjob, keine App“ im Mittel rund 1.260 € und im
+> Median rund 1.690 € besser. Dafür hast du in 92 von 100 Läufen eine eigene
+> App im App Store, echte Programmier- und Marketingerfahrung vor dem
+> ETH-Studium, gemessene Zahlen und eine kleine Chance auf mehr. Die Zahl ist
+> empfindlich: Mit anderen Annahmen, die niemand messen kann, liegt die
+> Gewinnchance der App grob zwischen 1 und 8 von 100 (Abschnitt 20). Drei
+> kleine, noch nicht eingearbeitete Abweichungen aus einer fünften Prüfung
+> sprechen eher für 3,3 als für 3,7 von 100
+> ([`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 15). Die Regeln
 > unten sorgen dafür, dass weder das Abitur noch die ETH-Zulassung noch dein
 > Geld für Zürich darunter leiden.
+>
+> **Was die Chance erhöht:** Lässt du das Creator-Geld weg, steigt die
+> Gewinnchance der App im Modell von 3,6 auf 4,6 von 100 (gepaarte
+> Rangliste), dein Geld bleibt gleich, und du setzt bis zu 750 € weniger ein;
+> die Entscheidung liegt bei dir. Nimmst du dazu die Schnittliste aus 02 von
+> Anfang an und lernst mehr am eigenen Projekt als mit Tutorials, sind es
+> zusammen etwa 6 von 100 Läufen, bei fast gleichem Geld (Abschnitt 1;
+> [`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 4.1).
 
 **Die Detailpläne.** Dieses Dokument ist der Überblick mit Regeln,
 Messpunkten und Checklisten. Die einzelnen Schritte stehen hier:
@@ -99,22 +121,76 @@ Korrekturen und was sie bewirken:
 | Claude Pro neu abschließen | Max läuft noch ein paar Tage | die Max-Tage für die Einrichtung nutzen, danach Pro |
 | „Geschäftsführerin“ | männliche Formen | – |
 
-**Was sich am 24.11. geändert hat** (Hebel-Recherche mit Gegenprüfung,
-Einzelheiten in [`details/07_HEBEL.md`](details/07_HEBEL.md)):
+**Was sich am 24.11. geändert hat** (Hebel-Recherche mit Gegenprüfung; die
+Zahlen in der rechten Spalte sind vom 25.11., Einzelheiten in
+[`details/07_HEBEL.md`](details/07_HEBEL.md)):
 
 | Stand 23.11. | jetzt | Folge |
 |---|---|---|
-| Einnahmen bis 31.08. voll gezählt | Apple verlangt mindestens 31 Tage zwischen „Abo aus dem Verkauf nehmen“ und dem Ende des Dienstes | ohne Nachfolger: Verkaufsstopp So 15.08., Dienstende Mi 15.09. Richtig gerechnet lag der Plan vom 23.11. bei 2,7 statt 6,2 von 100 Läufen mit Gewinn |
-| Erstberatung beim Steuerberater, Abschluss für 0–800 € | Gründungsberatung der IHK statt Steuerberater (ob kostenlos, vorher fragen), Kleinunternehmer, Abschluss selbst über ELSTER (20–500 €) | zusammen mit den nächsten drei Zeilen: Medianverlust der App −558 € statt −1.184 € |
+| Einnahmen bis 31.08. voll gezählt | Apple verlangt mindestens 31 Tage zwischen „Abo aus dem Verkauf nehmen“ und dem Ende des Dienstes | ohne Nachfolger: Verkaufsstopp So 15.08., Dienstende Mi 15.09. Richtig gerechnet lag der Plan vom 23.11. bei 2,7 statt 6,2 von 100 Läufen mit Gewinn; in DEIN PLAN kostet der Stopp im Mittel 69 € |
+| Erstberatung beim Steuerberater, Abschluss für 0–800 € | Gründungsberatung der IHK statt Steuerberater (ob kostenlos, vorher fragen), Kleinunternehmer, Abschluss selbst über ELSTER (20–500 €) | zusammen mit den nächsten drei Zeilen (Hebel „Kosten“, gegen die Ausgangslage): Medianverlust der App −585 € statt −1.174 €, Gewinn aus der App in 2,2 statt 0,6 von 100 Läufen |
 | Supabase Pro ab dem Start | Supabase im Gratis-Tarif, bis ein Signal da ist | ~27 € je Monat weniger nach dem Start |
-| Claude Pro durchgehend, Max in einzelnen Monaten | Ruhezeit im Abitur (Entscheidung am So 14.03.), Max höchstens einen Monat | ~40–60 € weniger, kein Bau im Abitur |
+| Claude Pro durchgehend, Max in einzelnen Monaten | Ruhezeit im Abitur (Entscheidung am So 14.03.), Max höchstens einen Monat | ~40–60 € weniger, kein Bau im Abitur; das kostet im Modell etwas Chance (ohne Ruhezeit 4,3 statt 3,6 von 100, Abschnitt 4) |
 | nach dem Ende der Jagd laufen die Abos weiter | am selben Tag alles kündigen, was Betrieb und Abschluss nicht brauchen | ~15 € je Monat weniger |
 | Apple-Konto bei der Gründung | Apple-Konto schon in KW 51 (Mo 14.–Mi 16.12.), wenn die Idee steht | Durchstich mit echtem Gerät und Testkauf in den Weihnachtsferien |
-| Abschluss: einstellen oder verkaufen | dazu: Übergabe an ein Elternteil, das im Januar schriftlich zugesagt hat | Gewinn aus der App in 12 statt 9 von 100 Läufen, im Mittel +469 € |
-| nach dem 18.07. nur ETH-Vorbereitung und Erholung | Ferienjob Mo 19.07.–Di 31.08. als kurzfristige Beschäftigung (ab Mo 05.07., wenn dann keine App im Store ist) | alles zusammen im Plus in 82 von 100 Läufen, Median +3.191 € |
+| Abschluss: einstellen oder verkaufen | dazu: Übergabe an ein Elternteil, das im Januar schriftlich zugesagt hat | im Modell fast keine Wirkung (dein Geld im Mittel +4 €): Übergabe in 2,0 von 100 Läufen, Verkauf in 0,3. Die Übergabe bleibt als Versicherung für den seltenen Treffer und hebt für diese App den Verkaufsstopp auf |
+| nach dem 18.07. nur ETH-Vorbereitung und Erholung | Ferienjob ab Mo 19.07., befristet bis Fr 10.09. oder Di 31.08., als kurzfristige Beschäftigung (ab Mo 05.07. über Zeitarbeit, wenn dann keine App im Store ist) | dein Geld im Plus in 78,5 von 100 Läufen, im Median +4.344 €; der Job bringt im Mittel +4.041 € |
 | eine Signalprüfung drei Wochen nach dem Start | für eine App, die vor dem Abitur startet, eine zweite: 21 Tage nach dem ersten täglichen Post nach der letzten Prüfung (spätestens Di 29.06.) | ein Treffer wird nicht wegen zu weniger Posts in Q4 abgeschrieben |
 | Ideen-Tor mit fünf Kriterien | K.-o.-Fragen, Nachfrageprüfung, Bewertungstabelle, No-Go-Regel | erreicht keine Idee die Mindestwerte, wird nicht gegründet |
 | Preise offen | Wochenabo 6,99 € vorausgewählt, Monatsabo 14,99 €, keine Testphase, kein Jahresabo | [`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md) |
+
+**Was sich am 25.11. geändert hat** (vier unabhängige Prüfungen des Modells;
+Gründe und Belege in [`details/07_HEBEL.md`](details/07_HEBEL.md),
+Abschnitt 2.2). Am 24.11. stand hier eine Gewinnchance der App von 9 bis 12 von
+100 Läufen. Sie war zu günstig:
+- **Stunden und Regeln der Detailpläne** (Pflicht, kein Hebel): Ideenwahl,
+  Verwaltung, Bewerbungen, Gründung, Kassenprüfung, Markenkonten, Vorbereitung
+  der Posts, Zürich und die Zeitarbeitsanfrage kosten Stunden, die dem Bau
+  fehlen. App 2 beginnt erst nach der Freigabe von App 1, Posts laufen nach dem
+  Wochenprogramm (vor dem Abitur 1,5, danach 6,5 Stunden je Woche), und den
+  frühen Jobbeginn am 05.07. gibt es nur über Zeitarbeit. Ohne die
+  Nebenaufgaben läge PLAN MIT HEBELN bei 6,2 statt 3,7 von 100 (nur zum
+  Verständnis).
+- **Kosten nach dem Plan:** Das alte 500k-Modell zog von jedem Euro Umsatz
+  45–49 % als Werbung ab. Im Plan gibt es keine Werbung aus dem Umsatz; jetzt
+  sind es 15–20 % (Umsatzsteuer im Preis, KI-API, Erstattungen). Mit den alten
+  Kosten läge DEIN PLAN bei 0,7 statt 3,7 von 100.
+- **Umsatz ohne Posts:** Im Abitur und nach dem Ende der Jagd wuchs der Umsatz
+  bisher einfach weiter. Jetzt sinkt er in der Prüfungszeit um 5–15 % je
+  Woche, nach der Jagd um die Hälfte davon. Sonst läge DEIN PLAN bei 5,9.
+- **Start eines Treffers:** 300–3.000 $ MRR in den ersten Wochen statt
+  1.000–8.000 $, an 05, Abschnitt 8.4 kalibriert. Sonst läge DEIN PLAN bei 8,3.
+- **Kleinere Korrekturen:** Creator-Geld hebt die Spitze einer App nur um
+  5–15 %; am Stunden-Messpunkt gilt die Schnittliste; die Familienversicherung
+  richtet sich nach dem Jahresgewinn; der alte Verkauf der Firma ist
+  abgeschaltet; Übergabe und Verkauf richten sich nach dem Stand am
+  Entscheidungstag; die Gegenproben sind gepaart.
+
+So entsteht das Ergebnis Schritt für Schritt (300.000 Läufe je Zeile; „dein
+Geld“ ist App, Verkaufspreis und Lohn, ohne das Geld des Elternteils; mehr
+Spalten und alle Gegenproben in Abschnitt 20):
+
+| Stufe | nur die App: Gewinn in … von 100 Läufen | dein Geld im Plus in … von 100 | dein Geld im Median | im Mittel |
+|---|---:|---:|---:|---:|
+| Plan vom 23.11., wie er dastand | 6,2 | 6,2 | −1.136 € | −954 € |
+| derselbe Plan mit Verkaufsstopp am 15.08. (Pflicht von Apple) | 2,7 | 2,7 | −1.184 € | −1.074 € |
+| dazu alle Stunden und Regeln der Detailpläne (**Ausgangslage**) | 0,6 | 0,6 | −1.174 € | −1.158 € |
+| + geprüfte Hebel: Kosten, Bau, Markt, Signal (**PLAN MIT HEBELN**) | 3,7 | 3,7 | −564 € | −528 € |
+| + Nachfolger (Elternteil hat zugesagt, sonst Verkaufsversuch) | 3,5 | 3,7 (mit dem Geld des Elternteils 4,3) | −564 € | −524 € |
+| + Ferienjob ab 19.07., ab 05.07. ohne App im Store = **DEIN PLAN, Stand 25.11.** | **3,7** | **78,5** | **+4.344 €** | **+3.518 €** |
+| zum Vergleich: nur Ferienjob ab 05.07., keine App | – | 77,5 | +6.031 € | +4.778 € |
+
+**Wie du Chance und Geld noch erhöhen kannst** (gepaarte Rangliste gegen DEIN
+PLAN, der dort bei 3,6 von 100 liegt;
+[`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 4):
+
+| was du tust | Wirkung im Modell |
+|---|---|
+| Creator-Geld weglassen (deine Entscheidung; behältst du es, gelten die Regeln aus 05, Abschnitt 10) | Gewinn aus der App in 4,6 statt 3,6 von 100 Läufen, dein Geld gleich, bis zu 750 € weniger Einsatz |
+| Schnittliste aus 02, Abschnitt 8 von Anfang an | 3,9 statt 3,6 von 100; spart ~7 der 113 Stunden |
+| mehr am eigenen Projekt lernen als mit Tutorials (Lernzeit wie in 01) | 4,5 statt 3,6 von 100, nur wenn das Lernen am Projekt reicht |
+| **alle drei zusammen** | **6,2 statt 3,6 von 100**, dein Geld fast gleich (im Mittel −18 €) |
+| schon im Plan: App 2 im Review ohne Code vorbereiten, Betriebe mit Tariflohn bevorzugen, Job bis Fr 10.09. statt Di 31.08. | ohne die Vorbereitung 3,5 statt 3,6 von 100; Tariflohn +311 € im Mittel, wenn ein solcher Betrieb ab 19.07. zusagt; Job bis 10.09. +767 € im Mittel |
 
 ---
 
@@ -125,9 +201,10 @@ Einzelheiten in [`details/07_HEBEL.md`](details/07_HEBEL.md)):
    deinem iPhone, noch ohne Gewerbe. Ausgaben: Claude Pro (~21 € im Monat),
    ein paar Dollar Guthaben für die Claude API und in KW 51 das Apple-Konto
    (99 €) – das aber nur, wenn deine Idee das Ideen-Tor absehbar besteht.
-2. **Gegründet wird erst, wenn App 1 halb steht** (im Modell im Median am
-   18.01., in 38 von 100 Läufen erst im Februar oder später), und zwar
-   als **Einzelunternehmen**. Eine UG frisst dein ganzes Geld (Abschnitt 3).
+2. **Gegründet wird erst, wenn App 1 halb steht** (im Modell im Median in der
+   Woche ab Mo 01.02., in 57,3 von 100 Läufen erst im Februar oder später, in
+   10,2 von 100 erst nach dem Abitur), und zwar als **Einzelunternehmen**.
+   Eine UG frisst dein ganzes Geld (Abschnitt 3).
 3. **Ganz anonym geht es nicht.** Ohne Gesicht und ohne Stimme geht es. Aber
    als Verkäufer im App Store steht der Name einer echten Person, deiner
    oder der eines Elternteils. Und im Impressum, das von jedem Markenkonto aus
@@ -141,23 +218,37 @@ Einzelheiten in [`details/07_HEBEL.md`](details/07_HEBEL.md)):
 5. **Geld für Creator nur nach einem Signal.** Erst wenn eine App drei Wochen
    nach dem Start ohne bezahlte Werbung mindestens 300 $ MRR (Monatsumsatz in
    RevenueCat) macht, gibt es Creator-Geld, für alle Apps zusammen bis 18.07.
-   höchstens 750 €. Im Modell fließt so fast nie Geld. Das ist so gut wie gar
-   kein Creator-Geld und deutlich besser als Tests gleich beim Start
-   (Abschnitt 20).
+   höchstens 750 €. Im Modell fließt es nur in 2,9 von 100 Läufen (im Mittel
+   aller Läufe 18 €). Ganz ohne Creator-Geld ist die Gewinnchance der App
+   sogar höher (4,6 statt 3,6 von 100, gepaart) und dein Geld gleich; ob du es
+   nutzt, entscheidest du (Abschnitt 1).
 6. **Am 18.07. entscheidet eine Zahl.** Liegt keine App über 5.000 $ MRR,
    endet die Jagd: keine neue App, kein Creator-Geld, und am Mo 19.07.
    beginnt dein **Ferienjob**. Apps, die dann schon eingereicht sind, dürfen
-   noch erscheinen.
+   noch erscheinen. Im Modell endet die Jagd praktisch immer so (nur 2 von
+   300.000 Läufen enden anders), in 37,5 von 100 Läufen schon am Stichtag
+   So 04.07., weil dann keine App im Store ist.
 7. **Der Abschluss braucht Vorlauf.** Apple verlangt 31 Tage zwischen
    Verkaufsstopp und Dienstende. Ohne Nachfolger nimmst du am So 15.08. alle
    Abos aus dem Verkauf, der Dienst läuft bis Mi 15.09., und am Do 16.09.
-   oder Fr 17.09. entfernst du die App und meldest das Gewerbe ab. Besser: Ein Elternteil sagt im Januar schriftlich zu, eine
-   laufende App zu übernehmen, oder du verkaufst sie (Abschnitt 14).
+   oder Fr 17.09. entfernst du die App und meldest das Gewerbe ab. Mit einem
+   Nachfolger entfällt der Stopp für seine App: Ein Elternteil sagt im Januar
+   schriftlich zu, eine laufende App zu übernehmen, oder du verkaufst sie
+   (Abschnitt 14). Im Modell kommt das selten vor (Übergabe in 2,0 von 100
+   Läufen, Verkauf in 0,3); sag das dem Elternteil vorher ehrlich.
 8. **Die Kosten sind halbiert.** Kleinunternehmer, Gründungsberatung der IHK
    statt Steuerberater (ob kostenlos, vorher fragen), Abschluss selbst über
    ELSTER, Server im Gratis-Tarif,
-   Ruhezeit im Abitur. Die App kostet im Median rund 560 € statt rund
-   1.180 € (Abschnitt 17).
+   Ruhezeit im Abitur. Die App kostet im Median rund 570 € statt rund
+   1.170 € (Abschnitt 17).
+
+**Wie du Chance und Geld noch erhöhen kannst:** Drei Schritte liegen bei dir:
+Creator-Geld weglassen, die Schnittliste aus 02 von Anfang an nehmen und mehr
+am eigenen Projekt lernen als mit Tutorials. Zusammen heben sie die
+Gewinnchance der App im Modell von 3,6 auf 6,2 von 100 Läufen, dein Geld bleibt
+fast gleich. Mehr Geld bringen der Job bis Fr 10.09. und ein Betrieb mit
+Tariflohn; beides steht schon im Plan (Abschnitt 1;
+[`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 4).
 
 ---
 
@@ -195,15 +286,15 @@ Weihnachtsferien. Die Gewerbeanmeldung bleibt bei M2.
 | Gesicht und Stimme | nie nötig | nie nötig | nie nötig |
 
 **Was es kostet und bringt** (Modell, 300.000 Läufe je Variante, alles bis zur
-Abmeldung bzw. Auflösung eingerechnet; die UG-Spalten stammen aus der Rechnung
-vom 23.11.)
+Abmeldung bzw. Auflösung eingerechnet; die Spalte Einzelunternehmen stammt aus
+der Rechnung vom 25.11., die UG-Spalten aus der vom 23.11.)
 
 | | Einzelunternehmen | UG, Anschrift der Eltern | UG, gemietete Geschäftsadresse |
 |---|---:|---:|---:|
 | Formalkosten bis zum Ende | ~160–880 € (Gewerbe, Apple, Domain, Abmeldung, Steuererklärung selbst über ELSTER) | ~4.000–9.000 € bis zur Löschung (frühestens Ende 2028) | dazu 50–130 € je Monat für die Adresse |
 | passt in 5.000 € | ja | **nein:** in 99 von 100 Läufen lassen Pflichtkosten und Auflösung gar keine Gründung zu | **nein:** in fast allen Läufen (99,9 von 100) keine Gründung |
-| überhaupt ein Gewinn | 9 von 100 (Stand 24.11., Plan mit Hebeln) | 0 von 100 | 0 von 100 |
-| Geld im Median | −558 € | −357 € (nur Claude, weil meist gar nicht gegründet wird und dann auch keine App erscheint) | −355 € (ebenso) |
+| überhaupt ein Gewinn | 3,7 von 100 (PLAN MIT HEBELN, nur die App) | 0 von 100 | 0 von 100 |
+| Geld im Median | −564 € | −357 € (nur Claude, weil meist gar nicht gegründet wird und dann auch keine App erscheint) | −355 € (ebenso) |
 | vor dem Umzug sauber beenden | ja, Abmeldung an einem Tag | nein: wegen des Sperrjahrs läuft die Auflösung, während du in Zürich lebst; führst du die UG von dort, wird sie auch in der Schweiz steuerpflichtig, und dir droht Wegzugsteuer auf die Anteile | wie links |
 
 **Meine Empfehlung:** das **Einzelunternehmen**. Die UG versteckt deinen
@@ -309,8 +400,10 @@ Die Stunden sind Richtwerte. Das Modell streut sie je Woche um ±20 %.
   vergehen.
 - **Ruhezeit im Abitur:** Ist am So 14.03. keine App im Store und keine im
   Review, ruht die App bis nach deiner letzten Prüfung ganz: null Stunden,
-  Claude Pro pausiert. Das spart Geld und schützt das Abitur; im Modell
-  kostet es fast nichts (Abschnitt 20).
+  Claude Pro pausiert. Das spart Geld und schützt das Abitur. Im Modell
+  kostet die Ruhezeit Chance: Ohne sie läge die Gewinnchance der App bei 4,3
+  statt 3,6 von 100 (gepaart), dein Geld aber im Mittel um 81 € niedriger
+  (Abschnitt 20). Das Abitur geht vor.
 - **Die 0–5 Stunden im Abitur** gelten nur, wenn eine App im Store oder im
   Review ist. Sie sind für Zahlen, Notfälle und Antworten an das Review da,
   nie an Prüfungstagen und nie ab einer Woche davor. Keine Posts, keine
@@ -498,11 +591,14 @@ ab Mo 30.11. ~15. Du trägst die 10 Minuten als Lernzeit ein, nicht als
 Bauzeit. Die Punkte 4 und 5 und der Rest von Punkt 3 kommen nur dazu, wenn du
 mehr lernen willst; jede Stunde mehr schiebt die Einreichung
 ([`details/01_TAG_FUER_TAG_BIS_FEBRUAR.md`](details/01_TAG_FUER_TAG_BIS_FEBRUAR.md),
-Abschnitt 1). Das Modell rechnet vorsichtiger, mit mehr Lernstunden
-([`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 1).
+Abschnitt 1). Das Modell rechnet vorsichtiger, mit 20/28/40 Lernstunden ab
+Mo 30.11. Mit der Lernzeit aus 01 läge die Gewinnchance der App bei 4,5 statt
+3,6 von 100 (gepaart), wenn das Lernen am eigenen Projekt reicht
+([`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 4.1).
 
 CS50x (10–20 Stunden je Woche) machst du nicht neben der 55-Stunden-Woche,
-sondern ab dem Tag, an dem die Jagd endet (in ~99 von 100 Läufen ab 19.07.).
+sondern ab dem Tag, an dem die Jagd endet (im Modell in 62,5 von 100 Läufen
+ab Mo 19.07., in 37,5 schon ab Mo 05.07.).
 Dann gehen die frei gewordenen Stunden in die ETH-Vorbereitung: etwa zur
 Hälfte Mathe nach den Empfehlungen der ETH, zur Hälfte Programmieren
 (Java-Tutorial der ETH, CS50x).
@@ -660,7 +756,9 @@ steht der Überblick.
 **Creator nach dem Signal:** Hat eine App drei Wochen nach dem Start ohne
 Werbung mindestens 300 $ MRR, gibt es Geld für Creator, für alle Apps
 zusammen bis 18.07. höchstens 750 €. Die Creator zeigen sich selbst, du
-nicht.
+nicht. Ob du dieses Geld überhaupt nutzt, entscheidest du vor der ersten
+Buchung: Im Modell ist die Gewinnchance der App ganz ohne Creator-Geld höher
+(Abschnitt 1).
 - **Fällt die Signal-Prüfung in die Startpause**, siehst du am Tag nach deiner
   letzten Prüfung nach: Liegt die App dann über 300 $ MRR, zählt das, und du
   buchst. Sonst gilt die zweite Prüfung, 21 Tage nach dem ersten täglichen Post
@@ -988,8 +1086,11 @@ jedes Arbeitspaket (AP1–AP22 und AP10a) in
   dem Abitur ein.
 - **App 1:** Kernfunktion mit Prompt und 20 Testfällen (AP10, Di 29.12. bis
   Do 31.12.), dann der Beginn des Onboardings (AP11, Do 31.12.).
-- **Ferienjob:** drei Bewerbungen für Mo 19.07.–Di 31.08. oder bis Fr 10.09.
-  (Sa 02.01., 1–2 h, [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md)).
+- **Ferienjob:** drei Bewerbungen für Mo 19.07.–Fr 10.09., zuerst bei
+  Betrieben mit Tariflohn; passt einem Betrieb nur ein Ende am Di 31.08.,
+  nimmst du das (Sa 02.01., 1–2 h,
+  [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md),
+  Abschnitte 2.2 und 2.3).
 
 ### KW 01 (04.–10.01.), Ferien, ~38 h (der 06.01. ist in Niedersachsen kein Feiertag)
 
@@ -1006,16 +1107,17 @@ jedes Arbeitspaket (AP1–AP22 und AP10a) in
   Tag bei Apple der Vertrag für bezahlte Apps,
   Bank- und Steuerdaten, Händlerangaben und das Small Business Program
   ([`details/03_GRUENDUNG_UND_KONTEN.md`](details/03_GRUENDUNG_UND_KONTEN.md)).
-  - **Wann das meist ist:** Im Kalender (01) frühestens am Do 07.01.,
-    typisch Mitte bis Ende Januar. Im Modell wird im Median in der Woche ab
-    Mo 18.01. gegründet, in 38 von 100 Läufen erst im Februar oder später.
+  - **Wann das meist ist:** Im Kalender (01), dem besten Fall, gründest du am
+    Do 07.01. Im Modell wird im Median in der Woche ab Mo 01.02. gegründet, in
+    57,3 von 100 Läufen erst im Februar oder später, in 10,2 von 100 erst nach
+    dem Abitur (später Fall).
   - **Später Fall:** Ist M2 bis Mo 01.03. nicht erreicht, gründest du am Tag
     nach deiner letzten Prüfung, parallel zum Rest-Bau.
 - **Website (AP18):** Entwürfe ohne Gewerbe am Mi 06.01., online nach der
   Gründung (in 01 Do 07.01.).
 - **Messpunkt M1 (Sa 09.01.):** ETH-Bewerbung abgeschickt, AP10–AP17 und
-  AP10a fertig? Im typischen Kalender (01) fehlen dann noch AP15–AP17 und die
-  Favoriten; sie folgen bis Sa 23.01.
+  AP10a fertig? Im Kalender (01, bester Fall) fehlen dann noch AP15–AP17 und
+  die Favoriten; sie folgen bis Sa 23.01.
 
 ### KW 02–04 (11.–31.01.), Schulwochen, 10 h (Q3-Ende, mit Klausuren 3 h)
 
@@ -1083,8 +1185,10 @@ jedes Arbeitspaket (AP1–AP22 und AP10a) in
 - **Gründung**, falls M2 bis Mo 01.03. erreicht ist (Checkliste A; in Q4 auf
   zwei Samstage verteilt). Danach erst wieder nach der letzten Prüfung.
 - **Ist App 1 noch nicht eingereicht:** im Rahmen der Q4-Stunden weiterbauen,
-  ohne Druck. Im Modell ist sie bis 14.03. nur in 33 von 100 Läufen
-  fertig, und das ist kein Fehler.
+  ohne Druck. Im Modell ist sie bis So 14.03. nur in 14,7 von 100 Läufen
+  eingereicht und in 9,3 im Store; typisch reichst du sie erst nach dem
+  Abitur ein (im Median in der Woche ab Mo 14.06.). Das ist kein Fehler, der
+  Plan rechnet damit.
 - **Messpunkt M3 (So 14.03.):** Ist App 1 gestartet, freigegeben, im Review
   oder noch im Bau? Davon hängt die Ruhezeit ab (nächster Abschnitt).
 - **ETH-Antwort (etwa Anfang März):** lesen und ablegen; bei Fragen an die
@@ -1143,8 +1247,10 @@ jedes Arbeitspaket (AP1–AP22 und AP10a) in
   ([`details/02_BAUPLAN_APP1.md`](details/02_BAUPLAN_APP1.md), Abschnitt 9).
   Nach der Freigabe arbeitest du zuerst das Review-Log von App 1 in die
   `CLAUDE.md` und in die `SPEC.md` von App 2 ein. App 2 bekommt eine andere
-  Kernfunktion; reine Varianten lehnt Apple ab. Im Modell erscheint eine
-  zweite App in 81 von 100 Läufen, im Median um den 12.07.
+  Kernfunktion; reine Varianten lehnt Apple ab. Im Modell startet eine
+  zweite App in 61,9 von 100 Läufen, im Median in der Woche ab Mo 19.07., also
+  meist erst nach Tor 1; bis Tor 1 ist sie nur in 20,6 von 100 Läufen im
+  Store.
 - **Zürich, aus den 15–40 h:** Zimmer suchen ab KW 24 (~2 h),
   Finanzierungsbrief der Eltern in KW 25 (~1 h, 1.750 CHF im Monat; beides
   Schätzungen, [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md),
@@ -1170,12 +1276,14 @@ jedes Arbeitspaket (AP1–AP22 und AP10a) in
 - **01.–03.07.:** Abiturzeugnis in eApply hochladen, Original an die ETH.
 - **Stichtag So 04.07.:** Ist noch keine App im Store, beginnt der Ferienjob
   am Mo 05.07., und du beginnst keine neue App mehr. Eine eingereichte App
-  darf noch erscheinen. Im Modell trifft das in 20 von 100 Läufen zu. Galt am
+  darf noch erscheinen. Im Modell trifft das in 37,5 von 100 Läufen zu; in
+  17,0 von 100 beginnt der Job dann am Mo 05.07., in 20,5 nicht. Galt am
   Fr 25.06. der 19.07., fragst du am Mo 05.07. die Zeitarbeitsfirmen vom
-  Mo 21.06., ob du sofort beginnen kannst. Das ist unsicher; plane den Lohn
-  dieser zwei Wochen nicht fest ein (06, Abschnitt 2.10). Hast du den 05.07.
-  zugesagt und ist doch eine App im Store, hältst du die Zusage ein und
-  betreust die App abends.
+  Mo 21.06., ob du sofort beginnen kannst. Das ist unsicher (im Modell kommt
+  dieser Fall in 19,4 von 100 Läufen vor, und in 12,0 von 100 klappt der
+  frühe Beginn dann nicht); plane den Lohn dieser zwei Wochen nicht fest ein
+  (06, Abschnitt 2.10). Hast du den 05.07. zugesagt und ist doch eine App im
+  Store, hältst du die Zusage ein und betreust die App abends.
 
 ### KW 27–28 (05.–18.07.), Sommer, ~55 h (davon ~6 h für Zürich)
 
@@ -1187,13 +1295,15 @@ jedes Arbeitspaket (AP1–AP22 und AP10a) in
 
 ### KW 29–37 (19.07.–15.09.), Ferienjob und Abschluss
 
-- **Weg A, B oder C** (Abschnitt 14). In 99 von 100 Läufen ist es Weg A:
+- **Weg A, B oder C** (Abschnitt 14). Im Modell ist es in 100,0 von 100
+  Läufen Weg A (nur 2 von 300.000 Läufen enden anders):
   - **Mo 19.07.:** Ferienjob beginnt. Am selben Tag kündigst du alles, was
     Betrieb und Abschluss nicht brauchen.
   - Apps, die am 18.07. schon eingereicht waren, erscheinen noch, ohne
-    Creator-Geld (im Modell in 60 von 100 Läufen, eine dritte App im Median
-    um den 26.07.). Für die Apps bleiben 2–5 Stunden je Woche: an zwei
-    Werktagen je 20 Minuten Zahlen und Support, samstags bis 3 Stunden. Posts
+    Creator-Geld (im Modell startet allein die zweite App in 41,3 von 100
+    Läufen erst nach Tor 1; drei oder mehr Apps gibt es in 28,5 von 100).
+    Für die Apps bleiben 2–5 Stunden je Woche: an zwei Werktagen je
+    20 Minuten Zahlen und Support, samstags bis 3 Stunden. Posts
     höchstens einer am Tag, und nur, wenn du willst
     ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md),
     Abschnitt 6.4).
@@ -1218,9 +1328,9 @@ jedes Arbeitspaket (AP1–AP22 und AP10a) in
 | **Namensfrage** So 13.12. | Steht fest, wer im App Store steht? | Apple-Anmeldung Mo 14.–Mi 16.12., wenn auch der Zwischenstand passt und IHK oder Gewerbeamt zugestimmt haben (03, Abschnitt 4.1) | Apple-Anmeldung und Durchstich rutschen |
 | **Zwischenstand Ideen** Sa 12.12. | Erfüllt mindestens eine Idee alle Mindestwerte? | Apple-Anmeldung Mo 14.–Mi 16.12., wenn die Namensfrage entschieden ist und IHK oder Gewerbeamt zugestimmt haben | Apple erst nach dem Ideen-Tor, frühestens Mo 21.12.; am Mo 14.12. das RevenueCat-Konto (AP6) |
 | **M0 / Ideen-Tor** Sa 19.12. / So 20.12. | Besteht eine Idee (Mindestwerte, Slideshow-Test, Ablauf-Test)? `SPEC.md` und echte KI-Antwort in der App? | weiter; fehlt `SPEC.md` oder die KI-Antwort, holst du sie am Mi 23.12. zuerst nach | **No-Go** (keine Idee besteht): nicht gründen, kein Apple-Konto; weiter lernen; fünf neue Ideen nach der ETH-Bewerbung, Entscheidung bis Sa 09.01. |
-| **Stunden-Messpunkt** Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant ~32; nur Baustunden, die 10 Minuten Lernen je Sitzung zählen als Lernzeit)? | bis ~40: weiter wie geplant. Jede Stunde über 32 schiebt die Einreichung; ab etwa 38 liegt sie in Q4, mit den 10 Minuten Lernen je Sitzung auch darunter (01, Abschnitt 1) | über ~40 gilt die **Schnittliste**, bei 40–60 und ebenso über 60: Onboarding mit 3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten erst in Version 1.1. Das spart ~7 der 113 Stunden; nach dem Start kommen ~3 Stunden für Version 1.1 dazu. Bei 40–60 liegt die Einreichung eher in Q4; über 60 planst du sie erst nach dem Abitur ein. Mehr lässt sich nicht kürzen, ohne Verlauf, Kopieren oder Teilen (Richtlinie 4.2), die zweite Sprache oder den iPad-Test anzufassen. Nie gekürzt werden geführter Ablauf, Meldeknopf, Einwilligung, die Pflichtteile der Paywall und die Mindestprüfung (02, Abschnitt 8) |
-| **M1** Sa 09.01. | ETH-Bewerbung abgeschickt? AP10–AP17 und AP10a fertig? | weiter | ETH-Bewerbung hat Vorrang, fehlende Pakete in KW 02–04. Im typischen Kalender (01) fehlen am Sa 09.01. noch AP15–AP17 und die Favoriten; sie folgen bis Sa 23.01. |
-| **M2** App 1 halb fertig (Kriterien in KW 01; im Median am 18.01.) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen. Ist M2 bis Mo 01.03. nicht erreicht, gründest du am Tag nach deiner letzten Prüfung, parallel zum Rest-Bau |
+| **Stunden-Messpunkt** Di 29.12. | Wie viele Stunden haben AP1–AP9 gebraucht (geplant ~32; nur Baustunden, die 10 Minuten Lernen je Sitzung zählen als Lernzeit)? | bis ~40: weiter wie geplant. Jede Stunde über 32 schiebt die Einreichung; ab etwa 38 liegt sie in Q4, mit den 10 Minuten Lernen je Sitzung auch darunter (01, Abschnitt 1). Ob du die Schnittliste trotzdem nimmst, entscheidest du; im Modell hebt sie die Gewinnchance der App von 3,6 auf 3,9 von 100 (Abschnitt 1) | über ~40 gilt die **Schnittliste**, bei 40–60 und ebenso über 60: Onboarding mit 3 Fragen, kein eigenes Design, keine Bewertungsabfrage, Favoriten erst in Version 1.1. Das spart ~7 der 113 Stunden; nach dem Start kommen ~3 Stunden für Version 1.1 dazu. Bei 40–60 liegt die Einreichung eher in Q4; über 60 planst du sie erst nach dem Abitur ein. Mehr lässt sich nicht kürzen, ohne Verlauf, Kopieren oder Teilen (Richtlinie 4.2), die zweite Sprache oder den iPad-Test anzufassen. Nie gekürzt werden geführter Ablauf, Meldeknopf, Einwilligung, die Pflichtteile der Paywall und die Mindestprüfung (02, Abschnitt 8) |
+| **M1** Sa 09.01. | ETH-Bewerbung abgeschickt? AP10–AP17 und AP10a fertig? | weiter | ETH-Bewerbung hat Vorrang, fehlende Pakete in KW 02–04. Im Kalender (01, bester Fall) fehlen am Sa 09.01. noch AP15–AP17 und die Favoriten; sie folgen bis Sa 23.01. |
+| **M2** App 1 halb fertig (Kriterien in KW 01; im Modell im Median in der Woche ab Mo 01.02.) | Rechtsform entschieden? | gründen (Checkliste A) | ohne Gründung kein Start: weiterbauen. Ist M2 bis Mo 01.03. nicht erreicht, gründest du am Tag nach deiner letzten Prüfung, parallel zum Rest-Bau |
 | **Funktions-Stopp** So 24.01. | – | nur noch Fehler, Texte, Einreichung | – |
 | **Einreichung** bis Di 02.02. | Checkliste C grün? | einreichen mit „manuell veröffentlichen“ | in Q4 mit 6–7 Stunden je Woche fertig machen, ohne Druck |
 | **M3** So 14.03. | App 1 im Store oder im Review? | 0–5 Stunden im Abitur für Zahlen und Notfälle, Claude Pro läuft weiter | **Ruhezeit:** Claude Pro ruht, kein Bau bis nach der letzten Prüfung |
@@ -1268,13 +1378,14 @@ Mo 19.07. Alle Schritte stehen in
 [`details/06_SOMMER_UND_ABSCHLUSS.md`](details/06_SOMMER_UND_ABSCHLUSS.md)
 (früherer Umzug: Abschnitt 1.4).
 
-### Weg A – kein Treffer (~99 von 100 Läufen)
+### Weg A – kein Treffer (100,0 von 100 Läufen)
 
 - **Ab Mo 19.07. Ferienjob** als kurzfristige Beschäftigung, von Anfang an
-  schriftlich befristet bis Di 31.08. (32 Arbeitstage, 256 Stunden) oder
-  gleich bis Fr 10.09.
-  - **Geld:** bei 14,60 € je Stunde (Mindestlohn 2027) 3.738 €, bei 15,87 €
-    4.063 €, bei 18,50 € 4.736 €. Sozialabgaben fallen nicht an, wenn der
+  schriftlich befristet bis Di 31.08. (32 Arbeitstage, 256 Stunden) oder,
+  besser, gleich bis Fr 10.09. (40 Arbeitstage, 320 Stunden).
+  - **Geld:** bei 14,60 € je Stunde (Mindestlohn 2027) 3.738 € bis Di 31.08.
+    und 4.672 € bis Fr 10.09., bei 15,87 € 4.063 € bzw. 5.078 €, bei 18,50 €
+    4.736 € bzw. 5.920 €. Sozialabgaben fallen nicht an, wenn der
     Arbeitgeber dich als kurzfristig und nicht berufsmäßig beschäftigt meldet
     (Schulentlassener mit Studienabsicht; höchstens 3 Monate oder
     70 Arbeitstage im Kalenderjahr, alle kurzfristigen Jobs 2027 zusammen). Ob
@@ -1287,8 +1398,10 @@ Mo 19.07. Alle Schritte stehen in
     zählt nicht als regelmäßiges Einkommen. Lass es vor der Unterschrift von
     der Krankenkasse schriftlich bestätigen (das Elternteil fragt, über das
     die Versicherung läuft).
-  - **Im Modell** klappt der Job in 70–85 von 100 Fällen und bringt dann im
-    Median rund 3.770 €.
+  - **Im Modell** (Job bis Fr 10.09.) gibt es Lohn in 77,7 von 100 Läufen
+    (angesetzt ist eine Chance von 70–85 von 100), im Median 5.001 € nach
+    Fahrtkosten. Mit Ende am Di 31.08. läge dein Geld im Mittel um 767 €
+    niedriger.
 - **Keine neue App, keine neuen Creator.** Apps, die am 18.07. schon fertig
   gebaut oder eingereicht sind, dürfen noch erscheinen, nur mit Wochenabo.
 - **Am selben Tag kündigst du,** was Betrieb und Abschluss nicht brauchen.
@@ -1319,7 +1432,7 @@ Mo 19.07. Alle Schritte stehen in
   ab, auch aus Zürich. Damit kommt auch die Lohnsteuer aus dem Ferienjob
   zurück.
 
-### Weg B – Tor 1 bestanden, Tor 2 verfehlt (~0,4 von 100)
+### Weg B – Tor 1 bestanden, Tor 2 verfehlt (in keinem von 300.000 Läufen)
 
 - Bis 08.08. Creator nur aus dem Umsatz der letzten vier Wochen, abzüglich
   der Creator, die schon daraus bezahlt sind; jede Woche ein Paywall-Test.
@@ -1330,7 +1443,7 @@ Mo 19.07. Alle Schritte stehen in
 - Achte auf die Familienversicherung (Jahresgewinn 2027 über ~7.080 €, also
   im Schnitt über ~590 € im Monat) und melde Gewinne der Krankenkasse.
 
-### Weg C – ein echter Treffer (~0,3 von 100)
+### Weg C – ein echter Treffer (2 von 300.000 Läufen)
 
 - Steuerberatung zu Deutschland und der Schweiz **vor** dem Umzug: verkaufen,
   ein Elternteil übernimmt, oder geordnet weiterführen.
@@ -1693,7 +1806,7 @@ meisten bringen?
 | Stufe | wann | was | Kosten |
 |---|---|---|---|
 | 0 | KW 48 bis zur Gründung | Claude Max (bezahlt), dann Pro; ab KW 50 ein paar Dollar Guthaben für die Claude API; in KW 51 das Apple Developer Program (nur wenn die Idee steht) | ~21 € im Monat, dazu einmal 99 € für Apple |
-| 1 | Gründung (im Median am 18.01.) | Gewerbe, Domain-Paket, Prepaid-Nummer; Gründungsberatung der IHK, wenn sie kostenlos ist (vorher fragen; sonst Fragen schriftlich ans Finanzamt) | mit Apple zusammen 140–380 €, typisch ~200 € |
+| 1 | Gründung (im Modell im Median in der Woche ab Mo 01.02.) | Gewerbe, Domain-Paket, Prepaid-Nummer; Gründungsberatung der IHK, wenn sie kostenlos ist (vorher fragen; sonst Fragen schriftlich ans Finanzamt) | mit Apple zusammen 140–380 €, typisch ~200 € |
 | 2a | von der Gründung bis zum ersten Start | Claude Pro, Domain mit Postfach, Prepaid-Nummer | 23–45 € im Monat, typisch ~28 € |
 | 2b | ab dem ersten Start | dazu KI-API nach Nutzung; Supabase und EAS im Gratis-Tarif, bis ein Signal da ist | 23–75 € im Monat, typisch ~30 € |
 | 2c | Ruhezeit im Abitur, wenn keine App im Store oder im Review ist | nur Domain und Nummer; Claude Pro ruht | 2–30 € im Monat, typisch ~5 € |
@@ -1702,17 +1815,22 @@ meisten bringen?
 | 5 | Abschluss | Abmeldung, nicht abziehbare Umsatzsteuer auf Auslandsrechnungen, EÜR und Einkommensteuererklärung 2027 selbst über ELSTER; Steuerberater nur im Ernstfall | 20–500 €, typisch ~80 € |
 | – | nur wenn der Gewinn über ~590 € im Monat liegt | eigene Kranken- und Pflegeversicherung | ~280 € im Monat |
 
-**Was im Modell herauskommt** (Plan mit Hebeln, nur die App, alles bis zum
-Schluss eingerechnet):
-- Median −558 €, im Mittel −393 €;
-- in 9 von 10 Läufen höchstens 791 € Verlust, in 99 von 100 höchstens
-  986 €;
+**Was im Modell herauskommt** (DEIN PLAN, nur die App, alles bis zum Schluss
+eingerechnet, 300.000 Läufe):
+- Median −567 €, im Mittel −533 €; Gewinn in 3,7 von 100 Läufen;
+- in 90 von 100 Läufen höchstens 786 € Verlust, mehr als 1.000 € Verlust in
+  0,5 von 100;
 - der höchste Betrag, den du im Lauf des Projekts vorstreckst: im Median
-  ~577 €, in 9 von 10 Läufen höchstens 1.420 €, nie mehr als 4.090 €;
-- mehr als 5.000 € Verlust in keinem Lauf.
+  481 €, in 90 von 100 Läufen höchstens 621 €, in 99 von 100 höchstens
+  1.269 €, nie mehr als 1.947 €; ein Nachschuss kommt nicht vor;
+- mehr als 5.000 € Verlust in keinem Lauf; die Familienversicherung endet in
+  1 von 300.000 Läufen.
 
-Creator-Geld fließt im Modell nur in 6 von 100 Läufen, im Schnitt aller
-Läufe ~39 €. Mit Ferienjob und Übergabe steht alles zusammen in
+Creator-Geld fließt im Modell nur in 2,9 von 100 Läufen, im Mittel aller
+Läufe 18 €. Die hohen Einsätze entstehen vor allem, wenn es fließt: Ohne
+Creator-Geld wären es in 99 von 100 Läufen höchstens 778 € und nie mehr als
+1.299 €. Mit
+Ferienjob und Übergabe steht alles zusammen in
 [`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 11.
 
 **Kassenregeln**
@@ -1742,9 +1860,9 @@ Läufe ~39 €. Mit Ferienjob und Übergabe steht alles zusammen in
 | Problem | was du tust |
 |---|---|
 | Du kommst mit den Grundlagen nicht voran | Lernmodus, kleinere Schritte, ein Thema je Woche; im Zweifel App 1 nach der Schnittliste kleiner schneiden (Abschnitt 13, Stunden-Messpunkt); mehr lässt sich nicht kürzen |
-| App 1 ist am 14.03. nicht fertig | normal (in 2 von 3 Läufen): Ruhezeit im Abitur, nach der letzten Prüfung in zwei bis drei Wochen fertig |
+| App 1 ist am 14.03. nicht eingereicht | normal (im Modell in 85 von 100 Läufen): Ruhezeit im Abitur; nach der letzten Prüfung fertig bauen und einreichen, im Median in der Woche ab Mo 14.06., im Store im Median ab der Woche ab Mo 28.06. |
 | Am 20.12. besteht keine Idee | No-Go-Regel: nicht gründen, kein Apple-Konto kaufen, weiter lernen; nach der ETH-Bewerbung fünf neue Ideen prüfen, Entscheidung bis Sa 09.01.; besteht auch dann keine, erst nach dem Abitur weiter ([`details/04_IDEENWAHL.md`](details/04_IDEENWAHL.md), Abschnitt 7) |
-| Du bekommst keinen Ferienjob | am Mo 21.06. fragst du ohnehin zwei Zeitarbeitsfirmen für einen festen Termin an (Abschnitt 12, KW 23–26); hast du am Fr 02.07. noch keine Zusage, fragst du zwei weitere an und gehst zu ihrer Sprechzeit hin (06, Abschnitt 2.2); im Modell klappt es in 70–85 von 100 Fällen |
+| Du bekommst keinen Ferienjob | am Mo 21.06. fragst du ohnehin zwei Zeitarbeitsfirmen für einen festen Termin an (Abschnitt 12, KW 23–26); hast du am Fr 02.07. noch keine Zusage, fragst du zwei weitere an und gehst zu ihrer Sprechzeit hin (06, Abschnitt 2.2); im Modell gibt es Lohn in 77,7 von 100 Läufen (angesetzt 70–85 von 100) |
 | Der Gratis-Server pausiert | im Supabase-Dashboard wiederherstellen; war eine App im Store oder in der Prüfung betroffen, auf Pro wechseln |
 | Apple lehnt ab | Grund ins Review-Log, kleinste Änderung, neu einreichen; Ablehnungen bei der ersten App sind normal |
 | Videos bekommen kaum Aufrufe | anderes Format, nicht mehr Videos desselben Formats; nach 20 Posts eines Formats ohne einen Post ab 5.000 Aufrufen ein neues Format ([`details/05_START_UND_MARKETING.md`](details/05_START_UND_MARKETING.md), Abschnitt 7.4) |
@@ -1779,68 +1897,142 @@ Deine eigene Zahl ist genauer als jede Schätzung hier.
 
 ## 20. Alle Varianten im Vergleich
 
-Modell `plan/plan_500k.py`, 300.000 Läufe je Variante. „Geld“ ist deine
-Vermögensänderung bis zum Schluss, einschließlich Abmeldung, Steuererklärung
-und gegebenenfalls eigener Krankenversicherung (vor Einkommensteuer: ohne
-Ferienjob fällt bis ~12.300 € Jahresgewinn keine an, mit Ferienjob nur bis
-grob 9.000 € App-Gewinn, weil der Lohn mitzählt).
+Modell [`plan/plan_500k.py`](../plan/plan_500k.py) im Stand von Commit
+280b3eb. „Dein Geld“ ist, was die App bringt oder kostet, dazu ein
+Verkaufspreis und dein Lohn, jeweils bis zum Schluss, einschließlich
+Abmeldung, Steuererklärung und gegebenenfalls eigener Krankenversicherung.
+Eine Übergabe an ein Elternteil zählt nicht dazu, dieses Geld gehört dem
+Elternteil. Einkommensteuer ist nicht abgezogen; sie fiele nur in 3 von 5.000
+Läufen an, im Mittel rund 2 € ([`details/07_HEBEL.md`](details/07_HEBEL.md),
+Abschnitt 15).
 
-### Stand 24.11.: Plan mit Hebeln
+### Stand 25.11.: die Stufen
 
-„Nur App“ zählt allein das Ergebnis der Apps. „Alles zusammen“ zählt den Wert
-nach dem Sommer (Verkauf oder Übergabe) und den Lohn aus dem Ferienjob dazu.
+300.000 Läufe je Zeile. Die vier einzelnen Hebel laufen gegen die
+Ausgangslage, Nachfolger und Ferienjob gegen PLAN MIT HEBELN
+([`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitte 1 und 4.3).
+Unterschiede bis etwa 0,15 zwischen zwei Zeilen sind Zufall.
 
-| Variante | nur App: Gewinn in … von 100 | alles zusammen im Plus in … von 100 | ≥ 10.000 € in … von 100 | Geld im Median | im Mittel | schlechteste 10 % ab | beste 1 % ab | 500.000 € erreicht |
+| Stufe | nur App: Gewinn in … von 100 | dein Geld im Plus in … von 100 | dein Geld ≥ 10.000 € in … von 100 | Median | Mittel | schlechteste 10 % ab | beste 1 % ab | 500.000 € erreicht |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Plan vom 23.11., richtig gerechnet (Verkaufsstopp So 15.08.) | 2,7 | 2,7 | 0,16 | −1.184 € | −1.074 € | −1.545 € | 1.049 € | 0 |
-| … nur Kosten gesenkt (mit Ruhezeit im Abitur) | 6,7 | 6,7 | 0,17 | −568 € | −450 € | −788 € | 1.409 € | 0 |
-| … nur schneller gebaut und review-fest geplant | 3,8 | 3,8 | 0,25 | −1.164 € | −1.009 € | −1.537 € | 1.839 € | 0 |
-| … nur Markt (Deutsch zuerst) und Ideenwahl | 2,7 | 2,7 | 0,16 | −1.186 € | −1.078 € | −1.545 € | 1.009 € | 0 |
-| … nur zweite Signalprüfung am 28.06. | 2,7 | 2,7 | 0,17 | −1.185 € | −1.074 € | −1.543 € | 1.071 € | 0 |
-| **Plan mit Hebeln** (Kosten, Bau, Markt, Signal) | 8,8 | 8,8 | 0,25 | −558 € | −393 € | −791 € | 2.193 € | 0 |
-| Plan mit Hebeln, Verkaufsstopp schon am 31.07. (Dienstende 31.08.) | 3,4 | 3,4 | 0,23 | −600 € | −503 € | −821 € | 1.182 € | 0 |
-| Plan mit Hebeln, Verkauf bis 31.08. (Dienst bis 01.10., nur nach Beratung) | 14,4 | 14,4 | 0,30 | −518 € | −261 € | −765 € | 3.392 € | 0 |
-| Plan mit Hebeln, ganz ohne Creator-Geld | 10,1 | 10,1 | 0,23 | −548 € | −375 € | −778 € | 2.192 € | 0 |
-| Plan mit Hebeln, Bauzeiten wie bisher angesetzt (80/140/280 h) | 7,2 | 7,2 | 0,18 | −567 € | −439 € | −790 € | 1.632 € | 0 |
-| Plan mit Hebeln im strengeren Markt 2027 | 7,1 | 7,1 | 0,20 | −566 € | −434 € | −793 € | 1.675 € | 0 |
-| + Übergabe oder Verkauf (Elternteil hat zugesagt) | 12,0 | 17,9 | 1,08 | −544 € | 76 € | −782 € | 10.457 € | 0 |
-| + Verkaufsversuch und Übergabe ohne feste Zusage | 10,6 | 14,3 | 0,91 | −550 € | −71 € | −786 € | 9.292 € | 0 |
-| + Ferienjob ab 19.07. | 8,7 | 79,6 | 0,30 | 3.053 € | 2.467 € | −581 € | 5.419 € | 0 |
-| + Ferienjob ab 19.07., ab 05.07. ohne App im Store | 8,3 | 79,5 | 0,30 | 3.142 € | 2.702 € | −583 € | 5.638 € | 0 |
-| **+ Übergabe oder Verkauf + Ferienjob (DEIN PLAN, Stand 24.11.)** | 11,1 | 81,8 | 1,79 | 3.191 € | 3.158 € | −567 € | 13.118 € | 0 |
-| wie dein Plan, aber ganz ohne Creator-Geld | 12,1 | 81,6 | 1,58 | 3.196 € | 3.109 € | −568 € | 12.221 € | 0 |
-| wie dein Plan, aber Job schon ab 05.07., wenn am 04.07. keine App 300 $ MRR zeigt | 8,3 | 80,3 | 1,77 | 4.233 € | 3.652 € | −597 € | 13.039 € | 0 |
+| Plan vom 23.11., wie er dastand | 6,21 | 6,21 | 0,18 | −1.136 € | −954 € | −1.514 € | +2.252 € | 0 |
+| derselbe Plan mit Verkaufsstopp am 15.08. (Pflicht von Apple) | 2,71 | 2,71 | 0,16 | −1.184 € | −1.074 € | −1.545 € | +1.049 € | 0 |
+| dazu alle Stunden und Regeln der Detailpläne (**Ausgangslage**) | 0,59 | 0,59 | 0 | −1.174 € | −1.158 € | −1.524 € | −201 € | 0 |
+| … nur Kosten senken (mit Ruhezeit im Abitur) | 2,19 | 2,19 | 0 | −585 € | −565 € | −792 € | +225 € | 0 |
+| … nur schneller bauen und review-fest planen | 0,93 | 0,93 | 0 | −1.149 € | −1.122 € | −1.510 € | −30 € | 0 |
+| … nur Markt (Deutsch zuerst) und Ideenwahl | 0,60 | 0,60 | 0 | −1.174 € | −1.157 € | −1.522 € | −205 € | 0 |
+| … nur zweite Signalprüfung Ende Juni | 0,56 | 0,56 | 0 | −1.174 € | −1.158 € | −1.523 € | −202 € | 0 |
+| **PLAN MIT HEBELN** (alle vier zusammen) | 3,73 | 3,73 | 0 | −564 € | −528 € | −783 € | +395 € | 0 |
+| + Übergabe oder Verkauf (Elternteil hat zugesagt) | 3,53 | 3,70 | 0,01 | −564 € | −524 € | −784 € | +427 € | 0 |
+| + Ferienjob ab 19.07. | 3,70 | 78,54 | unter 0,01 | +4.260 € | +3.306 € | −584 € | +5.337 € | 0 |
+| + Ferienjob ab 19.07., ab 05.07. ohne App im Store | 3,91 | 78,55 | unter 0,01 | +4.346 € | +3.513 € | −590 € | +6.146 € | 0 |
+| **+ Übergabe oder Verkauf + Ferienjob = DEIN PLAN, Stand 25.11.** | **3,70** | **78,53** | **0,03** | **+4.344 €** | **+3.518 €** | **−590 €** | **+6.167 €** | **0** |
+| zum Vergleich: nur Ferienjob ab 05.07., keine App, keine Gründung | – | 77,49 | 0 | +6.031 € | +4.778 € | 0 € | +6.776 € | 0 |
 
-So liest du die Tabelle (ausführlich in
+### Stand 25.11.: was Chance und Geld erhöht
+
+Jede Zeile läuft gegen DEIN PLAN, Lauf für Lauf gepaart, mit 100.000 Läufen.
+DEIN PLAN liegt in dieser Rechnung bei 3,64 statt 3,70 von 100; der
+Unterschied ist Zufall ([`details/07_HEBEL.md`](details/07_HEBEL.md),
+Abschnitt 4.1).
+
+| Variante | nur App: Gewinn in … von 100 | dein Geld im Median | im Mittel | Hinweis |
+|---|---:|---:|---:|---|
+| **DEIN PLAN** | **3,64** | **4.345 €** | **3.521 €** | |
+| Creator-Geld weglassen | 4,58 | 4.356 € | 3.539 € | planbar, deine Entscheidung; bis zu 750 € weniger Einsatz |
+| Schnittliste aus 02, Abschnitt 8 von Anfang an | 3,92 | 4.341 € | 3.518 € | planbar; spart ~7 der 113 Stunden |
+| mehr am eigenen Projekt lernen (Lernzeit wie in 01: 12/15/20 statt 20/28/40 Stunden) | 4,50 | 4.322 € | 3.475 € | nur, wenn das Lernen am Projekt reicht |
+| **alle drei zusammen** | **6,21** | 4.332 € | 3.503 € | beste planbare Kombination |
+| ohne Vorbereitung von App 2 im Review | 3,48 | 4.341 € | 3.516 € | die Vorbereitung (bis 6 Stunden, ohne Code) ist im Plan |
+| falls ein Betrieb mit Tariflohn ab 19.07. zusagt | 3,64 | 4.752 € | 3.832 € | die Bewerbung dort ist im Plan; ob einer zusagt, entscheidet der Betrieb |
+| Job nur bis Di 31.08. statt Fr 10.09. | 3,64 | 3.363 € | 2.754 € | −767 € im Mittel |
+| ohne Stichtag 04.07. (Job erst ab 19.07.) | 3,54 | 4.260 € | 3.312 € | −209 € im Mittel; der Stichtag lohnt sich |
+| Job ab 05.07., wenn am 04.07. keine App 300 $ MRR zeigt | 2,79 | 5.413 € | 4.191 € | Geld gegen Chance; setzt einen Vertrag ab 05.07. voraus |
+| App 2 schon während des Reviews, mit Code | 4,81 | 4.370 € | 3.544 € | gegen 02, Abschnitt 9: die Lehren aus dem Review-Log fehlen sonst in der Vorlage |
+| ohne Ruhezeit im Abitur | 4,34 | 4.291 € | 3.440 € | gegen die Abiturregel (Abschnitt 4) |
+| höchstens eine App | 1,95 | 4.277 € | 3.455 € | deutlich schlechter |
+| Bauzeiten wie mit Programmierkenntnissen | 20,55 | 4.384 € | 3.640 € | Empfindlichkeit, kein Hebel |
+
+### Stand 25.11.: Gegenproben
+
+Jede Zeile ändert eine Annahme, 300.000 Läufe. Die Gewinnchance der App hängt
+stark an Annahmen, die niemand messen kann; dein Geld kaum, weil es am
+Ferienjob hängt ([`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 12).
+
+| Gegenprobe zu DEIN PLAN | nur App: Gewinn in … von 100 | dein Geld im Mittel | Hinweis |
+|---|---:|---:|---|
+| **wie gerechnet** | **3,70** | **3.518 €** | |
+| alter, schneller Start eines Treffers (1.000/3.000/8.000 $ MRR) | 8,32 | 3.597 € | so bis 24.11. |
+| Umsatz läuft ohne Posts weiter | 5,92 | 3.609 € | so bis 24.11. |
+| Spitze ohne bezahlten Test nur um ein Viertel kleiner statt halb | 4,96 | 3.557 € | |
+| Creator-Geld holt die Spitze auf 70–100 % zurück | 3,65 | 3.516 € | so bis 24.11. |
+| ohne Startpause (eine freigegebene App erscheint auch im Abitur) | 3,73 | 3.515 € | die Startpause kostet nichts |
+| nach dem Ende der Jagd gar keine Posts mehr | 3,51 | 3.520 € | |
+| die zweite Sprache kostet zusätzlich Stunden (+3/+6/+12 h) | 3,31 | 3.526 € | |
+| langsameres Wachstum eines Treffers (×1,2/1,6/2,2 je Monat) | 2,77 | 3.495 € | |
+| alte Werbekosten (45–49 % vom Umsatz) | 0,66 | 3.433 € | so bis 24.11. |
+
+| Gegenprobe zu PLAN MIT HEBELN (ohne Nachfolger und ohne Job) | Gewinn in … von 100 | Median | Mittel |
+|---|---:|---:|---:|
+| **wie gerechnet** | **3,73** | **−564 €** | **−528 €** |
+| Bauzeiten ohne den Hebel „Bau“ (80/140/280 h) | 2,91 | −573 € | −545 € |
+| strengerer Markt 2027 | 2,56 | −578 € | −554 € |
+| Verkaufsstopp schon am Sa 31.07. (Dienstende Di 31.08.) | 1,18 | −602 € | −594 € |
+| Verkauf bis Di 31.08. (Dienst bis Fr 01.10., nur nach Beratung) | 8,77 | −529 € | −450 € |
+
+So liest du die Tabellen (ausführlich in
 [`details/07_HEBEL.md`](details/07_HEBEL.md)):
-- **Der Verkaufsstopp** ist die größte Korrektur. Der Plan vom 23.11. hatte
-  die Einnahmen bis 31.08. voll gezählt. Mit Apples 31-Tage-Regel lag er bei
-  2,7 statt 6,2 von 100 Läufen mit Gewinn.
+- **Die App ist ein Lernprojekt.** Gewinn aus der App gibt es in etwa 4 von
+  100 Läufen, und dann meist nur ein paar hundert Euro (mehr als 409 € nur in
+  1 von 100 Läufen). 500.000 € erreicht kein Lauf.
+- **Zwei Pflichten drücken die Chance:** Apples 31-Tage-Regel senkt den Plan
+  vom 23.11. von 6,2 auf 2,7 von 100, die Stunden der Detailpläne senken ihn
+  weiter auf 0,6. Beides ist keine Wahl.
+- **Jede Woche länger verkaufen zählt:** Mit Verkaufsstopp am 31.07. statt am
+  15.08. läge PLAN MIT HEBELN bei 1,2 statt 3,7 von 100, mit Verkauf bis
+  31.08. bei 8,8. Das geht aber nur nach Beratung, weil der Dienst dann bis
+  01.10. läuft, also nach deinem Umzug.
 - **Kosten senken** ist der stärkste Hebel für die App selbst: Der
-  Medianverlust halbiert sich, die Gewinnchance steigt von 2,7 auf 6,7.
-- **Schneller bauen** bringt nach den vorsichtigen Werten der Gegenprüfung nur
-  einen Punkt. Deine echten Stunden am Stunden-Messpunkt (Di 29.12.) sagen
+  Medianverlust halbiert sich, die Chance steigt von 0,6 auf 2,2 von 100. Erst
+  mit niedrigen Kosten werden kleine Erfolge zu Gewinnen; deshalb bringen alle
+  vier Hebel zusammen (3,7 von 100) mehr als die Summe der einzelnen.
+- **Schneller bauen** bringt nach den vorsichtigen Werten wenig (0,9 statt 0,6
+  von 100). Mit Bauzeiten wie mit Programmierkenntnissen läge die Chance bei
+  rund 21 von 100. Deine echten Stunden am Stunden-Messpunkt (Di 29.12.) sagen
   mehr als jede Schätzung.
 - **Markt und Ideenwahl** heben sich auf: Der deutsche Markt ist kleiner, eine
   sorgfältige Ideenwahl gleicht das etwa aus.
-- **Jede Woche länger verkaufen zählt:** Verkaufsstopp am 31.07. statt am
-  15.08. kostet mehr als die Hälfte der Gewinnläufe. Ein Nachfolger hebt den
-  Stopp ganz auf.
-- **Der Ferienjob** macht aus dem Sommer in rund 80 von 100 Läufen ein Plus.
-  Er kostet die App fast nichts, weil die Jagd am 18.07. ohnehin fast immer
-  endet.
-- **Creator-Geld** ändert weiterhin fast nichts. Ohne ist ein kleiner Gewinn
-  etwas häufiger, mit der Signalregel sind große Ergebnisse etwas häufiger.
-- **Geld gegen Chance:** Ein Jobstart schon am 05.07. ohne Signal bringt im
-  Median rund 1.000 € mehr und kostet ein Viertel der Gewinnchance der App.
-- **Gegenproben:** Mit den alten Bauzeiten oder im strengeren Markt bleibt
-  die Chance der App bei rund 7 von 100, der Medianverlust bei rund 570 €.
+- **Ein Nachfolger** ändert im Modell fast nichts (dein Geld im Mittel +4 €).
+  Er bleibt als Versicherung für den seltenen Treffer.
+- **Der Ferienjob** macht aus dem Sommer in 78,5 von 100 Läufen ein Plus. Er
+  kostet die App kaum etwas, weil die Jagd ohnehin am 18.07. oder schon am
+  Stichtag 04.07. endet. Rein nach Geld wäre „nur Ferienjob“ im Mittel rund
+  1.260 € und im Median rund 1.690 € besser; das ist der Preis für das
+  Lernprojekt samt der kleinen Chance.
+- **Creator-Geld** kannst du weglassen: Ohne ist die Chance höher (4,58 statt
+  3,64 von 100), dein Geld gleich, und auch 10.000 € oder mehr werden nicht
+  seltener. Mehr Creator-Geld (bis 1.500 €) ändert nichts. Der Grund: Es hebt
+  die Spitze einer App nur um 5–15 %, kostet aber 60–150 € je Video.
+- **Geld gegen Chance:** Ein Jobstart schon am 05.07., sobald keine App 300 $
+  MRR zeigt, bringt im Mittel 670 € mehr und senkt die Chance von 3,64 auf
+  2,79 von 100. Er setzt einen Vertrag ab 05.07. voraus; der Plan bleibt beim
+  Stichtag ohne Schwelle.
+- **Die Zahl ist empfindlich:** Je nach Annahmen liegt die Chance der App grob
+  zwischen 1 und 8 von 100. Lies 3,7 als Größenordnung, nicht als genaue Zahl.
+  Eine fünfte Prüfung hat danach drei kleine Abweichungen gefunden, die noch
+  nicht eingearbeitet sind; mit ihnen läge die Chance eher bei 3,3 als bei 3,7
+  von 100 ([`details/07_HEBEL.md`](details/07_HEBEL.md), Abschnitt 15).
+- **Was nicht hilft:** höchstens eine oder zwei Apps, Tor 1 früher oder
+  später, eine niedrigere Signalschwelle, mehr Creator-Geld, mehr Posts als
+  6,5 Stunden je Woche ([`details/07_HEBEL.md`](details/07_HEBEL.md),
+  Abschnitt 10).
 
 ### Stand 23.11.: Rechtsformen, Tore und Creator-Geld
 
-Diese Tabelle ist mit den alten Kosten und **ohne Verkaufsstopp** gerechnet.
-Die Zahlen sind deshalb zu günstig; die Reihenfolge der Varianten gilt
-weiter.
+Diese Tabelle ist mit dem Modell vom 23.11. gerechnet: alte Kosten, **ohne
+Verkaufsstopp** und ohne die Korrekturen vom 25.11. Die Zahlen sind deshalb
+viel zu günstig. Wo die Rechnung vom 25.11. eine Variante wieder geprüft hat,
+steht das neue Ergebnis unten dabei.
 
 | Variante | Gewinn in … von 100 | ≥ 10.000 € in … von 100 | Geld im Median | im Mittel | schlechteste 10 % ab | beste 1 % ab | gegründet | 500.000 € erreicht |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -1859,41 +2051,49 @@ weiter.
 | Einzelunternehmen, falls Videos ohne Gesicht schlechter wirken (Trefferquoten -25 %) | 4,6 | 0,12 | −1.156 € | −1.020 € | −1.522 € | 1.667 € | 100 % | 0 |
 
 So liest du diese Tabelle:
-- **Creator-Geld:** Ob du es ausgibst, ändert im Erwartungswert wenig.
-  - **Gleich gut:** Mit Signalregel, ganz ohne Testgeld und mit bis zu
-    1.500 € liegen die Ergebnisse fast gleich: Gewinn in ~6 von 100 Läufen,
-    im Mittel ~−950 €.
-  - **Tests gleich beim Start** verdoppeln zwar die seltenen Ergebnisse ab
-    10.000 € (0,31 statt 0,17 von 100), kosten aber im Median ~500 € mehr.
-  - **Warum dann die Signalregel:** Sie gibt fast nichts aus (Creator-Geld
-    fließt in ~5 von 100 Läufen) und lässt dir trotzdem die Möglichkeit, eine
-    App mit echter Nachfrage zu schieben. Besser als „gar kein Creator-Geld“
-    ist sie im Modell aber nicht, nur gleich gut.
-  - **Annahme dahinter:** Ohne bezahlte Videos startet auch ein Treffer nur mit
-    20–70 % des Umsatzes. Das Signal kann ihn also verpassen.
+- **Creator-Geld:** Am 23.11. lagen Signalregel, ganz ohne Testgeld und bis zu
+  1.500 € fast gleich (Gewinn in ~6 von 100 Läufen, im Mittel ~−950 €). Tests
+  gleich beim Start verdoppelten die seltenen Ergebnisse ab 10.000 € (0,31
+  statt 0,17 von 100), kosteten aber im Median ~500 € mehr. **Stand 25.11.:**
+  Ganz ohne Creator-Geld ist die Chance höher (4,58 statt 3,64 von 100), dein
+  Geld gleich; bis zu 1.500 € ändern nichts. Der Grund ist eine Korrektur:
+  Creator-Geld hebt die Spitze einer App nur um 5–15 %. Behältst du das Geld,
+  gilt die Signalregel; Tests gleich beim Start sind nicht neu gerechnet.
 - **UG:** In keiner Form passt sie zu deinen 5.000 €. In 99 von 100 Läufen
-  lassen Pflichtkosten und Auflösung gar keine Gründung zu.
+  lassen Pflichtkosten und Auflösung gar keine Gründung zu. Das liegt an den
+  festen Kosten von 4.000–9.000 € bis zur Löschung, nicht an den Annahmen,
+  die am 25.11. korrigiert wurden.
 - **Frühe Tore** (28.02.) hätten App 1 meist abgebrochen, bevor sie fertig
-  ist: Gewinn nur in ~1 von 100 Läufen.
-- **Ganz ohne Tore** ist es schlechter als mit den Sommer-Toren (4,2 statt
-  6,2 von 100). Späte Apps und weitere Ausgaben kosten mehr, als sie bringen.
-- **Gründen schon im Dezember** ist schlechter als „erst bauen, dann gründen“
-  (5,8 statt 6,2 von 100, im Mittel ~80 € mehr Verlust).
-- **Schneller bauen** ist der größte Hebel: Mit den Bauzeiten von jemandem,
-  der programmieren kann, wäre App 1 schon im Februar draußen, und der Plan
-  hätte in 23 von 100 Läufen einen Gewinn, im Mittel sogar ein kleines Plus.
-  Deshalb lohnt der Lernpfad, und deshalb soll App 1 so klein wie möglich
-  sein.
-- **Startpause im Abitur:** Sie kostet etwas (6,7 statt 6,2 von 100 Läufen mit
-  Gewinn, ≥ 10.000 € 0,27 statt 0,17 von 100). Dafür musst du im Abitur weder
-  Posts machen noch auf Bewertungen reagieren. Abitur und ETH-Zulassung sind
-  mehr wert als dieser Unterschied.
-- **Gegenproben:** Wirken Videos ohne Gesicht schlechter oder ist der Markt
-  2027 strenger, sinkt die Chance auf ~4,5–5,5 von 100, aber die Grenze von
-  5.000 € hält.
-- **Späte Starts:** In ~84 von 100 Läufen erscheint nach Tor 1 noch eine App,
-  die vorher eingereicht war. Auf solchen späten Starts beruhen ~3 von
-  10 Gewinnläufen.
+  ist: Gewinn nur in ~1 von 100 Läufen. **Stand 25.11.:** Auch ein Tor 1 am
+  04.07. oder 11.07. ist schlechter (2,69 bzw. 3,54 statt 3,71 von 100, PLAN
+  MIT HEBELN, gepaart), ebenso eines am 01.08. (3,38).
+- **Ganz ohne Tore** war es schlechter als mit den Sommer-Toren (4,2 statt
+  6,2 von 100): Späte Apps und weitere Ausgaben kosten mehr, als sie bringen.
+  Nicht neu gerechnet.
+- **Gründen schon im Dezember** war schlechter als „erst bauen, dann gründen“
+  (5,8 statt 6,2 von 100, im Mittel ~80 € mehr Verlust). **Stand 25.11.:**
+  Noch später zu gründen (bei 85 % statt bei halb fertiger App) macht kaum
+  einen Unterschied (3,85 statt 3,71 von 100).
+- **Schneller bauen** ist der größte Hebel. **Stand 25.11.:** Mit den
+  Bauzeiten von jemandem, der programmieren kann, wäre App 1 in 95,9 von 100
+  Läufen bis So 14.03. eingereicht, und die Chance läge bei 21,58 statt 3,71
+  von 100 (PLAN MIT HEBELN, gepaart); im Mittel bliebe aber ein Verlust
+  (−249 €). Deshalb soll App 1 so klein wie möglich sein, und deshalb lernst
+  du vor allem am eigenen Projekt.
+- **Startpause im Abitur:** Am 23.11. kostete sie etwas (6,7 statt 6,2 von 100
+  Läufen mit Gewinn). **Stand 25.11.:** Sie kostet nichts (ohne sie 3,73 statt
+  3,70 von 100). Im Modell gewinnt eine App im Abitur ohne Posts kaum neue
+  Kunden; früher zu erscheinen bringt ihr deshalb fast nichts. Dafür musst du
+  im Abitur weder Posts machen noch auf Bewertungen reagieren.
+- **Gegenproben:** Wirkten Videos ohne Gesicht schlechter, sank die Chance am
+  23.11. auf ~4,6 von 100 (nicht neu gerechnet). **Stand 25.11.:** Im
+  strengeren Markt 2027 sinkt sie auf 2,56 statt 3,73 von 100 (PLAN MIT
+  HEBELN). Die Grenze von 5.000 € hält in jedem Fall.
+- **Späte Starts:** Am 23.11. erschien in ~84 von 100 Läufen nach Tor 1 noch
+  eine App, die vorher eingereicht war. **Stand 25.11.:** Allein die zweite
+  App startet in 41,3 von 100 Läufen erst nach Tor 1. Auf Apps, die erst nach
+  Tor 1 erscheinen, beruhen 32,5 von 100 Gewinnläufen der App, also rund 3 von
+  10 (DEIN PLAN).
 
 ---
 
